@@ -1,4 +1,11 @@
 asarPy==1.0.1
 asgiref==3.8.1
+click==8.1.8
 Django==5.2
+pillow==11.2.1
+psycopg2-binary==2.9.10
+python-dotenv==1.1.0
+setuptools==80.3.1
 sqlparse==0.5.3
+svgwrite==1.4.3
+Tree==0.2.4

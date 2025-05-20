@@ -1,61 +1,47 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Hospede
 
-
-
-def hospede(request):
+def hospede_list(request):
     hospedes = Hospede.objects.all()
-    return render(request, 'hospede/hospedes.html', {'hospede': hospedes})
+    return render(request, 'hospede/hospedes.html', {'hospedes': hospedes})
 
 def hospede_create(request):
     if request.method == 'POST':
-        cpf = request.POST.get('cpf')
-        nome = request.POST.get('nome')
-        telefone = request.POST.get('telefone')
-        email = request.POST.get('email')
-        data_nascimento = request.POST.get('data_nascimento')
-
-        hospede = Hospede(
-            cpf=cpf,
-            nome=nome,
-            telefone=telefone,
-            email=email,
-            data_nascimento=data_nascimento
+        Hospede.objects.create(
+            cpf=request.POST.get('cpf'),
+            nome=request.POST.get('nome'),
+            telefone=request.POST.get('telefone'),
+            email=request.POST.get('email'),
+            data_nascimento=request.POST.get('data_nascimento')
         )
-        hospede.save()
-        return render(request, 'hospede/hospedes.html', {'hospede': hospede})
-    return render(request, 'hospede/hospedes.html')
+        return redirect('hospede_list')
+    return render(request, 'hospede/hospede_form.html')
 
 def hospede_update(request, cpf):
-    hospede = Hospede.objects.get(cpf=cpf)
+    hospede = get_object_or_404(Hospede, cpf=cpf)
     if request.method == 'POST':
         hospede.nome = request.POST.get('nome')
         hospede.telefone = request.POST.get('telefone')
         hospede.email = request.POST.get('email')
         hospede.data_nascimento = request.POST.get('data_nascimento')
         hospede.save()
-        return render(request, 'hospede/hospedes.html', {'hospede': hospede})
-    return render(request, 'hospede/hospedes.html', {'hospede': hospede})
+        return redirect('hospede_list')
+    return render(request, 'hospede/hospede_form.html', {'hospede': hospede})
 
 def hospede_delete(request, cpf):
-    hospede = Hospede.objects.get(cpf=cpf)
+    hospede = get_object_or_404(Hospede, cpf=cpf)
     if request.method == 'POST':
         hospede.delete()
-        return render(request, 'hospede/hospedes.html')
-    return render(request, 'hospede/hospedes.html', {'hospede': hospede})
+        return redirect('hospede_list')
+    return render(request, 'hospede/hospede_confirm_delete.html', {'hospede': hospede})
 
 def hospede_search(request):
+    hospedes = []
     if request.method == 'POST':
         search = request.POST.get('search')
-        hospede = Hospede.objects.filter(nome__icontains=search)
-        return render(request, 'hospede/hospedes.html', {'hospede': hospede})
-    return render(request, 'hospede/hospedes.html')
+        hospedes = Hospede.objects.filter(nome__icontains=search)
+    return render(request, 'hospede/hospedes.html', {'hospedes': hospedes})
 
 def hospede_detail(request, cpf):
-    hospede = Hospede.objects.get(cpf=cpf)
-    return render(request, 'hospede/hospedes.html', {'hospede': hospede})
-
-def hospede_list(request):
-    hospede = Hospede.objects.all()
-    return render(request, 'hospede/hospedes.html', {'hospede': hospede})
-
+    hospede = get_object_or_404(Hospede, cpf=cpf)
+    return render(request, 'hospede/hospede_detail.html', {'hospede': hospede})
