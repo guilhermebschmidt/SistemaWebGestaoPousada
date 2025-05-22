@@ -1,4 +1,4 @@
-#!/home/admin/projetos/pousada/code/venv/bin/python3
+#!/home/ricardo/projetos/pousada/code/venv/bin/python3.12
 # -*- coding: utf-8 -*-
 import re
 import sys
