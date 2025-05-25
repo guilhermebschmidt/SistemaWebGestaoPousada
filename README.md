@@ -11,43 +11,46 @@
 ```bash
 cd code
 ls
-# deve listar: setup  venv  venv_bkp
-
+setup  venv  venv_bkp
+```
 # Ative o ambiente virtual
+```bash
 source venv/bin/activate
 
 cd setup
 ls
-# deve listar: apps  manage.py  requirements.txt  setup  templates
-
+apps  manage.py  requirements.txt  setup  templates
+```
 # Instale as dependências
+```bash
 pip install -r requirements.txt
-
+```
 # Inicie o projeto
+```bash
 python3.12 manage.py runserver
+```
 
+## PASSO A PASSO CONFIGURAR POSTGRES:
 
-PASSO A PASSO CONFIGURAR POSTGRES:
-
-- Instale o postgres:
-
+# Instale o postgres:
+```bash
 sudo apt install postgresql-15
-
-- Logue como postgres para acessar o console:
-
+```
+# Logue como postgres para acessar o console:
+```bash
 sudo -u postgres psql
-
-- Defina a senha do usuário postgres:
-
-
+```
+# Defina a senha do usuário postgres:
+```bash
 ALTER USER postgres WITH PASSWORD 'abc123';
 obs: Use essa senha, pois está configurada em ./code/setup/setup/settings.py
-
-- Crie o banco de dados 'pousada':
+```
+# Crie o banco de dados 'pousada':
+```bash
 CREATE DATABASE pousada;
-
-- Rode as migrates:
+```
+# Rode as migrates:
 (Inicie o venv)
-
+```bash
 python3.12 manage.py migrate
-
+```
