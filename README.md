@@ -1,22 +1,29 @@
-VERSÃO DO PYTHON DO PROJETO: 3.12
+# Projeto Pousada
 
-PASSO A PASSO INICIAR VENV:
+## Versão do Python
 
+- **3.12**
+
+---
+
+## Passo a passo para iniciar o ambiente virtual (venv)
+
+```bash
 cd code
 ls
-== setup  venv  venv_bkp
+# deve listar: setup  venv  venv_bkp
 
-inicie o venv
+# Ative o ambiente virtual
 source venv/bin/activate
 
 cd setup
 ls
-== apps  manage.py  requirements.txt  setup  templates
+# deve listar: apps  manage.py  requirements.txt  setup  templates
 
-- Instale as dependencias:
+# Instale as dependências
 pip install -r requirements.txt
 
--Iniciar projeto:
+# Inicie o projeto
 python3.12 manage.py runserver
 
 
