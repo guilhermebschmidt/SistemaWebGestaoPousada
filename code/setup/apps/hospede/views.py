@@ -3,7 +3,7 @@ from .models import Hospede
 
 def hospede_list(request):
     hospedes = Hospede.objects.all()
-    return render(request, 'hospede/hospedes.html', {'hospedes': hospedes})
+    return render(request, 'hospede/listar.html', {'hospedes': hospedes})
 
 def hospede_create(request):
     if request.method == 'POST':
@@ -14,8 +14,8 @@ def hospede_create(request):
             email=request.POST.get('email'),
             data_nascimento=request.POST.get('data_nascimento')
         )
-        return redirect('hospede_list')
-    return render(request, 'hospede/hospede_form.html')
+        return redirect('hospede:hospede_list')
+    return render(request, 'hospede/form.html')
 
 def hospede_update(request, cpf):
     hospede = get_object_or_404(Hospede, cpf=cpf)
@@ -25,14 +25,14 @@ def hospede_update(request, cpf):
         hospede.email = request.POST.get('email')
         hospede.data_nascimento = request.POST.get('data_nascimento')
         hospede.save()
-        return redirect('hospede_list')
-    return render(request, 'hospede/hospede_form.html', {'hospede': hospede})
+        return redirect('hospede:hospede_list')
+    return render(request, 'hospede/form.html', {'hospede': hospede})
 
 def hospede_delete(request, cpf):
     hospede = get_object_or_404(Hospede, cpf=cpf)
     if request.method == 'POST':
         hospede.delete()
-        return redirect('hospede_list')
+        return redirect('hospede:hospede_list')
     return render(request, 'hospede/hospede_confirm_delete.html', {'hospede': hospede})
 
 def hospede_search(request):
@@ -40,7 +40,7 @@ def hospede_search(request):
     if request.method == 'POST':
         search = request.POST.get('search')
         hospedes = Hospede.objects.filter(nome__icontains=search)
-    return render(request, 'hospede/hospedes.html', {'hospedes': hospedes})
+    return render(request, 'hospede/listar.html', {'hospedes': hospedes})
 
 def hospede_detail(request, cpf):
     hospede = get_object_or_404(Hospede, cpf=cpf)
