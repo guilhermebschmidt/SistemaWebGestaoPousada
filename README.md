@@ -54,3 +54,20 @@ CREATE DATABASE pousada;
 ```bash
 python3.12 manage.py migrate
 ```
+
+## TailwindCSS e DaisyUI
+
+# Tailwind e Daisy devem ser compilados para cada classe css nova que for usada. 
+Quando estiverem rodando o projeto, deixem rodando tambem o seguinte comando:
+```bash
+cd code/setup
+npx @tailwindcss/cli -i ./public/stylesheets/input.css -o ./public/stylesheets/output.css
+```
+# Links documentações:
+
+# Tailwind 4.1:
+https://tailwindcss.com/docs/styling-with-utility-classes
+
+# DaisyUI 5.0.38:
+https://daisyui.com/docs/use/
+
