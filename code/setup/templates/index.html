@@ -1,11 +1,2 @@
 {% extends 'shared/base.html' %}
 
-{% block content %}
-<h1>Bem-vindo à Pousada</h1>
-<ul>
-  <li><a href="{% url 'hospede_list' %}">Lista de Hóspedes</a></li>
-  <li><a href="{% url 'hospede_create' %}">Cadastrar Hóspede</a></li>
-  <li><a href="/quartos/">Página Inicial dos Quartos</a></li>
-  <li><a href="/quartos/quartos/">Lista de Quartos</a></li>
-</ul>
-{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "shared/base.html" %}
+{% load static %}
+
+{% block title %}Lista de Hóspedes{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Cabeçalho da página -->
+    <div class="flex justify-between items-center">
+        <h2 class="text-2xl font-bold">Lista de Hóspedes</h2>
+        <div class="text-sm breadcrumbs">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li>Hóspedes</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Barra de ações e busca -->
+    <div class="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
+        <a href="{% url 'hospede:hospede_create' %}" class="btn btn-success">
+            <i class="fas fa-plus mr-2"></i>Adicionar Hóspede
+        </a>
+
+        <form method="POST" action="{% url 'hospede:hospede_search' %}" class="w-full md:w-auto">
+            {% csrf_token %}
+            <div class="join">
+                <input class="input input-bordered join-item"
+                       type="search"
+                       name="search"
+                       placeholder="Buscar por nome"
+                       required>
+                <button class="btn btn-primary join-item" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Tabela de hóspedes -->
+    {% if hospedes %}
+    <div class="overflow-x-auto bg-base-100 rounded-lg shadow">
+        <table class="table">
+            <thead>
+                <tr class="bg-base-200">
+                    <th>CPF</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>Data Nasc.</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for hospede in hospedes %}
+                <tr class="hover:bg-base-100">
+                    <td>{{ hospede.cpf }}</td>
+                    <td>
+                        <a href="{% url 'hospede:hospede_detail' hospede.cpf %}" class="link link-primary">
+                            {{ hospede.nome }}
+                        </a>
+                    </td>
+                    <td>{{ hospede.telefone }}</td>
+                    <td>{{ hospede.email }}</td>
+                    <td>{{ hospede.data_nascimento|date:"d/m/Y" }}</td>
+                    <td>
+                        <div class="flex gap-2">
+                            <a href="{% url 'hospede:hospede_update' hospede.cpf %}"
+                               class="btn btn-warning btn-sm">
+                                <i class="fas fa-edit mr-1"></i>Editar
+                            </a>
+                            <a href="{% url 'hospede:hospede_delete' hospede.cpf %}"
+                               class="btn btn-error btn-sm">
+                                <i class="fas fa-trash mr-1"></i>Excluir
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <div class="alert alert-info">
+        <div>
+            <i class="fas fa-info-circle"></i>
+            <span>Nenhum hóspede encontrado.</span>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Modal de confirmação para exclusão (opcional) -->
+<dialog id="deleteModal" class="modal">
+    <div class="modal-box">
+        <h3 class="font-bold text-lg">Confirmar Exclusão</h3>
+        <p class="py-4">Tem certeza que deseja excluir este hóspede?</p>
+        <div class="modal-action">
+            <form method="POST" id="deleteForm">
+                {% csrf_token %}
+                <button type="button" class="btn" onclick="deleteModal.close()">Cancelar</button>
+                <button type="submit" class="btn btn-error">Excluir</button>
+            </form>
+        </div>
+    </div>
+</dialog>
+
+<script>
+    const deleteModal = document.getElementById('deleteModal');
+    const deleteButtons = document.querySelectorAll('a[href*="delete"]');
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('deleteForm').action = this.href;
+            deleteModal.showModal();
+        });
+    });
+</script>
+{% endblock %}
