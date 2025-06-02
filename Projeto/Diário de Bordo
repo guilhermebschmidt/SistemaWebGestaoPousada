@@ -1,0 +1,86 @@
+Diário de Bordo do Projeto
+
+1° SEMANA
+Período: 25/04/2025 a 01/04/2025.
+
+	Nessa semana, com os membros da equipe definidos, iniciamos nossas atividades para o desenvolvimento do projeto da disciplina de Projeto de Extensão Integrado I. Assim, essa semana criamos um grupo na plataforma Whatsapp para estabelecermos nossa comunicação e facilitar o levantamento de possíveis temas para discutirmos em sala. Assim, no dia 01/04/2025 analisamos os parceiros disponíveis e a suas principais necessidades e optamos por desenvolver uma aplicação web para a empresa Pousada Chalés Água de Coco. 
+
+2° SEMANA
+Período: 01/04/2025 a 08/04/2025.
+
+	Durante essa semana aprofundamos nosso conhecimento sobre a empresa parceira escolhida, entendo sua principal necessidade: automatização dos serviços de gestão. Definimos que iremos desenvolver uma aplicação web de gestão para a proprietária com o objetivo de facilitar e otimizar a administração do negócio. A partir disso, também definimos nosso MVP (Produto Mínimo Viável), levando em consideração nossa capacidade técnica e os serviços da pousada. Preenchemos a primeira planilha de avaliação do grupo e auto-avaliação. Por fim, nos preparamos para apresentar a nossa escolha de tema para o professor orientador, realizada no dia 08/04, na qual também apresentamos nosso MVP.
+Funcionalidade MVP: Gestão de Reservas e Check-in/Check-out.
+
+
+3° SEMANA
+Período: 08/04/2025 a 15/04/2025.
+	
+Nesta semana começamos efetivamente as tarefas associadas ao desenvolvimento do nosso projeto. Foram elas:
+Definimos a metodologia de gestão de projeto Scrum. Usamos como base para  nossa escolha: experiências práticas/ conhecimento prévio da ferramenta, isto é, familiaridade. 
+Definimos a função de cada membro da equipe:
+Anna Julia: Analista de Cronograma/ PMO.
+Guilherme Akio: Engenheiro de Dados/ Administrador de Banco de Dados.
+Guilherme Bittencourt: Analista de Documentação.
+Kelly Radchelle: Gerente de Projeto.
+Rafael Teixeira: Desenvolvedor Frontend.
+Ricardo Carriel: Desenvolvedor Backend.
+
+
+Criamos nosso arquivo no ProjectLibre, adicionamos os principais marcos do projeto e os recursos humanos.
+Criamos nossa documentação LateX e fizemos as primeiras alterações no arquivo.
+Iniciamos o levantamento dos requisitos funcionais do MVP.
+
+
+4° SEMANA
+Período: 15/04/2025 a 22/04/2025.
+	Nesta semana foram realizadas as tarefas e discussões para iniciarmos o desenvolvimento do desenho da nossa aplicação:
+Analisamos os requisitos funcionais levantados e definimos os requisitos não funcionais essenciais da nossa aplicação.
+Definimos as plataformas e tecnologias que iremos usar.
+
+
+5° SEMANA
+Período: 22/04/2025 a 29/04/2025.
+	
+Essa semana foram desenvolvidas atividades ligadas ao desenvolvimento da prova de conceito. Foram elas:
+Documentação dos Casos de Uso - Kelly
+Documentação dos Diagramas de Caso de Uso -Guilherme Bittencourt.
+Reunião via Google Meet na qual foi discutido o desenho da aplicação com todos os membros da equipe.
+Criação do Diagrama de Componentes -Guilherme Bittencourt.
+Criação do Diagrama de Implantação -Kelly Radchelle.
+Apresentação do Desenho da Aplicação - Guilherme Bittencourt, Guilherme Akio, Rafael Teixeira, Anna Julia e Ricardo Carriel.
+
+6° SEMANA
+Período: 29/04/2025 a 06/05/2025.
+	
+Após a entrega da prova de conceito na semana anterior os diagramas apresentados foram editados, corrigindo os pontos levantados pelo professor orientador pela Kelly e pelo Guilherme Bittencourt. O Guilherme Bittencourt desenvolveu o MER do nosso produto e criou o repositório Git para o versionamento da nossa aplicação. Além disso, a Kelly desenvolveu um questionário que foi aplicado pelo Ricardo a proprietária da nossa empresa parceira, para adicionar a documentação e desenvolver as regras de negócio e as histórias de usuário.
+	
+7° SEMANA
+Período: 06/05/2025 a 13/05/2025.
+Nesta semana foram realizadas atividades para a entrega da POC (Prova de Conceito). Foram elas:
+Início do desenvolvimento do backend e frontend no Django: views, models e templates - Guilherme Akio.
+Início da configuração do ambiente de hospedagem - Ricardo Carriel.
+	Além de continuarmos com as atividades de documentação e alimentação do nosso repositório Git.
+
+8° SEMANA
+Período: 13/05/2025 a 20/05/2025.
+
+	Nessa semana o Ricardo e o Guilherme Akio finalizaram a integração entre o ambiente de hospedagem, criação do banco de dados no postgreSQL e o servidor Django. Assim, conseguimos finalizar, entregar e apresentar a prova de conceito. Além disso, aproveitamos para revisar os nossos requisitos e  regras de negócio e estruturamos de forma mais completa nossos requisitos não funcionais.
+
+9° SEMANA
+Período: 20/05/2025 a 27/05/2025.
+
+	Nesta semana demos continuidade ao desenvolvimento do nosso MVP, focando agora nas funcionalidades e interfaces. Alimentamos nosso repositório git com arquivos referentes a documentação.
+Atualizações no código- Ricardo.
+Desenvolvimento da Documentação - Kelly e Guilherme Bittencourt.
+
+10° SEMANA
+Período: 27/05/2025 a 03/06/2025.
+
+11° SEMANA
+Período: 03/06/2025 a 10/06/2025.
+
+12° SEMANA
+Período: 10/06/2025 a 17/06/2025.
+
+13° SEMANA
+Período: 17/06/2025 a 24/06/2025.
