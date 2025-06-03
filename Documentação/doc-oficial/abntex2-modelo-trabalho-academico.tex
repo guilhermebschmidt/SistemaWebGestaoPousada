@@ -49,6 +49,7 @@
 % ---
 % Pacotes básicos 
 % ---
+\usepackage{longtable}
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
@@ -95,10 +96,10 @@
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
 \titulo{Pousada Chalés Água de Coco}
-\autor{GUILHERME BITTENCOURT SCHMIDT SP313640X\\KELLY RADCHELLE ARAUJO DE SOUZA SP3123588\\RAFAEL TEIXEIRA FONSECA SP3126919\\ RICARDO CARRIEL DE OLIVEIRA FILHO SP3136728\\GUILHERME AKIO MIURA SP3120791\\ANNA JULIA LIMA DE SOUSA SP3024016}
+\autor{ANNA JULIA LIMA DE SOUSA SP3024016\\ GUILHERME AKIO MIURA SP3120791\\ GUILHERME BITTENCOURT SCHMIDT SP313640X\\KELLY RADCHELLE ARAUJO DE SOUZA SP3123588\\RAFAEL TEIXEIRA FONSECA SP3126919\\ RICARDO CARRIEL DE OLIVEIRA FILHO SP3136728}
 \local{São Paulo - SP - Brasil}
 \data{2025}
-\orientador{Marcelo Tavares}
+\orientador{Marcelo Tavares de Santana}
 %\coorientador{Equipe \abnTeX}
 \instituicao{%
   IFSP - Instituto Federal de Educação, Ciência e Tecnologia de São Paulo
@@ -229,66 +230,66 @@ curso Tecnologia em Análise e Desenvolvimento de Sistemas \LaTeX.}
 %     \includepdf{fig_ficha_catalografica.pdf}
 % \end{fichacatalografica}
 
-\begin{fichacatalografica}
-	\sffamily
-	\vspace*{\fill}					% Posição vertical
-	\begin{center}					% Minipage Centralizado
-	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
-	\small
-	\imprimirautor
+%\begin{fichacatalografica}
+%	\sffamily
+%	\vspace*{\fill}					% Posição vertical
+%	\begin{center}					% Minipage Centralizado
+%	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
+%	\small
+%	\imprimirautor
 	%Sobrenome, Nome do autor
 	
-	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
-	\imprimirlocal, \imprimirdata-
+%	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+%	\imprimirlocal, \imprimirdata-
 	
-	\hspace{0.5cm} \thelastpage p. : il. (algumas color.) ; 30 cm.\\
+%	\hspace{0.5cm} \thelastpage p. : il. (algumas color.) ; 30 cm.\\
 	
-	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+%	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
 	
-	\hspace{0.5cm}
-	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
-	\imprimirdata.}\\
+%	\hspace{0.5cm}
+%	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+%	\imprimirdata.}\\
 	
-	\hspace{0.5cm}
-		1. Palavra-chave1.
-		2. Palavra-chave2.
-		2. Palavra-chave3.
-		I. Orientador.
-		II. Universidade xxx.
-		III. Faculdade de xxx.
-		IV. Título 			
-	\end{minipage}}
-	\end{center}
-\end{fichacatalografica}
+%	\hspace{0.5cm}
+%		1. Palavra-chave1.
+%		2. Palavra-chave2.
+%		2. Palavra-chave3.
+%		I. Orientador.
+%		II. Universidade xxx.
+%		III. Faculdade de xxx.
+%		IV. Título 			
+%	\end{minipage}}
+%	\end{center}
+%\end{fichacatalografica}
 % ---
 
 % ---
 % Inserir errata
 % ---
-\begin{errata}
-Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
+%\begin{errata}
+%Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
 
-\vspace{\onelineskip}
+%\vspace{\onelineskip}
 
-FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
-reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
-rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
-cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
-Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+%FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
+%reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
+%rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
+%cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
+%Zootecnia, Universidade de São Paulo, São Paulo, 2011.
 
-\begin{table}[htb]
-\center
-\footnotesize
-\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
-  \hline
-   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
-    \hline
-    1 & 10 & auto-conclavo & autoconclavo\\
-   \hline
-\end{tabular}
-\end{table}
+%\begin{table}[htb]
+%\center
+%\footnotesize
+%\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+%  \hline
+%   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
+%    \hline
+%    1 & 10 & auto-conclavo & autoconclavo\\
+%   \hline
+%\end{tabular}
+%\end{table}
 
-\end{errata}
+%\end{errata}
 % ---
 
 % ---
@@ -304,92 +305,92 @@ Zootecnia, Universidade de São Paulo, São Paulo, 2011.
 % \includepdf{folhadeaprovacao_final.pdf}
 % \end{folhadeaprovacao}
 %
-\begin{folhadeaprovacao}
+%\begin{folhadeaprovacao}
 
-  \begin{center}
-    {\ABNTEXchapterfont\large\imprimirautor}
+%  \begin{center}
+%    {\ABNTEXchapterfont\large\imprimirautor}
 
-    \vspace*{\fill}\vspace*{\fill}
-    \begin{center}
-      \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
-    \end{center}
-    \vspace*{\fill}
+%    \vspace*{\fill}\vspace*{\fill}
+%    \begin{center}
+%      \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+%    \end{center}
+%    \vspace*{\fill}
     
-    \hspace{.45\textwidth}
-    \begin{minipage}{.5\textwidth}
-        \imprimirpreambulo
-    \end{minipage}%
-    \vspace*{\fill}
-   \end{center}
+%    \hspace{.45\textwidth}
+%    \begin{minipage}{.5\textwidth}
+ %       \imprimirpreambulo
+%    \end{minipage}%
+%    \vspace*{\fill}
+%   \end{center}
         
-   Trabalho aprovado. \imprimirlocal, 24 de novembro de 2012:
+%   Trabalho aprovado. \imprimirlocal, 24 de novembro de 2012:
 
-   \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
-   \assinatura{\textbf{Professor} \\ Convidado 1}
-   \assinatura{\textbf{Professor} \\ Convidado 2}
+%   \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
+%   \assinatura{\textbf{Professor} \\ Convidado 1}
+%   \assinatura{\textbf{Professor} \\ Convidado 2}
    %\assinatura{\textbf{Professor} \\ Convidado 3}
    %\assinatura{\textbf{Professor} \\ Convidado 4}
       
-   \begin{center}
-    \vspace*{0.5cm}
-    {\large\imprimirlocal}
-    \par
-    {\large\imprimirdata}
-    \vspace*{1cm}
-  \end{center}
+%   \begin{center}
+%    \vspace*{0.5cm}
+%    {\large\imprimirlocal}
+%    \par
+%    {\large\imprimirdata}
+%    \vspace*{1cm}
+%  \end{center}
   
-\end{folhadeaprovacao}
+%\end{folhadeaprovacao}
 % ---
 
 % ---
 % Dedicatória
 % ---
-\begin{dedicatoria}
-   \vspace*{\fill}
-   \centering
-   \noindent
-   \textit{ Este trabalho é dedicado às crianças adultas que,\\
-   quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
-\end{dedicatoria}
+%\begin{dedicatoria}
+%   \vspace*{\fill}
+%   \centering
+%   \noindent
+%   \textit{ Este trabalho é dedicado às crianças adultas que,\\
+%   quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
+%\end{dedicatoria}
 % ---
 
 % ---
 % Agradecimentos
 % ---
-\begin{agradecimentos}
-Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
-Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
-Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
-projeto abn\TeX\ foram extraídos de
-\url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
-contribuíram para que a produção de trabalhos acadêmicos conforme
-as normas ABNT com \LaTeX\ fosse possível.
+%\begin{agradecimentos}
+%Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
+%Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
+%Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
+%projeto abn\TeX\ foram extraídos de
+%\url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
+%contribuíram para que a produção de trabalhos acadêmicos conforme
+%as normas ABNT com \LaTeX\ fosse possível.
 
-Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
-da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
-Brasília (CPAI), ao grupo de usuários
-\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
-novos voluntários do grupo
-\emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
-\url{http://www.abntex.net.br/}}~que contribuíram e que ainda
-contribuirão para a evolução do \abnTeX.
+%Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
+%da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
+%Brasília (CPAI), ao grupo de usuários
+%\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
+%novos voluntários do grupo
+%\emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
+%\url{http://www.abntex.net.br/}}~que contribuíram e que ainda
+%contribuirão para a evolução do \abnTeX.
 
-\end{agradecimentos}
+%\end{agradecimentos}
 % ---
 
 % ---
 % Epígrafe
 % ---
-\begin{epigrafe}
-    \vspace*{\fill}
-	\begin{flushright}
-		\textit{``Não vos amoldeis às estruturas deste mundo, \\
-		mas transformai-vos pela renovação da mente, \\
-		a fim de distinguir qual é a vontade de Deus: \\
-		o que é bom, o que Lhe é agradável, o que é perfeito.\\
-		(Bíblia Sagrada, Romanos 12, 2)}
-	\end{flushright}
-\end{epigrafe}
+%\begin{epigrafe}
+%    \vspace*{\fill}
+%	\begin{flushright}
+%		\textit{``Não vos amoldeis às estruturas deste mundo, \\
+%		mas transformai-vos pela renovação da mente, \\
+%		a fim de distinguir qual é a vontade de Deus: \\
+%		o que é bom, o que Lhe é agradável, o que é perfeito.\\
+%		(Bíblia Sagrada, Romanos 12, 2)}
+%	\end{flushright}
+%\end{epigrafe}
 % ---
 
 % ---
@@ -399,48 +400,22 @@ contribuirão para a evolução do \abnTeX.
 % resumo em português
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
- Segundo a \citeonline[3.1-3.2]{NBR6028:2003}, o resumo deve ressaltar o
- objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
- destes itens dependem do tipo de resumo (informativo ou indicativo) e do
- tratamento que cada item recebe no documento original. O resumo deve ser
- precedido da referência do documento, com exceção do resumo inserido no
- próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
- resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
- ponto e finalizadas também por ponto.
-
- \textbf{Palavras-chave}: latex. abntex. editoração de texto.
+	Este Projeto de Conclusão de Curso tem como objetivo o desenvolvimento de um sistema web para automatizar os processos administrativos da pousada Chalés Água de Coco, que atualmente realiza a gestão de hóspedes, reservas, acomodações e controle financeiro por meio de planilhas eletrônicas no Excel. A falta de integração e a limitação desse método tornam a operação vulnerável a erros, retrabalho e dificuldade de acesso remoto às informações. Com base em uma parceria estabelecida com a pousada, foi possível realizar um levantamento detalhado dos requisitos e desenvolver uma solução personalizada, capaz de centralizar as informações em uma única plataforma, acessível via internet. O sistema propõe melhorias significativas na organização dos dados, no controle de reservas e na geração de relatórios gerenciais, otimizando a tomada de decisões. Este projeto representa a aplicação prática dos conhecimentos adquiridos ao longo do curso, ao mesmo tempo em que oferece uma ferramenta útil para a modernização da gestão em pequenos empreendimentos do setor de hospitalidade.
+	
+	\textbf{Palavras-chave}: sistema web, pousada, automação, reservas, gestão de hóspedes, controle financeiro.
 \end{resumo}
 
 % resumo em inglês
 \begin{resumo}[Abstract]
- \begin{otherlanguage*}{english}
-   This is the english abstract.
-
-   \vspace{\onelineskip}
- 
-   \noindent 
-   \textbf{Keywords}: latex. abntex. text editoration.
- \end{otherlanguage*}
+	\begin{otherlanguage*}{english}
+		This Final Paper aims to develop a web-based system to automate the administrative processes of the inn Chalés Água de Coco, which currently manages guests, reservations, accommodations, and financial control through Excel spreadsheets. The lack of integration and limitations of this manual method make operations prone to errors, rework, and hinder remote access to information. Based on a partnership established with the inn, it was possible to conduct a detailed requirements analysis and develop a customized solution capable of centralizing data on a single, internet-accessible platform. The system brings significant improvements in data organization, reservation management, and the generation of management reports, optimizing decision-making. This project represents the practical application of the knowledge acquired, while also delivering a useful tool to modernize management practices in small hospitality businesses.
+		
+		\vspace{\onelineskip}
+		
+		\noindent 
+		\textbf{Keywords}: web system, inn, automation, reservations, guest management, financial control.
+	\end{otherlanguage*}
 \end{resumo}
-
-% resumo em francês 
-\begin{resumo}[Résumé]
- \begin{otherlanguage*}{french}
-    Il s'agit d'un résumé en français.
- 
-   \textbf{Mots-clés}: latex. abntex. publication de textes.
- \end{otherlanguage*}
-\end{resumo}
-
-% resumo em espanhol
-\begin{resumo}[Resumen]
- \begin{otherlanguage*}{spanish}
-   Este es el resumen en español.
-  
-   \textbf{Palabras clave}: latex. abntex. publicación de textos.
- \end{otherlanguage*}
-\end{resumo}
-% ---
 
 % ---
 % inserir lista de ilustrações
@@ -503,89 +478,93 @@ contribuirão para a evolução do \abnTeX.
 
 % ----------------------------------------------------------
 % Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
-% ----------------------------------------------------------
+% --------------------------------------------------------------------------------------------------------------
 \chapter{Introdução}
 % ----------------------------------------------------------
 
-Este documento e seu código-fonte são exemplos de referência de uso da classe
-\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
-exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do
-gênero) produzido conforme a ABNT NBR 14724:2011 \emph{Informação e documentação
-- Trabalhos acadêmicos - Apresentação}.
+A transformação digital tem impactado significativamente a forma como empresas de diversos segmentos gerenciam suas atividades operacionais e estratégicas. No setor de hospitalidade, especialmente em pequenos empreendimentos como pousadas, a adoção de tecnologias adequadas pode representar um grande avanço em eficiência, organização e qualidade no atendimento ao cliente.
 
-A expressão ``Modelo Canônico'' é utilizada para indicar que \abnTeX\ não é
-modelo específico de nenhuma universidade ou instituição, mas que implementa tão
-somente os requisitos das normas da ABNT. Uma lista completa das normas
-observadas pelo \abnTeX\ é apresentada em \citeonline{abntex2classe}.
+Apesar disso, muitas pousadas ainda utilizam métodos manuais ou ferramentas limitadas, como planilhas eletrônicas, para controlar reservas, hospedagens e finanças. Esse é o caso da pousada Chalés Água de Coco, que realiza a gestão de suas operações exclusivamente por meio do Excel. Tal prática, embora inicialmente funcional, apresenta limitações consideráveis, como risco elevado de erros, dificuldade de atualização em tempo real e ausência de acessibilidade remota.
 
-Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
-\url{http://www.abntex.net.br/}. Também fique livre para conhecer,
-estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
-modificados tenham seus nomes alterados e que os créditos sejam dados aos
-autores originais, nos termos da ``The \LaTeX\ Project Public
-License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
-
-Encorajamos que sejam realizadas customizações específicas deste exemplo para
-universidades e outras instituições --- como capas, folha de aprovação, etc.
-Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
-\abnTeX, distribua-se arquivos com as respectivas customizações.
-Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
-incompatíveis com as customizações promovidas. Consulte
-\citeonline{abntex2-wiki-como-customizar} para mais informações.
-
-Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
-\cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
-\cite{memoir}. 
-
-Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do trabalho que
-você produzirá, de modo que o principal esforço seja concentrado no principal:
-na contribuição científica.
-
-Equipe \abnTeX 
-
-Lauro César Araujo
+Diante dessa realidade, identificou-se a necessidade de modernização e automatização dos processos da pousada, visando torná-los mais ágeis, seguros e organizados. A parceria firmada com a Chalés Água de Coco permitiu levantar as principais dificuldades enfrentadas na gestão atual, servindo como base para o desenvolvimento de uma solução tecnológica alinhada às reais necessidades do negócio.
 
 % ----------------------------------------------------------
-% PARTE
-% ----------------------------------------------------------
-\part{Preparação da pesquisa}
+% ---
+\section{Objetivo}
+Desenvolver um sistema web para automatizar os processos de gestão da pousada Chalés Água de Coco, substituindo o controle manual realizado via planilhas do Excel. O sistema permitirá o gerenciamento eficiente de hóspedes, reservas, acomodações e informações financeiras, promovendo maior organização, redução de falhas e facilidade de acesso às informações por parte dos gestores.
+
+\section{Justificativa}
+A escolha deste projeto se justifica pela necessidade real de modernização enfrentada por pequenos empreendimentos do setor de hospedagem, como a pousada Chalés Água de Coco, que atualmente depende de controles manuais realizados por meio de planilhas no Excel. Esse tipo de gestão, embora comum em pequenos negócios, apresenta diversas limitações, como a suscetibilidade a erros humanos, dificuldade de atualização simultânea, falta de integração entre os dados e ausência de acessibilidade remota.
+
+Com o crescimento da demanda por eficiência operacional e qualidade no atendimento ao cliente, torna-se essencial a adoção de soluções tecnológicas que automatizem processos, centralizem informações e proporcionem maior controle gerencial. Um sistema web desenvolvido sob medida representa uma alternativa viável e eficaz, oferecendo funcionalidades específicas para o contexto da pousada, além de ser acessível a partir de qualquer dispositivo conectado à internet.
+
+Além disso, o desenvolvimento deste projeto contribui academicamente ao proporcionar a aplicação prática dos conhecimentos adquiridos ao longo do curso de Tecnologia da Informação, abrangendo áreas como análise de requisitos, modelagem de dados, programação web, experiência do usuário e segurança da informação. Por fim, a solução proposta tem potencial de gerar impacto direto e positivo na gestão do negócio parceiro, tornando este trabalho relevante tanto do ponto de vista acadêmico quanto social e econômico.
+
+\section{Análise da Concorrência}
+\subsection{SimplesHotel}
+Simpleshotel é um sistema de gestão hoteleira desenvolvido para hotéis e pousadas de pequeno a grande porte, com foco na automação e integração dos processos operacionais e administrativos do setor de hospitalidade.
+A plataforma monetiza por meio de cobrança por planos pré-pagos mensais, com variação conforme o número de acomodações. Taxas adicionais são aplicadas para uso de módulos como emissão de NFSe, envio de SMS e motor de reservas.
+Suas principais funcionalidades são gerenciador de reservas, controle financeiro e de estoque, gerenciamento de eventos e day use, integração com canais de venda (Booking, Expedia, Hoteis.com, Decolar), web check-in, emissão de notas fiscais, módulo de governança e suporte multicanal.
+A plataforma é uma aplicação web, acessível via navegador. Armazenamento em nuvem e sincronização em tempo real com OTAs. Suporte remoto com atendimento humanizado.
+\subsection{HospedaJá}
+HospedaJá é uma plataforma online de gestão para hotéis e pousadas de pequeno e médio porte, com foco na organização de reservas, hospedagens, acomodações e finanças.
+A plataforma monetiza por meio de cobrança de mensalidades conforme plano escolhido, variando por número de quartos e usuários.
+Suas principais funcionalidaes são controle de reservas e hospedagens, mapa de ocupação, gestão financeira, controle de estoque de produtos e serviços, geração de relatórios gerenciais.
+A plataforma é uma aplicação web baseada em nuvem, que contém um sistema de backup automático, faz suporte técnico via e-mail e chamados.
+\subsection{Comparativo}
+\begin{quadro}[htb]
+	\caption{\label{quadro_exemplo}Comparativo de funcionalidades entre Chalés Água De Coco e seus concorrentes}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Funcionalidades} & \textbf{Chalés} & \textbf{simpleshotel} & \textbf{hospedajá} \\ \hline
+		Gerenciamento de Quartos & X    &    & X    \\ \hline
+		Gerenciamento de Hospedes  & X    & X   & X    \\ \hline
+		Gerenciamento de Reservas    & X   & X  & X    \\ \hline
+		Controle Financeiro  & X    & X   & X    \\ \hline
+		Relatórios  & X    &    & X    \\ \hline
+		Controle de Estoque  &     & X   & X    \\ \hline
+		Baixo custo & X    &    &     \\ \hline
+	\end{tabular}
+	\fonte{Autor.}
+\end{quadro} ----------------------------------------------------------
+%\part{Preparação da pesquisa}
 % ----------------------------------------------------------
 
 % ---
 % Capitulo com exemplos de comandos inseridos de arquivo externo 
 % ---
-\include{abntex2-modelo-include-comandos}
+%\include{abntex2-modelo-include-comandos}
 % ---
 
-\chapter{Conteúdos específicos do modelo de trabalho acadêmico}\label{cap_trabalho_academico}
+%\chapter{Conteúdos específicos do modelo de trabalho acadêmico}\label{cap_trabalho_academico}
 
-\section{Quadros}
+%\section{Quadros}
 
-Este modelo vem com o ambiente \texttt{quadro} e impressão de Lista de quadros 
-configurados por padrão. Verifique um exemplo de utilização:
+%Este modelo vem com o ambiente \texttt{quadro} e impressão de Lista de quadros 
+%configurados por padrão. Verifique um exemplo de utilização:
 
-\begin{quadro}[htb]
-\caption{\label{quadro_exemplo}Exemplo de quadro}
-\begin{tabular}{|c|c|c|c|}
-	\hline
-	\textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
-	Marcos & 26    & 68   & 178    \\ \hline
-	Ivone  & 22    & 57   & 162    \\ \hline
-	...    & ...   & ...  & ...    \\ \hline
-	Sueli  & 40    & 65   & 153    \\ \hline
-\end{tabular}
-\fonte{Autor.}
-\end{quadro}
+%\begin{quadro}[htb]
+%\caption{\label{quadro_exemplo}Exemplo de quadro}
+%\begin{tabular}{|c|c|c|c|}
+%	\hline
+%	\textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
+%	Marcos & 26    & 68   & 178    \\ \hline
+%	Ivone  & 22    & 57   & 162    \\ \hline
+%	...    & ...   & ...  & ...    \\ \hline
+%	Sueli  & 40    & 65   & 153    \\ \hline
+%\end{tabular}
+%\fonte{Autor.}
+%\end{quadro}
 
-Este parágrafo apresenta como referenciar o quadro no texto, requisito
-obrigatório da ABNT. 
-Primeira opção, utilizando \texttt{autoref}: Ver o \autoref{quadro_exemplo}. 
-Segunda opção, utilizando  \texttt{ref}: Ver o Quadro \ref{quadro_exemplo}.
+%Este parágrafo apresenta como referenciar o quadro no texto, requisito
+%obrigatório da ABNT. 
+%Primeira opção, utilizando \texttt{autoref}: Ver o \autoref{quadro_exemplo}. 
+%Segunda opção, utilizando  \texttt{ref}: Ver o Quadro \ref{quadro_exemplo}.
 
 % ----------------------------------------------------------
 % PARTE
 % ----------------------------------------------------------
-\part{Referenciais teóricos}
+%\part{Referenciais teóricos}
 % ----------------------------------------------------------
 
 % ---
@@ -605,7 +584,7 @@ Segunda opção, utilizando  \texttt{ref}: Ver o Quadro \ref{quadro_exemplo}.
 % ----------------------------------------------------------
 % PARTE
 % ----------------------------------------------------------
-\part{Resultados}
+%\part{Resultados}
 % ----------------------------------------------------------
 
 % ---
@@ -624,16 +603,110 @@ posuere cubilia Curae}
 % ---
 % segundo capitulo de Resultados
 % ---
-\chapter{Nam sed tellus sit amet lectus urna ullamcorper tristique interdum
-elementum}
-% ---
+\chapter{Desenvolvimento do Projeto}
+\section{Escopo do Projeto}
+\subsection{Requisitos Funcionais}
+\begin{longtable}{|c|p{5cm}|c|p{4cm}|}
+	\caption{\label{quadro_exemplo}Requisitos Funcionais} \\	\hline
+	\hline
+	\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio} \\
+	\hline
+	\endfirsthead
+	
+	\hline
+	\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio} \\
+	\hline
+	\endhead
+	RF01 & O sistema deve permitir o cadastro de reservas, associando um quarto a um período (data de check-in e check-out) & Alta & Não Aplicável \\ \hline
+	RF02 & O sistema deve permitir o cadastro de reservas, associando um quarto a um período (data de check-in e check-out) & Alta & RN03, RN01 \\ \hline
+	RF03 & Uma reserva deve estar associada a um quarto disponível para que ela seja cadastrada. & Alta & RN11 \\ \hline
+	RF04 & O sistema deve exigir os dados pessoais do hóspede para que a reserva seja cadastrada: nome completo, endereço completo, CPF, telefone e e-mail. & Alta & RN05 \\ \hline
+	RF05 & A proprietária deve conseguir reservar quartos para um cliente em nome de outra pessoa responsável, registrando os dados do hóspede e, opcionalmente, do responsável. & Média & RN06 \\ \hline
+	RF06 & O sistema deve exigir o pagamento de 50 por cento do valor da estadia para confirmar o cadastro da reserva (a ser pago no momento da reserva ou em um prazo definido). & Média & RN01 \\ \hline
+	RF07 & O sistema deve permitir o registro da comprovação do pagamento & Média & RN01 \\ \hline
+	RF08 & A proprietária deve conseguir cancelar ou remarcar uma reserva, com possível registro do motivo & Média & RN02 \\ \hline
+	RF09 & A proprietária deve poder visualizar todas as reservas, com detalhes do hóspede, quarto reservado e período & Alta & RN15 \\ \hline
+	RF10 & A proprietária deve conseguir cadastrar mais de uma reserva no nome de um mesmo cliente & Média & RN04 \\ \hline
+	RF11 & A proprietária deve conseguir reservar um mesmo quarto para diferentes clientes em datas seguidas respeitando os horários de check-in e check-out configurados para quarto & Alta & RN11 \\ \hline
+	RF12 & A proprietária deve conseguir acessar o histórico de reservas de um cliente & Média & RN15 \\ \hline
+	RF13 & O sistema deve mudar o status do quarto para ocupado após a realização do check-in &  Alta & Não Aplicável \\ \hline
+	RF14 & O sistema mandar deve uma notificação para o hospede após a confirmação da reserva & Baixa & Não Aplicável \\ \hline
+	RF15 & 	O sistema deve permitir o cadastro de novos quartos, incluindo informações como número/nome do quarto, capacidade (número de hóspedes) tipo (ex: chale, simples solteiro, simples casal, etc.), e preço por noite. &  Alta & Não Aplicável \\ \hline
+	RF16 & A proprietária deve conseguir editar as informações dos quartos já cadastrados & Alta & Não Aplicável \\ \hline
+	RF17 & A proprietária deve poder visualizar todos os quartos cadastrados. & Alta & Não Aplicável \\ \hline
+	RF18 & O sistema deve permitir a visualização dos quartos disponíveis no período de tempo selecionado para a reserva & Média & RN03, RN11 \\ \hline
+	RF19 & A proprietária deve conseguir mudar c status de um quarto (ex: disponível, indisponível, em manutenção). & Alta & RN10 \\ \hline
+	RF20 & A proprietária deve poder registrar as despesas da pousada, categorizando-as (ex manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa & Média & Não Aplicável \\ \hline
+	RF21 &A proprietária deve conseguir cadastrar gastos fixos e gastos variáveis. & Média & Não Aplicável \\ \hline
+	RF22 & A proprietária deve poder registrar receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita. & Média & RN13 \\ \hline
+	RF23 & O sistema deve permitir que a proprietária visualize todas as transações financeiras (receitas e despesas) em um determinado período. & Média & Não Aplicável \\ \hline
+	RF24 & O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria & Média & Não Aplicável \\ \hline
+	RF25 & O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo & Média & Não Aplicável \\ \hline
+	
+\end{longtable}
+\fonte{Elaborado pelos autores.}
 
-% ---
-\section{Pellentesque sit amet pede ac sem eleifend consectetuer}
-% ---
 
-\lipsum[24]
+\subsection{Requisitos Não Funcionais}
 
+\begin{longtable}{|c|p{4cm}|p{8cm}|}
+	\caption{\label{quadro_exemplo}Requisitos Não Funcionais} \\	\hline
+	\hline
+	\textbf{Código} & \textbf{Módulo} & \textbf{Descrição}  \\ \hline
+	\endfirsthead
+	
+	\hline
+	\textbf{Código} & \textbf{Módulo} & \textbf{Descrição} \\	\hline
+	\endhead
+	
+	RNF01 & Usabilidade & A interface do sistema deve ser intuitiva, responsiva (compatível e adaptada tanto para dispositivos desktop quanto mobile) e de fácil utilização, de modo que as tarefas essenciais da gestão da pousada sejam realizadas de forma eficiente e com minimo esforço de aprendizado pela proprietária. Para isso, deve-se adotar os princípios de interface amigável como a priorização da simplicidade e da clareza, padrões de interface consistentes e acessíveis.   \\ \hline
+	RNF02 & Usabilidade & O sistema deve fornecer mensagens de feedback claras, objetivas e contextualizadas para todas as ações realizadas pela usuária, como confirmação de reserva (exemplo: reserva efetuada com sucesso) ou notificações de erros (exemplo: falha ao cadastrar um quarto), garantindo uma interação segura e satisfatória.   \\ \hline
+	RNF03 & Performance & O sistema deve apresentar um tempo de resposta baixo, com carregamento das páginas e execução de ações da proprietária entre 2 e 3 segundos, para garantir uma navegação fluida.   \\ \hline
+	RNF04 & Performance & O sistema deve ser capaz de lidar com a carga de trabalho estimada desde o registro e a consulta simultânea de dados à gestão de múltiplas reservas-sem degradação significativa no desempenho, este que deverá se manter estável mesmo em períodos de maior demanda, considerando o perfil sazonal do negócio.   \\ \hline
+	RNF05 & Segurança & O sistema deve garantir a segurança das informações da pousada e dos hóspedes através da implementação de mecanismos robustos de autenticação e autorização, de forma a assegurar que apenas a usuária autorizada consiga acessar ou alterar dados na aplicação.   \\ \hline
+	RNF06 & Segurança & Os dados sensíveis devem ser protegidos conforme as melhores práticas. propostas pela LGPD (Lei Geral de Proteção de Dados Pessoais), incluindo: utilização de criptografia para proteger dados em trânsito (HTTPS) e em repouso, implementação de políticas de autenticação robusta e minimização da coleta de dados.   \\ \hline
+	RNF07 & Confiabilidade & O sistema deve estar disponível e funcionando corretamente por pelo menos 99 por cento do tempo, a fim de garantir que a proprietária tenha acesso ao sistema sempre que necessário, inclusive nos períodos com maior movimento de hóspedes na pousada.   \\ \hline
+	RNF08 & Confiabilidade & O sistema deve implementar mecanismos de tratamento de erros para que falhas e perdas de dados sejam prevenidas.   \\ \hline
+	RNF09 & Confiabilidade & O deploy da aplicação deve ser realizado em uma infraestrutura de nuvem (Amazon EC2), a fim de proporcionar maior estabilidade, flexibilidade à aplicação e permitir que possíveis atualizações e manutenções tenham impacto mínimo para a usuária.   \\ \hline
+	RNF10 & Escalabilidade & Embora o sistema, inicialmente, seja voltado para uma única usuária, a arquitetura deve ser projetada de forma a permitir futuras expansões no número de usuários e funcionalidades sem grandes refatorações.   \\ \hline
+	RNF11 & Documentação & O sistema deve possuir uma documentação completa, objetiva e atualizada, incluindo código-fonte, a arquitetura da aplicação, os fluxos de uso e as especificações de APIs possivelmente integradas.   \\ \hline
+	RNF12 & Documentação & A documentação deve estar versionada e organizada em no repositório Git-o GitHub, este que deve ser utilizado no controle de versão da aplicação e colaboração entre os membros da equipe.   \\ \hline
+	RNF13 & Documentação & O desenvolvimento deve seguir as boas práticas de codificação e padrões recomendados para aplicações Django, a fim de assegurar a manutenibilidade, extensibilidade e integridade do sistema ao longo do seu ciclo de vida.   \\ \hline
+	
+\end{longtable}
+\fonte{Elaborado pelos autores.}
+
+
+\subsection{Regras de Negócio}
+
+\begin{longtable}{|c|p{12cm}|}
+	\caption{\label{quadro_exemplo}Requisitos Não Funcionais} \\	\hline
+	\hline
+	\textbf{Regra} & \textbf{Descrição}  \\ \hline
+	\endfirsthead
+	
+	\hline
+	\textbf{Regra} &  \textbf{Descrição} \\	\hline
+	\endhead
+	
+	RN01 & A confirmação de uma reserva deve ocorrer mediante o pagamento de 50 por cento do valor total.   \\ \hline
+	RN02 & Cancelamentos e remarcações são permitidos, sujeitos a regras e taxas específicas.   \\ \hline
+	RN03 & As reservas devem ser registradas com, no mínimo, 2 dias de antecedência da data de entrada.  \\ \hline
+	RN04 & Um mesmo hóspede pode ter mais de uma reserva ativa.   \\ \hline
+	RN05 & Para efetuar uma reserva, os seguintes dados do hóspede são obrigatórios: nome completo, endereço completo, CPF, telefone e e-mail   \\ \hline
+	RN06 & Um responsável pode realizar reservas em nome de outros hóspedes.   \\ \hline
+	RN07 & Um responsável pode realizar reservas em nome de outros hóspedes.   \\ \hline
+	RN08 & Os horários padrão são: check-in das 16h às 22h; check-out das 8h às 14h.   \\ \hline
+	RN09 & A emissão de recibos ou comprovantes após check-in/out não é obrigatória.   \\ \hline
+	RN10 & Um quarto pode ficar indisponível para manutenção.   \\ \hline
+	RN11 & É permitido reservar um mesmo quarto para hóspedes diferentes em datas seguidas.   \\ \hline
+	RN12 & Atualmente, não há oferta de serviços adicionais vinculados à reserva.   \\ \hline
+	RN13 & São aceitas as formas de pagamento: Pix, dinheiro e cartão (com taxa da operadora).   \\ \hline
+	RN14 & Deve ser enviada a confirmação da reserva para o cliente com todos os dados necessários.   \\ \hline
+	RN15 & Apenas a proprietária deve acessar as informações dos hóspedes e reservas.   \\ \hline
+\end{longtable}
+\fonte{Elaborado pelos autores.}
+%
 % ----------------------------------------------------------
 % Finaliza a parte no bookmark do PDF
 % para que se inicie o bookmark na raiz
