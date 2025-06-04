@@ -587,17 +587,91 @@ A plataforma é uma aplicação web baseada em nuvem, que contém um sistema de 
 % primeiro capitulo de Resultados
 % ---
 \chapter{Gestão do Projeto}
+Esta seção detalha as principais estratégias empregadas no desenvolvimento da aplicação web de gestão para a pousada Chalés Água de Coco. Dessa forma, nela são apresentadas as metodologias, ferramentas e práticas que foram adotadas para o planejamento, execução e monitoramento do projeto, com o objetivo de garantir uma entrega organizada, eficiente e alinhada aos objetivos estabelecidos pelas partes interessadas.
 % ---
-
 % ---
-\section{Organização dos Membros da Equipe}
-\subsection{}
+\section{Organização da Equipe}
+Na gestão desse projeto, a organização da equipe representou um marco fundamental e teve como foco dividir as funções e atividades necessárias para o desenvolvimento da aplicação web de gestão da pousada.
+\subsection{Funções e Responsabilidades}
+A designação das funções e responsabilidades foi realizada de maneira estratégica e levou em consideração as competências técnicas e experiências prévias de cada membro da equipe, visando a entrega do produto final dentro do prazo estipulado. 	A função de cada membro e suas respectivas responsabilidades estão detalhadas no quadro "\ref{quadro_funçao_responsabilidade}": Função e Responsabilidades da Equipe do Projeto.	
 
-\section{Atribuições dos Membros da Equipe}
-\subsection{}
+\begin{quadro}[htb]
+	\caption{Função e Responsabilidades da Equipe do Projeto}
+	\label{quadro_funçao_responsabilidade}
+	\begin{tabular}{|p{2.8cm}|p{5cm}|p{7.2cm}|}
+		\hline
+		\textbf{Integrante} & \textbf{Função} & \textbf{Responsabilidades} \\ \hline
+		Anna Julia & Analista de Cronograma & Criar e atuar na manutenção e monitoramento do cronograma do projeto, além de oferecer suporte nas práticas de gestão  \\ \hline
+	
+		Guilherme Akio & Engenheiro de Dados e Administrador de Banco de Dados (DBA) & Implementar, administrar  e otimizar o banco de dados da aplicação, garantindo a integridade, segurança e performance dos dados \\ \hline
+	
+		Guilherme \quad Bittencourt & Documentador Técnico e Engenheiro de Software & Criar e manter a documentação técnica, garantido a clareza e acessibilidade das informações do projeto. Além de definir e organizar a estrutura da aplicação.\\ \hline
+	
+		Kelly Radchelle & Gerente de Projeto & Coordenar a equipe e gerenciar as atividades  do projeto, a fim de facilitar as tomadas de decisões e  assegurar a comunicação entre as partes interessadas do projeto   \\ \hline
+		Rafael Teixeira & Desenvolvedor Frontend e UI/UX Designer & Criar e implementar a interface da aplicação, garantindo uma boa  experiência de usuário (UX)  e design de interface (UI), além de desenvolver a lógica de apresentação.    \\ \hline
+		Ricardo Carriel & Desenvolvedor Backend e Administrador de Servidores & Desenvolver a lógica de negócio da aplicação, configurar e administrar o servidor de aplicação  além de garantir a integração da aplicação  \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%---
+%---
+\section{Metodologias de gestão e desenvolvimento}
+Para assegurar que o produto final seja entregue em pleno alinhamento com as expectativas da cliente, a equipe envolvida no projeto optou pela adoção da metodologia ágil Scrum como ferramenta de gestão e desenvolvimento do projeto. Essa decisão fundamentou-se na familiaridade da equipe com a estrutura, na capacidade do Scrum de otimizar a organização, divisão e planejamento de atividades do projeto, e em sua relevância como framework de gerenciamento– dado seu uso extensivo no contexto de desenvolvimento de softwares complexos.
+Segundo Schwaber e Sutherland (2020), o Scrum é um framework estruturado desenvolvido na década de 1990. Ele foi criado com o intuito de auxiliar equipes na criação e gerenciamento de produtos complexos. Para isso o Scrum tem como pilares fundamentais a transparência, a inspeção e a adaptação. A transparência garante que todos os aspectos significativos do processo estejam visíveis e claros para as partes interessadas a todo momento. A inspeção envolve o acompanhamento regular dos artefatos e progresso, a fim da detecção precoce de problemas. Por fim, a adaptação refere-se à capacidade de fazer ajustes no processo  em resposta aos problemas anteriormente detectados na inspeção, com o objetivo de otimizar os resultados.
+Sabendo que para operacionalizar esses pilares e assegurar um ciclo de desenvolvimento iterativo e incremental, a metodologia Scrum sugere a definição de papeis específicos dentro do time, estabelece a realização de uma sequência de eventos formais e o uso de artefatos específicos, os integrantes da equipe desenvolveram as tarefas e eventos sugeridos pelo Scrum para a gestão e desenvolvimento do projeto.
 
-\section{Metodologias ágeis}
-\subsection{}
+\subsection{Time Scrum}
+Como estabelecido no Guia do Scrum (SCHWABER; SUTHERLAND, 2020), os membros da equipe do projeto assumem papeis específicos que compõem um time Scrum: Dono do Produto (Product Owner), Scrum Master e Time de Desenvolvimento. 
+O Dono do Produto (Product Owner) é o representante das partes interessadas (Stakeholders) e tem como responsabilidade principal gerenciar o backlog do Produto, a fim de maximizar o valor do produto e otimizar o trabalho do Time de Desenvolvimento. 
+O Scrum Master é o responsável por promover e facilitar a aplicação da teoria e das práticas do framework, atuando como um líder-servidor ao auxiliar a equipe na retirada de impedimentos que venham afetar seu progresso . 
+O Time de Desenvolvimento é responsável por entregar um incremento (versão potencialmente usável do produto) ao final de cada sprint, atuando de maneira auto-organizada e multifuncional . 
+Ciente disso, realizou-se a distribuição dos papeis de um time scrum entre os integrantes da equipe e registrou-se na “\autoref{tab:time_scrum}”.
+
+\begin{table}[htb]
+	\centering
+	\caption{Função dos Integrantes da Equipe}
+	\label{tab:time_scrum}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Integrante} & \multicolumn{3}{c|}{\textbf{Função}} \\ \cline{2-4}
+		& \textit{Product Owner} & \textit{Scrum Master} & \textit{Time de Desenvolvimento} \\ \hline
+		Anna Julia & X & & \\ \hline
+		Guilherme Akio & & & X \\ \hline
+		Guilherme Bittencourt & & & X \\ \hline
+		Kelly Radchelle & X & & \\ \hline
+		Rafael Teixeira & & & X \\ \hline
+		Ricardo Carriel & & & X \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{table}
+%---
+
+%---
+\section{Artefatos}
+No scrum,  os artefatos são elementos fundamentais que ajudam a equipe a consolidar a transparência no processo de desenvolvimento. Cientes das suas importâncias, o time scrum realizou o planejamento inicial dos artefatos: Product Backlog e Sprints Backlog.
+
+\subsection{Product Backlog}
+O Product Backlog consiste em uma lista ordenada de todos os itens de trabalho, sendo elas as funcionalidades, os requisitos e os aprimoramentos necessários para a produção do produto,  e que oferecem o máximo valor e utilidade para o cliente. Diante disso, foi elaborado pelo product owner o backlog de produto inicial do projeto da aplicação web de gestão da pousada Chalés Água de Coco (\autoref{}) com base nas histórias de usuário levantadas pela equipe, visto que, elas expressam as necessidades e expectativas sob a perspectiva da usuária e principal stakeholder.
+
+\begin{quadro}[htb]
+	\caption{Product backlog}
+	\label{quadro_product_backlog}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Ordem} & \textbf{Item} & \textbf{Domínio} & \textbf{Prioridade} \\ \hline
+		1 & Configurar ambiente de hospedagem & Infraestrutura e Configuração   & Essencial    \\ \hline
+		2 & Configurar repositório Git e fluxo de versionamento & Infraestrutura e Configuração & Essencial  \\ \hline
+		3 & ...   & ...  & ...    \\ \hline
+		4 & 40    & 65   & 153    \\ \hline
+		5 & 40    & 65   & 153    \\ \hline
+		6 & 40    & 65   & 153    \\ \hline
+		7 & 40    & 65   & 153    \\ \hline
+		8 & 40    & 65   & 153    \\ \hline
+		9 & 40    & 65   & 153    \\ \hline
+		10 & 40    & 65   & 153    \\ \hline
+	\end{tabular}
+	\fonte{Autor.}
+\end{quadro}
 % ---
 
 
