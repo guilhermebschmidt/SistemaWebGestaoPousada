@@ -1,11 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Quarto</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h2>Lista de Quartos</h2>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Número</th>
+          <th>Status</th>
+          <th>Descrição</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for quarto in quartos %}
+        <tr>
+          <td>{{ quarto.numero }}</td>
+          <td>{{ quarto.status|yesno:"Disponível,Indisponível" }}</td>
+          <td>{{ quarto.descricao }}</td>
+          <td>R$ {{ quarto.preco }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="4">Nenhum quarto cadastrado.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

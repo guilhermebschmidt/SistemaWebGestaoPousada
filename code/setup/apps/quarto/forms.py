@@ -1,34 +1,25 @@
 from django import forms
-from .models import Quarto  
+from .models import Quarto
 
 class QuartoForm(forms.ModelForm):
     class Meta:
         model = Quarto
-        fields = ['numero', 'status']
+        fields = ['numero', 'status', 'descricao', 'preco']  # adicionado descricao e preco
         widgets = {
             'numero': forms.TextInput(attrs={'class': 'form-control'}),
             'status': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
             'descricao': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
+            'preco': forms.NumberInput(attrs={'class': 'form-control'}),
         }
         labels = {
             'numero': 'Número do Quarto',
-            'status': 'Status',
+            'status': 'Disponível?',
             'descricao': 'Descrição',
+            'preco': 'Preço por noite',
         }
         help_texts = {
             'numero': 'Insira o número do quarto.',
-            'status': 'Selecione se o quarto está disponível.',
+            'status': 'Marque se o quarto está disponível.',
             'descricao': 'Insira uma descrição do quarto.',
-        }
-        error_messages = {
-            'numero': {
-                'required': 'Este campo é obrigatório.',
-                'max_length': 'O número do quarto deve ter no máximo 100 caracteres.',
-            },
-            'status': {
-                'required': 'Este campo é obrigatório.',
-            },
-            'descricao': {
-                'max_length': 'A descrição deve ter no máximo 100 caracteres.',
-            },
+            'preco': 'Informe o valor da diária.',
         }
