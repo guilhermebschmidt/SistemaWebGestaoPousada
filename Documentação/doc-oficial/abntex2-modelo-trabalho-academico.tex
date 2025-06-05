@@ -809,16 +809,111 @@ O Product Backlog consiste em uma lista ordenada de todos os itens de trabalho, 
 \section{História de Usuário}
 
 \section{Arquitetura}
+\subsection{Desenho da Arquitetura}
+A arquitetura do sistema foi criada para atender às necessidades de um ambiente web moderno, seguro e escalável, com foco na praticidade do uso para a gestora da pousada.
+
+A aplicação adota o padrão MTV (Model-Template-View), próprio do framework Django, no qual a separação entre dados, lógica de apresentação e lógica de negócio é claramente definida. Esse padrão proporciona uma estrutura organizada, facilitando tanto a manutenção quanto a adição de novas funcionalidades ao longo do tempo.
+
+No front-end, a aplicação utiliza templates HTML integrados às views do Django, o que permite a criação de páginas dinâmicas. Os dados vindos do back-end são inseridos diretamente nos templates, tornando a navegação mais fácil, sem a necessidade de frameworks.
+
+O back-end é totalmente desenvolvido com o framework Django, em Python, onde são tratadas as requisições, regras de negócio e persistência de dados. O Django oferece um conjunto de ferramentas prontas que aumentam a produtividade no desenvolvimento e garantem a segurança da aplicação.
+
+Para o banco de dados, foi escolhido o PostgreSQL, compatível com o Django, sendo ideal para armazenar as reservas, dados de hóspedes, acomodações e demais informações do sistema.
+
+A aplicação está hospedada na Amazon Web Services (AWS), a escolha dela se deu por sua alta disponibilidade, segurança avançada, escalabilidade sob demanda e facilidade de integração com outras ferramentas. Dentre os serviços da AWS utilizados, destacam-se:
+Amazon EC2, para hospedagem da aplicação Django;
+Amazon RDS (PostgreSQL), para o banco de dados gerenciado;
+Amazon S3, para armazenamento de arquivos estáticos e mídias;
+AWS Backup e Monitoramento, para garantir segurança e integridade dos dados.
+
+A arquitetura permite que o sistema cresça ao longo do tempo, incorporando novos módulos e funcionalidades como integração com gateways de pagamento, envio automático de e-mails, e etc, mantendo a manutenibilidade, segurança e eficiência como foco do projeto.
+
+\subsection{Diagrama da Arquitetura}
+\subsubsection{Diagrama de Implantação}
+A Figura~\ref{fig:diagramaimplantação} mostra o funcionamento da arquitetura do sistema.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Diagrama de Implantação- Digitalização da Pousada.JPEG}
+	\caption{Diagrama de Implantação desenvolvido no Online Visual-Paradigm}
+	\label{fig:diagramaimplantação}
+\end{figure}
+\subsubsection{Diagrama de Componentes}
+A Figura~\ref{fig:diagramacomponentes} mostra o funcionamento da arquitetura do sistema.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{0406-Componentes.png}
+	\caption{Diagrama de Componentes desenvolvido no Online Visual-Paradigm}
+	\label{fig:diagramacomponentes}
+\end{figure}
+
 
 \section{Tecnologias}
+\subsection{Front-End}
+O Django é um framework web de alto nível baseado em Python que oferece uma série de recursos que o tornam ideal para o desenvolvimento de sistemas como o nosso gerenciador de reservas de quartos. Uma de suas principais vantagens é a rapidez no desenvolvimento, já que ele vem com diversas funcionalidades já prontas.
+
+O desenvolvimento do Frond-end da aplicação Chalés Água de Coco se dá pela combinação de templates HTML associados a Views (Django) para gerar páginas dinâmicas. Os templates exibem essas informações de forma estruturada na interface do usuário, permitindo que elementos HTML sejam preenchidos com dados fornecidos pelo servidor, assim utilizando o padrão MTV (Model-Template-View).
+
+O que facilita a manutenção e a escalabilidade do sistema. Isso é essencial em um sistema de reservas, que pode crescer em funcionalidades como calendário de disponibilidade, gestão de hóspedes, geração de relatórios, envio de notificações, entre outros.
+\subsection{Back-End}
+O desenvolvimento do back-end desta aplicação Django é baseada no padrão MTV(Model-Template-View), assim funcionando com manipulação de dados e lógica de negócio através das Views, que são responsáveis por processar requisições, acessar o banco de dados e enviar informações para os templates.
+
+Outro ponto importante que influenciou na nossa escolha é a segurança, pois o Django já vem com proteções contra ataques comuns, como injeção de SQL, o que é essencial em aplicações que lidam com dados pessoais e financeiros dos clientes.
+\subsection{Banco de Dados}
+O Banco de Dados escolhido para esta aplicação foi o PostgreSQL, sendo um banco escalável e flexível, este SGBD pode suportar grandes volumes de dados e de usuários além de ser compatível com uma grande gama de linguagens de programação.
+O PostgreSQL também é uma ótima opção por ser acessível, já que sua licença é livre, assim sem custos de licenciamento e a liberdade para modificar ou implementar o código-fonte da maneira que for necessária.
+\subsection{Infraestrutura}
+Agora falando um pouco sobre a Amazon Web Services. Ela é uma das plataformas de computação em nuvem mais completas e confiáveis do mercado. Utilizar a AWS para hospedar nosso sistema de gerenciamento de reservas traz várias vantagens:
+
+Alta disponibilidade e escalabilidade: a AWS permite escalar a infraestrutura de acordo com a demanda, garantindo que o sistema continue funcionando bem mesmo em períodos de alta procura.
+
+Confiabilidade e desempenho: a infraestrutura da AWS é robusta, distribuída globalmente e projetada para evitar falhas. Isso assegura que o sistema fique no ar com alta performance e baixa latência.
+
+Segurança: a AWS oferece diversas camadas de segurança, incluindo criptografia de dados, controle de acesso, backups automatizados e monitoramento contínuo, protegendo tanto os dados dos hóspedes quanto as informações administrativas da pousada.
+
+Serviços integrados: além do serviço de hospedagem, a AWS oferece bancos de dados gerenciados, armazenamento, envio de e-mails, monitoramento, entre outros — todos integráveis com o sistema Django de forma eficiente.
+
+Por conta desses motivos, nós concluímos que a combinação de Django com a AWS é uma escolha estratégica e poderosa para o desenvolvimento do nosso sistema de reservas de quartos em uma pousada. Enquanto o Django acelera o desenvolvimento e garante um sistema seguro e bem estruturado, a AWS fornece a base tecnológica para garantir desempenho, estabilidade e escalabilidade. Juntos, eles possibilitam a entrega de uma solução profissional e confiável, algo que nós buscamos para o desenvolvimento do nosso sistema.
 
 \section{Ferramentas de Apoio}
+\subsection{GitHub}
+O GitHub foi utilizado para controle de versão e colaboração durante o desenvolvimento do sistema. A plataforma permite armazenar e gerenciar o código-fonte, realizar revisões e integrar funcionalidades de forma eficiente. O GitHub facilitou a organização do fluxo de trabalho, o rastreamento de mudanças e a colaboração entre os membros da equipe, promovendo maior controle e transparência no ciclo de desenvolvimento.
+\subsection{BRModelo}
+O BRModelo foi utilizado para a modelagem lógica e relacional do banco de dados. A ferramenta oferece uma interface intuitiva para construção de diagramas entidade-relacionamento (DER), o que auxiliou na estruturação clara das tabelas, relacionamentos e chaves do sistema. O uso do BRModelo contribuiu diretamente para a coerência e integridade do esquema de dados implementado no PostgreSQL.
+\subsection{Visual Paradigm Online}
+O Visual Paradigm Online foi utilizado na criação dos diagramas de Implantação e Componentes. Esta ferramenta auxiliou na documentação da arquitetura do sistema, contribuindo para uma melhor compreensão dos fluxos e interações entre os componentes. A versão online possibilitou colaboração remota e armazenamento em nuvem, o que otimizou a produtividade da equipe.
+\subsection{Latex}
+O LaTeX foi utilizado na produção e formatação do trabalho acadêmico. Por meio de seu sistema de marcação, foi possível obter um alto nível de controle sobre a estrutura e apresentação do documento, garantindo consistência, qualidade e organização.
+
+\subsection{Google Meet}
+O Google Meet foi utilizado como plataforma de comunicação e realização de encontros virtuais da equipe ao longo do desenvolvimento do projeto. As reuniões periódicas possibilitaram a discussão de tarefas, alinhamento de prazos e entregas mais organizadas.
 
 \section{Manutenibilidade}
 
 \section{Segurança, Privacidade e Legislação}
 
 \section{Modelagem do Banco de Dados}
+\subsection{Modelo Entidade-Relacionamento - MER}
+
+A Figura~\ref{fig:mer} mostra o Modelo Entidade-Relacionamento (MER) do sistema.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{0406-MER.jpg}
+	\caption{Modelo Entidade-Relacionamento (MER) desenvolvido no brModelo}
+	\label{fig:mer}
+\end{figure}
+\subsection{Diagrama Entidade-Relacionamento - DER}
+A Figura~\ref{fig:der} mostra o Diagrama Entidade-Relacionamento (DER) do sistema.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{0406-DER.jpg}
+	\caption{Diagrama Entidade-Relacionamento (MER) desenvolvido no brModelo}
+	\label{fig:der}
+\end{figure}
+
 
 \section{Protocolos}
 
