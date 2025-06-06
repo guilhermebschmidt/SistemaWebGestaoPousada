@@ -1,0 +1,5 @@
+Texto Explicativo - Custo de Mão de Obra
+
+Na imagem a seguir temos uma tabela detalhada com os custos referentes a mão de obra do desenvolvimento do projeto. 
+Na primeira coluna temos a especificação dos papéis de cada profissional, em seguida quantidade de pessoas por cargo, horas trabalhadas ao dia e dias trabalhados ao mês(média).
+Também podemos checar o preço por hora de cada profissional, assim finalizamos com as estimativas de custo mensal, total 4 meses (correspondente ao tempo em que a equipe já trabalhou no projeto até então) e projeção 9 meses (correspondente ao tempo total estimado de projeto).
