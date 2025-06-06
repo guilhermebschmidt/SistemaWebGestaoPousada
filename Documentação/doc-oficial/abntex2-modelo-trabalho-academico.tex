@@ -68,6 +68,16 @@
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 % ---
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{adjustbox}
+\usepackage{ragged2e}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{booktabs} % para tabelas com linhas bonitas
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{margin=1in}
 \usepackage{lipsum}				% para geração de dummy text
 % ---
 
@@ -437,9 +447,9 @@ curso Tecnologia em Análise e Desenvolvimento de Sistemas \LaTeX.}
 % ---
 % inserir lista de tabelas
 % ---
-%\pdfbookmark[0]{\listtablename}{lot}
-%\listoftables*
-%\cleardoublepage
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
 % ---
 % ---
 % inserir lista de abreviaturas e siglas
@@ -807,6 +817,7 @@ O Product Backlog consiste em uma lista ordenada de todos os itens de trabalho, 
 
 
 \section{História de Usuário}
+\subsection{Descrição}
 
 \section{Arquitetura}
 \subsection{Desenho da Arquitetura}
@@ -890,8 +901,61 @@ O LaTeX foi utilizado na produção e formatação do trabalho acadêmico. Por m
 O Google Meet foi utilizado como plataforma de comunicação e realização de encontros virtuais da equipe ao longo do desenvolvimento do projeto. As reuniões periódicas possibilitaram a discussão de tarefas, alinhamento de prazos e entregas mais organizadas.
 
 \section{Manutenibilidade}
+A manutenibilidade do sistema de reservas para pousadas desenvolvido neste projeto é assegurada por meio de práticas estruturadas de engenharia de software, que facilitam a correção de erros, inclusão de novas funcionalidades e adaptação a futuras necessidades.
+
+O sistema foi concebido com uma arquitetura modular, respeitando os princípios de separação de responsabilidades. Isso permite que diferentes partes do sistema, como interface, regras de negócio e persistência de dados, sejam modificadas de forma independente, minimizando impactos colaterais e reduzindo o tempo de manutenção.
+
+Além disso, foram adotados padrões de codificação consistentes e bem documentados, com o intuito de facilitar a leitura e compreensão do código por outros desenvolvedores. Esses padrões promovem a reutilização e a extensibilidade do sistema.
+
+A utilização do sistema de controle de versão Git, em conjunto com a plataforma GitHub, possibilita o rastreamento detalhado de alterações, revisão de código e colaboração eficaz entre os membros da equipe. Isso garante maior controle sobre o histórico de desenvolvimento e facilita a identificação e resolução de falhas.
+
+A aplicação também contará com testes automatizados, cobrindo os principais fluxos da aplicação, como testes unitários para funções críticas e testes de integração entre os módulos.
+
+Complementando essas práticas, será elaborada uma documentação técnica e funcional completa, abrangendo instruções de uso, instalação, configuração e manutenção.
+
+Por fim, o projeto segue um ciclo de desenvolvimento bem definido, com etapas de planejamento, codificação, testes, implantação e manutenção. Essa abordagem estruturada proporciona maior previsibilidade, qualidade e agilidade na evolução contínua da aplicação, assegurando sua longevidade e adaptabilidade.
 
 \section{Segurança, Privacidade e Legislação}
+A segurança da informação é um aspecto central no desenvolvimento do sistema da Pousada Chalés Água de Coco. Para garantir a proteção dos dados dos hospedes e da própria aplicação, foi adotado o framework Django, que já incorpora diversas camadas de segurança por padrão. Além disso, foram implementadas boas práticas relacionadas à privacidade e à conformidade com a legislação brasileira de proteção de dados.
+
+O Django fornece mecanismos robustos contra ataques comuns na web, como injeção de SQL, execução remota de código, ataques Cross-Site Scripting (XSS) e falsificação de requisições entre sites (CSRF). Essas proteções são ativadas por padrão e complementadas com práticas adicionais durante o desenvolvimento.
+
+Entre os recursos utilizados, destacam-se:
+
+Sistema de autenticação integrado: O Django oferece um módulo completo para autenticação e autorização de usuários, permitindo o controle de acesso baseado em permissões. O sistema foi configurado para exigir credenciais válidas e proteger páginas sensíveis com autenticação obrigatória.
+
+Proteção contra CSRF (Cross-Site Request Forgery): Todas as requisições POST são protegidas por tokens CSRF, garantindo que ações críticas só possam ser executadas por usuários autenticados a partir da própria aplicação.
+
+Escapamento automático de HTML (XSS): O mecanismo de templates do Django realiza automaticamente o escapamento de dados inseridos pelos usuários, o que impede a execução de scripts maliciosos.
+
+Hash de senhas com algoritmos seguros: As senhas dos usuários são armazenadas de forma segura com algoritmos de hash modernos (como PBKDF2), tornando inviável a recuperação das senhas mesmo em caso de vazamento da base de dados.
+
+Validação de entradas e uso de ORM: Ao utilizar o ORM (Object-Relational Mapper) do Django, o sistema evita o uso direto de comandos SQL, o que mitiga o risco de injeção de código malicioso no banco de dados.
+
+Gerenciamento de sessões seguro: O Django gerencia sessões de forma criptografada e armazena os identificadores de sessão com proteção contra falsificação. O sistema pode ser configurado para expirar sessões inativas e exigir reautenticação para operações sensíveis.
+
+Além dessas funcionalidades nativas, o sistema conta com certificado SSL/TLS para garantir a criptografia do tráfego entre cliente e servidor, além de backups automáticos armazenados na nuvem (AWS), oferecendo resiliência em caso de falhas técnicas.
+
+\subsection{Conformidade com a LGPD}
+Para atender à Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018), o sistema foi desenvolvido com foco na coleta mínima de dados, transparência e controle por parte do usuário. As finalidades de uso das informações são claramente definidas, e o usuário pode, a qualquer momento, solicitar a remoção de seus dados ou a revisão do consentimento.
+
+Com isso, o sistema não apenas assegura uma navegação segura e confiável, mas também respeita os direitos fundamentais de privacidade e liberdade informacional previstos na legislação brasileira.
+
+\subsection{Protocolos de Segurança na Comunicação}
+A segurança na troca de informações no sistema “Chalés Água de Coco” foi uma prioridade desde as fases iniciais de desenvolvimento. Para garantir a integridade, a confidencialidade e a autenticidade dos dados transmitidos, adotaram-se protocolos amplamente reconhecidos e confiáveis no ambiente web moderno.
+
+\subsubsection{Certificação Digital com SSL/TLS}
+A aplicação foi implementada com suporte ao protocolo TLS (Transport Layer Security), sucessor do SSL, por meio de certificado digital instalado no servidor web em nuvem (AWS). Este certificado criptografa a comunicação entre o cliente (navegador do usuário) e o servidor, tornando os dados transmitidos — como informações cadastrais e de reservas — inacessíveis a terceiros.
+
+A emissão do certificado TLS envolveu a geração de um par de chaves criptográficas e o envio de um pedido de assinatura (CSR) a uma autoridade certificadora confiável, que validou o domínio e forneceu o certificado. Este foi instalado e configurado no ambiente AWS, garantindo que todas as requisições utilizem conexões criptografadas via HTTPS.
+
+\subsubsection{Protocolo HTTPS}
+A utilização do protocolo HTTPS (HyperText Transfer Protocol Secure) é fundamental para proteger sessões de navegação dos usuários. Com ele, todas as requisições realizadas ao sistema de reservas da pousada são criptografadas, evitando ataques como man-in-the-middle e a exposição de dados sensíveis.
+
+A aplicação redireciona automaticamente qualquer tentativa de acesso via HTTP para HTTPS, reforçando as boas práticas de segurança. O uso de HTTPS também contribui para a credibilidade da plataforma junto aos usuários, além de ser um critério relevante para mecanismos de busca e navegadores modernos.
+
+\subsubsection{Compatibilidade com a Arquitetura Django}
+A estrutura do Django, utilizada no desenvolvimento da aplicação, já oferece suporte nativo a conexões seguras. As configurações de segurança foram ajustadas para forçar o uso de HTTPS em todas as rotas públicas e administrativas, além da inclusão de headers HTTP como Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options e Content-Security-Policy, reforçando a proteção contra ataques como clickjacking, XSS e sniffing de conteúdo.
 
 \section{Modelagem do Banco de Dados}
 \subsection{Modelo Entidade-Relacionamento - MER}
@@ -915,11 +979,409 @@ A Figura~\ref{fig:der} mostra o Diagrama Entidade-Relacionamento (DER) do sistem
 \end{figure}
 
 
-\section{Protocolos}
-
 \section{Entregas}
 
 \chapter{Viabilidade Financeira}
+Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de reservas de quarto, conduzimos um estudo dos custos necessários e produzimos relatórios referentes a diferentes cenários. Os dados utilizados no estudo são concretos e retirados de fontes seguras, nos ajudando a visualizar a factibilidade do projeto e ter melhor percepção para a tomada de decisões estratégicas.
+
+\section{Custos}
+\subsection{Custo Estrutural}
+
+\begin{table}[h!]
+	\centering
+	\caption{Resumo dos custos de Equipamentos e Serviços}
+	\label{tab:equipamentos-servicos}
+	\begin{tabular}{|l|c|r|r|r|}
+		\hline
+		\textbf{Itens} & \textbf{Quantidade} & \textbf{Custo mensal} & \textbf{Total 4 meses} & \textbf{Total 9 meses} \\
+		\hline
+		Notebooks & 6 & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Roteadores & 6 & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Internet (Assinatura) & 6 & R\$ 114,97 & R\$ 2.759,28 & R\$ 6.208,38 \\
+		\hline
+		Eletricidade (Fatura) & 6 & R\$ 3,44 & R\$ 82,56 & R\$ 185,76 \\
+		\hline
+		\textbf{Total} & 24 & R\$ 118,41 & R\$ 2.841,84 & R\$ 6.394,14 \\
+		\hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{table}
+
+
+\begin{table}[h!]
+	\centering
+	\caption{Resumo dos custos de Infraestrutura}
+	\label{tab:infraestrutura}
+	\begin{tabular}{|l|l|r|r|r|}
+		\hline
+		\textbf{Tipo} & \textbf{Serviço} & \textbf{Mensal} & \textbf{Total 4 meses} & \textbf{Total 9 meses} \\
+		\hline
+		Proxy Reverso & Servidor Nginx & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Aplicação & Servidor Gunicorn & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Framework Web & Servidor Django & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Banco de Dados & PostgreSQL & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Hospedagem & AWS & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		\textbf{Total} & & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{table}
+
+\subsection{Custo Mão de Obra}
+
+% Tabela 1 - Dados de horas
+\begin{table}[H]
+	\centering
+	\caption{Quantidade e horas trabalhadas por função}
+	\label{tab:mao-de-obra-horas}
+	\adjustbox{max width=\textwidth}{
+		\begin{tabular}{|>{\RaggedRight\arraybackslash}p{5.5cm}|c|c|c|c|}
+			\hline
+			\textbf{Função} & \textbf{Quantidade} & \textbf{Horas/Dia} & \textbf{Dias/Mês} & \textbf{Total de Horas/Mês} \\
+			\hline
+			Analista de Cronograma (PMO) & 1 & 6 & 22 & 25,90 \\
+			\hline
+			Engenheiro de Dados (DBA) & 1 & 6 & 22 & 47,30 \\
+			\hline
+			Analista de Documentação & 1 & 6 & 22 & 75,30 \\
+			\hline
+			Gerente de Projeto (PM) & 1 & 6 & 22 & 78,90 \\
+			\hline
+			Desenvolvedor Front-End & 1 & 6 & 22 & 150,00 \\
+			\hline
+			Desenvolvedor Back-End & 1 & 6 & 22 & 66,00 \\
+			\hline
+			\textbf{Total Mão de Obra} & 6 & 36 & 132 & 443,40 \\
+			\hline
+		\end{tabular}
+	}
+	\fonte{Elaborado pelos autores.}
+\end{table}
+\begin{table}[H]
+	\centering
+	\caption{Custos por função}
+	\label{tab:mao-de-obra-custos}
+	\adjustbox{max width=\textwidth}{
+		\begin{tabular}{|>{\RaggedRight\arraybackslash}p{5.5cm}|r|r|r|r|}
+			\hline
+			\textbf{Função} & \textbf{Custo Hora (R\$)} & \textbf{Custo Mensal (R\$)} & \textbf{Total 4 meses (R\$)} & \textbf{Total 9 meses (R\$)} \\
+			\hline
+			Analista de Cronograma (PMO) & 16,00 & 155,40 & 621,60 & 1.398,60 \\
+			\hline
+			Engenheiro de Dados (DBA) & 13,00 & 283,80 & 1.135,20 & 2.554,20 \\
+			\hline
+			Analista de Documentação & 15,00 & 451,80 & 1.807,20 & 4.066,20 \\
+			\hline
+			Gerente de Projeto (PM) & 16,00 & 473,40 & 1.893,60 & 4.260,60 \\
+			\hline
+			Desenvolvedor Front-End & 13,00 & 900,00 & 3.600,00 & 8.100,00 \\
+			\hline
+			Desenvolvedor Back-End & 13,00 & 396,00 & 1.584,00 & 3.564,00 \\
+			\hline
+			\textbf{Total Mão de Obra} & 86,00 & 2.660,40 & 10.641,60 & 23.943,60 \\
+			\hline
+		\end{tabular}
+	}
+	\fonte{Elaborado pelos autores.}
+\end{table}
+
+\subsection{Custo Total}
+
+\begin{table}[h!]
+	\centering
+	\caption{Custo Total por Categoria}
+	\label{tab:custo-total}
+	\adjustbox{max width=\textwidth}{
+		\begin{tabular}{|l|r|r|r|}
+			\hline
+			\textbf{Categoria} & \textbf{Custo Mensal (R\$)} & \textbf{Custo Total (4 meses) (R\$)} & \textbf{Custo Total (9 meses) (R\$)} \\
+			\hline
+			Mão de Obra & 23.943,60 & 95.774,40 & 215.492,40 \\
+			Estrutura & 118,41 & 473,64 & 1.065,69 \\
+			\hline
+			\textbf{Total} & 24.062,01 & 96.248,04 & 216.558,09 \\
+			\hline
+		\end{tabular}}
+	\fonte{Elaborado pelos autores.}
+\end{table}
+
+\section{Cenários}
+
+\subsection{Cenário Otimista}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			title={Cenário Otimista: Custos vs Receitas Acumuladas},
+			xlabel={Meses},
+			ylabel={Valor (R\$)},
+			xmin=0, xmax=21,
+			ymin=0, ymax=800000,
+			xtick={1,5,10,15,20},
+			ytick={0,100000,200000,300000,400000,500000,600000,700000,800000},
+			legend pos=north west,
+			ymajorgrids=true,
+			grid style=dashed,
+			width=14cm,
+			height=8cm,
+			scaled y ticks = false,
+			ticklabel style={/pgf/number format/fixed},
+			]
+			
+			% Dados Custos Acumulados
+			\addplot[
+			color=red,
+			mark=square,
+			thick,
+			]
+			coordinates {
+				(1,24062.01)
+				(2,48124.02)
+				(3,72186.03)
+				(4,96248.04)
+				(5,120310.05)
+				(6,144372.06)
+				(7,168434.07)
+				(8,192496.08)
+				(9,216558.09)
+				(10,240620.10)
+				(11,264682.11)
+				(12,288744.12)
+				(13,312806.13)
+				(14,336868.14)
+				(15,360930.15)
+				(16,384992.16)
+				(17,409054.17)
+				(18,433116.18)
+				(19,457178.19)
+				(20,481240.20)
+			};
+			
+			% Dados Receitas Acumuladas
+			\addplot[
+			color=blue,
+			mark=o,
+			thick,
+			]
+			coordinates {
+				(1,5500)
+				(2,11000)
+				(3,16500)
+				(4,22000)
+				(5,55000)
+				(6,132000)
+				(7,242000)
+				(8,379500)
+				(9,544500)
+				(10,742500)
+				(11,990000)
+				(12,1276000)
+				(13,1606000)
+				(14,1991000)
+				(15,2431000)
+				(16,2926000)
+				(17,3476000)
+				(18,4108500)
+				(19,4823500)
+				(20,5577000)
+			};
+			
+			\legend{Custos Acumulados, Receitas Acumuladas}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Comparação dos custos e receitas acumuladas no cenário otimista}
+	\label{fig:custo-receita}
+\end{figure}
+
+
+
+\subsection{Cenário Pessimista}
+
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			title={Cenário Pessimista: Custos vs Receitas Acumuladas},
+			xlabel={Meses},
+			ylabel={Valor (R\$)},
+			xmin=0, xmax=21,
+			ymin=0, ymax=800000,
+			xtick={1,5,10,15,20},
+			ytick={0,100000,200000,300000,400000,500000,600000,700000,800000},
+			legend pos=north west,
+			ymajorgrids=true,
+			grid style=dashed,
+			width=14cm,
+			height=8cm,
+			scaled y ticks = false,
+			ticklabel style={/pgf/number format/fixed},
+			]
+			
+			% Dados Custos Acumulados
+			\addplot[
+			color=red,
+			mark=square,
+			thick,
+			]
+			coordinates {
+				(1,24062.01)
+				(2,48124.02)
+				(3,72186.03)
+				(4,96248.04)
+				(5,120310.05)
+				(6,144372.06)
+				(7,168434.07)
+				(8,192496.08)
+				(9,216558.09)
+				(10,240620.10)
+				(11,264682.11)
+				(12,288744.12)
+				(13,312806.13)
+				(14,336868.14)
+				(15,360930.15)
+				(16,384992.16)
+				(17,409054.17)
+				(18,433116.18)
+				(19,457178.19)
+				(20,481240.20)
+			};
+			
+			% Dados Receitas Acumuladas (soma acumulada)
+			\addplot[
+			color=blue,
+			mark=o,
+			thick,
+			]
+			coordinates {
+				(1,5500)
+				(2,11000)
+				(3,16500)
+				(4,22000)
+				(5,27500)
+				(6,33000)
+				(7,38500)
+				(8,55000)
+				(9,93500)
+				(10,148500)
+				(11,231000)
+				(12,330000)
+				(13,462000)
+				(14,616000)
+				(15,819500)
+				(16,1078000)
+				(17,1397000)
+				(18,1809500)
+				(19,2304500)
+				(20,2876500)
+			};
+			
+			\legend{Custos Acumulados, Receitas Acumuladas}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Comparação dos custos e receitas acumuladas no cenário pessimista}
+	\label{fig:custo-receita-pessimista}
+\end{figure}
+
+
+
+\subsection{Cenário Realista}
+
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			title={Cenário Realista: Custos vs Receitas Acumuladas},
+			xlabel={Meses},
+			ylabel={Valor (R\$)},
+			xmin=0, xmax=21,
+			ymin=0, ymax=3500000,
+			xtick={1,5,10,15,20},
+			ytick={0,500000,1000000,1500000,2000000,2500000,3000000,3500000},
+			legend pos=north west,
+			ymajorgrids=true,
+			grid style=dashed,
+			width=14cm,
+			height=8cm,
+			scaled y ticks=false,
+			ticklabel style={/pgf/number format/fixed},
+			]
+			
+			% Dados Custos Acumulados
+			\addplot[
+			color=red,
+			mark=square,
+			thick,
+			]
+			coordinates {
+				(1,24062.01)
+				(2,48124.02)
+				(3,72186.03)
+				(4,96248.04)
+				(5,120310.05)
+				(6,144372.06)
+				(7,168434.07)
+				(8,192496.08)
+				(9,216558.09)
+				(10,240620.10)
+				(11,264682.11)
+				(12,288744.12)
+				(13,312806.13)
+				(14,336868.14)
+				(15,360930.15)
+				(16,384992.16)
+				(17,409054.17)
+				(18,433116.18)
+				(19,457178.19)
+				(20,481240.20)
+			};
+			
+			% Dados Receitas Acumuladas (soma acumulada)
+			\addplot[
+			color=blue,
+			mark=o,
+			thick,
+			]
+			coordinates {
+				(1,5500)
+				(2,11000)
+				(3,16500)
+				(4,22000)
+				(5,27500)
+				(6,33000)
+				(7,55000)
+				(8,93500)
+				(9,159500)
+				(10,258500)
+				(11,396000)
+				(12,566500)
+				(13,797500)
+				(14,1094500)
+				(15,1463000)
+				(16,1892000)
+				(17,2354000)
+				(18,2849000)
+				(19,3399000)
+				(20,4009500)
+			};
+			
+			\legend{Custos Acumulados, Receitas Acumuladas}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Comparação dos custos e receitas acumuladas no cenário realista}
+	\label{fig:custo-receita-realista}
+\end{figure}
+
+
 
 \chapter{Considerações Finais}
 
