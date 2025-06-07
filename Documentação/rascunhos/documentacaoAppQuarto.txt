@@ -1,0 +1,34 @@
+Documentaçao do código referente ao app Quarto:
+
+Arquivos explicados:
+models.py
+forms.py
+urls.py
+views.py
+
+models.py:
+É onde se define o modelo de dados, basicamente a estrutura da tabela Quarto no banco de dados, temos os campos: numero, status, descricao e preco.
+
+forms.py:
+Define o formulário baseado no modelo Quarto, usado para criar e editar quartos na interface web. Utiliza de widgets para estilizar inputs e labels.
+
+urls.py:
+Define rotas/endpoints da nossa aplicaçao. Como por exemplo, lista os quartos, abre o formulario para criar e editar. Onde cada URL aponta para uma view específica.
+
+views.py:
+Tem funçoes que recebem as requisiçoes HTTP e retornam respostas, como páginas HTML e redirecionamentos.
+quartos: lista os quartos
+adicionar_quarto: exibe o formulário para criar quarto
+editar_quarto: exibe o formulário com dados do quarto para editar
+excluir_quarto: confirma e exclui o quarto
+tipos_quarto: uma página estática com tipos de quartos.
+
+Agora explicando sobre os Templates HTML usados no APP Quarto.
+
+Templates sao os arquivos que geram o HTML para o navegador.
+
+adicionar_quarto.html: formulário para adicionar quarto
+editar_quarto.html: formulário para editar quarto, mas já com dados preenchidos
+excluir_quarto.html: página de confirmaçao para exclusao
+quartos.html: lista todos os quartos em tabela, com os botoes para editar/excluir
+tipos_quarto.html: uma página informativa sobre os tipos de quartos.
