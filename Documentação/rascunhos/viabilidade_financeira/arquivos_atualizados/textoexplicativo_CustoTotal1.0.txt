@@ -1,0 +1,6 @@
+Texto Explicativo - Custo Total
+
+Na imagem a seguir temos a junção dos custos por mão de obra e custos por estrutura, sendo visualizadas em 3 períodos diferentes:
+Custo Mensal - Referente a gastos de um único mês.
+Custo Total (4 meses) - Custos referentes aos meses que foram trabalhados até a data de escrita deste texto.
+Custo Total (9 meses) - Custos referentes ao total de meses programado para a realização do projeto.

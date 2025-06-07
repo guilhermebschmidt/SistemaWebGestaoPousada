@@ -1,0 +1,576 @@
+﻿Desenvolvimento do Projeto
+
+
+        Nesta seção, detalham-se as tecnologias, ferramentas e práticas adotadas para o desenvolvimento da aplicação web de gestão dos processos da pousada Chalés Água de Coco.
+
+
+Escopo do Projeto 
+
+
+O projeto visa automatizar os processos de gestão de reservas, quartos, hóspedes, finanças e produção de relatórios da pousada, com o objetivo de proporcionar à proprietária uma ferramenta eficiente e organizada para a realização de todas as operações essenciais do seu negócio. Além disso, busca mitigar os riscos associados ao modelo atual de administração, caracterizado por uma alta vulnerabilidade a erros humanos, dificuldade de atualização em tempo real e ausência de acessibilidade remota, decorrentes do seu caráter predominantemente manual.
+Prevê-se que o produto final seja constituído por funcionalidades que podem ser organizadas em cinco módulos principais: módulo de gestão de reservas, módulo de gestão de hóspedes, módulo de gestão de quartos, módulo de gestão financeira e painel administrativo. Com uma interface intuitiva e integrada e desenvolvido exclusivamente para o uso de uma única usuária: a proprietária da pousada.
+Entretanto, o escopo deste projeto não abrange funcionalidades como a integração com sistemas de pagamento ou serviços de hospedagem. Porém, vale-se destacar que o escopo prevê, em etapas futuras, a evolução do sistema para incluir integrações com serviços de mensageria e correio eletrônico, ampliando a automação dos serviços da pousada.
+Por fim, Para a definição do escopo, a equipe responsável aplicou um conjunto de perguntas (questionário) à proprietária com o objetivo de compreender as regras de negócio e realizar o levantamento dos requisitos, funcionais e não funcionais, do sistema. 
+
+
+Quadro X - Questionário usado para a elaboração do escopo do projeto 
+	Pergunta
+	Resposta
+	Como os clientes normalmente fazem uma reserva hoje (telefone, WhatsApp, pessoalmente)?
+	
+
+Geralmente, por WhatsApp.
+	Há um prazo mínimo ou máximo para fazer uma reserva (ex: com 1 dia de antecedência)?
+	 Preferencialmente, antecipadamente. Nas plataformas coloco 2 dias de antecedência.
+
+
+	A reserva é confirmada apenas com pagamento ou pode ser feita sem pagamento antecipado?
+	Confirmada pelo pagamento de pelo menos metade do valor da reserva.
+	É permitido cancelar uma reserva? Até quantas horas antes do check-in? Há cobrança de taxa?
+	Sim!  Temos políticas de cancelamentos e remarcações.
+
+
+	Um hóspede pode fazer mais de uma reserva ativa ao mesmo tempo?
+	
+
+Sim.
+
+
+	Quais dados do hóspede são obrigatórios para fazer uma reserva? (ex: nome completo, CPF, telefone, e-mail)
+	Nome completo, endereço completo,  CPF, telefone, e-mail.
+	É comum haver reservas feitas por um responsável em nome de outros hóspedes?
+	Sim.
+
+
+	Há um limite de pessoas por quarto? Como isso é controlado?
+	No check in.
+
+
+	 
+
+
+Qual é o horário padrão de check-in e check-out? Há tolerância?
+	 Check in a partir das 16h até às 22h e checkout a partir das 8h até às 14h.  Depende de se tem entrada de outro hóspede em seguida.
+	
+
+
+
+O check-in pode ser feito antes do horário? E o check-out após o horário?
+	Depende, se tiver saída de hóspede anterior.  Depende se tiver entrada em seguida.
+
+
+	
+
+Quem realiza o check-in e check-out? Você ou os funcionários?
+	Eu ou sozinhos, com orientações minhas. 
+
+
+	Há necessidade de gerar comprovante ou recibo após check-in ou check-out?
+	Não.
+
+
+	Domínio: Quartos
+	Pergunta
+	Resposta
+	
+
+
+
+A pousada possui quantos quartos? Como eles são classificados (ex: simples, casal, com ar)?
+	16. Quartos simples simples para casal (com e sem ar), chalés com cozinha para até 4 pessoas, com e sem ar e flats, com e sem ar. 
+	Há períodos em que quartos são bloqueados para manutenção?
+	Sim.
+	Um mesmo quarto pode ser reservado para diferentes hóspedes em dias seguidos?
+	Sim.
+	A pousada oferece serviços extras? 
+	Não. 
+	
+
+Quais formas de pagamento são aceitas (Pix, cartão, dinheiro)?
+	As três formas, porém no cartão tem taxa da operadora. 
+	
+
+Os pagamentos são feitos no check-in, no check-out ou antecipadamente?
+	Metade na reserva e o restante na chegada
+	
+
+É necessário gerar comprovante ou recibo no sistema?
+	Eu envio uma confirmação de reserva com todas as informações.
+	 Você gostaria que o sistema enviasse confirmação automática de reserva por WhatsApp ou e-mail?
+	Sim.
+
+
+	Há interesse em receber alertas automáticos de check-in, check-out ou cancelamento?
+	Sim.
+
+
+
+
+	
+
+Somente você vai usar o sistema ou os funcionários também?
+	Somente eu.
+	 O sistema será usado no computador, celular ou ambos?
+	Em ambos.
+	Quais relatórios são mais importantes no dia a dia? (ex: ocupação diária, reservas da semana, totais de pagamento)
+	Ocupação diária, reservas da semana, totais de pagamento, período…
+
+
+	É importante ter um histórico de cada hóspede e das reservas anteriores?
+	Sim.
+
+
+	Regras de negócio
+        As regras de negócio são diretrizes que delimitam as relações entre os objetos do negócio, estabelecendo condições e restrições que orientam as empresas nas suas operações e processos internos (IBM, 2024).
+Assim, o levantamento das regras de negócio da Pousada Chalés Água de Coco, resultado da análise das respostas fornecidas pela proprietária ao questionário aplicado pela equipe, foi fundamental para orientar a modelagem e o desenvolvimento das funcionalidades do sistema. Além de assegurar que a aplicação atenda as necessidades da pousada de forma coerente, segura  e eficiente, além de apoiar, no contexto de sua gestão, os processos de tomada de decisão. 
+
+
+
+
+Regra
+	Descrição 
+	RN01
+	A confirmação de uma reserva deve ocorrer mediante o pagamento de 50% do valor total.
+	RN02
+	Cancelamentos e remarcações são permitidos, sujeitos a regras e taxas específicas.
+	RN03
+	As reservas devem ser registradas com, no mínimo, 2 dias de antecedência da data de entrada.
+	RN04
+	Um mesmo hóspede pode ter mais de uma reserva ativa.
+	RN05
+	Para efetuar uma reserva, os seguintes dados do hóspede são obrigatórios: nome completo, endereço completo, CPF, telefone e e-mail
+	RN06
+	Um responsável pode realizar reservas em nome de outros hóspedes.
+	RN07
+	Cada quarto deve ter um número máximo de hóspedes.
+	RN08
+	Os horários padrão são: check-in das 16h às 22h; check-out das 8h às 14h.
+	RN09
+	A emissão de recibos ou comprovantes após check-in/out não é obrigatória.
+	RN10
+	Um  quarto pode ficar indisponível para manutenção.
+	RN11
+	É permitido reservar um mesmo quarto para hóspedes diferentes em datas seguidas.
+	RN12
+	Atualmente, não há oferta de serviços adicionais vinculados à reserva.
+	RN13
+	São aceitas as formas de pagamento: Pix, dinheiro e cartão (com taxa da operadora).
+	RN14
+	Deve ser enviada a confirmação da reserva para o cliente com todos os dados necessários.
+	RN15
+	Apenas a proprietária deve acessar as informações dos hóspedes e reservas.
+	
+
+
+
+
+
+
+
+Requisitos do Sistema
+        Segundo Sommerville (2011, p.57), os requisitos de um sistema são as descrições do que o sistema deve fazer, os serviços que oferece e as restrições a seu funcionamento. Assim, considerando a importância desses elementos para a modelagem da aplicação web de gestão para a Pousada Chalés Água de Coco , foi realizado o levantamento dos requisitos funcionais e não funcionais. Esse processo é resultante da análise das respostas obtidas por meio do questionário aplicado à proprietária (). 
+Requisitos funcionais
+Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviços do sistema web de gestão da pousada. Tais requisitos estão listados no quadro “”.
+Requisitos Funcionais
+	Código
+	Descrição
+	Prioridade
+	Relacionamento com Regras de Negócio
+	Domínio: Acesso e Autenticação
+	RF01
+	O sistema deve possuir um sistema de login para a proprietária acessar a aplicação de forma segura.
+	
+
+
+
+Alta
+	
+
+
+
+Não aplicável — requisito técnico essencial
+	Domínio: Reservas
+	
+
+	
+
+	RF02
+	O sistema deve permitir o cadastro de reservas, associando um quarto a um período (data de check-in e check-out).
+	
+
+
+
+Alta
+	
+
+
+
+RN03; RN01
+	RF03
+	Uma reserva deve estar associada a um quarto disponível para que ela seja cadastrada.
+
+
+	
+
+
+
+Alta
+	
+
+
+
+RN11
+	RF04
+	O sistema deve exigir os dados pessoais do hóspede para que a reserva seja cadastrada: nome completo, endereço completo, CPF, telefone e e-mail.
+
+
+	
+
+
+
+
+
+
+
+Alta
+	
+
+
+
+
+
+RN05 
+	RF05
+	A proprietária deve conseguir reservar quartos para um cliente em nome de outra pessoa responsável, registrando os dados do hóspede e, opcionalmente, do responsável.
+	
+
+
+
+
+
+
+
+Média
+	
+
+
+
+
+
+
+
+RN06
+	  RF06
+	O sistema deve exigir o pagamento de 50% do valor da estadia para confirmar o cadastro da reserva (a ser pago no momento da reserva ou em um prazo definido). 
+	
+
+
+
+
+
+
+
+Média
+	
+
+
+
+
+
+
+
+RN01
+	RF07
+	O sistema deve permitir o registro da comprovação do pagamento.
+	
+
+Média
+	
+
+RN01 
+	RF08
+	A proprietária deve conseguir cancelar ou remarcar uma reserva, com possível registro do motivo.
+	
+
+
+
+Média
+	
+
+
+
+RN02 
+	RF09
+	A proprietária deve poder visualizar todas as reservas, com detalhes do hóspede, quarto reservado e período.
+	
+
+
+
+Alta
+	
+
+
+
+RN15 
+	RF10
+	A proprietária deve conseguir cadastrar mais de uma reserva no nome de um mesmo cliente.
+	
+
+
+
+Média
+	
+
+
+
+RN04 
+	RF11
+	A proprietária deve conseguir reservar um mesmo quarto para diferentes clientes em datas seguidas, respeitando os horários de check-in e check-out configurados para o quarto.
+	
+
+
+
+
+
+
+
+Alta
+	
+
+
+
+
+
+
+
+RN11
+	RF12
+	A proprietária deve conseguir acessar o histórico de reservas de um cliente.
+	
+
+Média
+	
+
+RN15
+	RF13
+	O sistema deve mudar o status do quarto para ocupado após a realização do check-in.
+	Alta
+	
+
+Não aplicável — requisito técnico essencial
+	RF14
+	O sistema deve enviar uma notificação para o hóspede após a confirmação da reserva.
+	
+
+
+
+Baixa
+	
+
+
+
+Não aplicável — requisito de suporte à operação
+
+
+	Domínio: Quartos 
+	
+
+	
+
+	RF15
+	O sistema deve permitir o cadastro de novos quartos, incluindo informações como número/nome do quarto, capacidade (número de hóspedes), tipo (ex: chalé, simples solteiro, simples casal, etc.), e preço por noite.
+	
+
+
+
+
+
+
+
+
+
+Alta
+	
+
+
+
+
+
+
+
+
+
+Não aplicável — requisito técnico essencial
+	RF16
+	A proprietária deve conseguir editar as informações dos quartos já cadastrados.
+	
+
+
+
+Alta
+	
+
+Não aplicável — requisito técnico essencial
+	RF17
+	A proprietária deve poder visualizar todos os quartos cadastrados.
+	
+
+Alta
+	
+
+Não aplicável — requisito de suporte à operação
+	RF18
+	O sistema deve permitir a visualização dos quartos disponíveis no período de tempo selecionado para a reserva
+	
+
+
+
+
+
+Média
+	
+
+
+
+
+
+RN03; RN11
+	RF19
+	A proprietária deve conseguir mudar o status de um quarto (ex: disponível, indisponível, em manutenção).
+
+
+	
+
+
+
+
+
+Alta
+	
+
+
+
+
+
+RN10 
+	Domínio: Financeiro
+	
+
+	
+
+	RF20
+	A proprietária deve poder registrar as despesas da pousada, categorizando-as (ex: manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa
+	
+
+
+
+
+
+
+
+
+
+Média
+	
+
+
+
+
+
+
+
+Não aplicável — requisito técnico essencial
+
+
+	RF21
+	A proprietária deve conseguir cadastrar gastos fixos e gastos variáveis.
+	
+
+Média
+	Não aplicável — requisito técnico essencial
+
+
+	RF22
+	A proprietária deve poder registrar receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita.
+	
+
+
+
+
+
+
+
+Média
+	
+
+
+
+
+
+
+
+RN13 
+	RF23
+	O sistema deve permitir que a proprietária visualize todas as transações financeiras (receitas e despesas) em um determinado período.
+	
+
+
+
+
+
+Média
+	
+
+
+
+Não aplicável — requisito de controle gerencial
+	RF24
+	O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria.
+	
+
+
+
+Média
+	
+
+Não aplicável — requisito técnico essencial
+	RF25
+	O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo.
+	
+
+
+
+
+
+Média
+	
+
+
+
+
+
+Não aplicável — requisito técnico essencial
+	
+
+Requisitos não funcionais 
+Os requisitos não funcionais descrevem, por sua vez, as restrições e características de qualidade que devem ser aplicadas às funções e serviços prestados pelo sistema web. Estes requisitos estão listados no quadro “”.
+Usabilidade
+	A interface do sistema deve ser intuitiva, responsiva (compatível e adaptada tanto para dispositivos desktop quanto mobile)  e de fácil utilização, de modo que as tarefas essenciais da gestão da pousada sejam realizadas de forma eficiente e com mínimo esforço de aprendizado pela proprietária.  Para isso, deve-se adotar os princípios de interface amigável como a priorização da simplicidade e da clareza, padrões de interface consistentes e acessíveis.
+	O sistema deve fornecer mensagens de feedback claras, objetivas e contextualizadas para  todas as ações  realizadas pela usuária, como confirmação de reserva (exemplo: reserva efetuada com sucesso) ou notificações de erros (exemplo: falha ao cadastrar um quarto), garantindo uma interação segura e  satisfatória .
+	Performance
+	O sistema deve apresentar um tempo de resposta baixo, com carregamento das páginas e execução de ações da proprietária entre 2 e 3 segundos, para garantir uma navegação fluida .
+	O sistema deve ser capaz de lidar com a carga de trabalho estimada – desde o registro e a consulta simultânea de dados à gestão de múltiplas reservas– sem degradação significativa no desempenho, este que deverá se manter estável mesmo em períodos de maior demanda, considerando o perfil sazonal do negócio. 
+	Segurança
+	O sistema deve garantir a segurança das informações da pousada e dos hóspedes através da implementação de mecanismos robustos de autenticação e autorização, de forma a assegurar que apenas a usuária autorizada consiga acessar ou alterar dados na aplicação.
+	Os dados sensíveis devem ser protegidos conforme as melhores práticas propostas pela LGPD (Lei Geral de Proteção de Dados Pessoais), incluindo: utilização de criptografia para proteger dados em trânsito (HTTPS) e em repouso, implementação de políticas de autenticação robusta e minimização da coleta de dados.
+	Confiabilidade
+	O sistema deve estar disponível e funcionando corretamente por pelo menos  99% do tempo, a fim de garantir que a proprietária tenha acesso ao sistema sempre que necessário, inclusive nos períodos com maior movimento de hóspedes na pousada.
+	O sistema deve implementar mecanismos de tratamento de erros para que falhas e perdas de dados sejam prevenidas.  
+	O deploy da aplicação deve ser realizado em uma infraestrutura de nuvem (Amazon EC2),  a fim de proporcionar maior estabilidade, flexibilidade à aplicação e permitir que possíveis atualizações e manutenções tenham impacto mínimo para a usuária.
+	Escalabilidade
+	Embora o sistema, inicialmente , seja voltado para uma única usuária, a arquitetura deve ser projetada de forma a permitir futuras expansões no número de usuários e funcionalidades sem grandes refatorações.
+	Documentação
+	O sistema deve possuir uma documentação completa, objetiva e atualizada, incluindo código- fonte, a arquitetura da aplicação, os fluxos de uso e as especificações de APIs possivelmente integradas . 
+	A documentação deve estar versionada e organizada em no repositório Git– o GitHub, este que deve ser utilizado no controle de versão da aplicação  e colaboração entre os membros da equipe. 
+	O desenvolvimento deve seguir as boas práticas de codificação e padrões recomendados para aplicações Django, a fim de assegurar a manutenibilidade, extensibilidade e integridade do sistema ao longo do seu ciclo de vida.
+	

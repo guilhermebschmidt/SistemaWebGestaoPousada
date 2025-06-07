@@ -31,7 +31,7 @@
 \documentclass[
 	% -- opções da classe memoir --
 	12pt,				% tamanho da fonte
-	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	openany,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
 	twoside,			% para impressão em recto e verso. Oposto a oneside
 	a4paper,			% tamanho do papel. 
 	% -- opções da classe abntex2 --
@@ -46,9 +46,16 @@
 	brazil				% o último idioma é o principal do documento
 	]{abntex2}
 
+\checkandfixthelayout % para garantir que o layout seja atualizado
+\makeatletter
+\renewcommand*{\cleardoublepage}{\clearpage}
+\makeatother
 % ---
 % Pacotes básicos 
 % ---
+\usepackage{emptypage}
+\usepackage{longtable}
+\usepackage{float}
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
@@ -61,6 +68,16 @@
 % ---
 % Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
 % ---
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{adjustbox}
+\usepackage{ragged2e}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{booktabs} % para tabelas com linhas bonitas
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{margin=1in}
 \usepackage{lipsum}				% para geração de dummy text
 % ---
 
@@ -95,10 +112,10 @@
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
 \titulo{Pousada Chalés Água de Coco}
-\autor{GUILHERME BITTENCOURT SCHMIDT SP313640X\\KELLY RADCHELLE ARAUJO DE SOUZA SP3123588\\RAFAEL TEIXEIRA FONSECA SP3126919\\ RICARDO CARRIEL DE OLIVEIRA FILHO SP3136728\\GUILHERME AKIO MIURA SP3120791\\ANNA JULIA LIMA DE SOUSA SP3024016}
+\autor{ANNA JULIA LIMA DE SOUSA SP3024016\\ GUILHERME AKIO MIURA SP3120791\\ GUILHERME BITTENCOURT SCHMIDT SP313640X\\KELLY RADCHELLE ARAUJO DE SOUZA SP3123588\\RAFAEL TEIXEIRA FONSECA SP3126919\\ RICARDO CARRIEL DE OLIVEIRA FILHO SP3136728}
 \local{São Paulo - SP - Brasil}
 \data{2025}
-\orientador{Marcelo Tavares}
+\orientador{Marcelo Tavares de Santana}
 %\coorientador{Equipe \abnTeX}
 \instituicao{%
   IFSP - Instituto Federal de Educação, Ciência e Tecnologia de São Paulo
@@ -155,7 +172,10 @@ curso Tecnologia em Análise e Desenvolvimento de Sistemas \LaTeX.}
 \newcommand{\quadroname}{Quadro}
 \newcommand{\listofquadrosname}{Lista de quadros}
 
-\newfloat[chapter]{quadro}{loq}{\quadroname}
+\floatstyle{plain}
+\newfloat{quadro}{htbp}{loq}
+\floatname{quadro}{Quadro}
+%\newfloat[chapter]{quadro}{loq}{\quadroname}
 \newlistof{listofquadros}{loq}{\listofquadrosname}
 \newlistentry{quadro}{loq}{0}
 
@@ -206,18 +226,15 @@ curso Tecnologia em Análise e Desenvolvimento de Sistemas \LaTeX.}
 % ---
 \imprimircapa
 % ---
-
 % ---
 % Folha de rosto
 % (o * indica que haverá a ficha bibliográfica)
 % ---
 \imprimirfolhaderosto*
 % ---
-
 % ---
 % Inserir a ficha bibliografica
 % ---
-
 % Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
 % catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
 % Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
@@ -228,67 +245,66 @@ curso Tecnologia em Análise e Desenvolvimento de Sistemas \LaTeX.}
 % \begin{fichacatalografica}
 %     \includepdf{fig_ficha_catalografica.pdf}
 % \end{fichacatalografica}
-
-\begin{fichacatalografica}
-	\sffamily
-	\vspace*{\fill}					% Posição vertical
-	\begin{center}					% Minipage Centralizado
-	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
-	\small
-	\imprimirautor
+%\begin{fichacatalografica}
+%	\sffamily
+%	\vspace*{\fill}					% Posição vertical
+%	\begin{center}					% Minipage Centralizado
+%	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
+%	\small
+%	\imprimirautor
 	%Sobrenome, Nome do autor
 	
-	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
-	\imprimirlocal, \imprimirdata-
+%	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+%	\imprimirlocal, \imprimirdata-
 	
-	\hspace{0.5cm} \thelastpage p. : il. (algumas color.) ; 30 cm.\\
+%	\hspace{0.5cm} \thelastpage p. : il. (algumas color.) ; 30 cm.\\
 	
-	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+%	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
 	
-	\hspace{0.5cm}
-	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
-	\imprimirdata.}\\
+%	\hspace{0.5cm}
+%	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~\imprimirinstituicao,
+%	\imprimirdata.}\\
 	
-	\hspace{0.5cm}
-		1. Palavra-chave1.
-		2. Palavra-chave2.
-		2. Palavra-chave3.
-		I. Orientador.
-		II. Universidade xxx.
-		III. Faculdade de xxx.
-		IV. Título 			
-	\end{minipage}}
-	\end{center}
-\end{fichacatalografica}
+%	\hspace{0.5cm}
+%		1. Palavra-chave1.
+%		2. Palavra-chave2.
+%		2. Palavra-chave3.
+%		I. Orientador.
+%		II. Universidade xxx.
+%		III. Faculdade de xxx.
+%		IV. Título 			
+%	\end{minipage}}
+%	\end{center}
+%\end{fichacatalografica}
 % ---
 
 % ---
 % Inserir errata
 % ---
-\begin{errata}
-Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
+%\begin{errata}
+%Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. Exemplo:
 
-\vspace{\onelineskip}
+%\vspace{\onelineskip}
 
-FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
-reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
-rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
-cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
-Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+%FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
+%reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
+%rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
+%cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
+%Zootecnia, Universidade de São Paulo, São Paulo, 2011.
 
-\begin{table}[htb]
-\center
-\footnotesize
-\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
-  \hline
-   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
-    \hline
-    1 & 10 & auto-conclavo & autoconclavo\\
-   \hline
-\end{tabular}
-\end{table}
+%\begin{table}[htb]
+%\center
+%\footnotesize
+%\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+%  \hline
+%   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê}  & \textbf{Leia-se}  \\
+%    \hline
+%    1 & 10 & auto-conclavo & autoconclavo\\
+%   \hline
+%\end{tabular}
+%\end{table}
 
-\end{errata}
+%\end{errata}
 % ---
 
 % ---
@@ -304,92 +320,92 @@ Zootecnia, Universidade de São Paulo, São Paulo, 2011.
 % \includepdf{folhadeaprovacao_final.pdf}
 % \end{folhadeaprovacao}
 %
-\begin{folhadeaprovacao}
+%\begin{folhadeaprovacao}
 
-  \begin{center}
-    {\ABNTEXchapterfont\large\imprimirautor}
+%  \begin{center}
+%    {\ABNTEXchapterfont\large\imprimirautor}
 
-    \vspace*{\fill}\vspace*{\fill}
-    \begin{center}
-      \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
-    \end{center}
-    \vspace*{\fill}
+%    \vspace*{\fill}\vspace*{\fill}
+%    \begin{center}
+%      \ABNTEXchapterfont\bfseries\Large\imprimirtitulo
+%    \end{center}
+%    \vspace*{\fill}
     
-    \hspace{.45\textwidth}
-    \begin{minipage}{.5\textwidth}
-        \imprimirpreambulo
-    \end{minipage}%
-    \vspace*{\fill}
-   \end{center}
+%    \hspace{.45\textwidth}
+%    \begin{minipage}{.5\textwidth}
+ %       \imprimirpreambulo
+%    \end{minipage}%
+%    \vspace*{\fill}
+%   \end{center}
         
-   Trabalho aprovado. \imprimirlocal, 24 de novembro de 2012:
+%   Trabalho aprovado. \imprimirlocal, 24 de novembro de 2012:
 
-   \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
-   \assinatura{\textbf{Professor} \\ Convidado 1}
-   \assinatura{\textbf{Professor} \\ Convidado 2}
+%   \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
+%   \assinatura{\textbf{Professor} \\ Convidado 1}
+%   \assinatura{\textbf{Professor} \\ Convidado 2}
    %\assinatura{\textbf{Professor} \\ Convidado 3}
    %\assinatura{\textbf{Professor} \\ Convidado 4}
       
-   \begin{center}
-    \vspace*{0.5cm}
-    {\large\imprimirlocal}
-    \par
-    {\large\imprimirdata}
-    \vspace*{1cm}
-  \end{center}
+%   \begin{center}
+%    \vspace*{0.5cm}
+%    {\large\imprimirlocal}
+%    \par
+%    {\large\imprimirdata}
+%    \vspace*{1cm}
+%  \end{center}
   
-\end{folhadeaprovacao}
+%\end{folhadeaprovacao}
 % ---
 
 % ---
 % Dedicatória
 % ---
-\begin{dedicatoria}
-   \vspace*{\fill}
-   \centering
-   \noindent
-   \textit{ Este trabalho é dedicado às crianças adultas que,\\
-   quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
-\end{dedicatoria}
+%\begin{dedicatoria}
+%   \vspace*{\fill}
+%   \centering
+%   \noindent
+%   \textit{ Este trabalho é dedicado às crianças adultas que,\\
+%   quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
+%\end{dedicatoria}
 % ---
 
 % ---
 % Agradecimentos
 % ---
-\begin{agradecimentos}
-Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
-Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
-Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
-projeto abn\TeX\ foram extraídos de
-\url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
-contribuíram para que a produção de trabalhos acadêmicos conforme
-as normas ABNT com \LaTeX\ fosse possível.
+%\begin{agradecimentos}
+%Os agradecimentos principais são direcionados à Gerald Weber, Miguel Frasson,
+%Leslie H. Watter, Bruno Parente Lima, Flávio de Vasconcellos Corrêa, Otavio Real
+%Salvador, Renato Machnievscz\footnote{Os nomes dos integrantes do primeiro
+%projeto abn\TeX\ foram extraídos de
+%\url{http://codigolivre.org.br/projects/abntex/}} e todos aqueles que
+%contribuíram para que a produção de trabalhos acadêmicos conforme
+%as normas ABNT com \LaTeX\ fosse possível.
 
-Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
-da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
-Brasília (CPAI), ao grupo de usuários
-\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
-novos voluntários do grupo
-\emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
-\url{http://www.abntex.net.br/}}~que contribuíram e que ainda
-contribuirão para a evolução do \abnTeX.
+%Agradecimentos especiais são direcionados ao Centro de Pesquisa em Arquitetura
+%da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
+%Brasília (CPAI), ao grupo de usuários
+%\emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
+%novos voluntários do grupo
+%\emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
+%\url{http://www.abntex.net.br/}}~que contribuíram e que ainda
+%contribuirão para a evolução do \abnTeX.
 
-\end{agradecimentos}
+%\end{agradecimentos}
 % ---
 
 % ---
 % Epígrafe
 % ---
-\begin{epigrafe}
-    \vspace*{\fill}
-	\begin{flushright}
-		\textit{``Não vos amoldeis às estruturas deste mundo, \\
-		mas transformai-vos pela renovação da mente, \\
-		a fim de distinguir qual é a vontade de Deus: \\
-		o que é bom, o que Lhe é agradável, o que é perfeito.\\
-		(Bíblia Sagrada, Romanos 12, 2)}
-	\end{flushright}
-\end{epigrafe}
+%\begin{epigrafe}
+%    \vspace*{\fill}
+%	\begin{flushright}
+%		\textit{``Não vos amoldeis às estruturas deste mundo, \\
+%		mas transformai-vos pela renovação da mente, \\
+%		a fim de distinguir qual é a vontade de Deus: \\
+%		o que é bom, o que Lhe é agradável, o que é perfeito.\\
+%		(Bíblia Sagrada, Romanos 12, 2)}
+%	\end{flushright}
+%\end{epigrafe}
 % ---
 
 % ---
@@ -399,49 +415,21 @@ contribuirão para a evolução do \abnTeX.
 % resumo em português
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
- Segundo a \citeonline[3.1-3.2]{NBR6028:2003}, o resumo deve ressaltar o
- objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
- destes itens dependem do tipo de resumo (informativo ou indicativo) e do
- tratamento que cada item recebe no documento original. O resumo deve ser
- precedido da referência do documento, com exceção do resumo inserido no
- próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
- resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
- ponto e finalizadas também por ponto.
-
- \textbf{Palavras-chave}: latex. abntex. editoração de texto.
+	Este Projeto de Conclusão de Curso tem como objetivo o desenvolvimento de um sistema web para automatizar os processos administrativos da pousada Chalés Água de Coco, que atualmente realiza a gestão de hóspedes, reservas, acomodações e controle financeiro por meio de planilhas eletrônicas no Excel. A falta de integração e a limitação desse método tornam a operação vulnerável a erros, retrabalho e dificuldade de acesso remoto às informações. Com base em uma parceria estabelecida com a pousada, foi possível realizar um levantamento detalhado dos requisitos e desenvolver uma solução personalizada, capaz de centralizar as informações em uma única plataforma, acessível via internet. O sistema propõe melhorias significativas na organização dos dados, no controle de reservas e na geração de relatórios gerenciais, otimizando a tomada de decisões. Este projeto representa a aplicação prática dos conhecimentos adquiridos ao longo do curso, ao mesmo tempo em que oferece uma ferramenta útil para a modernização da gestão em pequenos empreendimentos do setor de hospitalidade.
+	
+	\textbf{Palavras-chave}: sistema web, pousada, automação, reservas, gestão de hóspedes, controle financeiro.
 \end{resumo}
-
 % resumo em inglês
 \begin{resumo}[Abstract]
- \begin{otherlanguage*}{english}
-   This is the english abstract.
-
-   \vspace{\onelineskip}
- 
-   \noindent 
-   \textbf{Keywords}: latex. abntex. text editoration.
- \end{otherlanguage*}
+	\begin{otherlanguage*}{english}
+		This Final Paper aims to develop a web-based system to automate the administrative processes of the inn Chalés Água de Coco, which currently manages guests, reservations, accommodations, and financial control through Excel spreadsheets. The lack of integration and limitations of this manual method make operations prone to errors, rework, and hinder remote access to information. Based on a partnership established with the inn, it was possible to conduct a detailed requirements analysis and develop a customized solution capable of centralizing data on a single, internet-accessible platform. The system brings significant improvements in data organization, reservation management, and the generation of management reports, optimizing decision-making. This project represents the practical application of the knowledge acquired, while also delivering a useful tool to modernize management practices in small hospitality businesses.
+		
+		\vspace{\onelineskip}
+		
+		\noindent 
+		\textbf{Keywords}: web system, inn, automation, reservations, guest management, financial control.
+	\end{otherlanguage*}
 \end{resumo}
-
-% resumo em francês 
-\begin{resumo}[Résumé]
- \begin{otherlanguage*}{french}
-    Il s'agit d'un résumé en français.
- 
-   \textbf{Mots-clés}: latex. abntex. publication de textes.
- \end{otherlanguage*}
-\end{resumo}
-
-% resumo em espanhol
-\begin{resumo}[Resumen]
- \begin{otherlanguage*}{spanish}
-   Este es el resumen en español.
-  
-   \textbf{Palabras clave}: latex. abntex. publicación de textos.
- \end{otherlanguage*}
-\end{resumo}
-% ---
-
 % ---
 % inserir lista de ilustrações
 % ---
@@ -449,7 +437,6 @@ contribuirão para a evolução do \abnTeX.
 \listoffigures*
 \cleardoublepage
 % ---
-
 % ---
 % inserir lista de quadros
 % ---
@@ -457,7 +444,6 @@ contribuirão para a evolução do \abnTeX.
 \listofquadros*
 \cleardoublepage
 % ---
-
 % ---
 % inserir lista de tabelas
 % ---
@@ -465,25 +451,40 @@ contribuirão para a evolução do \abnTeX.
 \listoftables*
 \cleardoublepage
 % ---
-
 % ---
 % inserir lista de abreviaturas e siglas
 % ---
 \begin{siglas}
   \item[ABNT] Associação Brasileira de Normas Técnicas
-  \item[abnTeX] ABsurdas Normas para TeX
+  \item[AWS]	Amazon Web Services
+  \item[CSRF]	Cross-Site Request Forgery (Falsificação de Requisição entre Sites)
+  \item[CSS]	Cascading Style Sheets
+  \item[HTML]	HyperText Markup Language
+  \item[HTTP]	Hypertext Transfer Protocol
+  \item[HTTPS]	Hypertext Transfer Protocol Secure
+  \item[IP]	Internet Protocol
+  \item[LGPD]	Lei Geral de Proteção de Dados
+  \item[MVC]	Model-View-Controller (Modelo-Visão-Controlador)
+  \item[MTV]	Model-Template-View (Modelo-Template-Visualização)
+  \item[ORM]	Object-Relational Mapper (Mapeador Objeto-Relacional)
+  \item[PBKDF2]	Password-Based Key Derivation Function 2
+  \item[POST]	Post Method (Método de Envio via HTTP)
+  \item[SQL]	Structured Query Language
+  \item[SSL]	Secure Sockets Layer
+  \item[TLS]	Transport Layer Security
+  \item[URL]	Uniform Resource Locator
+  \item[XSS]	Cross-Site Scripting (Script Entre Sites)
 \end{siglas}
 % ---
-
 % ---
 % inserir lista de símbolos
 % ---
-\begin{simbolos}
-  \item[$ \Gamma $] Letra grega Gama
-  \item[$ \Lambda $] Lambda
-  \item[$ \zeta $] Letra grega minúscula zeta
-  \item[$ \in $] Pertence
-\end{simbolos}
+%\begin{simbolos}
+%  \item[$ \Gamma $] Letra grega Gama
+%  \item[$ \Lambda $] Lambda
+%  \item[$ \zeta $] Letra grega minúscula zeta
+%  \item[$ \in $] Pertence
+%\end{simbolos}
 % ---
 
 % ---
@@ -503,137 +504,920 @@ contribuirão para a evolução do \abnTeX.
 
 % ----------------------------------------------------------
 % Introdução (exemplo de capítulo sem numeração, mas presente no Sumário)
-% ----------------------------------------------------------
+% --------------------------------------------------------------------------------------------------------------
 \chapter{Introdução}
 % ----------------------------------------------------------
 
-Este documento e seu código-fonte são exemplos de referência de uso da classe
-\textsf{abntex2} e do pacote \textsf{abntex2cite}. O documento 
-exemplifica a elaboração de trabalho acadêmico (tese, dissertação e outros do
-gênero) produzido conforme a ABNT NBR 14724:2011 \emph{Informação e documentação
-- Trabalhos acadêmicos - Apresentação}.
+A transformação digital tem impactado significativamente a forma como empresas de diversos segmentos gerenciam suas atividades operacionais e estratégicas. No setor de hospitalidade, especialmente em pequenos empreendimentos como pousadas, a adoção de tecnologias adequadas pode representar um grande avanço em eficiência, organização e qualidade no atendimento ao cliente.
 
-A expressão ``Modelo Canônico'' é utilizada para indicar que \abnTeX\ não é
-modelo específico de nenhuma universidade ou instituição, mas que implementa tão
-somente os requisitos das normas da ABNT. Uma lista completa das normas
-observadas pelo \abnTeX\ é apresentada em \citeonline{abntex2classe}.
+Apesar disso, muitas pousadas ainda utilizam métodos manuais ou ferramentas limitadas, como planilhas eletrônicas, para controlar reservas, hospedagens e finanças. Esse é o caso da pousada Chalés Água de Coco, que realiza a gestão de suas operações exclusivamente por meio do Excel. Tal prática, embora inicialmente funcional, apresenta limitações consideráveis, como risco elevado de erros, dificuldade de atualização em tempo real e ausência de acessibilidade remota.
 
-Sinta-se convidado a participar do projeto \abnTeX! Acesse o site do projeto em
-\url{http://www.abntex.net.br/}. Também fique livre para conhecer,
-estudar, alterar e redistribuir o trabalho do \abnTeX, desde que os arquivos
-modificados tenham seus nomes alterados e que os créditos sejam dados aos
-autores originais, nos termos da ``The \LaTeX\ Project Public
-License''\footnote{\url{http://www.latex-project.org/lppl.txt}}.
-
-Encorajamos que sejam realizadas customizações específicas deste exemplo para
-universidades e outras instituições --- como capas, folha de aprovação, etc.
-Porém, recomendamos que ao invés de se alterar diretamente os arquivos do
-\abnTeX, distribua-se arquivos com as respectivas customizações.
-Isso permite que futuras versões do \abnTeX~não se tornem automaticamente
-incompatíveis com as customizações promovidas. Consulte
-\citeonline{abntex2-wiki-como-customizar} para mais informações.
-
-Este documento deve ser utilizado como complemento dos manuais do \abnTeX\ 
-\cite{abntex2classe,abntex2cite,abntex2cite-alf} e da classe \textsf{memoir}
-\cite{memoir}. 
-
-Esperamos, sinceramente, que o \abnTeX\ aprimore a qualidade do trabalho que
-você produzirá, de modo que o principal esforço seja concentrado no principal:
-na contribuição científica.
-
-Equipe \abnTeX 
-
-Lauro César Araujo
+Diante dessa realidade, identificou-se a necessidade de modernização e automatização dos processos da pousada, visando torná-los mais ágeis, seguros e organizados. A parceria firmada com a Chalés Água de Coco permitiu levantar as principais dificuldades enfrentadas na gestão atual, servindo como base para o desenvolvimento de uma solução tecnológica alinhada às reais necessidades do negócio.
 
 % ----------------------------------------------------------
-% PARTE
-% ----------------------------------------------------------
-\part{Preparação da pesquisa}
+% ---
+\section{Objetivo}
+Desenvolver um sistema web para automatizar os processos de gestão da pousada Chalés Água de Coco, substituindo o controle manual realizado via planilhas do Excel. O sistema permitirá o gerenciamento eficiente de hóspedes, reservas, acomodações e informações financeiras, promovendo maior organização, redução de falhas e facilidade de acesso às informações por parte dos gestores.
+
+\section{Justificativa}
+A escolha deste projeto se justifica pela necessidade real de modernização enfrentada por pequenos empreendimentos do setor de hospedagem, como a pousada Chalés Água de Coco, que atualmente depende de controles manuais realizados por meio de planilhas no Excel. Esse tipo de gestão, embora comum em pequenos negócios, apresenta diversas limitações, como a suscetibilidade a erros humanos, dificuldade de atualização simultânea, falta de integração entre os dados e ausência de acessibilidade remota.
+
+Com o crescimento da demanda por eficiência operacional e qualidade no atendimento ao cliente, torna-se essencial a adoção de soluções tecnológicas que automatizem processos, centralizem informações e proporcionem maior controle gerencial. Um sistema web desenvolvido sob medida representa uma alternativa viável e eficaz, oferecendo funcionalidades específicas para o contexto da pousada, além de ser acessível a partir de qualquer dispositivo conectado à internet.
+
+Além disso, o desenvolvimento deste projeto contribui academicamente ao proporcionar a aplicação prática dos conhecimentos adquiridos ao longo do curso de Tecnologia da Informação, abrangendo áreas como análise de requisitos, modelagem de dados, programação web, experiência do usuário e segurança da informação. Por fim, a solução proposta tem potencial de gerar impacto direto e positivo na gestão do negócio parceiro, tornando este trabalho relevante tanto do ponto de vista acadêmico quanto social e econômico.
+
+\section{Análise da Concorrência}
+\subsection{SimplesHotel}
+Simpleshotel é um sistema de gestão hoteleira desenvolvido para hotéis e pousadas de pequeno a grande porte, com foco na automação e integração dos processos operacionais e administrativos do setor de hospitalidade.
+A plataforma monetiza por meio de cobrança por planos pré-pagos mensais, com variação conforme o número de acomodações. Taxas adicionais são aplicadas para uso de módulos como emissão de NFSe, envio de SMS e motor de reservas.
+Suas principais funcionalidades são gerenciador de reservas, controle financeiro e de estoque, gerenciamento de eventos e day use, integração com canais de venda (Booking, Expedia, Hoteis.com, Decolar), web check-in, emissão de notas fiscais, módulo de governança e suporte multicanal.
+A plataforma é uma aplicação web, acessível via navegador. Armazenamento em nuvem e sincronização em tempo real com OTAs. Suporte remoto com atendimento humanizado.
+\subsection{HospedaJá}
+HospedaJá é uma plataforma online de gestão para hotéis e pousadas de pequeno e médio porte, com foco na organização de reservas, hospedagens, acomodações e finanças.
+A plataforma monetiza por meio de cobrança de mensalidades conforme plano escolhido, variando por número de quartos e usuários.
+Suas principais funcionalidaes são controle de reservas e hospedagens, mapa de ocupação, gestão financeira, controle de estoque de produtos e serviços, geração de relatórios gerenciais.
+A plataforma é uma aplicação web baseada em nuvem, que contém um sistema de backup automático, faz suporte técnico via e-mail e chamados.
+\subsection{Comparativo}
+\begin{quadro}[htb]
+	\caption{\label{quadro_exemplo}Comparativo de funcionalidades entre Chalés Água De Coco e seus concorrentes}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Funcionalidades} & \textbf{Chalés} & \textbf{simpleshotel} & \textbf{hospedajá} \\ \hline
+		Gerenciamento de Quartos & X    &    & X    \\ \hline
+		Gerenciamento de Hospedes  & X    & X   & X    \\ \hline
+		Gerenciamento de Reservas    & X   & X  & X    \\ \hline
+		Controle Financeiro  & X    & X   & X    \\ \hline
+		Relatórios  & X    &    & X    \\ \hline
+		Controle de Estoque  &     & X   & X    \\ \hline
+		Baixo custo & X    &    &     \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos Autores.}
+\end{quadro} 
+%\part{Preparação da pesquisa}
 % ----------------------------------------------------------
 
 % ---
 % Capitulo com exemplos de comandos inseridos de arquivo externo 
 % ---
-\include{abntex2-modelo-include-comandos}
+%\include{abntex2-modelo-include-comandos}
 % ---
 
-\chapter{Conteúdos específicos do modelo de trabalho acadêmico}\label{cap_trabalho_academico}
+%\chapter{Conteúdos específicos do modelo de trabalho acadêmico}\label{cap_trabalho_academico}
 
-\section{Quadros}
+%\section{Quadros}
 
-Este modelo vem com o ambiente \texttt{quadro} e impressão de Lista de quadros 
-configurados por padrão. Verifique um exemplo de utilização:
+%Este modelo vem com o ambiente \texttt{quadro} e impressão de Lista de quadros 
+%configurados por padrão. Verifique um exemplo de utilização:
 
-\begin{quadro}[htb]
-\caption{\label{quadro_exemplo}Exemplo de quadro}
-\begin{tabular}{|c|c|c|c|}
-	\hline
-	\textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
-	Marcos & 26    & 68   & 178    \\ \hline
-	Ivone  & 22    & 57   & 162    \\ \hline
-	...    & ...   & ...  & ...    \\ \hline
-	Sueli  & 40    & 65   & 153    \\ \hline
-\end{tabular}
-\fonte{Autor.}
-\end{quadro}
+%\begin{quadro}[htb]
+%\caption{\label{quadro_exemplo}Exemplo de quadro}
+%\begin{tabular}{|c|c|c|c|}
+%	\hline
+%	\textbf{Pessoa} & \textbf{Idade} & \textbf{Peso} & \textbf{Altura} \\ \hline
+%	Marcos & 26    & 68   & 178    \\ \hline
+%	Ivone  & 22    & 57   & 162    \\ \hline
+%	...    & ...   & ...  & ...    \\ \hline
+%	Sueli  & 40    & 65   & 153    \\ \hline
+%\end{tabular}
+%\fonte{Autor.}
+%\end{quadro}
 
-Este parágrafo apresenta como referenciar o quadro no texto, requisito
-obrigatório da ABNT. 
-Primeira opção, utilizando \texttt{autoref}: Ver o \autoref{quadro_exemplo}. 
-Segunda opção, utilizando  \texttt{ref}: Ver o Quadro \ref{quadro_exemplo}.
+%Este parágrafo apresenta como referenciar o quadro no texto, requisito
+%obrigatório da ABNT. 
+%Primeira opção, utilizando \texttt{autoref}: Ver o \autoref{quadro_exemplo}. 
+%Segunda opção, utilizando  \texttt{ref}: Ver o Quadro \ref{quadro_exemplo}.
 
 % ----------------------------------------------------------
 % PARTE
 % ----------------------------------------------------------
-\part{Referenciais teóricos}
+%\part{Referenciais teóricos}
 % ----------------------------------------------------------
 
 % ---
 % Capitulo de revisão de literatura
 % ---
-\chapter{Lorem ipsum dolor sit amet}
+\chapter{Revisão de Literatura}
 % ---
 
 % ---
-\section{Aliquam vestibulum fringilla lorem}
+\section{}
 % ---
 
-\lipsum[1]
-
-\lipsum[2-3]
 
 % ----------------------------------------------------------
 % PARTE
 % ----------------------------------------------------------
-\part{Resultados}
+%\part{Resultados}
 % ----------------------------------------------------------
 
 % ---
 % primeiro capitulo de Resultados
 % ---
-\chapter{Lectus lobortis condimentum}
+\chapter{Gestão do Projeto}
+Esta seção detalha as principais estratégias empregadas no desenvolvimento da aplicação web de gestão para a pousada Chalés Água de Coco. Dessa forma, nela são apresentadas as metodologias, ferramentas e práticas que foram adotadas para o planejamento, execução e monitoramento do projeto, com o objetivo de garantir uma entrega organizada, eficiente e alinhada aos objetivos estabelecidos pelas partes interessadas.
+% ---
+% ---
+\section{Organização da Equipe}
+Na gestão desse projeto, a organização da equipe representou um marco fundamental e teve como foco dividir as funções e atividades necessárias para o desenvolvimento da aplicação web de gestão da pousada.
+\subsection{Funções e Responsabilidades}
+A designação das funções e responsabilidades foi realizada de maneira estratégica e levou em consideração as competências técnicas e experiências prévias de cada membro da equipe, visando a entrega do produto final dentro do prazo estipulado. 	A função de cada membro e suas respectivas responsabilidades estão detalhadas no quadro "\ref{quadro_funçao_responsabilidade}": Função e Responsabilidades da Equipe do Projeto.	
+
+\begin{quadro}[htb]
+	\caption{Função e Responsabilidades da Equipe do Projeto}
+	\label{quadro_funçao_responsabilidade}
+	\begin{tabular}{|p{2.8cm}|p{5cm}|p{7.2cm}|}
+		\hline
+		\textbf{Integrante} & \textbf{Função} & \textbf{Responsabilidades} \\ \hline
+		Anna Julia & Analista de Cronograma & Criar e atuar na manutenção e monitoramento do cronograma do projeto, além de oferecer suporte nas práticas de gestão  \\ \hline
+	
+		Guilherme Akio & Engenheiro de Dados e Administrador de Banco de Dados (DBA) & Implementar, administrar  e otimizar o banco de dados da aplicação, garantindo a integridade, segurança e performance dos dados \\ \hline
+	
+		Guilherme \quad Bittencourt & Documentador Técnico e Engenheiro de Software & Criar e manter a documentação técnica, garantido a clareza e acessibilidade das informações do projeto. Além de definir e organizar a estrutura da aplicação.\\ \hline
+	
+		Kelly Radchelle & Gerente de Projeto & Coordenar a equipe e gerenciar as atividades  do projeto, a fim de facilitar as tomadas de decisões e  assegurar a comunicação entre as partes interessadas do projeto   \\ \hline
+		Rafael Teixeira & Desenvolvedor Frontend e UI/UX Designer & Criar e implementar a interface da aplicação, garantindo uma boa  experiência de usuário (UX)  e design de interface (UI), além de desenvolver a lógica de apresentação.    \\ \hline
+		Ricardo Carriel & Desenvolvedor Backend e Administrador de Servidores & Desenvolver a lógica de negócio da aplicação, configurar e administrar o servidor de aplicação  além de garantir a integração da aplicação  \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%---
+%---
+\section{Metodologias de gestão e desenvolvimento}
+Para assegurar que o produto final seja entregue em pleno alinhamento com as expectativas da cliente, a equipe envolvida no projeto optou pela adoção da metodologia ágil Scrum como ferramenta de gestão e desenvolvimento do projeto. Essa decisão fundamentou-se na familiaridade da equipe com a estrutura, na capacidade do Scrum de otimizar a organização, divisão e planejamento de atividades do projeto, e em sua relevância como framework de gerenciamento– dado seu uso extensivo no contexto de desenvolvimento de softwares complexos.
+Segundo Schwaber e Sutherland (2020), o Scrum é um framework estruturado desenvolvido na década de 1990. Ele foi criado com o intuito de auxiliar equipes na criação e gerenciamento de produtos complexos. Para isso o Scrum tem como pilares fundamentais a transparência, a inspeção e a adaptação. A transparência garante que todos os aspectos significativos do processo estejam visíveis e claros para as partes interessadas a todo momento. A inspeção envolve o acompanhamento regular dos artefatos e progresso, a fim da detecção precoce de problemas. Por fim, a adaptação refere-se à capacidade de fazer ajustes no processo  em resposta aos problemas anteriormente detectados na inspeção, com o objetivo de otimizar os resultados.
+Sabendo que para operacionalizar esses pilares e assegurar um ciclo de desenvolvimento iterativo e incremental, a metodologia Scrum sugere a definição de papeis específicos dentro do time, estabelece a realização de uma sequência de eventos formais e o uso de artefatos específicos, os integrantes da equipe desenvolveram as tarefas e eventos sugeridos pelo Scrum para a gestão e desenvolvimento do projeto.
+
+\subsection{Time Scrum}
+Como estabelecido no Guia do Scrum (SCHWABER; SUTHERLAND, 2020), os membros da equipe do projeto assumem papeis específicos que compõem um time Scrum: Dono do Produto (Product Owner), Scrum Master e Time de Desenvolvimento. 
+O Dono do Produto (Product Owner) é o representante das partes interessadas (Stakeholders) e tem como responsabilidade principal gerenciar o backlog do Produto, a fim de maximizar o valor do produto e otimizar o trabalho do Time de Desenvolvimento. 
+O Scrum Master é o responsável por promover e facilitar a aplicação da teoria e das práticas do framework, atuando como um líder-servidor ao auxiliar a equipe na retirada de impedimentos que venham afetar seu progresso . 
+O Time de Desenvolvimento é responsável por entregar um incremento (versão potencialmente usável do produto) ao final de cada sprint, atuando de maneira auto-organizada e multifuncional . 
+Ciente disso, realizou-se a distribuição dos papeis de um time scrum entre os integrantes da equipe e registrou-se na “\autoref{tab:time_scrum}”.
+
+\begin{table}[htb]
+	\centering
+	\caption{Função dos Integrantes da Equipe}
+	\label{tab:time_scrum}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Integrante} & \multicolumn{3}{c|}{\textbf{Função}} \\ \cline{2-4}
+		& \textit{Product Owner} & \textit{Scrum Master} & \textit{Time de Desenvolvimento} \\ \hline
+		Anna Julia & X & & \\ \hline
+		Guilherme Akio & & & X \\ \hline
+		Guilherme Bittencourt & & & X \\ \hline
+		Kelly Radchelle & X & & \\ \hline
+		Rafael Teixeira & & & X \\ \hline
+		Ricardo Carriel & & & X \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{table}
+%---
+
+%---
+\section{Artefatos}
+No scrum,  os artefatos são elementos fundamentais que ajudam a equipe a consolidar a transparência no processo de desenvolvimento. Cientes das suas importâncias, o time scrum realizou o planejamento inicial dos artefatos: Product Backlog e Sprints Backlog.
+
+\subsection{Product Backlog}
+O Product Backlog consiste em uma lista ordenada de todos os itens de trabalho, sendo elas as funcionalidades, os requisitos e os aprimoramentos necessários para a produção do produto,  e que oferecem o máximo valor e utilidade para o cliente. Diante disso, foi elaborado pelo product owner o backlog de produto inicial do projeto da aplicação web de gestão da pousada Chalés Água de Coco (\autoref{}) com base nas histórias de usuário levantadas pela equipe, visto que, elas expressam as necessidades e expectativas sob a perspectiva da usuária e principal stakeholder.
+
+\begin{quadro}[htb]
+	\caption{Product backlog}
+	\label{quadro_product_backlog}
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Ordem} & \textbf{Item} & \textbf{Domínio} & \textbf{Prioridade} \\ \hline
+		1 & Configurar ambiente de hospedagem & Infraestrutura e Configuração   & Essencial    \\ \hline
+		2 & Configurar repositório Git e fluxo de versionamento & Infraestrutura e Configuração & Essencial  \\ \hline
+		3 & ...   & ...  & ...    \\ \hline
+		4 & 40    & 65   & 153    \\ \hline
+		5 & 40    & 65   & 153    \\ \hline
+		6 & 40    & 65   & 153    \\ \hline
+		7 & 40    & 65   & 153    \\ \hline
+		8 & 40    & 65   & 153    \\ \hline
+		9 & 40    & 65   & 153    \\ \hline
+		10 & 40    & 65   & 153    \\ \hline
+	\end{tabular}
+	\fonte{Autor.}
+\end{quadro}
 % ---
 
-% ---
-\section{Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-posuere cubilia Curae}
-% ---
-
-\lipsum[21-22]
 
 % ---
 % segundo capitulo de Resultados
 % ---
-\chapter{Nam sed tellus sit amet lectus urna ullamcorper tristique interdum
-elementum}
-% ---
+\chapter{Desenvolvimento do Projeto}
+\section{Escopo do Projeto}
+\subsection{Requisitos Funcionais}
+\begin{quadro}[H]
+	\caption{Requisitos Funcionais - Parte 1}
+	\label{quadro_rf1}
+	\begin{tabular}{|c|p{5cm}|c|p{4cm}|}
+		\hline
+		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio} \\ \hline
+		RF01 & O sistema deve permitir o cadastro de reservas, associando um quarto a um período (data de check-in e check-out) & Alta & Não Aplicável \\ \hline
+		RF02 & O sistema deve permitir o cadastro de reservas, associando um quarto a um período (data de check-in e check-out) & Alta & RN03, RN01 \\ \hline
+		RF03 & Uma reserva deve estar associada a um quarto disponível para que ela seja cadastrada. & Alta & RN11 \\ \hline
+		RF04 & O sistema deve exigir os dados pessoais do hóspede para que a reserva seja cadastrada: nome completo, endereço completo, CPF, telefone e e-mail. & Alta & RN05 \\ \hline
+		RF05 & A proprietária deve conseguir reservar quartos para um cliente em nome de outra pessoa responsável, registrando os dados do hóspede e, opcionalmente, do responsável. & Média & RN06 \\ \hline
+		RF06 & O sistema deve exigir o pagamento de 50 por cento do valor da estadia para confirmar o cadastro da reserva (a ser pago no momento da reserva ou em um prazo definido). & Média & RN01 \\ \hline
+		RF07 & O sistema deve permitir o registro da comprovação do pagamento & Média & RN01 \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
 
-% ---
-\section{Pellentesque sit amet pede ac sem eleifend consectetuer}
-% ---
+\begin{quadro}[H]
+	\caption{Requisitos Funcionais - Parte 2}
+	\label{quadro_rf2}
+	\begin{tabular}{|c|p{5cm}|c|p{4cm}|}
+		\hline
+		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio} \\ \hline
+		RF08 & A proprietária deve conseguir cancelar ou remarcar uma reserva, com possível registro do motivo & Média & RN02 \\ \hline
+		RF09 & A proprietária deve poder visualizar todas as reservas, com detalhes do hóspede, quarto reservado e período & Alta & RN15 \\ \hline
+		RF10 & A proprietária deve conseguir cadastrar mais de uma reserva no nome de um mesmo cliente & Média & RN04 \\ \hline
+		RF11 & A proprietária deve conseguir reservar um mesmo quarto para diferentes clientes em datas seguidas respeitando os horários de check-in e check-out configurados para quarto & Alta & RN11 \\ \hline
+		RF12 & A proprietária deve conseguir acessar o histórico de reservas de um cliente & Média & RN15 \\ \hline
+		RF13 & O sistema deve mudar o status do quarto para ocupado após a realização do check-in & Alta & Não Aplicável \\ \hline
+		RF14 & O sistema mandar deve uma notificação para o hospede após a confirmação da reserva & Baixa & Não Aplicável \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+\begin{quadro}[H]
+	\caption{Requisitos Funcionais - Parte 3}
+	\label{quadro_rf3}
+	\begin{tabular}{|c|p{5cm}|c|p{4cm}|}
+		\hline
+		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio} \\ \hline
+		RF15 & O sistema deve permitir o cadastro de novos quartos, incluindo informações como número/nome do quarto, capacidade (número de hóspedes) tipo (ex: chale, simples solteiro, simples casal, etc.), e preço por noite. & Alta & Não Aplicável \\ \hline
+		RF16 & A proprietária deve conseguir editar as informações dos quartos já cadastrados & Alta & Não Aplicável \\ \hline
+		RF17 & A proprietária deve poder visualizar todos os quartos cadastrados. & Alta & Não Aplicável \\ \hline
+		RF18 & O sistema deve permitir a visualização dos quartos disponíveis no período de tempo selecionado para a reserva & Média & RN03, RN11 \\ \hline
+		RF19 & A proprietária deve conseguir mudar c status de um quarto (ex: disponível, indisponível, em manutenção). & Alta & RN10 \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+\begin{quadro}[H]
+	\caption{Requisitos Funcionais - Parte 4}
+	\label{quadro_rf4}
+	\begin{tabular}{|c|p{5cm}|c|p{4cm}|}
+		\hline
+		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio} \\ \hline
+		RF20 & A proprietária deve poder registrar as despesas da pousada, categorizando-as (ex manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa & Média & Não Aplicável \\ \hline
+		RF21 & A proprietária deve conseguir cadastrar gastos fixos e gastos variáveis. & Média & Não Aplicável \\ \hline
+		RF22 & A proprietária deve poder registrar receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita. & Média & RN13 \\ \hline
+		RF23 & O sistema deve permitir que a proprietária visualize todas as transações financeiras (receitas e despesas) em um determinado período. & Média & Não Aplicável \\ \hline
+		RF24 & O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria & Média & Não Aplicável \\ \hline
+		RF25 & O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo & Média & Não Aplicável \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
 
-\lipsum[24]
+\end{quadro}
+\subsection{Requisitos Não Funcionais}
+\begin{quadro}[H]
+	\caption{\label{quadro_rnf1}Requisitos Não Funcionais - Parte 1}
+	\begin{tabular}{|c|p{4cm}|p{8cm}|}
+		\hline
+		\textbf{Código} & \textbf{Módulo} & \textbf{Descrição} \\ \hline
+		RNF01 & Usabilidade & A interface do sistema deve ser intuitiva, responsiva (compatível e adaptada tanto para dispositivos desktop quanto mobile) e de fácil utilização, de modo que as tarefas essenciais da gestão da pousada sejam realizadas de forma eficiente e com mínimo esforço de aprendizado pela proprietária. Para isso, deve-se adotar os princípios de interface amigável como a priorização da simplicidade e da clareza, padrões de interface consistentes e acessíveis. \\ \hline
+		RNF02 & Usabilidade & O sistema deve fornecer mensagens de feedback claras, objetivas e contextualizadas para todas as ações realizadas pela usuária, como confirmação de reserva (exemplo: reserva efetuada com sucesso) ou notificações de erros (exemplo: falha ao cadastrar um quarto), garantindo uma interação segura e satisfatória. \\ \hline
+		RNF03 & Performance & O sistema deve apresentar um tempo de resposta baixo, com carregamento das páginas e execução de ações da proprietária entre 2 e 3 segundos, para garantir uma navegação fluida. \\ \hline
+		RNF04 & Performance & O sistema deve ser capaz de lidar com a carga de trabalho estimada desde o registro e a consulta simultânea de dados à gestão de múltiplas reservas, sem degradação significativa no desempenho, este que deverá se manter estável mesmo em períodos de maior demanda, considerando o perfil sazonal do negócio. \\ \hline
+		RNF05 & Segurança & O sistema deve garantir a segurança das informações da pousada e dos hóspedes através da implementação de mecanismos robustos de autenticação e autorização, de forma a assegurar que apenas a usuária autorizada consiga acessar ou alterar dados na aplicação. \\ \hline
+	
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+\begin{quadro}[H]
+	\caption{\label{quadro_rnf2}Requisitos Não Funcionais - Parte 2}
+	\begin{tabular}{|c|p{4cm}|p{8cm}|}
+		\hline
+		\textbf{Código} & \textbf{Módulo} & \textbf{Descrição} \\ \hline
+		RNF06 & Segurança & Os dados sensíveis devem ser protegidos conforme as melhores práticas propostas pela LGPD (Lei Geral de Proteção de Dados Pessoais), incluindo: utilização de criptografia para proteger dados em trânsito (HTTPS) e em repouso, implementação de políticas de autenticação robusta e minimização da coleta de dados. \\ \hline
+		RNF07 & Confiabilidade & O sistema deve estar disponível e funcionando corretamente por pelo menos 99 por cento do tempo, a fim de garantir que a proprietária tenha acesso ao sistema sempre que necessário, inclusive nos períodos com maior movimento de hóspedes na pousada. \\ \hline
+		RNF08 & Confiabilidade & O sistema deve implementar mecanismos de tratamento de erros para que falhas e perdas de dados sejam prevenidas. \\ \hline
+		RNF09 & Confiabilidade & O deploy da aplicação deve ser realizado em uma infraestrutura de nuvem (Amazon EC2), a fim de proporcionar maior estabilidade, flexibilidade à aplicação e permitir que possíveis atualizações e manutenções tenham impacto mínimo para a usuária. \\ \hline
+		RNF10 & Escalabilidade & Embora o sistema, inicialmente, seja voltado para uma única usuária, a arquitetura deve ser projetada de forma a permitir futuras expansões no número de usuários e funcionalidades sem grandes refatorações. \\ \hline
+		RNF11 & Documentação & O sistema deve possuir uma documentação completa, objetiva e atualizada, incluindo código-fonte, a arquitetura da aplicação, os fluxos de uso e as especificações de APIs possivelmente integradas. \\ \hline
+		RNF12 & Documentação & A documentação deve estar versionada e organizada em no repositório Git — o GitHub —, este que deve ser utilizado no controle de versão da aplicação e colaboração entre os membros da equipe. \\ \hline
+		RNF13 & Documentação & O desenvolvimento deve seguir as boas práticas de codificação e padrões recomendados para aplicações Django, a fim de assegurar a manutenibilidade, extensibilidade e integridade do sistema ao longo do seu ciclo de vida. \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
 
+
+
+
+\subsection{Regras de Negócio}
+\begin{quadro}[H]
+	\caption{\label{quadro_rn}Regras de Negócio}
+	\begin{tabular}{|c|p{8cm}|}
+	\hline
+	\textbf{Regra} & \textbf{Descrição}  \\ \hline	
+	RN01 & A confirmação de uma reserva deve ocorrer mediante o pagamento de 50 por cento do valor total.   \\ \hline
+	RN02 & Cancelamentos e remarcações são permitidos, sujeitos a regras e taxas específicas.   \\ \hline
+	RN03 & As reservas devem ser registradas com, no mínimo, 2 dias de antecedência da data de entrada.  \\ \hline
+	RN04 & Um mesmo hóspede pode ter mais de uma reserva ativa.   \\ \hline
+	RN05 & Para efetuar uma reserva, os seguintes dados do hóspede são obrigatórios: nome completo, endereço completo, CPF, telefone e e-mail   \\ \hline
+	RN06 & Um responsável pode realizar reservas em nome de outros hóspedes.   \\ \hline
+	RN07 & Um responsável pode realizar reservas em nome de outros hóspedes.   \\ \hline
+	RN08 & Os horários padrão são: check-in das 16h às 22h; check-out das 8h às 14h.   \\ \hline
+	RN09 & A emissão de recibos ou comprovantes após check-in/out não é obrigatória.   \\ \hline
+	RN10 & Um quarto pode ficar indisponível para manutenção.   \\ \hline
+	RN11 & É permitido reservar um mesmo quarto para hóspedes diferentes em datas seguidas.   \\ \hline
+	RN12 & Atualmente, não há oferta de serviços adicionais vinculados à reserva.   \\ \hline
+	RN13 & São aceitas as formas de pagamento: Pix, dinheiro e cartão (com taxa da operadora).   \\ \hline
+	RN14 & Deve ser enviada a confirmação da reserva para o cliente com todos os dados necessários.   \\ \hline
+	RN15 & Apenas a proprietária deve acessar as informações dos hóspedes e reservas.   \\ \hline
+\end{tabular}
+\fonte{Elaborado pelos autores.}
+\end{quadro}
+
+
+
+\section{História de Usuário}
+\subsection{Descrição}
+
+\section{Arquitetura}
+\subsection{Desenho da Arquitetura}
+A arquitetura do sistema de reservas da Pousada Chalés Água de Coco foi concebida com base no framework Django, utilizando o padrão de arquitetura MTV (Model-Template-View). Esse padrão permite a separação lógica das responsabilidades entre modelo de dados, interface de apresentação e regras de controle, garantindo organização, reutilização de código e manutenibilidade da aplicação.
+
+\subsubsection{Estrutura da Solução}
+
+A camada de interface (Template) é responsável pela exibição das páginas HTML aos usuários. Ela recebe os dados dinamicamente da camada de controle (View), que, por sua vez, realiza o processamento necessário, interage com o banco de dados e fornece as informações pertinentes à exibição. A camada de modelo (Model) representa a estrutura do banco de dados relacional, utilizando o ORM (Object-Relational Mapper) nativo do Django para abstrair a manipulação dos dados de forma segura e eficiente.
+A aplicação foi projetada como uma solução fullstack, sendo o Django responsável tanto pelo front-end quanto pelo back-end. No front-end, a interface é construída com HTML, CSS e componentes de Bootstrap, que promovem responsividade e usabilidade. No back-end, são implementadas as regras de negócio, controle de autenticação, segurança da aplicação e comunicação com o banco de dados PostgreSQL
+.
+\subsubsection{Banco de Dados e Infraestrutura}
+
+O banco de dados utilizado é o PostgreSQL, devido à sua robustez, suporte a dados relacionais e facilidade de integração com o Django. Todas as tabelas, relacionamentos e consultas são gerenciados pelo ORM, o que minimiza riscos de injeção de código malicioso e facilita a manutenção.
+A infraestrutura de hospedagem está baseada na Amazon Web Services (AWS), garantindo alta disponibilidade, escalabilidade e segurança. O servidor é configurado para suportar conexões seguras via HTTPS, e mecanismos de backup e monitoramento são empregados para garantir a continuidade do serviço.
+Por fim, a arquitetura proposta está preparada para evoluções futuras, permitindo a integração com APIs externas, mecanismos de pagamento e relatórios gerenciais, com base em uma estrutura modular e escalável.
+
+
+\subsection{Diagrama da Arquitetura}
+\subsubsection{Diagrama de Implantação}
+A Figura~\ref{fig:diagramaimplantação} mostra o funcionamento da arquitetura do sistema.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{Diagrama de Implantação- Digitalização da Pousada.JPEG}
+	\caption{Diagrama de Implantação desenvolvido no Online Visual-Paradigm}
+	\label{fig:diagramaimplantação}
+\end{figure}
+\subsubsection{Diagrama de Componentes}
+A Figura~\ref{fig:diagramacomponentes} mostra o funcionamento da arquitetura do sistema.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{0406-Componentes.png}
+	\caption{Diagrama de Componentes desenvolvido no Online Visual-Paradigm}
+	\label{fig:diagramacomponentes}
+\end{figure}
+
+
+\section{Tecnologias}
+
+\subsection{Django}
+
+O Django é um framework web de alto nível baseado em Python que oferece uma série de recursos que o tornam ideal para o desenvolvimento de sistemas como o nosso gerenciador de reservas de quartos. Uma de suas principais vantagens é a rapidez no desenvolvimento, já que ele vem com diversas funcionalidades já prontas.
+
+\subsubsection{Front-end}
+
+O desenvolvimento do Frond-end da aplicação Chalés Água de Coco se dá pela combinação de templates HTML associados a Views (Django) para gerar páginas dinâmicas. Os templates exibem essas informações de forma estruturada na interface do usuário, permitindo que elementos HTML sejam preenchidos com dados fornecidos pelo servidor, assim utilizando o padrão MTV.
+
+O que facilita a manutenção e a escalabilidade do sistema. Isso é essencial em um sistema de reservas, que pode crescer em funcionalidades como calendário de disponibilidade, gestão de hóspedes, geração de relatórios, envio de notificações, entre outros.
+
+\subsubsection{Back-end}
+
+O desenvolvimento do back-end desta aplicação Django é baseada no padrão MTV, assim funcionando com manipulação de dados e lógica de negócio através das Views, que são responsáveis por processar requisições, acessar o banco de dados e enviar informações para os templates.
+
+\subsubsection{Banco de Dados}
+
+O Banco de Dados é o PostgreSQL, sendo um banco escalável e flexível, este SGBD pode suportar grandes volumes de dados e de usuários além de ser compatível com uma grande gama de linguagens de programação.
+O PostgreSQL também é uma ótima opção por ser acessível, já que sua licença é livre, assim sem custos de licenciamento e a liberdade para modificar ou implementar o código-fonte da maneira que for necessária.
+
+\subsection{Justificativa da Escolha}
+
+A escolha do framework Django para o desenvolvimento do sistema da Pousada Chalés Água de Coco baseou-se em critérios técnicos, de segurança, escalabilidade e aderência às boas práticas de desenvolvimento web moderno. Django é um framework escrito em Python, que segue o padrão MTV, semelhante ao clássico MVC(Model-View-Controller), promovendo uma clara separação entre as camadas da aplicação.
+
+\subsubsection{Justificativa Técnica}
+
+Entre os diferenciais do Django, destacam-se o ORM nativo, que abstrai o uso de SQL e facilita a manipulação segura dos dados; o sistema integrado de autenticação e autorização, que oferece controle de acesso granular; e a proteção nativa contra ataques como SQL Injection, Cross-Site Scripting (XSS) e Cross-Site Request Forgery (CSRF). Esses recursos reduzem significativamente o tempo de desenvolvimento e aumentam a segurança da aplicação.
+Além disso, o Django é um software de código aberto, com forte comunidade ativa, documentação completa e contínua evolução. Essa característica o torna ideal para projetos acadêmicos e corporativos, permitindo a entrega de soluções confiáveis e bem estruturadas.
+
+\subsubsection{Infraestrutura com AWS}
+A escolha pela Amazon Web Services (AWS) como provedora da infraestrutura em nuvem está relacionada à sua capacidade de oferecer escalabilidade, disponibilidade e segurança. Os recursos de computação elástica, gerenciamento de banco de dados, balanceamento de carga, armazenamento e backup são fundamentais para a operação de um sistema que lida com informações sensíveis de clientes e reservas.
+A integração entre Django e AWS ocorre de forma transparente, possibilitando o uso de serviços como S3 (armazenamento de mídia), RDS (gerenciamento de banco de dados relacional) e CloudWatch (monitoramento), ampliando o potencial da aplicação e assegurando a continuidade do serviço com mínimo risco de falhas.
+
+
+\section{Ferramentas de Apoio}
+\subsection{GitHub}
+O GitHub foi utilizado para controle de versão e colaboração durante o desenvolvimento do sistema. A plataforma permite armazenar e gerenciar o código-fonte, realizar revisões e integrar funcionalidades de forma eficiente. O GitHub facilitou a organização do fluxo de trabalho, o rastreamento de mudanças e a colaboração entre os membros da equipe, promovendo maior controle e transparência no ciclo de desenvolvimento.
+\subsection{BRModelo}
+O BRModelo foi utilizado para a modelagem lógica e relacional do banco de dados. A ferramenta oferece uma interface intuitiva para construção de diagramas entidade-relacionamento (DER), o que auxiliou na estruturação clara das tabelas, relacionamentos e chaves do sistema. O uso do BRModelo contribuiu diretamente para a coerência e integridade do esquema de dados implementado no PostgreSQL.
+\subsection{Visual Paradigm Online}
+O Visual Paradigm Online foi utilizado na criação dos diagramas de Implantação e Componentes. Esta ferramenta auxiliou na documentação da arquitetura do sistema, contribuindo para uma melhor compreensão dos fluxos e interações entre os componentes. A versão online possibilitou colaboração remota e armazenamento em nuvem, o que otimizou a produtividade da equipe.
+\subsection{Latex}
+O LaTeX foi utilizado na produção e formatação do trabalho acadêmico. Por meio de seu sistema de marcação, foi possível obter um alto nível de controle sobre a estrutura e apresentação do documento, garantindo consistência, qualidade e organização.
+
+\subsection{Google Meet}
+O Google Meet foi utilizado como plataforma de comunicação e realização de encontros virtuais da equipe ao longo do desenvolvimento do projeto. As reuniões periódicas possibilitaram a discussão de tarefas, alinhamento de prazos e entregas mais organizadas.
+
+\section{Manutenibilidade}
+A manutenibilidade do sistema de reservas para pousadas desenvolvido neste projeto é assegurada por meio de práticas estruturadas de engenharia de software, que facilitam a correção de erros, inclusão de novas funcionalidades e adaptação a futuras necessidades.
+
+O sistema foi concebido com uma arquitetura modular, respeitando os princípios de separação de responsabilidades. Isso permite que diferentes partes do sistema, como interface, regras de negócio e persistência de dados, sejam modificadas de forma independente, minimizando impactos colaterais e reduzindo o tempo de manutenção.
+
+Além disso, foram adotados padrões de codificação consistentes e bem documentados, com o intuito de facilitar a leitura e compreensão do código por outros desenvolvedores. Esses padrões promovem a reutilização e a extensibilidade do sistema.
+
+A utilização do sistema de controle de versão Git, em conjunto com a plataforma GitHub, possibilita o rastreamento detalhado de alterações, revisão de código e colaboração eficaz entre os membros da equipe. Isso garante maior controle sobre o histórico de desenvolvimento e facilita a identificação e resolução de falhas.
+
+A aplicação também contará com testes automatizados, cobrindo os principais fluxos da aplicação, como testes unitários para funções críticas e testes de integração entre os módulos.
+
+Complementando essas práticas, será elaborada uma documentação técnica e funcional completa, abrangendo instruções de uso, instalação, configuração e manutenção.
+
+Por fim, o projeto segue um ciclo de desenvolvimento bem definido, com etapas de planejamento, codificação, testes, implantação e manutenção. Essa abordagem estruturada proporciona maior previsibilidade, qualidade e agilidade na evolução contínua da aplicação, assegurando sua longevidade e adaptabilidade.
+
+\section{Segurança, Privacidade e Legislação}
+
+A segurança da informação, a proteção de dados e o cumprimento das normas legais foram diretrizes centrais na concepção do sistema de reservas da Pousada Chalés Água de Coco. Para tanto, foram adotadas boas práticas de desenvolvimento seguro, recursos nativos do framework Django e medidas alinhadas à Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018).
+
+\subsection{Segurança da Aplicação}
+
+O framework Django oferece proteção automática contra ameaças comuns da web, como injeção de SQL, execução remota de código, Cross-Site Scripting (XSS) e falsificação de requisições entre sites (CSRF). Além disso, foram implementadas as seguintes práticas:
+
+Sistema de autenticação e autorização: Controle de acesso baseado em permissões, exigência de credenciais válidas e proteção de páginas sensíveis por autenticação obrigatória.
+
+Proteção contra CSRF: Utilização de tokens em requisições POST, garantindo que apenas usuários legítimos possam executar ações críticas.
+
+Escapamento automático de HTML (XSS): O mecanismo de templates evita a execução de scripts maliciosos.
+Armazenamento seguro de senhas: Utilização de algoritmos modernos de hash, como PBKDF2, inviabilizando a recuperação das senhas mesmo em caso de vazamento.
+
+Gerenciamento seguro de sessões: Identificadores criptografados, proteção contra falsificação e expiração automática de sessões inativas.
+
+
+\subsection{Segurança na Comunicação}
+
+Todas as comunicações entre cliente e servidor são realizadas via HTTPS, com uso de certificado SSL/TLS. O certificado foi emitido por uma autoridade certificadora confiável, após validação de domínio e instalação no servidor da AWS. A criptografia das conexões assegura a confidencialidade, integridade e autenticidade dos dados transmitidos.
+A aplicação redireciona automaticamente requisições HTTP para HTTPS e adiciona cabeçalhos HTTP de segurança, prevenindo de possíveis ataques.
+
+
+\subsubsection{Conformidade com a LGPD}
+Para atender aos princípios da LGPD, o sistema foi projetado com foco na coleta mínima de dados, na transparência quanto ao uso das informações e no controle por parte do titular dos dados. São assegurados os seguintes direitos:
+
+Solicitação de remoção de dados pessoais;
+
+Alteração de consentimento previamente fornecido;
+
+Acesso claro às finalidades do tratamento dos dados.
+
+Além disso, os dados são armazenados de forma segura e submetidos a backups regulares em ambiente de nuvem, garantindo resiliência e conformidade com os princípios de segurança, prevenção e responsabilização da LGPD.
+
+
+\section{Modelagem do Banco de Dados}
+\subsection{Modelo Entidade-Relacionamento - MER}
+
+A Figura~\ref{fig:mer} mostra o Modelo Entidade-Relacionamento (MER) do sistema.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=\textwidth]{0406-MER.jpg}
+	\caption{Modelo Entidade-Relacionamento (MER) desenvolvido no brModelo}
+	\label{fig:mer}
+\end{figure}
+\subsection{Diagrama Entidade-Relacionamento - DER}
+A Figura~\ref{fig:der} mostra o Diagrama Entidade-Relacionamento (DER) do sistema.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{0406-DER.jpg}
+	\caption{Diagrama Entidade-Relacionamento (DER) desenvolvido no brModelo}
+	\label{fig:der}
+\end{figure}
+
+
+\section{Entregas}
+
+\chapter{Viabilidade Financeira}
+Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de reservas de quarto, conduzimos um estudo dos custos necessários e produzimos relatórios referentes a diferentes cenários. Os dados utilizados no estudo são concretos e retirados de fontes seguras, nos ajudando a visualizar a factibilidade do projeto e ter melhor percepção para a tomada de decisões estratégicas.
+
+\section{Custos}
+\subsection{Custo Estrutural}
+
+A parte de custos por estrutura está divida entre Equipamentos e Serviços, que diz respeito aos equipamentos e serviços necessários para que cada colaborador do time consiga desempenhar suas funções. E Infraestrutura, que aborda os custos relativos a sustentação do sistema.
+
+Considerando que a equipe trabalha no regime home office e utiliza seus próprios equipamentos, consideramos os gastos como nulos. Partindo assim para tarifas referentes a energia e internet.
+Já nos custos indicados na parte de infraestrutura foram considerados nulos pois o sistema será desenvolvido utilizando serviços gratuito (lembrando que essa análise se trata de uma estimativa, e que caso haja alguma mudança significativa no projeto ou necessidade de serviços pagos, esses custos podem mudar).
+
+\begin{table}[H]
+	\centering
+	\caption{Resumo dos custos de Equipamentos e Serviços}
+	\label{tab:equipamentos-servicos}
+	\begin{tabular}{|l|c|r|r|r|}
+		\hline
+		\textbf{Itens} & \textbf{Quantidade} & \textbf{Custo mensal} & \textbf{Total 4 meses} & \textbf{Total 9 meses} \\
+		\hline
+		Notebooks & 6 & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Roteadores & 6 & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Internet (Assinatura) & 6 & R\$ 114,97 & R\$ 2.759,28 & R\$ 6.208,38 \\
+		\hline
+		Eletricidade (Fatura) & 6 & R\$ 3,44 & R\$ 82,56 & R\$ 185,76 \\
+		\hline
+		\textbf{Total} & 24 & R\$ 118,41 & R\$ 2.841,84 & R\$ 6.394,14 \\
+		\hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{table}
+
+
+\begin{table}[H]
+	\centering
+	\caption{Resumo dos custos de Infraestrutura}
+	\label{tab:infraestrutura}
+	\begin{tabular}{|l|l|r|r|r|}
+		\hline
+		\textbf{Tipo} & \textbf{Serviço} & \textbf{Mensal} & \textbf{Total 4 meses} & \textbf{Total 9 meses} \\
+		\hline
+		Proxy Reverso & Servidor Nginx & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Aplicação & Servidor Gunicorn & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Framework Web & Servidor Django & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Banco de Dados & PostgreSQL & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Hospedagem & AWS & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		\textbf{Total} & & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{table}
+
+\subsection{Custo Mão de Obra}
+
+Na imagem a seguir temos uma tabela detalhada com os custos referentes a mão de obra do desenvolvimento do projeto. 
+Na primeira coluna temos a especificação dos papéis de cada profissional, em seguida quantidade de pessoas por cargo, horas trabalhadas ao dia e dias trabalhados ao mês(média).
+Também podemos checar o preço por hora de cada profissional, assim finalizamos com as estimativas de custo mensal, total 4 meses (correspondente ao tempo em que a equipe já trabalhou no projeto até então) e projeção 9 meses (correspondente ao tempo total estimado de projeto).
+
+% Tabela 1 - Dados de horas
+\begin{table}[H]
+	\centering
+	\caption{Quantidade e horas trabalhadas por função}
+	\label{tab:mao-de-obra-horas}
+	\adjustbox{max width=\textwidth}{
+		\begin{tabular}{|>{\RaggedRight\arraybackslash}p{5.5cm}|c|c|c|c|}
+			\hline
+			\textbf{Função} & \textbf{Quantidade} & \textbf{Horas/Dia} & \textbf{Dias/Mês} & \textbf{Total de Horas/Mês} \\
+			\hline
+			Analista de Cronograma (PMO)     & 1 & 6 & 22 & 132 \\
+			\hline
+			Engenheiro de Dados (DBA)        & 1 & 6 & 22 & 132 \\
+			\hline
+			Analista de Documentação         & 1 & 6 & 22 & 132 \\
+			\hline
+			Gerente de Projeto (PM)          & 1 & 6 & 22 & 132 \\
+			\hline
+			Desenvolvedor Front-End          & 1 & 6 & 22 & 132 \\
+			\hline
+			Desenvolvedor Back-End           & 1 & 6 & 22 & 132 \\
+			\hline
+			\textbf{Total Mão de Obra}       & 6 & 36 & 132 & 792 \\
+			\hline
+		\end{tabular}
+	}
+	\fonte{Elaborado pelos autores.}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\caption{Custos por função}
+	\label{tab:mao-de-obra-custos}
+	\adjustbox{max width=\textwidth}{
+		\begin{tabular}{|>{\RaggedRight\arraybackslash}p{5.5cm}|r|r|r|r|}
+			\hline
+			\textbf{Função} & \textbf{Custo Hora (R\$)} & \textbf{Custo Mensal (R\$)} & \textbf{Total 4 meses (R\$)} & \textbf{Total 9 meses (R\$)} \\
+			\hline
+			Analista de Cronograma (PMO)     & 16,00 & 2.112,00 & 8.448,00 & 19.008,00 \\
+			\hline
+			Engenheiro de Dados (DBA)        & 13,00 & 1.716,00 & 6.864,00 & 15.444,00 \\
+			\hline
+			Analista de Documentação         & 15,00 & 1.980,00 & 7.920,00 & 17.820,00 \\
+			\hline
+			Gerente de Projeto (PM)          & 16,00 & 2.112,00 & 8.448,00 & 19.008,00 \\
+			\hline
+			Desenvolvedor Front-End          & 13,00 & 1.716,00 & 6.864,00 & 15.444,00 \\
+			\hline
+			Desenvolvedor Back-End           & 13,00 & 1.716,00 & 6.864,00 & 15.444,00 \\
+			\hline
+			\textbf{Total Mão de Obra}       & 86,00 & 11.352,00 & 45.408,00 & 102.168,00 \\
+			\hline
+		\end{tabular}
+	}
+	\fonte{Elaborado pelos autores.}
+\end{table}
+
+\subsection{Custo Total}
+
+Na imagem a seguir temos a junção dos custos por mão de obra e custos por estrutura, sendo visualizadas em 3 períodos diferentes:
+Custo Mensal - Referente a gastos de um único mês.
+Custo Total (4 meses) - Custos referentes aos meses que foram trabalhados até a data de escrita deste texto.
+Custo Total (9 meses) - Custos referentes ao total de meses programado para a realização do projeto.
+
+\begin{table}[h!]
+	\centering
+	\caption{Custo Total por Categoria}
+	\label{tab:custo-total}
+	\adjustbox{max width=\textwidth}{
+		\begin{tabular}{|l|r|r|r|}
+			\hline
+			\textbf{Categoria} & \textbf{Custo Mensal (R\$)} & \textbf{Custo Total (4 meses) (R\$)} & \textbf{Custo Total (9 meses) (R\$)} \\
+			\hline
+			Mão de Obra & 11.352,00 & 45.408,00 & 102.168,00 \\
+			Estrutura   & 118,41    & 473,64    & 1.065,69 \\
+			\hline
+			\textbf{Total} & 11.470,41 & 45.881,64 & 103.233,69 \\
+			\hline
+		\end{tabular}
+	}
+	\fonte{Elaborado pelos autores.}
+\end{table}
+
+\section{Cenários}
+
+\subsection{Cenário Otimista}
+
+Na imagem a seguir podemos observar a projeção construída pela equipe de um cenário otimista, levando em consideração os custos já apresentados anteriormente de mão de obra e estrutura. Podemos observar que de acordo com essa projeção, o ponto de equilíbrio será alcançado por volta de 6 meses.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			title={Cenário Otimista: Custos vs Receitas Acumuladas},
+			xlabel={Meses},
+			ylabel={Valor (R\$)},
+			xmin=0, xmax=21,
+			ymin=0, ymax=800000,
+			xtick={1,5,10,15,20},
+			ytick={0,100000,200000,300000,400000,500000,600000,700000,800000},
+			legend pos=north west,
+			ymajorgrids=true,
+			grid style=dashed,
+			width=14cm,
+			height=8cm,
+			scaled y ticks = false,
+			ticklabel style={/pgf/number format/fixed},
+			]
+			
+			% Dados Custos Acumulados
+			\addplot[
+			color=red,
+			mark=square,
+			thick,
+			]
+			coordinates {
+				(1,11470.41)
+				(2,22940.82)
+				(3,34411.23)
+				(4,45881.64)
+				(5,57352.05)
+				(6,68822.46)
+				(7,80292.87)
+				(8,91763.28)
+				(9,103233.69)
+				(10,114704.10)
+				(11,126174.51)
+				(12,137644.92)
+				(13,149115.33)
+				(14,160585.74)
+				(15,172056.15)
+				(16,183526.56)
+				(17,194996.97)
+				(18,206467.38)
+				(19,217937.79)
+				(20,229408.20)
+			};
+			
+			% Dados Receitas Acumuladas
+			\addplot[
+			color=blue,
+			mark=o,
+			thick,
+			]
+			coordinates {
+				(1,5500)
+				(2,5500)
+				(3,5500)
+				(4,5500)
+				(5,33000)
+				(6,77000)
+				(7,110000)
+				(8,137500)
+				(9,165000)
+				(10,198000)
+				(11,247500)
+				(12,286000)
+				(13,330000)
+				(14,385000)
+				(15,440000)
+				(16,495000)
+				(17,550000)
+				(18,632500)
+				(19,715000)
+				(20,753500)
+			};
+			
+			\legend{Custos Acumulados, Receitas Acumuladas}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Comparação dos custos e receitas acumuladas no cenário otimista}
+	\label{fig:custo-receita-otimista}
+\end{figure}
+
+
+\subsection{Cenário Pessimista}
+
+Na imagem a seguir podemos observar a projeção construída pela equipe de um cenário pessimista, levando em consideração os custos já apresentados anteriormente de mão de obra e estrutura. Podemos observar que de acordo com essa projeção, o ponto de equilíbrio será alcançado por volta de 19 meses.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			title={Cenário Pessimista: Custos vs Receitas Acumuladas},
+			xlabel={Meses},
+			ylabel={Valor (R\$)},
+			xmin=0, xmax=21,
+			ymin=0, ymax=300000,
+			xtick={1,5,10,15,20},
+			ytick={0,50000,100000,150000,200000,250000,300000},
+			legend pos=north west,
+			ymajorgrids=true,
+			grid style=dashed,
+			width=14cm,
+			height=8cm,
+			scaled y ticks = false,
+			ticklabel style={/pgf/number format/fixed},
+			]
+			
+			% Dados Custos Acumulados
+			\addplot[
+			color=red,
+			mark=square,
+			thick,
+			]
+			coordinates {
+				(1,11470.41)
+				(2,22940.82)
+				(3,34411.23)
+				(4,45881.64)
+				(5,57352.05)
+				(6,68822.46)
+				(7,80292.87)
+				(8,91763.28)
+				(9,103233.69)
+				(10,114704.10)
+				(11,126174.51)
+				(12,137644.92)
+				(13,149115.33)
+				(14,160585.74)
+				(15,172056.15)
+				(16,183526.56)
+				(17,194996.97)
+				(18,206467.38)
+				(19,217937.79)
+				(20,229408.20)
+			};
+			
+			% Dados Receitas Acumuladas
+			\addplot[
+			color=blue,
+			mark=o,
+			thick,
+			]
+			coordinates {
+				(1,5500)
+				(2,5500)
+				(3,5500)
+				(4,5500)
+				(5,5500)
+				(6,5500)
+				(7,5500)
+				(8,11000)
+				(9,16500)
+				(10,27500)
+				(11,44000)
+				(12,44000)
+				(13,66000)
+				(14,82500)
+				(15,99000)
+				(16,132000)
+				(17,165000)
+				(18,192500)
+				(19,220000)
+				(20,258500)
+			};
+			
+			\legend{Custos Acumulados, Receitas Acumuladas}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Comparação dos custos e receitas acumuladas no cenário pessimista}
+	\label{fig:custo-receita-pessimista}
+\end{figure}
+
+
+\subsection{Cenário Realista}
+
+Na imagem a seguir podemos observar a projeção construída pela equipe de um cenário realista, levando em consideração os custos já apresentados anteriormente de mão de obra e estrutura. Podemos observar que de acordo com essa projeção, o ponto de equilíbrio será alcançado por volta de 14 meses.
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			title={Cenário Realista: Custos vs Receitas Acumuladas},
+			xlabel={Meses},
+			ylabel={Valor (R\$)},
+			xmin=0, xmax=21,
+			ymin=0, ymax=350000,
+			xtick={1,5,10,15,20},
+			ytick={0,50000,100000,150000,200000,250000,300000,350000},
+			legend pos=north west,
+			ymajorgrids=true,
+			grid style=dashed,
+			width=14cm,
+			height=8cm,
+			scaled y ticks = false,
+			ticklabel style={/pgf/number format/fixed},
+			]
+			
+			% Dados Custos Acumulados
+			\addplot[
+			color=red,
+			mark=square,
+			thick,
+			]
+			coordinates {
+				(1,11470.41)
+				(2,22940.82)
+				(3,34411.23)
+				(4,45881.64)
+				(5,57352.05)
+				(6,68822.46)
+				(7,80292.87)
+				(8,91763.28)
+				(9,103233.69)
+				(10,114704.10)
+				(11,126174.51)
+				(12,137644.92)
+				(13,149115.33)
+				(14,160585.74)
+				(15,172056.15)
+				(16,183526.56)
+				(17,194996.97)
+				(18,206467.38)
+				(19,217937.79)
+				(20,229408.20)
+			};
+			
+			% Dados Receitas Acumuladas
+			\addplot[
+			color=blue,
+			mark=o,
+			thick,
+			]
+			coordinates {
+				(1,5500)
+				(2,5500)
+				(3,5500)
+				(4,5500)
+				(5,5500)
+				(6,5500)
+				(7,22000)
+				(8,38500)
+				(9,66000)
+				(10,88000)
+				(11,110000)
+				(12,121000)
+				(13,143000)
+				(14,165000)
+				(15,192500)
+				(16,220000)
+				(17,247500)
+				(18,280500)
+				(19,308000)
+				(20,330000)
+			};
+			
+			\legend{Custos Acumulados, Receitas Acumuladas}
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Comparação dos custos e receitas acumuladas no cenário realista}
+	\label{fig:custo-receita-realista}
+\end{figure}
+
+
+\chapter{Considerações Finais}
+
+%
 % ----------------------------------------------------------
 % Finaliza a parte no bookmark do PDF
 % para que se inicie o bookmark na raiz
@@ -681,16 +1465,113 @@ elementum}
 \partapendices
 
 % ----------------------------------------------------------
-\chapter{Quisque libero justo}
+\chapter{Diário de Bordo}
 % ----------------------------------------------------------
 
-\lipsum[50]
+
+\section{1° SEMANA}
+Período: 25/03/2025 a 01/04/2025.
+
+Nessa semana, com os membros da equipe definidos, iniciamos nossas atividades para o desenvolvimento do projeto da disciplina de Projeto de Extensão Integrado I. Assim, essa semana criamos um grupo na plataforma Whatsapp para estabelecermos nossa comunicação e facilitar o levantamento de possíveis temas para discutirmos em sala. Assim, no dia 01/04/2025 analisamos os parceiros disponíveis e a suas principais necessidades e optamos por desenvolver uma aplicação web para a empresa Pousada Chalés Água de Coco. 
+
+\section{2° SEMANA}
+Período: 01/04/2025 a 08/04/2025.
+
+Durante essa semana aprofundamos nosso conhecimento sobre a empresa parceira escolhida, entendo sua principal necessidade: automatização dos serviços de gestão.
+Definimos que iremos desenvolver uma aplicação web de gestão para a proprietária com o objetivo de facilitar e otimizar a administração do negócio. A partir disso, também definimos nosso MVP (Produto Mínimo Viável), levando em consideração nossa capacidade técnica e os serviços da pousada. Preenchemos a primeira planilha de avaliação do grupo e auto-avaliação. Por fim, nos preparamos para apresentar a nossa escolha de tema para o professor orientador, realizada no dia 08/04, na qual também apresentamos nosso MVP.
+Funcionalidade MVP: Gestão de Reservas e Check-in/Check-out. 	
+
+
+\section{3° SEMANA}
+Período: 08/04/2025 a 15/04/2025.
+
+Nesta semana começamos efetivamente as tarefas associadas ao desenvolvimento do nosso projeto. Foram elas:
+- Definimos a metodologia de gestão de projeto Scrum. Usamos como base para  nossa escolha: experiências práticas/ conhecimento prévio da ferramenta, isto é, familiaridade. 
+- Definimos a função de cada membro da equipe:
+Anna Julia: Analista de Cronograma/ PMO.
+Guilherme Akio: Engenheiro de Dados/ Administrador de Banco de Dados.
+Guilherme Bittencourt: Analista de Documentação/Arquiteto de Software.
+Kelly Radchelle: Gerente de Projeto.
+Rafael Teixeira: Desenvolvedor Frontend.
+Ricardo Carriel: Desenvolvedor Backend.
+- Criamos nosso arquivo no ProjectLibre, adicionamos os principais marcos do projeto e os recursos humanos.
+- Criamos nossa documentação LateX e fizemos as primeiras alterações no arquivo.
+- Iniciamos o levantamento dos requisitos funcionais do MVP.
+
+
+\section{4° SEMANA}
+Período: 15/04/2025 a 22/04/2025.
+
+Nesta semana foram realizadas as tarefas e discussões para iniciarmos o desenvolvimento do desenho da nossa aplicação:
+Analisamos os requisitos funcionais levantados e definimos os requisitos não funcionais essenciais da nossa aplicação.
+E definimos as plataformas e tecnologias que iremos usar.
+
+
+\section{5° SEMANA}
+Período: 22/04/2025 a 29/04/2025.
+
+Essa semana foram desenvolvidas atividades ligadas ao desenvolvimento da prova de conceito. Foram elas:
+- Documentação dos Casos de Uso - Kelly
+- Documentação dos Diagramas de Caso de Uso -Guilherme Bittencourt.
+Reunião via Google Meet na qual foi discutido o desenho da aplicação com todos os membros da equipe.
+- Criação do Diagrama de Componentes -Guilherme Bittencourt.
+- Criação do Diagrama de Implantação -Kelly Radchelle.
+- Apresentação do Desenho da Aplicação - Guilherme Bittencourt, Guilherme Akio, Rafael Teixeira, Anna Julia e Ricardo Carriel.
+
+\section{6° SEMANA}
+Período: 29/04/2025 a 06/05/2025.
+
+Após a entrega da prova de conceito na semana anterior os diagramas apresentados foram editados, corrigindo os pontos levantados 
+pelo professor orientador. 
+- Alterações no diagrama de componentes: Guilherme Bittencourt.
+- Alterações no diagrama de implantação: Kelly.
+- Criação do MER:Guilherme Bittencourt.
+- Criação do repositório Git para versionamento da aplicação: Guilherme Bittencourt.
+- Levantamento das regras de negócio e requisitos com a proprietária:  Kelly, Ricardo.
+
+\section{7° SEMANA}
+Período: 06/05/2025 a 13/05/2025.
+
+Nesta semana foram realizadas atividades para a entrega da POC (Prova de Conceito). Foram elas:
+Início do desenvolvimento do backend e frontend no Django: views, models e templates - Guilherme Akio.
+Início da configuração do ambiente de hospedagem - Ricardo Carriel.
+Além de continuarmos com as atividades de documentação e alimentação do nosso repositório Git.
+
+\section{8° SEMANA}
+Período: 13/05/2025 a 20/05/2025.
+
+Nessa semana o Ricardo e o Guilherme Akio finalizaram a integração entre o ambiente de hospedagem, criação do banco de dados no postgreSQL e o servidor Django. 
+Assim, conseguimos finalizar, entregar e apresentar a prova de conceito. Além disso, aproveitamos para revisar os nossos requisitos e  regras de negócio e 
+estruturamos de forma mais completa nossos requisitos não funcionais.
+
+\section{9° SEMANA}
+Período: 20/05/2025 a 27/05/2025.
+
+Nesta semana demos continuidade ao desenvolvimento do nosso MVP, focando agora nas funcionalidades e interfaces. Alimentamos nosso repositório git com arquivos referentes a documentação.
+- Atualizações no código- Ricardo.
+- Desenvolvimento da Documentação - Kelly.
+- Desenvolvimento da Documentação - Guilherme Bittencourt.
+
+\section{10° SEMANA}
+Período: 27/05/2025 a 03/06/2025.
+
+Nesta semana os esforços da equipe foram voltados para o desenvolvimento e consolidação da documentação do projeto. 
+Dessa forma, todos os integrantes tiveram como atividade a documentação e revisão de algum aspecto do sistema.  Além disso, o
+integrante Rafael fez correções na extensão HTML.
+
+\section{11° SEMANA}
+Período: 03/06/2025 a 10/06/2025.
+
+\section{12° SEMANA}
+Período: 10/06/2025 a 17/06/2025.
+
+\section{13° SEMANA}
+Período: 17/06/2025 a 24/06/2025.
+
 
 % ----------------------------------------------------------
-\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
-ac pretium ante justo a nulla curabitur tristique arcu eu metus}
+\chapter{}
 % ----------------------------------------------------------
-\lipsum[55-57]
 
 \end{apendicesenv}
 % ---
@@ -709,22 +1590,9 @@ ac pretium ante justo a nulla curabitur tristique arcu eu metus}
 \partanexos
 
 % ---
-\chapter{Morbi ultrices rutrum lorem.}
-% ---
-\lipsum[30]
-
-% ---
-\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
-parturient montes nascetur ridiculus mus}
+\chapter{}
 % ---
 
-\lipsum[31]
-
-% ---
-\chapter{Fusce facilisis lacinia dui}
-% ---
-
-\lipsum[32]
 
 \end{anexosenv}
 
