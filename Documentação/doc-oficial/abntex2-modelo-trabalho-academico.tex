@@ -456,7 +456,24 @@ curso Tecnologia em Análise e Desenvolvimento de Sistemas \LaTeX.}
 % ---
 \begin{siglas}
   \item[ABNT] Associação Brasileira de Normas Técnicas
-  \item[abnTeX] ABsurdas Normas para TeX
+  \item[AWS]	Amazon Web Services
+  \item[CSRF]	Cross-Site Request Forgery (Falsificação de Requisição entre Sites)
+  \item[CSS]	Cascading Style Sheets
+  \item[HTML]	HyperText Markup Language
+  \item[HTTP]	Hypertext Transfer Protocol
+  \item[HTTPS]	Hypertext Transfer Protocol Secure
+  \item[IP]	Internet Protocol
+  \item[LGPD]	Lei Geral de Proteção de Dados
+  \item[MVC]	Model-View-Controller (Modelo-Visão-Controlador)
+  \item[MTV]	Model-Template-View (Modelo-Template-Visualização)
+  \item[ORM]	Object-Relational Mapper (Mapeador Objeto-Relacional)
+  \item[PBKDF2]	Password-Based Key Derivation Function 2
+  \item[POST]	Post Method (Método de Envio via HTTP)
+  \item[SQL]	Structured Query Language
+  \item[SSL]	Secure Sockets Layer
+  \item[TLS]	Transport Layer Security
+  \item[URL]	Uniform Resource Locator
+  \item[XSS]	Cross-Site Scripting (Script Entre Sites)
 \end{siglas}
 % ---
 % ---
@@ -821,23 +838,19 @@ O Product Backlog consiste em uma lista ordenada de todos os itens de trabalho, 
 
 \section{Arquitetura}
 \subsection{Desenho da Arquitetura}
-A arquitetura do sistema foi criada para atender às necessidades de um ambiente web moderno, seguro e escalável, com foco na praticidade do uso para a gestora da pousada.
+A arquitetura do sistema de reservas da Pousada Chalés Água de Coco foi concebida com base no framework Django, utilizando o padrão de arquitetura MTV (Model-Template-View). Esse padrão permite a separação lógica das responsabilidades entre modelo de dados, interface de apresentação e regras de controle, garantindo organização, reutilização de código e manutenibilidade da aplicação.
 
-A aplicação adota o padrão MTV (Model-Template-View), próprio do framework Django, no qual a separação entre dados, lógica de apresentação e lógica de negócio é claramente definida. Esse padrão proporciona uma estrutura organizada, facilitando tanto a manutenção quanto a adição de novas funcionalidades ao longo do tempo.
+\subsubsection{Estrutura da Solução}
 
-No front-end, a aplicação utiliza templates HTML integrados às views do Django, o que permite a criação de páginas dinâmicas. Os dados vindos do back-end são inseridos diretamente nos templates, tornando a navegação mais fácil, sem a necessidade de frameworks.
+A camada de interface (Template) é responsável pela exibição das páginas HTML aos usuários. Ela recebe os dados dinamicamente da camada de controle (View), que, por sua vez, realiza o processamento necessário, interage com o banco de dados e fornece as informações pertinentes à exibição. A camada de modelo (Model) representa a estrutura do banco de dados relacional, utilizando o ORM (Object-Relational Mapper) nativo do Django para abstrair a manipulação dos dados de forma segura e eficiente.
+A aplicação foi projetada como uma solução fullstack, sendo o Django responsável tanto pelo front-end quanto pelo back-end. No front-end, a interface é construída com HTML, CSS e componentes de Bootstrap, que promovem responsividade e usabilidade. No back-end, são implementadas as regras de negócio, controle de autenticação, segurança da aplicação e comunicação com o banco de dados PostgreSQL
+.
+\subsubsection{Banco de Dados e Infraestrutura}
 
-O back-end é totalmente desenvolvido com o framework Django, em Python, onde são tratadas as requisições, regras de negócio e persistência de dados. O Django oferece um conjunto de ferramentas prontas que aumentam a produtividade no desenvolvimento e garantem a segurança da aplicação.
+O banco de dados utilizado é o PostgreSQL, devido à sua robustez, suporte a dados relacionais e facilidade de integração com o Django. Todas as tabelas, relacionamentos e consultas são gerenciados pelo ORM, o que minimiza riscos de injeção de código malicioso e facilita a manutenção.
+A infraestrutura de hospedagem está baseada na Amazon Web Services (AWS), garantindo alta disponibilidade, escalabilidade e segurança. O servidor é configurado para suportar conexões seguras via HTTPS, e mecanismos de backup e monitoramento são empregados para garantir a continuidade do serviço.
+Por fim, a arquitetura proposta está preparada para evoluções futuras, permitindo a integração com APIs externas, mecanismos de pagamento e relatórios gerenciais, com base em uma estrutura modular e escalável.
 
-Para o banco de dados, foi escolhido o PostgreSQL, compatível com o Django, sendo ideal para armazenar as reservas, dados de hóspedes, acomodações e demais informações do sistema.
-
-A aplicação está hospedada na Amazon Web Services (AWS), a escolha dela se deu por sua alta disponibilidade, segurança avançada, escalabilidade sob demanda e facilidade de integração com outras ferramentas. Dentre os serviços da AWS utilizados, destacam-se:
-Amazon EC2, para hospedagem da aplicação Django;
-Amazon RDS (PostgreSQL), para o banco de dados gerenciado;
-Amazon S3, para armazenamento de arquivos estáticos e mídias;
-AWS Backup e Monitoramento, para garantir segurança e integridade dos dados.
-
-A arquitetura permite que o sistema cresça ao longo do tempo, incorporando novos módulos e funcionalidades como integração com gateways de pagamento, envio automático de e-mails, e etc, mantendo a manutenibilidade, segurança e eficiência como foco do projeto.
 
 \subsection{Diagrama da Arquitetura}
 \subsubsection{Diagrama de Implantação}
@@ -861,31 +874,39 @@ A Figura~\ref{fig:diagramacomponentes} mostra o funcionamento da arquitetura do 
 
 
 \section{Tecnologias}
-\subsection{Front-End}
+
+\subsection{Django}
+
 O Django é um framework web de alto nível baseado em Python que oferece uma série de recursos que o tornam ideal para o desenvolvimento de sistemas como o nosso gerenciador de reservas de quartos. Uma de suas principais vantagens é a rapidez no desenvolvimento, já que ele vem com diversas funcionalidades já prontas.
 
-O desenvolvimento do Frond-end da aplicação Chalés Água de Coco se dá pela combinação de templates HTML associados a Views (Django) para gerar páginas dinâmicas. Os templates exibem essas informações de forma estruturada na interface do usuário, permitindo que elementos HTML sejam preenchidos com dados fornecidos pelo servidor, assim utilizando o padrão MTV (Model-Template-View).
+\subsubsection{Front-end}
+
+O desenvolvimento do Frond-end da aplicação Chalés Água de Coco se dá pela combinação de templates HTML associados a Views (Django) para gerar páginas dinâmicas. Os templates exibem essas informações de forma estruturada na interface do usuário, permitindo que elementos HTML sejam preenchidos com dados fornecidos pelo servidor, assim utilizando o padrão MTV.
 
 O que facilita a manutenção e a escalabilidade do sistema. Isso é essencial em um sistema de reservas, que pode crescer em funcionalidades como calendário de disponibilidade, gestão de hóspedes, geração de relatórios, envio de notificações, entre outros.
-\subsection{Back-End}
-O desenvolvimento do back-end desta aplicação Django é baseada no padrão MTV(Model-Template-View), assim funcionando com manipulação de dados e lógica de negócio através das Views, que são responsáveis por processar requisições, acessar o banco de dados e enviar informações para os templates.
 
-Outro ponto importante que influenciou na nossa escolha é a segurança, pois o Django já vem com proteções contra ataques comuns, como injeção de SQL, o que é essencial em aplicações que lidam com dados pessoais e financeiros dos clientes.
-\subsection{Banco de Dados}
-O Banco de Dados escolhido para esta aplicação foi o PostgreSQL, sendo um banco escalável e flexível, este SGBD pode suportar grandes volumes de dados e de usuários além de ser compatível com uma grande gama de linguagens de programação.
+\subsubsection{Back-end}
+
+O desenvolvimento do back-end desta aplicação Django é baseada no padrão MTV, assim funcionando com manipulação de dados e lógica de negócio através das Views, que são responsáveis por processar requisições, acessar o banco de dados e enviar informações para os templates.
+
+\subsubsection{Banco de Dados}
+
+O Banco de Dados é o PostgreSQL, sendo um banco escalável e flexível, este SGBD pode suportar grandes volumes de dados e de usuários além de ser compatível com uma grande gama de linguagens de programação.
 O PostgreSQL também é uma ótima opção por ser acessível, já que sua licença é livre, assim sem custos de licenciamento e a liberdade para modificar ou implementar o código-fonte da maneira que for necessária.
-\subsection{Infraestrutura}
-Agora falando um pouco sobre a Amazon Web Services. Ela é uma das plataformas de computação em nuvem mais completas e confiáveis do mercado. Utilizar a AWS para hospedar nosso sistema de gerenciamento de reservas traz várias vantagens:
 
-Alta disponibilidade e escalabilidade: a AWS permite escalar a infraestrutura de acordo com a demanda, garantindo que o sistema continue funcionando bem mesmo em períodos de alta procura.
+\subsection{Justificativa da Escolha}
 
-Confiabilidade e desempenho: a infraestrutura da AWS é robusta, distribuída globalmente e projetada para evitar falhas. Isso assegura que o sistema fique no ar com alta performance e baixa latência.
+A escolha do framework Django para o desenvolvimento do sistema da Pousada Chalés Água de Coco baseou-se em critérios técnicos, de segurança, escalabilidade e aderência às boas práticas de desenvolvimento web moderno. Django é um framework escrito em Python, que segue o padrão MTV, semelhante ao clássico MVC(Model-View-Controller), promovendo uma clara separação entre as camadas da aplicação.
 
-Segurança: a AWS oferece diversas camadas de segurança, incluindo criptografia de dados, controle de acesso, backups automatizados e monitoramento contínuo, protegendo tanto os dados dos hóspedes quanto as informações administrativas da pousada.
+\subsubsection{Justificativa Técnica}
 
-Serviços integrados: além do serviço de hospedagem, a AWS oferece bancos de dados gerenciados, armazenamento, envio de e-mails, monitoramento, entre outros — todos integráveis com o sistema Django de forma eficiente.
+Entre os diferenciais do Django, destacam-se o ORM nativo, que abstrai o uso de SQL e facilita a manipulação segura dos dados; o sistema integrado de autenticação e autorização, que oferece controle de acesso granular; e a proteção nativa contra ataques como SQL Injection, Cross-Site Scripting (XSS) e Cross-Site Request Forgery (CSRF). Esses recursos reduzem significativamente o tempo de desenvolvimento e aumentam a segurança da aplicação.
+Além disso, o Django é um software de código aberto, com forte comunidade ativa, documentação completa e contínua evolução. Essa característica o torna ideal para projetos acadêmicos e corporativos, permitindo a entrega de soluções confiáveis e bem estruturadas.
 
-Por conta desses motivos, nós concluímos que a combinação de Django com a AWS é uma escolha estratégica e poderosa para o desenvolvimento do nosso sistema de reservas de quartos em uma pousada. Enquanto o Django acelera o desenvolvimento e garante um sistema seguro e bem estruturado, a AWS fornece a base tecnológica para garantir desempenho, estabilidade e escalabilidade. Juntos, eles possibilitam a entrega de uma solução profissional e confiável, algo que nós buscamos para o desenvolvimento do nosso sistema.
+\subsubsection{Infraestrutura com AWS}
+A escolha pela Amazon Web Services (AWS) como provedora da infraestrutura em nuvem está relacionada à sua capacidade de oferecer escalabilidade, disponibilidade e segurança. Os recursos de computação elástica, gerenciamento de banco de dados, balanceamento de carga, armazenamento e backup são fundamentais para a operação de um sistema que lida com informações sensíveis de clientes e reservas.
+A integração entre Django e AWS ocorre de forma transparente, possibilitando o uso de serviços como S3 (armazenamento de mídia), RDS (gerenciamento de banco de dados relacional) e CloudWatch (monitoramento), ampliando o potencial da aplicação e assegurando a continuidade do serviço com mínimo risco de falhas.
+
 
 \section{Ferramentas de Apoio}
 \subsection{GitHub}
@@ -916,46 +937,40 @@ Complementando essas práticas, será elaborada uma documentação técnica e fu
 Por fim, o projeto segue um ciclo de desenvolvimento bem definido, com etapas de planejamento, codificação, testes, implantação e manutenção. Essa abordagem estruturada proporciona maior previsibilidade, qualidade e agilidade na evolução contínua da aplicação, assegurando sua longevidade e adaptabilidade.
 
 \section{Segurança, Privacidade e Legislação}
-A segurança da informação é um aspecto central no desenvolvimento do sistema da Pousada Chalés Água de Coco. Para garantir a proteção dos dados dos hospedes e da própria aplicação, foi adotado o framework Django, que já incorpora diversas camadas de segurança por padrão. Além disso, foram implementadas boas práticas relacionadas à privacidade e à conformidade com a legislação brasileira de proteção de dados.
 
-O Django fornece mecanismos robustos contra ataques comuns na web, como injeção de SQL, execução remota de código, ataques Cross-Site Scripting (XSS) e falsificação de requisições entre sites (CSRF). Essas proteções são ativadas por padrão e complementadas com práticas adicionais durante o desenvolvimento.
+A segurança da informação, a proteção de dados e o cumprimento das normas legais foram diretrizes centrais na concepção do sistema de reservas da Pousada Chalés Água de Coco. Para tanto, foram adotadas boas práticas de desenvolvimento seguro, recursos nativos do framework Django e medidas alinhadas à Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018).
 
-Entre os recursos utilizados, destacam-se:
+\subsection{Segurança da Aplicação}
 
-Sistema de autenticação integrado: O Django oferece um módulo completo para autenticação e autorização de usuários, permitindo o controle de acesso baseado em permissões. O sistema foi configurado para exigir credenciais válidas e proteger páginas sensíveis com autenticação obrigatória.
+O framework Django oferece proteção automática contra ameaças comuns da web, como injeção de SQL, execução remota de código, Cross-Site Scripting (XSS) e falsificação de requisições entre sites (CSRF). Além disso, foram implementadas as seguintes práticas:
 
-Proteção contra CSRF (Cross-Site Request Forgery): Todas as requisições POST são protegidas por tokens CSRF, garantindo que ações críticas só possam ser executadas por usuários autenticados a partir da própria aplicação.
+Sistema de autenticação e autorização: Controle de acesso baseado em permissões, exigência de credenciais válidas e proteção de páginas sensíveis por autenticação obrigatória.
 
-Escapamento automático de HTML (XSS): O mecanismo de templates do Django realiza automaticamente o escapamento de dados inseridos pelos usuários, o que impede a execução de scripts maliciosos.
+Proteção contra CSRF: Utilização de tokens em requisições POST, garantindo que apenas usuários legítimos possam executar ações críticas.
 
-Hash de senhas com algoritmos seguros: As senhas dos usuários são armazenadas de forma segura com algoritmos de hash modernos (como PBKDF2), tornando inviável a recuperação das senhas mesmo em caso de vazamento da base de dados.
+Escapamento automático de HTML (XSS): O mecanismo de templates evita a execução de scripts maliciosos.
+Armazenamento seguro de senhas: Utilização de algoritmos modernos de hash, como PBKDF2, inviabilizando a recuperação das senhas mesmo em caso de vazamento.
 
-Validação de entradas e uso de ORM: Ao utilizar o ORM (Object-Relational Mapper) do Django, o sistema evita o uso direto de comandos SQL, o que mitiga o risco de injeção de código malicioso no banco de dados.
+Gerenciamento seguro de sessões: Identificadores criptografados, proteção contra falsificação e expiração automática de sessões inativas.
 
-Gerenciamento de sessões seguro: O Django gerencia sessões de forma criptografada e armazena os identificadores de sessão com proteção contra falsificação. O sistema pode ser configurado para expirar sessões inativas e exigir reautenticação para operações sensíveis.
 
-Além dessas funcionalidades nativas, o sistema conta com certificado SSL/TLS para garantir a criptografia do tráfego entre cliente e servidor, além de backups automáticos armazenados na nuvem (AWS), oferecendo resiliência em caso de falhas técnicas.
+\subsection{Segurança na Comunicação}
 
-\subsection{Conformidade com a LGPD}
-Para atender à Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018), o sistema foi desenvolvido com foco na coleta mínima de dados, transparência e controle por parte do usuário. As finalidades de uso das informações são claramente definidas, e o usuário pode, a qualquer momento, solicitar a remoção de seus dados ou a revisão do consentimento.
+Todas as comunicações entre cliente e servidor são realizadas via HTTPS, com uso de certificado SSL/TLS. O certificado foi emitido por uma autoridade certificadora confiável, após validação de domínio e instalação no servidor da AWS. A criptografia das conexões assegura a confidencialidade, integridade e autenticidade dos dados transmitidos.
+A aplicação redireciona automaticamente requisições HTTP para HTTPS e adiciona cabeçalhos HTTP de segurança, prevenindo de possíveis ataques.
 
-Com isso, o sistema não apenas assegura uma navegação segura e confiável, mas também respeita os direitos fundamentais de privacidade e liberdade informacional previstos na legislação brasileira.
 
-\subsection{Protocolos de Segurança na Comunicação}
-A segurança na troca de informações no sistema “Chalés Água de Coco” foi uma prioridade desde as fases iniciais de desenvolvimento. Para garantir a integridade, a confidencialidade e a autenticidade dos dados transmitidos, adotaram-se protocolos amplamente reconhecidos e confiáveis no ambiente web moderno.
+\subsubsection{Conformidade com a LGPD}
+Para atender aos princípios da LGPD, o sistema foi projetado com foco na coleta mínima de dados, na transparência quanto ao uso das informações e no controle por parte do titular dos dados. São assegurados os seguintes direitos:
 
-\subsubsection{Certificação Digital com SSL/TLS}
-A aplicação foi implementada com suporte ao protocolo TLS (Transport Layer Security), sucessor do SSL, por meio de certificado digital instalado no servidor web em nuvem (AWS). Este certificado criptografa a comunicação entre o cliente (navegador do usuário) e o servidor, tornando os dados transmitidos — como informações cadastrais e de reservas — inacessíveis a terceiros.
+Solicitação de remoção de dados pessoais;
 
-A emissão do certificado TLS envolveu a geração de um par de chaves criptográficas e o envio de um pedido de assinatura (CSR) a uma autoridade certificadora confiável, que validou o domínio e forneceu o certificado. Este foi instalado e configurado no ambiente AWS, garantindo que todas as requisições utilizem conexões criptografadas via HTTPS.
+Alteração de consentimento previamente fornecido;
 
-\subsubsection{Protocolo HTTPS}
-A utilização do protocolo HTTPS (HyperText Transfer Protocol Secure) é fundamental para proteger sessões de navegação dos usuários. Com ele, todas as requisições realizadas ao sistema de reservas da pousada são criptografadas, evitando ataques como man-in-the-middle e a exposição de dados sensíveis.
+Acesso claro às finalidades do tratamento dos dados.
 
-A aplicação redireciona automaticamente qualquer tentativa de acesso via HTTP para HTTPS, reforçando as boas práticas de segurança. O uso de HTTPS também contribui para a credibilidade da plataforma junto aos usuários, além de ser um critério relevante para mecanismos de busca e navegadores modernos.
+Além disso, os dados são armazenados de forma segura e submetidos a backups regulares em ambiente de nuvem, garantindo resiliência e conformidade com os princípios de segurança, prevenção e responsabilização da LGPD.
 
-\subsubsection{Compatibilidade com a Arquitetura Django}
-A estrutura do Django, utilizada no desenvolvimento da aplicação, já oferece suporte nativo a conexões seguras. As configurações de segurança foram ajustadas para forçar o uso de HTTPS em todas as rotas públicas e administrativas, além da inclusão de headers HTTP como Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options e Content-Security-Policy, reforçando a proteção contra ataques como clickjacking, XSS e sniffing de conteúdo.
 
 \section{Modelagem do Banco de Dados}
 \subsection{Modelo Entidade-Relacionamento - MER}
@@ -974,7 +989,7 @@ A Figura~\ref{fig:der} mostra o Diagrama Entidade-Relacionamento (DER) do sistem
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth]{0406-DER.jpg}
-	\caption{Diagrama Entidade-Relacionamento (MER) desenvolvido no brModelo}
+	\caption{Diagrama Entidade-Relacionamento (DER) desenvolvido no brModelo}
 	\label{fig:der}
 \end{figure}
 
@@ -987,7 +1002,12 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 \section{Custos}
 \subsection{Custo Estrutural}
 
-\begin{table}[h!]
+A parte de custos por estrutura está divida entre Equipamentos e Serviços, que diz respeito aos equipamentos e serviços necessários para que cada colaborador do time consiga desempenhar suas funções. E Infraestrutura, que aborda os custos relativos a sustentação do sistema.
+
+Considerando que a equipe trabalha no regime home office e utiliza seus próprios equipamentos, consideramos os gastos como nulos. Partindo assim para tarifas referentes a energia e internet.
+Já nos custos indicados na parte de infraestrutura foram considerados nulos pois o sistema será desenvolvido utilizando serviços gratuito (lembrando que essa análise se trata de uma estimativa, e que caso haja alguma mudança significativa no projeto ou necessidade de serviços pagos, esses custos podem mudar).
+
+\begin{table}[H]
 	\centering
 	\caption{Resumo dos custos de Equipamentos e Serviços}
 	\label{tab:equipamentos-servicos}
@@ -1010,7 +1030,7 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 \end{table}
 
 
-\begin{table}[h!]
+\begin{table}[H]
 	\centering
 	\caption{Resumo dos custos de Infraestrutura}
 	\label{tab:infraestrutura}
@@ -1036,6 +1056,10 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 
 \subsection{Custo Mão de Obra}
 
+Na imagem a seguir temos uma tabela detalhada com os custos referentes a mão de obra do desenvolvimento do projeto. 
+Na primeira coluna temos a especificação dos papéis de cada profissional, em seguida quantidade de pessoas por cargo, horas trabalhadas ao dia e dias trabalhados ao mês(média).
+Também podemos checar o preço por hora de cada profissional, assim finalizamos com as estimativas de custo mensal, total 4 meses (correspondente ao tempo em que a equipe já trabalhou no projeto até então) e projeção 9 meses (correspondente ao tempo total estimado de projeto).
+
 % Tabela 1 - Dados de horas
 \begin{table}[H]
 	\centering
@@ -1046,24 +1070,25 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 			\hline
 			\textbf{Função} & \textbf{Quantidade} & \textbf{Horas/Dia} & \textbf{Dias/Mês} & \textbf{Total de Horas/Mês} \\
 			\hline
-			Analista de Cronograma (PMO) & 1 & 6 & 22 & 25,90 \\
+			Analista de Cronograma (PMO)     & 1 & 6 & 22 & 132 \\
 			\hline
-			Engenheiro de Dados (DBA) & 1 & 6 & 22 & 47,30 \\
+			Engenheiro de Dados (DBA)        & 1 & 6 & 22 & 132 \\
 			\hline
-			Analista de Documentação & 1 & 6 & 22 & 75,30 \\
+			Analista de Documentação         & 1 & 6 & 22 & 132 \\
 			\hline
-			Gerente de Projeto (PM) & 1 & 6 & 22 & 78,90 \\
+			Gerente de Projeto (PM)          & 1 & 6 & 22 & 132 \\
 			\hline
-			Desenvolvedor Front-End & 1 & 6 & 22 & 150,00 \\
+			Desenvolvedor Front-End          & 1 & 6 & 22 & 132 \\
 			\hline
-			Desenvolvedor Back-End & 1 & 6 & 22 & 66,00 \\
+			Desenvolvedor Back-End           & 1 & 6 & 22 & 132 \\
 			\hline
-			\textbf{Total Mão de Obra} & 6 & 36 & 132 & 443,40 \\
+			\textbf{Total Mão de Obra}       & 6 & 36 & 132 & 792 \\
 			\hline
 		\end{tabular}
 	}
 	\fonte{Elaborado pelos autores.}
 \end{table}
+
 \begin{table}[H]
 	\centering
 	\caption{Custos por função}
@@ -1073,19 +1098,19 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 			\hline
 			\textbf{Função} & \textbf{Custo Hora (R\$)} & \textbf{Custo Mensal (R\$)} & \textbf{Total 4 meses (R\$)} & \textbf{Total 9 meses (R\$)} \\
 			\hline
-			Analista de Cronograma (PMO) & 16,00 & 155,40 & 621,60 & 1.398,60 \\
+			Analista de Cronograma (PMO)     & 16,00 & 2.112,00 & 8.448,00 & 19.008,00 \\
 			\hline
-			Engenheiro de Dados (DBA) & 13,00 & 283,80 & 1.135,20 & 2.554,20 \\
+			Engenheiro de Dados (DBA)        & 13,00 & 1.716,00 & 6.864,00 & 15.444,00 \\
 			\hline
-			Analista de Documentação & 15,00 & 451,80 & 1.807,20 & 4.066,20 \\
+			Analista de Documentação         & 15,00 & 1.980,00 & 7.920,00 & 17.820,00 \\
 			\hline
-			Gerente de Projeto (PM) & 16,00 & 473,40 & 1.893,60 & 4.260,60 \\
+			Gerente de Projeto (PM)          & 16,00 & 2.112,00 & 8.448,00 & 19.008,00 \\
 			\hline
-			Desenvolvedor Front-End & 13,00 & 900,00 & 3.600,00 & 8.100,00 \\
+			Desenvolvedor Front-End          & 13,00 & 1.716,00 & 6.864,00 & 15.444,00 \\
 			\hline
-			Desenvolvedor Back-End & 13,00 & 396,00 & 1.584,00 & 3.564,00 \\
+			Desenvolvedor Back-End           & 13,00 & 1.716,00 & 6.864,00 & 15.444,00 \\
 			\hline
-			\textbf{Total Mão de Obra} & 86,00 & 2.660,40 & 10.641,60 & 23.943,60 \\
+			\textbf{Total Mão de Obra}       & 86,00 & 11.352,00 & 45.408,00 & 102.168,00 \\
 			\hline
 		\end{tabular}
 	}
@@ -1093,6 +1118,11 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 \end{table}
 
 \subsection{Custo Total}
+
+Na imagem a seguir temos a junção dos custos por mão de obra e custos por estrutura, sendo visualizadas em 3 períodos diferentes:
+Custo Mensal - Referente a gastos de um único mês.
+Custo Total (4 meses) - Custos referentes aos meses que foram trabalhados até a data de escrita deste texto.
+Custo Total (9 meses) - Custos referentes ao total de meses programado para a realização do projeto.
 
 \begin{table}[h!]
 	\centering
@@ -1103,18 +1133,21 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 			\hline
 			\textbf{Categoria} & \textbf{Custo Mensal (R\$)} & \textbf{Custo Total (4 meses) (R\$)} & \textbf{Custo Total (9 meses) (R\$)} \\
 			\hline
-			Mão de Obra & 23.943,60 & 95.774,40 & 215.492,40 \\
-			Estrutura & 118,41 & 473,64 & 1.065,69 \\
+			Mão de Obra & 11.352,00 & 45.408,00 & 102.168,00 \\
+			Estrutura   & 118,41    & 473,64    & 1.065,69 \\
 			\hline
-			\textbf{Total} & 24.062,01 & 96.248,04 & 216.558,09 \\
+			\textbf{Total} & 11.470,41 & 45.881,64 & 103.233,69 \\
 			\hline
-		\end{tabular}}
+		\end{tabular}
+	}
 	\fonte{Elaborado pelos autores.}
 \end{table}
 
 \section{Cenários}
 
 \subsection{Cenário Otimista}
+
+Na imagem a seguir podemos observar a projeção construída pela equipe de um cenário otimista, levando em consideração os custos já apresentados anteriormente de mão de obra e estrutura. Podemos observar que de acordo com essa projeção, o ponto de equilíbrio será alcançado por volta de 6 meses.
 
 \begin{figure}[H]
 	\centering
@@ -1143,26 +1176,26 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 			thick,
 			]
 			coordinates {
-				(1,24062.01)
-				(2,48124.02)
-				(3,72186.03)
-				(4,96248.04)
-				(5,120310.05)
-				(6,144372.06)
-				(7,168434.07)
-				(8,192496.08)
-				(9,216558.09)
-				(10,240620.10)
-				(11,264682.11)
-				(12,288744.12)
-				(13,312806.13)
-				(14,336868.14)
-				(15,360930.15)
-				(16,384992.16)
-				(17,409054.17)
-				(18,433116.18)
-				(19,457178.19)
-				(20,481240.20)
+				(1,11470.41)
+				(2,22940.82)
+				(3,34411.23)
+				(4,45881.64)
+				(5,57352.05)
+				(6,68822.46)
+				(7,80292.87)
+				(8,91763.28)
+				(9,103233.69)
+				(10,114704.10)
+				(11,126174.51)
+				(12,137644.92)
+				(13,149115.33)
+				(14,160585.74)
+				(15,172056.15)
+				(16,183526.56)
+				(17,194996.97)
+				(18,206467.38)
+				(19,217937.79)
+				(20,229408.20)
 			};
 			
 			% Dados Receitas Acumuladas
@@ -1173,38 +1206,38 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 			]
 			coordinates {
 				(1,5500)
-				(2,11000)
-				(3,16500)
-				(4,22000)
-				(5,55000)
-				(6,132000)
-				(7,242000)
-				(8,379500)
-				(9,544500)
-				(10,742500)
-				(11,990000)
-				(12,1276000)
-				(13,1606000)
-				(14,1991000)
-				(15,2431000)
-				(16,2926000)
-				(17,3476000)
-				(18,4108500)
-				(19,4823500)
-				(20,5577000)
+				(2,5500)
+				(3,5500)
+				(4,5500)
+				(5,33000)
+				(6,77000)
+				(7,110000)
+				(8,137500)
+				(9,165000)
+				(10,198000)
+				(11,247500)
+				(12,286000)
+				(13,330000)
+				(14,385000)
+				(15,440000)
+				(16,495000)
+				(17,550000)
+				(18,632500)
+				(19,715000)
+				(20,753500)
 			};
 			
 			\legend{Custos Acumulados, Receitas Acumuladas}
 		\end{axis}
 	\end{tikzpicture}
 	\caption{Comparação dos custos e receitas acumuladas no cenário otimista}
-	\label{fig:custo-receita}
+	\label{fig:custo-receita-otimista}
 \end{figure}
-
 
 
 \subsection{Cenário Pessimista}
 
+Na imagem a seguir podemos observar a projeção construída pela equipe de um cenário pessimista, levando em consideração os custos já apresentados anteriormente de mão de obra e estrutura. Podemos observar que de acordo com essa projeção, o ponto de equilíbrio será alcançado por volta de 19 meses.
 
 \begin{figure}[H]
 	\centering
@@ -1214,9 +1247,9 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 			xlabel={Meses},
 			ylabel={Valor (R\$)},
 			xmin=0, xmax=21,
-			ymin=0, ymax=800000,
+			ymin=0, ymax=300000,
 			xtick={1,5,10,15,20},
-			ytick={0,100000,200000,300000,400000,500000,600000,700000,800000},
+			ytick={0,50000,100000,150000,200000,250000,300000},
 			legend pos=north west,
 			ymajorgrids=true,
 			grid style=dashed,
@@ -1233,29 +1266,29 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 			thick,
 			]
 			coordinates {
-				(1,24062.01)
-				(2,48124.02)
-				(3,72186.03)
-				(4,96248.04)
-				(5,120310.05)
-				(6,144372.06)
-				(7,168434.07)
-				(8,192496.08)
-				(9,216558.09)
-				(10,240620.10)
-				(11,264682.11)
-				(12,288744.12)
-				(13,312806.13)
-				(14,336868.14)
-				(15,360930.15)
-				(16,384992.16)
-				(17,409054.17)
-				(18,433116.18)
-				(19,457178.19)
-				(20,481240.20)
+				(1,11470.41)
+				(2,22940.82)
+				(3,34411.23)
+				(4,45881.64)
+				(5,57352.05)
+				(6,68822.46)
+				(7,80292.87)
+				(8,91763.28)
+				(9,103233.69)
+				(10,114704.10)
+				(11,126174.51)
+				(12,137644.92)
+				(13,149115.33)
+				(14,160585.74)
+				(15,172056.15)
+				(16,183526.56)
+				(17,194996.97)
+				(18,206467.38)
+				(19,217937.79)
+				(20,229408.20)
 			};
 			
-			% Dados Receitas Acumuladas (soma acumulada)
+			% Dados Receitas Acumuladas
 			\addplot[
 			color=blue,
 			mark=o,
@@ -1263,25 +1296,25 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 			]
 			coordinates {
 				(1,5500)
-				(2,11000)
-				(3,16500)
-				(4,22000)
-				(5,27500)
-				(6,33000)
-				(7,38500)
-				(8,55000)
-				(9,93500)
-				(10,148500)
-				(11,231000)
-				(12,330000)
-				(13,462000)
-				(14,616000)
-				(15,819500)
-				(16,1078000)
-				(17,1397000)
-				(18,1809500)
-				(19,2304500)
-				(20,2876500)
+				(2,5500)
+				(3,5500)
+				(4,5500)
+				(5,5500)
+				(6,5500)
+				(7,5500)
+				(8,11000)
+				(9,16500)
+				(10,27500)
+				(11,44000)
+				(12,44000)
+				(13,66000)
+				(14,82500)
+				(15,99000)
+				(16,132000)
+				(17,165000)
+				(18,192500)
+				(19,220000)
+				(20,258500)
 			};
 			
 			\legend{Custos Acumulados, Receitas Acumuladas}
@@ -1292,9 +1325,9 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 \end{figure}
 
 
-
 \subsection{Cenário Realista}
 
+Na imagem a seguir podemos observar a projeção construída pela equipe de um cenário realista, levando em consideração os custos já apresentados anteriormente de mão de obra e estrutura. Podemos observar que de acordo com essa projeção, o ponto de equilíbrio será alcançado por volta de 14 meses.
 
 \begin{figure}[H]
 	\centering
@@ -1304,15 +1337,15 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 			xlabel={Meses},
 			ylabel={Valor (R\$)},
 			xmin=0, xmax=21,
-			ymin=0, ymax=3500000,
+			ymin=0, ymax=350000,
 			xtick={1,5,10,15,20},
-			ytick={0,500000,1000000,1500000,2000000,2500000,3000000,3500000},
+			ytick={0,50000,100000,150000,200000,250000,300000,350000},
 			legend pos=north west,
 			ymajorgrids=true,
 			grid style=dashed,
 			width=14cm,
 			height=8cm,
-			scaled y ticks=false,
+			scaled y ticks = false,
 			ticklabel style={/pgf/number format/fixed},
 			]
 			
@@ -1323,29 +1356,29 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 			thick,
 			]
 			coordinates {
-				(1,24062.01)
-				(2,48124.02)
-				(3,72186.03)
-				(4,96248.04)
-				(5,120310.05)
-				(6,144372.06)
-				(7,168434.07)
-				(8,192496.08)
-				(9,216558.09)
-				(10,240620.10)
-				(11,264682.11)
-				(12,288744.12)
-				(13,312806.13)
-				(14,336868.14)
-				(15,360930.15)
-				(16,384992.16)
-				(17,409054.17)
-				(18,433116.18)
-				(19,457178.19)
-				(20,481240.20)
+				(1,11470.41)
+				(2,22940.82)
+				(3,34411.23)
+				(4,45881.64)
+				(5,57352.05)
+				(6,68822.46)
+				(7,80292.87)
+				(8,91763.28)
+				(9,103233.69)
+				(10,114704.10)
+				(11,126174.51)
+				(12,137644.92)
+				(13,149115.33)
+				(14,160585.74)
+				(15,172056.15)
+				(16,183526.56)
+				(17,194996.97)
+				(18,206467.38)
+				(19,217937.79)
+				(20,229408.20)
 			};
 			
-			% Dados Receitas Acumuladas (soma acumulada)
+			% Dados Receitas Acumuladas
 			\addplot[
 			color=blue,
 			mark=o,
@@ -1353,25 +1386,25 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 			]
 			coordinates {
 				(1,5500)
-				(2,11000)
-				(3,16500)
-				(4,22000)
-				(5,27500)
-				(6,33000)
-				(7,55000)
-				(8,93500)
-				(9,159500)
-				(10,258500)
-				(11,396000)
-				(12,566500)
-				(13,797500)
-				(14,1094500)
-				(15,1463000)
-				(16,1892000)
-				(17,2354000)
-				(18,2849000)
-				(19,3399000)
-				(20,4009500)
+				(2,5500)
+				(3,5500)
+				(4,5500)
+				(5,5500)
+				(6,5500)
+				(7,22000)
+				(8,38500)
+				(9,66000)
+				(10,88000)
+				(11,110000)
+				(12,121000)
+				(13,143000)
+				(14,165000)
+				(15,192500)
+				(16,220000)
+				(17,247500)
+				(18,280500)
+				(19,308000)
+				(20,330000)
 			};
 			
 			\legend{Custos Acumulados, Receitas Acumuladas}
@@ -1380,7 +1413,6 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 	\caption{Comparação dos custos e receitas acumuladas no cenário realista}
 	\label{fig:custo-receita-realista}
 \end{figure}
-
 
 
 \chapter{Considerações Finais}
@@ -1433,16 +1465,113 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 \partapendices
 
 % ----------------------------------------------------------
-\chapter{Quisque libero justo}
+\chapter{Diário de Bordo}
 % ----------------------------------------------------------
 
-\lipsum[50]
+
+\section{1° SEMANA}
+Período: 25/03/2025 a 01/04/2025.
+
+Nessa semana, com os membros da equipe definidos, iniciamos nossas atividades para o desenvolvimento do projeto da disciplina de Projeto de Extensão Integrado I. Assim, essa semana criamos um grupo na plataforma Whatsapp para estabelecermos nossa comunicação e facilitar o levantamento de possíveis temas para discutirmos em sala. Assim, no dia 01/04/2025 analisamos os parceiros disponíveis e a suas principais necessidades e optamos por desenvolver uma aplicação web para a empresa Pousada Chalés Água de Coco. 
+
+\section{2° SEMANA}
+Período: 01/04/2025 a 08/04/2025.
+
+Durante essa semana aprofundamos nosso conhecimento sobre a empresa parceira escolhida, entendo sua principal necessidade: automatização dos serviços de gestão.
+Definimos que iremos desenvolver uma aplicação web de gestão para a proprietária com o objetivo de facilitar e otimizar a administração do negócio. A partir disso, também definimos nosso MVP (Produto Mínimo Viável), levando em consideração nossa capacidade técnica e os serviços da pousada. Preenchemos a primeira planilha de avaliação do grupo e auto-avaliação. Por fim, nos preparamos para apresentar a nossa escolha de tema para o professor orientador, realizada no dia 08/04, na qual também apresentamos nosso MVP.
+Funcionalidade MVP: Gestão de Reservas e Check-in/Check-out. 	
+
+
+\section{3° SEMANA}
+Período: 08/04/2025 a 15/04/2025.
+
+Nesta semana começamos efetivamente as tarefas associadas ao desenvolvimento do nosso projeto. Foram elas:
+- Definimos a metodologia de gestão de projeto Scrum. Usamos como base para  nossa escolha: experiências práticas/ conhecimento prévio da ferramenta, isto é, familiaridade. 
+- Definimos a função de cada membro da equipe:
+Anna Julia: Analista de Cronograma/ PMO.
+Guilherme Akio: Engenheiro de Dados/ Administrador de Banco de Dados.
+Guilherme Bittencourt: Analista de Documentação/Arquiteto de Software.
+Kelly Radchelle: Gerente de Projeto.
+Rafael Teixeira: Desenvolvedor Frontend.
+Ricardo Carriel: Desenvolvedor Backend.
+- Criamos nosso arquivo no ProjectLibre, adicionamos os principais marcos do projeto e os recursos humanos.
+- Criamos nossa documentação LateX e fizemos as primeiras alterações no arquivo.
+- Iniciamos o levantamento dos requisitos funcionais do MVP.
+
+
+\section{4° SEMANA}
+Período: 15/04/2025 a 22/04/2025.
+
+Nesta semana foram realizadas as tarefas e discussões para iniciarmos o desenvolvimento do desenho da nossa aplicação:
+Analisamos os requisitos funcionais levantados e definimos os requisitos não funcionais essenciais da nossa aplicação.
+E definimos as plataformas e tecnologias que iremos usar.
+
+
+\section{5° SEMANA}
+Período: 22/04/2025 a 29/04/2025.
+
+Essa semana foram desenvolvidas atividades ligadas ao desenvolvimento da prova de conceito. Foram elas:
+- Documentação dos Casos de Uso - Kelly
+- Documentação dos Diagramas de Caso de Uso -Guilherme Bittencourt.
+Reunião via Google Meet na qual foi discutido o desenho da aplicação com todos os membros da equipe.
+- Criação do Diagrama de Componentes -Guilherme Bittencourt.
+- Criação do Diagrama de Implantação -Kelly Radchelle.
+- Apresentação do Desenho da Aplicação - Guilherme Bittencourt, Guilherme Akio, Rafael Teixeira, Anna Julia e Ricardo Carriel.
+
+\section{6° SEMANA}
+Período: 29/04/2025 a 06/05/2025.
+
+Após a entrega da prova de conceito na semana anterior os diagramas apresentados foram editados, corrigindo os pontos levantados 
+pelo professor orientador. 
+- Alterações no diagrama de componentes: Guilherme Bittencourt.
+- Alterações no diagrama de implantação: Kelly.
+- Criação do MER:Guilherme Bittencourt.
+- Criação do repositório Git para versionamento da aplicação: Guilherme Bittencourt.
+- Levantamento das regras de negócio e requisitos com a proprietária:  Kelly, Ricardo.
+
+\section{7° SEMANA}
+Período: 06/05/2025 a 13/05/2025.
+
+Nesta semana foram realizadas atividades para a entrega da POC (Prova de Conceito). Foram elas:
+Início do desenvolvimento do backend e frontend no Django: views, models e templates - Guilherme Akio.
+Início da configuração do ambiente de hospedagem - Ricardo Carriel.
+Além de continuarmos com as atividades de documentação e alimentação do nosso repositório Git.
+
+\section{8° SEMANA}
+Período: 13/05/2025 a 20/05/2025.
+
+Nessa semana o Ricardo e o Guilherme Akio finalizaram a integração entre o ambiente de hospedagem, criação do banco de dados no postgreSQL e o servidor Django. 
+Assim, conseguimos finalizar, entregar e apresentar a prova de conceito. Além disso, aproveitamos para revisar os nossos requisitos e  regras de negócio e 
+estruturamos de forma mais completa nossos requisitos não funcionais.
+
+\section{9° SEMANA}
+Período: 20/05/2025 a 27/05/2025.
+
+Nesta semana demos continuidade ao desenvolvimento do nosso MVP, focando agora nas funcionalidades e interfaces. Alimentamos nosso repositório git com arquivos referentes a documentação.
+- Atualizações no código- Ricardo.
+- Desenvolvimento da Documentação - Kelly.
+- Desenvolvimento da Documentação - Guilherme Bittencourt.
+
+\section{10° SEMANA}
+Período: 27/05/2025 a 03/06/2025.
+
+Nesta semana os esforços da equipe foram voltados para o desenvolvimento e consolidação da documentação do projeto. 
+Dessa forma, todos os integrantes tiveram como atividade a documentação e revisão de algum aspecto do sistema.  Além disso, o
+integrante Rafael fez correções na extensão HTML.
+
+\section{11° SEMANA}
+Período: 03/06/2025 a 10/06/2025.
+
+\section{12° SEMANA}
+Período: 10/06/2025 a 17/06/2025.
+
+\section{13° SEMANA}
+Período: 17/06/2025 a 24/06/2025.
+
 
 % ----------------------------------------------------------
-\chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
-ac pretium ante justo a nulla curabitur tristique arcu eu metus}
+\chapter{}
 % ----------------------------------------------------------
-\lipsum[55-57]
 
 \end{apendicesenv}
 % ---
@@ -1461,22 +1590,9 @@ ac pretium ante justo a nulla curabitur tristique arcu eu metus}
 \partanexos
 
 % ---
-\chapter{Morbi ultrices rutrum lorem.}
-% ---
-\lipsum[30]
-
-% ---
-\chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
-parturient montes nascetur ridiculus mus}
+\chapter{}
 % ---
 
-\lipsum[31]
-
-% ---
-\chapter{Fusce facilisis lacinia dui}
-% ---
-
-\lipsum[32]
 
 \end{anexosenv}
 
