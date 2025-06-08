@@ -7,7 +7,7 @@
 <div class="space-y-6">
     <div class="flex justify-between items-center">
         <h2 class="text-2xl font-bold">Lista de Quartos</h2>
-        <a href="{% url 'quarto:adicionar_quarto' %}" class="btn btn-success">
+        <a href="{% url 'quarto:form' %}" class="btn btn-success">
             <i class="fas fa-plus mr-2"></i>Adicionar Quarto
         </a>
     </div>
@@ -37,11 +37,11 @@
                     <td>{{ quarto.descricao }}</td>
                     <td>R$ {{ quarto.preco }}</td>
                     <td class="flex gap-2">
-                        <a href="{% url 'quarto:editar_quarto' quarto.id %}" class="btn btn-warning btn-sm" title="Editar Quarto">
-                            <i class="fas fa-edit"></i>
+                        <a href="{% url 'quarto:form' quarto.id %}" class="btn btn-warning btn-sm" title="Editar Quarto">
+                            <i class="fas fa-edit">Editar</i>
                         </a>
                         <button onclick="confirmarExclusao('{{ quarto.id }}')" class="btn btn-error btn-sm" title="Excluir Quarto">
-                            <i class="fas fa-trash"></i>
+                            <i class="fas fa-trash">Excluir</i>
                         </button>
                     </td>
                 </tr>
