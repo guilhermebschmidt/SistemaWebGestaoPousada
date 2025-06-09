@@ -1,0 +1,86 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[{ANATEL} 2025]{anatel-anexo}
+\abntrefinfo{{ANATEL}}{{ANATEL}}{2025}
+{{ANATEL}. \emph{Documento Técnico Anatel}. 2025.
+Acessado em 7 de junho de 2025.
+Dispon{\'\i}vel em:
+  \url{https://sistemas.anatel.gov.br/anexar-api/publico/anexos/download/9c9e947419913b3987bd8cc7510f03f1}.}
+
+\bibitem[AWS 2025]{aws-doc}
+\abntrefinfo{AWS}{AWS}{2025}
+{AWS. \emph{AWS - Amazon Web Services}. 2025.
+Disponível em: \url{https://aws.amazon.com/documentation/}. Acesso em: 7 jun.
+  2025.}
+
+\bibitem[BRASIL 2018]{lgpd}
+\abntrefinfo{BRASIL}{BRASIL}{2018}
+{BRASIL. \emph{Lei Geral de Proteção de Dados Pessoais (LGPD) – Lei nº
+  13.709}. 2018.
+Diário Oficial da União, Brasília, DF, 15 ago. 2018.}
+
+\bibitem[BRMODELO 2024]{brmodelo}
+\abntrefinfo{BRMODELO}{BRMODELO}{2024}
+{BRMODELO. \emph{BRModelo Web}.
+[S.l.], 2024. Acessado em 7 de junho de 2025. Dispon{\'\i}vel em:
+  \url{https://www.brmodeloweb.com/}.}
+
+\bibitem[{DJANGO} 2024]{django}
+\abntrefinfo{{DJANGO}}{{DJANGO}}{2024}
+{{DJANGO}. \emph{Django Documentation}.
+[S.l.], 2024. Acessado em 7 de junho de 2025. Dispon{\'\i}vel em:
+  \url{https://docs.djangoproject.com/pt-br/4.2/}.}
+
+\bibitem[DUCKETT 2011]{duckett}
+\abntrefinfo{DUCKETT}{DUCKETT}{2011}
+{DUCKETT. \emph{HTML and CSS: Design and Build Websites}. [S.l.]: Wiley, 2011.
+ISBN 9781118008188.}
+
+\bibitem[{ENEL} 2025]{enel-tarifa}
+\abntrefinfo{{ENEL}}{{ENEL}}{2025}
+{{ENEL}. \emph{Tarifa de Energia Elétrica}. 2025.
+Acessado em 7 de junho de 2025.
+Dispon{\'\i}vel em:
+  \url{https://www.enel.com.br/pt-saopaulo/Para\_Voce/tarifa-energia-eletrica.html}.}
+
+\bibitem[GITHUB 2024]{github-doc}
+\abntrefinfo{GITHUB}{GITHUB}{2024}
+{GITHUB. \emph{GitHub Docs}.
+[S.l.], 2024. Acessado em 7 de junho de 2025. Dispon{\'\i}vel em:
+  \url{https://docs.github.com/}.}
+
+\bibitem[{GOOGLE} 2024]{google-meet}
+\abntrefinfo{{GOOGLE}}{{GOOGLE}}{2024}
+{{GOOGLE}. \emph{Google Meet Help}.
+[S.l.], 2024. Acessado em 7 de junho de 2025. Dispon{\'\i}vel em:
+  \url{https://support.google.com/meet/}.}
+
+\bibitem[{LATEX} 2024]{latex-project}
+\abntrefinfo{{LATEX}}{{LATEX}}{2024}
+{{LATEX}. \emph{LaTeX - A document preparation system}.
+[S.l.], 2024. Acessado em 7 de junho de 2025. Dispon{\'\i}vel em:
+  \url{https://www.latex-project.org/}.}
+
+\bibitem[POSTGRESQL 2025]{postgresql}
+\abntrefinfo{POSTGRESQL}{POSTGRESQL}{2025}
+{POSTGRESQL. \emph{The PostgreSQL Documentation}. [S.l.]: PostgreSQL, 2025.
+  Disponível em: \url{https://www.postgresql.org/docs/}. Acesso em: 7 jun.
+  2025.}
+
+\bibitem[PYTHON 2025]{python}
+\abntrefinfo{PYTHON}{PYTHON}{2025}
+{PYTHON. \emph{Python Official Documentation}. 2025.
+Disponível em: \url{https://docs.python.org/3/}. Acesso em: 7 jun. 2025.}
+
+\bibitem[VISUAL-PARADIGM 2024]{visual-paradigm}
+\abntrefinfo{VISUAL-PARADIGM}{VISUAL-PARADIGM}{2024}
+{VISUAL-PARADIGM. \emph{Visual Paradigm Online Documentation}.
+[S.l.], 2024. Acessado em 7 de junho de 2025. Dispon{\'\i}vel em:
+  \url{https://online.visual-paradigm.com/}.}
+
+\end{thebibliography}
