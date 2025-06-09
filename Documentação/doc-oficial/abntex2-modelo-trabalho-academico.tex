@@ -124,7 +124,7 @@
 \tipotrabalho{Trabalho Conclusão de Curso}
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
-\preambulo{Trabalho de Conclusão de Curso apresentado
+\preambulo{Projeto de Conclusão de Curso apresentado
 ao Instituto Federal de Educação, Ciência e
 Tecnologia de São Paulo Câmpus São Paulo,
 como requisito parcial para conclusão do
@@ -525,14 +525,14 @@ A escolha deste projeto se justifica pela necessidade real de modernização enf
 
 Com o crescimento da demanda por eficiência operacional e qualidade no atendimento ao cliente, torna-se essencial a adoção de soluções tecnológicas que automatizem processos, centralizem informações e proporcionem maior controle gerencial. Um sistema web desenvolvido sob medida representa uma alternativa viável e eficaz, oferecendo funcionalidades específicas para o contexto da pousada, além de ser acessível a partir de qualquer dispositivo conectado à internet.
 
-Além disso, o desenvolvimento deste projeto contribui academicamente ao proporcionar a aplicação prática dos conhecimentos adquiridos ao longo do curso de Tecnologia da Informação, abrangendo áreas como análise de requisitos, modelagem de dados, programação web, experiência do usuário e segurança da informação. Por fim, a solução proposta tem potencial de gerar impacto direto e positivo na gestão do negócio parceiro, tornando este trabalho relevante tanto do ponto de vista acadêmico quanto social e econômico.
+Além disso, o desenvolvimento deste projeto contribui academicamente ao proporcionar a aplicação prática dos conhecimentos adquiridos ao longo do curso, abrangendo áreas como análise de requisitos, modelagem de dados, programação web, experiência do usuário e segurança da informação. Por fim, a solução proposta tem potencial de gerar impacto direto e positivo na gestão do negócio parceiro, tornando este trabalho relevante tanto do ponto de vista acadêmico quanto social e econômico.
 
 \section{Análise da Concorrência}
 \subsection{SimplesHotel}
 Simpleshotel é um sistema de gestão hoteleira desenvolvido para hotéis e pousadas de pequeno a grande porte, com foco na automação e integração dos processos operacionais e administrativos do setor de hospitalidade.
 A plataforma monetiza por meio de cobrança por planos pré-pagos mensais, com variação conforme o número de acomodações. Taxas adicionais são aplicadas para uso de módulos como emissão de NFSe, envio de SMS e motor de reservas.
 Suas principais funcionalidades são gerenciador de reservas, controle financeiro e de estoque, gerenciamento de eventos e day use, integração com canais de venda (Booking, Expedia, Hoteis.com, Decolar), web check-in, emissão de notas fiscais, módulo de governança e suporte multicanal.
-A plataforma é uma aplicação web, acessível via navegador. Armazenamento em nuvem e sincronização em tempo real com OTAs. Suporte remoto com atendimento humanizado.
+A plataforma é uma aplicação web, acessível via navegador, tem o seu armazenamento em nuvem.
 \subsection{HospedaJá}
 HospedaJá é uma plataforma online de gestão para hotéis e pousadas de pequeno e médio porte, com foco na organização de reservas, hospedagens, acomodações e finanças.
 A plataforma monetiza por meio de cobrança de mensalidades conforme plano escolhido, variando por número de quartos e usuários.
@@ -1911,7 +1911,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 % ---
 \section{Arquitetura}
 \subsection{Desenho da Arquitetura}
-A arquitetura do sistema de reservas da Pousada Chalés Água de Coco foi concebida com base no framework Django~\cite{django}, utilizando o padrão de arquitetura MTV (Model-Template-View). Esse padrão permite a separação lógica das responsabilidades entre modelo de dados, interface de apresentação e regras de controle, garantindo organização, reutilização de código e manutenibilidade da aplicação.
+A arquitetura do sistema de reservas da Pousada Chalés Água de Coco foi criada com base no framework Django~\cite{django}, utilizando o padrão de arquitetura MTV (Model-Template-View). Esse padrão permite a separação lógica das responsabilidades entre modelo de dados, interface de apresentação e regras de controle, garantindo organização, reutilização de código e manutenibilidade da aplicação.
 
 \subsubsection{Estrutura da Solução}
 
@@ -1922,7 +1922,7 @@ A aplicação foi projetada como uma solução fullstack, sendo o Django respons
 
 O banco de dados utilizado é o PostgreSQL, devido à sua robustez, suporte a dados relacionais e facilidade de integração com o Django~\cite{postgresql}. Todas as tabelas, relacionamentos e consultas são gerenciados pelo ORM, o que minimiza riscos de injeção de código malicioso e facilita a manutenção.
 A infraestrutura de hospedagem está baseada na Amazon Web Services (AWS), garantindo alta disponibilidade, escalabilidade e segurança. O servidor é configurado para suportar conexões seguras via HTTPS, e mecanismos de backup e monitoramento são empregados para garantir a continuidade do serviço~\cite{aws-doc}.
-Por fim, a arquitetura proposta está preparada para evoluções futuras, permitindo a integração com APIs externas, mecanismos de pagamento e relatórios gerenciais, com base em uma estrutura modular e escalável.
+Por fim, a arquitetura proposta está preparada para evoluções futuras, permitindo a integração com APIs externas e relatórios gerenciais, com base em uma estrutura modular e escalável.
 
 
 \subsection{Diagrama da Arquitetura}
@@ -1997,15 +1997,13 @@ O Google Meet foi utilizado como plataforma de comunicação e realização de e
 \section{Manutenibilidade}
 A manutenibilidade do sistema de reservas para pousadas desenvolvido neste projeto é assegurada por meio de práticas estruturadas de engenharia de software, que facilitam a correção de erros, inclusão de novas funcionalidades e adaptação a futuras necessidades.
 
-O sistema foi concebido com uma arquitetura modular, respeitando os princípios de separação de responsabilidades. Isso permite que diferentes partes do sistema, como interface, regras de negócio e persistência de dados, sejam modificadas de forma independente, minimizando impactos colaterais e reduzindo o tempo de manutenção.
+O sistema foi criado com uma arquitetura modular, respeitando os princípios de separação de responsabilidades. Isso permite que diferentes partes do sistema, como interface, regras de negócio e persistência de dados, sejam modificadas de forma independente, minimizando impactos colaterais e reduzindo o tempo de manutenção.
 
 Além disso, foram adotados padrões de codificação consistentes e bem documentados, com o intuito de facilitar a leitura e compreensão do código por outros desenvolvedores. Esses padrões promovem a reutilização e a extensibilidade do sistema.
 
 A utilização do sistema de controle de versão Git, em conjunto com a plataforma GitHub, possibilita o rastreamento detalhado de alterações, revisão de código e colaboração eficaz entre os membros da equipe~\cite{github-doc}. Isso garante maior controle sobre o histórico de desenvolvimento e facilita a identificação e resolução de falhas.
 
 A aplicação também contará com testes automatizados, cobrindo os principais fluxos da aplicação, como testes unitários para funções críticas e testes de integração entre os módulos.
-
-Complementando essas práticas, será elaborada uma documentação técnica e funcional completa, abrangendo instruções de uso, instalação, configuração e manutenção.
 
 Por fim, o projeto segue um ciclo de desenvolvimento bem definido, com etapas de planejamento, codificação, testes, implantação e manutenção. Essa abordagem estruturada proporciona maior previsibilidade, qualidade e agilidade na evolução contínua da aplicação, assegurando sua longevidade e adaptabilidade.
 
@@ -2083,7 +2081,7 @@ Na etapa da prova de conceito, foi desenvolvido um sistema funcional de cadastro
 
 \subsection{Análise e Documentação - 10/06}
 
-Nesta etapa, foi realizada a entrega da documentação referente ao Projeto de Conclusão de Curso (PCC), contendo toda a análise do problema, justificativas, objetivos, levantamento de requisitos, arquitetura do sistema, escolha das tecnologias, desenvolvimento e resultados obtidos. A documentação formaliza todas as etapas do projeto, desde sua concepção até a implementação da solução proposta, servindo como registro técnico e acadêmico do trabalho desenvolvido.
+Nesta etapa, foi realizada a entrega da documentação referente ao Projeto de Conclusão de Curso (PCC), contendo toda a análise do problema, justificativas, objetivos, levantamento de requisitos, arquitetura do sistema, escolha das tecnologias e desenvolvimento. A documentação formaliza todas as etapas do projeto, desde sua concepção até a implementação da solução proposta, servindo como registro técnico e acadêmico do trabalho desenvolvido.
 
 \subsection{Produto Mínimo Viável - 24/06}
 
@@ -2532,7 +2530,7 @@ O projeto também demonstrou, na prática, a aplicabilidade dos conhecimentos ad
 \chapter{Conclusão}
 % ---
 
-Este Trabalho de Conclusão de Curso teve como propósito desenvolver um sistema web para automatizar os processos administrativos da pousada Chalés Água de Coco, promovendo uma solução moderna e eficiente em substituição ao modelo tradicional baseado em planilhas. O sistema entregue oferece recursos essenciais para a gestão de hóspedes, reservas, acomodações e controle financeiro, consolidando-se como uma plataforma completa e adaptada à realidade da pousada.
+Este Projeto de Conclusão de Curso teve como propósito desenvolver um sistema web para automatizar os processos administrativos da pousada Chalés Água de Coco, promovendo uma solução moderna e eficiente em substituição ao modelo tradicional baseado em planilhas. O sistema entregue oferece recursos essenciais para a gestão de hóspedes, reservas, acomodações e controle financeiro, consolidando-se como uma plataforma completa e adaptada à realidade da pousada.
 
 A aplicação da arquitetura MTV com o framework Django, a adoção de práticas seguras de desenvolvimento e o uso da infraestrutura em nuvem da AWS contribuíram para a construção de um sistema robusto e escalável, capaz de oferecer alto desempenho e disponibilidade. A utilização de tecnologias amplamente reconhecidas no mercado assegura não apenas a qualidade técnica do sistema, mas também sua viabilidade para expansão futura.
 
@@ -2677,7 +2675,7 @@ Período: 17/06/2025 a 24/06/2025.
 
 
 % ----------------------------------------------------------
-\chapter{}
+%\chapter{}
 % ----------------------------------------------------------
 
 \end{apendicesenv}
@@ -2691,17 +2689,17 @@ Período: 17/06/2025 a 24/06/2025.
 % ---
 % Inicia os anexos
 % ---
-\begin{anexosenv}
+%\begin{anexosenv}
 
 % Imprime uma página indicando o início dos anexos
-\partanexos
+%\partanexos
 
 % ---
-\chapter{}
+%\chapter{}
 % ---
 
 
-\end{anexosenv}
+%\end{anexosenv}
 
 %---------------------------------------------------------------------
 % INDICE REMISSIVO
