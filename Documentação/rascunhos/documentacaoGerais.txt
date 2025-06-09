@@ -1,0 +1,23 @@
+Explicando alguns arquivos que fazem parte do sistema:
+
+\code\setup\setup\settings.py:
+Esse é o arquivo de configuraçoes principais do Django para o nosso projeto, ele define o diretório base do projeto BASE_DIR, carrega variáveis de ambiente, como a SECRET_KEY, define o modo de debug, indica os domínios que podem acessar a nossa aplicaçao, lista os apps Django instalados, define a lista de middlewares que processam requisiçoes, define qual arquivo de urls será usado, configura o sistema de templates, configura o banco de dados PostgreSQL, e etc.
+
+\code\setup\setup\urls.py:
+Esse arquivo define as rotas do projeto. Por exemplo: Rota para o admin do Django, rota raiz para a página index.html e inclui as urls dos nossos Apps "hospedes" e "quartos".
+
+\code\setup\setup\wsgi.py:
+É um arquivo padrao para deploy da aplicaçao via servidor WSGI. Ele define a callable application que o servidor WSGI usa para se comunicar com o Django, configura o ambiente apontando para as configuraçoes do projeto (setup.settings), importa e cria a aplicaçao Django.
+
+Resumindo, o settings.py configura como o Django vai rodar (banco de dados, apps, segurança e templates). O urls.py define as rotas, conectando URLs a apps e views. E o wsgi.py fornece o ponto de entrada para servidores web executarem a aplicaçao Django.
+
+\code\setup\manage.py:
+Esse arquivo é o ponto de entrada para executar comandos administrativos do Django via terminal. Ele define a configuraçao padrao, importa e executa o Django. Por exemplo, pelo terminal do Windows, para executar o sistema você utiliza o comando: *python manage.py runserver* se referindo a esse arquivo.
+
+\code\setup\static\css\output.css:
+Esse arquivo é gerado pela biblioteca Tailwind CSS, com base nas configuraçoes do nosso projeto. Ele contém variáveis CSS, estilos base e camadas do Tailwind. Mais detalhadamente ele está definindo cores, espaçamentos, tamanhos de fonte, zera margens, paddings, bordas, define comportamentos padrao, adapta elementos como <table>, <hr>, <code> e <a>.
+
+\code\setup\templates\shared\base.html:
+Esse template é literalmente a base do Django, nós utilizamos como estrutura principal de todas as páginas do projeto, ele define o layout comum da interface, como menu, cabeçalho, rodapé e etc.
+Como ele funciona: ele importa o CSS gerado (output.css), define o tema da página com base na escolha do usuário, se é claro ou escuro. Depois usa o sistema de layout do Tailwind para criar um dashboard com menu lateral fixo, os ícones sao do FontAwesome e os estilos sao fornecidos pelo DaisyUI, que adiciona componentes como btn, input, menu, dropdown, badge e etc. 
+O base.html é usado como template pai, qualquer outra página herda dele, enquanto o output.css estiliza todos os elementos e componentes da interface, baseando-se nas classes Tailwind e DaisyUI.
