@@ -1911,17 +1911,17 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 % ---
 \section{Arquitetura}
 \subsection{Desenho da Arquitetura}
-A arquitetura do sistema de reservas da Pousada Chalés Água de Coco foi concebida com base no framework Django, utilizando o padrão de arquitetura MTV (Model-Template-View). Esse padrão permite a separação lógica das responsabilidades entre modelo de dados, interface de apresentação e regras de controle, garantindo organização, reutilização de código e manutenibilidade da aplicação.
+A arquitetura do sistema de reservas da Pousada Chalés Água de Coco foi concebida com base no framework Django~\cite{django}, utilizando o padrão de arquitetura MTV (Model-Template-View). Esse padrão permite a separação lógica das responsabilidades entre modelo de dados, interface de apresentação e regras de controle, garantindo organização, reutilização de código e manutenibilidade da aplicação.
 
 \subsubsection{Estrutura da Solução}
 
 A camada de interface (Template) é responsável pela exibição das páginas HTML aos usuários. Ela recebe os dados dinamicamente da camada de controle (View), que, por sua vez, realiza o processamento necessário, interage com o banco de dados e fornece as informações pertinentes à exibição. A camada de modelo (Model) representa a estrutura do banco de dados relacional, utilizando o ORM (Object-Relational Mapper) nativo do Django para abstrair a manipulação dos dados de forma segura e eficiente.
-A aplicação foi projetada como uma solução fullstack, sendo o Django responsável tanto pelo front-end quanto pelo back-end. No front-end, a interface é construída com HTML, CSS e componentes de Bootstrap, que promovem responsividade e usabilidade. No back-end, são implementadas as regras de negócio, controle de autenticação, segurança da aplicação e comunicação com o banco de dados PostgreSQL
+A aplicação foi projetada como uma solução fullstack, sendo o Django responsável tanto pelo front-end quanto pelo back-end. No front-end, a interface é construída com HTML e CSS, que promovem responsividade e usabilidade~\cite{duckett}. No back-end, são implementadas as regras de negócio, controle de autenticação, segurança da aplicação e comunicação com o banco de dados PostgreSQL
 .
 \subsubsection{Banco de Dados e Infraestrutura}
 
-O banco de dados utilizado é o PostgreSQL, devido à sua robustez, suporte a dados relacionais e facilidade de integração com o Django. Todas as tabelas, relacionamentos e consultas são gerenciados pelo ORM, o que minimiza riscos de injeção de código malicioso e facilita a manutenção.
-A infraestrutura de hospedagem está baseada na Amazon Web Services (AWS), garantindo alta disponibilidade, escalabilidade e segurança. O servidor é configurado para suportar conexões seguras via HTTPS, e mecanismos de backup e monitoramento são empregados para garantir a continuidade do serviço.
+O banco de dados utilizado é o PostgreSQL, devido à sua robustez, suporte a dados relacionais e facilidade de integração com o Django~\cite{postgresql}. Todas as tabelas, relacionamentos e consultas são gerenciados pelo ORM, o que minimiza riscos de injeção de código malicioso e facilita a manutenção.
+A infraestrutura de hospedagem está baseada na Amazon Web Services (AWS), garantindo alta disponibilidade, escalabilidade e segurança. O servidor é configurado para suportar conexões seguras via HTTPS, e mecanismos de backup e monitoramento são empregados para garantir a continuidade do serviço~\cite{aws-doc}.
 Por fim, a arquitetura proposta está preparada para evoluções futuras, permitindo a integração com APIs externas, mecanismos de pagamento e relatórios gerenciais, com base em uma estrutura modular e escalável.
 
 
@@ -1950,7 +1950,7 @@ A Figura~\ref{fig:diagramacomponentes} mostra o funcionamento da arquitetura do 
 
 \subsection{Django}
 
-O Django é um framework web de alto nível baseado em Python que oferece uma série de recursos que o tornam ideal para o desenvolvimento de sistemas como o nosso gerenciador de reservas de quartos. Uma de suas principais vantagens é a rapidez no desenvolvimento, já que ele vem com diversas funcionalidades já prontas.
+O Django é um framework web de alto nível baseado em Python que oferece uma série de recursos que o tornam ideal para o desenvolvimento de sistemas como o nosso gerenciador de reservas de quartos~\cite{python}. Uma de suas principais vantagens é a rapidez no desenvolvimento, já que ele vem com diversas funcionalidades já prontas~\cite{django}.
 
 \subsubsection{Front-end}
 
@@ -1965,34 +1965,34 @@ O desenvolvimento do back-end desta aplicação Django é baseada no padrão MTV
 \subsubsection{Banco de Dados}
 
 O Banco de Dados é o PostgreSQL, sendo um banco escalável e flexível, este SGBD pode suportar grandes volumes de dados e de usuários além de ser compatível com uma grande gama de linguagens de programação.
-O PostgreSQL também é uma ótima opção por ser acessível, já que sua licença é livre, assim sem custos de licenciamento e a liberdade para modificar ou implementar o código-fonte da maneira que for necessária.
+O PostgreSQL também é uma ótima opção por ser acessível, já que sua licença é livre, assim sem custos de licenciamento e a liberdade para modificar ou implementar o código-fonte da maneira que for necessária~\cite{postgresql}.
 
 \subsection{Justificativa da Escolha}
 
-A escolha do framework Django para o desenvolvimento do sistema da Pousada Chalés Água de Coco baseou-se em critérios técnicos, de segurança, escalabilidade e aderência às boas práticas de desenvolvimento web moderno. Django é um framework escrito em Python, que segue o padrão MTV, semelhante ao clássico MVC(Model-View-Controller), promovendo uma clara separação entre as camadas da aplicação.
+A escolha do framework Django para o desenvolvimento do sistema da Pousada Chalés Água de Coco baseou-se em critérios técnicos, de segurança, escalabilidade e aderência às boas práticas de desenvolvimento web moderno. Django é um framework escrito em Python, que segue o padrão MTV, semelhante ao clássico MVC(Model-View-Controller), promovendo uma clara separação entre as camadas da aplicação ~\cite{python}.
 
 \subsubsection{Justificativa Técnica}
 
 Entre os diferenciais do Django, destacam-se o ORM nativo, que abstrai o uso de SQL e facilita a manipulação segura dos dados; o sistema integrado de autenticação e autorização, que oferece controle de acesso granular; e a proteção nativa contra ataques como SQL Injection, Cross-Site Scripting (XSS) e Cross-Site Request Forgery (CSRF). Esses recursos reduzem significativamente o tempo de desenvolvimento e aumentam a segurança da aplicação.
-Além disso, o Django é um software de código aberto, com forte comunidade ativa, documentação completa e contínua evolução. Essa característica o torna ideal para projetos acadêmicos e corporativos, permitindo a entrega de soluções confiáveis e bem estruturadas.
+Além disso, o Django é um software de código aberto, com forte comunidade ativa, documentação completa e contínua evolução. Essa característica o torna ideal para projetos acadêmicos e corporativos, permitindo a entrega de soluções confiáveis e bem estruturadas~\cite{django}.
 
 \subsubsection{Infraestrutura com AWS}
-A escolha pela Amazon Web Services (AWS) como provedora da infraestrutura em nuvem está relacionada à sua capacidade de oferecer escalabilidade, disponibilidade e segurança. Os recursos de computação elástica, gerenciamento de banco de dados, balanceamento de carga, armazenamento e backup são fundamentais para a operação de um sistema que lida com informações sensíveis de clientes e reservas.
+A escolha pela Amazon Web Services (AWS) como provedora da infraestrutura em nuvem está relacionada à sua capacidade de oferecer escalabilidade, disponibilidade e segurança~\cite{aws-doc}. Os recursos de computação elástica, gerenciamento de banco de dados, balanceamento de carga, armazenamento e backup são fundamentais para a operação de um sistema que lida com informações sensíveis de clientes e reservas.
 A integração entre Django e AWS ocorre de forma transparente, possibilitando o uso de serviços como S3 (armazenamento de mídia), RDS (gerenciamento de banco de dados relacional) e CloudWatch (monitoramento), ampliando o potencial da aplicação e assegurando a continuidade do serviço com mínimo risco de falhas.
 
 
 \section{Ferramentas de Apoio}
 \subsection{GitHub}
-O GitHub foi utilizado para controle de versão e colaboração durante o desenvolvimento do sistema. A plataforma permite armazenar e gerenciar o código-fonte, realizar revisões e integrar funcionalidades de forma eficiente. O GitHub facilitou a organização do fluxo de trabalho, o rastreamento de mudanças e a colaboração entre os membros da equipe, promovendo maior controle e transparência no ciclo de desenvolvimento.
+O GitHub foi utilizado para controle de versão e colaboração durante o desenvolvimento do sistema. A plataforma permite armazenar e gerenciar o código-fonte, realizar revisões e integrar funcionalidades de forma eficiente. O GitHub facilitou a organização do fluxo de trabalho, o rastreamento de mudanças e a colaboração entre os membros da equipe, promovendo maior controle e transparência no ciclo de desenvolvimento~\cite{github-doc}.
 \subsection{BRModelo}
-O BRModelo foi utilizado para a modelagem lógica e relacional do banco de dados. A ferramenta oferece uma interface intuitiva para construção de diagramas entidade-relacionamento (DER), o que auxiliou na estruturação clara das tabelas, relacionamentos e chaves do sistema. O uso do BRModelo contribuiu diretamente para a coerência e integridade do esquema de dados implementado no PostgreSQL.
+O BRModelo foi utilizado para a modelagem lógica e relacional do banco de dados. A ferramenta oferece uma interface intuitiva para construção de diagramas entidade-relacionamento (DER), o que auxiliou na estruturação clara das tabelas, relacionamentos e chaves do sistema~\cite{brmodelo}. O uso do BRModelo contribuiu diretamente para a coerência e integridade do esquema de dados implementado no PostgreSQL.
 \subsection{Visual Paradigm Online}
-O Visual Paradigm Online foi utilizado na criação dos diagramas de Implantação e Componentes. Esta ferramenta auxiliou na documentação da arquitetura do sistema, contribuindo para uma melhor compreensão dos fluxos e interações entre os componentes. A versão online possibilitou colaboração remota e armazenamento em nuvem, o que otimizou a produtividade da equipe.
+O Visual Paradigm Online foi utilizado na criação dos diagramas de Implantação e Componentes. Esta ferramenta auxiliou na documentação da arquitetura do sistema, contribuindo para uma melhor compreensão dos fluxos e interações entre os componentes~\cite{visual-paradigm}. A versão online possibilitou colaboração remota e armazenamento em nuvem, o que otimizou a produtividade da equipe.
 \subsection{Latex}
-O LaTeX foi utilizado na produção e formatação do trabalho acadêmico. Por meio de seu sistema de marcação, foi possível obter um alto nível de controle sobre a estrutura e apresentação do documento, garantindo consistência, qualidade e organização.
+O LaTeX foi utilizado na produção e formatação do trabalho acadêmico. Por meio de seu sistema de marcação, foi possível obter um alto nível de controle sobre a estrutura e apresentação do documento, garantindo consistência, qualidade e organização~\cite{latex-project}.
 
 \subsection{Google Meet}
-O Google Meet foi utilizado como plataforma de comunicação e realização de encontros virtuais da equipe ao longo do desenvolvimento do projeto. As reuniões periódicas possibilitaram a discussão de tarefas, alinhamento de prazos e entregas mais organizadas.
+O Google Meet foi utilizado como plataforma de comunicação e realização de encontros virtuais da equipe ao longo do desenvolvimento do projeto~\cite{google-meet}. As reuniões periódicas possibilitaram a discussão de tarefas, alinhamento de prazos e entregas mais organizadas.
 
 \section{Manutenibilidade}
 A manutenibilidade do sistema de reservas para pousadas desenvolvido neste projeto é assegurada por meio de práticas estruturadas de engenharia de software, que facilitam a correção de erros, inclusão de novas funcionalidades e adaptação a futuras necessidades.
@@ -2001,7 +2001,7 @@ O sistema foi concebido com uma arquitetura modular, respeitando os princípios 
 
 Além disso, foram adotados padrões de codificação consistentes e bem documentados, com o intuito de facilitar a leitura e compreensão do código por outros desenvolvedores. Esses padrões promovem a reutilização e a extensibilidade do sistema.
 
-A utilização do sistema de controle de versão Git, em conjunto com a plataforma GitHub, possibilita o rastreamento detalhado de alterações, revisão de código e colaboração eficaz entre os membros da equipe. Isso garante maior controle sobre o histórico de desenvolvimento e facilita a identificação e resolução de falhas.
+A utilização do sistema de controle de versão Git, em conjunto com a plataforma GitHub, possibilita o rastreamento detalhado de alterações, revisão de código e colaboração eficaz entre os membros da equipe~\cite{github-doc}. Isso garante maior controle sobre o histórico de desenvolvimento e facilita a identificação e resolução de falhas.
 
 A aplicação também contará com testes automatizados, cobrindo os principais fluxos da aplicação, como testes unitários para funções críticas e testes de integração entre os módulos.
 
@@ -2015,7 +2015,7 @@ A segurança da informação, a proteção de dados e o cumprimento das normas l
 
 \subsection{Segurança da Aplicação}
 
-O framework Django oferece proteção automática contra ameaças comuns da web, como injeção de SQL, execução remota de código, Cross-Site Scripting (XSS) e falsificação de requisições entre sites (CSRF). Além disso, foram implementadas as seguintes práticas:
+O framework Django oferece proteção automática contra ameaças comuns da web, como injeção de SQL, execução remota de código, Cross-Site Scripting (XSS) e falsificação de requisições entre sites (CSRF)~\cite{django}. Além disso, foram implementadas as seguintes práticas:
 
 Sistema de autenticação e autorização: Controle de acesso baseado em permissões, exigência de credenciais válidas e proteção de páginas sensíveis por autenticação obrigatória.
 
@@ -2029,7 +2029,7 @@ Gerenciamento seguro de sessões: Identificadores criptografados, proteção con
 
 \subsection{Segurança na Comunicação}
 
-Todas as comunicações entre cliente e servidor são realizadas via HTTPS, com uso de certificado SSL/TLS. O certificado foi emitido por uma autoridade certificadora confiável, após validação de domínio e instalação no servidor da AWS. A criptografia das conexões assegura a confidencialidade, integridade e autenticidade dos dados transmitidos.
+Todas as comunicações entre cliente e servidor são realizadas via HTTPS, com uso de certificado SSL/TLS. O certificado foi emitido por uma autoridade certificadora confiável, após validação de domínio e instalação no servidor da AWS~\cite{aws-doc}. A criptografia das conexões assegura a confidencialidade, integridade e autenticidade dos dados transmitidos.
 A aplicação redireciona automaticamente requisições HTTP para HTTPS e adiciona cabeçalhos HTTP de segurança, prevenindo de possíveis ataques.
 
 
@@ -2042,7 +2042,7 @@ Alteração de consentimento previamente fornecido;
 
 Acesso claro às finalidades do tratamento dos dados.
 
-Além disso, os dados são armazenados de forma segura e submetidos a backups regulares em ambiente de nuvem, garantindo resiliência e conformidade com os princípios de segurança, prevenção e responsabilização da LGPD.
+Além disso, os dados são armazenados de forma segura e submetidos a backups regulares em ambiente de nuvem, garantindo resiliência e conformidade com os princípios de segurança, prevenção e responsabilização da LGPD~\cite{lgpd}.
 
 
 \section{Modelagem do Banco de Dados}
@@ -2098,8 +2098,8 @@ Visando a viabilidade financeira do desenvolvimento da aplicação de gestão de
 
 A parte de custos por estrutura está divida entre Equipamentos e Serviços, que diz respeito aos equipamentos e serviços necessários para que cada colaborador do time consiga desempenhar suas funções. E Infraestrutura, que aborda os custos relativos a sustentação do sistema.
 
-Considerando que a equipe trabalha no regime home office e utiliza seus próprios equipamentos, consideramos os gastos como nulos. Partindo assim para tarifas referentes a energia e internet.
-Já nos custos indicados na parte de infraestrutura foram considerados nulos pois o sistema será desenvolvido utilizando serviços gratuito (lembrando que essa análise se trata de uma estimativa, e que caso haja alguma mudança significativa no projeto ou necessidade de serviços pagos, esses custos podem mudar).
+Considerando que a equipe trabalha no regime home office e utiliza seus próprios equipamentos, entendemos os gastos como nulos. Partindo assim para tarifas referentes a energia e internet~\cite{anatel-anexo}.
+Já nos custos indicados na parte de infraestrutura foram considerados nulos pois o sistema será desenvolvido utilizando serviços gratuito (lembrando que essa análise se trata de uma estimativa, e que caso haja alguma mudança significativa no projeto ou necessidade de serviços pagos, esses custos podem mudar)~\cite{enel-tarifa}.
 
 \begin{table}[H]
 	\centering
@@ -2120,9 +2120,8 @@ Já nos custos indicados na parte de infraestrutura foram considerados nulos poi
 		\textbf{Total} & 24 & R\$ 118,41 & R\$ 2.841,84 & R\$ 6.394,14 \\
 		\hline
 	\end{tabular}
-	\fonte{Elaborado pelos autores.}
+	\fonte{Elaborado pelos autores}
 \end{table}
-
 
 \begin{table}[H]
 	\centering
@@ -2228,9 +2227,9 @@ Custo Total (9 meses) - Custos referentes ao total de meses programado para a re
 			\textbf{Categoria} & \textbf{Custo Mensal (R\$)} & \textbf{Custo Total (4 meses) (R\$)} & \textbf{Custo Total (9 meses) (R\$)} \\
 			\hline
 			Mão de Obra & 11.352,00 & 45.408,00 & 102.168,00 \\
-			Estrutura   & 118,41    & 473,64    & 1.065,69 \\
+			Estrutura   & 710,46    & 2.841,84  & 6.394,14 \\
 			\hline
-			\textbf{Total} & 11.470,41 & 45.881,64 & 103.233,69 \\
+			\textbf{Total} & 12.062,46 & 48.249,84 & 108.562,14 \\
 			\hline
 		\end{tabular}
 	}
@@ -2270,26 +2269,26 @@ Na imagem a seguir podemos observar a projeção construída pela equipe de um c
 			thick,
 			]
 			coordinates {
-				(1,11470.41)
-				(2,22940.82)
-				(3,34411.23)
-				(4,45881.64)
-				(5,57352.05)
-				(6,68822.46)
-				(7,80292.87)
-				(8,91763.28)
-				(9,103233.69)
-				(10,114704.10)
-				(11,126174.51)
-				(12,137644.92)
-				(13,149115.33)
-				(14,160585.74)
-				(15,172056.15)
-				(16,183526.56)
-				(17,194996.97)
-				(18,206467.38)
-				(19,217937.79)
-				(20,229408.20)
+				(1,12062.46)
+				(2,24124.92)
+				(3,36187.38)
+				(4,48249.84)
+				(5,60312.30)
+				(6,72374.76)
+				(7,84437.22)
+				(8,96499.68)
+				(9,108562.14)
+				(10,120624.60)
+				(11,132687.06)
+				(12,144749.52)
+				(13,156811.98)
+				(14,168874.44)
+				(15,180936.90)
+				(16,192999.36)
+				(17,205061.82)
+				(18,217124.28)
+				(19,229186.74)
+				(20,241249.20)
 			};
 			
 			% Dados Receitas Acumuladas
@@ -2331,7 +2330,7 @@ Na imagem a seguir podemos observar a projeção construída pela equipe de um c
 
 \subsection{Cenário Pessimista}
 
-Na imagem a seguir podemos observar a projeção construída pela equipe de um cenário pessimista, levando em consideração os custos já apresentados anteriormente de mão de obra e estrutura. Podemos observar que de acordo com essa projeção, o ponto de equilíbrio será alcançado por volta de 19 meses.
+Na imagem a seguir podemos observar a projeção construída pela equipe de um cenário pessimista, levando em consideração os custos já apresentados anteriormente de mão de obra e estrutura. Podemos observar que de acordo com essa projeção, o ponto de equilíbrio será alcançado por volta de 20 meses.
 
 \begin{figure}[H]
 	\centering
@@ -2360,26 +2359,26 @@ Na imagem a seguir podemos observar a projeção construída pela equipe de um c
 			thick,
 			]
 			coordinates {
-				(1,11470.41)
-				(2,22940.82)
-				(3,34411.23)
-				(4,45881.64)
-				(5,57352.05)
-				(6,68822.46)
-				(7,80292.87)
-				(8,91763.28)
-				(9,103233.69)
-				(10,114704.10)
-				(11,126174.51)
-				(12,137644.92)
-				(13,149115.33)
-				(14,160585.74)
-				(15,172056.15)
-				(16,183526.56)
-				(17,194996.97)
-				(18,206467.38)
-				(19,217937.79)
-				(20,229408.20)
+				(1,12062.46)
+				(2,24124.92)
+				(3,36187.38)
+				(4,48249.84)
+				(5,60312.30)
+				(6,72374.76)
+				(7,84437.22)
+				(8,96499.68)
+				(9,108562.14)
+				(10,120624.60)
+				(11,132687.06)
+				(12,144749.52)
+				(13,156811.98)
+				(14,168874.44)
+				(15,180936.90)
+				(16,192999.36)
+				(17,205061.82)
+				(18,217124.28)
+				(19,229186.74)
+				(20,241249.20)
 			};
 			
 			% Dados Receitas Acumuladas
@@ -2421,7 +2420,7 @@ Na imagem a seguir podemos observar a projeção construída pela equipe de um c
 
 \subsection{Cenário Realista}
 
-Na imagem a seguir podemos observar a projeção construída pela equipe de um cenário realista, levando em consideração os custos já apresentados anteriormente de mão de obra e estrutura. Podemos observar que de acordo com essa projeção, o ponto de equilíbrio será alcançado por volta de 14 meses.
+Na imagem a seguir podemos observar a projeção construída pela equipe de um cenário realista, levando em consideração os custos já apresentados anteriormente de mão de obra e estrutura. Podemos observar que de acordo com essa projeção, o ponto de equilíbrio será alcançado por volta de 15 meses.
 
 \begin{figure}[H]
 	\centering
@@ -2450,26 +2449,26 @@ Na imagem a seguir podemos observar a projeção construída pela equipe de um c
 			thick,
 			]
 			coordinates {
-				(1,11470.41)
-				(2,22940.82)
-				(3,34411.23)
-				(4,45881.64)
-				(5,57352.05)
-				(6,68822.46)
-				(7,80292.87)
-				(8,91763.28)
-				(9,103233.69)
-				(10,114704.10)
-				(11,126174.51)
-				(12,137644.92)
-				(13,149115.33)
-				(14,160585.74)
-				(15,172056.15)
-				(16,183526.56)
-				(17,194996.97)
-				(18,206467.38)
-				(19,217937.79)
-				(20,229408.20)
+				(1,12062.46)
+				(2,24124.92)
+				(3,36187.38)
+				(4,48249.84)
+				(5,60312.30)
+				(6,72374.76)
+				(7,84437.22)
+				(8,96499.68)
+				(9,108562.14)
+				(10,120624.60)
+				(11,132687.06)
+				(12,144749.52)
+				(13,156811.98)
+				(14,168874.44)
+				(15,180936.90)
+				(16,192999.36)
+				(17,205061.82)
+				(18,217124.28)
+				(19,229186.74)
+				(20,241249.20)
 			};
 			
 			% Dados Receitas Acumuladas
@@ -2507,7 +2506,6 @@ Na imagem a seguir podemos observar a projeção construída pela equipe de um c
 	\caption{Comparação dos custos e receitas acumuladas no cenário realista}
 	\label{fig:custo-receita-realista}
 \end{figure}
-
 
 \chapter{Considerações Finais}
 
@@ -2550,7 +2548,8 @@ Como resultado, a pousada passa a contar com uma ferramenta que facilita a tomad
 % ----------------------------------------------------------
 % Referências bibliográficas
 % ----------------------------------------------------------
-\bibliography{abntex2-modelo-references}
+\bibliographystyle{abntex2-alf}
+\bibliography{referencias}
 
 % ----------------------------------------------------------
 % Glossário
