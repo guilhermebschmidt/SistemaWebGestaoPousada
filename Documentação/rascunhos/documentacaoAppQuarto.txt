@@ -18,8 +18,7 @@ Define rotas/endpoints da nossa aplicaçao. Como por exemplo, lista os quartos, 
 views.py:
 Tem funçoes que recebem as requisiçoes HTTP e retornam respostas, como páginas HTML e redirecionamentos.
 quartos: lista os quartos
-adicionar_quarto: exibe o formulário para criar quarto
-editar_quarto: exibe o formulário com dados do quarto para editar
+form: essa é a funçao principal de cadastro e edicao de quartos.
 excluir_quarto: confirma e exclui o quarto
 tipos_quarto: uma página estática com tipos de quartos.
 
@@ -27,8 +26,7 @@ Agora explicando sobre os Templates HTML usados no APP Quarto.
 
 Templates sao os arquivos que geram o HTML para o navegador.
 
-adicionar_quarto.html: formulário para adicionar quarto
-editar_quarto.html: formulário para editar quarto, mas já com dados preenchidos
+form.html: renderiza o formulário que foi montando na view, com estilizaçao e comportamento moderno.
 excluir_quarto.html: página de confirmaçao para exclusao
 quartos.html: lista todos os quartos em tabela, com os botoes para editar/excluir
 tipos_quarto.html: uma página informativa sobre os tipos de quartos.
