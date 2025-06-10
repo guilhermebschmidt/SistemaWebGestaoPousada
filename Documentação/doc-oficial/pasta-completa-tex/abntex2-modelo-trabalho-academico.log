@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.30)  10 JUN 2025 05:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.30)  10 JUN 2025 12:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1634,12 +1634,12 @@ Package microtype Info: Loading generic protrusion settings for font family
 ] [18] [19] [20
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 637--637
+Underfull \hbox (badness 10000) in paragraph at lines 634--634
 []|\T1/lmr/m/n/12 (+20) Guilherme
  []
 
 
-Overfull \hbox (11.4234pt too wide) in paragraph at lines 630--643
+Overfull \hbox (11.4234pt too wide) in paragraph at lines 629--639
  [][] 
  []
 
@@ -1647,77 +1647,73 @@ Overfull \hbox (11.4234pt too wide) in paragraph at lines 630--643
 
 ]
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.4> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 654.
- [22] [23
-pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.692 
-      ]
-Underfull \hbox (badness 10000) in paragraph at lines 700--700
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 650.
+ [22]
+Underfull \hbox (badness 10000) in paragraph at lines 696--696
 []|\T1/lmr/m/n/12 (+20) Definir am-bi-ente de hos-pe-da-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 705--705
+Underfull \hbox (badness 10000) in paragraph at lines 701--701
 []|\T1/lmr/m/n/12 (+20) Criar Mo-delo Entidade-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 706--706
+Underfull \hbox (badness 10000) in paragraph at lines 702--702
 []|\T1/lmr/m/n/12 (+20) Criar Di-a-grama de Entidade-
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [24]
-Underfull \hbox (badness 10000) in paragraph at lines 756--756
+[23
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.720 \end{quadro}
+                  ]
+Underfull \hbox (badness 10000) in paragraph at lines 752--752
 []|\T1/lmr/m/n/12 (+20) Gest�o Fi-nan-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 756--756
+Underfull \hbox (badness 10000) in paragraph at lines 752--752
 \T1/lmr/m/n/12 (+20) ceira/Gest�o de
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [25]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [26]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [27]
-
-LaTeX Warning: Reference `sprints_backlog' on page 28 undefined on input line 8
-41.
+Overfull \vbox (16.0241pt too high) has occurred while \output is active []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 854--854
+[26]
+
+LaTeX Warning: Reference `sprints_backlog' on page 27 undefined on input line 8
+35.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 848--848
 []|\T1/lmr/m/n/12 (+20) Realizar o pla-ne-ja-
  []
 
 
-Underfull \hbox (badness 1502) in paragraph at lines 854--854
-\T1/lmr/m/n/12 (+20) mento do pro-jeto e
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 854--854
-\T1/lmr/m/n/12 (+20) es-ta-be-le-cer su-porte
- []
-
-
-Underfull \hbox (badness 3291) in paragraph at lines 865--870
+Underfull \hbox (badness 3291) in paragraph at lines 859--864
 \T1/lmr/m/n/12 (+20) - Criar do mo-delo re-la-ci-o-nal
  []
 
 
-Overfull \hbox (49.40654pt too wide) in paragraph at lines 850--880
+Overfull \hbox (49.40654pt too wide) in paragraph at lines 844--874
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27]
+Overfull \hbox (49.40654pt too wide) in paragraph at lines 880--907
  [][] 
  []
 
@@ -1725,7 +1721,12 @@ Overfull \hbox (49.40654pt too wide) in paragraph at lines 850--880
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [28]
-Overfull \hbox (49.40654pt too wide) in paragraph at lines 886--913
+Underfull \hbox (badness 1005) in paragraph at lines 925--925
+\T1/lmr/m/n/12 (+20) des-pe-sas e adi-ci-o-nar
+ []
+
+
+Overfull \hbox (49.40654pt too wide) in paragraph at lines 913--941
  [][] 
  []
 
@@ -1733,12 +1734,22 @@ Overfull \hbox (49.40654pt too wide) in paragraph at lines 886--913
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [29]
-Underfull \hbox (badness 1005) in paragraph at lines 931--931
-\T1/lmr/m/n/12 (+20) des-pe-sas e adi-ci-o-nar
+Underfull \hbox (badness 10000) in paragraph at lines 951--951
+[]|\T1/lmr/m/n/12 (+20) Implementar crip-
  []
 
 
-Overfull \hbox (49.40654pt too wide) in paragraph at lines 919--948
+Underfull \hbox (badness 7221) in paragraph at lines 951--951
+\T1/lmr/m/n/12 (+20) to-gra-fia e pre-pa-rar
+ []
+
+
+Underfull \hbox (badness 1584) in paragraph at lines 951--951
+\T1/lmr/m/n/12 (+20) o am-bi-ente para os
+ []
+
+
+Overfull \hbox (49.40654pt too wide) in paragraph at lines 947--983
  [][] 
  []
 
@@ -1746,144 +1757,149 @@ Overfull \hbox (49.40654pt too wide) in paragraph at lines 919--948
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [30]
-Overfull \hbox (49.40654pt too wide) in paragraph at lines 954--990
+[31]
+
+LaTeX Warning: Reference `identificacao_riscos' on page 32 undefined on input l
+ine 1000.
+
+
+Underfull \hbox (badness 3312) in paragraph at lines 1017--1017
+[]|\T1/lmr/m/n/12 (+20) Projeto e Pro-
+ []
+
+
+Overfull \hbox (23.8234pt too wide) in paragraph at lines 1006--1019
  [][] 
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [31]
-[32]
-
-LaTeX Warning: Reference `identificacao_riscos' on page 33 undefined on input l
-ine 1007.
-
-
-Underfull \hbox (badness 3312) in paragraph at lines 1024--1024
+Underfull \hbox (badness 3312) in paragraph at lines 1030--1030
 []|\T1/lmr/m/n/12 (+20) Projeto e Pro-
  []
 
 
-Overfull \hbox (23.8234pt too wide) in paragraph at lines 1013--1026
- [][] 
- []
-
-
-Underfull \hbox (badness 3312) in paragraph at lines 1037--1037
+Underfull \hbox (badness 3312) in paragraph at lines 1039--1039
 []|\T1/lmr/m/n/12 (+20) Projeto e Pro-
  []
 
 
-Underfull \hbox (badness 3312) in paragraph at lines 1046--1046
+Underfull \hbox (badness 3872) in paragraph at lines 1039--1040
+[]|\T1/lmr/m/n/12 (+20) H� cus-tos adi-ci-o-nais
+ []
+
+
+Underfull \hbox (badness 3312) in paragraph at lines 1041--1041
 []|\T1/lmr/m/n/12 (+20) Projeto e Pro-
  []
 
 
-Underfull \hbox (badness 3312) in paragraph at lines 1048--1048
-[]|\T1/lmr/m/n/12 (+20) Projeto e Pro-
- []
-
-
-Underfull \hbox (badness 1337) in paragraph at lines 1048--1049
+Underfull \hbox (badness 1337) in paragraph at lines 1041--1042
 \T1/lmr/m/n/12 (+20) a ar-qui-te-tura Django
  []
 
 
-Overfull \hbox (23.8234pt too wide) in paragraph at lines 1032--1053
+Overfull \hbox (23.8234pt too wide) in paragraph at lines 1025--1046
  [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33]
+ [32]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [34]
-Overfull \hbox (2.80435pt too wide) in paragraph at lines 1066--1066
+ [33]
+Overfull \hbox (2.80435pt too wide) in paragraph at lines 1059--1059
 []|\T1/lmr/bx/n/12 (-20) Risco| 
  []
 
 
-Overfull \hbox (1.8491pt too wide) in paragraph at lines 1066--1066
+Overfull \hbox (1.8491pt too wide) in paragraph at lines 1059--1059
 []|\T1/lmr/bx/n/12 (-20) Impacto| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1066--1066
+Underfull \hbox (badness 10000) in paragraph at lines 1059--1059
 []|\T1/lmr/bx/n/12 (+20) Probabilidade
  []
 
 
-Underfull \hbox (badness 1365) in paragraph at lines 1072--1072
+Underfull \hbox (badness 1365) in paragraph at lines 1065--1065
 []|\T1/lmr/m/n/12 (+20) Monitorar o an-da-mento
  []
 
 
-Underfull \hbox (badness 1087) in paragraph at lines 1072--1073
+Underfull \hbox (badness 1087) in paragraph at lines 1065--1066
 []|\T1/lmr/m/n/12 (+20) Reavaliar o \T1/lmr/m/it/12 (+20) bac-klog \T1/lmr/m/n/
 12 (+20) das
  []
 
 
-Underfull \hbox (badness 1210) in paragraph at lines 1081--1081
+Underfull \hbox (badness 1210) in paragraph at lines 1074--1074
 \T1/lmr/m/n/12 (+20) mero de \T1/lmr/m/it/12 (+20) sprints \T1/lmr/m/n/12 (+20)
  vi�-veis
  []
 
 
-Underfull \hbox (badness 1314) in paragraph at lines 1081--1081
+Underfull \hbox (badness 1314) in paragraph at lines 1074--1074
 \T1/lmr/m/n/12 (+20) para o de-sen-vol-vi-mento;
  []
 
 
-Underfull \hbox (badness 2057) in paragraph at lines 1081--1082
+Underfull \hbox (badness 2057) in paragraph at lines 1074--1075
 []|\T1/lmr/m/n/12 (+20) Reorganizar ta-re-fas das
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1081--1082
+Underfull \hbox (badness 10000) in paragraph at lines 1074--1075
 \T1/lmr/m/it/12 (+20) sprints \T1/lmr/m/n/12 (+20) de de-sen-vol-vi-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1081--1082
+Underfull \hbox (badness 10000) in paragraph at lines 1074--1075
 \T1/lmr/m/n/12 (+20) mento, pri-o-ri-zando a
  []
 
 
-Overfull \hbox (36.22337pt too wide) in paragraph at lines 1064--1084
+Overfull \hbox (36.22337pt too wide) in paragraph at lines 1057--1077
  [][] 
  []
 
 
-Overfull \hbox (2.80435pt too wide) in paragraph at lines 1092--1092
+Overfull \hbox (2.80435pt too wide) in paragraph at lines 1085--1085
 []|\T1/lmr/bx/n/12 (-20) Risco| 
  []
 
 
-Overfull \hbox (1.8491pt too wide) in paragraph at lines 1092--1092
+Overfull \hbox (1.8491pt too wide) in paragraph at lines 1085--1085
 []|\T1/lmr/bx/n/12 (-20) Impacto| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1092--1092
+Underfull \hbox (badness 10000) in paragraph at lines 1085--1085
 []|\T1/lmr/bx/n/12 (+20) Probabilidade
  []
 
 
-Underfull \hbox (badness 7203) in paragraph at lines 1097--1098
+Underfull \hbox (badness 7203) in paragraph at lines 1089--1090
 []|\T1/lmr/m/n/12 (+20) Desconectar o sis-tema;
  []
 
 
-Underfull \hbox (badness 7203) in paragraph at lines 1103--1103
+Underfull \hbox (badness 7203) in paragraph at lines 1095--1095
 []|\T1/lmr/m/n/12 (+20) Desconectar o sis-tema;
  []
 
 
-Overfull \hbox (36.22337pt too wide) in paragraph at lines 1090--1105
+Overfull \hbox (36.22337pt too wide) in paragraph at lines 1083--1097
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [34]
+Overfull \hbox (11.42339pt too wide) in paragraph at lines 1107--1152
  [][] 
  []
 
@@ -1891,65 +1907,60 @@ Overfull \hbox (36.22337pt too wide) in paragraph at lines 1090--1105
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [35]
-Overfull \hbox (11.42339pt too wide) in paragraph at lines 1116--1182
- [][] 
- []
-
-
+[36] [37] [38]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [36]
-[37] [38] [39]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [40
+ [39
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [41]
+ [40]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [42]
+ [41]
 Overfull \vbox (17.52974pt too high) has occurred while \output is active []
 
 
-[43]
-
-LaTeX Warning: Citation `somerville2011' on page 44 undefined on input line 136
-6.
-
-
-Underfull \hbox (badness 2495) in paragraph at lines 1384--1384
+[42]
+Underfull \hbox (badness 2495) in paragraph at lines 1360--1360
 \T1/lmr/m/n/12 (+20) para que a re-serva seja
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1384--1384
+Underfull \hbox (badness 10000) in paragraph at lines 1360--1360
 \T1/lmr/m/n/12 (+20) ca-das-trada: nome com-
  []
 
 
-Underfull \hbox (badness 2142) in paragraph at lines 1384--1384
+Underfull \hbox (badness 2142) in paragraph at lines 1360--1360
 \T1/lmr/m/n/12 (+20) pleto, en-de-re�o com-pleto,
+ []
+
+
+Underfull \hbox (badness 1917) in paragraph at lines 1365--1365
+\T1/lmr/m/n/12 (+20) re-serva no nome de um
+ []
+
+
+Underfull \hbox (badness 2080) in paragraph at lines 1366--1366
+\T1/lmr/m/n/12 (+20) guir re-ser-var um mesmo
+ []
+
+
+Underfull \hbox (badness 1502) in paragraph at lines 1377--1377
+\T1/lmr/m/n/12 (+20) fi-gu-rar ta-ri-fas de re-serva
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+ [43]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [44]
-Underfull \hbox (badness 1917) in paragraph at lines 1399--1399
-\T1/lmr/m/n/12 (+20) re-serva no nome de um
- []
-
-
-Underfull \hbox (badness 2080) in paragraph at lines 1400--1400
-\T1/lmr/m/n/12 (+20) guir re-ser-var um mesmo
- []
-
-
-Underfull \hbox (badness 1502) in paragraph at lines 1411--1411
-\T1/lmr/m/n/12 (+20) fi-gu-rar ta-ri-fas de re-serva
+Underfull \hbox (badness 10000) in paragraph at lines 1422--1422
+[]|\T1/lmr/m/n/12 (+20) Requisito es-sen-cial
  []
 
 
@@ -1959,55 +1970,39 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [46]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [47]
+[47]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [48]
-Underfull \hbox (badness 10000) in paragraph at lines 1478--1478
-[]|\T1/lmr/m/n/12 (+20) Requisito es-sen-cial
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [49]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [50]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [51]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [52]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [53]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-532.
+478.
 
 (C:\Users\kelly\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [54]
-[55] [56] [57] [58] [59] [60] [61] [62] [63] [64] [65] [66]
-<Diagrama de Implantação- Digitalização da Pousada.JPEG, id=687, 749.04843p
+) [50]
+[51] [52] [53] [54] [55] [56] [57]
+Overfull \hbox (1.07664pt too wide) in paragraph at lines 1769--1770
+[]\T1/lmr/m/n/12 (-20) O sis-tema ofe-rece a op-��o de con-fi-gu-rar ho-r�-rios
+ por tem-po-rada (baixa/alta). 
+ []
+
+[58] [59] [60] [61] [62]
+<Diagrama de Implantação- Digitalização da Pousada.JPEG, id=666, 749.04843p
 t x 873.2625pt>
 File: Diagrama de Implantação- Digitalização da Pousada.JPEG Graphic file (
 type jpg)
 <use Diagrama de Implantação- Digitalização da Pousada.JPEG>
 Package pdftex.def Info: Diagrama de Implantação- Digitalização da Pousada.
-JPEG  used on input line 1976.
+JPEG  used on input line 1939.
 (pdftex.def)             Requested size: 452.9679pt x 528.09225pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [67]
-<0406-Componentes.png, id=694, 1071.00125pt x 745.78625pt>
+ [63]
+<0406-Componentes.png, id=676, 1071.00125pt x 745.78625pt>
 File: 0406-Componentes.png Graphic file (type png)
 <use 0406-Componentes.png>
-Package pdftex.def Info: 0406-Componentes.png  used on input line 1985.
+Package pdftex.def Info: 0406-Componentes.png  used on input line 1948.
 (pdftex.def)             Requested size: 452.9679pt x 315.4244pt.
 
 
@@ -2016,92 +2011,92 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [68
+ [64
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1996 
+l.1959 
         <./Diagrama de Implantação- Digitalização da Pousada.JPEG>]
-[69
+[65
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2003 \subsubsection
+l.1966 \subsubsection
                      {Back-end} <./0406-Componentes.png>]
 Underfull \vbox (badness 1728) has occurred while \output is active []
 
- [70]
+ [66]
 Underfull \vbox (badness 1394) has occurred while \output is active []
 
- [71]
-[72] [73]
-<0406-MER.jpg, id=759, 1099.10625pt x 500.87125pt>
+ [67]
+[68] [69]
+<0406-MER.jpg, id=741, 1099.10625pt x 500.87125pt>
 File: 0406-MER.jpg Graphic file (type jpg)
 <use 0406-MER.jpg>
-Package pdftex.def Info: 0406-MER.jpg  used on input line 2095.
+Package pdftex.def Info: 0406-MER.jpg  used on input line 2058.
 (pdftex.def)             Requested size: 452.9679pt x 206.42087pt.
-<0406-DER.jpg, id=761, 1079.03125pt x 449.68pt>
+<0406-DER.jpg, id=743, 1079.03125pt x 449.68pt>
 File: 0406-DER.jpg Graphic file (type jpg)
 <use 0406-DER.jpg>
-Package pdftex.def Info: 0406-DER.jpg  used on input line 2104.
+Package pdftex.def Info: 0406-DER.jpg  used on input line 2067.
 (pdftex.def)             Requested size: 452.9679pt x 188.7751pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [74
+ [70
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2108 
-        <./0406-MER.jpg>] [75
+l.2071 
+        <./0406-MER.jpg>] [71
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2127 
-        <./0406-DER.jpg>] [76]
-Overfull \hbox (27.67358pt too wide) in paragraph at lines 2148--2163
+l.2090 
+        <./0406-DER.jpg>] [72]
+Overfull \hbox (27.67358pt too wide) in paragraph at lines 2111--2126
  [][] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [77
+ [73
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2189 
-       ] [78
+l.2152 
+       ] [74
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.3}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2259 
+l.2222 
        
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.4}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2259 
+l.2222 
        
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.5}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2259 
-       ] [79
+l.2222 
+       ] [75
 pdfTeX warning (ext4): destination with the same identifier (name{table.5.6}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2374 
+l.2337 
        {C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.e
 nc}{C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.e
 nc}
@@ -2109,23 +2104,23 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.5.5})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2374 
+l.2337 
        ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [80
+ [76
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2549 
-       ] [81
+l.2512 
+       ] [77
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5.7}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.2550 \chapter
-               {Considerações Finais}] [82
+l.2513 \chapter
+               {Considerações Finais}] [78
 
 ]
 (abntex2-modelo-trabalho-academico.bbl (abntex2-modelo-trabalho-academico.brf)
@@ -2133,30 +2128,30 @@ l.2550 \chapter
 \openout6 = `abntex2-modelo-trabalho-academico.brf'.
 
 
-[83
+[79
 
 ]
 bibitemlist
-[84
+[80
 
-]) [85] [86
+]) [81] [82
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uppercase' on input line 2613.
+(hyperref)                removing `\uppercase' on input line 2576.
 
-[87
+[83
 
-] [88
+] [84
 
 ]
 Underfull \vbox (badness 4832) has occurred while \output is active []
 
- [89]
-[90]
+ [85]
+[86]
 No file abntex2-modelo-trabalho-academico.ind.
-[91]
+[87]
 \tf@lof=\write7
 \openout7 = `abntex2-modelo-trabalho-academico.lof'.
 
@@ -2178,22 +2173,16 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
-
-Package rerunfilecheck Warning: File `abntex2-modelo-trabalho-academico.brf' ha
-s changed.
-(rerunfilecheck)                Rerun to get bibliographical references right.
-
-Package rerunfilecheck Info: Checksums for `abntex2-modelo-trabalho-academico.b
-rf':
-(rerunfilecheck)             Before: 7434C80D64DD7D93CF1B4E24B40B2081;1705
-(rerunfilecheck)             After:  5227A7980DA132BA990E5F2271FB6AA5;1763.
+Package rerunfilecheck Info: File `abntex2-modelo-trabalho-academico.brf' has n
+ot changed.
+(rerunfilecheck)             Checksum: B2A1162655D4077EB35C798FEAA894D5;1764.
  ) 
 Here is how much of TeX's memory you used:
- 42768 strings out of 474486
- 945904 string characters out of 5743755
- 1955542 words of memory out of 5000000
- 63751 multiletter control sequences out of 15000+600000
- 652892 words of font info for 222 fonts, out of 8000000 for 9000
+ 42757 strings out of 474486
+ 945775 string characters out of 5743755
+ 1964542 words of memory out of 5000000
+ 63747 multiletter control sequences out of 15000+600000
+ 652795 words of font info for 221 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,19n,107p,1206b,2278s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
@@ -2209,10 +2198,10 @@ b><C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb
 ><C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.p
 fb><C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso12.
 pfb>
-Output written on abntex2-modelo-trabalho-academico.pdf (93 pages, 1036436 byte
+Output written on abntex2-modelo-trabalho-academico.pdf (89 pages, 1032392 byte
 s).
 PDF statistics:
- 1342 PDF objects out of 1440 (max. 8388607)
- 319 named destinations out of 1000 (max. 500000)
+ 1324 PDF objects out of 1440 (max. 8388607)
+ 314 named destinations out of 1000 (max. 500000)
  60233 words of extra memory for PDF output out of 61914 (max. 10000000)
 

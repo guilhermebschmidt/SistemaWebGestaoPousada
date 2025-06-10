@@ -619,23 +619,19 @@ Esta seção detalha as principais estratégias de gestão aplicadas no desenvol
 % ---
 % ---
 \section{Organização da Equipe}
-  Na gestão desse projeto, a organização da equipe representou um marco fundamental e teve como foco dividir as funções e atividades necessárias para o desenvolvimento da aplicação web de gestão da pousada entre os membros.
-  
+  Na gestão desse projeto, a organização da equipe representou um marco fundamental e teve como foco dividir as funções e atividades necessárias para o desenvolvimento da aplicação web de gestão da pousada entre os membros.%
 \subsection{Funções e Responsabilidades}
-A divisão das funções e responsabilidades foi realizada de maneira estratégica e levou em consideração as competências técnicas de cada membro da equipe, visando a entrega do produto final dentro do prazo e escopo estipulados. 	A função de cada membro e suas respectivas responsabilidades estão detalhadas no quadro "\ref{quadro_funçao_responsabilidade}": Função e Responsabilidades da Equipe do Projeto.	
-
+A divisão das funções e responsabilidades foi realizada de maneira estratégica e levou em consideração as competências técnicas de cada membro da equipe, visando a entrega do produto final dentro do prazo e escopo estipulados. 	A função de cada membro e suas respectivas responsabilidades estão detalhadas no quadro "\ref{quadro_funçao_responsabilidade}": Função e Responsabilidades da Equipe do Projeto.
+%	
 \begin{quadro}[htb]
 	\caption{Função e Responsabilidades da Equipe do Projeto}
 	\label{quadro_funçao_responsabilidade}
 	\begin{tabular}{|p{2.8cm}|p{5cm}|p{7.2cm}|}
 		\hline
 		\textbf{Integrante} & \textbf{Função} & \textbf{Responsabilidades} \\ \hline
-		Anna Julia & Analista de Governança & Identificar, analisar e monitorar riscos, promover boas práticas de gestão e implementar políticas de governança \\ \hline
-	
+		Anna Julia & Analista de Cronograma & Criar e atuar na manutenção e monitoramento do cronograma do projeto, além de oferecer suporte nas práticas de gestão  \\ \hline
 		Guilherme Akio & Engenheiro de Dados (DBA) & Implementar, administrar  e otimizar o banco de dados da aplicação, garantindo a integridade, segurança e performance dos dados \\ \hline
-	
 		Guilherme \quad Bittencourt & Documentador Técnico e Engenheiro de Software & Criar e manter a documentação técnica, garantido a clareza e acessibilidade das informações do projeto. Além de definir e organizar a estrutura da aplicação.\\ \hline
-	
 		Kelly Radchelle & Gerente de Projeto & Coordenar a equipe e gerenciar as atividades  do projeto, a fim de facilitar as tomadas de decisões e  assegurar a comunicação entre as partes interessadas do projeto   \\ \hline
 		Rafael Teixeira & Desenvolvedor Frontend & Criar e implementar a interface da aplicação, garantindo uma boa  experiência de usuário (UX)  e design de interface (UI), além de desenvolver a lógica de apresentação.    \\ \hline
 		Ricardo Carriel & Desenvolvedor Backend & Desenvolver a lógica de negócio da aplicação, configurar e administrar o servidor de aplicação  além de garantir a integração da aplicação  \\ \hline
@@ -644,7 +640,7 @@ A divisão das funções e responsabilidades foi realizada de maneira estratégi
 \end{quadro}
 %---
 %---
-\section{Metodologias de gestão e desenvolvimento}
+\section{Metodologias de Gestão e Desenvolvimento}
 Para assegurar que a entrega do produto final ocorresse dentro do prazo estipulado e estivesse em pleno alinhamento com as expectativas da cliente, a equipe envolvida no projeto optou pela adoção da metodologia ágil \textit{Scrum} como ferramenta de gestão e desenvolvimento do projeto. Essa decisão fundamentou-se na familiaridade da equipe com a estrutura, na capacidade do \textit{Scrum} de otimizar a organização, divisão e planejamento de atividades do projeto, e em sua relevância como framework de gerenciamento– dado seu uso extensivo no contexto de desenvolvimento de softwares complexos.
 
 Segundo Schwaber e Sutherland \cite{scrumguide}, o \textit{Scrum} é um \textit{framework} estruturado desenvolvido na década de 1990, com o objetivo de auxiliar equipes na criação e gerenciamento de produtos complexos. Por isso,  o \textit{Scrum} tem como pilares fundamentais a transparência, a inspeção e a adaptação. A transparência garante que todos os aspectos significativos do processo estejam visíveis e claros para as partes interessadas a todo momento. Enquanto a inspeção envolve o acompanhamento regular dos artefatos e progresso, auxiliando na identificação precoce de problemas e garantindo a transparência dos processos. Seguida pela adaptação que refere-se à capacidade de fazer ajustes no processo  em resposta aos problemas anteriormente identificados na inspeção, com o objetivo de otimizar os resultados da equipe.
@@ -661,7 +657,7 @@ Como estabelecido no Guia do Scrum \cite{scrumguide}, os membros da equipe do pr
 \end{enumerate}
  
 Diante disso, houve a distribuição dos papeis de um time \textit{Scrum} entre os integrantes da equipe registrada na “\autoref{tab:time_scrum}”.
-
+%
 \begin{table}[htb]
 	\centering
 	\caption{Função dos Integrantes da Equipe}
@@ -670,7 +666,7 @@ Diante disso, houve a distribuição dos papeis de um time \textit{Scrum} entre 
 		\hline
 		\textbf{Integrante} & \multicolumn{3}{c|}{\textbf{Função}} \\ \cline{2-4}
 		& \textit{Product Owner} & \textit{Scrum Master} & Time de Desenvolvimento \\ \hline
-		Anna Julia & X & & \\ \hline
+		Anna Julia &  & X & \\ \hline
 		Guilherme Akio & & & X \\ \hline
 		Guilherme Bittencourt & & & X \\ \hline
 		Kelly Radchelle & X & & \\ \hline
@@ -684,12 +680,12 @@ Diante disso, houve a distribuição dos papeis de um time \textit{Scrum} entre 
 %---
 \section{Artefatos}
 No \textit {scrum},  os artefatos são elementos que ajudam a equipe a consolidar a transparência no processo de desenvolvimento. Cientes das suas importâncias, o time \textit {scrum} realizou o planejamento inicial dos artefatos:  \textit {Product Backlog} e \textit {Sprints Backlog}.
-
+%
 \subsection{Product Backlog}
 No Guia do \textit{Scrum} \cite{scrumguide}, o \textit{Product Backlog} é definido como uma lista ordenada de todos os itens de trabalho, incluindo funcionalidades e requisitos necessários para a produção do produto, que oferecem o máximo valor e utilidade para o cliente.
 
 Ciente disso, o \textit{product owner} do projeto elaborou o \textit{backlog} inicial da aplicação \textit{web} de gestão da pousada Chalés Água de Coco (\autoref{product_backlog}), com base nas histórias de usuário levantadas pela equipe. Isso porque, elas refletem fielmente as necessidades e expectativas da usuária e principal \textit {stakeholder} garantindo que o desenvolvimento em total alinhamento.
-
+%
 \begin{quadro}[H]
 	\caption{Product Backlog - Parte 1}
 	\label{product_backlog}
@@ -706,34 +702,34 @@ Ciente disso, o \textit{product owner} do projeto elaborou o \textit{backlog} in
 		8 & Criar Diagrama de Entidade-Relacionamento (DER)    & Modelagem de dados   & ALTA    \\ \hline
 		9 & Criar Diagrama de Componentes    & Arquitetura   & ALTA    \\ \hline
 		10 & Criar Diagrama de Implantação    & Arquitetura   & ALTA    \\ \hline
-			11 & Documentar os diagramas produzidos & Documentação &
+		11 & Documentar os diagramas produzidos & Documentação &
 		ALTA \\ \hline
 		12 & Configurar ambiente do servidor & Requisito Técnico &
 		ALTA \\ \hline
 		13 & Configurar banco de dados PostgreSQL & Requisito Técnico &
 		ALTA \\ \hline
-		14 & Implementar login e logout de usuários & Autenticação e Segurança & ALTA \\ \hline
+		14 & Implementar login e logout de usuário & Autenticação e Segurança & ALTA \\ \hline
 		15 & Criar funcionalidade de cadastro de quartos & Gestão de Quartos & ALTA \\ \hline
 		16 & Criar funcionalidade de exclusão de cadastro de quartos &
 		Gestão de Quartos & MÉDIA \\ \hline
 		17 & Criar funcionalidade de listagem de quartos & Gestão de Quartos & MÉDIA \\ \hline
 		18 & Criar funcionalidade de edição do cadastro de quartos &
 		Gestão de Quartos &	MÉDIA \\ \hline
-		19 & Criar interfaces para gestão de quartos & Gestão de Quartos & MÉDIA \\ \hline
-		20 & Implementar funcionalidade de alteração manual do status (disponível, indisponível, em manutenção) do quarto & Gestão de Quartos & MÉDIA \\ \hline
-		21 & Criar funcionalidade de cadastro de hóspedes &	Gestão de Hóspedes & ALTA \\ \hline
-		22 & Criar funcionalidade de exclusão do cadastro de hóspedes &
-		Gestão de Hóspedes & MÉDIA \\ \hline
 	\end{tabular}
 		\fonte{Elaborado pelos autores.}
 \end{quadro}
-
+%
 \begin{quadro}[H]
 	\caption{Product Backlog - Parte 2}
 	\label{product_backlog_2}
 	\begin{tabular}{|c|p{6.5cm}|p{3.8cm}|c|}
 		\hline
 		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline	
+		19 & Criar interfaces para gestão de quartos & Gestão de Quartos & MÉDIA \\ \hline
+		20 & Implementar funcionalidade de alteração manual do status (disponível, indisponível, em manutenção) do quarto & Gestão de Quartos & MÉDIA \\ \hline
+		21 & Criar funcionalidade de cadastro de hóspedes &	Gestão de Hóspedes & ALTA \\ \hline
+		22 & Criar funcionalidade de exclusão do cadastro de hóspedes &
+		Gestão de Hóspedes & MÉDIA \\
 		23 & Criar funcionalidade de edição do cadastro de hóspedes &
 		Gestão de Hóspedes & MÉDIA \\ \hline
 		24 & Criar interfaces para gestão de hóspedes &	Gestão de Hóspedes & MÉDIA \\ \hline
@@ -755,57 +751,55 @@ Ciente disso, o \textit{product owner} do projeto elaborou o \textit{backlog} in
 		35 & Criar funcionalidade de cadastro de receitas &	Gestão Financeira & BAIXA \\ \hline
 		36 & Criar funcionalidade para registrar comprovação de pagamento de reservas &	Gestão Financeira/Gestão de Reservas &
 		BAIXA \\ \hline
-		37 & Criar funcionalidade de exclusão do cadastro de receitas &
-		Gestão Financeira &	BAIXA \\ \hline
-		38 & Criar funcionalidade de edição do cadastro de receitas &
-		Gestão Financeira &	BAIXA \\ \hline
-		39 & Criar interface para gestão de receitas & Gestão Financeira & BAIXA \\ \hline
-		40 & Criar funcionalidade de cadastro de despesas &
-		Gestão Financeira & BAIXA \\ \hline
-		
 	\end{tabular}
      \fonte{Elaborado pelos autores.}
      \end{quadro}
-     
+ % 
  \begin{quadro}[H]
      \caption{Product Backlog - Parte 3}
      	\label{product_backlog_3}
      	\begin{tabular}{|c|p{6.5cm}|p{3.8cm}|c|}
      		\hline
      		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline
-     		 41 & Criar funcionalidade de exclusão do cadastro de despesas &
+     		37 & Criar funcionalidade de exclusão do cadastro de receitas &
+     		Gestão Financeira &	BAIXA \\ \hline
+     		38 & Criar funcionalidade de edição do cadastro de receitas &
+     		Gestão Financeira &	BAIXA \\ \hline
+     		39 & Criar interface para gestão de receitas & Gestão Financeira & BAIXA \\ \hline
+     		40 & Criar funcionalidade de cadastro de despesas &
+     		Gestão Financeira & BAIXA \\ \hline
+     		41 & Criar funcionalidade de exclusão do cadastro de despesas &
      		Gestão Financeira &	BAIXA \\ \hline
      		42 & Criar funcionalidade de edição do cadastro de despesas &
+     		Gestão Financeira &	BAIXA \\ \hline   
+     		43 & Criar interface para gestão de despesas & Gestão Financeira & BAIXA \\ \hline
+     		44 & Criar funcionalidade para criar relatórios de quartos &
      		Gestão Financeira &	BAIXA \\ \hline
-     		43 & Aprimorar cadastro de despesas para incluir tipo (fixo/variável) & Gestão Financeira & BAIXA \\ \hline
-     		44 & Criar interface para gestão de despesas & Gestão Financeira & BAIXA \\ \hline
-     		45 & Criar funcionalidade para criar relatórios de quartos &
-     		Gestão Financeira &	BAIXA \\ \hline
-    		46 & Criar funcionalidade para criar relatórios de hóspedes &
+    		45 & Criar funcionalidade para criar relatórios de hóspedes &
     		Gestão Financeira &	BAIXA \\ \hline
-     		47 & Criar funcionalidade para criar relatórios de reservas &
+     		46 & Criar funcionalidade para criar relatórios de reservas &
      		Gestão Financeira &	BAIXA \\ \hline
-     		48 & Criar balanço financeiro simples (receitas, despesas, saldo) por período & Gestão Financeira & BAIXA \\ \hline
-     		49 & Criar funcionalidade de filtragem de receita/despesa (data, categoria) &	Gestão Financeira & BAIXA \\ \hline
-     		50 & implementar envio de notificação (\textit {e-mail}) para hóspede após confirmação da reserva & Notificações &
+     		47 & Criar balanço financeiro simples (receitas, despesas, saldo) por período & Gestão Financeira & BAIXA \\ \hline
+     		48 & Criar funcionalidade de filtragem de receita/despesa (data, categoria) &	Gestão Financeira & BAIXA \\ \hline
+     		49 & implementar envio de notificação (\textit {e-mail}) para hóspede após confirmação da reserva & Notificações &
      		BAIXA \\ \hline
-     		51 & Implementar criptografia &	Autenticação e Segurança &
+     		50 & Implementar criptografia &	Autenticação e Segurança &
      		BAIXA \\ \hline
-     		52 & Definir escopo dos testes & Testes & MÉDIA \\ \hline
-     		53 & Identificar cenários de teste & Testes & MÉDIA \\ \hline
-     		54 & Elaborar casos de teste & Testes & MÉDIA \\ \hline
-	     	55 & Definir as ferramentas de teste & Testes &	MÉDIA \\ \hline
-	     	56 & Estabelecer ambiente de teste & Testes & MÉDIA \\ \hline
-	     	57 & Definir critérios de aceitação & Testes & MÉDIA \\ \hline
-	     	58 & Preparar dados de teste & Testes &	MÉDIA \\ \hline
-	     	59 & Executar testes gerais & Testes & MÉDIA \\ \hline
-	     	60 & Executar testes SSL & Testes &	MÉDIA \\ \hline
-	     	61 & Analisar e otimizar \textit {headers} de segurança &
+     		51 & Definir escopo dos testes & Testes & MÉDIA \\ \hline
+     		52 & Identificar cenários de teste & Testes & MÉDIA \\ \hline
+     		53 & Elaborar casos de teste & Testes & MÉDIA \\ \hline
+	     	54 & Definir as ferramentas de teste & Testes &	MÉDIA \\ \hline
+	     	55 & Estabelecer ambiente de teste & Testes & MÉDIA \\ \hline
+	     	56 & Definir critérios de aceitação & Testes & MÉDIA \\ \hline
+	     	57 & Preparar dados de teste & Testes &	MÉDIA \\ \hline
+	     	58 & Executar testes gerais & Testes & MÉDIA \\ \hline
+	     	59 & Executar testes SSL & Testes &	MÉDIA \\ \hline
+	     	60 & Analisar e otimizar \textit {headers} de segurança &
 	     	Autenticação e Segurança &	MÉDIA \\ \hline	
-	     	62 & Realizar ajustes de segurança & Autenticação e Segurança
+	     	61 & Realizar ajustes de segurança & Autenticação e Segurança
 	     	& MÉDIA \\ \hline
-	     	63 & Documentar resultados dos testes &	Testes & MÉDIA \\ \hline
-	     	64 & Documentar componentes e estilos & Documentação &
+	     	62 & Documentar resultados dos testes &	Testes & MÉDIA \\ \hline
+	     	63 & Documentar componentes e estilos & Documentação &
 	     	ALTA \\ \hline
      	\end{tabular}
      		\fonte{Elaborado pelos autores.}
@@ -817,18 +811,18 @@ Ciente disso, o \textit{product owner} do projeto elaborou o \textit{backlog} in
 	\begin{tabular}{|c|p{6.5cm}|p{3.8cm}|c|}
 		\hline
 		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline
-		   65 & Documentar o plano e a execução de testes & Documentação &
+		   64 & Documentar o plano e a execução de testes & Documentação &
 		   MÉDIA \\ \hline
-		   66 & Registrar escolhas e mudanças de rumo & Documentação &
+		   65 & Registrar escolhas e mudanças de rumo & Documentação &
 		   ALTA \\ \hline
-		   67 & Documentar problemas ocorridos e lições aprendidas &
+		   66 & Documentar problemas ocorridos e lições aprendidas &
 		   Documentação & ALTA \\ \hline
-		   68 & Elaborar o plano de implantação & Implantação & 
+		   67 & Elaborar o plano de implantação & Implantação & 
 		   MÉDIA \\ \hline
-		   69 & Realizar implantação do sistema & Implantação & MÉDIA \\ \hline
-		   70 & Revisão final da documentação técnica & Documentação &
+		   68 & Realizar implantação do sistema & Implantação & MÉDIA \\ \hline
+		   69 & Revisão final da documentação técnica & Documentação &
 		   ALTA \\ \hline
-		   71 & Treinamento da proprietária da pousada para uso da aplicação &	Implantação & MÉDIA \\ \hline
+		   70 & Treinamento da proprietária da pousada para uso da aplicação &	Implantação & MÉDIA \\ \hline
    \end{tabular}
    \fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -851,7 +845,7 @@ As atividades incluídas nas \textit {Sprints Backlog} foram baseadas nos itens 
 	\hline
 	\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
 		\hline
-		1 & 08/04/2025 a 22/04/2025 & Realizar o planejamento do projeto e estabelecer suporte técnico &
+		1 & 08/04/2025 a 22/04/2025 & Realizar o planejamento do projeto  &
 		- Definir e configurar ambiente de desenvolvimento. \newline
 		- Definir ambiente de hospedagem/publicação. \newline
 		- Organizar repositório e fluxo Git. \\
@@ -933,7 +927,6 @@ As atividades incluídas nas \textit {Sprints Backlog} foram baseadas nos itens 
 		- Criar interface para gestão de despesas. \newline
 		- Aprimorar cadastro de despesas para incluir tipo (fixo/variável). \newline
 		- Criar funcionalidade para registrar comprovação de pagamento de reservas. \newline
-		- Criar funcionalidade de filtragem de receita/despesa (data, categoria). \newline
 		- Implementar criptografia. \newline
 		- Documentar a configuração e o código desenvolvido (Integrar ao do MVP). 	 \\
 		\hline		
@@ -955,7 +948,7 @@ As atividades incluídas nas \textit {Sprints Backlog} foram baseadas nos itens 
 		\hline
 		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
 		\hline	
-		10 & 25/09/2025 a 10/10/2025 & Implementar a criptografia e preparar o ambiente para os testes de segurança &
+		10 & 25/09/2025 a 10/10/2025 & Implementar criptografia e preparar o ambiente para os testes de segurança &
 		- Implementar criptografia. \newline
 		- Definir escopo dos testes. \newline
 		- Identificar cenários de teste. \newline
@@ -1018,10 +1011,10 @@ O primeiro passo para o desenvolvimento das ações voltadas à gestão de risco
 			Projeto  & Os requisitos levantados são inconsistentes, exigindo retrabalho e falhas na produção \\
 		\hline
 			R02 & Atraso no cronograma &
-			Projeto  & Comunicação deficiente ou dificuldades nas entregas geraram atrasos no cronograma produção \\
+			Projeto  & Comunicação deficiente ou dificuldades nas entregas geram atrasos no cronograma produção \\
 		\hline
 			R03 & Perda de dados ou inconsistência &
-			Projeto e Produto  & Houve falhas na modelagem ou na lógica do negócio que resultaram em falhas de produção \\ \hline
+			Projeto e Produto  & Há falhas na modelagem ou na lógica do negócio que resultam em falhas de produção \\ \hline
 \end{tabular}
 \fonte{Elaborado pelos autores.}
 \end{quadro}		
@@ -1041,13 +1034,13 @@ O primeiro passo para o desenvolvimento das ações voltadas à gestão de risco
 		\hline
 			R06 & 	Integrantes chaves estão doentes em momentos críticos do projeto & Projeto & A ausência de um integrante importante para a realização de uma tarefa exige que os outros integrantes tenham que assumir sem dominação do assunto \\
 		\hline
-			R07 & Vazamento de dados de hóspedes & Negócio & O sistema  armazenará dados pessoais e sensíveis e não possui uma estrutura de segurança fortificada \\
+			R07 & Vazamento de dados de hóspedes & Negócio & O sistema  armazena dados pessoais e sensíveis e não possui uma estrutura de segurança fortificada \\
 		\hline
-			R08 & Custos do projeto subestimados & Projeto e Produto & Houveram custos adicionais não previstos no planejamento \\
+			R08 & Custos do projeto subestimados & Projeto e Produto & Há custos adicionais não previstos no planejamento \\
 		\hline
-		R09 & Risco de integração de módulos (Django) & Projeto e Produto & A equipe enfrenta dificuldades em integrar as entidades do sistema decorrente de um mau planejamento de comunicação entre elas, segundo a arquitetura Django (MVT) \\
+			R09 & Risco de integração de módulos (Django) & Projeto e Produto & A equipe enfrenta dificuldades em integrar as entidades do sistema decorrente de um mau planejamento de comunicação entre elas, segundo a arquitetura Django (MVT) \\
 		\hline
-		R10 & Problemas de segurança no ambiente de produção & Produto & A implantação do sistema expõe falhas de segurança não identificados durante o desenvolvimento \\
+			R10 & Problemas de segurança no ambiente de produção & Produto & A implantação do sistema expõe falhas de segurança não identificados durante o desenvolvimento \\
 		\hline
 \end{tabular}
 \fonte{Elaborado pelos autores.}
@@ -1066,13 +1059,13 @@ Identificados os riscos associados ao projeto, a equipe analisou e definiu a pro
  		\textbf{Risco} & \textbf{Impacto} & \textbf{Probabilidade de  Ocorrência} & \textbf{Estratégias de \newline Prevenção} & \textbf{Estratégias de \newline Contingência}\\
  		\hline
  	 	R01 & Alto & Alta &
-	 	Fazer revisões e validações periódicas dos requisitos, conforme o andamento do projeto  & Interromper as atividades de desenvolvimento e fazer revisão dos requisitos com o time de desenvolvimento e o \textit{product owner}\\
+	 	Fazer revisões e validações periódicas dos requisitos, conforme o andamento do projeto  & Interromper as atividades de desenvolvimento para revisão dos requisitos com o time de desenvolvimento e o \textit{product owner}\\
 	 	\hline
 	 	R02 & Médio & Alta &
 	 	Monitorar o andamento das tarefas do projeto e solucionar problemas que possam vir a impactar o andamento do cronograma  & Reavaliar o \textit {backlog} das \textit{sprints} restantes e reorganizar as tarefas, priorizando a execução daquelas que são essenciais para a entrega final \\
 	 	\hline
 	 	R03 & Alto & Alta &
-	 	Revisar e validar os elementos da modelagem de dados antes de iniciar o desenvolvimento; Definir lógicas de salvamento e atualização de dado  & Revisar os documentos da modelagem de dados;  identificar e corrigir as falhas na lógica do negócio \\
+	 	Revisar e validar os elementos da modelagem de dados antes de iniciar o desenvolvimento; Definir lógicas de salvamento e atualização de dados  & Revisar os documentos da modelagem de dados;  identificar e corrigir as falhas na lógica do negócio \\
 	 	\hline
 	 	R04 & Alto & Baixa &
 	 	Definir claramente as funcionalidades do sistema, evitando a adição de requisitos que ampliem o sistema para além do planejado  & Priorizar a entrega das funcionalidades definidas nos requisitos iniciais do projeto \\
@@ -1091,14 +1084,13 @@ Identificados os riscos associados ao projeto, a equipe analisou e definiu a pro
 		\hline
 		\textbf{Risco} & \textbf{Impacto} & \textbf{Probabilidade de  Ocorrência} & \textbf{Estratégias de \newline Prevenção} & \textbf{Estratégias de \newline Contingência}\\
 		\hline	
-		R06 & Médio & Baixa & Distribuir as tarefas do projeto de forma estratégica  para que em nenhum momento o projeto fique dependente demais de um integrante, além de desenvolver uma documentação robusta para que outro integrante consiga dar continuidade a tarefa & Remanejar as tarefas entre os integrantes disponíveis \\
+		R06 & Médio & Baixa & Distribuir as tarefas do projeto de forma estratégica  para que em nenhum momento o projeto fique altamente dependente de um integrante, além de desenvolver uma documentação robusta para que outro integrante consiga dar continuidade a tarefa & Remanejar as tarefas entre os integrantes disponíveis \\
 		\hline
-			
-	 	R07 & Crítico & Baixa & Estabelecer medidas de segurança e criptografia no banco de dados do projeto & Desconectar o sistema; identificar a origem do vazamento; realizar medidas de propostas pela LGPD; aplicar e documentar as correções de segurança \\
+	 	R07 & Crítico & Baixa & Estabelecer medidas de segurança e criptografia no banco de dados do projeto & Desconectar o sistema; identificar a origem do vazamento; realizar medidas de contenção de danos propostas pela LGPD; aplicar e documentar as correções de segurança \\
 	 	\hline
 	 	R08 & Médio & Média & Desenvolver um bom levantamento de custos antes de iniciar o projeto & Revisar funcionalidades e priorizar as funcionalidades que caibam no orçamento disponível \\
 	 	\hline
-	 	R09 & Alto & Média & Realizar validações dos diagramas e o MER do sistema antes de iniciar e durante a fase de desenvolvimento do sistema & Revisar os diagramas e o MER; Identificar falhas de integração entre os módulos; Corrigir as falhas \\
+	 	R09 & Alto & Média & Realizar validações dos diagramas e o MER do sistema antes e durante a fase de desenvolvimento do sistema & Revisar os diagramas e o MER; Identificar falhas de integração entre os módulos; Corrigir as falhas \\
 	 	\hline
 	 	R10 & Alto & Média & Definir um plano de testes que abranja os diferentes aspectos e funcionalidades do sistema & Desconectar o sistema; identificar a origem do problema de segurança; corrigir e documentar o erro \\ \hline
  	\end{tabular}
@@ -1108,8 +1100,7 @@ Identificados os riscos associados ao projeto, a equipe analisou e definiu a pro
 % ---
 \subsection{Monitoramento dos Riscos}
 Levantados os riscos do projeto do sistema web e definidas as estratégias de prevenção e resposta a cada um, foi elaborado um conjunto de elementos para auxiliarem no monitoramento contínuo dos riscos. Esse conjunto está registrado na \autoref{monitoramento_riscos_1}, no qual estão os indicadores de risco, os mecanismos que devem ser utilizados na identificação de alterações, sendo que  esses elementos devem ser monitorados a cada \textit{sprint} realizada, durante as reuniões pós \textit{sprint}.
-
-
+%
  \begin{quadro}[H]
 	\caption{Mecanismos de Monitoramento dos Riscos - Parte 1}
 	 \label{monitoramento_riscos_1} 
@@ -1117,64 +1108,43 @@ Levantados os riscos do projeto do sistema web e definidas as estratégias de pr
 		\hline
 		\textbf{Risco} & \textbf{Indicadores} & \textbf{Métricas} \\
 		\hline
-		R01 & 
-		- Time \textit{scrum} frequentemente tem dúvidas sobre o que deve ser feito. \newline
+		R01 & - Time \textit{scrum} frequentemente tem dúvidas sobre o que deve ser feito. \newline
 		- Solicitações frequentes de adição de novas funcionalidades
 		& - Número de dúvidas abertas durante as reuniões de desenvolvimento.
-		\\
-		\hline
-		R02 & 
-		- Constante adiamento de entregas. \newline
+		\\	\hline
+		R02 & - Constante adiamento de entregas. \newline
 		- Tempo de desenvolvimento de tarefas maior do que o previsto.
 		& - Porcentagem de tarefas entregues por \textit{sprint}.
-		\\
-		\hline
-		R03 & 
-		- Carência de backups. \newline
+		\\	\hline
+		R03 & - Carência de backups. \newline
 		- Carência de testes de restauração.
 		& - Frequência (tempo médio) de realização de \textit{backups}. \newline
 		  - Frequência (tempo médio) de falhas registradas nos testes de banco de dados.
-		\\
-		\hline
-		R04 & 
-		- Desenvolvimento das funcionalidades está mais complexo que o esperado. \newline
+		\\	\hline
+		R04 & 	- Desenvolvimento das funcionalidades está mais complexo que o esperado. \newline
 		- Aumento de tarefas não previstas nas \textit{sprints backlogs}.
 		& - Número de novas tarefas adicionadas nas \textit{sprints backlogs}. 
-		\\
-		\hline
-		R05 & 
-		- Tarefas sendo remanejadas constantemente para futuras \textit{sprints}.
-		& - Número de remanejamento de tarefas por \textit{sprints}. 
-		\\
-		\hline
-		R06 & 
-		- Carência de comunicação entre os membros do time. \newline
-		- Carência de documentação e \textit{code review} para facilitar substituições em tarefas.
-		& - Número da concentração de tarefas por integrante. 
-		\\
-		\hline
-		R07 & 
-		- Dados sensíveis armazenados sem criptografia. \newline
+		\\	\hline
+		R05 & - Tarefas sendo remanejadas constantemente para futuras \textit{sprints}. & - Número de remanejamento de tarefas por \textit{sprints}. 
+		\\ \hline
+		R06 & - Carência de comunicação entre os membros do time. \newline
+		- Carência de documentação e \textit{code review} para facilitar substituições em tarefas. & - Número da concentração de tarefas por integrante. 
+		\\	\hline
+		R07 & - Dados sensíveis armazenados sem criptografia. \newline
 		- Carência de testes de segurança. \newline
-		- Códigos com permissões e bibliotecas mal configurados
+		- Códigos com permissões e bibliotecas mal configurados.
 		& - Número do uso de dados sensíveis sem criptografia. \newline
 		  - Número de inconformidades com a LGPD (\textit{checklist}). 
-		\\
-		\hline
-		R08 & 
-		- Gastos com ferramentas para funcionalidades não previstas
+		\\	\hline
+		R08 & 	- Gastos com ferramentas para funcionalidades não previstas
 		& -Número de recursos contratados fora do planejamento inicial.
-		\\
-		\hline
-		R09 & 
-		- Módulos desenvolvidos em paralelo sem o uso de práticas de integração contínua. \newline
+		\\	\hline
+		R09 & 	- Módulos desenvolvidos em paralelo sem o uso de práticas de integração contínua. \newline
 		- Carência de testes de integração. \newline
 		- Modelos mal padronizados.
 		& - Número de \textit{bugs} relacionados à comunicação entre módulos.
-		\\
-		\hline
-		R10 & 
-		- Carência de mecanismos como HTTPS e \textit{headers} de segurança. \newline
+		\\	\hline
+		R10 & 	- Carência de mecanismos como HTTPS e \textit{headers} de segurança. \newline
 		- Dados sensíveis expostos em variáveis de ambiente.
 		& Número de falhas identificadas durante testes de segurança.
 		\\ \hline
@@ -1226,8 +1196,7 @@ Portanto, dado seu caráter fiscalizatório, a aplicação dos mecanismos de  ge
 Essa estrutura foi armazenada em um repositório remoto no \textit{Git Hub} \cite{repositorio}, para facilitar o gerenciamento, a colaboração entre os desenvolvedores e o controle do versionamento do código-fonte do sistema de gestão. 
 % segundo capitulo de Resultados
 % ---
-\chapter{Desenvolvimento do Projeto}
-Nesta seção são detalhadas as tecnologias, ferramentas e práticas adotadas para o desenvolvimento da aplicação \textit{web} de gestão dos processos da pousada Chalés Água de Coco.
+\chapter{Desenvolvimento do Projeto}Nesta seção são detalhadas as tecnologias, ferramentas e práticas adotadas para o desenvolvimento da aplicação \textit{web} de gestão dos processos da pousada Chalés Água de Coco.
 \section{Escopo do Projeto}
 Esse projeto visa automatizar os processos de gestão de reservas, quartos, hóspedes, finanças e produção de relatórios da pousada, com o objetivo de proporcionar à proprietária uma ferramenta eficiente e organizada para a realização de todas as operações essenciais do seu negócio. Além disso, busca mitigar os riscos associados ao modelo atual de administração, caracterizado por uma alta vulnerabilidade a erros humanos, dificuldade de atualização em tempo real e ausência de acessibilidade remota, decorrentes do seu caráter predominantemente manual.
 
@@ -1326,13 +1295,12 @@ Por fim, Para a definição do escopo, a equipe responsável aplicou um conjunto
 	\fonte{Elaborado pelos Autores.}
 	\end{quadro}
 % ---
-
 % REGRAS DE NEGÓCIO
 \subsection{Regras de Negócio}
 As regras de negócio são diretrizes que delimitam as relações entre os objetos do negócio, estabelecendo condições e restrições que orientam as empresas nas suas operações e processos internos \cite{ibmBusinessRules}. 
 
 Por isso, o levantamento das regras de negócio da Pousada Chalés Água de Coco, resultado da análise das respostas fornecidas pela proprietária ao questionário aplicado e da analise do site institucional da pousada \cite{pousada_chales_agua_de_coco} pela equipe, foi fundamental para orientar a modelagem e o desenvolvimento das funcionalidades do sistema. Além de assegurar que a aplicação atenda as necessidades da pousada de forma coerente, segura  e eficiente, e apoiar, no contexto de sua gestão, os processos de tomada de decisão. 
-
+%
 \begin{quadro}[H]
 	\caption{\label{quadro_rn}Regras de Negócio}
 	\begin{tabular}{|c|p{8cm}|}
@@ -1359,16 +1327,14 @@ Por isso, o levantamento das regras de negócio da Pousada Chalés Água de Coco
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
-
 % REQUISITOS 
 % ---
 \subsection{Requisitos do Sistema}
-Segundo \cite[p. 57]{somerville2011}, os requisitos de um sistema são descrições do que o sistema deve fazer, os serviços que oferece e as restrições a seu funcionamento. Assim, considerando a importância desses elementos para a modelagem da aplicação web de gestão para a Pousada Chalés Água de Coco, foi realizado o levantamento dos requisitos funcionais e não funcionais. Esse processo é resultante da análise das respostas obtidas por meio do questionário aplicado à proprietária (\autoref{questionario_1}) e das informações disponibilizadas no site institucional da empresa \cite{pousada_chales_agua_de_coco}.
-% ---
+Segundo Sommerville \cite[p.57]{sommerville2011}, os requisitos de um sistema são descrições do que o sistema deve fazer, os serviços que oferece e as restrições a seu funcionamento. Assim, considerando a importância desses elementos para a modelagem da aplicação web de gestão para a Pousada Chalés Água de Coco, foi realizado o levantamento dos requisitos funcionais e não funcionais. Esse processo é resultante da análise das respostas obtidas por meio do questionário aplicado à proprietária (\autoref{questionario_1}) e das informações disponibilizadas no site institucional da empresa \cite{pousada_chales_agua_de_coco}.
 % ---
 \subsubsection{Requisitos Funcionais}
 Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviços do sistema \textit{web} de gestão da pousada. Tais requisitos estão listados no \autoref{quadro_rf1}.
-
+%
 \begin{quadro}[H]
 	\caption{Requisitos Funcionais - Parte 1}
 	\label{quadro_rf1}
@@ -1381,7 +1347,6 @@ Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviç
 		RF04 & O sistema deve permitir o cadastro de novas reservas, associando um quarto a um período (data de check-in e check-out) & Alta & RN04; RN11 \\ \hline
 		RF05 & O sistema deve permitir a edição de reservas já cadastradas & Alta & RN02 \\ \hline
 		RF06 & O sistema deve impedir o cadastro de reservas que não estejam associadas a quartos disponíveis & Alta & RN07; RN10 \\ \hline
-		RF07 & O sistema deve exigir os dados pessoais do hóspede para que a reserva seja cadastrada: nome completo, endereço completo, CPF/Passaporte, telefone e e-mail & Alta & RN05 \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -1392,6 +1357,7 @@ Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviç
 	\begin{tabular}{|c|p{5cm}|c|p{4cm}|}
 		\hline
 		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
+		RF07 & O sistema deve exigir os dados pessoais do hóspede para que a reserva seja cadastrada: nome completo, endereço completo, CPF/Passaporte, telefone e e-mail & Alta & RN05 \\ \hline
 		RF08 & O sistema deve permitir que a proprietária reserve quartos para um hóspede em nome de outra pessoa responsável, registrando os dados do hóspede e do responsável & Média & RN06 \\ \hline
 		RF09 & O sistema deve exigir o pagamento de 50\% do valor da estadia para confirmar o cadastro da reserva (a ser pago no momento da reserva ou em um prazo definido) & Média & RN01;RN13 \\ \hline
 		RF10 & O sistema deve permitir o registro de pagamento da reserva (forma, valor, data) & Média & RN01;RN13 \\ \hline
@@ -1414,6 +1380,9 @@ Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviç
 		RF18 & O sistema deve permitir  a edição dos dados de hóspedes já cadastrados & Média & RN05 \\ \hline
 		RF19 & A proprietária deve poder fazer o cadastro de quartos, incluindo informações como número/nome do quarto, capacidade (número de hóspedes), tipo (ex: chalé, simples solteiro, simples casal, etc.), e preço por noite & Alta & RN07; RN10
 		 \\ \hline
+		 RF20 & AA proprietária deve conseguir editar as informações dos quartos já cadastrados & Alta & RN07; RN10\\ \hline
+		 RF21 & O sistema deve permitir a visualização dos quartos disponíveis no período de tempo selecionado para a reserva & Média & RN07; RN11 \\ \hline
+		 RF22 & A proprietária deve conseguir mudar o status de um quarto (ex: disponível, ocupado, em manutenção) manualmente, se necessário & Alta & RN10 \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -1424,24 +1393,10 @@ Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviç
 	\begin{tabular}{|c|p{5cm}|c|p{4cm}|}
 		\hline
 		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF20 & AA proprietária deve conseguir editar as informações dos quartos já cadastrados & Alta & RN07; RN10\\ \hline
-		RF21 & O sistema deve permitir a visualização dos quartos disponíveis no período de tempo selecionado para a reserva & Média & RN07; RN11 \\ \hline
-		RF22 & A proprietária deve conseguir mudar o status de um quarto (ex: disponível, ocupado, em manutenção) manualmente, se necessário & Alta & RN10 \\ \hline
 		RF23 & O sistema deve gerar relatórios de ocupação de quartos em períodos definidos & Média & RN04; RN07; RN08; RN10; RN11 \\ \hline
 		RF24 & O sistema deve mudar o status do quarto quando for realizado o registro do \textit{check-out} & Alta & RN08; RN10 \\ \hline
 		RF25 & O sistema deve mudar o status do quarto de reservado para ocupado no registro do \textit{check-in} & Alta & RN08; RN10 \\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-
-\end{quadro}
-
-\begin{quadro}[H]
-	\caption{Requisitos Funcionais - Parte 5}
-	\label{quadro_rf5}
-	\begin{tabular}{|c|p{5cm}|c|p{4cm}|}
-		\hline
-		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF26 & O sistema deve permitir à proprietária configurar os horários padrão de \textit{check-in} e \textit{check-out} & Alta & RN08 \\ \hline
+			RF26 & O sistema deve permitir à proprietária configurar os horários padrão de \textit{check-in} e \textit{check-out} & Alta & RN08 \\ \hline
 		RF27 & O sistema deve permitir a geração de recibos ou comprovantes de pagamento e estadia, sob demanda & Média & RN09 \\ \hline
 		RF28 & O sistema deve permitir o registro de \textit{early check-in} e \textit{late check-out} para uma reserva & Média & RN17 \\ \hline
 		RF29 & O sistema deve permitir a configuração de tarifas adicionais para textit{early check-in} e \textit{late check-out} & Média & RN17 \\ \hline
@@ -1449,12 +1404,11 @@ Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviç
 		RF31 & A proprietária deve poder registrar receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita & Média & RN18 \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
-	
 \end{quadro}
-
+%
 \begin{quadro}[H]
-	\caption{Requisitos Funcionais - Parte 6}
-	\label{quadro_rf6}
+	\caption{Requisitos Funcionais - Parte 5}
+	\label{quadro_rf5}
 	\begin{tabular}{|c|p{5cm}|c|p{4cm}|}
 		\hline
 		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
@@ -1464,25 +1418,16 @@ Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviç
 		RF35 & O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria & Média & RN18 \\ \hline
 		RF36 & O sistema deve gerar relatórios financeiros detalhados automaticamente por período e por categoria & Média & RN18 \\ \hline
 		RF37 & O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo & Média & RN18 \\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-
-\end{quadro}
-\begin{quadro}[H]
-	\caption{Requisitos Funcionais - Parte 7}
-	\label{quadro_rf7}
-	\begin{tabular}{|c|p{5cm}|c|p{4cm}|}
-		\hline
-		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
 		RF38 & O sistema deve gerar relatórios de faturamento por período & Média & RN18 \\ \hline
 		RF39 & O sistema deve apresentar um painel (dashboard) com métricas-chave da pousada & Média & Requisito essencial para a gestão e visualização do negócio \\ \hline
 		RF40 & O sistema deve permitir o envio de notificações automáticas à proprietária sobre eventos importantes (ex: \textit{check-ins} iminentes)
-		 & Baixa & Requisito de suporte à gestão operacional \\ \hline
-		\end{tabular}
-	\fonte{Elaborado pelos autores.}
-	
+		& Baixa & Requisito de suporte à gestão operacional \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}	
 \end{quadro}
-% ---	
+
+
+	
 % REQUISITOS NÃO FUNCIONAIS
 \subsubsection{Requisitos Não Funcionais}
 Os requisitos não funcionais descrevem, por sua vez, as restrições e características de qualidade que devem ser aplicadas às funções e serviços prestados pelo sistema web. Estes requisitos estão listados no \autoref{quadro_rnf1}
@@ -1524,6 +1469,7 @@ Os requisitos não funcionais descrevem, por sua vez, as restrições e caracter
 As histórias de usuário são descrições curtas e informais das funcionalidades esperadas do sistema, sob a perspectiva do usuário final. Dessa forma, elas possuem alto valor para o desenvolvimento do escopo, visto que, auxiliam a equipe a compreender e priorizar as necessidades reais dos usuários. Por isso, foram levantadas e listadas as histórias de usuário para a aplicação web de gestão da Pousada Chalés Água de Coco neste tópico, como parte da definição e organização das funcionalidades do sistema.
 \subsection{Descrição das Histórias de Usuário}
 A seguir, apresentam-se a as descrições das histórias de usuário levantadas para o desenvolvimento do sistema.
+
 % --- Enumeração das histórias
 \begin{enumerate}[label=\textbf{\arabic*.}]
 	%1
@@ -1596,6 +1542,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 	\end{itemize}
 	 	\item \textbf{Requisito Funcional Relacionado:} RF06.
 	 \end{itemize} 
+	   \vspace{2cm}
 	 %7
 	  \item \textbf{Reserva com Dados do Hóspede:}
 	 \begin{itemize}
@@ -1670,7 +1617,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 %12
 	  \item \textbf{Cadastro de Múltiplas Reservas de Quarto:}
 	 \begin{itemize}
-	 	\item \textbf{Descrição:} Como proprietária, quero reservar um mesmo quarto para diferentes clientes em datas seguidas, para otimizar a ocupação dos quartos.
+	 	\item \textbf{Descrição:} Como proprietária, quero reservar um mesmo quarto para diferentes hóspedes em datas seguidas, para otimizar a ocupação dos quartos.
 	 	\item \textbf{Critérios de Aceitação:}
 	 	\begin{itemize}
 	 		\item O sistema permite que um mesmo quarto seja associado a reservas consecutivas, desde que o horário de \textit{check-in} da nova reserva seja posterior ao horário de \textit{check-out} da reserva anterior.
@@ -1693,6 +1640,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 	\end{itemize}
 	 	\item \textbf{Requisito Funcional Relacionado:} RF14.
 	 \end{itemize} 
+	 \vspace{2cm}
 	 %14
 	  \item \textbf{Configuração de Tarifas:}
 	 \begin{itemize}
@@ -1797,6 +1745,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 	\end{itemize}
 	 	\item \textbf{Requisito Funcional Relacionado:} RF22.
 	 \end{itemize} 
+	 \vspace{2cm}
 	 %22
 	  \item \textbf{Produção de Relatórios de Ocupação:}
 	 \begin{itemize}
@@ -1811,6 +1760,20 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 	\item \textbf{Requisito Funcional Relacionado:} RF23.
 	 \end{itemize} 
 	 %23
+	 \item \textbf{Configuração de Horários de \textit{Check-in} e\textit{Check-out}:}
+	 \begin{itemize}
+	 	\item \textbf{Descrição:}  Como proprietária, quero configurar os horários de \textit{check-in} e \textit{check-out} para melhor controle de pessoas e, consequentemente, melhor recepção dos hóspedes.
+	 	\item \textbf{Critérios de Aceitação:}
+	 	\begin{itemize}
+	 		\item O sistema oferece campos de configuração dos horários padrão de \textit{check-in} e \textit{check-out} por temporada.
+	 		\item O sistema oferece a opção de configurar horários por temporada (baixa/alta). 
+	 		\item Após configurados, os horários devem ser armazenados no banco de dados.
+	 		\item A proprietária deve conseguir editar os horários configurados.
+	 		\item Os horários devem ser associados a disponibilidade para reserva das estadias.
+	 	\end{itemize}
+	 	\item \textbf{Requisito Funcional Relacionado:} RF26.
+	 \end{itemize} 
+	 %24
 	  \item \textbf{Registro do \textit{Check-out}:}
 	 \begin{itemize}
 	 	\item \textbf{Descrição:}  Como proprietária, quero registrar o \textit{check-out} de um hóspede para atualizar status do quarto e finalizar reserva.
@@ -1823,7 +1786,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 	\end{itemize}
 	 	\item \textbf{Requisito Funcional Relacionado:} RF24.
 	 \end{itemize} 
-	 %24
+	 %25
 	  \item \textbf{Mudança de Status Pós \textit{Check-in}:}
 	 \begin{itemize}
 	 	\item \textbf{Descrição:} Como proprietária, quero que o sistema mude o status do quarto de reservado para ocupado ao registrar o \textit{check-in}, para manter atualizada a ocupação real da pousada.
@@ -1836,7 +1799,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 	\end{itemize}
 	 	\item \textbf{Requisito Funcional Relacionado:} RF25.
 	 \end{itemize} 
-	 %25
+	 %26
 	  \item \textbf{\textit{Early check-in} e \textit{Late check-out}:}
 	 \begin{itemize}
 	 	\item \textbf{Descrição:}  Como proprietária, quero quero registrar \textit{early check-in} e \textit{late check-out} em reservas para oferecer mais flexibilidade ao cliente.
@@ -1851,7 +1814,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 	\end{itemize}
 	 	\item \textbf{Requisito Funcional Relacionado:} RF28.
 	 \end{itemize} 
-	 %26
+	 %27
 	  \item \textbf{Configuração de Tarifas Adicionais:}
 	 \begin{itemize}
 	 	\item \textbf{Descrição:} Como proprietária, quero configurar tarifas adicionais para \textit{early check-in} e \textit{late check-out} para facilitar a cobrança correta do cliente.
@@ -1862,7 +1825,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 	\end{itemize}
 	 	\item \textbf{Requisito Funcional Relacionado:} RF29.
 	 \end{itemize} 
-	 %27
+	 %28
 	  \item \textbf{Registro de Fluxos Financeiros:}
 	 \begin{itemize}
 	 	\item \textbf{Descrição:} Como proprietária, quero registrar receitas e despesas da pousada com data, valor, categoria e descrição para manter o controle financeiro. 
@@ -1874,7 +1837,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 	\end{itemize}
 	 	\item \textbf{Requisito Funcional Relacionado:} RF30 e RF31.
 	 \end{itemize} 
-	 %28
+	 %29
 	  \item \textbf{Edição e Exclusão dos Registros de Fluxo Financeiro:}
 	 \begin{itemize}
 	 	\item \textbf{Descrição:} Como proprietária, quero editar ou excluir uma receita ou despesa registrada para corrigir possíveis erros ou lançamentos equivocados.
@@ -1887,7 +1850,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 	\end{itemize}
 	 	\item \textbf{Requisito Funcional Relacionado:} RF32 e RF33.
 	 \end{itemize} 
-	 %29
+	 %30
 	  \item \textbf{Visualização das Transações Financeiras:}
 	 \begin{itemize}
 	 	\item \textbf{Descrição:} Como proprietária, quero visualizar todas as transações financeiras por período para entender a saúde financeira da pousada.
@@ -1899,7 +1862,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 	\end{itemize}
 	 	\item \textbf{Requisito Funcional Relacionado:} RF34 e RF35.
 	 \end{itemize} 
-	 %30
+	 %31
 	  \item \textbf{Produção de Relatórios Financeiros:}
 	 \begin{itemize}
 	 	\item \textbf{Descrição:} Como proprietária, quero gerar relatórios de financeiros automaticamente por período e categoria para me auxiliar nas decisões financeiras da pousada.
@@ -1913,7 +1876,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 	\end{itemize}
 	 	\item \textbf{Requisito Funcional Relacionado:} RF36 e RF38.
 	 \end{itemize} 
-	 %31
+	 %32
 	  \item \textbf{Balanço Financeiro:}
 	 \begin{itemize}
 	 	\item \textbf{Descrição:} Como proprietária, quero gerar um balanço financeiro simples com receitas, despesas e saldo para avaliar lucros e perdas.
@@ -1924,7 +1887,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 	\end{itemize}
 	 	\item \textbf{Requisito Funcional Relacionado:} RF37.
 	 \end{itemize} 
-	 %32
+	 %33
 	  \item \textbf{Painel Inicial:}
 	 \begin{itemize}
 	 	\item \textbf{Descrição:} Como proprietária, quero visualizar um \textit{dashboard} inicial com métricas chaves (quartos ocupados, próximas reservas, próximos \textit{check-out}) para ter uma visão rápida e geral da pousada.
@@ -1938,7 +1901,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 	 	\end{itemize}
 	 	\item \textbf{Requisito Funcional Relacionado:} RF39.
 	 \end{itemize} 
-	 %33
+	 %34
 	  \item \textbf{Notificações internas:}
 	 \begin{itemize}
 	 	\item \textbf{Descrição:} Como proprietária, quero receber notificações automáticas (via \textit{dashboard}) sobre eventos importantes para me preparar e melhorar a experiência dos hóspedes.
