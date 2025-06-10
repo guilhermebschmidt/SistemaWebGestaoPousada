@@ -1,0 +1,13 @@
+Revisão Histórica
+A gestão de pousadas no Brasil passou por mudanças significativas nas últimas décadas, ocasionadas por muitos fatores, mas principalmente por conta da evolução tecnológica e mudança no perfil dos consumidores do serviço em questão. Muitas pousadas de pequeno porte operavam com processos manuais como planilhas e registros físicos de controle de clientes, finanças, organização e manutenção. Estes modelos se sustentavam em pequenos empreendimentos, porém mostrou-se obsoleto diante do crescimento de demanda e necessidade de maior eficiência operacional.
+
+No caso da pousada Chalés Água de Coco, a gestão é realizada majoritariamente de forma manual, utilizando recursos como planilhas em Excel, não havendo integração entre os registros realizados pelos administradores. Essa fragmentação de controles acaba por gerar retrabalhos e possíveis erros de comunicação, além de certa dificuldade no acompanhamento dos indicadores.
+
+Com o crescimento de demanda, viu-se necessária a modernização nos modelos de gestão utilizados. O desenvolvimento deste projeto surgiu como resposta a essa necessidade, com o objetivo que garantir maior controle e agilidade nos processos, além de maior qualidade no atendimento ao consumidor.
+
+Diversas publicações e estudos sobre o tema reforçam a tendência do uso de tecnologia no dia a dia da indústria hoteleira. Segundo Cloudbeds(2025) o uso da tecnologia visa ajudar os proprietários e/ou operadores a gerenciar os empreendimentos de suas camadas mais básicas, como gestão, finanças e manutenção, quanto automatização de processos, aprimoramento da experiência do cliente e a criação de novas oportunidades de receita por meio de campanhas de marketing digital, por exemplo.
+
+
+ 
+Referências:
+CLOUDBEDS. Guia completo 2025 sobre sistemas hoteleiros. Disponível em: 10 Sistemas Hoteleiros: Guia Completo 2025. Acesso em: 10 jun. 2025.
