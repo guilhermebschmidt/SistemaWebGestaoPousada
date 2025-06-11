@@ -1,5 +1,5 @@
 from django import forms
-from .models import Hospede
+from ..models import Hospede
 import datetime
 
 
@@ -54,19 +54,19 @@ class HospedeForm(forms.ModelForm):
         if not cpf.isdigit():
             raise forms.ValidationError("O CPF deve conter apenas números.")
         return cpf
-    
+
     def clean_telefone(self):
         telefone = self.cleaned_data.get('telefone')
         if not telefone.isdigit():
             raise forms.ValidationError("O telefone deve conter apenas números.")
         return telefone
-    
+
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if '@' not in email or '.' not in email:
             raise forms.ValidationError("Insira um email válido.")
         return email
-    
+
     def clean_data_nascimento(self):
         data_nascimento = self.cleaned_data.get('data_nascimento')
         if data_nascimento > datetime.date.today():

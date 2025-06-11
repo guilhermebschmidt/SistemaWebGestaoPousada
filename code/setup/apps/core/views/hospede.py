@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Hospede
+from ..models import Hospede
 
 def hospede_list(request):
     hospedes = Hospede.objects.all()
