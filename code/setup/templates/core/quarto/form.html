@@ -1,0 +1,101 @@
+{% extends "shared/base.html" %}
+{% load static %}
+
+{% block title %}{% if quarto %}Editar Quarto {{ quarto.numero }}{% else %}Adicionar Quarto{% endif %}{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto p-4 sm:p-6">
+    <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+            <h2 class="card-title text-2xl font-bold">
+                <i class="fas {% if quarto %}fa-pen{% else %}fa-plus{% endif %} mr-2"></i>
+                {% if quarto %}Editar Quarto {{ quarto.numero }}{% else %}Adicionar Novo Quarto{% endif %}
+            </h2>
+
+            <form method="POST" class="space-y-4 mt-4" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+                {% for field in form %}
+                <div class="form-control">
+                    <label for="{{ field.id_for_label }}" class="label">
+                        <span class="label-text">{{ field.label }}</span>
+                        {% if field.field.required %}<span class="text-error">*</span>{% endif %}
+                    </label>
+
+                    {% if field.field.widget.input_type == 'select' %}
+                        <select class="select select-bordered w-full {% if field.errors %}select-error{% endif %}"
+                                name="{{ field.name }}"
+                                id="{{ field.id_for_label }}">
+                            {% for value, label in field.field.choices %}
+                                <option value="{{ value }}" {% if field.value == value %}selected{% endif %}>{{ label }}</option>
+                            {% endfor %}
+                        </select>
+                    {% elif field.field.widget.input_type == 'checkbox' %}
+                        <input type="checkbox"
+                            class="toggle toggle-primary"
+                            name="{{ field.name }}"
+                            id="{{ field.id_for_label }}"
+                            {% if field.value %}checked{% endif %}>
+                    {% else %}
+                        {% if field.name == 'numero' %}
+                            <input type="number"
+                                class="input input-bordered w-full {% if field.errors %}input-error{% endif %}"
+                                name="{{ field.name }}"
+                                id="{{ field.id_for_label }}"
+                                value="{{ field.value|default_if_none:'' }}"
+                                {% if field.field.required %}required{% endif %}>
+                        {% else %}
+                            <input type="{{ field.field.widget.input_type }}"
+                                class="input input-bordered w-full {% if field.errors %}input-error{% endif %}"
+                                name="{{ field.name }}"
+                                id="{{ field.id_for_label }}"
+                                value="{{ field.value|default_if_none:'' }}"
+                                {% if field.field.required %}required{% endif %}>
+                        {% endif %}
+                    {% endif %}
+
+                    {% if field.help_text %}
+                        <p class="text-xs text-gray-500 mt-1">{{ field.help_text }}</p>
+                    {% endif %}
+                    {% if field.errors %}
+                        <div class="text-sm text-error mt-1">
+                            {% for error in field.errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                    <button type="submit" class="btn btn-primary flex-1 gap-2">
+                        <i class="fas fa-save"></i>
+                        {% if quarto %}Salvar Alterações{% else %}Adicionar{% endif %}
+                    </button>
+                    <a href="{{ cancel_url }}"
+                       class="btn btn-outline btn-neutral flex-1 gap-2">
+                        <i class="fas fa-times"></i>
+                        Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const selects = document.querySelectorAll('select:not(.select)');
+    selects.forEach(select => {
+        select.classList.add('select', 'select-bordered', 'w-full');
+    });
+
+    // Adiciona tratamento para campos de data
+    const dateInputs = document.querySelectorAll('input[type="date"]');
+    dateInputs.forEach(input => {
+        input.classList.add('input', 'input-bordered', 'w-full');
+    });
+});
+</script>
+{% endblock %}
