@@ -76,7 +76,8 @@
                         <details>
                             <summary><i class="fas fa-calendar-check mr-2"></i> Reservas</summary>
                             <ul>
-                                <li><a href="#">Listar Reservas</a></li>
+                                <li><a href="{% url 'reserva:list' %}">Listar Reservas</a></li>
+                                <li><a href="{% url 'reserva:list_checkin' %}">Reservas de Hoje</a></li>
                                 <li><a href="#">Nova Reserva</a></li>
                                 <li><a href="#">Calendário</a></li>
                             </ul>

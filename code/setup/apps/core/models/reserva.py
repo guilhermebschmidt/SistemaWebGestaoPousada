@@ -8,6 +8,7 @@ class Reserva(models.Model):
   data_check_in = models.DateField(verbose_name='Check-in')
   data_check_out = models.DateField(verbose_name='Check-out')
   data_reserva = models.DateField(verbose_name='Data da Reserva')
+  quantidade_dias = models.IntegerField(verbose_name='Quantidade de Dias', default=0)
 
   valor = models.DecimalField(
     verbose_name='Preço',
