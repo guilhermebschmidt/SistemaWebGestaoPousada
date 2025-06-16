@@ -1,14 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
-from .models import Quarto
-from .forms import QuartoForm
+from ..models.quarto import Quarto
+from ..forms.quarto import QuartoForm
 
 def index(request):
-    return render(request, 'quarto/index.html')
+    return render(request, 'core/quarto/index.html', {'quartoss': quartos})
 
 def quartos(request):
     quartos = Quarto.objects.all()
-    return render(request, 'quarto/quartos.html', {'quartos': quartos})
+    return render(request, 'core/quarto/quartos.html', {'quartos': quartos})
 
 def form(request, quarto_id=None):
     quarto = get_object_or_404(Quarto, pk=quarto_id) if quarto_id else None
@@ -24,7 +23,7 @@ def form(request, quarto_id=None):
         form = QuartoForm(request.POST, instance=quarto)
         if form.is_valid():
             form.save()
-            return redirect('quarto:quartos')
+            return redirect('/quartos/')
     else:
         form = QuartoForm(instance=quarto)
         print("Valores do formulário:")
@@ -40,14 +39,14 @@ def form(request, quarto_id=None):
             'preco': float(quarto.preco) if quarto and quarto.preco else None,
         } if quarto else None
     }
-    return render(request, 'quarto/form.html', context)
+    return render(request, 'core/quarto/form.html', context)
 
 def tipos_quarto(request):
-    return render(request, 'quarto/tipos_quarto.html')
+    return render(request, 'core/quarto/tipos_quarto.html')
 
 def excluir_quarto(request, quarto_id):
     quarto = get_object_or_404(Quarto, pk=quarto_id)
     if request.method == 'POST':
         quarto.delete()
-        return redirect('quarto:quartos')
-    return render(request, 'quarto/excluir_quarto.html', {'quarto': quarto})
+        return redirect('core/quarto:quartos')
+    return render(request, 'core/quarto/excluir_quarto.html', {'quarto': quarto})

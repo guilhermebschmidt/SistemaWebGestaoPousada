@@ -17,3 +17,6 @@ class Reserva(models.Model):
   )
   def __str__(self):
     return f"Reserva #{self.id} - Hóspede {self.id_hospede} - Quarto {self.id_quarto}"
+
+  class Meta:
+    db_table = 'reserva'

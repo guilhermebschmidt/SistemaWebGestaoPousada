@@ -14,3 +14,6 @@ class Quarto(models.Model):
 
     def __str__(self):
         return f"Quarto {self.numero}"
+
+    class Meta:
+        db_table = 'quarto'
