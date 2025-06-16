@@ -1,0 +1,17 @@
+O Django é um framework web de alto nível baseado em Python que oferece uma série de recursos que o tornam ideal para o desenvolvimento de sistemas como o nosso gerenciador de reservas de quartos. Uma de suas principais vantagens é a rapidez no desenvolvimento, já que ele vem com diversas funcionalidades prontas, como autenticação de usuários, painéis administrativos, formulários e ORM para a interação com o banco de dados.
+
+Além disso, o Django incentiva a organização do código e boas práticas, com uma arquitetura clara baseada no padrão MTV (Model-Template-View), o que facilita a manutenção e a escalabilidade do sistema. Isso é essencial em um sistema de reservas, que pode crescer em funcionalidades como calendário de disponibilidade, gestão de hóspedes, geração de relatórios, envio de notificações, entre outros.
+
+Outro ponto importante que influenciou na nossa escolha é a segurança, pois o Django já vem com proteções contra ataques comuns, como injeção de SQL, o que é essencial em aplicações que lidam com dados pessoais e financeiros dos clientes.
+
+Agora falando um pouco sobre a Amazon Web Services. Ela é uma das plataformas de computação em nuvem mais completas e confiáveis do mercado. Utilizar a AWS para hospedar nosso sistema de gerenciamento de reservas traz várias vantagens:
+
+Alta disponibilidade e escalabilidade: a AWS permite escalar a infraestrutura de acordo com a demanda, garantindo que o sistema continue funcionando bem mesmo em períodos de alta procura.
+
+Confiabilidade e desempenho: a infraestrutura da AWS é robusta, distribuída globalmente e projetada para evitar falhas. Isso assegura que o sistema fique no ar com alta performance e baixa latência.
+
+Segurança: a AWS oferece diversas camadas de segurança, incluindo criptografia de dados, controle de acesso, backups automatizados e monitoramento contínuo, protegendo tanto os dados dos hóspedes quanto as informações administrativas da pousada.
+
+Serviços integrados: além do serviço de hospedagem, a AWS oferece bancos de dados gerenciados, armazenamento, envio de e-mails, monitoramento, entre outros — todos integráveis com o sistema Django de forma eficiente.
+
+Por conta desses motivos, nós concluímos que a combinação de Django com a AWS é uma escolha estratégica e poderosa para o desenvolvimento do nosso sistema de reservas de quartos em uma pousada. Enquanto o Django acelera o desenvolvimento e garante um sistema seguro e bem estruturado, a AWS fornece a base tecnológica para garantir desempenho, estabilidade e escalabilidade. Juntos, eles possibilitam a entrega de uma solução profissional e confiável, algo que nós buscamos para o desenvolvimento do nosso sistema.

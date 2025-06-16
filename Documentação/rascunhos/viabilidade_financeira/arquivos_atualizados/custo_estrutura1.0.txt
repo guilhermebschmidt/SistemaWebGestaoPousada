@@ -1,0 +1,24 @@
+Equipamentos/Serviços				
+	Itens		Quantidade	Custo mensal	Total 4 meses	Total 9 meses
+Notebooks		6		R$ 0,00	R$	 0,00		R$ 0,00
+Roteadores		6		R$ 0,00	R$	 0,00		R$ 0,00
+Internet(Assinatura)	6		R$ 114,97	R$ 2.759,28	R$ 6.208,38
+Eletricidade(Fatura)	6		R$ 3,44		R$ 82,56	R$ 185,76
+		Total	R$ 24,00	R$ 118,41	R$ 2.841,84	R$ 6.394,14
+				
+				
+Infraestrutura				
+Tipo		Serviço			Mensal		Total 4 meses	Total 9 meses
+Proxy Reverso	Servidor Nginx		R$ 0,00		R$ 0,00		R$ 0,00
+Aplicação	Servidor Gunicorn	R$ 0,00		R$ 0,00		R$ 0,00
+Framework Web	Servidor Django		R$ 0,00		R$ 0,00		R$ 0,00
+Banco de Dados	PostgreSQL		R$ 0,00		R$ 0,00		R$ 0,00
+Hospedagem	AWS			R$ 0,00		R$ 0,00		R$ 0,00
+				Total	R$ 0,00		R$ 0,00		R$ 0,00
+				
+				
+Fontes				
+				
+https://www.enel.com.br/pt-saopaulo/Para_Voce/tarifa-energia-eletrica.html				
+https://sistemas.anatel.gov.br/anexar-api/publico/anexos/download/9c9e947419913b3987bd8cc7510f03f1 				
+				

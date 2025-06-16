@@ -1,0 +1,6 @@
+Custo Total 
+			
+		Categoria	Custo Mensal	Custo Total (4 meses)	Custo Total (9 meses)
+		Mão de Obra	 R$ 11.352,00 	 R$ 45.408,00 	 	R$ 102.168,00 
+		Estrutura	118,41	 	R$ 473,64 		 R$ 1.065,69 
+		Total		 R$ 11.470,41 	 R$ 45.881,64 	 	R$ 103.233,69 

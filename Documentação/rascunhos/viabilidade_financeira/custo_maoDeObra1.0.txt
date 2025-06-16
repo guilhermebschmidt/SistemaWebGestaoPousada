@@ -1,0 +1,15 @@
+	Custo: Mão de Obra								
+		 		Quantidade	Horas/Dia	Dias/Mês	Total de Horas/Mês	Custo Hora	Custo Mensal	Total 4 meses		Total 9 meses
+	Analista de Cronograma(PMO)	1	6		22		25,90	 		R$ 16,00 	 R$ 155,40 	 R$ 621,60 	 	R$ 1.398,60 
+	Engenheiro de Dados (DBA)	1	6		22		47,30			 R$ 13,00 	 R$ 283,80 	 R$ 1.135,20 		R$ 2.554,20 
+	Analista de Documentação	1	6		22		75,30			 R$ 15,00 	 R$ 451,80 	 R$ 1.807,20 	 	R$ 4.066,20 
+	Gerente de Projeto (PM)		1	6		22		78,90			 R$ 16,00 	 R$ 473,40 	 R$ 1.893,60 		R$ 4.260,60 
+	Desenvolvedor Front-End		1	6		22		150,00			 R$ 13,00 	 R$ 900,00 	 R$ 3.600,00 	 	R$ 8.100,00 
+	Desenvolvedor Back-End		1	6		22		66,00	 		R$ 13,00 	 R$ 396,00 	 R$ 1.584,00 		 R$ 3.564,00 
+									
+		Total Mão de Obra	6	36		132		 R$ 443,40 		 R$ 86,00 	 R$ 2.660,40 	 R$ 10.641,60 		 R$ 23.943,60 
+									
+									
+	Fonte								
+	www.glassdoor.com.br/Salários								
+									

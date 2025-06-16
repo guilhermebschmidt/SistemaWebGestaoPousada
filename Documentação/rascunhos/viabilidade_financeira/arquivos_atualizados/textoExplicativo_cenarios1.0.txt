@@ -1,0 +1,15 @@
+Texto Explicativo - Cenários 
+
+Cenário Pessimista
+
+Na imagem a seguir podemos observar a projeção construída pela equipe de um cenário pessimista, levando em consideração os custos já apresentados anteriormente de mão de obra e estrutura. Podemos observar que de acordo com essa projeção, o ponto de equilíbrio será alcançado por volta de 20 meses.
+
+Cenário Realista
+
+Na imagem a seguir podemos observar a projeção construída pela equipe de um cenário realista, levando em consideração os custos já apresentados anteriormente de mão de obra e estrutura. Podemos observar que de acordo com essa projeção, o ponto de equilíbrio será alcançado por volta de 15 meses.
+
+Cenário Otimista
+
+Na imagem a seguir podemos observar a projeção construída pela equipe de um cenário realista, levando em consideração os custos já apresentados anteriormente de mão de obra e estrutura. Podemos observar que de acordo com essa projeção, o ponto de equilíbrio será alcançado por volta de 6 meses.
+
+

@@ -1,0 +1,6 @@
+Texto Explicativo - Custo por estrutura
+
+A parte de custos por estrutura está divida entre Equipamentos e Serviços, que diz respeito aos equipamentos e serviços necessários para que cada colaborador do time consiga desempenhar suas funções. E Infraestrutura, que aborda os custos relativos a sustentação do sistema.
+
+Considerando que a equipe trabalha no regime home office e utiliza seus próprios equipamentos, entendemos os gastos como nulos. Partindo assim para tarifas referentes a energia e internet.
+Já nos custos indicados na parte de infraestrutura foram considerados nulos pois o sistema será desenvolvido utilizando serviços gratuito (lembrando que essa análise se trata de uma estimativa, e que caso haja alguma mudança significativa no projeto ou necessidade de serviços pagos, esses custos podem mudar).-

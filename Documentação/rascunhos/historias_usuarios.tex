@@ -1,0 +1,445 @@
+﻿Histórias de Usuário
+
+
+        As histórias de usuário são descrições curtas e informais das funcionalidades esperadas do sistema, sob a perspectiva do usuário final. Dessa forma, elas possuem alto valor para o desenvolvimento do escopo, visto que, auxiliam a equipe a compreender e priorizar as necessidades reais dos usuários. Por isso, foram levantadas e listadas as histórias de usuário para a aplicação web de gestão da Pousada Chalés Água de Coco neste tópico, como parte da definição e organização das funcionalidades do sistema.
+
+
+1. Acesso ao Sistema
+
+
+Descrição: Como proprietária, quero fazer login com email e senha para acessar o sistema de forma segura.
+Critérios de Aceitação:
+* A proprietária não consegue acessar o sistema caso apresente credenciais inválidas.
+* O acesso é protegido por criptografia e sessão segura (HTTPS)
+Requisito Funcional Relacionado: RF01.
+
+
+
+
+2. Alteração de Senha 
+
+
+Descrição: Como proprietária, quero alterar minha senha para manter minha conta segura.
+Critérios de Aceitação:
+* A proprietária só consegue alterar a senha após login bem sucedido.
+* O sistema força a proprietária a criar uma nova senha forte.
+* O sistema exibe mensagem de sucesso após o cadastro da nova senha.
+Requisito Funcional Relacionado: RF02.
+
+
+3. Recuperação de  Senha
+
+
+Descrição: Como proprietária, quero recuperar minha senha caso eu a esqueça, para conseguir acesso ao sistema novamente.
+Critérios de Aceitação:
+* A proprietária consegue solicitar recuperação de senha via e-mail.
+* A proprietária recebe e-mail com um link de recuperação temporário. 
+Requisito Funcional Relacionado: RF03
+
+
+
+
+
+
+
+
+4. Cadastro de Reservas
+
+
+Descrição: Como proprietária, quero cadastrar novas reservas no sistema para ter maior controle de hospedagens.
+Critérios de Aceitação:
+* O sistema fornece um formulário para cadastrar a reserva.
+* A reserva é cadastrada após o envio do formulário.
+* O sistema exibe uma mensagem de confirmação do cadastro
+* Os dados da reserva são salvos no banco de dados. 
+Requisito Funcional Relacionado: RF04.
+
+
+5. Edição de Reservas
+
+
+Descrição: Como proprietária,  quero editar reservas já cadastradas,  para que eu possa alterar ou corrigir informações importantes.
+
+
+Critérios de Aceitação:
+* O sistema permite que a proprietária altere os campos do formulário de reserva.
+* A proprietária consegue salvar a reserva com os novos dados.
+* Os dados são atualizados no banco de dados.
+Requisito Funcional Relacionado: RF05.
+
+
+6. Bloqueio do Cadastro de Reservas 
+
+
+Descrição: Como proprietária, quero que eu seja impedida de cadastrar reservas de quartos já ocupados para evitar conflitos de hospedagem.
+Critérios de Aceitação:
+* O sistema impede que a proprietária cadastre a reserva de um quarto que tenha o status diferente de “disponível” na data selecionada.
+* O sistema exibe uma mensagem de alerta avisando que o quarto não está disponível .
+Requisito Funcional Relacionado: RF06.
+
+
+
+
+7. Reserva com Dados do Hóspede
+
+
+Descrição: Como proprietária, quero registrar os dados pessoais de cada hóspede ao criar ou gerenciar uma reserva, para manter um registro completo e atualizado dos hóspedes.
+Critérios de Aceitação:
+* No formulário de cadastro de reserva devem ser exigidos o preenchimento de campos com os dados do hóspede (nome completo, endereço completo, CPF/Passaporte, telefone e e-mail).
+* Todos os campos devem ter validação de formato.
+* A proprietária deve conseguir buscar e selecionar hóspedes já cadastrados para novas reservas.
+* O sistema deve validar os campos obrigatórios para garantir a integridade dos dados.
+* Os dados dos hóspedes devem ser armazenados de forma segura.
+Requisito Funcional Relacionado: RF07.
+
+
+
+
+8. Reserva em Nome de um Responsável
+Descrição: Como proprietária, quero cadastrar uma reserva em nome de um responsável pelo hóspede para atender situações em que outra pessoa cuida da reserva.
+Critérios de Aceitação:
+* O formulário de cadastro de reserva deve ter uma opção para indicar que a reserva está sendo feita por um responsável.
+* Opção selecionada: O sistema exibe os campos para registro dos dados pessoais do responsável. 
+* Opção selecionada: O sistema mantém os campos para registro dos hóspedes.
+* Após concluído o cadastro da reserva o sistema deve deixar visível quem é o responsável e quem é o hóspede.
+Requisito Funcional Relacionado: RF08.
+
+
+
+
+9. Pagamento de Confirmação de Reserva
+Descrição: Como proprietária, quero registrar o pagamento  da estadia para confirmar a reserva e manter a organização das receitas da pousada.
+Critérios de Aceitação:
+* No cadastro da reserva: O sistema calcula e exibe automaticamente o valor correspondente a 50% da estadia.
+* O sistema permite o cadastro do pagamento parcial da estadia.
+* Caso o pagamento não seja registrado durante o cadastro da reserva, o sistema permite que a proprietária defina um prazo para o registro.
+* O registro do pagamento deve atualizar o status da reserva para “Confirmada”, sendo ele o registro parcial ou completo do pagamento.
+* O sistema permite que a proprietária anexe um comprovante de pagamento ao registro.
+* Após o registro do pagamento, o sistema gera um comprovante de reserva e pagamento, sob demanda da proprietária.
+Requisito Funcional Relacionado: RF09, RF10 e RF27.
+
+
+
+
+
+
+
+
+10. Cancelamento ou Alteração de Reservas
+Descrição: Como proprietária, quero cancelar ou remarcar uma reserva, com a possibilidade de registrar o motivo  para manter o controle sobre mudanças.
+Critérios de aceitação:
+* O sistema permite que a proprietária selecione uma reserva cadastrada e escolha entre alterar ou cancelar.
+* Proprietária seleciona cancelar: sistema disponibiliza formulário com campo opcional para o registro do motivo do cancelamento.
+* Proprietária seleciona alterar: sistema disponibiliza o formulário de cadastro da reserva para a proprietária fazer as alterações.
+* Proprietária seleciona alterar: Novas alterações são salvas no banco de dados.
+* Novo status da reserva é salvo no banco de dados.
+* Proprietária seleciona cancelar: o status do quarto ocupado na reserva é atualizado para “Disponível”.
+Requisito Funcional Relacionado: RF11.
+
+
+11. Cadastro de Múltiplas Reservas
+Descrição: Como proprietária, quero cadastrar múltiplas reservas para um mesmo hóspede, para facilitar reservas recorrentes.
+Critérios de Aceitação:
+* O sistema permite que a proprietária selecione um cliente já cadastrado ao iniciar um novo cadastro de reserva.
+* O sistema permite que mais de uma reserva ativa esteja associada a um mesmo hóspede (id).
+* Cada reserva deve ser feita de forma separada.
+* Cada reserva deve ser independente mesmo que seja do mesmo cliente. 
+* O sistema deve registrar separadamente o pagamento de cada reserva.
+Requisito Funcional Relacionado: RF12.
+
+
+12. Cadastro de Múltiplas Reservas de Quarto
+Descrição: Como proprietária, quero reservar um mesmo quarto para diferentes clientes em datas seguidas, para otimizar a ocupação dos quartos. 
+Critérios de Aceitação:
+* O sistema permite que um mesmo quarto seja associado a reservas consecutivas, desde que o horário de check-in da nova reserva seja posterior ao horário de check-out da reserva anterior.
+* Os horários de check-in e check-out devem estar configurados no sistema e devem ser respeitados durante o cadastro de reserva de um quarto.
+* O sistema deve impossibilitar que a proprietária faça reservas que se sobreponham parcial ou totalmente ao período de outra reserva já associada ao quarto.
+Requisito Funcional Relacionado: RF13.
+
+
+13. Acesso de Histórico de Reservas
+Descrição: Como proprietária, quero visualizar o histórico de reservas dos hóspedes, para entender suas preferências e frequência de reservas.
+Critérios de Aceitação:
+* A funcionalidade de histórico de reservas  deve estar disponível na página do módulo de reservas.
+* O sistema permite que a proprietária busque reservas através do hóspede ou do quarto.
+* Ao selecionar o id: sistema exibe lista com todas as reservas associadas, tenham sido elas canceladas, realizadas ou futuras.
+* A proprietária consegue acessar detalhes completos de cada reserva listada.
+*  O histórico de reservas deve ser atualizado automaticamente a cada nova reserva ou alteração de reserva.
+
+
+Requisito Funcional Relacionado: RF14.
+
+
+14.  Configuração de Tarifas
+
+
+Descrição: Como proprietária, quero configurar as tarifas de reserva no sistema para aplicar preços personalizados.
+
+
+Critérios de Aceitação:
+* O sistema permite que a proprietária defina o preço por noite para cada tipo de quarto.
+* O sistema permite que a proprietária configure tarifas diferenciadas por período (alta/baixa temporada).
+* O sistema aplica automaticamente as tarifas ao valor total de uma reserva.
+*  O sistema permite que a proprietária edite e salve novas regras de tarifação sem apagar reservas anteriores.
+
+
+Requisito Funcional Relacionado: RF15.
+
+
+15. Notificações de confirmação para clientes
+
+
+Descrição: Como proprietária, quero que meus clientes recebam informações da confirmação da reserva via email/whatsapp, para evitar os envios manuais para cada cliente. 
+Critérios de Aceitação:
+* É realizado o registro do pagamento parcial ou total da reserva e o sistema marca a reserva como confirmada.
+* O sistema envia  uma notificação automática ao hóspede, via e-mail.
+* O sistema registra que a notificação foi enviada.
+* Caso o envio da notificação falhe, o sistema deve alertar a proprietária para enviar manualmente.
+
+
+Requisito Funcional Relacionado: RF16.
+
+
+16. Impedimento de Cadastro de Reserva 
+Descrição: Como proprietária, quero que o sistema impeça o cadastro de reservas com menos de  2 dias de antecedência para o check-in, para ter tempo suficiente para preparar a recepção do hóspede.
+Critérios de Aceitação:
+* Durante o cadastro da reserva, o sistema calcula a diferença entre a data atual e a data de check- in solicitada.
+* Caso a diferença seja menor que 2 dias, o sistema impede o cadastro e exibe uma mensagem de erro.
+Requisito Funcional Relacionado: RF17.
+
+
+17. Edição do Cadastro de Hóspede
+
+
+Descrição: Como proprietária, quero visualizar e editar os dados dos hóspedes existentes para manter as informações atualizadas.
+
+
+Critérios de Aceitação:
+* O sistema tem um módulo de gestão de hóspedes, no qual a proprietária consegue acessar uma lista dos hóspedes já cadastrados.
+* A proprietária consegue fazer buscas de hóspedes por nome, CPF, telefone ou e-mail.
+* A proprietária consegue selecionar um hóspede e visualizar seus dados.
+* O sistema oferece uma opção de edição do cadastro do hóspede.
+* O sistema permite a edição dos dados que são atualizados no banco de dados.
+Requisito Funcional Relacionado: RF18.
+
+
+18. Cadastro de Quartos
+
+
+Descrição: Como proprietária, quero cadastrar todos os quartos da pousada no sistema, para fazer o controle de disponibilidade e da limpeza dos quartos.
+Critérios de Aceitação:
+* O sistema possui um módulo de gestão de quartos com diferentes funcionalidades.
+* A proprietária acessa a funcionalidade “Cadastrar Quartos” e preenche um formulário de cadastro.
+* O formulário possui campos para adicionar: número do quarto, tipo, preço, status inicial, capacidade e observações.
+* O sistema faz a validação dos campos obrigatórios e evita duplicidade de número de quartos.
+* O quarto é registrado e adicionado ao banco de dados.
+* O quarto fica visível na lista de quartos após o registro.
+
+
+Requisito Funcional Relacionado: RF19.
+
+
+
+
+19. Edição de Cadastro de Quarto
+
+
+Descrição: Como proprietária, quero editar o cadastro de um quarto, para caso eu precise adicionar ou remover informações importantes para a reserva.
+Critérios de Aceitação:
+*  A proprietária deve conseguir localizar o quarto pela lista disponível no módulo de gestão de quartos.
+* O sistema permite a seleção do quarto.
+* O sistema permite que a proprietária edite os dados dos campos disponíveis no formulário.
+* As alterações são registradas e atualizadas no banco de dados.
+Requisito Funcional Relacionado: RF20.
+
+
+20. Visualização Quartos Disponíveis
+
+
+Descrição: Como proprietária, quero conseguir ver quais os quartos disponíveis durante o cadastro da reserva, para otimizar o atendimento.
+
+
+Critérios de aceitação:
+* Durante o cadastro de uma nova reserva, o sistema exibe uma lista somente com os quartos disponíveis para o período selecionado (check-in e check-out).
+* O sistema atualiza automaticamente a lista quando a proprietária altera as datas da reserva.
+* O sistema exibe os principais dados do quarto na seleção: número, tipo, capacidade e preço.
+
+
+Requisito Funcional Relacionado: RF21.
+
+
+21. Atualização do Status do Quarto
+
+
+Descrição: Como proprietária, quero atualizar manualmente o status de um quarto (disponível, reservado, ocupado, em manutenção) para refletir sua condição real e evitar reservas indevidas
+Critérios de Aceitação:
+* O sistema permite que a proprietária selecione um quarto e altere manualmente seu status atual, no módulo de gestão de quartos.
+* O sistema deve impedir a alteração do status caso o quarto esteja associado a alguma reserva, caso o status seja diferente de “em manutenção”.
+* A mudança de status é atualizada automaticamente.
+* O sistema exibe uma mensagem de confirmação de mudança.
+
+
+Requisito Funcional Relacionado: RF22.
+
+
+22.  Produção de Relatórios de Ocupação
+
+
+Descrição: Como proprietária, quero gerar relatórios de ocupação de quartos por período (taxa de ocupação, quartos vagos) para analisar o desempenho da pousada.
+Critérios de Aceitação:
+* O sistema tem uma funcionalidade de geração de relatórios de ocupação no módulo de gestão de quartos.
+* A proprietária consegue selecionar um intervalo de datas para gerar o relatório.
+* O sistema gera um relatório que exibe a taxa de ocupação do período selecionado (% de dias ocupados por quarto).
+* O relatório também exibe a quantidade de quartos disponíveis e ocupados em cada dia do período.
+
+
+ Requisito Funcional Relacionado: RF23.
+
+
+
+
+23. Registro do Check-out
+Descrição: Como proprietária, quero registrar o check-out de um hóspede para atualizar status do quarto e finalizar reserva.
+
+
+Critérios de Aceitação:
+
+* O sistema oferece a opção de registrar o check-out manualmente ao selecionar uma reserva.
+* Após o check-out, o status do quarto deve mudar para "disponível" ou “reservado” automaticamente.
+* Após o registro do check-out, o sistema deve encerrar a reserva e impedir alterações na reserva.
+* Caso haja cobrança pendente, o sistema deve alertar antes de finalizar a reserva.
+
+
+Requisito Funcional Relacionado: RF24.
+
+
+24.  Mudança de Status Pós Check-in
+
+
+Descrição: Como proprietária, quero que o sistema mude o status do quarto de reservado para ocupado ao registrar o check-in, para manter atualizada a ocupação real da pousada.
+
+
+Critérios de Aceitação:
+* Quando a proprietária registrar o check-in de uma reserva, o status do quarto deve ser alterado automaticamente para “ocupado”.
+* O sistema só deve alterar o status do quarto se a reserva estiver confirmada e com o pagamento parcial ou total realizado.
+* O sistema deve exibir uma mensagem de pagamento pendente, caso o pagamento não tenha sido registrado em sua totalidade.
+* O sistema deve exibir a alteração de status imediatamente no painel da pousada.
+
+
+Requisito Funcional Relacionado: RF25.
+
+
+25. Early check-in e Late check-out
+Descrição: Como proprietária, quero quero registrar early check-in e late check-out em reservas para oferecer mais flexibilidade ao cliente.  
+Critérios de Aceitação:
+
+* Durante o cadastro da reserva, o sistema deve permitir marcar uma reserva com early check-in e/ou late check-out.
+* O sistema deve validar se o quarto estará disponível nos horários solicitados.
+* O sistema deve adicionar as tarifas no valor da estadia.
+* Caso a opção seja marcada posteriormente a algum registro de pagamento, o sistema deve exibir um alerta de pagamento pendente referente ao valor das tarifas ou da soma da tarifa e dos demais valores pendentes.
+* A opção deve estar disponível tanto no cadastro da reserva quanto na edição posterior.
+* O sistema deve registrar essa informação no histórico da reserva e no comprovante de pagamento.
+
+
+Requisito Funcional Relacionado: RF28.
+
+
+
+
+26. Configuração de Tarifas Adicionais
+Descrição: Como proprietária, quero configurar tarifas adicionais para early check-in e late check-out para facilitar a cobrança correta do cliente.
+Critérios de Aceitação:
+
+* O sistema deve permitir que a proprietária adicione valores fixos ou percentuais adicionais para early check-in e late check-out aos preços das estadias.
+* O valor total da reserva deve refletir os acréscimos automaticamente.
+
+
+Requisito Funcional Relacionado: RF29.
+
+
+27.  Registro de Fluxos Financeiros
+Descrição: Como proprietária, quero registrar receitas e despesas da pousada com data, valor, categoria e descrição para manter o controle financeiro. 
+Critérios de Aceitação:
+ 
+* O sistema permite que a proprietária registre receitas ou despesas dentro do módulo de gestão financeira.
+* A proprietária consegue registrar receitas ou despesas a partir do preenchimento de um formulário com os campos obrigatórios: data, categoria, valor e descrição.
+* O sistema armazena no banco de dados a receita/ despesa registrada e salva.
+
+
+Requisito Funcional Relacionado: RF30 e RF 31.
+
+
+28. Edição e Exclusão dos Registros de Fluxo Financeiro
+Descrição: Como proprietária, quero editar ou excluir uma receita ou despesa registrada para corrigir possíveis erros ou lançamentos equivocados.
+Critérios de Aceitação:
+
+
+* O sistema permite que a proprietária selecione uma receita/despesa no módulo de gestão financeira e escolha se quer alterar ou excluir o registro.
+* O sistema permite que a proprietária exclua definitivamente um registro após a confirmação do alerta de exclusão.
+* A proprietária consegue alterar os campos obrigatórios do formulário de registro de receita/despesa.
+* O sistema atualiza o banco de dados, o saldo e o balanço financeiro automaticamente. 
+Requisito Funcional Relacionado:  RF32 e RF33.
+
+
+
+
+29.  Visualização das Transações Financeiras
+Descrição: Como proprietária, quero visualizar todas as transações financeiras por período para entender a saúde financeira da pousada. 
+Critérios de Aceitação:
+
+
+* O sistema exibe uma lista de todas as transações por data no módulo de gestão financeira.
+* A proprietária consegue fazer buscas por filtradas: tipo, valor, data e categoria.
+* A filtragem exibe apenas as transações que atendem aos critérios informados.
+Requisito Funcional Relacionado:  RF34 e RF35.
+
+
+30. Produção de Relatórios Financeiros
+Descrição: Como proprietária, quero gerar relatórios de financeiros automaticamente por período e categoria para me auxiliar nas decisões financeiras da pousada.
+Critérios de Aceitação:
+
+
+* No módulo de gestão financeira, o sistema deve oferecer a funcionalidade de produção de relatórios financeiros.
+* O sistema deve oferecer filtros(intervalo de datas e categorias) para serem aplicados na produção.
+* O relatório produzido exibe o total de receitas, total de despesas e saldo final do período selecionado.
+* O relatório deve apresentar gráficos simples para representar os resultados por categoria.
+* O relatório desconsidera registros financeiros excluídos.
+
+
+Requisito Funcional Relacionado: RF36 e RF38.
+
+
+31.  Balanço Financeiro
+Descrição: Como proprietária, quero gerar um balanço financeiro simples com receitas, despesas e saldo para avaliar lucros e perdas. 
+Critérios de Aceitação:
+ 
+* O sistema permite que a proprietária visualize o total de receitas, o total de despesas e o saldo, no painel do módulo de gestão financeira.
+* O sistema gera balanços com base nos filtros aplicados.
+
+
+Requisito Funcional Relacionado: RF37.
+
+
+32. Painel Inicial
+Descrição: Como proprietária, quero visualizar um dashboard inicial com métricas chaves (quartos ocupados, próximas reservas, próximos check-out) para ter uma visão rápida e geral da pousada.
+Critérios de Aceitação: 
+
+
+* O sistema deve exibir no painel inicial o número de quartos ocupados no dia atual.
+* O sistema deve exibir no painel inicial a lista de reservas com check-in previstos para as próximas 24 horas.
+* O sistema deve exibir no painel inicial a lista de reservas com check-out previstos para as próximas 24 horas.
+* O sistema atualiza as informações do painel automaticamente a cada acesso.
+* A proprietária consegue acessar o painel diretamente após o login no sistema.
+
+
+Requisito Funcional Relacionado: RF39.
+
+
+33. Notificações internas
+
+
+Descrição: Como proprietária, quero receber notificações automáticas (via dashboard) sobre eventos importantes para me preparar e melhorar a experiência dos hóspedes.
+Critérios de Aceitação:
+* O sistema exibe uma mensagem para a proprietária no dashboard sempre que uma reserva é criada, cancelada ou editada.
+* O sistema exibe lembretes de pendências de pagamento com base na data de vencimento.
+Requisito Funcional Relacionado: RF40.

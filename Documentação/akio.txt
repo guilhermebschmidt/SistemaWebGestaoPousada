@@ -1,0 +1,165 @@
+1. Estrutura Geral do Projeto
+
+Para o desenvolvimento do sistema, escolhi utilizar o framework Django, por ser uma ferramenta robusta, escalável e muito eficiente para aplicações web que precisam de controle de dados, autenticação de usuários e uma interface bem estruturada. Com o objetivo de manter o projeto organizado e facilitar a manutenção, optei por uma abordagem modular, separando as funcionalidades em diferentes aplicações (apps), cada uma com responsabilidades específicas.
+
+A estrutura de diretórios ficou organizada da seguinte forma:
+
+projeto/
+├── apps/
+│   ├── hospede/
+│   └── quarto/
+├── setup/
+├── templates/
+├── db.sqlite3
+├── manage.py
+└── requirements.txt
+
+Nos próximos tópicos, explico o papel de cada pasta e arquivo, além das funcionalidades que foram implementadas.
+2. Aplicações do Sistema (apps/)
+
+Dentro da pasta apps/ estão as duas aplicações principais do projeto: hospede e quarto. Essa separação ajuda bastante na organização do código e permite que, no futuro, o sistema possa crescer de forma mais fácil e sem complicações.
+2.1 Aplicação hospede
+
+Essa aplicação cuida do cadastro e da gestão dos hóspedes. As principais partes que compõem essa aplicação são:
+
+    models.py: define o modelo Hospede, com campos como nome, CPF, telefone, data de nascimento, entre outros. Esse modelo é o que determina a estrutura da tabela no banco de dados.
+
+    forms.py: cria formulários baseados no modelo Hospede com o uso do ModelForm, que facilita bastante a criação e validação dos formulários.
+
+    views.py: aqui está a lógica principal da aplicação, onde são tratadas as requisições e retornadas as respostas. Implementei as funcionalidades de CRUD (criar, ler, atualizar e excluir registros).
+
+    urls.py: define as rotas da aplicação hospede, conectando cada URL a sua respectiva view.
+
+    admin.py: registra o modelo Hospede no painel administrativo padrão do Django, permitindo que ele seja gerenciado pela interface de administração.
+
+    migrations/: guarda os arquivos de migração, que são responsáveis por atualizar a estrutura do banco de dados conforme os modelos forem alterados.
+
+2.1.1 Modelo Hospede
+
+O modelo Hospede representa as informações dos hóspedes no sistema. O CPF é usado como identificador único.
+
+Campos do modelo:
+
+    cpf: campo de texto usado como chave primária.
+
+    nome: nome completo do hóspede.
+
+    telefone: número para contato.
+
+    email: campo de e-mail.
+
+    data_nascimento: data de nascimento.
+
+2.1.2 Views do Hospede
+
+As funcionalidades implementadas foram:
+
+    hospede_list: lista todos os hóspedes cadastrados.
+
+    hospede_create: cria um novo registro.
+
+    hospede_update: edita um hóspede existente.
+
+    hospede_delete: exclui um registro com confirmação.
+
+    hospede_search: permite buscar um hóspede pelo nome.
+
+    hospede_detail: exibe os dados detalhados de um hóspede.
+
+Cada uma dessas funções está ligada a um template HTML para facilitar a interação do usuário com o sistema.
+
+2.2 Aplicação quarto
+
+Essa aplicação é responsável por gerenciar os dados dos quartos disponíveis. Ela segue a mesma lógica da aplicação anterior e conta com os seguintes componentes:
+
+    models.py: define o modelo Quarto, com os campos principais para representar cada quarto.
+
+    forms.py: define o formulário com base no modelo, com validação automática.
+
+    views.py: trata a lógica das páginas de listagem, cadastro, edição e exclusão de quartos.
+
+    urls.py: define as rotas da aplicação.
+
+    admin.py: permite gerenciar os quartos pelo painel administrativo.
+
+    migrations/: guarda as migrações do banco de dados para esse app.
+
+2.2.1 Modelo Quarto
+
+O modelo Quarto representa os quartos cadastrados no sistema.
+
+Campos definidos:
+
+    numero: número identificador do quarto.
+
+    status: indica se o quarto está disponível (True) ou não (False).
+
+    descricao: campo de texto com mais informações sobre o quarto.
+
+    preco: valor da diária, em formato decimal.
+
+2.2.2 Views do Quarto
+
+As principais funcionalidades implementadas foram:
+
+    index: página inicial do sistema.
+
+    quartos: exibe todos os quartos cadastrados.
+
+3. Configurações do Projeto (setup/)
+
+O diretório setup/ armazena os arquivos de configuração do projeto. Ele foi criado automaticamente ao iniciar o projeto Django, mas eu renomeei para facilitar a identificação e o entendimento.
+
+Principais arquivos:
+
+    settings.py: configurações gerais do sistema, como os apps instalados, idioma (pt-br), fuso horário (America/Sao_Paulo), banco de dados (SQLite) e diretórios de arquivos estáticos e templates.
+
+    urls.py: define as rotas principais do sistema, com o uso da função include() para incluir as rotas dos apps:
+
+path('hospedes/', include('apps.hospede.urls')),
+path('quartos/', include('apps.quarto.urls')),
+
+    wsgi.py e asgi.py: arquivos usados para configurar a aplicação para servidores compatíveis com os protocolos WSGI e ASGI, respectivamente.
+
+    __init__.py: transforma o diretório em um pacote Python.
+
+4. Gerenciador do Projeto (manage.py)
+
+O manage.py é a ferramenta de linha de comando do Django. Ele permite rodar diversos comandos que facilitam o desenvolvimento, como:
+
+    runserver: inicia o servidor local.
+
+    makemigrations: cria arquivos de migração.
+
+    migrate: aplica as migrações no banco de dados.
+
+    createsuperuser: cria um usuário administrador para o painel.
+
+Esse arquivo é essencial para o gerenciamento e o desenvolvimento do sistema.
+5. Templates e Interface Web (templates/)
+
+A interface do sistema foi construída usando o sistema de templates do Django, que permite criar páginas HTML dinâmicas. Utilizei a técnica de herança entre templates para reaproveitar trechos comuns, como cabeçalho e rodapé.
+
+    shared/base.html: template base com o layout principal. As outras páginas o estendem com {% extends 'shared/base.html' %}.
+
+    index.html: página inicial com os links principais.
+
+    hospede/: contém os templates da aplicação hospede, como:
+
+        hospedes.html: lista de hóspedes.
+
+        hospede_form.html: formulário de cadastro/edição.
+
+        hospede_detail.html: detalhes de um hóspede.
+
+        hospede_confirm_delete.html: confirmação da exclusão.
+
+    quarto/quartos.html: lista os quartos registrados.
+
+6. Arquivo de Dependências (requirements.txt)
+
+Esse arquivo guarda as bibliotecas utilizadas no projeto, principalmente o Django. Com ele, qualquer pessoa pode instalar todas as dependências do sistema com apenas um comando:
+
+pip install -r requirements.txt
+
+Isso garante que o projeto possa ser replicado em outros ambientes com facilidade.
