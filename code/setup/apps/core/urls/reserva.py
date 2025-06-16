@@ -1,6 +1,8 @@
 from django.urls import path
 import apps.core.views.reserva as reserva
 
+app_name = 'reserva'
+
 urlpatterns = [
     path('', reserva.list, name='list'),
     path('novo/', reserva.add, name='form'),

@@ -1,6 +1,8 @@
 from django.urls import path
 import apps.core.views.hospede as hospede
 
+app_name = 'hospede'
+
 urlpatterns = [
     path('', hospede.hospede_list, name='hospede_list'),
     path('novo/', hospede.hospede_create, name='hospede_create'),
