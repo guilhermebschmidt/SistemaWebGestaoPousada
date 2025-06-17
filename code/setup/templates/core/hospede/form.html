@@ -1,0 +1,106 @@
+{% extends "shared/base.html" %}
+{% load static %}
+
+{% block title %}{% if hospede %}Editar Hóspede{% else %}Adicionar Hóspede{% endif %}{% endblock %}
+
+{% block content %}
+<div class="flex flex-col flex-1 overflow-auto">  <!-- Container flexível que preenche o espaço disponível -->
+    <div class="p-4 sm:p-6 flex-1">  <!-- Padding responsivo e flex-1 para ocupar espaço -->
+        <div class="max-w-2xl mx-auto">  <!-- Largura máxima centralizada -->
+            <div class="card bg-base-100 shadow-sm">  <!-- Sombra mais suave -->
+                <div class="card-body p-4 sm:p-6">  <!-- Padding ajustado -->
+                    <h2 class="card-title text-xl sm:text-2xl font-bold mb-4">
+                        {% if hospede %}
+                        <i class="fas fa-user-edit mr-2"></i>Editar Hóspede
+                        {% else %}
+                        <i class="fas fa-user-plus mr-2"></i>Adicionar Hóspede
+                        {% endif %}
+                    </h2>
+
+                    <form method="POST" action="" class="space-y-4">
+                        {% csrf_token %}
+
+                        <!-- CPF Field -->
+                        <div class="form-control">
+                            <label class="label" for="cpf">
+                                <span class="label-text font-medium">CPF</span>
+                            </label>
+                            <input type="text" id="cpf" name="cpf" required
+                                   {% if hospede %} value="{{ hospede.cpf }}" readonly {% endif %}
+                                   class="input input-bordered w-full bg-base-200"
+                                   placeholder="000.000.000-00" />
+                        </div>
+
+                        <!-- Nome Field -->
+                        <div class="form-control">
+                            <label class="label" for="nome">
+                                <span class="label-text font-medium">Nome Completo</span>
+                            </label>
+                            <input type="text" id="nome" name="nome" required
+                                   value="{% if hospede %}{{ hospede.nome }}{% endif %}"
+                                   class="input input-bordered w-full bg-base-200"
+                                   placeholder="Digite o nome completo" />
+                        </div>
+
+                        <!-- Telefone Field -->
+                        <div class="form-control">
+                            <label class="label" for="telefone">
+                                <span class="label-text font-medium">Telefone</span>
+                            </label>
+                            <input type="tel" id="telefone" name="telefone" required
+                                   value="{% if hospede %}{{ hospede.telefone }}{% endif %}"
+                                   class="input input-bordered w-full bg-base-200"
+                                   placeholder="(00) 00000-0000" />
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="form-control">
+                            <label class="label" for="email">
+                                <span class="label-text font-medium">Email</span>
+                            </label>
+                            <input type="email" id="email" name="email" required
+                                   value="{% if hospede %}{{ hospede.email }}{% endif %}"
+                                   class="input input-bordered w-full bg-base-200"
+                                   placeholder="exemplo@email.com" />
+                        </div>
+
+                        <!-- Data de Nascimento Field -->
+                        <div class="form-control">
+                            <label class="label" for="data_nascimento">
+                                <span class="label-text font-medium">Data de Nascimento</span>
+                            </label>
+                            <input type="date" id="data_nascimento" name="data_nascimento" required
+                                   value="{% if hospede %}{{ hospede.data_nascimento|date:'Y-m-d' }}{% endif %}"
+                                   class="input input-bordered w-full bg-base-200" />
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="flex flex-col sm:flex-row gap-3 pt-6">
+                            <button type="submit" class="btn btn-primary flex-1">
+                                {% if hospede %}
+                                <i class="fas fa-save mr-2"></i>Salvar
+                                {% else %}
+                                <i class="fas fa-plus mr-2"></i>Adicionar
+                                {% endif %}
+                            </button>
+                            <a href="{% url 'hospede:hospede_list' %}" class="btn btn-neutral btn-outline flex-1">
+                                <i class="fas fa-times mr-2"></i>Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Adicionando máscaras para os campos -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('#cpf').mask('000.000.000-00');
+    $('#telefone').mask('(00) 00000-0000');
+});
+</script>
+{% endblock %}
