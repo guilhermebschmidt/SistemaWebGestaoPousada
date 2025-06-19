@@ -1,15 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from ..models.reserva import Reserva
 from ..forms.reserva  import ReservaForm
+import datetime
 
-# Create your views here.
 def list(request):
     reservas = Reserva.objects.all()
     return render(request, 'core/reserva/list.html', {'reservas': reservas})
 
 def list_checkin(request):
-    reservas = Reserva.objects.all()
-    return render(request, 'core/reserva/list.html', {'reservas': reservas})
+    hoje = datetime.date.today()
+    reservas = Reserva.objects.filter(data_reserva_inicio = hoje)
+    return render(request, 'core/reserva/list_check_in.html', {'reservas': reservas})
 
 def add(request):
     if request.method == 'POST':
@@ -35,21 +36,19 @@ def update(request, pk):
     if request.method == 'POST':
         form = ReservaForm(request.POST, instance=reserva)
         if form.is_valid():
-            reserva = form.save(commit=False)
-            reserva.data_check_in = form.cleaned_data['data_reserva']
-            reserva.save()
+            form.save()
             return redirect('reserva:list')
     else:
         form = ReservaForm(instance=reserva)
 
     return render(request, 'core/reserva/form.html', {'form': form, 'reserva': reserva})
 
+
 def delete(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
     if request.method == 'POST':
         reserva.delete()
         return redirect('reserva:list')
-    # Caso queira, renderize uma confirmação antes:
     return render(request, 'core/reserva/confirm_delete.html', {'reserva': reserva})
 
 def search(request):

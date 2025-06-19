@@ -7,8 +7,8 @@ class Reserva(models.Model):
     id_hospede = models.ForeignKey(Hospede, on_delete=models.CASCADE, verbose_name='Hóspede')
     id_quarto = models.ForeignKey(Quarto, on_delete=models.CASCADE, verbose_name='Quarto')
 
-    data_check_in = models.DateField(verbose_name='Check-in', null=True, blank=True)
-    data_check_out = models.DateField(verbose_name='Check-out', null=True, blank=True)
+    data_check_in = models.DateTimeField(verbose_name='Check-in', null=True, blank=True)
+    data_check_out = models.DateTimeField(verbose_name='Check-out', null=True, blank=True)
 
     data_reserva_inicio = models.DateField(verbose_name='Data início da Reserva', null=True, blank=True)
     data_reserva_fim = models.DateField(verbose_name='Data fim da Reserva', null=True, blank=True)
