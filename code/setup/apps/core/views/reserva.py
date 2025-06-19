@@ -1,48 +1,58 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from ..models.reserva import Reserva
+from ..forms.reserva  import ReservaForm
+import datetime
+from django.utils import timezone
 
-# Create your views here.
 def list(request):
     reservas = Reserva.objects.all()
-    return render(request, 'core/reserva/listar.html', {'reservas': reservas})
+    return render(request, 'core/reserva/list.html', {'reservas': reservas})
+
+def list_checkin(request):
+    hoje = datetime.date.today()
+    reservas = Reserva.objects.filter(data_reserva_inicio = hoje)
+    return render(request, 'core/reserva/list_check_in.html', {'reservas': reservas})
 
 def add(request):
     if request.method == 'POST':
-        Reserva.objects.create(
-            cpf=request.POST.get('cpf'),
-            nome=request.POST.get('nome'),
-            telefone=request.POST.get('telefone'),
-            email=request.POST.get('email'),
-            data_nascimento=request.POST.get('data_nascimento')
-        )
-        return redirect('/reservas/')
-    return render(request, 'core/reserva/form.html')
+        form = ReservaForm(request.POST)
+        if form.is_valid():
+            reserva = form.save()
+            return redirect('reserva:list')
+    else:
+        form = ReservaForm()
 
-def update(request, cpf):
-    hospede = get_object_or_404(Hospede, cpf=cpf)
-    if request.method == 'POST':
-        hospede.nome = request.POST.get('nome')
-        hospede.telefone = request.POST.get('telefone')
-        hospede.email = request.POST.get('email')
-        hospede.data_nascimento = request.POST.get('data_nascimento')
-        hospede.save()
-        return redirect('/reservas/')
-    return render(request, 'core/reserva/form.html', {'hospede': hospede})
+    return render(request, 'core/reserva/form.html', {'form': form})
 
-def delete(request, cpf):
-    hospede = get_object_or_404(Hospede, cpf=cpf)
+
+def update(request, pk):
+    reserva = get_object_or_404(Reserva, pk=pk)
+
     if request.method == 'POST':
-        hospede.delete()
-        return redirect('/hospedes/')
-    return render(request, 'core/hospede/hospede_confirm_delete.html', {'hospede': hospede})
+        form = ReservaForm(request.POST, instance=reserva)
+        if form.is_valid():
+            form.save()
+            return redirect('reserva:list')
+    else:
+        form = ReservaForm(instance=reserva)
+
+    return render(request, 'core/reserva/form.html', {'form': form, 'reserva': reserva})
+
+
+def delete(request, pk):
+    reserva = get_object_or_404(Reserva, pk=pk)
+    if request.method == 'POST':
+        reserva.delete()
+        return redirect('reserva:list')
+    return render(request, 'core/reserva/confirm_delete.html', {'reserva': reserva})
 
 def search(request):
-    hospedes = []
-    if request.method == 'POST':
-        search = request.POST.get('search')
-        hospedes = Hospede.objects.filter(nome__icontains=search)
-    return render(request, 'core/hospede/listar.html', {'hospedes': hospedes})
+    query = request.GET.get('q', '')
+    reservas = Reserva.objects.filter(id_hospede__nome__icontains=query)
+    return render(request, 'core/reserva/list.html', {'reservas': reservas})
 
-def details(request, cpf):
-    hospede = get_object_or_404(Hospede, cpf=cpf)
-    return render(request, 'core/hospede/hospede_detail.html', {'hospede': hospede})
+def marcar_checkin(request, pk):
+    reserva = get_object_or_404(Reserva, pk=pk)
+    reserva.data_check_in = timezone.now()
+    reserva.save()
+    return redirect('reserva:list_checkin')

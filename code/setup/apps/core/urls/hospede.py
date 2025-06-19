@@ -1,5 +1,5 @@
 from django.urls import path
-import apps.core.views.hospede as hospede
+from apps.core.views import hospede
 
 app_name = 'hospede'
 

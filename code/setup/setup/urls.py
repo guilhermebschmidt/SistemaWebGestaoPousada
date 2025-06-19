@@ -7,4 +7,6 @@ urlpatterns = [
     path('', lambda request: render(request, 'index.html'), name='index'),
     path('quartos/', include('apps.core.urls.quarto')),
     path('hospedes/', include('apps.core.urls.hospede', namespace='hospede')),
+    path('reservas/', include('apps.core.urls.reserva', namespace='reserva')),
+
 ]
