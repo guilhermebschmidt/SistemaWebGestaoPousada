@@ -7,27 +7,24 @@ import datetime
 class ReservaForm(forms.ModelForm):
     class Meta:
         model = Reserva
-        fields = ['id_hospede', 'id_quarto', 'data_check_in', 'data_check_out', 'valor']
+        fields = ['id_hospede', 'id_quarto', 'data_reserva_inicio', 'data_reserva_fim']
         widgets = {
-            'hospede': forms.Select(attrs={'class': 'select select-bordered w-full'}),
-            'quarto': forms.Select(attrs={'class': 'select select-bordered w-full'}),
-            'data_check_in': forms.DateInput(attrs={'class': 'input input-bordered w-full', 'type': 'date'}),
-            'data_check_out': forms.DateInput(attrs={'class': 'input input-bordered w-full', 'type': 'date'}),
-            'valor': forms.NumberInput(attrs={'class': 'input input-bordered w-full', 'step': '0.01'}),
+            'id_hospede': forms.Select(attrs={'class': 'select select-bordered w-full'}),
+            'id_quarto': forms.Select(attrs={'class': 'select select-bordered w-full'}),
+            'data_reserva_inicio': forms.DateInput(attrs={'class': 'input input-bordered w-full', 'type': 'date'}),
+            'data_reserva_fim': forms.DateInput(attrs={'class': 'input input-bordered w-full', 'type': 'date'}),
         }
         labels = {
-            'hospede': 'Hóspede',
-            'quarto': 'Quarto',
-            'data_check_in': 'Data de Entrada',
-            'data_check_out': 'Data de Saída',
-            'valor': 'Valor da Reserva',
+            'id_hospede': 'Hóspede',
+            'id_quarto': 'Quarto',
+            'data_reserva_inicio': 'Data início da Reserva',
+            'data_reserva_fim': 'Data fim da Reserva',
         }
         help_texts = {
             'id_hospede': 'Selecione o hóspede para a reserva.',
             'id_quarto': 'Selecione o quarto reservado.',
-            'data_check_in': 'Informe a data de entrada.',
-            'data_check_out': 'Informe a data de saída.',
-            'valor': 'Informe o valor total da reserva.',
+            'data_reserva_inicio': 'Informe a data de início da reserva.',
+            'data_reserva_fim': 'Informe a data de fim da reserva.',
         }
         error_messages = {
             'id_hospede': {
@@ -36,47 +33,32 @@ class ReservaForm(forms.ModelForm):
             'id_quarto': {
                 'required': 'Este campo é obrigatório.',
             },
-            'data_check_in': {
+            'data_reserva_inicio': {
                 'required': 'Este campo é obrigatório.',
                 'invalid': 'Informe uma data válida.',
             },
-            'data_check_out': {
+            'data_reserva_fim': {
                 'required': 'Este campo é obrigatório.',
                 'invalid': 'Informe uma data válida.',
-            },
-            'valor': {
-                'required': 'Este campo é obrigatório.',
-                'invalid': 'Informe um valor numérico válido.',
             },
         }
 
-    def clean_data_check_in(self):
-        data_check_in = self.cleaned_data.get('data_check_in')
-        if data_check_in and data_check_in < datetime.date.today():
-            raise forms.ValidationError("A data de entrada não pode ser no passado.")
-        return data_check_in
+    def clean_data_reserva_inicio(self):
+        data_inicio = self.cleaned_data.get('data_reserva_inicio')
+        if data_inicio and data_inicio < datetime.date.today():
+            raise forms.ValidationError("A data de início não pode ser anterior à data atual.")
+        return data_inicio
 
-    def clean_data_check_out(self):
-        data_check_out = self.cleaned_data.get('data_check_out')
-        data_check_in = self.cleaned_data.get('data_check_in')
+    def clean_data_reserva_fim(self):
+        data_fim = self.cleaned_data.get('data_reserva_fim')
+        data_inicio = self.cleaned_data.get('data_reserva_inicio')
 
-        if data_check_out and data_check_in:
-            if data_check_out <= data_check_in:
-                raise forms.ValidationError("A data de saída deve ser depois da data de entrada.")
-        return data_check_out
-
-    def clean_valor(self):
-        valor = self.cleaned_data.get('valor')
-        if valor is not None and valor <= 0:
-            raise forms.ValidationError("O valor deve ser maior que zero.")
-        return valor
-
-    def __str__(self):
-        return f"Reserva #{self.instance.pk} - Hóspede {self.instance.id_hospede} - Quarto {self.instance.id_quarto}"
+        if data_fim and data_inicio:
+            if data_fim <= data_inicio:
+                raise forms.ValidationError("A data de fim deve ser posterior à data de início.")
+        return data_fim
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Carregar hóspedes ativos ou todos (filtrar se quiser)
         self.fields['id_hospede'].queryset = Hospede.objects.all().order_by('nome')
-        # Carregar quartos disponíveis ou todos (filtrar se quiser)
-        self.fields['id_quarto'].queryset = Quarto.objects.all().order_by('numero')  # exemplo se tiver campo numero
+        self.fields['id_quarto'].queryset = Quarto.objects.all().order_by('numero')

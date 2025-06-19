@@ -1,7 +1,9 @@
 {% extends "shared/base.html" %}
 {% load static %}
 
-{% block title %}{% if form.instance.pk %}Editar Reserva{% else %}Nova Reserva{% endif %}{% endblock %}
+{% block title %}
+    {% if form.instance.pk %}Editar Reserva{% else %}Nova Reserva{% endif %}
+{% endblock %}
 
 {% block content %}
 <div class="flex flex-col flex-1 overflow-auto">
@@ -11,76 +13,87 @@
                 <div class="card-body p-4 sm:p-6">
                     <h2 class="card-title text-xl sm:text-2xl font-bold mb-4">
                         {% if form.instance.pk %}
-                        <i class="fas fa-calendar-edit mr-2"></i>Editar Reserva
+                            <i class="fas fa-calendar-edit mr-2"></i>Editar Reserva
                         {% else %}
-                        <i class="fas fa-calendar-plus mr-2"></i>Nova Reserva
+                            <i class="fas fa-calendar-plus mr-2"></i>Nova Reserva
                         {% endif %}
                     </h2>
 
                     <form method="POST" action="" class="space-y-4">
-                      {% csrf_token %}
+                        {% csrf_token %}
 
-                      <!-- Hóspede -->
-                      <div class="form-control">
-                          <label class="label" for="id_hospede">
-                              <span class="label-text font-medium">Hóspede</span>
-                          </label>
-                          <br>
-                          {{ form.id_hospede }}
+                        <!-- Hóspede -->
+                        <div class="form-control">
+                            <label class="label" for="id_hospede">
+                                <span class="label-text font-medium">Hóspede</span>
+                            </label>
+                            <br>
+                            {{ form.id_hospede }}
+                            {% if form.id_hospede.errors %}
+                                <p class="text-error text-sm">{{ form.id_hospede.errors.0 }}</p>
+                            {% endif %}
+                        </div>
 
-                          {% if form.id_hospede.errors %}
-                              <p class="text-error text-sm">{{ form.id_hospede.errors.0 }}</p>
-                          {% endif %}
-                      </div>
+                        <!-- Quarto -->
+                        <div class="form-control">
+                            <label class="label" for="id_quarto">
+                                <span class="label-text font-medium">Quarto</span>
+                            </label>
+                            <br>
+                            {{ form.id_quarto }}
+                            {% if form.id_quarto.errors %}
+                                <p class="text-error text-sm">{{ form.id_quarto.errors.0 }}</p>
+                            {% endif %}
+                        </div>
 
-                      <!-- Quarto -->
-                      <div class="form-control">
-                          <label class="label" for="id_quarto">
-                              <span class="label-text font-medium">Quarto</span>
-                          </label>
-                          <br>
-                          {{ form.id_quarto }}
-                          {% if form.id_quarto.errors %}
-                              <p class="text-error text-sm">{{ form.id_quarto.errors.0 }}</p>
-                          {% endif %}
-                      </div>
+                        <!-- Data início da Reserva -->
+                        <div class="form-control">
+                            <label class="label" for="id_data_reserva_inicio">
+                                <span class="label-text font-medium">Data início da Reserva</span>
+                            </label>
+                            <br>
+                            {{ form.data_reserva_inicio }}
+                            {% if form.data_reserva_inicio.errors %}
+                                <p class="text-error text-sm">{{ form.data_reserva_inicio.errors.0 }}</p>
+                            {% endif %}
+                        </div>
 
-                      <!-- Data de Check-in -->
-                      <div class="form-control">
-                          <label class="label" for="data_check_in">
-                              <span class="label-text font-medium">Data de Entrada</span>
-                          </label><br>
-                          {{ form.data_check_in }}
-                          {% if form.data_check_in.errors %}
-                              <p class="text-error text-sm">{{ form.data_check_in.errors.0 }}</p>
-                          {% endif %}
-                      </div>
+                        <!-- Data fim da Reserva -->
+                        <div class="form-control">
+                            <label class="label" for="id_data_reserva_fim">
+                                <span class="label-text font-medium">Data fim da Reserva</span>
+                            </label>
+                            <br>
+                            {{ form.data_reserva_fim }}
+                            {% if form.data_reserva_fim.errors %}
+                                <p class="text-error text-sm">{{ form.data_reserva_fim.errors.0 }}</p>
+                            {% endif %}
+                        </div>
 
-                      <!-- Data de Check-out -->
-                      <div class="form-control">
-                          <label class="label" for="data_check_out">
-                              <span class="label-text font-medium">Data de Saída</span>
-                          </label><br>
-                          {{ form.data_check_out }}
-                          {% if form.data_check_out.errors %}
-                              <p class="text-error text-sm">{{ form.data_check_out.errors.0 }}</p>
-                          {% endif %}
-                      </div>
+                        <!-- Botões -->
+                        <div class="flex flex-col sm:flex-row gap-3 pt-6">
+                            <button type="submit" class="btn btn-primary flex-1">
+                                {% if form.instance.pk %}
+                                    <i class="fas fa-save mr-2"></i>Salvar
+                                {% else %}
+                                    <i class="fas fa-plus mr-2"></i>Reservar
+                                {% endif %}
+                            </button>
+                            <a href="{% url 'reserva:list' %}" class="btn btn-neutral btn-outline flex-1">
+                                <i class="fas fa-times mr-2"></i>Cancelar
+                            </a>
+                        </div>
 
-                      <!-- Botões -->
-                      <div class="flex flex-col sm:flex-row gap-3 pt-6">
-                          <button type="submit" class="btn btn-primary flex-1">
-                              {% if form.instance.pk %}
-                              <i class="fas fa-save mr-2"></i>Salvar
-                              {% else %}
-                              <i class="fas fa-plus mr-2"></i>Reservar
-                              {% endif %}
-                          </button>
-                          <a href="{% url 'reserva:list' %}" class="btn btn-neutral btn-outline flex-1">
-                              <i class="fas fa-times mr-2"></i>Cancelar
-                          </a>
-                      </div>
-                  </form>
+                    </form>
+
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-error mt-4">
+                            {% for error in form.non_field_errors %}
+                                <p>{{ error }}</p>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
                 </div>
             </div>
         </div>
