@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:pk>/editar/', reserva.update, name='update'),
     path('<int:pk>/excluir/', reserva.delete, name='delete'),
     path('buscar/', reserva.search, name='search'),
+    path('<int:pk>/checkin/', reserva.marcar_checkin, name='checkin'),
 ]

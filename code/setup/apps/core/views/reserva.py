@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from ..models.reserva import Reserva
 from ..forms.reserva  import ReservaForm
 import datetime
+from django.utils import timezone
 
 def list(request):
     reservas = Reserva.objects.all()
@@ -14,16 +15,10 @@ def list_checkin(request):
 
 def add(request):
     if request.method == 'POST':
-        print("📥 Dados recebidos no POST:")
-        print(request.POST)
-
         form = ReservaForm(request.POST)
         if form.is_valid():
             reserva = form.save()
             return redirect('reserva:list')
-        else:
-            print("⚠️ Erros de validação:")
-            print(form.errors)
     else:
         form = ReservaForm()
 
@@ -55,3 +50,9 @@ def search(request):
     query = request.GET.get('q', '')
     reservas = Reserva.objects.filter(id_hospede__nome__icontains=query)
     return render(request, 'core/reserva/list.html', {'reservas': reservas})
+
+def marcar_checkin(request, pk):
+    reserva = get_object_or_404(Reserva, pk=pk)
+    reserva.data_check_in = timezone.now()
+    reserva.save()
+    return redirect('reserva:list_checkin')

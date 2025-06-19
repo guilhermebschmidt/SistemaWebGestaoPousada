@@ -37,19 +37,50 @@
                         <a href="{% url 'reserva:update' reserva.id %}" class="btn btn-warning btn-sm" title="Editar Reserva">
                             <i class="fas fa-edit">Editar</i>
                         </a>
-                        <button onclick="confirmarExclusao('{{ reserva.id }}')" class="btn btn-error btn-sm" title="Excluir Reserva">
-                            <i class="fas fa-trash">Excluir</i>
-                        </button>
+                        {% if reserva.data_check_in %}
+                          <a href="#"
+                            class="btn btn-primary btn-sm btn-disabled pointer-events-none opacity-50"
+                            title="Check-in já marcado"
+                            aria-disabled="true"
+                            id="btn-checkin-{{ reserva.id }}">
+                            <i class="fas fa-check"></i> Check-in marcado
+                          </a>
+                        {% else %}
+                          <a href="{% url 'reserva:checkin' reserva.id %}"
+                            class="btn btn-primary btn-sm"
+                            title="Marcar Check-in"
+                            id="btn-checkin-{{ reserva.id }}"
+                            onclick="return confirmarCheckin(event, this)">
+                            <i class="fas fa-check"></i> Check-in
+                          </a>
+                        {% endif %}
                     </td>
                 </tr>
                 {% empty %}
                 <tr>
-                    <td colspan="7" class="text-center text-gray-500">Nenhuma reserva cadastrada.</td>
+                    <td colspan="7" class="text-center text-gray-500">Nenhuma reserva para hoje.</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
 </div>
+
+<script>
+function confirmarCheckin(event, element) {
+    // Abre confirmação
+    const confirmado = confirm('Confirmar check-in para a reserva?');
+    if (!confirmado) {
+        event.preventDefault(); // cancela o clique
+        return false;
+    }
+
+    // Desabilita o link pra evitar múltiplos cliques
+    element.classList.add('btn-disabled');  // se quiser estilizar disabled (opcional)
+    element.style.pointerEvents = 'none';   // bloqueia clique
+    element.style.opacity = 0.6;             // efeito visual de desabilitado
+    return true; // permite o clique continuar
+}
+</script>
 
 {% endblock %}
