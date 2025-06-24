@@ -6,7 +6,7 @@
 {% block content %}
 <div class="space-y-6">
     <div class="flex justify-between items-center">
-        <h2 class="text-2xl font-bold">Check-ins de hoje</h2>
+        <h2 class="text-2xl font-bold">Check-outs de hoje</h2>
     </div>
 
     <div class="overflow-x-auto bg-base-100 rounded-lg shadow">
@@ -34,31 +34,37 @@
                     <td>{{ reserva.data_check_out }}</td>
                     <td>R$ {{ reserva.valor }}</td>
                     <td class="flex gap-2">
-                        <a href="{% url 'reserva:update' reserva.id %}" class="btn btn-warning btn-sm" title="Editar Reserva">
-                            <i class="fas fa-edit">Editar</i>
-                        </a>
-                        {% if reserva.data_check_in %}
+                        {% if reserva.data_check_out %}
+                            <a href="{% url 'reserva:update' reserva.id %}" class="btn btn-warning btn-sm btn-disabled" title="Editar Reserva" aria-disabled="true">
+                                <i class="fas fa-edit">Editar</i>
+                            </a>
+                        {% else %}
+                            <a href="{% url 'reserva:update' reserva.id %}" class="btn btn-warning btn-sm" title="Editar Reserva">
+                                <i class="fas fa-edit">Editar</i>
+                            </a>
+                        {% endif %}
+                        {% if reserva.data_check_out %}
                           <a href="#"
                             class="btn btn-primary btn-sm btn-disabled pointer-events-none opacity-50"
                             title="Check-in já marcado"
                             aria-disabled="true"
                             id="btn-checkin-{{ reserva.id }}">
-                            <i class="fas fa-check"></i> Check-in marcado
+                            <i class="fas fa-check"></i> Check-out marcado
                           </a>
                         {% else %}
-                          <a href="{% url 'reserva:checkin' reserva.id %}"
+                          <a href="{% url 'reserva:checkout' reserva.id %}"
                             class="btn btn-primary btn-sm"
                             title="Marcar Check-in"
                             id="btn-checkin-{{ reserva.id }}"
-                            onclick="return confirmarCheckin(event, this)">
-                            <i class="fas fa-check"></i> Check-in
+                            onclick="return confirmarCheckout(event, this)">
+                            <i class="fas fa-check"></i> Check-out
                           </a>
                         {% endif %}
                     </td>
                 </tr>
                 {% empty %}
                 <tr>
-                    <td colspan="7" class="text-center text-gray-500">Nenhuma reserva para hoje.</td>
+                    <td colspan="7" class="text-center text-gray-500">Nenhum check-out para hoje.</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -67,9 +73,9 @@
 </div>
 
 <script>
-function confirmarCheckin(event, element) {
+function confirmarCheckout(event, element) {
     // Abre confirmação
-    const confirmado = confirm('Confirmar check-in para a reserva?');
+    const confirmado = confirm('Confirmar check-out para a reserva?');
     if (!confirmado) {
         event.preventDefault(); // cancela o clique
         return false;

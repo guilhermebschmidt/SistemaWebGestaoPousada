@@ -13,6 +13,11 @@ def list_checkin(request):
     reservas = Reserva.objects.filter(data_reserva_inicio = hoje)
     return render(request, 'core/reserva/list_check_in.html', {'reservas': reservas})
 
+def list_checkout(request):
+    hoje = datetime.date.today()
+    reservas = Reserva.objects.filter(data_reserva_fim = hoje)
+    return render(request, 'core/reserva/list_check_out.html', {'reservas': reservas})
+
 def add(request):
     if request.method == 'POST':
         form = ReservaForm(request.POST)
@@ -56,3 +61,9 @@ def marcar_checkin(request, pk):
     reserva.data_check_in = timezone.now()
     reserva.save()
     return redirect('reserva:list_checkin')
+
+def marcar_checkout(request, pk):
+    reserva = get_object_or_404(Reserva, pk=pk)
+    reserva.data_check_out = timezone.now()
+    reserva.save()
+    return redirect('reserva:list_checkout')
