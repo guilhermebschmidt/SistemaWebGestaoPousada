@@ -5,9 +5,9 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.7 }
 
-\bibitem[{ANATEL} 2025]{anatel-anexo}
-\abntrefinfo{{ANATEL}}{{ANATEL}}{2025}
-{{ANATEL}. \emph{Documento Técnico Anatel}. 2025.
+\bibitem[ANATEL 2025]{anatel-anexo}
+\abntrefinfo{ANATEL}{ANATEL}{2025}
+{ANATEL. \emph{Documento Técnico Anatel}. 2025.
 Acessado em 7 de junho de 2025.
 Dispon{\'\i}vel em:
   \url{https://sistemas.anatel.gov.br/anexar-api/publico/anexos/download/9c9e947419913b3987bd8cc7510f03f1}.}
@@ -38,6 +38,14 @@ ISSN 0261-5177.
 Dispon{\'\i}vel em:
   \url{https://www.researchgate.net/publication/222452921\_Strategic\_Use\_of\_Information\_Technologies\_in\_the\_Tourism\_Industry}.}
 
+\bibitem[Carniello e Santaella 2012]{franchi2012}
+\abntrefinfo{Carniello e Santaella}{CARNIELLO; SANTAELLA}{2012}
+{CARNIELLO, M. F.; SANTAELLA, L. A. \emph{A Imagem Turística de São
+  Sebastião (SP)}. Rio de Janeiro, Brasil: Universidade Federal do Rio de
+  Janeiro, 2012.
+Acesso em: 23 jun. 2025.
+Dispon{\'\i}vel em: \url{https://www.redalyc.org/pdf/1154/115425043003.pdf}.}
+
 \bibitem[Coco 2025]{pousada_chales_agua_de_coco}
 \abntrefinfo{Coco}{COCO}{2025}
 {COCO, P.~C. Água~de. \emph{Pousada Chalés Água de Coco}. 2025.
@@ -55,9 +63,9 @@ Dispon{\'\i}vel em: \url{https://pousadachalesaguadecoco.com.br/}.}
 {DUCKETT. \emph{HTML and CSS: Design and Build Websites}. [S.l.]: Wiley, 2011.
 ISBN 9781118008188.}
 
-\bibitem[{ENEL} 2025]{enel-tarifa}
-\abntrefinfo{{ENEL}}{{ENEL}}{2025}
-{{ENEL}. \emph{Tarifa de Energia Elétrica}. 2025.
+\bibitem[ENEL 2025]{enel-tarifa}
+\abntrefinfo{ENEL}{ENEL}{2025}
+{ENEL. \emph{Tarifa de Energia Elétrica}. 2025.
 Acessado em 7 de junho de 2025.
 Dispon{\'\i}vel em:
   \url{https://www.enel.com.br/pt-saopaulo/Para\_Voce/tarifa-energia-eletrica.html}.}
@@ -65,7 +73,9 @@ Dispon{\'\i}vel em:
 \bibitem[FecomercioSP 2024]{fecomercio2024}
 \abntrefinfo{FecomercioSP}{FECOMERCIOSP}{2024}
 {FECOMERCIOSP. \emph{Setor de turismo fatura R\$ 207 bilhões em 2024 e cresce
-  4,3\% em relação ao ano anterior}. 2024.}
+  4,3\% em relação ao ano anterior}. 2024.
+  \url{https://www.fecomercio.com.br}.
+Acesso em: 12 jun. 2025.}
 
 \bibitem[GITHUB 2024]{github-doc}
 \abntrefinfo{GITHUB}{GITHUB}{2024}
