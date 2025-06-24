@@ -17,9 +17,13 @@ Reallocating 'wiz_functions' (item size: 4) to 9000 items.
 Database file #1: abntex2-options.bib
 Database file #2: referencias.bib
 Warning--entry type for "enel-tarifa" isn't style-file defined
---line 207 of file referencias.bib
+--line 104 of file referencias.bib
 Warning--entry type for "anatel-anexo" isn't style-file defined
---line 223 of file referencias.bib
+--line 112 of file referencias.bib
+Illegal end of database file---line 276 of file referencias.bib
+ :  }
+ :   
+I'm skipping whatever remains of this entry
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'glb_str_end' (item size: 4) to 20 items.
 Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
@@ -29,45 +33,45 @@ Reallocating 'global_strs' (item size: 1) to 4000000 items.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 19 entries,
+You've used 27 entries,
             6714 wiz_defined-function locations,
-            1284 strings with 11635 characters,
-and the built_in function-call counts, 22183 in all, are:
-= -- 2656
-> -- 314
-< -- 532
-+ -- 687
-- -- 102
-* -- 1280
-:= -- 2883
-add.period$ -- 85
-call.type$ -- 19
-change.case$ -- 141
-chr.to.int$ -- 22
-cite$ -- 18
-duplicate$ -- 2135
-empty$ -- 1045
-format.name$ -- 476
-if$ -- 4493
+            1343 strings with 13308 characters,
+and the built_in function-call counts, 37034 in all, are:
+= -- 4506
+> -- 526
+< -- 998
++ -- 1212
+- -- 167
+* -- 2190
+:= -- 4635
+add.period$ -- 123
+call.type$ -- 27
+change.case$ -- 218
+chr.to.int$ -- 45
+cite$ -- 26
+duplicate$ -- 3807
+empty$ -- 1521
+format.name$ -- 779
+if$ -- 7348
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 314
-newline$ -- 100
-num.names$ -- 90
-pop$ -- 379
+missing$ -- 460
+newline$ -- 145
+num.names$ -- 130
+pop$ -- 571
 preamble$ -- 1
-purify$ -- 60
+purify$ -- 89
 quote$ -- 0
-skip$ -- 2249
+skip$ -- 3875
 stack$ -- 1
-substring$ -- 936
-swap$ -- 750
-text.length$ -- 11
+substring$ -- 1631
+swap$ -- 1368
+text.length$ -- 28
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 121
+while$ -- 184
 width$ -- 0
-write$ -- 283
-(There were 2 warnings)
+write$ -- 423
+(There was 1 error message)

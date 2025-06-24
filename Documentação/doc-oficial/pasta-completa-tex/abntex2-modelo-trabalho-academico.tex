@@ -79,6 +79,8 @@
 \usepackage{geometry}
 \geometry{margin=1in}
 \usepackage{lipsum}				% para geração de dummy text
+\usepackage{placeins}
+\usepackage{multirow}
 % ---
 
 % ---
@@ -106,6 +108,7 @@
 	\else
 		Citado #1 vezes nas páginas #2.%
 	\fi}%
+\renewcommand{\arraystretch}{1.4}
 % ---
 
 % ---
@@ -523,7 +526,7 @@ Desenvolver um sistema web para automatizar os processos de gestão da pousada C
 \section{Justificativa}
 A escolha deste projeto se justifica pela necessidade real de modernização enfrentada por pequenos empreendimentos do setor de hospedagem, como a pousada Chalés Água de Coco, que atualmente depende de controles manuais realizados por meio de planilhas no Excel. Esse tipo de gestão, embora comum em pequenos negócios, apresenta diversas limitações, como a suscetibilidade a erros humanos, dificuldade de atualização simultânea, falta de integração entre os dados e ausência de acessibilidade remota.
 
-Com o crescimento da demanda por eficiência operacional e qualidade no atendimento ao cliente, torna-se essencial a adoção de soluções tecnológicas que automatizem processos, centralizem informações e proporcionem maior controle gerencial. Um sistema web desenvolvido sob medida representa uma alternativa viável e eficaz, oferecendo funcionalidades específicas para o contexto da pousada, além de ser acessível a partir de qualquer dispositivo conectado à internet.
+Com o crescimento da demanda por eficiência operacional e qualidade no atendimento ao cliente, torna-se essencial a adoção de soluções tecnológicas que automatizem processos, centralizem informações e proporcionem maior controle gerencial. Um sistema web desenvolvido sob medida representa uma alternativa viável e eficaz, oferecendo funcionalidades específicas para o contexto da pousada, além de ser acessível a partir de qualquer dispositivo conectado à Internet.
 
 Além disso, o desenvolvimento deste projeto contribui academicamente ao proporcionar a aplicação prática dos conhecimentos adquiridos ao longo do curso, abrangendo áreas como análise de requisitos, modelagem de dados, programação web, experiência do usuário e segurança da informação. Por fim, a solução proposta tem potencial de gerar impacto direto e positivo na gestão do negócio parceiro, tornando este trabalho relevante tanto do ponto de vista acadêmico quanto social e econômico.
 
@@ -616,94 +619,82 @@ De acordo com \citeonline{sidonio2015}, com o aumento da concorrência e as muda
 A tecnologia afeta a competitividade das empresas através do fornecimento de benefícios estratégicos. Isso porque, essa ajuda o acesso a informações que auxiliam as empresas na customização dos seus produtos e serviços,  na garantia de preços competitivos, diminuição dos custos associado a um aumento de eficiência e na construção de relacionamentos mais próximos com fornecedores e clientes. Assim, o setor do turismo, sendo uma área que precisa estar sempre se adaptando às necessidades do mercado e do cliente, é altamente beneficiado pelo uso das novas tecnologias~\cite{buhalis1998}.
 
 Dessa forma, o uso de sistema computacionais, conjunto de componentes que permitem a entrada, processamento e saída de dados é bastante útil no que tange a gestão de empresas hospitaleiras. Visto que, otimiza e facilita o acesso a dados que constituem informações precisas,  que são importantes para o sucesso do negócio~\cite{zeferino2012}.
-
-
-
 % ----------------------------------------------------------
-% PARTE
-% ----------------------------------------------------------
-%\part{Resultados}
-% ----------------------------------------------------------
-
-% ---
-% primeiro capitulo de Resultados
-% ---
+% TÓPICO: GESTÃO DO PROJETO
 \chapter{Gestão do Projeto}
 Esta seção detalha as principais estratégias de gestão aplicadas no desenvolvimento da aplicação web de gestão para a pousada Chalés Água de Coco. Dessa forma, nela são apresentadas as metodologias, ferramentas e práticas que foram adotadas para o planejamento, execução e monitoramento do projeto, com o objetivo de garantir uma entrega organizada, eficiente e alinhada aos objetivos estabelecidos pelas partes interessadas.
-% ---
-% ---
+% 
 \section{Organização da Equipe}
   Na gestão desse projeto, a organização da equipe representou um marco fundamental e teve como foco dividir as funções e atividades necessárias para o desenvolvimento da aplicação web de gestão da pousada entre os membros.%
 \subsection{Funções e Responsabilidades}
-A divisão das funções e responsabilidades foi realizada de maneira estratégica e levou em consideração as competências técnicas de cada membro da equipe, visando a entrega do produto final dentro do prazo e escopo estipulados. 	A função de cada membro e suas respectivas responsabilidades estão detalhadas no quadro "\ref{quadro_funçao_responsabilidade}": Função e Responsabilidades da Equipe do Projeto.
+A divisão das funções e responsabilidades foi realizada de maneira estratégica e levou em consideração as competências técnicas de cada membro da equipe, visando a entrega do produto final dentro do prazo e escopo estipulados. 	A função de cada membro e suas respectivas responsabilidades estão detalhadas no \autoref{quadro_funcao_responsabilidade}.
 %	
-\begin{quadro}[htb]
-	\caption{Função e Responsabilidades da Equipe do Projeto}
-	\label{quadro_funçao_responsabilidade}
-	\begin{tabular}{|p{2.8cm}|p{5cm}|p{7.2cm}|}
+\FloatBarrier
+\begin{quadro}[H]
+	\caption{Divisão das Funções e Responsabilidades da Equipe do Projeto}
+	\label{quadro_funcao_responsabilidade}
+	\renewcommand{\arraystretch}{1.3} % Aumenta o espaçamento entre linhas
+	\begin{tabular}{|>{\raggedright\arraybackslash}m{3cm} 
+			|>{\raggedright\arraybackslash}m{4.5cm} 
+			|>{\raggedright\arraybackslash}m{6.7cm}|}
 		\hline
 		\textbf{Integrante} & \textbf{Função} & \textbf{Responsabilidades} \\ \hline
-		Anna Julia & Analista de Cronograma & Criar e atuar na manutenção e monitoramento do cronograma do projeto, além de oferecer suporte nas práticas de gestão  \\ \hline
-		Guilherme Akio & Engenheiro de Dados (DBA) & Implementar, administrar  e otimizar o banco de dados da aplicação, garantindo a integridade, segurança e performance dos dados \\ \hline
-		Guilherme \quad Bittencourt & Documentador Técnico e Engenheiro de Software & Criar e manter a documentação técnica, garantido a clareza e acessibilidade das informações do projeto. Além de definir e organizar a estrutura da aplicação.\\ \hline
-		Kelly Radchelle & Gerente de Projeto & Coordenar a equipe e gerenciar as atividades  do projeto, a fim de facilitar as tomadas de decisões e  assegurar a comunicação entre as partes interessadas do projeto   \\ \hline
-		Rafael Teixeira & Desenvolvedor Frontend & Criar e implementar a interface da aplicação, garantindo uma boa  experiência de usuário (UX)  e design de interface (UI), além de desenvolver a lógica de apresentação.    \\ \hline
-		Ricardo Carriel & Desenvolvedor Backend & Desenvolver a lógica de negócio da aplicação, configurar e administrar o servidor de aplicação  além de garantir a integração da aplicação  \\ \hline
+		Anna Julia & Analista de Cronograma & Criar, manter e monitorar o cronograma do projeto, além de oferecer suporte às práticas de gestão. \\ \hline
+		Guilherme Akio & Engenheiro de Dados (DBA) & Implementar, administrar e otimizar o banco de dados da aplicação, garantindo integridade, segurança e performance dos dados. \\ \hline
+		Guilherme Bittencourt & Documentador Técnico e Engenheiro de \textit{Software} & Criar e manter a documentação técnica com clareza e acessibilidade. Definir e organizar a estrutura da aplicação. \\ \hline
+		Kelly Radchelle & Gerente de Projeto & Coordenar a equipe e gerenciar as atividades do projeto, facilitando a tomada de decisões e assegurando a comunicação entre as partes interessadas. \\ \hline
+		Rafael Teixeira & Desenvolvedor \textit{Frontend} & Criar e implementar a interface da aplicação, garantindo boa experiência do usuário (UX) e design de interface (UI), além de desenvolver a lógica de apresentação. \\ \hline
+		Ricardo Carriel & Desenvolvedor \textit{Backend} & Desenvolver a lógica de negócio, configurar e administrar o servidor, garantindo a integração e funcionamento da aplicação. \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
-%---
-%---
+%
 \section{Metodologias de Gestão e Desenvolvimento}
 Para assegurar que a entrega do produto final ocorresse dentro do prazo estipulado e estivesse em pleno alinhamento com as expectativas da cliente, a equipe envolvida no projeto optou pela adoção da metodologia ágil \textit{Scrum} como ferramenta de gestão e desenvolvimento do projeto. Essa decisão fundamentou-se na familiaridade da equipe com a estrutura, na capacidade do \textit{Scrum} de otimizar a organização, divisão e planejamento de atividades do projeto, e em sua relevância como framework de gerenciamento– dado seu uso extensivo no contexto de desenvolvimento de softwares complexos.
 
 Segundo Schwaber e Sutherland \cite{scrumguide}, o \textit{Scrum} é um \textit{framework} estruturado desenvolvido na década de 1990, com o objetivo de auxiliar equipes na criação e gerenciamento de produtos complexos. Por isso,  o \textit{Scrum} tem como pilares fundamentais a transparência, a inspeção e a adaptação. A transparência garante que todos os aspectos significativos do processo estejam visíveis e claros para as partes interessadas a todo momento. Enquanto a inspeção envolve o acompanhamento regular dos artefatos e progresso, auxiliando na identificação precoce de problemas e garantindo a transparência dos processos. Seguida pela adaptação que refere-se à capacidade de fazer ajustes no processo  em resposta aos problemas anteriormente identificados na inspeção, com o objetivo de otimizar os resultados da equipe.
 
 Sabendo que para operacionalizar esses pilares e assegurar um ciclo de desenvolvimento iterativo e incremental, a metodologia \textit{Scrum} sugere a definição de papeis específicos dentro do time, estabelece a realização de uma sequência de eventos formais e o uso de artefatos específicos, os integrantes da equipe desenvolveram as tarefas e eventos sugeridos pelo \textit{Scrum} para a gestão e desenvolvimento do projeto.
-
-\subsection{Time \textit{Scrum}}
-Como estabelecido no Guia do Scrum \cite{scrumguide}, os membros da equipe do projeto assumem papeis específicos que compõem um time \textit{Scrum}: Dono do Produto (\textit{Product Owner}), \textit{Scrum Master} e Time de Desenvolvimento. 
-
+%
+\subsection{Time Scrum}
+Como estabelecido no Guia do Scrum \cite{scrumguide}, os membros da equipe do projeto assumem papeis específicos que compõem um \textit{time Scrum}: \textit{Product Owner}, \textit{Scrum Master} e Time de Desenvolvimento. 
+%
 \begin{enumerate}[label=\roman*)]
-	\item O Dono do Produto (\textit{Product Owner}) é o representante das partes interessadas (\textit{Stakeholders}) e tem como responsabilidade principal gerenciar o \textit{backlog} do produto. Seu objetivo é maximizar o valor do produto para o usuário final e otimizar o trabalho do Time de Desenvolvimento. 
+	\item O \textit{Product Owner} é o representante das partes interessadas (\textit{Stakeholders}) e tem como responsabilidade principal gerenciar o \textit{backlog} do produto. Seu objetivo é maximizar o valor do produto para o usuário final e otimizar o trabalho do Time de Desenvolvimento. 
 	\item O \textit{Scrum Master}  é o responsável por promover e facilitar a aplicação da teoria e das práticas do \textit{framework}, a fim de ajudar a equipe a superar problemas que possam afetar seu progresso. 
 	\item O Time de Desenvolvimento é responsável por entregar um incremento (versão potencialmente usável do produto) ao final de cada \textit{sprint}, atuando de maneira auto-organizada e multifuncional.
 \end{enumerate}
- 
-Diante disso, houve a distribuição dos papeis de um time \textit{Scrum} entre os integrantes da equipe registrada na “\autoref{tab:time_scrum}”.
 %
-\begin{table}[htb]
+
+Diante disso, houve a distribuição dos papeis de um \textit{time Scrum} entre os integrantes da equipe registrada na \autoref{quadro:time_scrum}.
+%
+\begin{quadro}[H]
 	\centering
 	\caption{Função dos Integrantes da Equipe}
-	\label{tab:time_scrum}
-	\begin{tabular}{|c|c|c|c|}
+	\label{quadro:time_scrum}
+	\begin{tabular}{|>{\centering\arraybackslash}m{3.2cm}|>{\centering\arraybackslash}m{3.5cm}|>{\centering\arraybackslash}m{3.5cm}|>{\centering\arraybackslash}m{4cm}|}
 		\hline
-		\textbf{Integrante} & \multicolumn{3}{c|}{\textbf{Função}} \\ \cline{2-4}
-		& \textit{Product Owner} & \textit{Scrum Master} & Time de Desenvolvimento \\ \hline
-		Anna Julia &  & X & \\ \hline
-		Guilherme Akio & & & X \\ \hline
-		Guilherme Bittencourt & & & X \\ \hline
-		Kelly Radchelle & X & & \\ \hline
-		Rafael Teixeira & & & X \\ \hline
-		Ricardo Carriel & & & X \\ \hline
+		\multirow{2}{*}{\textbf{Integrante}} & \multicolumn{3}{c|}{\textbf{Função}} \\ \cline{2-4}
+		&\textit{Product Owner} & \textit{Scrum Master} & Time de Desenvolvimento \\ \hline 
+		Anna Julia &  & X & \\ \hline Guilherme Akio & & & X \\ \hline Guilherme Bittencourt & & & X \\ \hline Kelly Radchelle & X & & \\ \hline Rafael Teixeira & & & X \\ \hline Ricardo Carriel & & & X \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
-\end{table}
+\end{quadro}
 %---
 
 %---
 \section{Artefatos}
-No \textit {scrum},  os artefatos são elementos que ajudam a equipe a consolidar a transparência no processo de desenvolvimento. Cientes das suas importâncias, o time \textit {scrum} realizou o planejamento inicial dos artefatos:  \textit {Product Backlog} e \textit {Sprints Backlog}.
+No Scrum,  os artefatos são elementos que ajudam a equipe a consolidar a transparência no processo de desenvolvimento. Cientes das suas importâncias, o \textit {time scrum} realizou o planejamento inicial dos artefatos:  \textit {Product Backlog} e \textit {Sprints Backlog}.
 %
 \subsection{Product Backlog}
-No Guia do \textit{Scrum} \cite{scrumguide}, o \textit{Product Backlog} é definido como uma lista ordenada de todos os itens de trabalho, incluindo funcionalidades e requisitos necessários para a produção do produto, que oferecem o máximo valor e utilidade para o cliente.
+No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como uma lista ordenada de todos os itens de trabalho, incluindo funcionalidades e requisitos necessários para a produção do produto, que oferecem o máximo valor e utilidade para o cliente.
 
-Ciente disso, o \textit{product owner} do projeto elaborou o \textit{backlog} inicial da aplicação \textit{web} de gestão da pousada Chalés Água de Coco (\autoref{product_backlog}), com base nas histórias de usuário levantadas pela equipe. Isso porque, elas refletem fielmente as necessidades e expectativas da usuária e principal \textit {stakeholder} garantindo que o desenvolvimento em total alinhamento.
+Ciente disso, o \textit{product owner} do projeto elaborou o \textit{product backlog} inicial da aplicação \textit{web} de gestão da pousada Chalés Água de Coco (\autoref{product_backlog}), com base nas histórias de usuário levantadas pela equipe. Isso porque, elas refletem fielmente as necessidades e expectativas da usuária e principal \textit {stakeholder} garantindo que o desenvolvimento em total alinhamento.
 %
 \begin{quadro}[H]
 	\caption{Product Backlog - Parte 1}
 	\label{product_backlog}
-	\begin{tabular}{|c|p{6.5cm}|p{3.8cm}|c|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\raggedright\arraybackslash}m{3.8cm}|>{\raggedright\arraybackslash}m{2.5cm}|}
 		\hline
 		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\ \hline
 		1 & Definir e configurar ambiente de desenvolvimento & Requisito Técnico   & ALTA    \\ \hline
@@ -763,8 +754,6 @@ Ciente disso, o \textit{product owner} do projeto elaborou o \textit{backlog} in
 		34 & Documentar a configuração e o código desenvolvido &
 		Documentação & ALTA \\ \hline
 		35 & Criar funcionalidade de cadastro de receitas &	Gestão Financeira & BAIXA \\ \hline
-		36 & Criar funcionalidade para registrar comprovação de pagamento de reservas &	Gestão Financeira/Gestão de Reservas &
-		BAIXA \\ \hline
 	\end{tabular}
      \fonte{Elaborado pelos autores.}
      \end{quadro}
@@ -772,9 +761,11 @@ Ciente disso, o \textit{product owner} do projeto elaborou o \textit{backlog} in
  \begin{quadro}[H]
      \caption{Product Backlog - Parte 3}
      	\label{product_backlog_3}
-     	\begin{tabular}{|c|p{6.5cm}|p{3.8cm}|c|}
+     	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\raggedright\arraybackslash}m{3.8cm}|>{\raggedright\arraybackslash}m{2.5cm}|}
      		\hline
      		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline
+     		36 & Criar funcionalidade para registrar comprovação de pagamento de reservas &	Gestão Financeira/Gestão de Reservas &
+     		BAIXA \\ \hline
      		37 & Criar funcionalidade de exclusão do cadastro de receitas &
      		Gestão Financeira &	BAIXA \\ \hline
      		38 & Criar funcionalidade de edição do cadastro de receitas &
@@ -804,17 +795,6 @@ Ciente disso, o \textit{product owner} do projeto elaborou o \textit{backlog} in
      		53 & Elaborar casos de teste & Testes & MÉDIA \\ \hline
 	     	54 & Definir as ferramentas de teste & Testes &	MÉDIA \\ \hline
 	     	55 & Estabelecer ambiente de teste & Testes & MÉDIA \\ \hline
-	     	56 & Definir critérios de aceitação & Testes & MÉDIA \\ \hline
-	     	57 & Preparar dados de teste & Testes &	MÉDIA \\ \hline
-	     	58 & Executar testes gerais & Testes & MÉDIA \\ \hline
-	     	59 & Executar testes SSL & Testes &	MÉDIA \\ \hline
-	     	60 & Analisar e otimizar \textit {headers} de segurança &
-	     	Autenticação e Segurança &	MÉDIA \\ \hline	
-	     	61 & Realizar ajustes de segurança & Autenticação e Segurança
-	     	& MÉDIA \\ \hline
-	     	62 & Documentar resultados dos testes &	Testes & MÉDIA \\ \hline
-	     	63 & Documentar componentes e estilos & Documentação &
-	     	ALTA \\ \hline
      	\end{tabular}
      		\fonte{Elaborado pelos autores.}
      		\end{quadro}
@@ -822,40 +802,49 @@ Ciente disso, o \textit{product owner} do projeto elaborou o \textit{backlog} in
  \begin{quadro}[H]
 	\caption{Product Backlog - Parte 4}
 	\label{product_backlog_4}
-	\begin{tabular}{|c|p{6.5cm}|p{3.8cm}|c|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\raggedright\arraybackslash}m{3.8cm}|>{\raggedright\arraybackslash}m{2.5cm}|}
 		\hline
 		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline
-		   64 & Documentar o plano e a execução de testes & Documentação &
-		   MÉDIA \\ \hline
-		   65 & Registrar escolhas e mudanças de rumo & Documentação &
-		   ALTA \\ \hline
-		   66 & Documentar problemas ocorridos e lições aprendidas &
-		   Documentação & ALTA \\ \hline
-		   67 & Elaborar o plano de implantação & Implantação & 
-		   MÉDIA \\ \hline
-		   68 & Realizar implantação do sistema & Implantação & MÉDIA \\ \hline
-		   69 & Revisão final da documentação técnica & Documentação &
-		   ALTA \\ \hline
-		   70 & Treinamento da proprietária da pousada para uso da aplicação &	Implantação & MÉDIA \\ \hline
+			56 & Definir critérios de aceitação & Testes & MÉDIA \\ \hline
+			57 & Preparar dados de teste & Testes &	MÉDIA \\ \hline
+			58 & Executar testes gerais & Testes & MÉDIA \\ \hline
+			59 & Executar testes SSL & Testes &	MÉDIA \\ \hline
+			60 & Analisar e otimizar \textit {headers} de segurança &
+			Autenticação e Segurança &	MÉDIA \\ \hline	
+			61 & Realizar ajustes de segurança & Autenticação e Segurança
+			& MÉDIA \\ \hline
+			62 & Documentar resultados dos testes &	Testes & MÉDIA \\ \hline
+			63 & Documentar componentes e estilos & Documentação &
+			ALTA \\ \hline
+			64 & Documentar o plano e a execução de testes & Documentação &
+			MÉDIA \\ \hline
+			65 & Registrar escolhas e mudanças de rumo & Documentação &
+			ALTA \\ \hline
+			66 & Documentar problemas ocorridos e lições aprendidas &
+			Documentação & ALTA \\ \hline
+			67 & Elaborar o plano de implantação & Implantação & 
+			MÉDIA \\ \hline
+			68 & Realizar implantação do sistema & Implantação & MÉDIA \\ \hline
+			69 & Revisão final da documentação técnica & Documentação &
+			ALTA \\ \hline
+			70 & Treinamento da proprietária da pousada para uso da aplicação &	Implantação & MÉDIA \\ \hline
    \end{tabular}
    \fonte{Elaborado pelos autores.}
 \end{quadro}
 % ---
-\subsection{\textit{Sprint Backlog}}
-O \textit{Sprint Backlog} é um plano elaborado pelo time de desenvolvimento, formado por um conjunto de itens selecionados da \textit {Product Backlog}. Esse plano possui um período de tempo determinado para sua realização, chamado de \textit {Sprint}. 
+\subsection{Sprint Backlog}
+O \textit{Sprint Backlog} é um plano elaborado pelo time de desenvolvimento, formado por um conjunto de itens selecionados da \textit {product backlog}. Esse plano possui um período de tempo determinado para sua realização, chamado de \textit {sprint}. 
 
-Esse artefato promove a transparência das atividades do projeto, tornando visíveis e acessíveis para todos os membros da equipe as atividades que devem ser realizadas na \textit {Sprint}, garantindo que todos estejam cientes do que está sendo desenvolvido.
+Esse artefato promove a transparência das atividades do projeto, tornando visíveis e acessíveis para todos os membros da equipe as atividades que devem ser realizadas na \textit {Sprint}, garantindo que todos estejam cientes do que está sendo desenvolvido. Por isso, o time implementou o \autoref{sprints_backlog} que registra todas as \textit {Sprints Backlog} planejadas para o decorrer do projeto.
 
-Por isso, o time implementou o \autoref{sprints_backlog} que registra todas as \textit {Sprints Backlog} planejadas para o decorrer do projeto.
+Para isso, considerando a flexibilidade oferecida por essa metodologia dividiu-se as \textit {sprints} do projeto em períodos de quinze dias (duas semanas), período dentro do estipulado pelo Guia do Scrum \cite{scrumguide}. Essa escolha de duração para as \textit {Sprints} levou em consideração que a equipe atuaria majoritariamente de forma remota, com tempo diário individual limitado para o trabalho. Este contexto demandava prazos mais longos para a execução das tarefas.
 
-Para isso, considerando a flexibilidade oferecida por essa metodologia dividiu-se as \textit {sprints} do projeto em períodos de quinze dias (duas semanas), período dentro do estipulado pelo Guia do \textit{Scrum} \cite{scrumguide}. Essa escolha de duração para as \textit {Sprints} levou em consideração que a equipe atuaria majoritariamente de forma remota, com tempo diário individual limitado para o trabalho. Este contexto demandava prazos mais longos para a execução das tarefas.
-
-As atividades incluídas nas \textit {Sprints Backlog} foram baseadas nos itens da \textit {Product Backlog}, no prazo de entrega do MVP e nas demais tarefas essenciais do projeto, como realização de testes e a elaboração da documentação técnica.
-
+As atividades incluídas nas \textit{sprints backlog} foram baseadas nos itens da \textit{product Backlog}, no prazo de entrega do MVP e nas demais tarefas essenciais do projeto, como realização de testes e a elaboração da documentação técnica.
+\\
 \begin{quadro}[H]
 	\caption{Sprints Backlog - Parte 1} 
 	\label{sprints_backlog_1} 
-	\begin{tabular}{|c|c|p{4cm}|p{6cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.5cm}|>{\raggedright\arraybackslash}m{2.5cm}|>{\raggedright\arraybackslash}m{3.2cm}|>{\raggedright\arraybackslash}m{7cm}|}
 	\hline
 	\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
 		\hline
@@ -887,11 +876,10 @@ As atividades incluídas nas \textit {Sprints Backlog} foram baseadas nos itens 
 		\end{tabular}
 			\fonte{Elaborado pelos autores.}
 			\end{quadro}
-			
 \begin{quadro}[H]
 	\caption{Sprints Backlog - Parte 2}
 	 \label{sprints_backlog_2} 
-	\begin{tabular}{|c|c|p{4cm}|p{6cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.5cm}|>{\raggedright\arraybackslash}m{2.5cm}|>{\raggedright\arraybackslash}m{3.2cm}|>{\raggedright\arraybackslash}m{7cm}|}
 		\hline
 		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
 		\hline	
@@ -914,9 +902,7 @@ As atividades incluídas nas \textit {Sprints Backlog} foram baseadas nos itens 
 		- Implementar atualização automática do status do quarto para “ocupado” após o check-in. \newline
 		- Criar funcionalidade de atualização do check-out. \newline
 		- Integrar ambientes, back-end e front-end. \newline
-		- Documentar a configuração e o código desenvolvido (Focado no MVP).
-		\\
-		\hline	
+		- Documentar a configuração e o código desenvolvido (Focado no MVP).\\ \hline
 \end{tabular}
 \fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -924,7 +910,7 @@ As atividades incluídas nas \textit {Sprints Backlog} foram baseadas nos itens 
 \begin{quadro}[H]
 	\caption{Sprints Backlog - Parte 3} 
 	\label{sprints_backlog_3} 
-	\begin{tabular}{|c|c|p{4cm}|p{6cm}|}
+		\begin{tabular}{|>{\centering\arraybackslash}m{1.5cm}|>{\raggedright\arraybackslash}m{2.5cm}|>{\raggedright\arraybackslash}m{3.2cm}|>{\raggedright\arraybackslash}m{7cm}|}
 		\hline
 		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
 		\hline	
@@ -944,24 +930,13 @@ As atividades incluídas nas \textit {Sprints Backlog} foram baseadas nos itens 
 		- Implementar criptografia. \newline
 		- Documentar a configuração e o código desenvolvido (Integrar ao do MVP). 	 \\
 		\hline		
-		9 & 10/09/2025 a 25/09/2025 & Implementar as funcionalidades associadas aos relatórios financeiros e a funcionalidade de filtragem &
+			9 & 10/09/2025 a 25/09/2025 & Implementar as funcionalidades associadas aos relatórios financeiros e a funcionalidade de filtragem &
 		- Criar funcionalidade para criar relatórios de quartos. \newline
 		- Criar funcionalidade para criar relatórios de hóspedes. \newline
 		- Criar funcionalidade para criar relatórios de reservas. \newline
 		- Criar balanço financeiro simples (receitas, despesas, saldo) por período. \newline
 		- Criar funcionalidade de filtragem de receita/despesa (data, categoria). \\
 		\hline
-\end{tabular}
-\fonte{Elaborado pelos autores.}
-\end{quadro}	
-
-\begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 4} 
-	\label{sprints_backlog_4} 
-	\begin{tabular}{|c|c|p{4cm}|p{6cm}|}
-		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
-		\hline	
 		10 & 25/09/2025 a 10/10/2025 & Implementar criptografia e preparar o ambiente para os testes de segurança &
 		- Implementar criptografia. \newline
 		- Definir escopo dos testes. \newline
@@ -971,6 +946,16 @@ As atividades incluídas nas \textit {Sprints Backlog} foram baseadas nos itens 
 		- Estabelecer ambiente de teste. \newline
 		- Definir critérios de aceitação. \newline
 		- Preparar dados de testes. \\
+		\hline	
+\end{tabular}
+\fonte{Elaborado pelos autores.}
+\end{quadro}	
+\begin{quadro}[H]
+	\caption{Sprints Backlog - Parte 4} 
+	\label{sprints_backlog_4} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.5cm}|>{\raggedright\arraybackslash}m{2.5cm}|>{\raggedright\arraybackslash}m{3.2cm}|>{\raggedright\arraybackslash}m{7cm}|}
+		\hline
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
 		\hline	
 		11 & 11/10/2025 a 25/10/2025 & Executar testes gerais e de segurança, e documentar os resultados &
 		- Executar testes gerais. \newline
@@ -1000,7 +985,7 @@ As atividades incluídas nas \textit {Sprints Backlog} foram baseadas nos itens 
 % ---
 % Tópico de Gestão de Riscos
 \section{Gestão de Riscos}
-Diante da flexibilidade e do incentivo à melhoria contínua proporcionados pela metodologia \textit{Scrum}, a equipe do projeto considerou pertinente a implementação de mecanismos de apoio à gestão de riscos, com o objetivo de fortalecer as práticas de inspeção e adaptação realizadas ao longo das \textit{sprints}.
+Diante da flexibilidade e do incentivo à melhoria contínua proporcionados pela metodologia Scrum, a equipe do projeto considerou pertinente a implementação de mecanismos de apoio à gestão de riscos, com o objetivo de fortalecer as práticas de inspeção e adaptação realizadas ao longo das \textit{sprints}.
 
 Segundo \cite[p. 416]{sommerville2011}, o gerenciamento de riscos é um processo iterativo fundamental para prever os riscos associados ao desenvolvimento de um projeto, pois promove a compreensão dos riscos com vistas à sua previsão, detecção e tratamento, de modo a não comprometer a entrega do produto final.
 
@@ -1011,107 +996,113 @@ Nesse sentido, a gestão de riscos foi uma atividade de suma importância para o
 Dessa forma, a equipe do projeto do desenvolvimento do sistema de gestão da Pousada Chalés Água de Coco elaborou um processo de identificação dos riscos iniciais do projeto e, a partir disso, definiu estratégias de mitigação para cada um deles, com o objetivo de garantir o cumprimento dos prazos estabelecidos e evitar retrabalho.
 
 \subsection{Identificação dos Riscos do Projeto}
-O primeiro passo para o desenvolvimento das ações voltadas à gestão de riscos foi a identificação dos principais riscos associados ao projeto do sistema web de gestão da Pousada Chalés Água de Coco. Esses riscos foram levantados a partir do das características inerentes ao desenvolvimento de uma aplicação \textit{web}, da equipe \textit{Scrum} e do próprio negócio (\autoref{identificacao_riscos}).
-% ---
-% Quadro de Identificação dos Riscos do Projeto
-% ---
+O primeiro passo para o desenvolvimento das ações voltadas à gestão de riscos foi a identificação dos principais riscos associados ao projeto do sistema web de gestão da Pousada Chalés Água de Coco. Esses riscos foram levantados a partir do das características inerentes ao desenvolvimento de uma aplicação web, da equipe Scrum e do próprio negócio (\autoref{identificacao_riscos_1}).
+\\
+% 
 \begin{quadro}[H]
 	\caption{Identificação dos Riscos do Projeto - Parte 1} \label{identificacao_riscos_1} 
-	\begin{tabular}{|p{2.8cm}|p{5cm}|p{3cm}|p{4.2cm}|}
-	\hline
-	\textbf{Código} & \textbf{Risco} & \textbf{Afeta} & \textbf{Descrição}  \\
-	\hline
-			R01 & Requisitos mal definidos ou incompletos &
-			Projeto  & Os requisitos levantados são inconsistentes, exigindo retrabalho e falhas na produção \\
+	\begin{tabular}{|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{5cm}|>{\centering\arraybackslash}p{3cm}|p{4.2cm}|}
 		\hline
-			R02 & Atraso no cronograma &
-			Projeto  & Comunicação deficiente ou dificuldades nas entregas geram atrasos no cronograma produção \\
+		\textbf{Código} & \textbf{Risco} & \textbf{Afeta} & \textbf{Descrição}  \\
 		\hline
-			R03 & Perda de dados ou inconsistência &
-			Projeto e Produto  & Há falhas na modelagem ou na lógica do negócio que resultam em falhas de produção \\ \hline
-\end{tabular}
-\fonte{Elaborado pelos autores.}
+		R01 & Requisitos mal definidos ou incompletos &
+		Projeto  & Os requisitos levantados são inconsistentes, exigindo retrabalho e falhas na produção \\
+		\hline
+		R02 & Atraso no cronograma &
+		Projeto  & Comunicação deficiente ou dificuldades nas entregas geram atrasos no cronograma produção \\
+		\hline
+		R03 & Perda de dados ou inconsistência &
+		Projeto e \newline Produto  & Há falhas na modelagem ou na lógica do negócio que resultam em falhas de produção \\ \hline
+		R04 & Tamanho do Projeto Subestimado &
+		Projeto e Produto  & A equipe não conseguiu dimensionar o trabalho exigido pelo projeto o que exige um retrabalho de planejamento das tarefas \\
+		\hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
 \end{quadro}		
-			
-			
+%
 \begin{quadro} [H]
 	\caption{Identificação dos Riscos do Projeto - Parte 2} \label{identificacao_riscos_2} 
-	\begin{tabular}{|p{2.8cm}|p{5cm}|p{3cm}|p{4.2cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{5cm}|>{\centering\arraybackslash}p{3cm}|p{4.2cm}|}
 		\hline
 		\textbf{Código} & \textbf{Risco} & \textbf{Afeta} & \textbf{Descrição}  \\
 		\hline			
-			R04 & Tamanho do Projeto Subestimado &
-			Projeto e Produto  & A equipe não conseguiu dimensionar o trabalho exigido pelo projeto o que exige um retrabalho de planejamento das tarefas \\
+		R05 & Prazo de Desenvolvimento Subestimado &
+		Projeto & A equipe encontrou obstáculos maiores que o previsto durante o desenvolvimento do projeto que exigem maior tempo para o desenvolvimento \\
 		\hline
-			R05 & Prazo de Desenvolvimento Subestimado &
-			Projeto & A equipe encontrou obstáculos maiores que o previsto durante o desenvolvimento do projeto que exigem maior tempo para o desenvolvimento \\
+		R06 & 	Integrantes chaves estão doentes em momentos críticos do projeto & Projeto & A ausência de um integrante importante para a realização de uma tarefa exige que os outros integrantes tenham que assumir sem dominação do assunto \\
 		\hline
-			R06 & 	Integrantes chaves estão doentes em momentos críticos do projeto & Projeto & A ausência de um integrante importante para a realização de uma tarefa exige que os outros integrantes tenham que assumir sem dominação do assunto \\
+		R07 & Vazamento de dados de hóspedes & Negócio & O sistema  armazena dados pessoais e sensíveis e não possui uma estrutura de segurança fortificada \\
 		\hline
-			R07 & Vazamento de dados de hóspedes & Negócio & O sistema  armazena dados pessoais e sensíveis e não possui uma estrutura de segurança fortificada \\
+		R08 & Custos do projeto subestimados & Projeto e Produto & Há custos adicionais não previstos no planejamento \\
 		\hline
-			R08 & Custos do projeto subestimados & Projeto e Produto & Há custos adicionais não previstos no planejamento \\
+		R09 & Risco de integração de módulos (Django) & Projeto e Produto & A equipe enfrenta dificuldades em integrar as entidades do sistema decorrente de um mau planejamento de comunicação entre elas, segundo a arquitetura Django (MVT) \\
 		\hline
-			R09 & Risco de integração de módulos (Django) & Projeto e Produto & A equipe enfrenta dificuldades em integrar as entidades do sistema decorrente de um mau planejamento de comunicação entre elas, segundo a arquitetura Django (MVT) \\
+		R10 & Problemas de segurança no ambiente de produção & Produto & A implantação do sistema expõe falhas de segurança não identificados durante o desenvolvimento \\
 		\hline
-			R10 & Problemas de segurança no ambiente de produção & Produto & A implantação do sistema expõe falhas de segurança não identificados durante o desenvolvimento \\
-		\hline
-\end{tabular}
-\fonte{Elaborado pelos autores.}
-\end{quadro}			
-% ---
-% ---
-\subsection{Análise e Planejamento dos Riscos}
-Identificados os riscos associados ao projeto, a equipe analisou e definiu a probabilidade de impacto e de ocorrência, além das estratégias de prevenção e contingência para cada um. Essas informações estão registradas no \autoref{analise_riscos_1}.
- 
- 
- \begin{quadro}[H]
- 	\caption{Análise e Planejamento dos Riscos - Parte 1}
- 	 \label{analise_riscos_1} 
- 	 \begin{tabular} {|p{1cm}|p{1.6cm}|p{3cm}|p{4.7cm}|p{4.7cm}|}
- 		\hline
- 		\textbf{Risco} & \textbf{Impacto} & \textbf{Probabilidade de  Ocorrência} & \textbf{Estratégias de \newline Prevenção} & \textbf{Estratégias de \newline Contingência}\\
- 		\hline
- 	 	R01 & Alto & Alta &
-	 	Fazer revisões e validações periódicas dos requisitos, conforme o andamento do projeto  & Interromper as atividades de desenvolvimento para revisão dos requisitos com o time de desenvolvimento e o \textit{product owner}\\
-	 	\hline
-	 	R02 & Médio & Alta &
-	 	Monitorar o andamento das tarefas do projeto e solucionar problemas que possam vir a impactar o andamento do cronograma  & Reavaliar o \textit {backlog} das \textit{sprints} restantes e reorganizar as tarefas, priorizando a execução daquelas que são essenciais para a entrega final \\
-	 	\hline
-	 	R03 & Alto & Alta &
-	 	Revisar e validar os elementos da modelagem de dados antes de iniciar o desenvolvimento; Definir lógicas de salvamento e atualização de dados  & Revisar os documentos da modelagem de dados;  identificar e corrigir as falhas na lógica do negócio \\
-	 	\hline
-	 	R04 & Alto & Baixa &
-	 	Definir claramente as funcionalidades do sistema, evitando a adição de requisitos que ampliem o sistema para além do planejado  & Priorizar a entrega das funcionalidades definidas nos requisitos iniciais do projeto \\
-	 	\hline
-	 	R05 & Médio & 	Alta &
-	 	Definir junto a com o time de desenvolvimento o número de \textit{sprints} viáveis para o desenvolvimento; Monitorar as atividades e obstáculos nas \textit{sprints} de desenvolvimento para prever possíveis atrasos no cronograma & Reorganizar tarefas das \textit{sprints} de desenvolvimento, priorizando a realização de tarefas associadas as funcionalidades essenciais do sistema \\
-	 	\hline
 	\end{tabular}
-	 	\fonte{Elaborado pelos autores.}
-	 	\end{quadro}
-% ---------------------------------------------------------------
- \begin{quadro}[H]
+	\fonte{Elaborado pelos autores.}
+\end{quadro}				
+% ---
+
+\subsection{Análise e Planejamento dos Riscos}
+Identificados os riscos associados ao projeto, a equipe analisou e definiu a probabilidade de impacto e de ocorrência, além das estratégias de prevenção e contingência para cada um. Essas informações estão registradas no \autoref{analise_riscos_1}. \\
+%
+\begin{quadro}[H]
+	\caption{Análise e Planejamento dos Riscos - Parte 1}
+	\label{analise_riscos_1} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1.8cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{4.2cm}|>{\raggedright\arraybackslash}m{4.2cm}|}
+		\hline
+		\textbf{Risco} & \textbf{Impacto} & \textbf{Probabilidade de \newline Ocorrência} & \textbf{Estratégias de \newline Prevenção} & \textbf{Estratégias de \newline Contingência}\\
+		\hline
+		R01 & Alto & Alta &
+		Fazer revisões e validações periódicas dos requisitos, conforme o andamento do projeto  & Interromper as atividades de desenvolvimento para revisão dos requisitos com o time de desenvolvimento e o \textit{product owner}
+		\\ 
+		\hline
+		R02 & Médio & Alta &
+		Monitorar o andamento das tarefas do projeto e solucionar problemas que possam vir a impactar o andamento do cronograma  & Reavaliar o \textit {backlog} das \textit{sprints} restantes e reorganizar as tarefas, priorizando a execução daquelas que são essenciais para a entrega final \\
+		\hline
+		R03 & Alto & Alta &
+		Revisar e validar os elementos da modelagem de dados antes de iniciar o desenvolvimento; Definir lógicas de salvamento e atualização de dados  & Revisar os documentos da modelagem de dados;  identificar e corrigir as falhas na lógica do negócio \\
+		\hline
+		R04 & Alto & Baixa &
+		Definir claramente as funcionalidades do sistema, evitando a adição de requisitos que ampliem o sistema para além do planejado  & Priorizar a entrega das funcionalidades definidas nos requisitos iniciais do projeto \\
+		\hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+% 
+\begin{quadro}[H]
 	\caption{Análise e Planejamento dos Riscos - Parte 2}
 	\label{analise_riscos_2} 
-	\begin{tabular} {|p{1cm}|p{1.6cm}|p{3cm}|p{4.7cm}|p{4.7cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1.8cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{4.2cm}|>{\raggedright\arraybackslash}m{4.2cm}|}
 		\hline
-		\textbf{Risco} & \textbf{Impacto} & \textbf{Probabilidade de  Ocorrência} & \textbf{Estratégias de \newline Prevenção} & \textbf{Estratégias de \newline Contingência}\\
+		\textbf{Risco} & \textbf{Impacto} & \textbf{Probabilidade de \newline Ocorrência} & \textbf{Estratégias de \newline Prevenção} & \textbf{Estratégias de \newline Contingência}\\
 		\hline	
+		R05 & Médio & 	Alta &
+		Definir junto a com o time de desenvolvimento o número de \textit{sprints} viáveis para o desenvolvimento; Monitorar as atividades e obstáculos nas \textit{sprints} de desenvolvimento para prever possíveis atrasos no cronograma & Reorganizar tarefas das \textit{sprints} de desenvolvimento, priorizando a realização de tarefas associadas as funcionalidades essenciais do sistema \\
+		\hline
 		R06 & Médio & Baixa & Distribuir as tarefas do projeto de forma estratégica  para que em nenhum momento o projeto fique altamente dependente de um integrante, além de desenvolver uma documentação robusta para que outro integrante consiga dar continuidade a tarefa & Remanejar as tarefas entre os integrantes disponíveis \\
 		\hline
-	 	R07 & Crítico & Baixa & Estabelecer medidas de segurança e criptografia no banco de dados do projeto & Desconectar o sistema; identificar a origem do vazamento; realizar medidas de contenção de danos propostas pela LGPD; aplicar e documentar as correções de segurança \\
-	 	\hline
-	 	R08 & Médio & Média & Desenvolver um bom levantamento de custos antes de iniciar o projeto & Revisar funcionalidades e priorizar as funcionalidades que caibam no orçamento disponível \\
-	 	\hline
-	 	R09 & Alto & Média & Realizar validações dos diagramas e o MER do sistema antes e durante a fase de desenvolvimento do sistema & Revisar os diagramas e o MER; Identificar falhas de integração entre os módulos; Corrigir as falhas \\
-	 	\hline
-	 	R10 & Alto & Média & Definir um plano de testes que abranja os diferentes aspectos e funcionalidades do sistema & Desconectar o sistema; identificar a origem do problema de segurança; corrigir e documentar o erro \\ \hline
- 	\end{tabular}
- \fonte{Elaborado pelos autores.}
+		R07 & Crítico & Baixa & Estabelecer medidas de segurança e criptografia no banco de dados do projeto & Desconectar o sistema; identificar a origem do vazamento; realizar medidas de contenção de danos propostas pela LGPD; aplicar e documentar as correções de segurança \\
+		\hline
+		R08 & Médio & Média & Desenvolver um bom levantamento de custos antes de iniciar o projeto & Revisar funcionalidades e priorizar as funcionalidades que caibam no orçamento disponível \\
+		\hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
 \end{quadro}
-% ---------------------------------------------------------------
-% ---
+%
+\begin{quadro}[H]
+	\caption{Análise e Planejamento dos Riscos - Parte 3}
+	\label{analise_riscos_3} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1.8cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{4.2cm}|>{\raggedright\arraybackslash}m{4.2cm}|}
+		\hline
+		R09 & Alto & Média & Realizar validações dos diagramas e o MER do sistema antes e durante a fase de desenvolvimento do sistema & Revisar os diagramas e o MER; Identificar falhas de integração entre os módulos; Corrigir as falhas \\
+		\hline
+		R10 & Alto & Média & Definir um plano de testes que abranja os diferentes aspectos e funcionalidades do sistema & Desconectar o sistema; identificar a origem do problema de segurança; corrigir e documentar o erro \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%
 \subsection{Monitoramento dos Riscos}
 Levantados os riscos do projeto do sistema web e definidas as estratégias de prevenção e resposta a cada um, foi elaborado um conjunto de elementos para auxiliarem no monitoramento contínuo dos riscos. Esse conjunto está registrado na \autoref{monitoramento_riscos_1}, no qual estão os indicadores de risco, os mecanismos que devem ser utilizados na identificação de alterações, sendo que  esses elementos devem ser monitorados a cada \textit{sprint} realizada, durante as reuniões pós \textit{sprint}.
 %

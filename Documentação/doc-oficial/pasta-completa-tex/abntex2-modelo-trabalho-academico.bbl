@@ -30,6 +30,14 @@ Diário Oficial da União, Brasília, DF, 15 ago. 2018.}
 [S.l.], 2024. Acessado em 7 de junho de 2025. Dispon{\'\i}vel em:
   \url{https://www.brmodeloweb.com/}.}
 
+\bibitem[Buhalis 1998]{buhalis1998}
+\abntrefinfo{Buhalis}{BUHALIS}{1998}
+{BUHALIS, D. Strategic use of information technologies in the tourism industry.
+\emph{Tourism Management}, v.~19, n.~5, p. 409--421, 1998.
+ISSN 0261-5177.
+Dispon{\'\i}vel em:
+  \url{https://www.researchgate.net/publication/222452921\_Strategic\_Use\_of\_Information\_Technologies\_in\_the\_Tourism\_Industry}.}
+
 \bibitem[Coco 2025]{pousada_chales_agua_de_coco}
 \abntrefinfo{Coco}{COCO}{2025}
 {COCO, P.~C. Água~de. \emph{Pousada Chalés Água de Coco}. 2025.
@@ -54,6 +62,11 @@ Acessado em 7 de junho de 2025.
 Dispon{\'\i}vel em:
   \url{https://www.enel.com.br/pt-saopaulo/Para\_Voce/tarifa-energia-eletrica.html}.}
 
+\bibitem[FecomercioSP 2024]{fecomercio2024}
+\abntrefinfo{FecomercioSP}{FECOMERCIOSP}{2024}
+{FECOMERCIOSP. \emph{Setor de turismo fatura R\$ 207 bilhões em 2024 e cresce
+  4,3\% em relação ao ano anterior}. 2024.}
+
 \bibitem[GITHUB 2024]{github-doc}
 \abntrefinfo{GITHUB}{GITHUB}{2024}
 {GITHUB. \emph{GitHub Docs}.
@@ -66,17 +79,49 @@ Dispon{\'\i}vel em:
 [S.l.], 2024. Acessado em 7 de junho de 2025. Dispon{\'\i}vel em:
   \url{https://support.google.com/meet/}.}
 
+\bibitem[Hoffmann, Oliveira e Zeferino 2012]{zeferino2012}
+\abntrefinfo{Hoffmann, Oliveira e Zeferino}{HOFFMANN; OLIVEIRA; ZEFERINO}{2012}
+{HOFFMANN, R.~C.; OLIVEIRA, P. S. M.~d.; ZEFERINO, R.~Z. A utilização
+  estratégica dos sistemas de informações gerenciais no ramo hoteleiro da
+  cidade de ponta grossa - paraná.
+\emph{Revista de Engenharia e Tecnologia}, v.~4, n.~1, p. 18--33, Abril 2012.
+ISSN 2176-7270.
+Acesso em: 17 jun. 2025.
+Dispon{\'\i}vel em:
+  \url{https://revistas.uepg.br/index.php/ret/article/view/11290}.}
+
 \bibitem[IBM 2025]{ibmBusinessRules}
 \abntrefinfo{IBM}{IBM}{2025}
 {IBM. \emph{Business Rules}. 2025.
 Acesso em 4 de junho de 2025.
 Dispon{\'\i}vel em: \url{https://www.ibm.com/br-pt/topics/business-rules}.}
 
+\bibitem[Ignarra 2013]{ignarra2013}
+\abntrefinfo{Ignarra}{IGNARRA}{2013}
+{IGNARRA, L.~R. \emph{Fundamentos do turismo}. 3. ed. São Paulo: Thomson
+  Learning, 2013.}
+
 \bibitem[{LATEX} 2024]{latex-project}
 \abntrefinfo{{LATEX}}{{LATEX}}{2024}
 {{LATEX}. \emph{LaTeX - A document preparation system}.
 [S.l.], 2024. Acessado em 7 de junho de 2025. Dispon{\'\i}vel em:
   \url{https://www.latex-project.org/}.}
+
+\bibitem[Martins e Gondim 2011]{martins2011}
+\abntrefinfo{Martins e Gondim}{MARTINS; GONDIM}{2011}
+{MARTINS, C. A. d. M.~G.; GONDIM, L.~R. \emph{Gestão hoteleira}. Manaus:
+  Centro de Educação Tecnológica do Amazonas, 2011. 38~p. Acesso em: 15 jun.
+  2025. Dispon{\'\i}vel em:
+  \url{https://redeetec.mec.gov.br/images/stories/pdf/eixo\_hosp\_lazer/061112\_gest\_hot.pdf}.}
+
+\bibitem[MaurÍcio e Ramos 2011]{mauricio2011}
+\abntrefinfo{MaurÍcio e Ramos}{MAURÍCIO; RAMOS}{2011}
+{MAURÍCIO, N.~R.; RAMOS, K. C. M.~d. Gestão na hotelaria.
+\emph{Revista F@pciência}, Apucarana – PR, v.~8, n.~11, p. 99--113, 2011.
+ISSN 1984-2333.
+Acesso em: 17 jun. 2025.
+Dispon{\'\i}vel em:
+  \url{https://www.fap.com.br/fap-ciencia/edicao\_2011/011.pdf}.}
 
 \bibitem[POSTGRESQL 2025]{postgresql}
 \abntrefinfo{POSTGRESQL}{POSTGRESQL}{2025}
@@ -97,6 +142,12 @@ Disponível em: \url{https://docs.python.org/3/}. Acesso em: 7 jun. 2025.}
   Dispon{\'\i}vel em:
   \url{https://scrumguides.org/docs/scrumguide/v1/Scrum-Guide-Portuguese-BR.pdf}.}
 
+\bibitem[Sidônio 2015]{sidonio2015}
+\abntrefinfo{Sidônio}{SIDôNIO}{2015}
+{SIDôNIO, L.~V. \emph{Gestão hoteleira}.
+[S.l.], 2015. Acesso em: 15 jun. 2025. Dispon{\'\i}vel em:
+  \url{https://biblioteca.unisced.edu.mz/bitstream/123456789/2326/1/Gest\%C3\%A3o\%20Hoteleira\%20Autor\%20Let\%C3\%ADcia\%20Veloso\%20Sid\%C3\%B4nio.pdf}.}
+
 \bibitem[Sommerville 2011]{sommerville2011}
 \abntrefinfo{Sommerville}{SOMMERVILLE}{2011}
 {SOMMERVILLE, I. \emph{Engenharia de software}. 9. ed. São Paulo: Pearson,
@@ -114,5 +165,12 @@ Acesso em: 9 jun. 2025.}
 {VISUAL-PARADIGM. \emph{Visual Paradigm Online Documentation}.
 [S.l.], 2024. Acessado em 7 de junho de 2025. Dispon{\'\i}vel em:
   \url{https://online.visual-paradigm.com/}.}
+
+\bibitem[Zanella e Angeloni 2006]{zanella2006}
+\abntrefinfo{Zanella e Angeloni}{ZANELLA; ANGELONI}{2006}
+{ZANELLA, A.; ANGELONI, M.~T. Pousadas - uma alternativa criativa de
+  hospedagem.
+\emph{Turismo - Visão e Ação}, Universidade do Vale do Itajaí, Camboriú,
+  Brasil, v.~8, n.~2, p. 253--271, mai–jul 2006.}
 
 \end{thebibliography}
