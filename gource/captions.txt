@@ -1,0 +1,17 @@
+2025-05-05|Início do projeto: estruturação de diretórios
+2025-05-07|Modelos conceituais adicionados (MER e Diagrama de Implantação)
+2025-05-19|Versão inicial funcional do sistema hospedagem
+2025-05-25|Configuração do TailwindCSS e layout base aplicados
+2025-05-31|Documentação LaTeX estruturada e imagens dos diagramas atualizadas
+2025-06-02|Documentação de recursos humanos e backlog adicionados
+2025-06-03|Diagrama de Componentes e ProjectLibre atualizados
+2025-06-05|Versão 1 da Análise de Viabilidade Financeira adicionada
+2025-06-06|Tópicos explicativos sobre custos e cenários econômicos incluídos
+2025-06-07|Funcionalidades de editar e excluir quartos implementadas
+2025-06-09|Estrutura geral do sistema e app de hóspedes documentados
+2025-06-10|Integração de tópicos finais e rascunhos na documentação oficial
+2025-06-16|Formulário de reservas funcional no sistema
+2025-06-19|Check-in funcional e ajustes de data implementados
+2025-06-23|Revisão da literatura adicionada e arquivos organizados
+2025-06-24|Documentação revisada com formatação ABNT e ProjectLibre atualizado
+2025-06-25|Correções finais no JSON do GitStat e limpeza dos erros restantes

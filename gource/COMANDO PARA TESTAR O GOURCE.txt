@@ -1,0 +1,14 @@
+gource \
+  --user-map-file users.txt \
+  --user-image-dir avatars/ \
+  --highlight-users \
+  --key \
+  --caption-file captions.txt \
+  --caption-duration 4 \
+  --seconds-per-day 2.5 \
+  --user-scale 1.5 \
+  --multi-sampling \
+  --stop-at-end \
+  --title "Sistema de Gestão da Pousada - Histórico do Projeto" \
+  --output-ppm-stream - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - \
+  -vcodec libx264 -pix_fmt yuv420p -crf 23 -preset fast gource_output.mp4

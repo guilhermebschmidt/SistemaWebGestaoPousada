@@ -1,0 +1,142 @@
+2025-06-25|Adiciona o arquivo .json do gitstat corrigido, removido os erros inerentes a análise dos commits
+2025-06-24|checkout
+2025-06-24|checkout
+2025-06-24|Adiciona alterações na documentação, diário e projectlibre
+2025-06-24|Atualizando a Análise da Concorrência e adicionando textos introdutórios nas seções
+2025-06-24|Exclui arquivo desatualizado do diagrama de implantação
+2025-06-24|Padroniza nomenclaturaa dos arquivos
+2025-06-24|Adiciona alterações abnt na documentação do projeto
+2025-06-23|Adicionando a revisão da literatura na doc-oficial
+2025-06-23|Move arquivos de rascunhos para a pasta correta 'rascunhos'
+2025-06-23|Remove arquivo duplicado e desatualizado. Adiciona atualizações e renomeia o arquivo final do projectLibre
+2025-06-19|gistat
+2025-06-19|documentação ricardo
+2025-06-19|antigo app hospede removido
+2025-06-19|Merge remote-tracking branch 'origin/dev'
+2025-06-19|botão para checkin
+2025-06-19|tela de reservas do dia e ajuste campo datetime na data check in e check out
+2025-06-19|formulario de reserva funcionando
+2025-06-18|gitstat
+2025-06-17|Removendo arquivo 'Diário de Bordo' para manter o arquivo que está sendo atualizado como diário de bordo (arquivo 'Diário')
+2025-06-17|Merge branch 'main' of https://github.com/guilhermebschmidt/SistemaWebGestaoPousada
+2025-06-17|Adiciona rascunho do tópico de 'Revisão da Literatura' da documentação e atualiza 'Diário'
+2025-06-16|form de reserva
+2025-06-16|refactor
+2025-06-16|Merge branch 'main' of https://github.com/guilhermebschmidt/SistemaWebGestaoPousada
+2025-06-16|refactor
+2025-06-16|refactor
+2025-06-16|push
+2025-06-11|refactor
+2025-06-10|Adiciona arquivo com correções nos recursos porém com problemas na configuração de datas
+2025-06-10|Merge branch 'main' of https://github.com/guilhermebschmidt/SistemaWebGestaoPousada
+2025-06-10|Merge branch 'minha-branch1'
+2025-06-10|Adicionando versão 1.0 da Revisão Histórica
+2025-06-10|Corrigindo a pasta doc-oficial
+2025-06-10|Adiciona correções e alterações nos tópicos de 'Gestão do Projeto', 'Escopo do Projeto' e 'Histórias de usuários'
+2025-06-10|Adiciona o arquivo topico_reposito.tex, que integra os demais rascunhos de documentação do código, e os arquivos da 'pasta-completa-tex' com alterações de formatação de texto e referencias bibliográficas devido erro de compilação da documentação da pasta 'doc-oficial'
+2025-06-09|Adicionando a pasta completa para compilar o .tex da documentação
+2025-06-09|Atualização/correção do .tex e .pdf da documentação
+2025-06-09|Atualizando o .tex e o .pdf da documentação e adicionando o .bib das referencias do texto
+2025-06-09|explicacao de arquivos gerais do nosso projeto
+2025-06-09|explicacao do App hospede
+2025-06-09|adicionando estrutura geral do projeto
+2025-06-09|correçoes
+2025-06-09|apagando editar_quarto html
+2025-06-09|Adiciona conteúdo dos tópicos de gestão de projeto e escopo de projeto na documentação e alterações no racunho de gestão do projeto
+2025-06-08|Adiciona e atualiza os rascunhos dos topicos de gestão, escopo e histórias de usuário da documentação
+2025-06-07|ajustes
+2025-06-07|venv bkp removido
+2025-06-07|Merge branch 'main' of https://github.com/guilhermebschmidt/SistemaWebGestaoPousada
+2025-06-07|Merge branch 'minha-branch1'
+2025-06-07|Atualização nos arquivos referentes a custos e cenários -  Correção de erros
+2025-06-07|Atualizando o .tex e .pdf da documentação
+2025-06-07|Merge branch 'main' of https://github.com/guilhermebschmidt/SistemaWebGestaoPousada
+2025-06-07|Documentacao do App Quarto
+2025-06-07|Atualizando o .tex e o .pdf da documentação oficial
+2025-06-07|pequenos ajustes no Html
+2025-06-07|Importando funcoes de editar e excluir quartos
+2025-06-07|Adicionando funçoes de editar e excluir quartos
+2025-06-07|Adicionando botao de excluir quarto
+2025-06-07|Adicionando botao de editar quarto
+2025-06-07|Correçoes gerais no Template do Sistemaa
+2025-06-07|Correçoes no template da página de "Listar Quartos"
+2025-06-07|Novo menu para a aba "Tipos de Quarto", adicionando página html
+2025-06-07|Novo menu para a aba "Adicionar Quartos", criaçao da página html
+2025-06-06|Merge branch 'minha-branch1'
+2025-06-06|Correção de erro no cenário pessimista
+2025-06-06|Merge branch 'main' of https://github.com/guilhermebschmidt/SistemaWebGestaoPousada
+2025-06-06|Atualizações de custos e cenários. Produção de textos explicativos sobre os calculos e projeções
+2025-06-06|Adicionando tópicos na documentação oficial
+2025-06-05|Merge da main
+2025-06-05|Merge branch 'main' of https://github.com/guilhermebschmidt/SistemaWebGestaoPousada
+2025-06-05|Adicionando arquivos txt referentes a Viabilidade Financeira - Documentação
+2025-06-05|Doc a concluir
+2025-06-05|Merge branch 'main' of https://github.com/guilhermebschmidt/SistemaWebGestaoPousada
+2025-06-05|Adiciona arquivo tex do tópico da documentação sobre o escopo do projeto
+2025-06-05|Corrigindo um erro na documentação referente as imagens do doc
+2025-06-05|Atualizando o .tex e o .pdf da documentação
+2025-06-05|Adicionando a primeira versão das análises de viabilidade financeira: Mão de obra, custo por estrutura e custo total
+2025-06-05|Adiciona anotações referentes a  semana no diário.
+2025-06-04| Texto sobre as tecnologias e recursos atualizado, divido de acordo com a estrutura do projeto
+2025-06-04|Adiciona novos tópicos na documentação
+2025-06-04|Atualizando o .tex e .pdf da documentação
+2025-06-04|Atualizando o Diagrama de Componentes
+2025-06-04|Atualizando na pasta Imagens o MER/DER
+2025-06-03|Corrigindo a extensao do HTML
+2025-06-03|Adicionando url de Listar Quartos
+2025-06-03|Subindo atts para os quartos
+2025-06-03|Adiciona novas alterações do Project Libre relazionadas a gestão do tempo para as atividades
+2025-06-03|Merge branch 'main' of https://github.com/guilhermebschmidt/SistemaWebGestaoPousada
+2025-06-03|Adiciona novas alterações do Project Libre relazionadas a gestão do tempo para as atividades
+2025-06-03|Adiciona novas alterações do Project Libre relazionadas a gestão do tempo para as atividades
+2025-06-03|Adiciona novas alterações do Project Libre relazionadas a gestão do tempo para as atividades
+2025-06-03|Novamente atualizando o pdf da documentação
+2025-06-03|Atualizando o pdf da documentação
+2025-06-03|Adicionando na pasta Imagens uma outra opção de Diagrama de Componentes 2-3005Componentes.png
+2025-06-03|Removendo Imagens de Diagramas/Modelagens desatualizadas na pasta Imagens
+2025-06-03|Adicionando o .tex da documentação atualizado
+2025-06-03|Remover venv do controle de versao
+2025-06-03|Corrige pequeno erro de digitação no Diário
+2025-06-02|Adiciona novas alterações nos recursos humanos e materiais
+2025-06-02|Adiciona as partes do quadro do product backlog
+2025-06-02|Merge branch 'main' of https://github.com/guilhermebschmidt/SistemaWebGestaoPousada
+2025-06-02|Adiciona novas tarefas no ProjectLibre referentes ao próximo semestre
+2025-06-02|Merge branch 'main' of github.com:guilhermebschmidt/SistemaWebGestaoPousada
+2025-06-02|Adicionando na pasta Imagens o DER
+2025-06-02|Adiciona o diário de bordo na pasta Projeto
+2025-06-02|"Adiciona o diário de bordo do projeto"
+2025-05-31|Adiciona os arquivos png dos quadros referentes a divisão das funções do projeto e do time scrum
+2025-05-31|Renomeia a pasta 'desenv_projeto' para 'quadros_tabelas' e move o arquivo tecnologias_recursos.txt da pasta 'quadros_tabelas' para a pasta 'rascunhos'
+2025-05-31|Adiciona o arquivo png atualizado do Diagrama de Implantação e retira o diagrama desatualizado
+2025-05-31|Adicionando na pasta Imagens o Diagrama de Componentes e o MER atualizados
+2025-05-31|Adicionando o .pdf e o .tex da documentação
+2025-05-31|Adicionando arquivos .png das tabelas referentes as regras de negócio e aos requisitos funcionais
+2025-05-30|Adiciona as partes do arquivo da tabela de requisitos não funcionais atualizadas
+2025-05-30|Adiciona novas atualizações no arquivo de gestão de tarefas com adição de novas atividades
+2025-05-29|Renomeia a pasta 'ProjectLibre' para 'Projeto'
+2025-05-29|Merge branch 'main' of https://github.com/guilhermebschmidt/SistemaWebGestaoPousada
+2025-05-29|Adiciona copia das partes da tabela do questionario com alteração de cor
+2025-05-28|Adicionando rascunho do texto sobre as teconlogias e recursos usados no projeto
+2025-05-27|Adiciona arquivo .pod com atualização das tarefas realizadas
+2025-05-27|Adiciona as tabelas referentes ao questionário aplicado à proprietaria
+2025-05-27|Adiciona nova pasta na Documentação para armazenar arquivos que irão compor o LaTeX
+2025-05-26|gitignore
+2025-05-26|gitignore
+2025-05-25|Merge branch 'dev' of https://github.com/guilhermebschmidt/SistemaWebGestaoPousada into dev
+2025-05-25|ajustes layout base, urls padronizadas, tema de cores do usuario e arquivos estaticos
+2025-05-25|Update README.md
+2025-05-25|tailwindcss e daisyui configurados
+2025-05-25|Update README.md
+2025-05-25|readme
+2025-05-25|readme e config projeto local
+2025-05-22|ajustes venv, postgres
+2025-05-22|ajustes venv, postgres
+2025-05-20|ajustes
+2025-05-20|ajustes venv e setup produção
+2025-05-20|ajustes venv servidor
+2025-05-19|funcionando
+2025-05-18|com erro no hospede
+2025-05-07|Adicionando o modelo conceitual na pasta Imagens
+2025-05-07|Adição do diagrama de implantação e arquivo .pod do ProjectLibre
+2025-05-05|teste
+2025-05-05|Adicionando os diretórios do projeto
