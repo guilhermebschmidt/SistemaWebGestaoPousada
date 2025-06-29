@@ -62,12 +62,13 @@
 \contentsline {subsection}{\numberline {4.5.3}Visual Paradigm Online}{64}{subsection.4.5.3}%
 \contentsline {subsection}{\numberline {4.5.4}Latex}{64}{subsection.4.5.4}%
 \contentsline {subsection}{\numberline {4.5.5}Google Meet}{64}{subsection.4.5.5}%
-\contentsline {section}{\numberline {4.6}Manutenibilidade}{64}{section.4.6}%
+\contentsline {subsection}{\numberline {4.5.6}ProjectLibre}{64}{subsection.4.5.6}%
+\contentsline {section}{\numberline {4.6}Manutenibilidade}{65}{section.4.6}%
 \contentsline {section}{\numberline {4.7}Segurança, Privacidade e Legislação}{65}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Segurança da Aplicação}{65}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.1}Segurança da Aplicação}{66}{subsection.4.7.1}%
 \contentsline {subsection}{\numberline {4.7.2}Segurança na Comunicação}{66}{subsection.4.7.2}%
 \contentsline {subsubsection}{\numberline {4.7.2.1}Conformidade com a LGPD}{66}{subsubsection.4.7.2.1}%
-\contentsline {section}{\numberline {4.8}Modelagem do Banco de Dados}{66}{section.4.8}%
+\contentsline {section}{\numberline {4.8}Modelagem do Banco de Dados}{67}{section.4.8}%
 \contentsline {subsection}{\numberline {4.8.1}Modelo Entidade-Relacionamento - MER}{67}{subsection.4.8.1}%
 \contentsline {subsection}{\numberline {4.8.2}Diagrama Entidade-Relacionamento - DER}{67}{subsection.4.8.2}%
 \contentsline {section}{\numberline {4.9}Repositório da Aplicação}{68}{section.4.9}%
@@ -75,8 +76,8 @@
 \contentsline {section}{\numberline {4.10}Entregas}{70}{section.4.10}%
 \contentsline {subsection}{\numberline {4.10.1}Desenvolvimento de um Tema - 08/04}{70}{subsection.4.10.1}%
 \contentsline {subsection}{\numberline {4.10.2}Desenho da Aplicação - 29/04}{70}{subsection.4.10.2}%
-\contentsline {subsection}{\numberline {4.10.3}Prova de Conceito - 20/05}{70}{subsection.4.10.3}%
-\contentsline {subsection}{\numberline {4.10.4}Análise e Documentação - 10/06}{70}{subsection.4.10.4}%
+\contentsline {subsection}{\numberline {4.10.3}Prova de Conceito - 20/05}{71}{subsection.4.10.3}%
+\contentsline {subsection}{\numberline {4.10.4}Análise e Documentação - 10/06}{71}{subsection.4.10.4}%
 \contentsline {subsection}{\numberline {4.10.5}Produto Mínimo Viável - 24/06}{71}{subsection.4.10.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Viabilidade Financeira}}{72}{chapter.5}%
