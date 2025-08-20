@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.30)  1 JUL 2025 12:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.30)  20 AUG 2025 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1866,7 +1866,7 @@ Overfull \hbox (1.07664pt too wide) in paragraph at lines 1602--1603
  []
 
 [53] [54] [55] [56] [57] [58]
-<Diagrama de Implantação- Digitalização da Pousada.JPEG, id=676, 749.04843p
+<Diagrama de Implantação- Digitalização da Pousada.JPEG, id=680, 749.04843p
 t x 873.2625pt>
 File: Diagrama de Implantação- Digitalização da Pousada.JPEG Graphic file (
 type jpg)
@@ -1875,7 +1875,7 @@ Package pdftex.def Info: Diagrama de Implantação- Digitalização da Pousada.
 JPEG  used on input line 1778.
 (pdftex.def)             Requested size: 452.9679pt x 528.09225pt.
  [59]
-<0406-Componentes.png, id=684, 1071.00125pt x 745.78625pt>
+<0406-Componentes.png, id=688, 1071.00125pt x 745.78625pt>
 File: 0406-Componentes.png Graphic file (type png)
 <use 0406-Componentes.png>
 Package pdftex.def Info: 0406-Componentes.png  used on input line 1787.
@@ -1898,12 +1898,12 @@ has been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.1802 
         <./0406-Componentes.png>] [62] [63] [64] [65] [66]
-<0406-MER.jpg, id=758, 1099.10625pt x 500.87125pt>
+<0406-MER.jpg, id=762, 1099.10625pt x 500.87125pt>
 File: 0406-MER.jpg Graphic file (type jpg)
 <use 0406-MER.jpg>
 Package pdftex.def Info: 0406-MER.jpg  used on input line 1906.
 (pdftex.def)             Requested size: 452.9679pt x 206.42087pt.
-<0406-DER.jpg, id=760, 1079.03125pt x 449.68pt>
+<0406-DER.jpg, id=764, 1079.03125pt x 449.68pt>
 File: 0406-DER.jpg Graphic file (type jpg)
 <use 0406-DER.jpg>
 Package pdftex.def Info: 0406-DER.jpg  used on input line 1915.
@@ -2002,15 +2002,79 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 ] [83
 
-] [84] [85] [86] [87
+] [84] [85] [86]
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2597--2597
+[]|\T1/lmr/bx/n/14.4 (-20) Item| 
+ []
+
+
+Underfull \hbox (badness 4144) in paragraph at lines 2598--2598
+\T1/lmr/m/n/14.4 (+20) le-fone, What-sApp, pes-so-al-
+ []
+
+
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2615--2615
+[]|\T1/lmr/bx/n/14.4 (-20) Item| 
+ []
+
+
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2620--2620
+[]|\T1/lmr/bx/n/14.4 (-20) Item| 
+ []
+
+
+Underfull \hbox (badness 1558) in paragraph at lines 2623--2623
+[]|\T1/lmr/m/n/14.4 (+20) Quem re-a-liza o check-in e
+ []
+
+
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2637--2637
+[]|\T1/lmr/bx/n/14.4 (-20) Item| 
+ []
+
+
+Underfull \hbox (badness 2538) in paragraph at lines 2639--2639
+[]|\T1/lmr/m/n/14.4 (+20) A pou-sada pos-sui quan-tos
+ []
+
+
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2646--2646
+[]|\T1/lmr/bx/n/14.4 (-20) Item| 
+ []
+
+
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2654--2654
+[]|\T1/lmr/bx/n/14.4 (-20) Item| 
+ []
+
+[87
 
 ]
-Overfull \vbox (15.60303pt too high) has occurred while \output is active []
+Underfull \hbox (badness 1616) in paragraph at lines 2671--2671
+[]|\T1/lmr/m/n/14.4 (+20) � ne-ces-s�-rio ge-rar com-pro-
+ []
 
 
-[88]
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2674--2674
+[]|\T1/lmr/bx/n/14.4 (-20) Item| 
+ []
+
+
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2679--2679
+[]|\T1/lmr/bx/n/14.4 (-20) Item| 
+ []
+
+
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2687--2687
+[]|\T1/lmr/bx/n/14.4 (-20) Item| 
+ []
+
+[88] [89]
+Overfull \vbox (1.26584pt too high) has occurred while \output is active []
+
+
+[90]
 No file abntex2-modelo-trabalho-academico.ind.
-[89]
 \tf@lof=\write7
 \openout7 = `abntex2-modelo-trabalho-academico.lof'.
 
@@ -2023,7 +2087,7 @@ No file abntex2-modelo-trabalho-academico.ind.
 \tf@toc=\write10
 \openout10 = `abntex2-modelo-trabalho-academico.toc'.
 
- (abntex2-modelo-trabalho-academico.aux)
+(abntex2-modelo-trabalho-academico.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2020/03/25>
@@ -2037,11 +2101,11 @@ ot changed.
 (rerunfilecheck)             Checksum: E1E436069456789EE406CB9DCA4BF5F4;2486.
  ) 
 Here is how much of TeX's memory you used:
- 42958 strings out of 474486
- 949343 string characters out of 5743755
+ 42994 strings out of 474486
+ 949773 string characters out of 5743755
  1965542 words of memory out of 5000000
- 63915 multiletter control sequences out of 15000+600000
- 646545 words of font info for 217 fonts, out of 8000000 for 9000
+ 63921 multiletter control sequences out of 15000+600000
+ 650829 words of font info for 232 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,20n,107p,1215b,2278s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pf
@@ -2056,10 +2120,10 @@ b><C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb
 ><C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb
 ><C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.p
 fb>
-Output written on abntex2-modelo-trabalho-academico.pdf (90 pages, 1039854 byte
+Output written on abntex2-modelo-trabalho-academico.pdf (91 pages, 1045010 byte
 s).
 PDF statistics:
- 1429 PDF objects out of 1440 (max. 8388607)
- 343 named destinations out of 1000 (max. 500000)
- 54121 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 1437 PDF objects out of 1440 (max. 8388607)
+ 345 named destinations out of 1000 (max. 500000)
+ 56169 words of extra memory for PDF output out of 61914 (max. 10000000)
 
