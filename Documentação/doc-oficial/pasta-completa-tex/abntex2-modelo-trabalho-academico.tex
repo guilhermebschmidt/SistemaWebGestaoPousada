@@ -73,7 +73,10 @@
 \usepackage{adjustbox}
 \usepackage{ragged2e}
 \usepackage{tabularx}
+\usepackage{caption}
 \usepackage{array}
+\usepackage{chngcntr}
+\usepackage{tocloft}
 \usepackage{booktabs} % para tabelas com linhas bonitas
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
@@ -81,6 +84,8 @@
 \usepackage{lipsum}				% para geração de dummy text
 \usepackage{placeins}
 \usepackage{multirow}
+
+
 % ---
 
 % ---
@@ -115,7 +120,7 @@
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
 \titulo{Pousada Chalés Água de Coco}
-\autor{ANNA JULIA LIMA DE SOUSA SP3024016\\ GUILHERME AKIO MIURA SP3120791\\ GUILHERME BITTENCOURT SCHMIDT SP313640X\\KELLY RADCHELLE ARAUJO DE SOUZA SP3123588\\RAFAEL TEIXEIRA FONSECA SP3126919\\ RICARDO CARRIEL DE OLIVEIRA FILHO SP3136728}
+\autor{ GUILHERME AKIO MIURA SP3120791\\ GUILHERME BITTENCOURT SCHMIDT SP313640X\\KELLY RADCHELLE ARAUJO DE SOUZA SP3123588\\RAFAEL TEIXEIRA FONSECA SP3126919\\ RICARDO CARRIEL DE OLIVEIRA FILHO SP3136728}
 \local{São Paulo - SP - Brasil}
 \data{2025}
 \orientador{Marcelo Tavares de Santana}
@@ -173,6 +178,7 @@ curso Tecnologia em Análise e Desenvolvimento de Sistemas.
 % Possibilita criação de Quadros e Lista de quadros.
 % Ver https://github.com/abntex/abntex2/issues/176
 %
+% ---
 \newcommand{\quadroname}{Quadro}
 \newcommand{\listofquadrosname}{Lista de quadros}
 
@@ -184,12 +190,14 @@ curso Tecnologia em Análise e Desenvolvimento de Sistemas.
 \newlistentry{quadro}{loq}{0}
 
 % configurações para atender às regras da ABNT
+\captionsetup[quadro]{position=top}
 \setfloatadjustment{quadro}{\centering}
 \counterwithout{quadro}{chapter}
 \renewcommand{\cftquadroname}{\quadroname\space} 
 \renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
-
-\setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
+\setfloatlocations{quadro}{hbtp} % Ver
+%https://github.com/abntex/abntex2/issues/176
+% --- 
 % ---
 
 % --- 
@@ -661,7 +669,6 @@ A divisão das funções e responsabilidades foi realizada de maneira estratégi
 			|>{\raggedright\arraybackslash}m{6.7cm}|}
 		\hline
 		\textbf{Integrante} & \textbf{Função} & \textbf{Responsabilidades} \\ \hline
-		Anna Julia & Analista de Cronograma & Criar, manter e monitorar o cronograma do projeto, além de oferecer suporte às práticas de gestão. \\ \hline
 		Guilherme Akio & Engenheiro de Dados (DBA) & Implementar, administrar e otimizar o banco de dados da aplicação, garantindo integridade, segurança e performance dos dados. \\ \hline
 		Guilherme Bittencourt & Documentador Técnico e Engenheiro de Software & Criar e manter a documentação técnica com clareza e acessibilidade. Definir e organizar a estrutura da aplicação. \\ \hline
 		Kelly Radchelle & Gerente de Projeto & Coordenar a equipe e gerenciar as atividades do projeto, facilitando a tomada de decisões e assegurando a comunicação entre as partes interessadas. \\ \hline
@@ -698,7 +705,7 @@ Diante disso, houve a distribuição dos papeis de um \textit{time scrum} entre 
 		\hline
 		\multirow{2}{*}{\textbf{Integrante}} & \multicolumn{3}{c|}{\textbf{Função}} \\ \cline{2-4}
 		&\textit{Product Owner} & \textit{Scrum Master} & Time de Desenvolvimento \\ \hline 
-		Anna Julia &  & X & \\ \hline Guilherme Akio & & & X \\ \hline Guilherme Bittencourt & & & X \\ \hline Kelly Radchelle & X & & \\ \hline Rafael Teixeira & & & X \\ \hline Ricardo Carriel & & & X \\ \hline
+		 Guilherme Akio & & & X \\ \hline Guilherme Bittencourt & & & X \\ \hline Kelly Radchelle & X & & \\ \hline Rafael Teixeira & & & X \\ \hline Ricardo Carriel & & & X \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -1132,7 +1139,8 @@ As regras de negócio são diretrizes que delimitam as relações entre os objet
 Por isso, o levantamento das regras de negócio da Pousada (\autoref{quadro_rn_1}) Chalés Água de Coco, resultado da análise das respostas fornecidas pela proprietária ao questionário aplicado e da analise do site institucional da pousada \cite{pousada_chales_agua_de_coco} pela equipe, foi fundamental para orientar a modelagem e o desenvolvimento das funcionalidades do sistema. Além de assegurar que a aplicação atenda as necessidades da pousada de forma coerente, segura  e eficiente, e apoiar, no contexto de sua gestão, os processos de tomada de decisão. \\
 %
 \begin{quadro}[H]
-	\caption{\label{quadro_rn_1}Regras de Negócio- Parte 1}
+	\caption{Questionário Aplicado à Proprietária – Parte 1}
+	\label{quadro_rn_1}
 	\begin{tabular}{|>{\centering\arraybackslash}p{3cm}|p{11cm}|}
 		\hline
 		\textbf{Regra} & \textbf{Descrição}  \\ \hline	
@@ -1141,14 +1149,13 @@ Por isso, o levantamento das regras de negócio da Pousada (\autoref{quadro_rn_1
 		RN03 & As reservas devem ser registradas com, no mínimo, 2 dias de antecedência da data de entrada.  \\ \hline
 		RN04 & Um mesmo hóspede pode ter mais de uma reserva ativa.   \\ \hline
 		RN05 & Para efetuar uma reserva, os seguintes dados do hóspede são obrigatórios: nome completo, endereço completo, CPF, telefone e e-mail   \\ \hline
-		RN06 & Um responsável pode realizar reservas em nome de outros hóspedes.   \\ \hline
-		RN07 & Cada quarto deve ter um número máximo de hóspedes.   \\ \hline
-		RN08 & Os horários padrão de \textit{check-in} e \textit{check-out} são: \textit{check-in} das 16h às 22h; \textit{check-out} das 8h às 14h. Em períodos de temporada os horários mudam para: \textit{check-in} das 15h às 22h; \textit{check-out} das 8h às 11h.\\ \hline
-		RN09 & A emissão de recibos ou comprovantes após check-in/out não é obrigatória.   \\ \hline
-		RN10 & Um quarto pode ficar indisponível para manutenção.   \\ \hline
-		RN11 & É permitido reservar um mesmo quarto para hóspedes diferentes em datas seguidas.   \\ \hline
-		RN12 & Não há oferta de serviços adicionais vinculados à reserva.   \\ \hline
-		RN13 & São aceitas as formas de pagamento: Pix, dinheiro e cartão (com taxa da operadora).   \\ \hline
+		RN06 & Cada quarto deve ter um número máximo de hóspedes.   \\ \hline
+		RN07 & Os horários padrão de \textit{check-in} e \textit{check-out} são: \textit{check-in} das 16h às 22h; \textit{check-out} das 8h às 14h. Em períodos de temporada os horários mudam para: \textit{check-in} das 15h às 22h; \textit{check-out} das 8h às 11h.\\ \hline
+		RN08 & A emissão de recibos ou comprovantes após check-in/out não é obrigatória.   \\ \hline
+		RN09 & Um quarto pode ficar indisponível para manutenção.   \\ \hline
+		RN10 & É permitido reservar um mesmo quarto para hóspedes diferentes em datas seguidas.   \\ \hline
+		RN11 & Não há oferta de serviços adicionais vinculados à reserva.   \\ \hline
+		RN12 & São aceitas as formas de pagamento: Pix, dinheiro e cartão (com taxa da operadora).   \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -1158,11 +1165,11 @@ Por isso, o levantamento das regras de negócio da Pousada (\autoref{quadro_rn_1
 	\begin{tabular}{|>{\centering\arraybackslash}p{3cm}|p{11cm}|}
 		\hline
 		\textbf{Regra} & \textbf{Descrição}  \\ \hline	
-		RN14 & Deve ser enviada a confirmação da reserva para o cliente com todos os dados necessários.   \\ \hline
-		RN15 & Apenas a proprietária deve acessar as informações dos hóspedes e reservas.   \\ \hline
-		RN16 & As tarifas das reservas podem sofrer alterações conforme: demanda, datas especiais, período de antecedência da reserva, quantidade de diárias, tipo de acomodação e quantidade de pessoas.   \\ \hline
-		RN17 & São permitidos \textit{early check-in} e \textit{late check-out} com cobrança de tarifas adicionais.   \\ \hline
-		RN18 & Toda a gestão financeira da pousada deve ser realizada dentro do sistema web de gestão.   \\ \hline
+		RN13 & Deve ser enviada a confirmação da reserva para o cliente com todos os dados necessários.   \\ \hline
+		RN14 & Apenas a proprietária deve acessar as informações dos hóspedes e reservas.   \\ \hline
+		RN15 & As tarifas das reservas podem sofrer alterações conforme: demanda, datas especiais, período de antecedência da reserva, quantidade de diárias, tipo de acomodação e quantidade de pessoas.   \\ \hline
+		RN16 & São permitidos \textit{early check-in} e \textit{late check-out} com cobrança de tarifas adicionais.   \\ \hline
+		RN17 & Toda a gestão financeira da pousada deve ser realizada dentro do sistema web de gestão.   \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -1180,15 +1187,14 @@ Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviç
 	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
 		\hline
 		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF01 & A aplicação deve possuir um sistema de login para a proprietária acessar a aplicação de forma segura & Alta & RN15 \\ \hline
-		RF02 & O sistema deve permitir que a proprietária altere sua senha de acesso  & Alta & RN15 \\ \hline
-		RF03 & O sistema deve permitir que a proprietária recupere sua senha via \textit{e-mail} & Alta & RN15 \\ \hline
-		RF04 & O sistema deve permitir o cadastro de novas reservas, associando um quarto a um período (data de \textit{check-in} e \textit{check-out}) & Alta & RN04; RN11 \\ \hline
+		RF01 & A aplicação deve possuir um sistema de login para a proprietária acessar a aplicação de forma segura & Alta & RN14 \\ \hline
+		RF02 & O sistema deve permitir que a proprietária altere sua senha de acesso  & Alta & RN14 \\ \hline
+		RF03 & O sistema deve permitir que a proprietária recupere sua senha via \textit{e-mail} & Alta & RN14\\ \hline
+		RF04 & O sistema deve permitir o cadastro de novas reservas, associando um quarto a um período (data de \textit{check-in} e \textit{check-out}) & Alta & RN04; RN10 \\ \hline
 		RF05 & O sistema deve permitir a edição de reservas já cadastradas & Alta & RN02 \\ \hline
-		RF06 & O sistema deve impedir o cadastro de reservas que não estejam associadas a quartos disponíveis & Alta & RN07; RN10 \\ \hline
+		RF06 & O sistema deve impedir o cadastro de reservas que não estejam associadas a quartos disponíveis & Alta & RN06; RN09 \\ \hline
 		RF07 & O sistema deve exigir os dados pessoais do hóspede para que a reserva seja cadastrada: nome completo, endereço completo, CPF/Passaporte, telefone e e-mail & Alta & RN05 \\ \hline
-		RF08 & O sistema deve permitir que a proprietária reserve quartos para um hóspede em nome de outra pessoa responsável, registrando os dados do hóspede e do responsável & Média & RN06 \\ \hline
-		RF09 & O sistema deve exigir o pagamento de 50\% do valor da estadia para confirmar o cadastro da reserva (a ser pago no momento da reserva ou em um prazo definido) & Média & RN01;RN13 \\ \hline
+		RF08 & O sistema deve exigir o pagamento de 50\% do valor da estadia para confirmar o cadastro da reserva (a ser pago no momento da reserva ou em um prazo definido) & Média & RN01;RN12 \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -1199,16 +1205,16 @@ Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviç
 	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
 		\hline
 		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF10 & O sistema deve permitir o registro de pagamento da reserva (forma, valor, data) & Média & RN01;RN13 \\ \hline
-		RF11 & A proprietária deve conseguir cancelar ou alterar uma reserva, com possível registro do motivo & Média & RN02 \\ \hline
-		RF12 & A proprietária deve conseguir cadastrar mais de uma reserva no nome de um mesmo hóspede & Média & RN04 \\ \hline
-		RF13 & A proprietária deve conseguir reservar um mesmo quarto para diferentes clientes em datas seguidas, respeitando os horários de \textit{check-in} e \textit{check-out} configurados para o quarto & Alta & RN08; RN11\\ \hline
-		RF14 & A proprietária deve conseguir acessar o histórico de reservas de um hóspede & Média & RN04 \\ \hline
-		RF15 & O sistema deve permitir configurar tarifas de reserva com base nas regras de negócio da pousada & Média & RN16 \\ \hline
-		RF16 & O sistema deve enviar uma notificação para o hóspede via \textit{e-mail} após a confirmação da reserva & Baixa & RN14 \\ \hline
-		RF17 & O sistema deve impedir o registro de reservas com menos de 2 dias de antecedência da data do \textit{check-in} & Média & RN03 \\ \hline
-		RF18 & O sistema deve permitir  a edição dos dados de hóspedes já cadastrados & Média & RN05 \\ \hline 
-		RF19 & A proprietária deve poder fazer o cadastro de quartos, incluindo informações como número/nome do quarto, capacidade (número de hóspedes), tipo (ex: chalé, simples solteiro, simples casal, etc.), e preço por noite & Alta & RN07; RN10
+		RF09 & O sistema deve permitir o registro de pagamento da reserva (forma, valor, data) & Média & RN01;RN12 \\ \hline
+		RF10 & A proprietária deve conseguir cancelar ou alterar uma reserva, com possível registro do motivo & Média & RN02 \\ \hline
+		RF11 & A proprietária deve conseguir cadastrar mais de uma reserva no nome de um mesmo hóspede & Média & RN04 \\ \hline
+		RF12 & A proprietária deve conseguir reservar um mesmo quarto para diferentes clientes em datas seguidas, respeitando os horários de \textit{check-in} e \textit{check-out} configurados para o quarto & Alta & RN07; RN10\\ \hline
+		RF13 & A proprietária deve conseguir acessar o histórico de reservas de um hóspede & Média & RN04 \\ \hline
+		RF14 & O sistema deve permitir configurar tarifas de reserva com base nas regras de negócio da pousada & Média & RN15 \\ \hline
+		RF15 & O sistema deve enviar uma notificação para o hóspede via \textit{e-mail} após a confirmação da reserva & Baixa & RN13 \\ \hline
+		RF16 & O sistema deve impedir o registro de reservas com menos de 2 dias de antecedência da data do \textit{check-in} & Média & RN03 \\ \hline
+		RF17 & O sistema deve permitir  a edição dos dados de hóspedes já cadastrados & Média & RN05 \\ \hline 
+		RF18 & A proprietária deve poder fazer o cadastro de quartos, incluindo informações como número/nome do quarto, capacidade (número de hóspedes), tipo (ex: chalé, simples solteiro, simples casal, etc.), e preço por noite & Alta & RN06; RN09
 		\\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
@@ -1219,17 +1225,17 @@ Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviç
 	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
 		\hline
 		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF20 & A proprietária deve conseguir editar as informações dos quartos já cadastrados & Alta & RN07; RN10\\ \hline
-		RF21 & O sistema deve permitir a visualização dos quartos disponíveis no período de tempo selecionado para a reserva & Média & RN07; RN11 \\ \hline
-		RF22 & A proprietária deve conseguir mudar o status de um quarto (ex: disponível, ocupado, em manutenção) manualmente, se necessário & Alta & RN10 \\ \hline
-		RF23 & O sistema deve gerar relatórios de ocupação de quartos em períodos definidos & Média & RN04; RN07; RN08; RN10; RN11 \\ \hline
-		RF24 & O sistema deve mudar o status do quarto quando for realizado o registro do \textit{check-out} & Alta & RN08; RN10 \\ \hline
-		RF25 & O sistema deve mudar o status do quarto de reservado para ocupado no registro do \textit{check-in} & Alta & RN08; RN10 \\ \hline
-		RF26 & O sistema deve permitir à proprietária configurar os horários padrão de \textit{check-in} e \textit{check-out} & Alta & RN08 \\ \hline
-		RF27 & O sistema deve permitir a geração de recibos ou comprovantes de pagamento e estadia, sob demanda & Média & RN09 \\ \hline
-		RF28 & O sistema deve permitir o registro de \textit{early check-in} e \textit{late check-out} para uma reserva & Média & RN17 \\ \hline
-		RF29 & O sistema deve permitir a configuração de tarifas adicionais para textit{early check-in} e \textit{late check-out} & Média & RN17 \\ \hline
-		RF30 & A proprietária deve poder registrar as despesas da pousada, categorizando-as (ex: manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa & Média & RN18 \\ \hline
+		RF19 & A proprietária deve conseguir editar as informações dos quartos já cadastrados & Alta & RN06; RN09\\ \hline
+		RF20 & O sistema deve permitir a visualização dos quartos disponíveis no período de tempo selecionado para a reserva & Média & RN06; RN10 \\ \hline
+		RF21 & A proprietária deve conseguir mudar o status de um quarto (ex: disponível, ocupado, em manutenção) manualmente, se necessário & Alta & RN09 \\ \hline
+		RF22 & O sistema deve gerar relatórios de ocupação de quartos em períodos definidos & Média & RN04; RN06; RN07; RN09; RN10 \\ \hline
+		RF23 & O sistema deve mudar o status do quarto quando for realizado o registro do \textit{check-out} & Alta & RN07; RN09 \\ \hline
+		RF24 & O sistema deve mudar o status do quarto de reservado para ocupado no registro do \textit{check-in} & Alta & RN07; RN09 \\ \hline
+		RF25 & O sistema deve permitir à proprietária configurar os horários padrão de \textit{check-in} e \textit{check-out} & Alta & RN07 \\ \hline
+		RF26 & O sistema deve permitir a geração de recibos ou comprovantes de pagamento e estadia, sob demanda & Média & RN08 \\ \hline
+		RF27 & O sistema deve permitir o registro de \textit{early check-in} e \textit{late check-out} para uma reserva & Média & RN16 \\ \hline
+		RF28 & O sistema deve permitir a configuração de tarifas adicionais para textit{early check-in} e \textit{late check-out} & Média & RN16 \\ \hline
+		RF29 & A proprietária deve poder registrar as despesas da pousada, categorizando-as (ex: manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa & Média & RN17 \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -1240,16 +1246,16 @@ Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviç
 	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
 		\hline
 		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF31 & A proprietária deve poder registrar receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita & Média & RN18 \\ \hline
-		RF32 & O sistema deve permitir a edição das transações financeiras registradas (receitas e despesas) & Média & RN18 \\ \hline
-		RF33 & O sistema deve permitir a exclusão das transações financeiras registradas & Média & RN18 \\ \hline
-		RF34 & O sistema deve permitir que a proprietária visualize todas as transações financeiras (receitas e despesas) em um determinado período & Média & RN18 \\ \hline
-		RF35 & O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria & Média & RN18 \\ \hline
-		RF36 & O sistema deve gerar relatórios financeiros detalhados automaticamente por período e por categoria & Média & RN18 \\ \hline
-		RF37 & O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo & Média & RN18 \\ \hline
-		RF38 & O sistema deve gerar relatórios de faturamento por período & Média & RN18 \\ \hline
-		RF39 & O sistema deve apresentar um painel (dashboard) com métricas-chave da pousada & Média & Requisito essencial para a gestão e visualização do negócio \\ \hline
-		RF40 & O sistema deve permitir o envio de notificações automáticas à proprietária sobre eventos importantes (ex: \textit{check-ins} iminentes)
+		RF30 & A proprietária deve poder registrar receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita & Média & RN17 \\ \hline
+		RF31 & O sistema deve permitir a edição das transações financeiras registradas (receitas e despesas) & Média & RN17 \\ \hline
+		RF32 & O sistema deve permitir a exclusão das transações financeiras registradas & Média & RN17 \\ \hline
+		RF33 & O sistema deve permitir que a proprietária visualize todas as transações financeiras (receitas e despesas) em um determinado período & Média & RN17 \\ \hline
+		RF34 & O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria & Média & RN17 \\ \hline
+		RF35 & O sistema deve gerar relatórios financeiros detalhados automaticamente por período e por categoria & Média & RN17 \\ \hline
+		RF36 & O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo & Média & RN17 \\ \hline
+		RF37 & O sistema deve gerar relatórios de faturamento por período & Média & RN17 \\ \hline
+		RF38 & O sistema deve apresentar um painel (dashboard) com métricas-chave da pousada & Média & Requisito essencial para a gestão e visualização do negócio \\ \hline
+		RF39 & O sistema deve permitir o envio de notificações automáticas à proprietária sobre eventos importantes (ex: \textit{check-ins} iminentes)
 		& Baixa & Requisito de suporte à gestão operacional \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
