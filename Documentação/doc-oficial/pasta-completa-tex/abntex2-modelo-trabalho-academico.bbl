@@ -63,6 +63,11 @@ Dispon{\'\i}vel em: \url{https://pousadachalesaguadecoco.com.br/}.}
 {DUCKETT. \emph{HTML and CSS: Design and Build Websites}. [S.l.]: Wiley, 2011.
 ISBN 9781118008188.}
 
+\bibitem[{ENAP} 2014]{enap2014}
+\abntrefinfo{{ENAP}}{{ENAP}}{2014}
+{{ENAP}. \emph{Formação profissional e desenvolvimento gerencial}. Brasília,
+  DF: ENAP, 2014. 6~p. Diretoria de Comunicação e Pesquisa.}
+
 \bibitem[ENEL 2025]{enel-tarifa}
 \abntrefinfo{ENEL}{ENEL}{2025}
 {ENEL. \emph{Tarifa de Energia Elétrica}. 2025.
@@ -124,11 +129,6 @@ Dispon{\'\i}vel em: \url{https://www.ibm.com/br-pt/topics/business-rules}.}
 {{LATEX}. \emph{LaTeX - A document preparation system}.
 [S.l.], 2024. Acessado em 7 de junho de 2025. Dispon{\'\i}vel em:
   \url{https://www.latex-project.org/}.}
-
-\bibitem[Laudon e Laudon 2020]{laudon2020sistemas}
-\abntrefinfo{Laudon e Laudon}{LAUDON; LAUDON}{2020}
-{LAUDON, K.~C.; LAUDON, J.~P. \emph{Sistemas de Informação Gerenciais}. 16.
-  ed. São Paulo: Pearson, 2020.}
 
 \bibitem[Martins e Gondim 2011]{martins2011}
 \abntrefinfo{Martins e Gondim}{MARTINS; GONDIM}{2011}
@@ -196,11 +196,6 @@ Disponível em: \url{https://docs.python.org/3/}. Acesso em: 7 jun. 2025.}
   Https://github.com/guilhermebschmidt/SistemaWebGestaoPousada.git.
 Acesso em: 9 jun. 2025.}
 
-\bibitem[Stair e Reynolds 2020]{stair2020principios}
-\abntrefinfo{Stair e Reynolds}{STAIR; REYNOLDS}{2020}
-{STAIR, R.; REYNOLDS, G. \emph{Princípios de Sistemas de Informação}. 13.
-  ed. São Paulo: Cengage Learning, 2020.}
-
 \bibitem[TOTVS 2024]{totvs}
 \abntrefinfo{TOTVS}{TOTVS}{2024}
 {TOTVS. \emph{Digitalizacao no setor hoteleiro: os beneficios da tecnologia}.
@@ -208,11 +203,6 @@ Acesso em: 9 jun. 2025.}
 Acessado em 29 de agosto de 2025.
 Dispon{\'\i}vel em:
   \url{https://www.totvs.com/blog/gestao-hoteleira/digitalizacao-no-setor-hoteleiro/}.}
-
-\bibitem[Turban, Pollard e Wood 2018]{turban2018sistemas}
-\abntrefinfo{Turban, Pollard e Wood}{TURBAN; POLLARD; WOOD}{2018}
-{TURBAN, E.; POLLARD, C.; WOOD, G. \emph{Sistemas de Informação: Uma
-  Abordagem Gerencial}. 9. ed. Porto Alegre: Bookman, 2018.}
 
 \bibitem[VISUAL-PARADIGM 2024]{visual-paradigm}
 \abntrefinfo{VISUAL-PARADIGM}{VISUAL-PARADIGM}{2024}

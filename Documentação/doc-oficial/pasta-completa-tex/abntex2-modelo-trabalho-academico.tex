@@ -1140,13 +1140,23 @@ Portanto, dado seu caráter fiscalizatório, a aplicação dos mecanismos de  ge
 % ---
 \chapter{Desenvolvimento do Projeto}Nesta seção são detalhadas as tecnologias, ferramentas e práticas adotadas para o desenvolvimento da aplicação \textit{web} de gestão dos processos da pousada Chalés Água de Coco.
 \section{Escopo do Projeto}
-Esse projeto visa automatizar os processos de gestão de reservas, quartos, hóspedes, finanças e produção de relatórios da pousada, com o objetivo de proporcionar à proprietária uma ferramenta eficiente e organizada para a realização de todas as operações essenciais do seu negócio. Além disso, busca mitigar os riscos associados ao modelo atual de administração, caracterizado por uma alta vulnerabilidade a erros humanos, dificuldade de atualização em tempo real e ausência de acessibilidade remota, decorrentes do seu caráter predominantemente manual.
+De acordo com a Escola Nacional de Administração Pública \cite[p. 6]{enap2014}, “o escopo do projeto são as necessidades das partes interessadas que devem ser atendidas ao final do projeto”. Dessa forma, o escopo tem a função de delimitar o trabalho a ser desenvolvido, definindo claramente o que será ou não contemplado pelo projeto. 
 
-O escopo deste projeto prevê que o produto final seja constituído por funcionalidades organizadas em cinco módulos principais: módulo de gestão de reservas, módulo de gestão de hóspedes, módulo de gestão de quartos, módulo de gestão financeira e painel administrativo. Com uma interface intuitiva e integrada e desenvolvido exclusivamente para o uso de uma única usuária: a proprietária da pousada. Sendo que, como MVP, foram desenvolvidas funcionalidades relacionadas a gestão de reservas e ao \textit{check-in} e \textit{check-out}.
+Nesse contexto, o presente tópico delimita o sistema web de gestão desenvolvido para a Pousada Chalés Água de Coco, descrevendo suas funcionalidades, requisitos e restrições, os quais foram identificados pela equipe responsável por meio de um questionário aplicado à proprietária, com o objetivo de compreender as regras de negócio e levantar os requisitos funcionais e não funcionais do sistema.
 
-No entanto, o escopo do projeto não abrange funcionalidades como a integração da aplicação com sistemas de pagamento ou serviços de hospedagem. Ainda que não exclua a possibilidade de que, em etapas futuras, o sistema seja atualizado para a implementação de integrações com serviços de mensageria, com o objetivo de ampliar a automação dos serviços da pousada.
+\subsection{Funcionalidades do Sistema}
+O escopo deste projeto define que o produto final é composto por funcionalidades organizadas em cinco módulos principais:
 
-Por fim, Para a definição do escopo, a equipe responsável aplicou um conjunto de perguntas à proprietária com o objetivo de compreender as regras de negócio e realizar o levantamento dos requisitos, funcionais e não funcionais, do sistema. 
+\begin{itemize}
+	\item  Gestão de Acesso:   funcionalidades de \textit{login} e \textit{logout} da administradora, garantindo acesso seguro e restrito ao sistema.
+	\item  Gestão Financeira: controle de pagamentos, movimentação de receitas e despesas, além da geração de relatórios financeiros básicos para suporte à administração da pousada.
+	\item  Gestão de Hóspedes: cadastro, atualização e consulta de informações dos hóspedes, incluindo histórico de hospedagem.
+	\item  Gestão de Quartos: cadastro, edição, exclusão e monitoramento da ocupação dos quartos, assegurando a atualização de disponibilidade correta em tempo real.
+	\item  Gestão de Reservas: cadastro, edição, cancelamento de reservas e gerenciamento de \textit{check-in} e \textit{check-out}, garantindo o controle completo do fluxo de hospedagem.
+\end{itemize}
+
+Estas funcionalidades atuam de forma integrada, através de uma interface intuitiva, desenvolvida exclusivamente para o uso de uma única usuária: a proprietária da pousada. Nesse contexto, a aplicação não contempla funcionalidades de controle de níveis de acesso, integrações com sistemas de pagamento ou plataformas de hospedagem. Entretanto, não se exclui a possibilidade de que, em etapas futuras, o sistema seja atualizado para incluir integrações com serviços de mensageria, com o objetivo de ampliar a automação dos processos da pousada.
+
 % ---
 % REGRAS DE NEGÓCIO
 \subsection{Regras de Negócio}
