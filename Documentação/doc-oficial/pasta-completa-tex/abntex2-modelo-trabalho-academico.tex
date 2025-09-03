@@ -734,7 +734,7 @@ No Scrum,  os artefatos são elementos que ajudam a equipe a consolidar a transp
 \subsection{Product Backlog}
 No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como uma lista ordenada de todos os itens de trabalho, incluindo funcionalidades e requisitos necessários para a produção do produto, que oferecem o máximo valor e utilidade para o cliente.
 
-Ciente disso, o \textit{product owner} do projeto elaborou o \textit{product backlog} inicial da aplicação web de gestão da pousada Chalés Água de Coco (\autoref{product_backlog}), com base nas histórias de usuário levantadas pela equipe. Isso porque, elas refletem fielmente as necessidades e expectativas da usuária e principal \textit {stakeholder} garantindo que o desenvolvimento em total alinhamento.
+Ciente disso, o \textit{product owner} do projeto elaborou o \textit{product backlog} inicial da aplicação web de gestão da pousada Chalés Água de Coco (\autoref{product_backlog}), com base nas histórias de usuário levantadas pela equipe.  Escolha realizada dada a capacidade dessas histórias de retratarem fielmente as necessidades e expectativas da usuária,  assegurando o caráter utilitário do \textit{product Backlog}.
 %
 \begin{quadro}[H]
 	\caption{Product Backlog - Parte 1}
@@ -742,29 +742,21 @@ Ciente disso, o \textit{product owner} do projeto elaborou o \textit{product bac
 	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\raggedright\arraybackslash}m{3.8cm}|>{\raggedright\arraybackslash}m{2.5cm}|}
 		\hline
 		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\ \hline
-		1 & Definir e configurar ambiente de desenvolvimento & Requisito Técnico   & ALTA    \\ \hline
-		2 & Definir ambiente de hospedagem/publicação & Requisito Técnico & ALTA  \\ \hline
-		3 & Organizar repositório e fluxo Git  & Requisito Técnico & ALTA\\ \hline
-		4 & Levantar requisitos funcionais e não funcionais    & Modelagem de dados & ALTA    \\ \hline
-		5 & Mapear casos de uso & Modelagem de dados   & ALTA  \\ \hline
-		6 & Documentar o levantamento e registrar os requisitos    & Documentação   & ALTA    \\ \hline
-		7 & Criar Modelo Entidade-Relacionamento (MER)    & Modelagem de dados   & ALTA    \\ \hline
-		8 & Criar Diagrama de Entidade-Relacionamento (DER)    & Modelagem de dados   & ALTA    \\ \hline
-		9 & Criar Diagrama de Componentes    & Arquitetura   & ALTA    \\ \hline
-		10 & Criar Diagrama de Implantação    & Arquitetura   & ALTA    \\ \hline
-		11 & Documentar os diagramas produzidos & Documentação &
-		ALTA \\ \hline
-		12 & Configurar ambiente do servidor & Requisito Técnico &
-		ALTA \\ \hline
-		13 & Configurar banco de dados PostgreSQL & Requisito Técnico &
-		ALTA \\ \hline
-		14 & Implementar login e logout de usuário & Autenticação e Segurança & ALTA \\ \hline
-		15 & Criar funcionalidade de cadastro de quartos & Gestão de Quartos & ALTA \\ \hline
-		16 & Criar funcionalidade de exclusão de cadastro de quartos &
-		Gestão de Quartos & MÉDIA \\ \hline
-		17 & Criar funcionalidade de listagem de quartos & Gestão de Quartos & MÉDIA \\ \hline
-		18 & Criar funcionalidade de edição do cadastro de quartos &
-		Gestão de Quartos &	MÉDIA \\ \hline
+		1 & Definir, configurar e organizar ambientes de desenvolvimento e hospedagem & Requisito Técnico   & ALTA    \\ \hline
+		2 & Levantar e documentar requisitos funcionais e não funcionais    & Modelagem de dados & ALTA    \\ \hline
+		3 & Criar e mapear casos de uso e histórias de usuário & Modelagem de dados   & ALTA  \\ \hline
+		4 & Criar Modelo Entidade-Relacionamento (MER) e Diagrama de Entidade-Relacionamento (DER)    & Modelagem de dados   & ALTA    \\ \hline
+		5 & Criar Diagramas de Componentes e de Implantação & Arquitetura & ALTA  \\ \hline
+		6 & Implementar funcionalidades de autenticação de usuário & Autenticação e Segurança & ALTA \\ \hline
+		7 & Implementar funcionalidades de cadastro, edição e exclusão de quartos & Gestão de Quartos & ALTA \\ \hline
+		8 & Implementar funcionalidades de cadastro, edição e exclusão de hóspedes & Gestão de Hóspedes & ALTA \\ \hline
+		9 & Implementar funcionalidades de cadastro, edição e exclusão de reservas &	Gestão de Reservas & ALTA \\ \hline
+		10 & Implementar interfaces  de usuário & Requisito Técnico & ALTA \\ \hline
+		11 & Implementar funcionalidades de {Check-in} e\textit {Check-out} &
+		\textit {Check-in} e \textit {Check-out} &	ALTA \\ \hline
+		12 & Integrar ambientes, \textit{backend} e \textit {frontend} &	Requisito técnico & ALTA \\ \hline
+		13 & Documentar a configuração e o código desenvolvido &
+		Documentação & ALTA \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -775,107 +767,29 @@ Ciente disso, o \textit{product owner} do projeto elaborou o \textit{product bac
 	\begin{tabular}{|c|p{6.5cm}|p{3.8cm}|c|}
 		\hline
 		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline	
-		19 & Criar interfaces para gestão de quartos & Gestão de Quartos & MÉDIA \\ \hline
-		20 & Implementar funcionalidade de alteração manual do status (disponível, indisponível, em manutenção) do quarto & Gestão de Quartos & MÉDIA \\ \hline
-		21 & Criar funcionalidade de cadastro de hóspedes &	Gestão de Hóspedes & ALTA \\ \hline
-		22 & Criar funcionalidade de exclusão do cadastro de hóspedes &
-		Gestão de Hóspedes & MÉDIA \\ \hline
-		23 & Criar funcionalidade de edição do cadastro de hóspedes &
-		Gestão de Hóspedes & MÉDIA \\ \hline
-		24 & Criar interfaces para gestão de hóspedes &	Gestão de Hóspedes & MÉDIA \\ \hline
-		25 & Criar funcionalidade de cadastro de reservas &	Gestão de Reservas & ALTA \\ \hline
-		26 & Criar funcionalidade de exclusão do cadastro de reservas &
-		Gestão de Reservas & ALTA \\ \hline
-		27 & Criar funcionalidade de edição do cadastro de reservas &
-		Gestão de Reservas & ALTA \\ \hline
-		28 & Criar interfaces para gestão de Reservas &	Gestão de Reservas & ALTA \\ \hline
-		29 & Criar funcionalidade para visualização do histórico de reservas por hóspede & Gestão de Reservas &	MÉDIA \\ \hline
-		30 & Criar lógica de validação de disponibilidade de quartos para reservas & Gestão de Reservas & ALTA \\ \hline
-		31 & Implementar atualização automática do status do quarto para “ocupado” após o \textit {check-in} & \textit {Check-in} e \textit {Check-out} & ALTA 
-		\\ \hline
-		32 & Criar funcionalidade de atualização do \textit {check-out} &
-		\textit {Check-in} e \textit {Check-out} &	ALTA \\ \hline
-		33 & Integrar ambientes, \textit{backend} e \textit {frontend} &	Requisito técnico & ALTA \\ \hline
-		34 & Documentar a configuração e o código desenvolvido &
-		Documentação & ALTA \\ \hline
-		35 & Criar funcionalidade de cadastro de receitas &	Gestão Financeira & BAIXA \\ \hline
+		14 & Implementar funcionalidades de cadastro, edição e exclusão de receitas & Gestão Financeira & BAIXA \\ \hline
+		15 & Criar funcionalidade para registrar comprovação de pagamento de reservas &	Gestão Financeira/Gestão de Reservas &
+		BAIXA \\ \hline
+		16 & Implementar funcionalidades de cadastro, edição e exclusão de despesas &
+		Gestão Financeira & BAIXA \\ \hline
+		17 & Implementar funcionalidades de geração de relatórios &
+		Gestão Financeira &	BAIXA \\ \hline
+		18 & Implementar balanço financeiro simples (receitas, despesas, saldo) por período & Gestão Financeira & BAIXA \\ \hline
+		19 & Implementar filtros de visualização de receita/despesa (data, categoria) &	Gestão Financeira & BAIXA \\ \hline
+		20 & implementar envio de notificação (\textit {e-mail}) para hóspede após confirmação da reserva & Notificações &
+		BAIXA \\ \hline
+		21 & Implementar criptografia &	Autenticação e Segurança &
+		BAIXA \\ \hline
+		22 & Definir, executar e documentar plano de testes & Testes & MÉDIA \\ \hline
+		23 & Realizar ajustes de segurança & Autenticação e Segurança
+		& MÉDIA \\ \hline
+		24 & Elaborar e executar o plano de implantação & Implantação & 
+		MÉDIA \\ \hline
+		25 & Treinamento da proprietária da pousada para uso da aplicação &	Implantação & MÉDIA \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 % 
-\begin{quadro}[H]
-	\caption{Product Backlog - Parte 3}
-	\label{product_backlog_3}
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\raggedright\arraybackslash}m{3.8cm}|>{\raggedright\arraybackslash}m{2.5cm}|}
-		\hline
-		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline
-		36 & Criar funcionalidade para registrar comprovação de pagamento de reservas &	Gestão Financeira/Gestão de Reservas &
-		BAIXA \\ \hline
-		37 & Criar funcionalidade de exclusão do cadastro de receitas &
-		Gestão Financeira &	BAIXA \\ \hline
-		38 & Criar funcionalidade de edição do cadastro de receitas &
-		Gestão Financeira &	BAIXA \\ \hline
-		39 & Criar interface para gestão de receitas & Gestão Financeira & BAIXA \\ \hline
-		40 & Criar funcionalidade de cadastro de despesas &
-		Gestão Financeira & BAIXA \\ \hline
-		41 & Criar funcionalidade de exclusão do cadastro de despesas &
-		Gestão Financeira &	BAIXA \\ \hline
-		42 & Criar funcionalidade de edição do cadastro de despesas &
-		Gestão Financeira &	BAIXA \\ \hline   
-		43 & Criar interface para gestão de despesas & Gestão Financeira & BAIXA \\ \hline
-		44 & Criar funcionalidade para criar relatórios de quartos &
-		Gestão Financeira &	BAIXA \\ \hline
-		45 & Criar funcionalidade para criar relatórios de hóspedes &
-		Gestão Financeira &	BAIXA \\ \hline
-		46 & Criar funcionalidade para criar relatórios de reservas &
-		Gestão Financeira &	BAIXA \\ \hline
-		47 & Criar balanço financeiro simples (receitas, despesas, saldo) por período & Gestão Financeira & BAIXA \\ \hline
-		48 & Criar funcionalidade de filtragem de receita/despesa (data, categoria) &	Gestão Financeira & BAIXA \\ \hline
-		49 & implementar envio de notificação (\textit {e-mail}) para hóspede após confirmação da reserva & Notificações &
-		BAIXA \\ \hline
-		50 & Implementar criptografia &	Autenticação e Segurança &
-		BAIXA \\ \hline
-		51 & Definir escopo dos testes & Testes & MÉDIA \\ \hline
-		52 & Identificar cenários de teste & Testes & MÉDIA \\ \hline
-		53 & Elaborar casos de teste & Testes & MÉDIA \\ \hline
-		54 & Definir as ferramentas de teste & Testes &	MÉDIA \\ \hline
-		55 & Estabelecer ambiente de teste & Testes & MÉDIA \\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
-
-\begin{quadro}[H]
-	\caption{Product Backlog - Parte 4}
-	\label{product_backlog_4}
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\raggedright\arraybackslash}m{3.8cm}|>{\raggedright\arraybackslash}m{2.5cm}|}
-		\hline
-		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline
-		56 & Definir critérios de aceitação & Testes & MÉDIA \\ \hline
-		57 & Preparar dados de teste & Testes &	MÉDIA \\ \hline
-		58 & Executar testes gerais & Testes & MÉDIA \\ \hline
-		59 & Executar testes SSL & Testes &	MÉDIA \\ \hline
-		60 & Analisar e otimizar \textit {headers} de segurança &
-		Autenticação e Segurança &	MÉDIA \\ \hline	
-		61 & Realizar ajustes de segurança & Autenticação e Segurança
-		& MÉDIA \\ \hline
-		62 & Documentar resultados dos testes &	Testes & MÉDIA \\ \hline
-		63 & Documentar componentes e estilos & Documentação &
-		ALTA \\ \hline
-		64 & Documentar o plano e a execução de testes & Documentação &
-		MÉDIA \\ \hline
-		65 & Registrar escolhas e mudanças de rumo & Documentação &
-		ALTA \\ \hline
-		66 & Documentar problemas ocorridos e lições aprendidas &
-		Documentação & ALTA \\ \hline
-		67 & Elaborar o plano de implantação & Implantação & 
-		MÉDIA \\ \hline
-		68 & Realizar implantação do sistema & Implantação & MÉDIA \\ \hline
-		69 & Revisão final da documentação técnica & Documentação &
-		ALTA \\ \hline
-		70 & Treinamento da proprietária da pousada para uso da aplicação &	Implantação & MÉDIA \\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
 % ---
 \subsection{Sprint Backlog}
 O \textit{Sprint Backlog} é um plano elaborado pelo time de desenvolvimento, formado por um conjunto de itens selecionados da \textit {product backlog}. Esse plano possui um período de tempo determinado para sua realização, chamado de \textit {sprint}. 
