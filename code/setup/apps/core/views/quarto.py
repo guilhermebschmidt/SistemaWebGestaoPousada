@@ -5,19 +5,12 @@ from ..forms.quarto import QuartoForm
 def index(request):
     return render(request, 'core/quarto/index.html')#, {'quartos': list})
 
-def list(request):
+def listar(request):
     quartos = Quarto.objects.all()
-    return render(request, 'core/quarto/list.html', {'quartos': quartos})
+    return render(request, 'core/quarto/listar.html', {'quartos': quartos})
 
 def form(request, quarto_id=None):
     quarto = get_object_or_404(Quarto, pk=quarto_id) if quarto_id else None
-
-    if quarto:
-        print(f"Valores do quarto (ID: {quarto.id}):")
-        print(f"Número: {quarto.numero}")
-        print(f"Preço: {quarto.preco}")
-        print(f"Status: {quarto.status}")
-        print(f"Descrição: {quarto.descricao}")
 
     if request.method == 'POST':
         form = QuartoForm(request.POST, instance=quarto)
