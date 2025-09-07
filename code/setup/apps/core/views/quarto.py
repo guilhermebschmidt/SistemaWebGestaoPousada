@@ -3,11 +3,11 @@ from ..models.quarto import Quarto
 from ..forms.quarto import QuartoForm
 
 def index(request):
-    return render(request, 'core/quarto/index.html', {'quartoss': quartos})
+    return render(request, 'core/quarto/index.html')#, {'quartos': list})
 
-def quartos(request):
+def list(request):
     quartos = Quarto.objects.all()
-    return render(request, 'core/quarto/quartos.html', {'quartos': quartos})
+    return render(request, 'core/quarto/list.html', {'quartos': quartos})
 
 def form(request, quarto_id=None):
     quarto = get_object_or_404(Quarto, pk=quarto_id) if quarto_id else None
@@ -23,7 +23,7 @@ def form(request, quarto_id=None):
         form = QuartoForm(request.POST, instance=quarto)
         if form.is_valid():
             form.save()
-            return redirect('/quartos/')
+            return redirect('/list/')
     else:
         form = QuartoForm(instance=quarto)
         print("Valores do formulário:")
@@ -44,9 +44,9 @@ def form(request, quarto_id=None):
 def tipos_quarto(request):
     return render(request, 'core/quarto/tipos_quarto.html')
 
-def excluir_quarto(request, quarto_id):
+def excluir(request, quarto_id):
     quarto = get_object_or_404(Quarto, pk=quarto_id)
     if request.method == 'POST':
         quarto.delete()
-        return redirect('core/quarto:quartos')
-    return render(request, 'core/quarto/excluir_quarto.html', {'quarto': quarto})
+        return redirect('core/quarto:list')
+    return render(request, 'core/quarto/excluir.html', {'quarto': quarto})
