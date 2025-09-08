@@ -1143,7 +1143,7 @@ Os requisitos funcionais descrevem as funcionalidades e serviços do sistema \te
 		\\ \hline
 		RF02 & O sistema deve permitir o cadastro de novas reservas, desde que associadas um quarto e a um período (data de \textit{check-in} e \textit{check-out}) disponíveis & Alta & RN04; RN14; RN15; RN16
 		 \\ \hline
-		RF03 & O sistema deve exigir os dados pessoais do hóspede para que a reserva seja cadastrada: nome completo, endereço completo, CPF/Passaporte, telefone e e-mail & Alta & RN02 
+		RF03 & O sistema deve exigir os dados pessoais do hóspede para que a reserva seja cadastrada: nome completo, endereço completo, data de nascimento, CPF/Passaporte, telefone e e-mail & Alta & RN02 
 		\\ \hline
 		RF04& O sistema deve impedir o registro de reservas com menos de 2 dias de antecedência da data do \textit{check-in} & Média & RN04 
 		\\ \hline
@@ -1260,7 +1260,6 @@ Os requisitos não funcionais descrevem, por sua vez, as restrições e caracter
 As histórias de usuário são descrições curtas e informais das funcionalidades esperadas do sistema, sob a perspectiva do usuário final. Dessa forma, elas possuem alto valor para o desenvolvimento do escopo, visto que, auxiliam a equipe a compreender e priorizar as necessidades reais dos usuários. Por isso, foram levantadas e listadas as histórias de usuário para a aplicação web de gestão da Pousada Chalés Água de Coco neste tópico, como parte da definição e organização das funcionalidades do sistema.
 \subsection{Descrição das Histórias de Usuário}
 A seguir, apresentam-se a as descrições das histórias de usuário levantadas para o desenvolvimento do sistema.
-
 % --- Enumeração das histórias
 \begin{enumerate}[label=\textbf{\arabic*.}]
 	%1
@@ -1284,7 +1283,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema força a proprietária a criar uma nova senha forte.
 			\item O sistema exibe mensagem de sucesso após o cadastro da nova senha.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF02.
+		\item \textbf{Requisito Funcional Relacionado:} RF01.
 	\end{itemize} 
 	%3
 	\item \textbf{Recuperação de Senha:}
@@ -1295,7 +1294,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A proprietária consegue solicitar recuperação de senha via e-mail.
 			\item A proprietária recebe e-mail com um link de recuperação temporário.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF03.
+		\item \textbf{Requisito Funcional Relacionado:} RF01.
 	\end{itemize} 
 	%4
 	\item \textbf{Cadastro de Reservas:}
@@ -1308,7 +1307,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema exibe uma mensagem de confirmação do cadastro
 			\item Os dados da reserva são salvos no banco de dados. 
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF04.
+		\item \textbf{Requisito Funcional Relacionado:} RF02.
 	\end{itemize} 
 	%5
 	\item \textbf{Edição de Reservas:}
@@ -1320,7 +1319,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A proprietária consegue salvar a reserva com os novos dados.
 			\item Os dados são atualizados no banco de dados.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF05.
+		\item \textbf{Requisito Funcional Relacionado:} RF07.
 	\end{itemize} 
 	%6
 	\item \textbf{Bloqueio do Cadastro de Reservas:}
@@ -1331,36 +1330,27 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema impede que a proprietária cadastre a reserva de um quarto que tenha o status diferente de “disponível” na data selecionada.
 			\item O sistema exibe uma mensagem de alerta avisando que o quarto não está disponível.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF06.
+		\item \textbf{Requisito Funcional Relacionado:} RF02 e RF14.
+		\\
+		\\
+		\\
 	\end{itemize} 
-	%
+	%7
 	\item \textbf{Reserva com Dados do Hóspede:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero registrar os dados pessoais de cada hóspede ao criar ou gerenciar uma reserva, para manter um registro completo e atualizado dos hóspedes.
 		\item \textbf{Critérios de Aceitação:}
 		\begin{itemize}
-			\item No formulário de cadastro de reserva devem ser exigidos o preenchimento de campos com os dados do hóspede (nome completo, endereço completo, CPF/Passaporte, telefone e e-mail).
+			\item No formulário de cadastro de reserva devem ser exigidos o preenchimento de campos com os dados do hóspede (nome completo, endereço completo, data de nascimento, CPF/Passaporte, telefone e e-mail).
 			\item Todos os campos devem ter validação de formato.
+			\item O campo de data de nascimento deve impedir o cadastro de pessoas menores de 18 anos, considerando a data de registro da reserva.
 			\item A proprietária deve conseguir buscar e selecionar hóspedes já cadastrados para novas reservas.
 			\item O sistema deve validar os campos obrigatórios para garantir a integridade dos dados.
 			\item Os dados dos hóspedes devem ser armazenados de forma segura.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF07.
+		\item \textbf{Requisito Funcional Relacionado:} RF03.
 	\end{itemize} 
 	%8
-	\item \textbf{Reserva em Nome de um Responsável:}
-	\begin{itemize}
-		\item \textbf{Descrição:} Como proprietária, quero cadastrar uma reserva em nome de um responsável pelo hóspede para atender situações em que outra pessoa cuida da reserva.
-		\item \textbf{Critérios de Aceitação:}
-		\begin{itemize}
-			\item O formulário de cadastro de reserva deve ter uma opção para indicar que a reserva está sendo feita por um responsável.
-			\item Opção selecionada: O sistema exibe os campos para registro dos dados pessoais do responsável.
-			\item Opção selecionada: O sistema mantém os campos para registro dos hóspedes.
-			\item Após concluído o cadastro da reserva o sistema deve deixar visível quem é o responsável e quem é o hóspede.
-		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF08.
-	\end{itemize} 
-	%9
 	\item \textbf{Pagamento de Confirmação de Reserva:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero registrar o pagamento  da estadia para confirmar a reserva e manter a organização das receitas da pousada.
@@ -1373,9 +1363,11 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema permite que a proprietária anexe um comprovante de pagamento ao registro.
 			\item Após o registro do pagamento, o sistema gera um comprovante de reserva e pagamento, sob demanda da proprietária.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF09, RF10 e RF27.
+		\item \textbf{Requisito Funcional Relacionado:} RF05, RF06 e RF18.
+		\\
+		\\
 	\end{itemize} 
-	%10
+	%09
 	\item \textbf{Cancelamento ou Alteração de Reservas:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero cancelar ou remarcar uma reserva, com a possibilidade de registrar o motivo  para manter o controle sobre mudanças.
@@ -1388,9 +1380,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item Novo status da reserva é salvo no banco de dados.
 			\item Proprietária seleciona cancelar: o status do quarto ocupado na reserva é atualizado para “Disponível”.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF11.
+		\item \textbf{Requisito Funcional Relacionado:} RF07.
 	\end{itemize} 
-	%11
+	%10
 	\item \textbf{Cadastro de Múltiplas Reservas:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero cadastrar múltiplas reservas para um mesmo hóspede, para facilitar reservas recorrentes.
@@ -1402,9 +1394,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item Cada reserva deve ser independente mesmo que seja do mesmo cliente.
 			\item O sistema deve registrar separadamente o pagamento de cada reserva.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF12.
+		\item \textbf{Requisito Funcional Relacionado:} RF08.
 	\end{itemize} 
-	%12
+	%11
 	\item \textbf{Cadastro de Múltiplas Reservas de Quarto:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero reservar um mesmo quarto para diferentes hóspedes em datas seguidas, para otimizar a ocupação dos quartos.
@@ -1414,9 +1406,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item Os horários de \textit{check-in} e \textit{check-out} devem estar configurados no sistema e devem ser respeitados durante o cadastro de reserva de um quarto.
 			\item O sistema deve impossibilitar que a proprietária faça reservas que se sobreponham parcial ou totalmente ao período de outra reserva já associada ao quarto.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF13.
+		\item \textbf{Requisito Funcional Relacionado:} RF09.
 	\end{itemize} 
-	%13
+	%12
 	\item \textbf{Acesso de Histórico de Reservas:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero visualizar o histórico de reservas dos hóspedes, para entender suas preferências e frequência de reservas.
@@ -1428,9 +1420,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A proprietária consegue acessar detalhes completos de cada reserva listada.
 			\item O histórico de reservas deve ser atualizado automaticamente a cada nova reserva ou alteração de reserva.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF14.
+		\item \textbf{Requisito Funcional Relacionado:} RF15.
 	\end{itemize} 
-	%14
+	%13
 	\item \textbf{Configuração de Tarifas:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero configurar as tarifas de reserva no sistema para aplicar preços personalizados.
@@ -1441,9 +1433,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema aplica automaticamente as tarifas ao valor total de uma reserva.
 			\item O sistema permite que a proprietária edite e salve novas regras de tarifação sem apagar reservas anteriores.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF15.
+		\item \textbf{Requisito Funcional Relacionado:} RF10.
 	\end{itemize} 
-	%15
+	%14
 	\item \textbf{Notificações de confirmação para clientes:}
 	\begin{itemize}
 		\item \textbf{Descrição:}Como proprietária, quero que meus clientes recebam informações da confirmação da reserva via \textit{e-mail}, para evitar os envios manuais para cada cliente. 
@@ -1454,9 +1446,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema registra que a notificação foi enviada.
 			\item Caso o envio da notificação falhe, o sistema deve alertar a proprietária para enviar manualmente.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF16.
+		\item \textbf{Requisito Funcional Relacionado:} RF11.
 	\end{itemize} 
-	%16
+	%15
 	\item \textbf{Impedimento de Cadastro de Reserva:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero que o sistema impeça o cadastro de reservas com menos de  2 dias de antecedência para o \textit{check-in}, para ter tempo suficiente para preparar a recepção do hóspede.
@@ -1465,9 +1457,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item Durante o cadastro da reserva, o sistema calcula a diferença entre a data atual e a data de\textit{check-in} solicitada.
 			\item Caso a diferença seja menor que 2 dias, o sistema impede o cadastro e exibe uma mensagem de erro.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF17.
+		\item \textbf{Requisito Funcional Relacionado:} RF04.
 	\end{itemize} 
-	%17
+	%16
 	\item \textbf{Edição do Cadastro de Hóspede:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero visualizar e editar os dados dos hóspedes existentes para manter as informações atualizadas.
@@ -1479,9 +1471,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema oferece uma opção de edição do cadastro do hóspede.
 			\item O sistema permite a edição dos dados que são atualizados no banco de dados.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF18.
+		\item \textbf{Requisito Funcional Relacionado:} RF12.
 	\end{itemize} 
-	%18
+	%17
 	\item \textbf{Cadastro de Quartos:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero cadastrar todos os quartos da pousada no sistema, para fazer o controle de disponibilidade e da limpeza dos quartos.
@@ -1494,9 +1486,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O quarto é registrado e adicionado ao banco de dados.
 			\item O quarto fica visível na lista de quartos após o registro.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF19.
+		\item \textbf{Requisito Funcional Relacionado:} RF13.
 	\end{itemize} 
-	%19
+	%18
 	\item \textbf{Edição de Cadastro de Quarto:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero editar o cadastro de um quarto, para caso eu precise adicionar ou remover informações importantes para a reserva.
@@ -1507,9 +1499,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema permite que a proprietária edite os dados dos campos disponíveis no formulário.
 			\item As alterações são registradas e atualizadas no banco de dados.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF20.
+		\item \textbf{Requisito Funcional Relacionado:} RF13.
 	\end{itemize} 
-	%20
+	%19
 	\item \textbf{Visualização Quartos Disponíveis:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero conseguir ver quais os quartos disponíveis durante o cadastro da reserva, para otimizar o atendimento.
@@ -1519,9 +1511,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema atualiza automaticamente a lista quando a proprietária altera as datas da reserva.
 			\item O sistema exibe os principais dados do quarto na seleção: número, tipo, capacidade e preço.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF21.
+		\item \textbf{Requisito Funcional Relacionado:} RF15.
 	\end{itemize} 
-	%21
+	%20
 	\item \textbf{Atualização do Status do Quarto:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero atualizar manualmente o  \textit{status} de um quarto (disponível, reservado, ocupado, em manutenção) para refletir sua condição real e evitar reservas indevidas.
@@ -1532,9 +1524,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A mudança de \textit{status} é atualizada automaticamente.
 			\item O sistema exibe uma mensagem de confirmação de mudança.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF22.
+		\item \textbf{Requisito Funcional Relacionado:} RF16.
 	\end{itemize} 
-	%22
+	%21
 	\item \textbf{Produção de Relatórios de Ocupação:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero gerar relatórios de ocupação de quartos por período (taxa de ocupação, quartos vagos) para analisar o desempenho da pousada.
@@ -1545,9 +1537,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema gera um relatório que exibe a taxa de ocupação do período selecionado (\% de dias ocupados por quarto).
 			\item O relatório também exibe a quantidade de quartos disponíveis e ocupados em cada dia do período.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF23.
+		\item \textbf{Requisito Funcional Relacionado:} RF15.
 	\end{itemize} 
-	%23
+	%22
 	\item \textbf{Configuração de Horários de \textit{Check-in} e\textit{Check-out}:}
 	\begin{itemize}
 		\item \textbf{Descrição:}  Como proprietária, quero configurar os horários de \textit{check-in} e \textit{check-out} para melhor controle de pessoas e, consequentemente, melhor recepção dos hóspedes.
@@ -1559,9 +1551,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A proprietária deve conseguir editar os horários configurados.
 			\item Os horários devem ser associados a disponibilidade para reserva das estadias.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF26.
+		\item \textbf{Requisito Funcional Relacionado:} RF17.
 	\end{itemize} 
-	%24
+	%23
 	\item \textbf{Registro do \textit{Check-out}:}
 	\begin{itemize}
 		\item \textbf{Descrição:}  Como proprietária, quero registrar o \textit{check-out} de um hóspede para atualizar status do quarto e finalizar reserva.
@@ -1572,9 +1564,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item Após o registro do \textit{check-out}, o sistema deve encerrar a reserva e impedir alterações na reserva.
 			\item Caso haja cobrança pendente, o sistema deve alertar antes de finalizar a reserva.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF24.
+		\item \textbf{Requisito Funcional Relacionado:} RF16.
 	\end{itemize} 
-	%25
+	%24
 	\item \textbf{Mudança de Status Pós \textit{Check-in}:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero que o sistema mude o status do quarto de reservado para ocupado ao registrar o \textit{check-in}, para manter atualizada a ocupação real da pousada.
@@ -1585,9 +1577,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema deve exibir uma mensagem de pagamento pendente, caso o pagamento não tenha sido registrado em sua totalidade.
 			\item O sistema deve exibir a alteração de \textit{status} imediatamente no painel da pousada.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF25.
+		\item \textbf{Requisito Funcional Relacionado:} RF16.
 	\end{itemize} 
-	%26
+	%25
 	\item \textbf{\textit{Early check-in} e \textit{Late check-out}:}
 	\begin{itemize}
 		\item \textbf{Descrição:}  Como proprietária, quero quero registrar \textit{early check-in} e \textit{late check-out} em reservas para oferecer mais flexibilidade ao cliente.
@@ -1600,9 +1592,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A opção deve estar disponível tanto no cadastro da reserva quanto na edição posterior.
 			\item O sistema deve registrar essa informação no histórico da reserva e no comprovante de pagamento.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF28.
+		\item \textbf{Requisito Funcional Relacionado:} RF19.
 	\end{itemize} 
-	%27
+	%26
 	\item \textbf{Configuração de Tarifas Adicionais:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero configurar tarifas adicionais para \textit{early check-in} e \textit{late check-out} para facilitar a cobrança correta do cliente.
@@ -1611,9 +1603,11 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema deve permitir que a proprietária adicione valores fixos ou percentuais adicionais para early \textit{early check-in} e \textit{late check-out} aos preços das estadias.
 			\item O valor total da reserva deve refletir os acréscimos automaticamente.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF29.
+		\item \textbf{Requisito Funcional Relacionado:} RF19.
+		\\
+		\\
 	\end{itemize} 
-	%28
+	%27
 	\item \textbf{Registro de Fluxos Financeiros:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero registrar receitas e despesas da pousada com data, valor, categoria e descrição para manter o controle financeiro. 
@@ -1623,9 +1617,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A proprietária consegue registrar receitas ou despesas a partir do preenchimento de um formulário com os campos obrigatórios: data, categoria, valor e descrição.
 			\item O sistema armazena no banco de dados a receita/ despesa registrada e salva.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF30 e RF31.
+		\item \textbf{Requisito Funcional Relacionado:} RF20 e RF21.
 	\end{itemize} 
-	%29
+	%28
 	\item \textbf{Edição e Exclusão dos Registros de Fluxo Financeiro:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero editar ou excluir uma receita ou despesa registrada para corrigir possíveis erros ou lançamentos equivocados.
@@ -1636,9 +1630,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A proprietária consegue alterar os campos obrigatórios do formulário de registro de receita/despesa.
 			\item O sistema atualiza o banco de dados, o saldo e o balanço financeiro automaticamente. 
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF32 e RF33.
+		\item \textbf{Requisito Funcional Relacionado:} RF20 e RF21.
 	\end{itemize} 
-	%30
+	%29
 	\item \textbf{Visualização das Transações Financeiras:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero visualizar todas as transações financeiras por período para entender a saúde financeira da pousada.
@@ -1648,9 +1642,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A proprietária consegue fazer buscas por filtradas: tipo, valor, data e categoria.
 			\item A filtragem exibe apenas as transações que atendem aos critérios informados.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF34 e RF35.
+		\item \textbf{Requisito Funcional Relacionado:} RF22.
 	\end{itemize} 
-	%31
+	%30
 	\item \textbf{Produção de Relatórios Financeiros:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero gerar relatórios de financeiros automaticamente por período e categoria para me auxiliar nas decisões financeiras da pousada.
@@ -1662,9 +1656,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O relatório deve apresentar gráficos simples para representar os resultados por categoria.
 			\item O relatório desconsidera registros financeiros excluídos.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF36 e RF38.
+		\item \textbf{Requisito Funcional Relacionado:} RF24.
 	\end{itemize} 
-	%32
+	%31
 	\item \textbf{Balanço Financeiro:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero gerar um balanço financeiro simples com receitas, despesas e saldo para avaliar lucros e perdas.
@@ -1673,9 +1667,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema permite que a proprietária visualize o total de receitas, o total de despesas e o saldo, no painel do módulo de gestão financeira.
 			\item O sistema gera balanços com base nos filtros aplicados.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF37.
+		\item \textbf{Requisito Funcional Relacionado:} RF23.
 	\end{itemize} 
-	%33
+	%32
 	\item \textbf{Painel Inicial:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero visualizar um \textit{dashboard} inicial com métricas chaves (quartos ocupados, próximas reservas, próximos \textit{check-out}) para ter uma visão rápida e geral da pousada.
@@ -1687,18 +1681,18 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema atualiza as informações do painel automaticamente a cada acesso.
 			\item A proprietária consegue acessar o painel diretamente após o \textit{login} no sistema.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF39.
+		\item \textbf{Requisito Funcional Relacionado:} RF14.
 	\end{itemize} 
-	%34
+	%33
 	\item \textbf{Notificações internas:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero receber notificações automáticas (via \textit{dashboard}) sobre eventos importantes para me preparar e melhorar a experiência dos hóspedes.
 		\item \textbf{Critérios de Aceitação:}
 		\begin{itemize}
-			\item O sistema exibe uma mensagem para a proprietária no dashboard sempre que uma reserva é criada, cancelada ou editada.
+			\item O sistema exibe uma mensagem para a proprietária no \textit{dashboard} sempre que uma reserva é criada, cancelada ou editada.
 			\item O sistema exibe lembretes de pendências de pagamento com base na data de vencimento.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF40.
+		\item \textbf{Requisito Funcional Relacionado:} RF26.
 	\end{itemize} 
 \end{enumerate}
 % ---
