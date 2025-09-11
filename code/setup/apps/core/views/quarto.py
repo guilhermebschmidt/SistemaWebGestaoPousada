@@ -16,7 +16,7 @@ def form(request, quarto_id=None):
         form = QuartoForm(request.POST, instance=quarto)
         if form.is_valid():
             form.save()
-            return redirect('/list/')
+            return redirect('/quartos/')
     else:
         form = QuartoForm(instance=quarto)
         print("Valores do formulário:")
