@@ -672,68 +672,41 @@ Dessa forma, o uso de sistema computacionais, conjunto de componentes que permit
 Neste contexto, o desenvolvimento da aplicação web para gestão da pousada Chalés Água de Coco foi idealizado com o objetivo de atender às principais necessidades do empreendimento, impulsionar seu crescimento e fortalecer sua relevância no mercado regional. Localizada na Praia de Boiçucanga, em São Sebastião, uma região turística do litoral paulista caracterizada por atrativos naturais e uma atividade turística representativa \cite{franchi2012}, a pousada demanda soluções que otimizem seus processos internos. Dessa forma, a implementação dessa ferramenta tecnológica busca contribuir para o aumento da competitividade da empresa, oferecendo suporte à proprietária na realização de tomadas de decisão mais rápidas e assertivas.
 
 Diante disso, nos tópicos a seguir, serão apresentadas as ferramentas e metodologias utilizadas no desenvolvimento do sistema web, com o objetivo de detalhar o processo de idealização, planejamento e implementação da solução proposta.
+
 \chapter{Gestão do Projeto}
 Esta seção detalha as principais estratégias de gestão aplicadas no desenvolvimento da aplicação web de gestão para a pousada Chalés Água de Coco. Dessa forma, nela são apresentadas as metodologias, ferramentas e práticas que foram adotadas para o planejamento, execução e monitoramento do projeto, com o objetivo de garantir uma entrega organizada, eficiente e alinhada aos objetivos estabelecidos pelas partes interessadas.
 % 
-\section{Organização da Equipe}
-Na gestão desse projeto, a organização da equipe representou um marco fundamental e teve como foco dividir as funções e atividades necessárias para o desenvolvimento do sistema web de gestão da pousada entre os membros.%
-\subsection{Funções e Responsabilidades}
-A divisão das funções e responsabilidades foi realizada de maneira estratégica e levou em consideração as competências técnicas de cada membro da equipe, visando a entrega do produto final dentro do prazo e escopo estipulados. 	A função de cada membro e suas respectivas responsabilidades estão detalhadas no \autoref{quadro_funcao_responsabilidade}.
+\section{Metodologia de Gestão e Desenvolvimento}
+A principal ferramenta de gestão e desenvolvimento do projeto adotada pela equipe responsável pelo projeto foi a metodologia ágil Scrum. Essa decisão fundamentou-se na familiaridade da equipe com a estrutura, na capacidade do Scrum de otimizar a organização, divisão e planejamento de atividades do projeto, e em sua relevância como \textit{framework} de gerenciamento, dado seu uso extensivo no contexto de desenvolvimento de softwares complexos.
+
+O Scrum, cujos pilares são a transparência, a inspeção e a adaptação, operacionaliza esses princípios por meio da definição de papéis específicos, da realização de eventos formais e do uso de artefatos próprios, tornando o ciclo de desenvolvimento iterativo e flexível. Diante disso, a equipe adaptou a metodologia de forma estratégica às condições do projeto, considerando prazos, recursos e estrutura disponíveis.
+
+Para atender às restrições de tempo e à execução majoritariamente remota do projeto, os eventos de inspeção do progresso que são propostos para serem diários, o \textit{daily scrum},  foram realizados de forma assíncrona e em menor frequência. Enquanto  as entregas semanais de incrementos utilizáveis do produto foram mantidas, de forma que os eventos de planejamento, revisão e retrospectiva (\textit{Sprint Planning}, \textit{Sprint Review} e \textit{Sprint Retrospective}) foram consolidados em reuniões semanais, assegurando um processo eficiente e a inspeção contínua do projeto. 
+
+Essas adaptações flexibilizaram os processos, conferindo maior autonomia aos integrantes para organizar seus horários e ritmos de trabalho. Entretanto, o número reduzido de reuniões e tempo limitado de colaboração síncrona dificultaram a comunicação e a definição de \textit{sprints} mais produtivos.
+
+Adicionalmente, a divisão das funções e responsabilidades dos membros da equipe combinou competências técnicas individuais com papéis Scrum (\textit{Product Owner}, \textit{Scrum Master} e \textit{Development Team}). Essa distribuição facilitou a colaboração entre os integrantes, dada a especialização do trabalho, e tornou os processos mais eficientes. As funções, papel Scrum e responsabilidades de cada membro estão detalhadas no \autoref{quadro_funcao_responsabilidade}.
 %	
 \begin{quadro}[H]
 	\caption{Divisão das Funções e Responsabilidades da Equipe do Projeto}
 	\label{quadro_funcao_responsabilidade}
 	\renewcommand{\arraystretch}{1.3} % Aumenta o espaçamento entre linhas
 	\begin{tabular}{|>{\raggedright\arraybackslash}m{3cm} 
-			|>{\raggedright\arraybackslash}m{4.5cm} 
-			|>{\raggedright\arraybackslash}m{6.7cm}|}
+			|>{\raggedright\arraybackslash}m{2.6cm} |>{\raggedright\arraybackslash}m{2.6cm} 
+			|>{\raggedright\arraybackslash}m{6cm}|}
 		\hline
-		\textbf{Integrante} & \textbf{Função} & \textbf{Responsabilidades} \\ \hline
-		Guilherme Akio & Engenheiro de Dados (DBA) & Implementar, administrar e otimizar o banco de dados da aplicação, garantindo integridade, segurança e performance dos dados. \\ \hline
-		Guilherme Bittencourt & Documentador Técnico e Engenheiro de Software & Criar e manter a documentação técnica com clareza e acessibilidade. Definir e organizar a estrutura da aplicação. \\ \hline
-		Kelly Radchelle & Gerente de Projeto & Coordenar a equipe e gerenciar as atividades do projeto, facilitando a tomada de decisões e assegurando a comunicação entre as partes interessadas. \\ \hline
-		Rafael Teixeira & Desenvolvedor Frontend & Criar e implementar a interface da aplicação, garantindo boa experiência do usuário (UX) e design de interface (UI), além de desenvolver a lógica de apresentação. \\ \hline
-		Ricardo Carriel & Desenvolvedor Backend & Desenvolver a lógica de negócio, configurar e administrar o servidor, garantindo a integração e funcionamento da aplicação. \\ \hline
+		\textbf{Integrante} & \textbf{Função} &  \textbf{Papel Scrum}& \textbf{Responsabilidades} \\ \hline
+		Guilherme Akio & Engenheiro de Dados (DBA) & Time de Desenvolvimento & Implementar, administrar e otimizar o banco de dados da aplicação; Entregas de funcionalidades relcionadas ao gerenciamento e persistência de dados \\ \hline
+		Guilherme Bittencourt & Documentador Técnico e Engenheiro de Software & Scrum Master & Criar e manter a documentação técnica; Definir e organizar a estrutura da aplicação; Facilitar e práticas Scrum \\ \hline
+		Kelly Radchelle & Gerente de Projeto & Product Owner & Coordenar a equipe e gerenciar as atividades do projeto; Facilitar tomada de decisões e comunicação entre as partes interessadas; Acompanhamento do progresso das \textit{sprints}  \\ \hline
+		Rafael Teixeira & Desenvolvedor Frontend &  Time de Desenvolvimento & Projetar e implementar interfaces da aplicação; Entregas de funcionalidades relacionadas à experiência do usuário.\\ \hline
+		Ricardo Carriel & Desenvolvedor Backend &  Time de Desenvolvimento & Implementar lógica de negócio; Configurar e administrar o servidor; Entregas de funcionalidades relacionadas a lógica e integração do sistema \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
-%
-\section{Metodologias de Gestão e Desenvolvimento}
-Para assegurar que a entrega do produto final ocorresse dentro do prazo estipulado e estivesse em pleno alinhamento com as expectativas da cliente, a equipe envolvida no projeto optou pela adoção da metodologia ágil Scrum como ferramenta de gestão e desenvolvimento do projeto. Essa decisão fundamentou-se na familiaridade da equipe com a estrutura, na capacidade do Scrum de otimizar a organização, divisão e planejamento de atividades do projeto, e em sua relevância como \textit{framework} de gerenciamento– dado seu uso extensivo no contexto de desenvolvimento de softwares complexos.
-
-Segundo Schwaber e Sutherland \cite{scrumguide}, o Scrum é um \textit{framework} estruturado desenvolvido na década de 1990, com o objetivo de auxiliar equipes na criação e gerenciamento de produtos complexos. Por isso,  o Scrum tem como pilares fundamentais a transparência, a inspeção e a adaptação. A transparência garante que todos os aspectos significativos do processo estejam visíveis e claros para as partes interessadas a todo momento. Enquanto a inspeção envolve o acompanhamento regular dos artefatos e progresso, auxiliando na identificação precoce de problemas e garantindo a transparência dos processos. Seguida pela adaptação que refere-se à capacidade de fazer ajustes no processo  em resposta aos problemas anteriormente identificados na inspeção, com o objetivo de otimizar os resultados da equipe.
-
-Sabendo que para operacionalizar esses pilares e assegurar um ciclo de desenvolvimento iterativo e incremental, a metodologia Scrum sugere a definição de papeis específicos dentro do time, estabelece a realização de uma sequência de eventos formais e o uso de artefatos específicos, os integrantes da equipe desenvolveram as tarefas e eventos sugeridos pelo Scrum para a gestão e desenvolvimento do projeto.
-%
-\subsection{Time Scrum}
-Como estabelecido no Guia do Scrum \cite{scrumguide}, os membros da equipe do projeto assumem papeis específicos que compõem um \textit{time Scrum}: \textit{Product Owner}, \textit{Scrum Master} e Time de Desenvolvimento. 
-%
-\begin{enumerate}[label=\roman*)]
-	\item O \textit{Product Owner} é o representante das partes interessadas (\textit{Stakeholders}) e tem como responsabilidade principal gerenciar o \textit{backlog} do produto. Seu objetivo é maximizar o valor do produto para o usuário final e otimizar o trabalho do Time de Desenvolvimento. 
-	\item O \textit{Scrum Master}  é o responsável por promover e facilitar a aplicação da teoria e das práticas do \textit{framework}, a fim de ajudar a equipe a superar problemas que possam afetar seu progresso. 
-	\item O Time de Desenvolvimento é responsável por entregar um incremento (versão potencialmente usável do produto) ao final de cada \textit{sprint}, atuando de maneira auto-organizada e multifuncional.
-\end{enumerate}
-%
-
-Diante disso, houve a distribuição dos papeis de um \textit{time scrum} entre os integrantes da equipe registrada na \autoref{quadro:time_scrum}.
-%
-\begin{quadro}[H]
-	\centering
-	\caption{Função dos Integrantes da Equipe}
-	\label{quadro:time_scrum}
-	\begin{tabular}{|>{\centering\arraybackslash}m{3.2cm}|>{\centering\arraybackslash}m{3.5cm}|>{\centering\arraybackslash}m{3.5cm}|>{\centering\arraybackslash}m{4cm}|}
-		\hline
-		\multirow{2}{*}{\textbf{Integrante}} & \multicolumn{3}{c|}{\textbf{Função}} \\ \cline{2-4}
-		&\textit{Product Owner} & \textit{Scrum Master} & Time de Desenvolvimento \\ \hline 
-		 Guilherme Akio & & & X \\ \hline Guilherme Bittencourt & & & X \\ \hline Kelly Radchelle & X & & \\ \hline Rafael Teixeira & & & X \\ \hline Ricardo Carriel & & & X \\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
-%---
-
 %---
 \section{Artefatos}
-No Scrum,  os artefatos são elementos que ajudam a equipe a consolidar a transparência no processo de desenvolvimento  \cite{scrumguide}. Cientes das suas importâncias, o \textit {time scrum} realizou o planejamento inicial dos artefatos:  \textit {Product Backlog} e \textit {Sprints Backlog}.
+No Scrum,  os artefatos são elementos que ajudam a equipe a consolidar a transparência no processo de desenvolvimento  \cite{scrumguide}. Diante disso, o \textit {time scrum} realizou o planejamento dos artefatos:  \textit {Product Backlog} e \textit {Sprints Backlog}.
 %
 \subsection{Product Backlog}
 No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como uma lista ordenada de todos os itens de trabalho, incluindo funcionalidades e requisitos necessários para a produção do produto, que oferecem o máximo valor e utilidade para o cliente. Ciente disso, o \textit{product owner} do projeto elaborou o \textit{product backlog} inicial da aplicação web de gestão da pousada Chalés Água de Coco (\autoref{product_backlog}), com base nas histórias de usuário levantadas pela equipe.  Escolha realizada dada a capacidade dessas histórias de retratarem fielmente as necessidades e expectativas da usuária,  assegurando o caráter utilitário do \textit{product Backlog}.Enquanto, o product backlog completo do projeto esta detalhado no \autoref{apendice:productbacklogcomp}.
@@ -757,13 +730,6 @@ No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como 
 		11 & Implementar funcionalidades de \textit{Check-in} e \textit {Check-out} &
 		\textit {Check-in} e \textit {Check-out} &	ALTA \\ \hline
 		12 & Integrar ambientes \textit{backend} e \textit {frontend} &	Requisito técnico & ALTA \\ \hline
-		14 & Implementar funcionalidades de cadastro, edição e exclusão de receitas & Gestão Financeira & BAIXA \\ \hline
-		15 & Implementar funcionalidade de registro de pagamento de reservas &Gestão Financeira e Gestão de Reservas &
-		BAIXA \\ \hline
-		16 & Implementar funcionalidades de cadastro, edição e exclusão de despesas &
-		Gestão Financeira & BAIXA \\ \hline
-		17 & Implementar funcionalidades de geração de relatórios &
-		Gestão Financeira &	BAIXA \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -774,6 +740,13 @@ No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como 
 	\begin{tabular}{|c|p{6.5cm}|p{3.8cm}|c|}
 		\hline
 		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline	
+		14 & Implementar funcionalidades de cadastro, edição e exclusão de receitas & Gestão Financeira & BAIXA \\ \hline
+		15 & Implementar funcionalidade de registro de pagamento de reservas &Gestão Financeira e Gestão de Reservas &
+		BAIXA \\ \hline
+		16 & Implementar funcionalidades de cadastro, edição e exclusão de despesas &
+		Gestão Financeira & BAIXA \\ \hline
+		17 & Implementar funcionalidades de geração de relatórios &
+		Gestão Financeira &	BAIXA \\ \hline
 		18 & Implementar balanço financeiro simples (receitas, despesas, saldo) por período & Gestão Financeira & BAIXA \\ \hline
 		19 & Implementar filtros de visualização de receita/despesa (data, categoria) &	Gestão Financeira & BAIXA \\ \hline
 		20 & Implementar  funcionalidades de notificação & Notificações &
@@ -790,14 +763,13 @@ No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como 
 % 
 % ---
 \subsection{Sprint Backlog}
-O \textit{Sprint Backlog} é um plano elaborado pelo time de desenvolvimento, formado por um conjunto de itens selecionados da \textit {product backlog}. Esse plano possui um período de tempo determinado para sua realização, chamado de \textit {sprint}. 
+O \textit{Sprint Backlog} constitui o plano de execução do projeto, derivado do \textit{Product Backlog}, e estabelece o conjunto de itens de trabalho a ser realizado em cada \textit {sprint}. Nesse contexto, o artefato foi desenvolvido pela equipe do projeto como ferramenta auxiliar na gestão, com o objetivo de garantir que todas as partes estivessem cientes do andamento e das etapas em desenvolvimento. E está registrado no  \autoref{sprints_backlog_1}.
 
-Esse artefato promove a transparência das atividades do projeto, tornando visíveis e acessíveis para todos os membros da equipe as atividades que devem ser realizadas na \textit {Sprint}, garantindo que todos estejam cientes do que está sendo desenvolvido. Por isso, o time implementou o \autoref{sprints_backlog_1} que registra todas as \textit {Sprints Backlog} planejadas para o decorrer do projeto.
+As \textit{sprints} foram organizadas em períodos de quinze dias (duas semanas), intervalo em conformidade com o Guia do Scrum \cite{scrumguide}. Totalizando 13 semanas de trabalho. Essa definição considerou a atuação majoritariamente remota da equipe e o tempo diário individual limitado para o trabalho, circunstâncias que demandaram períodos mais extensos para a execução das tarefas. Além disso, a organização das tarefas dentro de cada \textit{sprint} levou em consideração as datas de entrega do MVP, da documentação técnica e do produto final do projeto.
 
-Para isso, considerando a flexibilidade oferecida por essa metodologia dividiu-se as \textit {sprints} do projeto em períodos de quinze dias (duas semanas), período dentro do estipulado pelo Guia do Scrum \cite{scrumguide}. Essa escolha de duração para as \textit {sprints} levou em consideração que a equipe atuaria majoritariamente de forma remota, com tempo diário individual limitado para o trabalho. Este contexto demandava prazos mais longos para a execução das tarefas.
-
-As atividades incluídas nas \textit{sprints backlog} foram baseadas nos itens da \textit{product Backlog}, no prazo de entrega do MVP e nas demais tarefas essenciais do projeto, como realização de testes e a elaboração da documentação técnica. 
+Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma a cumprir um progresso gradual das atividades em 2 fases. Assim, na primeira fase, as primeiras \textit{sprints} focaram na modelagem do sistema e escolha das ferramentas e tecnologias de gestão e desenvolvimento. Para então, nas próximas \textit{sprints}, a equipe inicia tarefas relacionadas ao desenvolvimento do MVP e documentação do sistema. Enquanto que na segunda fase, a equipe focou em desenvolver as  funcionalidades faltantes, integrar com o MVP, realizar testes e revisão da documentação. Sendo que, as atividades de desenvolvimento foram distribuídas considerando: prioridade e relações de dependência. 
 \\
+%
 \begin{quadro}[H]
 	\caption{Sprints Backlog - Parte 1} 
 	\label{sprints_backlog_1} 
