@@ -1,10 +1,13 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from ..models import Hospede
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def hospede_list(request):
     hospedes = Hospede.objects.all()
     return render(request, 'core/hospede/listar.html', {'hospedes': hospedes})
 
+@login_required
 def hospede_create(request):
     if request.method == 'POST':
         Hospede.objects.create(
@@ -17,6 +20,7 @@ def hospede_create(request):
         return redirect('/hospedes/')
     return render(request, 'core/hospede/form.html')
 
+@login_required
 def hospede_update(request, cpf):
     hospede = get_object_or_404(Hospede, cpf=cpf)
     if request.method == 'POST':
@@ -28,6 +32,7 @@ def hospede_update(request, cpf):
         return redirect('/hospedes/')
     return render(request, 'core/hospede/form.html', {'hospede': hospede})
 
+@login_required
 def hospede_delete(request, cpf):
     hospede = get_object_or_404(Hospede, cpf=cpf)
     if request.method == 'POST':
@@ -35,6 +40,7 @@ def hospede_delete(request, cpf):
         return redirect('/hospedes/')
     return render(request, 'core/hospede/hospede_confirm_delete.html', {'hospede': hospede})
 
+@login_required
 def hospede_search(request):
     hospedes = []
     if request.method == 'POST':
@@ -42,6 +48,7 @@ def hospede_search(request):
         hospedes = Hospede.objects.filter(nome__icontains=search)
     return render(request, 'core/hospede/listar.html', {'hospedes': hospedes})
 
+@login_required
 def hospede_detail(request, cpf):
     hospede = get_object_or_404(Hospede, cpf=cpf)
     return render(request, 'core/hospede/hospede_detail.html', {'hospede': hospede})

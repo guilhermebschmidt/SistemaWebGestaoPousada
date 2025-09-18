@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.30)  17 SEP 2025 16:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.30)  17 SEP 2025 23:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1841,17 +1841,17 @@ Overfull \hbox (4.07256pt too wide) in paragraph at lines 1171--1171
  []
 
 
-Underfull \hbox (badness 1360) in paragraph at lines 1177--1177
+Underfull \hbox (badness 1360) in paragraph at lines 1176--1176
 []|\T1/lmr/m/n/12 (+20) O sis-tema deve per-mi-tir a fil-tra-
  []
 
 
-Underfull \hbox (badness 1242) in paragraph at lines 1177--1177
+Underfull \hbox (badness 1242) in paragraph at lines 1176--1176
 \T1/lmr/m/n/12 (+20) gem das tran-sa-Áıes por tipo (re-
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 1169--1184
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 1169--1183
  [][] 
  []
 
@@ -1860,43 +1860,43 @@ Overfull \vbox (50.19185pt too high) has occurred while \output is active []
 
 
 [41] [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1309--1313
+Underfull \hbox (badness 10000) in paragraph at lines 1308--1312
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1309--1313
+Underfull \hbox (badness 10000) in paragraph at lines 1308--1312
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1309--1313
+Underfull \hbox (badness 10000) in paragraph at lines 1308--1312
 
  []
 
 [43]
-Underfull \hbox (badness 10000) in paragraph at lines 1342--1345
+Underfull \hbox (badness 10000) in paragraph at lines 1341--1344
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1342--1345
+Underfull \hbox (badness 10000) in paragraph at lines 1341--1344
 
  []
 
 [44] [45] [46] [47] [48] [49]
-Overfull \hbox (1.07664pt too wide) in paragraph at lines 1525--1526
+Overfull \hbox (1.07664pt too wide) in paragraph at lines 1524--1525
 []\T1/lmr/m/n/12 (-20) O sis-tema ofe-rece a op-Á„o de con-fi-gu-rar ho-r·-rios
  por tem-po-rada (baixa/alta). 
  []
 
 [50]
-Underfull \hbox (badness 10000) in paragraph at lines 1582--1585
+Underfull \hbox (badness 10000) in paragraph at lines 1581--1584
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1582--1585
+Underfull \hbox (badness 10000) in paragraph at lines 1581--1584
 
  []
 
@@ -1907,13 +1907,13 @@ File: Diagrama de Implanta√ß√£o- Digitaliza√ß√£o da Pousada.JPEG Graphic file (
 type jpg)
 <use Diagrama de Implanta√ß√£o- Digitaliza√ß√£o da Pousada.JPEG>
 Package pdftex.def Info: Diagrama de Implanta√ß√£o- Digitaliza√ß√£o da Pousada.
-JPEG  used on input line 1703.
+JPEG  used on input line 1702.
 (pdftex.def)             Requested size: 452.9679pt x 528.09225pt.
  [55]
 <0406-Componentes.png, id=698, 1071.00125pt x 745.78625pt>
 File: 0406-Componentes.png Graphic file (type png)
 <use 0406-Componentes.png>
-Package pdftex.def Info: 0406-Componentes.png  used on input line 1712.
+Package pdftex.def Info: 0406-Componentes.png  used on input line 1711.
 (pdftex.def)             Requested size: 452.9679pt x 315.4244pt.
 
 
@@ -1924,15 +1924,15 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 <0406-MER.jpg, id=771, 1099.10625pt x 500.87125pt>
 File: 0406-MER.jpg Graphic file (type jpg)
 <use 0406-MER.jpg>
-Package pdftex.def Info: 0406-MER.jpg  used on input line 1831.
+Package pdftex.def Info: 0406-MER.jpg  used on input line 1830.
 (pdftex.def)             Requested size: 452.9679pt x 206.42087pt.
 <0406-DER.jpg, id=773, 1079.03125pt x 449.68pt>
 File: 0406-DER.jpg Graphic file (type jpg)
 <use 0406-DER.jpg>
-Package pdftex.def Info: 0406-DER.jpg  used on input line 1840.
+Package pdftex.def Info: 0406-DER.jpg  used on input line 1839.
 (pdftex.def)             Requested size: 452.9679pt x 188.7751pt.
  [63 <./0406-MER.jpg>] [64 <./0406-DER.jpg>] [65] [66] [67]
-Overfull \hbox (27.67358pt too wide) in paragraph at lines 1937--1952
+Overfull \hbox (27.67358pt too wide) in paragraph at lines 1936--1951
  [][] 
  []
 
@@ -1956,7 +1956,7 @@ bibitemlist
 ] [76]) [77]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\uppercase' on input line 2394.
+(hyperref)                removing `\uppercase' on input line 2393.
 
 [78
 
@@ -1964,69 +1964,69 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 ] [79
 
 ] [80] [81] [82]
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 2522--2522
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2521--2521
 []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 
-Underfull \hbox (badness 4144) in paragraph at lines 2523--2523
+Underfull \hbox (badness 4144) in paragraph at lines 2522--2522
 \T1/lmr/m/n/14.4 (+20) le-fone, What-sApp, pes-so-al-
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 2540--2540
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2539--2539
 []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 2545--2545
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2544--2544
 []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 
-Underfull \hbox (badness 1558) in paragraph at lines 2548--2548
+Underfull \hbox (badness 1558) in paragraph at lines 2547--2547
 []|\T1/lmr/m/n/14.4 (+20) Quem re-a-liza o check-in e
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 2562--2562
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2561--2561
 []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 
-Underfull \hbox (badness 2538) in paragraph at lines 2564--2564
+Underfull \hbox (badness 2538) in paragraph at lines 2563--2563
 []|\T1/lmr/m/n/14.4 (+20) A pou-sada pos-sui quan-tos
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 2571--2571
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2570--2570
 []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 2579--2579
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2578--2578
 []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 [83
 
 ]
-Underfull \hbox (badness 1616) in paragraph at lines 2596--2596
+Underfull \hbox (badness 1616) in paragraph at lines 2595--2595
 []|\T1/lmr/m/n/14.4 (+20) … ne-ces-s·-rio ge-rar com-pro-
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 2599--2599
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2598--2598
 []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 2604--2604
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2603--2603
 []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 2612--2612
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 2611--2611
 []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
@@ -2035,12 +2035,12 @@ Overfull \vbox (1.08286pt too high) has occurred while \output is active []
 
 
 [86]
-Overfull \hbox (0.96634pt too wide) in paragraph at lines 2628--2628
+Overfull \hbox (0.96634pt too wide) in paragraph at lines 2627--2627
  []|\T1/lmr/bx/n/12 (-20) CÛdigo| 
  []
 
 
-Overfull \hbox (1.06108pt too wide) in paragraph at lines 2626--2653
+Overfull \hbox (1.06108pt too wide) in paragraph at lines 2625--2652
  [][] 
  []
 
@@ -2050,12 +2050,12 @@ Overfull \hbox (1.06108pt too wide) in paragraph at lines 2626--2653
 Overfull \vbox (33.28pt too high) has occurred while \output is active []
 
  [88]
-Overfull \hbox (0.96634pt too wide) in paragraph at lines 2695--2695
+Overfull \hbox (0.96634pt too wide) in paragraph at lines 2694--2694
  []|\T1/lmr/bx/n/12 (-20) CÛdigo| 
  []
 
 
-Overfull \hbox (1.06108pt too wide) in paragraph at lines 2693--2728
+Overfull \hbox (1.06108pt too wide) in paragraph at lines 2692--2727
  [][] 
  []
 
@@ -2064,12 +2064,12 @@ Overfull \vbox (18.99059pt too high) has occurred while \output is active []
 
 
 [89]
-Overfull \hbox (0.96634pt too wide) in paragraph at lines 2735--2735
+Overfull \hbox (0.96634pt too wide) in paragraph at lines 2734--2734
  []|\T1/lmr/bx/n/12 (-20) CÛdigo| 
  []
 
 
-Overfull \hbox (1.06108pt too wide) in paragraph at lines 2733--2760
+Overfull \hbox (1.06108pt too wide) in paragraph at lines 2732--2759
  [][] 
  []
 
@@ -2078,59 +2078,59 @@ Overfull \vbox (37.59016pt too high) has occurred while \output is active []
 
 
 [90] [91]
-Overfull \hbox (4.07256pt too wide) in paragraph at lines 2770--2770
+Overfull \hbox (4.07256pt too wide) in paragraph at lines 2769--2769
  []|\T1/lmr/bx/n/12 (-20) Prioridade| 
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 2768--2781
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 2767--2780
  [][] 
  []
 
 
-Overfull \hbox (4.07256pt too wide) in paragraph at lines 2789--2789
+Overfull \hbox (4.07256pt too wide) in paragraph at lines 2788--2788
  []|\T1/lmr/bx/n/12 (-20) Prioridade| 
  []
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 2807--2807
+Underfull \hbox (badness 1147) in paragraph at lines 2806--2806
 \T1/lmr/m/n/12 (+20) ca-pa-ci-dade (n˙-mero de hÛs-pe-des),
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 2787--2810
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 2786--2809
  [][] 
  []
 
 
-Overfull \hbox (4.07256pt too wide) in paragraph at lines 2817--2817
+Overfull \hbox (4.07256pt too wide) in paragraph at lines 2816--2816
  []|\T1/lmr/bx/n/12 (-20) Prioridade| 
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 2815--2840
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 2814--2839
  [][] 
  []
 
 [92
 
 ] [93]
-Overfull \hbox (4.07256pt too wide) in paragraph at lines 2848--2848
+Overfull \hbox (4.07256pt too wide) in paragraph at lines 2847--2847
  []|\T1/lmr/bx/n/12 (-20) Prioridade| 
  []
 
 
-Underfull \hbox (badness 1360) in paragraph at lines 2857--2857
+Underfull \hbox (badness 1360) in paragraph at lines 2856--2856
 []|\T1/lmr/m/n/12 (+20) O sis-tema deve per-mi-tir a fil-tra-
  []
 
 
-Underfull \hbox (badness 1242) in paragraph at lines 2857--2857
+Underfull \hbox (badness 1242) in paragraph at lines 2856--2856
 \T1/lmr/m/n/12 (+20) gem das tran-sa-Áıes por tipo (re-
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 2846--2870
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 2845--2869
  [][] 
  []
 
@@ -2178,7 +2178,7 @@ b><C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb
 ><C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb
 ><C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.p
 fb>
-Output written on abntex2-modelo-trabalho-academico.pdf (96 pages, 1070279 byte
+Output written on abntex2-modelo-trabalho-academico.pdf (96 pages, 1070136 byte
 s).
 PDF statistics:
  1503 PDF objects out of 1728 (max. 8388607)

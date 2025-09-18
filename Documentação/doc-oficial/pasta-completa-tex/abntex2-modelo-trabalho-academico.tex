@@ -777,13 +777,17 @@ Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma 
 		\hline
 		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
 		\hline 
-		1 & 25/03/2025 a 08/04/2025 & Realizar o planejamento do projeto  & 
-		- Organização do tema. \newline - Definição da metodologia de trabalho. \newline - Definição ferramentas de gestão. \newline
-		- Definição das plataformas e tecnologias de desenvolvimento. \newline  - Definição dos \textit{frameworks} e bibliotecas. \newline - Definição das ferramentas de desenvolvimento e hospedagem/publicação. \newline - Levantamento de custos. \\
+		1 & 25/03/2025 a 08/04/2025 & Planejamento Inicial do Projeto  & 
+	  	Definir ferramentas, plataformas, \textit{frameworks} e hospedagem; levantar custos
+	  	 \\
 		\hline
-		2 & 09/04/2025 a 22/04/2025 & Iniciar a modelagem do sistema  &
-		- Levantamento dos requisitos. \newline - Mapeamento dos casos de uso. \newline - Desenvolver \textit{Product Backlog} Inicial. \newline
-		- Definição do escopo do MVP. \newline - Organizar repositório e fluxo Git. \newline - Criação do Diagrama de Componentes. \newline - Criação do Diagrama de Implantação \\	\hline
+		2 & 09/04/2025 a 22/04/2025 & Início da Modelagem do Sistema  &
+		Levantamento de requisitos e definição do escopo do projeto
+		3 & 23/04/2025 a 06/05/2025 & Término da Modelagem do Sistema &	Configuração dos ambientes de trabalho  e criação dos diagramas faltantes \\ \hline
+		4 & 07/05/2025 a 20/05/2025 &  Inicio do desenvolvimento do MVP & Desenvolvimento das funcionalidades CRUD do módulo quarto
+		\\ \hline	
+		5 & 21/05/2025 a 03/06/2025 & Continuidade do desenvolvimento do MVP & Desenvolvimento das funcionalidades CRUD dos módulos de hóspedes e de reservas;\\ \hline
+		 \\	\hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -795,11 +799,7 @@ Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma 
 		\hline
 		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
 		\hline	
-		3 & 23/04/2025 a 06/05/2025 & Finalizar Modelagem do Sistema &
-		- Criar do modelo relacional (MER). \newline - Criar do diagrama entidade- relacionamento (DER). \newline - Configurar ambiente e servidor local \newline - Configurar Banco de Dados (PostgreSQL). \newline - Desenvolvimento do \textit{Backend} – estrutura inicial. \newline - Desenvolvimento do \textit{Frontend} – estrutura inicial.	\\	\hline
-		4 & 07/05/2025 a 20/05/2025 & Iniciar o desenvolvimento do MVP & - Revisão dos Requisitos e Diagramas. \newline - Criar funcionalidade de cadastro de quartos. \newline - Criar interfaces para gestão de quartos. \newline - Criar funcionalidades de edição e exclusão do cadastro de quartos. \newline - Criar funcionalidade de listagem de quartos.\newline
-		- Documentar os diagramas produzidos. \\ \hline	
-		5 & 21/05/2025 a 03/06/2025 & Continuar desenvolvimento do MVP & - Criar funcionalidade de status quarto. \newline - Criar funcionalidade de cadastro de hóspedes. \newline - Criar funcionalidades de edição e exclusão do cadastro de hóspedes. \newline - Criar interfaces para gestão de hóspedes. \newline - Criar funcionalidade de cadastro de reservas. \newline - Criar funcionalidades de edição e exclusão do cadastro de reservas. \newline - Consolidar toda a documentação técnica e de requisitos. \\ \hline
+	
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -810,10 +810,9 @@ Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma 
 		\hline
 		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
 		\hline	
-		6 & 04/06/2025 a 24/06/2025 & Finalizar desenvolvimento do MVP & - Revisar Documentação Técnica. \newline - Revisar formatação e ortografia da documentação. \newline - Finalizar documentação técnica e Gerar  PDF. \newline - Criar interfaces para gestão de Reservas. \newline - Criar funcionalidades de \textit{check-in} e \textit{check-out}. \newline - Criar lógica de validação de disponibilidade de quartos para reservas. \newline - Implementar atualização automática do status.\\ \hline	
-		7 & 12/08/2025 a 18/08/2025 & Iniciar do Desenvolvimento das Funcionalidades de Gestão Financeira &
-		- Revisão dos Requisitos, Diagramas e Casos de Uso. \newline - Criar funcionalidade de cadastro de despesas. \newline - Criar funcionalidade de cadastro de receitas. \newline - Criar funcionalidade de edição do cadastro de receitas. \newline - Criar interface para gestão de receitas. \newline - Integrar novas funcionalidades ao MVP.\\ \hline	
-		8 & 27/08/2025 a 09/09/2025 & Finalizar Desenvolvimento do CRUD de despesas & - Criar funcionalidade de edição do cadastro de despesas. \newline - Criar funcionalidade de registro de comprovação de pagamento de reservas. \newline - Criar funcionalidade de filtragem de receita/despesa (data, categoria). \newline - Criar login e logout de usuário. \newline - Implementar autenticação/criptografia. \newline - Integrar novas funcionalidades ao MVP.\\ \hline	
+		6 & 04/06/2025 a 24/06/2025 & Revisão do Código e Estruturação do Plano de Testes & Criar estrutura inicial do plano de testes; Revisão e padronização do código\\ \hline	
+		7 & 12/08/2025 a 18/08/2025 & Autenticação e CRUDs financeiros básicos & Configuração de login/logout no Django, CRUD inicial de categorias e formas de pagamento. \\ \hline	
+		8 & 27/08/2025 a 09/09/2025 & CRUDs financeiros avançados e testes de autenticação & - Criar funcionalidade de edição do cadastro de despesas. \newline - Criar funcionalidade de registro de comprovação de pagamento de reservas. \newline - Criar funcionalidade de filtragem de receita/despesa (data, categoria). \newline - Criar login e logout de usuário. \newline - Implementar autenticação/criptografia. \newline - Integrar novas funcionalidades ao MVP.\\ \hline	
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}	
@@ -1169,16 +1168,15 @@ Os requisitos funcionais descrevem as funcionalidades e serviços do sistema \te
 	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
 		\hline
 		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF18 & O sistema deve permitir a geração de recibos ou comprovantes de pagamento e estadia, sob demanda & Média & RN11 \\ \hline
-		RF19 & O sistema deve permitir o registro de \textit{early check-in} e \textit{late check-out} para uma reserva, bem como a configuração de tarifas adicionais correspondentes a essas opções & Média & RN12, RN13  \\ \hline
-		RF20 & A proprietária deve poder registrar, editar e excluir as despesas da pousada, categorizando-as (ex: manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa & Média & RN01 
+		RF18 & O sistema deve permitir o registro de \textit{early check-in} e \textit{late check-out} para uma reserva, bem como a configuração de tarifas adicionais correspondentes a essas opções & Média & RN12, RN13  \\ \hline
+		RF19 & A proprietária deve poder registrar, editar e excluir as despesas da pousada, categorizando-as (ex: manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa & Média & RN01 
 		\\ \hline
-		RF21 & A proprietária deve poder registrar, editar e excluir receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita & Média & RN01 \\ \hline
-		RF22 & O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria & Média & RN01 \\ \hline
-		RF23 & O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo & Média & RN01 \\ \hline
-		RF24 & O sistema deve gerar relatórios de faturamento por período & Média & RN01 \\ \hline
-		RF25 & O sistema deve apresentar um painel (\textit{dashboard}) com métricas-chave da pousada & Média & Requisito essencial para a gestão e visualização do negócio \\ \hline
-		RF26 & O sistema deve permitir o envio de notificações automáticas à proprietária sobre eventos importantes (ex: \textit{check-ins} iminentes)
+		RF20 & A proprietária deve poder registrar, editar e excluir receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita & Média & RN01 \\ \hline
+		RF21 & O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria & Média & RN01 \\ \hline
+		RF22 & O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo & Média & RN01 \\ \hline
+		RF23 & O sistema deve gerar relatórios de faturamento por período & Média & RN01 \\ \hline
+		RF24 & O sistema deve apresentar um painel (\textit{dashboard}) com métricas-chave da pousada & Média & Requisito essencial para a gestão e visualização do negócio \\ \hline
+		RF25 & O sistema deve permitir o envio de notificações automáticas à proprietária sobre eventos importantes (ex: \textit{check-ins} iminentes)
 		& Baixa & Requisito de suporte à gestão operacional \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}

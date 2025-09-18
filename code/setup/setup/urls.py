@@ -4,6 +4,7 @@ from django.shortcuts import render
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('', lambda request: render(request, 'index.html'), name='index'),
     path('quartos/', include('apps.core.urls.quarto')),
     path('hospedes/', include('apps.core.urls.hospede', namespace='hospede')),
