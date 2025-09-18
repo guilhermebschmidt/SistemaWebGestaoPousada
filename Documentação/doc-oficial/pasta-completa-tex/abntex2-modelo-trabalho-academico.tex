@@ -763,73 +763,40 @@ No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como 
 % 
 % ---
 \subsection{Sprint Backlog}
-O \textit{Sprint Backlog} constitui o plano de execução do projeto, derivado do \textit{Product Backlog}, e estabelece o conjunto de itens de trabalho a ser realizado em cada \textit {sprint}. Nesse contexto, o artefato foi desenvolvido pela equipe do projeto como ferramenta auxiliar na gestão, com o objetivo de garantir que todas as partes estivessem cientes do andamento e das etapas em desenvolvimento. E está registrado no  \autoref{sprints_backlog_1}.
+O \textit{Sprint Backlog} constitui o plano de execução do projeto, derivado do \textit{Product Backlog}, e estabelece o conjunto de itens de trabalho a ser realizado em cada \textit {sprint}. Nesse contexto, o artefato foi desenvolvido pela equipe do projeto como ferramenta auxiliar na gestão, com o objetivo de garantir que todas as partes estivessem cientes do andamento e das etapas em desenvolvimento. E está registrado no \autoref{sprints_backlog_1}.
 
 As \textit{sprints} foram organizadas em períodos de quinze dias (duas semanas), intervalo em conformidade com o Guia do Scrum \cite{scrumguide}. Totalizando 13 semanas de trabalho. Essa definição considerou a atuação majoritariamente remota da equipe e o tempo diário individual limitado para o trabalho, circunstâncias que demandaram períodos mais extensos para a execução das tarefas. Além disso, a organização das tarefas dentro de cada \textit{sprint} levou em consideração as datas de entrega do MVP, da documentação técnica e do produto final do projeto.
 
 Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma a cumprir um progresso gradual das atividades em 2 fases. Assim, na primeira fase, as primeiras \textit{sprints} focaram na modelagem do sistema e escolha das ferramentas e tecnologias de gestão e desenvolvimento. Para então, nas próximas \textit{sprints}, a equipe inicia tarefas relacionadas ao desenvolvimento do MVP e documentação do sistema. Enquanto que na segunda fase, a equipe focou em desenvolver as  funcionalidades faltantes, integrar com o MVP, realizar testes e revisão da documentação. Sendo que, as atividades de desenvolvimento foram distribuídas considerando: prioridade e relações de dependência. 
 \\
 %
+
 \begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 1} 
+	\caption{Sprints Backlog} 
 	\label{sprints_backlog_1} 
-\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{4.5cm}|>{\raggedright\arraybackslash}m{5.5cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\raggedright\arraybackslash}m{4cm}|>{\raggedright\arraybackslash}m{6.3cm}|}
 		\hline
 		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
-		\hline 
+		\hline	
 		1 & 25/03/2025 a 08/04/2025 & Planejamento Inicial do Projeto  & 
-	  	Definir ferramentas, plataformas, \textit{frameworks} e hospedagem; levantar custos
-	  	 \\
+		Definição de ferramentas, plataformas, \textit{frameworks} e hospedagem; levantar custos
+		\\
 		\hline
-		2 & 09/04/2025 a 22/04/2025 & Início da Modelagem do Sistema  &
-		Levantamento de requisitos e definição do escopo do projeto
-		3 & 23/04/2025 a 06/05/2025 & Término da Modelagem do Sistema &	Configuração dos ambientes de trabalho  e criação dos diagramas faltantes \\ \hline
+		2 & 09/04/2025 a 22/04/2025 & Início da Modelagem do Sistema  &	Levantamento de requisitos e definição do escopo do projeto 
+		\\
+		\hline
+		3 & 23/04/2025 a 06/05/2025 & Término da Modelagem do Sistema &	Configuração dos ambientes de trabalho  e criação dos diagramas faltantes
+		\\ \hline
 		4 & 07/05/2025 a 20/05/2025 &  Inicio do desenvolvimento do MVP & Desenvolvimento das funcionalidades CRUD do módulo quarto
 		\\ \hline	
 		5 & 21/05/2025 a 03/06/2025 & Continuidade do desenvolvimento do MVP & Desenvolvimento das funcionalidades CRUD dos módulos de hóspedes e de reservas;\\ \hline
-		 \\	\hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
-
-\begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 2}
-	\label{sprints_backlog_2} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{4.5cm}|>{\raggedright\arraybackslash}m{5.5cm}|}
-		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
-		\hline	
-	
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
-\begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 3} 
-	\label{sprints_backlog_3} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{4.5cm}|>{\raggedright\arraybackslash}m{5.5cm}|}
-		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
-		\hline	
 		6 & 04/06/2025 a 24/06/2025 & Revisão do Código e Estruturação do Plano de Testes & Criar estrutura inicial do plano de testes; Revisão e padronização do código\\ \hline	
-		7 & 12/08/2025 a 18/08/2025 & Autenticação e CRUDs financeiros básicos & Configuração de login/logout no Django, CRUD inicial de categorias e formas de pagamento. \\ \hline	
-		8 & 27/08/2025 a 09/09/2025 & CRUDs financeiros avançados e testes de autenticação & - Criar funcionalidade de edição do cadastro de despesas. \newline - Criar funcionalidade de registro de comprovação de pagamento de reservas. \newline - Criar funcionalidade de filtragem de receita/despesa (data, categoria). \newline - Criar login e logout de usuário. \newline - Implementar autenticação/criptografia. \newline - Integrar novas funcionalidades ao MVP.\\ \hline	
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}	
-\begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 4} 
-	\label{sprints_backlog_4} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{4.5cm}|>{\raggedright\arraybackslash}m{5.5cm}|}
-		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
-		\hline	
-		9 & 10/09/2025 a 23/09/2025 & Desenvolver Funcionalidades Relacionadas aos Relatórios	 & - Criar funcionalidade para criar relatórios de quartos. \newline - Criar funcionalidade para criar relatórios de hóspedes. \newline - Criar funcionalidade para criar relatórios de reservas. \newline - Criar balanço financeiro simples (receitas, despesas, saldo) por período. \newline - Integrar novas funcionalidades ao MVP.\\ \hline
-		10 & 24/09/2025 a 07/10/2025 & Desenvolver o Plano de Testes &
-		- Definir escopo dos testes. \newline - Identificar cenários de teste. \newline - Elaborar casos de teste. \newline - Definir critérios de aceitação. \newline - Definir as ferramentas e ambiente de teste. \newline - Preparar dados de testes. \newline - Documentar plano de testes.\\ \hline	
-		11 & 08/10/2025 a 21/10/2025 & Executar o Plano de Testes &
-		- Executar testes gerais. \newline - Executar testes SSL. \newline - Executar testes de \textit{Headers} de segurança. \\ \hline
-		12 & 22/10/2025 a 07/11/2025 & Planejar a Implantação do Sistema & - Realizar ajustes de segurança. \newline - Documentar resultados dos testes. \newline - Registrar escolhas e mudanças de rumo. \newline - Documentar problemas ocorridos e lições aprendidas. \newline - Elaborar o plano de implantação.\\ \hline
-		13 & 04/11/2025 a 18/11/2025 & Implantar o Sistema & - Realizar a implantação da aplicação. \newline - Corrigir possíveis problemas da implantação. \newline - Revisão final da documentação técnica. \newline - Treinamento da proprietária da pousada para uso da aplicação. \newline - Entrega do produto final \\ \hline
+		7 & 12/08/2025 a 18/08/2025 & Início do desenvolvimento do módulo financeiro & Configuração da autenticação e CRUDs financeiros básicos e avançados \\ \hline	
+		8 & 27/08/2025 a 09/09/2025 & Continuidade no desenvolvimento do módulo financeiro & Aplicação de Regras Financeiras Avançadas  \\ \hline
+		9 & 10/09/2025 a 23/09/2025 & Continuidade no desenvolvimento do módulo financeiro & Criação das interfaces dos CRUDs financeiros e implementação das funcionalidades de geração de relatórios\\ \hline
+		10 & 24/09/2025 a 07/10/2025 & Testes gerais e Revisão do Código &
+		Testes integrados e revisão do código completo \\ \hline
+		12 & 22/10/2025 a 07/11/2025 & Deploy do Sistema & Correção de bugs e entrega final do sistema \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
