@@ -696,7 +696,7 @@ Adicionalmente, a divisão das funções e responsabilidades dos membros da equi
 			|>{\raggedright\arraybackslash}m{6cm}|}
 		\hline
 		\textbf{Integrante} & \textbf{Função} &  \textbf{Papel Scrum}& \textbf{Responsabilidades} \\ \hline
-		Guilherme Akio & Engenheiro de Dados (DBA) & Time de Desenvolvimento & Implementar, administrar e otimizar o banco de dados da aplicação; Entregas de funcionalidades relcionadas ao gerenciamento e persistência de dados \\ \hline
+		Guilherme Akio & Engenheiro de Dados (DBA) & Time de Desenvolvimento & Implementar, administrar e otimizar o banco de dados da aplicação; Entregas de funcionalidades relacionadas ao gerenciamento e persistência de dados \\ \hline
 		Guilherme Bittencourt & Documentador Técnico e Engenheiro de Software & Scrum Master & Criar e manter a documentação técnica; Definir e organizar a estrutura da aplicação; Facilitar e práticas Scrum \\ \hline
 		Kelly Radchelle & Gerente de Projeto & Product Owner & Coordenar a equipe e gerenciar as atividades do projeto; Facilitar tomada de decisões e comunicação entre as partes interessadas; Acompanhamento do progresso das \textit{sprints}  \\ \hline
 		Rafael Teixeira & Desenvolvedor Frontend &  Time de Desenvolvimento & Projetar e implementar interfaces da aplicação; Entregas de funcionalidades relacionadas à experiência do usuário.\\ \hline
@@ -725,7 +725,7 @@ No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como 
 		6 & Implementar funcionalidades de autenticação de usuário & Autenticação e Segurança & ALTA \\ \hline
 		7 & Implementar funcionalidades de cadastro, edição e exclusão de quartos & Gestão de Quartos & ALTA \\ \hline
 		8 & Implementar funcionalidades de cadastro, edição e exclusão de hóspedes & Gestão de Hóspedes & ALTA \\ \hline
-		9 & Implementar funcionalidades de cadastro, edição e exclusão de reservas &	Gestão de Reservas & ALTA \\ \hline
+		9 & Implementar funcionalidades de cadastro, edição e exclusão de reservas & Gestão de Reservas & ALTA \\ \hline
 		10 & Implementar interfaces  de usuário & Requisito Técnico & ALTA \\ \hline
 		11 & Implementar funcionalidades de \textit{Check-in} e \textit {Check-out} &
 		\textit {Check-in} e \textit {Check-out} &	ALTA \\ \hline
@@ -765,7 +765,7 @@ No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como 
 \subsection{Sprint Backlog}
 O \textit{Sprint Backlog} constitui o plano de execução do projeto, derivado do \textit{Product Backlog}, e estabelece o conjunto de itens de trabalho a ser realizado em cada \textit {sprint}. Nesse contexto, o artefato foi desenvolvido pela equipe do projeto como ferramenta auxiliar na gestão, com o objetivo de garantir que todas as partes estivessem cientes do andamento e das etapas em desenvolvimento. E está registrado no  \autoref{sprints_backlog_1}.
 
-As \textit{sprints} foram organizadas em períodos de quinze dias (duas semanas), intervalo em conformidade com o Guia do Scrum \cite{scrumguide}. Totalizando 13 semanas de trabalho. Essa definição considerou a atuação majoritariamente remota da equipe e o tempo diário individual limitado para o trabalho, circunstâncias que demandaram períodos mais extensos para a execução das tarefas. Além disso, a organização das tarefas dentro de cada \textit{sprint} levou em consideração as datas de entrega do MVP, da documentação técnica e do produto final do projeto.
+As \textit{sprints} foram organizadas em períodos de quinze dias (duas semanas), intervalo em conformidade com o Guia do Scrum \cite{scrumguide}. Totalizando 12 semanas de trabalho. Essa definição considerou a atuação majoritariamente remota da equipe e o tempo diário individual limitado para o trabalho, circunstâncias que demandaram períodos mais extensos para a execução das tarefas. Além disso, a organização das tarefas dentro de cada \textit{sprint} levou em consideração as datas de entrega do MVP, da documentação técnica e do produto final do projeto.
 
 Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma a cumprir um progresso gradual das atividades em 2 fases. Assim, na primeira fase, as primeiras \textit{sprints} focaram na modelagem do sistema e escolha das ferramentas e tecnologias de gestão e desenvolvimento. Para então, nas próximas \textit{sprints}, a equipe inicia tarefas relacionadas ao desenvolvimento do MVP e documentação do sistema. Enquanto que na segunda fase, a equipe focou em desenvolver as  funcionalidades faltantes, integrar com o MVP, realizar testes e revisão da documentação. Sendo que, as atividades de desenvolvimento foram distribuídas considerando: prioridade e relações de dependência. 
 \\
@@ -773,64 +773,42 @@ Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma 
 \begin{quadro}[H]
 	\caption{Sprints Backlog - Parte 1} 
 	\label{sprints_backlog_1} 
-\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{4.5cm}|>{\raggedright\arraybackslash}m{5.5cm}|}
+		\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3.5cm}|>{\raggedright\arraybackslash}m{6.5cm}|}
 		\hline
 		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
 		\hline 
-		1 & 25/03/2025 a 08/04/2025 & Realizar o planejamento do projeto  & 
-		- Organização do tema. \newline - Definição da metodologia de trabalho. \newline - Definição ferramentas de gestão. \newline
-		- Definição das plataformas e tecnologias de desenvolvimento. \newline  - Definição dos \textit{frameworks} e bibliotecas. \newline - Definição das ferramentas de desenvolvimento e hospedagem/publicação. \newline - Levantamento de custos. \\
+		1 & 25/03/2025 a 08/04/2025 & Planejamento Inicial do Projeto  & Definição de ferramentas, metodologias, tecnologias e ambientes de trabalho.
+		 \\
 		\hline
-		2 & 09/04/2025 a 22/04/2025 & Iniciar a modelagem do sistema  &
-		- Levantamento dos requisitos. \newline - Mapeamento dos casos de uso. \newline - Desenvolver \textit{Product Backlog} Inicial. \newline
-		- Definição do escopo do MVP. \newline - Organizar repositório e fluxo Git. \newline - Criação do Diagrama de Componentes. \newline - Criação do Diagrama de Implantação \\	\hline
+		2 & 09/04/2025 a 22/04/2025 & Início da Modelagem do Sistema  & Levantamento de requisitos e definição do escopo do projeto
+		 \\	\hline
+		3 & 23/04/2025 a 06/05/2025 & Finalizar Modelagem do Sistema & Configuração dos ambientes de trabalho  e criação dos diagramas faltantes.
+		\\	\hline
+		4 & 07/05/2025 a 20/05/2025 & Início do desenvolvimento do MVP & Desenvolvimento de funcionalidades CRUD de quartos.
+		 \\ \hline	
+		 5 & 21/05/2025 a 03/06/2025 & Continuidade do desenvolvimento do MVP & Desenvolvimento de funcionalidades CRUD de hóspedes e reservas; Criação de interfaces do CRUD de quartos.
+		 \\ \hline
+		 6 & 04/06/2025 a 24/06/2025 & Fim do desenvolvimento do MVP & Revisão da Documentação e criação das interfaces CRUDs de hóspedes e reservas \\ \hline	
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
-
 \begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 2}
+	\caption{Sprints Backlog - Parte 2} 
 	\label{sprints_backlog_2} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{4.5cm}|>{\raggedright\arraybackslash}m{5.5cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{4cm}|>{\raggedright\arraybackslash}m{6cm}|}
 		\hline
 		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
-		\hline	
-		3 & 23/04/2025 a 06/05/2025 & Finalizar Modelagem do Sistema &
-		- Criar do modelo relacional (MER). \newline - Criar do diagrama entidade- relacionamento (DER). \newline - Configurar ambiente e servidor local \newline - Configurar Banco de Dados (PostgreSQL). \newline - Desenvolvimento do \textit{Backend} – estrutura inicial. \newline - Desenvolvimento do \textit{Frontend} – estrutura inicial.	\\	\hline
-		4 & 07/05/2025 a 20/05/2025 & Iniciar o desenvolvimento do MVP & - Revisão dos Requisitos e Diagramas. \newline - Criar funcionalidade de cadastro de quartos. \newline - Criar interfaces para gestão de quartos. \newline - Criar funcionalidades de edição e exclusão do cadastro de quartos. \newline - Criar funcionalidade de listagem de quartos.\newline
-		- Documentar os diagramas produzidos. \\ \hline	
-		5 & 21/05/2025 a 03/06/2025 & Continuar desenvolvimento do MVP & - Criar funcionalidade de status quarto. \newline - Criar funcionalidade de cadastro de hóspedes. \newline - Criar funcionalidades de edição e exclusão do cadastro de hóspedes. \newline - Criar interfaces para gestão de hóspedes. \newline - Criar funcionalidade de cadastro de reservas. \newline - Criar funcionalidades de edição e exclusão do cadastro de reservas. \newline - Consolidar toda a documentação técnica e de requisitos. \\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
-\begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 3} 
-	\label{sprints_backlog_3} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{4.5cm}|>{\raggedright\arraybackslash}m{5.5cm}|}
-		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
-		\hline	
-		6 & 04/06/2025 a 24/06/2025 & Finalizar desenvolvimento do MVP & - Revisar Documentação Técnica. \newline - Revisar formatação e ortografia da documentação. \newline - Finalizar documentação técnica e Gerar  PDF. \newline - Criar interfaces para gestão de Reservas. \newline - Criar funcionalidades de \textit{check-in} e \textit{check-out}. \newline - Criar lógica de validação de disponibilidade de quartos para reservas. \newline - Implementar atualização automática do status.\\ \hline	
-		7 & 12/08/2025 a 18/08/2025 & Iniciar do Desenvolvimento das Funcionalidades de Gestão Financeira &
-		- Revisão dos Requisitos, Diagramas e Casos de Uso. \newline - Criar funcionalidade de cadastro de despesas. \newline - Criar funcionalidade de cadastro de receitas. \newline - Criar funcionalidade de edição do cadastro de receitas. \newline - Criar interface para gestão de receitas. \newline - Integrar novas funcionalidades ao MVP.\\ \hline	
-		8 & 27/08/2025 a 09/09/2025 & Finalizar Desenvolvimento do CRUD de despesas & - Criar funcionalidade de edição do cadastro de despesas. \newline - Criar funcionalidade de registro de comprovação de pagamento de reservas. \newline - Criar funcionalidade de filtragem de receita/despesa (data, categoria). \newline - Criar login e logout de usuário. \newline - Implementar autenticação/criptografia. \newline - Integrar novas funcionalidades ao MVP.\\ \hline	
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}	
-\begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 4} 
-	\label{sprints_backlog_4} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{4.5cm}|>{\raggedright\arraybackslash}m{5.5cm}|}
-		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
-		\hline	
-		9 & 10/09/2025 a 23/09/2025 & Desenvolver Funcionalidades Relacionadas aos Relatórios	 & - Criar funcionalidade para criar relatórios de quartos. \newline - Criar funcionalidade para criar relatórios de hóspedes. \newline - Criar funcionalidade para criar relatórios de reservas. \newline - Criar balanço financeiro simples (receitas, despesas, saldo) por período. \newline - Integrar novas funcionalidades ao MVP.\\ \hline
-		10 & 24/09/2025 a 07/10/2025 & Desenvolver o Plano de Testes &
-		- Definir escopo dos testes. \newline - Identificar cenários de teste. \newline - Elaborar casos de teste. \newline - Definir critérios de aceitação. \newline - Definir as ferramentas e ambiente de teste. \newline - Preparar dados de testes. \newline - Documentar plano de testes.\\ \hline	
-		11 & 08/10/2025 a 21/10/2025 & Executar o Plano de Testes &
-		- Executar testes gerais. \newline - Executar testes SSL. \newline - Executar testes de \textit{Headers} de segurança. \\ \hline
-		12 & 22/10/2025 a 07/11/2025 & Planejar a Implantação do Sistema & - Realizar ajustes de segurança. \newline - Documentar resultados dos testes. \newline - Registrar escolhas e mudanças de rumo. \newline - Documentar problemas ocorridos e lições aprendidas. \newline - Elaborar o plano de implantação.\\ \hline
-		13 & 04/11/2025 a 18/11/2025 & Implantar o Sistema & - Realizar a implantação da aplicação. \newline - Corrigir possíveis problemas da implantação. \newline - Revisão final da documentação técnica. \newline - Treinamento da proprietária da pousada para uso da aplicação. \newline - Entrega do produto final \\ \hline
+		\hline 
+		7 & 12/08/2025 a 18/08/2025 & Revisão e correções do MVP & Revisão e padronização do código; Criação do plano inicial de testes: Autenticação\\ \hline	
+		8 & 27/08/2025 a 09/09/2025 & Início do desenvolvimento do módulo financeiro & Implementação de CRUDs financeiros e cálculos avançados\\ \hline	
+		9 & 10/09/2025 a 23/09/2025 & Continuidade do desenvolvimento do módulo financeiro & Criação das interfaces dos CRUDs financeiros e implementação dos relatórios
+		\\ \hline
+		10 & 24/09/2025 a 07/10/2025 & Revisão do código & Correção de erros e planejamento de testes de integração
+		\\ \hline	
+		11 & 08/10/2025 a 21/10/2025 & Execução teste gerais & Realização de testes de integração e segurança
+		\\ \hline
+		12 & 22/10/2025 a 07/11/2025 & Deploy do sistema & Correção de bugs e implantação final do sistema
+		\\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -1169,16 +1147,15 @@ Os requisitos funcionais descrevem as funcionalidades e serviços do sistema \te
 	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
 		\hline
 		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF18 & O sistema deve permitir a geração de recibos ou comprovantes de pagamento e estadia, sob demanda & Média & RN11 \\ \hline
-		RF19 & O sistema deve permitir o registro de \textit{early check-in} e \textit{late check-out} para uma reserva, bem como a configuração de tarifas adicionais correspondentes a essas opções & Média & RN12, RN13  \\ \hline
-		RF20 & A proprietária deve poder registrar, editar e excluir as despesas da pousada, categorizando-as (ex: manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa & Média & RN01 
+		RF18 & O sistema deve permitir o registro de \textit{early check-in} e \textit{late check-out} para uma reserva, bem como a configuração de tarifas adicionais correspondentes a essas opções & Média & RN12, RN13  \\ \hline
+		RF19 & A proprietária deve poder registrar, editar e excluir as despesas da pousada, categorizando-as (ex: manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa & Média & RN01 
 		\\ \hline
-		RF21 & A proprietária deve poder registrar, editar e excluir receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita & Média & RN01 \\ \hline
-		RF22 & O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria & Média & RN01 \\ \hline
-		RF23 & O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo & Média & RN01 \\ \hline
-		RF24 & O sistema deve gerar relatórios de faturamento por período & Média & RN01 \\ \hline
-		RF25 & O sistema deve apresentar um painel (\textit{dashboard}) com métricas-chave da pousada & Média & Requisito essencial para a gestão e visualização do negócio \\ \hline
-		RF26 & O sistema deve permitir o envio de notificações automáticas à proprietária sobre eventos importantes (ex: \textit{check-ins} iminentes)
+		RF20 & A proprietária deve poder registrar, editar e excluir receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita & Média & RN01 \\ \hline
+		RF21 & O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria & Média & RN01 \\ \hline
+		RF22 & O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo & Média & RN01 \\ \hline
+		RF23 & O sistema deve gerar relatórios de faturamento por período & Média & RN01 \\ \hline
+		RF24 & O sistema deve apresentar um painel (\textit{dashboard}) com métricas-chave da pousada & Média & Requisito essencial para a gestão e visualização do negócio \\ \hline
+		RF25 & O sistema deve permitir o envio de notificações automáticas à proprietária sobre eventos importantes (ex: \textit{check-ins} iminentes)
 		& Baixa & Requisito de suporte à gestão operacional \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
