@@ -23,6 +23,7 @@
                     <th>Check-in</th>
                     <th>Check-out</th>
                     <th>Valor</th>
+                    <th>Status</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -36,6 +37,14 @@
                     <td>{{ reserva.data_check_in }}</td>
                     <td>{{ reserva.data_check_out }}</td>
                     <td>R$ {{ reserva.valor }}</td>
+                    <td>{% if reserva.status == 'CANCELADA' %}
+                        <a href="#" class="cancelamento-link" data-motivo="{{ reserva.motivo_cancelamento }}">
+                            {{ reserva.status }}
+                        </a>
+                        {% else %}
+                            {{ reserva.status }}
+                        {% endif %}
+                    </td>
                     <td class="flex gap-2">
                         <a href="{% url 'reserva:update' reserva.id %}" class="btn btn-warning btn-sm" title="Editar Reserva">
                             <i class="fas fa-edit">Editar</i>
@@ -52,6 +61,56 @@
                 {% endfor %}
             </tbody>
         </table>
+    </div>
+</div>
+<div id="modal-motivo" class="modal">
+    <div class="modal-content">
+        <span class="fechar">&times;</span>
+        <h3>Motivo do Cancelamento</h3>
+        <p id="motivo-texto"></p>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('modal-motivo');           //seleciona o modal e o elemento de texto
+    const motivoTexto = document.getElementById('motivo-texto');
+    const fecharBtn = document.querySelector('.fechar');
+    const links = document.querySelectorAll('.cancelamento-link');  //seleciona todos os links de cancelamento
+
+    links.forEach(link => {             //evento de clique para cada link    
+        link.addEventListener('click', function(e) {
+            e.preventDefault();         // evita que o link navegue para #
+            const motivo = this.getAttribute('data-motivo');   //pega o motivo do atributo de dados
+            motivoTexto.textContent = motivo;   //coloca o motivo no modal e exibe
+            modal.style.display = 'block';
+        });
+    });
+    fecharBtn.addEventListener('click', function() {  //adiciona o evento de fechar o model
+        modal.style.display = 'none';
+    });
+    window.addEventListener('click', function(e) {  //fecha o model caso o usuario clique fora
+        if (e.target == modal) {
+            modal.style.display = 'none';
+        }
+    });
+</script>
+
+<div id="modal-cancelamento" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-1/3 max-w-lg">
+        <h3 class="text-xl font-bold mb-4">Motivo do Cancelamento</h3>
+        <p class="mb-4">Por favor, explique o motivo do cancelamento da reserva.</p>
+        <form id="form-cancelamento" method="post" action="">
+            {% csrf_token %}
+            <input type="hidden" name="reserva_id" id="reserva-id-input">
+            <div class="mb-4">
+                <label for="motivo_cancelamento" class="block text-sm font-medium text-gray-700">Motivo:</label>
+                <textarea id="motivo_cancelamento" name="motivo_cancelamento" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required></textarea>
+            </div>
+            <div class="flex justify-end gap-2">
+                <button type="button" onclick="fecharModalCancelamento()" class="btn btn-ghost">Cancelar</button>
+                <button type="submit" class="btn btn-error">Confirmar Exclusão</button>
+            </div>
+        </form>
     </div>
 </div>
 
@@ -77,22 +136,5 @@
         modal.classList.remove('flex');
     }
 </script>
-<div id="modal-cancelamento" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
-    <div class="bg-white rounded-lg shadow-lg p-6 w-1/3 max-w-lg">
-        <h3 class="text-xl font-bold mb-4">Motivo do Cancelamento</h3>
-        <p class="mb-4">Por favor, explique o motivo do cancelamento da reserva.</p>
-        <form id="form-cancelamento" method="post" action="">
-            {% csrf_token %}
-            <input type="hidden" name="reserva_id" id="reserva-id-input">
-            <div class="mb-4">
-                <label for="motivo_cancelamento" class="block text-sm font-medium text-gray-700">Motivo:</label>
-                <textarea id="motivo_cancelamento" name="motivo_cancelamento" rows="4" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required></textarea>
-            </div>
-            <div class="flex justify-end gap-2">
-                <button type="button" onclick="fecharModalCancelamento()" class="btn btn-ghost">Cancelar</button>
-                <button type="submit" class="btn btn-error">Confirmar Exclusão</button>
-            </div>
-        </form>
-    </div>
-</div>
+
 {% endblock %}

@@ -3,7 +3,6 @@ from .hospede import Hospede
 from .quarto import Quarto
 
 class Reserva(models.Model):
-    #id_financeiro = models.ForeignKey(Financeiro, on_delete=models.CASCADE, verbose_name='Financeiro')
     id_hospede = models.ForeignKey(Hospede, on_delete=models.CASCADE, verbose_name='Hóspede')
     id_quarto = models.ForeignKey(Quarto, on_delete=models.CASCADE, verbose_name='Quarto')
 
@@ -20,6 +19,22 @@ class Reserva(models.Model):
         max_digits=10,
         decimal_places=2,
         default=0.00
+    )
+
+    STATUS_CHOICES = (
+        ('PREVISTA', 'Prevista'),
+        ('ATIVA', 'Ativa'),
+        ('CONCLUIDA', 'Concluída'),
+        ('CANCELADA', 'Cancelada'),
+    )
+    status = models.CharField(
+        max_length=10,
+        choices=STATUS_CHOICES,
+        default='PREVISTA',
+    )
+    motivo_cancelamento = models.TextField(
+        null=True,
+        blank=True,
     )
 
     def __str__(self):
