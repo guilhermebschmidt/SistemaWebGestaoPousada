@@ -32,6 +32,7 @@ class Reserva(models.Model):
         max_length=10,
         choices=STATUS_CHOICES,
         default='PREVISTA',
+        null=True
     )
     motivo_cancelamento = models.TextField(
         null=True,
