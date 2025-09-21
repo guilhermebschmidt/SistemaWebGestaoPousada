@@ -63,7 +63,7 @@
                     <td>{{ titulo.data_vencimento|date:"d/m/Y" }}</td>
                     <td>{{ titulo.data_pagamento|date:"d/m/Y"|default:"--" }}</td>
                     <td>
-                        {% if titulo.data_pagamento %}
+                        {% if titulo.pago %}
                             <span class="badge badge-success">Pago</span>
                         {% elif titulo.data_vencimento < hoje %}
                              <span class="badge badge-error">Vencido</span>
