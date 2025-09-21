@@ -37,10 +37,11 @@ class Titulo(models.Model):
     data_vencimento = models.DateField(verbose_name="Data de Vencimento")
     data_compensacao = models.DateField(null=True, blank=True, verbose_name="Data de Compensação")
 
-    # Sugestões extras
     observacao = models.TextField(null=True, blank=True, verbose_name="Observação")
     criado_em = models.DateTimeField(auto_now_add=True)
     atualizado_em = models.DateTimeField(auto_now=True)
+
+    pago = models.BooleanField(default=False, null=False)
 
     def __str__(self):
         return f"{self.descricao} - {self.valor} ({self.get_situacao_display()})"

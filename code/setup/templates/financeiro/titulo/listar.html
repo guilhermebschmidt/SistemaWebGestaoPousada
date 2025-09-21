@@ -1,0 +1,92 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block title %}Títulos Financeiros{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <h2 class="text-2xl font-bold">Títulos Financeiros</h2>
+        <a href="{% url 'financeiro:form' %}" class="btn btn-success">
+            <i class="fas fa-plus mr-2"></i>Adicionar Título
+        </a>
+    </div>
+
+    <!-- Seção de Filtros -->
+    <div class="card bg-base-100 shadow-sm">
+        <div class="card-body p-4">
+            <form method="GET" action="{% url 'financeiro:list' %}" class="flex flex-col sm:flex-row items-center gap-4">
+                <div class="form-control w-full sm:w-auto">
+                    <label class="label" for="pago">
+                        <span class="label-text">Situação do Pagamento</span>
+                    </label>
+                    <select name="pago" id="pago" class="select select-bordered">
+                        <option value="todos" {% if filtro_pago == 'todos' %}selected{% endif %}>Todos</option>
+                        <option value="sim" {% if filtro_pago == 'sim' %}selected{% endif %}>Pago</option>
+                        <option value="nao" {% if filtro_pago == 'nao' %}selected{% endif %}>Não Pago</option>
+                    </select>
+                </div>
+                <div class="form-control w-full sm:w-auto mt-auto">
+                    <button type="submit" class="btn btn-primary w-full">Filtrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="overflow-x-auto bg-base-100 rounded-lg shadow">
+        <table class="table">
+            <thead>
+                <tr class="bg-base-200">
+                    <th>Descrição</th>
+                    <th>Hóspede/Reserva</th>
+                    <th>Valor</th>
+                    <th>Vencimento</th>
+                    <th>Pagamento</th>
+                    <th>Situação</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for titulo in titulos %}
+                <tr class="hover">
+                    <td>{{ titulo.descricao }}</td>
+                    <td>
+                        {% if titulo.hospede %}
+                            {{ titulo.hospede.nome }}
+                        {% elif titulo.reserva %}
+                            Reserva #{{ titulo.reserva.id }}
+                        {% else %}
+                            N/A
+                        {% endif %}
+                    </td>
+                    <td>R$ {{ titulo.valor }}</td>
+                    <td>{{ titulo.data_vencimento|date:"d/m/Y" }}</td>
+                    <td>{{ titulo.data_pagamento|date:"d/m/Y"|default:"--" }}</td>
+                    <td>
+                        {% if titulo.data_pagamento %}
+                            <span class="badge badge-success">Pago</span>
+                        {% elif titulo.data_vencimento < hoje %}
+                             <span class="badge badge-error">Vencido</span>
+                        {% else %}
+                            <span class="badge badge-warning">Aberto</span>
+                        {% endif %}
+                    </td>
+                    <td class="flex gap-2">
+                        <a href="{% url 'financeiro:update' titulo.id %}" class="btn btn-warning btn-sm" title="Editar Título">
+                            <i class="fas fa-edit">Editar</i>
+                        </a>
+                        <button class="btn btn-error btn-sm" title="Excluir Título"> <!-- Adicionar lógica de exclusão -->
+                            <i class="fas fa-trash">Cancelar</i>
+                        </button>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" class="text-center text-gray-500 py-4">Nenhum título financeiro encontrado.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
