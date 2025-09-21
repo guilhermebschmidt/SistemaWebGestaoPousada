@@ -1,0 +1,150 @@
+# Plano de Testes Funcionais
+
+---
+
+### 1. Introdução
+
+O presente documento descreve o Plano de Testes Funcionais do sistema de hospedagem, desenvolvido em Django.
+O objetivo é validar o funcionamento de todas as funcionalidades críticas sob a ótica do usuário final, garantindo que os requisitos de negócio sejam atendidos e que o sistema esteja pronto para utilização em produção.
+
+
+---
+
+### 2. Objetivos
+
+Validar o correto funcionamento do sistema do ponto de vista do cliente/usuário.
+
+Garantir que as regras de negócio sejam respeitadas em todos os módulos (Hóspede, Quarto e Reserva).
+
+Testar a integração entre os módulos e os fluxos end-to-end.
+
+Detectar falhas e inconsistências antes da entrega final.
+
+
+
+---
+
+### 3. Escopo
+
+Os testes contemplam:
+
+Gestão de Hóspedes: cadastro, edição, consulta, pesquisa e exclusão.
+
+Gestão de Quartos: cadastro, edição, consulta, pesquisa, alteração de status e exclusão.
+
+Gestão de Reservas: criação, edição, consulta, exclusão, check-in e check-out.
+
+Regras de Negócio: disponibilidade de quartos, validação de datas, unicidade de registros.
+
+Fluxos End-to-End: interações completas entre hóspede, quarto e reserva.
+
+
+Não estão no escopo: testes de performance, segurança ou testes de carga.
+
+
+---
+
+### 4. Metodologia
+
+Abordagem Manual: simulação de uso real do sistema pelo cliente.
+
+Abordagem Automatizada: suporte com testes unitários existentes (forms, models e views).
+
+Ferramentas: Pytest + Django Test Client (para automação).
+
+Cada caso de teste possui ID, pré-condição, passos e resultado esperado.
+
+
+
+---
+
+### 5. Critérios de Aceite
+
+Todas as funcionalidades críticas devem estar operacionais.
+
+Campos obrigatórios não podem ser deixados em branco.
+
+O sistema deve rejeitar entradas inválidas e apresentar mensagens claras de erro.
+
+Regras de negócio devem ser aplicadas corretamente (ex.: reservas sobrepostas, datas inconsistentes).
+
+Fluxos end-to-end devem ser concluídos com sucesso.
+
+
+
+---
+
+### 6. Casos de Teste
+
+#### 6.1 Gestão de Hóspedes
+
+ID	Caso de Teste	Pré-condição	Passos	Resultado Esperado
+
+CT-H01	Cadastro de hóspede válido	Nenhum	Preencher todos os campos obrigatórios e salvar	Hóspede cadastrado e exibido na listagem
+CT-H02	Cadastro com e-mail inválido	Nenhum	Informar e-mail em formato incorreto e salvar	Sistema rejeita e exibe mensagem de erro
+CT-H03	Edição de hóspede	Hóspede cadastrado	Alterar telefone e salvar	Dados atualizados corretamente
+CT-H04	Exclusão de hóspede com reserva ativa	Hóspede com reserva vinculada	Tentar excluir hóspede	Sistema bloqueia exclusão e exibe mensagem adequada
+CT-H05	Pesquisa de hóspede	Hóspede cadastrado	Buscar pelo nome em campo de pesquisa	Sistema retorna hóspede correspondente
+
+
+
+---
+
+#### 6.2 Gestão de Quartos
+
+ID	Caso de Teste	Pré-condição	Passos	Resultado Esperado
+
+CT-Q01	Cadastro de quarto válido	Nenhum	Informar número único, descrição e preço e salvar	Quarto cadastrado com sucesso
+CT-Q02	Cadastro com número duplicado	Quarto nº 101 cadastrado	Tentar cadastrar outro quarto nº 101	Sistema rejeita e exibe mensagem de erro
+CT-Q03	Alteração de status do quarto	Quarto cadastrado	Alterar status de “Livre” para “Manutenção”	Status atualizado corretamente
+CT-Q04	Exclusão de quarto com reserva ativa	Quarto com reserva vinculada	Tentar excluir quarto	Sistema bloqueia exclusão e exibe mensagem adequada
+
+
+
+---
+
+#### 6.3 Gestão de Reservas
+
+ID	Caso de Teste	Pré-condição	Passos	Resultado Esperado
+
+CT-R01	Criação de reserva válida	Hóspede e quarto cadastrados	Informar datas válidas e salvar	Reserva criada e vinculada ao hóspede e quarto
+CT-R02	Criação com datas inválidas	Hóspede e quarto cadastrados	Informar data de check-out anterior à de check-in	Sistema rejeita e exibe mensagem de erro
+CT-R03	Reserva em quarto já ocupado	Hóspede e quarto reservados no período	Tentar criar nova reserva no mesmo quarto/período	Sistema rejeita e exibe mensagem de indisponibilidade
+CT-R04	Edição de reserva	Reserva cadastrada	Alterar datas e salvar	Reserva atualizada corretamente
+CT-R05	Exclusão de reserva	Reserva cadastrada	Excluir reserva	Reserva excluída e quarto volta a ficar disponível
+CT-R06	Check-in de reserva	Reserva cadastrada	Executar ação de check-in	Data de check-in registrada
+CT-R07	Check-out de reserva	Reserva cadastrada com check-in	Executar ação de check-out	Data de check-out registrada
+CT-R08	Pesquisa de reservas por hóspede	Reserva cadastrada	Buscar pelo nome do hóspede	Sistema retorna reservas correspondentes
+
+
+
+---
+
+#### 6.4 Fluxos End-to-End
+
+ID	Caso de Teste	Passos	Resultado Esperado
+
+CT-F01	Fluxo completo de cadastro	Cadastrar hóspede → cadastrar quarto → criar reserva	Fluxo executado sem falhas
+CT-F02	Exclusão de hóspede com reserva	Criar hóspede, quarto e reserva → tentar excluir hóspede	Exclusão bloqueada com mensagem adequada
+CT-F03	Atualização de quarto em manutenção	Criar reserva → tentar alterar quarto para “Manutenção”	Ação bloqueada com mensagem de erro
+
+
+
+---
+
+### 7. Relatório de Testes
+
+Cada caso de teste será registrado com status: Aprovado (✓) ou Reprovado (✗).
+
+Evidências (prints/telas) serão anexadas quando necessário.
+
+O relatório consolidado será entregue ao cliente após a execução.
+
+
+
+---
+
+### 8. Conclusão
+
+Este plano garante a validação end-to-end do sistema, assegurando confiabilidade, integridade e aderência às regras de negócio.
+A execução permitirá identificar falhas antes da entrada em produção e oferecer maior segurança na entrega ao cliente final.

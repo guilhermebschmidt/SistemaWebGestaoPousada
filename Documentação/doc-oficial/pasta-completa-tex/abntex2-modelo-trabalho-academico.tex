@@ -547,25 +547,29 @@ Para atingir o objetivo geral, foram definidos os seguintes objetivos específic
 	\item Disponibilizar relatórios gerenciais que apoiem a tomada de decisão dos gestores.
 \end{itemize}
 
-\section{Justificativa} 
-A escolha deste projeto se justifica pela necessidade real de modernização enfrentada por pequenos empreendimentos do setor de hospedagem, como a pousada Chalés Água de Coco, que atualmente depende de controles manuais realizados por meio de planilhas no Excel. 
-Esse tipo de gestão, embora comum em pequenos negócios, apresenta diversas limitações, como a suscetibilidade a erros humanos, dificuldade de atualização simultânea, falta de integração entre os dados e ausência de acessibilidade remota. Com o crescimento da demanda por eficiência operacional e qualidade no atendimento ao cliente, torna-se essencial a adoção de soluções tecnológicas que automatizem processos, centralizem informações e proporcionem maior controle gerencial. 
-Um sistema \textit{web} desenvolvido sob medida representa uma alternativa viável e eficaz, oferecendo funcionalidades específicas para o contexto da pousada, além de ser acessível a partir de qualquer dispositivo conectado à Internet. 
-Além disso, o desenvolvimento deste projeto contribui academicamente ao proporcionar a aplicação prática dos conhecimentos adquiridos ao longo do curso, abrangendo áreas como análise de requisitos, modelagem de dados, programação web, experiência do usuário e segurança da informação. 
-Por fim, a solução proposta tem potencial de gerar impacto direto e positivo na gestão do negócio parceiro, tornando este trabalho relevante tanto do ponto de vista acadêmico quanto social e econômico.
+\section{Justificativa}
+
+A escolha deste projeto se justifica pela necessidade real de modernização enfrentada por pequenos empreendimentos do setor de hospedagem, como a pousada Chalés Água de Coco, que atualmente depende de controles manuais realizados por meio de planilhas no Excel. Esse tipo de gestão, embora comum em pequenos negócios, apresenta diversas limitações, como a suscetibilidade a erros humanos, dificuldade de atualização simultânea, falta de integração entre os dados e ausência de acessibilidade remota.
+
+No contexto do setor de turismo e hotelaria, estudos indicam que a transformação digital tem se consolidado como um fator estratégico para aumentar a competitividade e a qualidade dos serviços \cite{laudon2020sistemas,stair2020principios}. O uso de sistemas de informação pode proporcionar ganhos em eficiência, reduzir custos operacionais e melhorar a experiência do cliente, aspectos essenciais para a sobrevivência de pequenos empreendimentos em um mercado cada vez mais exigente. De acordo com o Ministério do Turismo \cite{mtur}, pequenos meios de hospedagem representam parcela significativa da rede de serviços no Brasil, desempenhando papel relevante no desenvolvimento econômico local. Portanto, a adoção de tecnologias adequadas contribui não apenas para a gestão interna, mas também para a valorização do setor como um todo.
+
+Além da relevância prática, o desenvolvimento deste projeto apresenta também uma dimensão acadêmica. A proposta permite a aplicação prática dos conhecimentos adquiridos ao longo do curso, abrangendo áreas como análise de requisitos, modelagem de dados, programação web, computação em nuvem, experiência do usuário e segurança da informação. Segundo Turban, Pollard e Wood \cite{turban2018sistemas}, projetos que envolvem o desenvolvimento de sistemas de informação proporcionam uma visão integrada dos desafios tecnológicos e de gestão, favorecendo a formação de profissionais mais preparados para atuar no mercado.
+
+Por fim, a solução proposta tem potencial de gerar impacto direto e positivo na gestão da pousada parceira, ao promover maior organização, acessibilidade e controle das operações. Do ponto de vista acadêmico, o projeto contribui para o avanço do conhecimento na área de sistemas aplicados ao setor de serviços, e do ponto de vista social e econômico, fortalece a sustentabilidade e a competitividade de pequenos empreendimentos locais. Dessa forma, o presente trabalho se mostra relevante tanto no âmbito prático quanto no científico, atendendo às exigências de um Trabalho de Conclusão de Curso alinhado às necessidades da sociedade e do mercado.
+
 
 \section{Análise da Concorrência}
 No segmento de sistemas de gestão hoteleira, diversas plataformas disputam espaço no mercado oferecendo soluções voltadas para pousadas e hotéis. A seguir, são analisados dois concorrentes diretos do sistema Chalés Água de Coco, com o objetivo de destacar os diferenciais e vantagens competitivas do sistema proposto.
 
 \subsection{SimplesHotel}
-O SimplesHotel é uma plataforma de gestão hoteleira voltada para estabelecimentos de pequeno a grande porte. Seu foco está na automação dos processos administrativos e operacionais do setor de hospitalidade. A aplicação é baseada na Web, com dados armazenados na nuvem.
+O SimplesHotel é uma plataforma de gestão hoteleira voltada para estabelecimentos de pequeno a grande porte. Seu foco está na automação dos processos administrativos e operacionais do setor de hospitalidade. A aplicação é baseada na \textit{Web}, com dados armazenados na nuvem.
 
-A monetização ocorre por meio de planos mensais com preços escalonados conforme o número de acomodações. Alguns módulos importantes, como emissão de NFSe, motor de reservas e envio de SMS, são cobrados separadamente, o que pode elevar significativamente o custo final da solução.
+A monetização ocorre por meio de planos mensais com preços escalonados conforme o número de acomodações. Alguns módulos importantes, como emissão de \textit{NFSe}, motor de reservas e envio de \textit{SMS}, são cobrados separadamente, o que pode elevar significativamente o custo final da solução.
 
 Entre suas funcionalidades estão: gerenciador de reservas, controle de estoque e finanças, \textit{web check-in}, emissão de notas fiscais, suporte multicanal e integração com canais de venda como Booking e Expedia.
 
 \subsection{HospedaJá}
-O HospedaJá é uma solução de gestão para pousadas e hotéis de pequeno e médio porte, com foco na organização de reservas, hospedagens e finanças. Assim como o SimplesHotel, é uma aplicação web baseada em nuvem e oferece backups automáticos.
+O HospedaJá é uma solução de gestão para pousadas e hotéis de pequeno e médio porte, com foco na organização de reservas, hospedagens e finanças. Assim como o SimplesHotel, é uma aplicação \textit{web} baseada em nuvem e oferece backups automáticos.
 
 Seu modelo de cobrança também se baseia em planos mensais variáveis conforme o número de quartos e usuários. O suporte é oferecido por e-mail e sistema de chamados.
 
@@ -668,68 +672,41 @@ Dessa forma, o uso de sistema computacionais, conjunto de componentes que permit
 Neste contexto, o desenvolvimento da aplicação web para gestão da pousada Chalés Água de Coco foi idealizado com o objetivo de atender às principais necessidades do empreendimento, impulsionar seu crescimento e fortalecer sua relevância no mercado regional. Localizada na Praia de Boiçucanga, em São Sebastião, uma região turística do litoral paulista caracterizada por atrativos naturais e uma atividade turística representativa \cite{franchi2012}, a pousada demanda soluções que otimizem seus processos internos. Dessa forma, a implementação dessa ferramenta tecnológica busca contribuir para o aumento da competitividade da empresa, oferecendo suporte à proprietária na realização de tomadas de decisão mais rápidas e assertivas.
 
 Diante disso, nos tópicos a seguir, serão apresentadas as ferramentas e metodologias utilizadas no desenvolvimento do sistema web, com o objetivo de detalhar o processo de idealização, planejamento e implementação da solução proposta.
+
 \chapter{Gestão do Projeto}
 Esta seção detalha as principais estratégias de gestão aplicadas no desenvolvimento da aplicação web de gestão para a pousada Chalés Água de Coco. Dessa forma, nela são apresentadas as metodologias, ferramentas e práticas que foram adotadas para o planejamento, execução e monitoramento do projeto, com o objetivo de garantir uma entrega organizada, eficiente e alinhada aos objetivos estabelecidos pelas partes interessadas.
 % 
-\section{Organização da Equipe}
-Na gestão desse projeto, a organização da equipe representou um marco fundamental e teve como foco dividir as funções e atividades necessárias para o desenvolvimento do sistema web de gestão da pousada entre os membros.%
-\subsection{Funções e Responsabilidades}
-A divisão das funções e responsabilidades foi realizada de maneira estratégica e levou em consideração as competências técnicas de cada membro da equipe, visando a entrega do produto final dentro do prazo e escopo estipulados. 	A função de cada membro e suas respectivas responsabilidades estão detalhadas no \autoref{quadro_funcao_responsabilidade}.
+\section{Metodologia de Gestão e Desenvolvimento}
+A principal ferramenta de gestão e desenvolvimento do projeto adotada pela equipe responsável pelo projeto foi a metodologia ágil Scrum. Essa decisão fundamentou-se na familiaridade da equipe com a estrutura, na capacidade do Scrum de otimizar a organização, divisão e planejamento de atividades do projeto, e em sua relevância como \textit{framework} de gerenciamento, dado seu uso extensivo no contexto de desenvolvimento de softwares complexos.
+
+O Scrum, cujos pilares são a transparência, a inspeção e a adaptação, operacionaliza esses princípios por meio da definição de papéis específicos, da realização de eventos formais e do uso de artefatos próprios, tornando o ciclo de desenvolvimento iterativo e flexível. Diante disso, a equipe adaptou a metodologia de forma estratégica às condições do projeto, considerando prazos, recursos e estrutura disponíveis.
+
+Para atender às restrições de tempo e à execução majoritariamente remota do projeto, os eventos de inspeção do progresso que são propostos para serem diários, o \textit{daily scrum},  foram realizados de forma assíncrona e em menor frequência. Enquanto  as entregas semanais de incrementos utilizáveis do produto foram mantidas, de forma que os eventos de planejamento, revisão e retrospectiva (\textit{Sprint Planning}, \textit{Sprint Review} e \textit{Sprint Retrospective}) foram consolidados em reuniões semanais, assegurando um processo eficiente e a inspeção contínua do projeto. 
+
+Essas adaptações flexibilizaram os processos, conferindo maior autonomia aos integrantes para organizar seus horários e ritmos de trabalho. Entretanto, o número reduzido de reuniões e tempo limitado de colaboração síncrona dificultaram a comunicação e a definição de \textit{sprints} mais produtivos.
+
+Adicionalmente, a divisão das funções e responsabilidades dos membros da equipe combinou competências técnicas individuais com papéis Scrum (\textit{Product Owner}, \textit{Scrum Master} e \textit{Development Team}). Essa distribuição facilitou a colaboração entre os integrantes, dada a especialização do trabalho, e tornou os processos mais eficientes. As funções, papel Scrum e responsabilidades de cada membro estão detalhadas no \autoref{quadro_funcao_responsabilidade}.
 %	
 \begin{quadro}[H]
 	\caption{Divisão das Funções e Responsabilidades da Equipe do Projeto}
 	\label{quadro_funcao_responsabilidade}
 	\renewcommand{\arraystretch}{1.3} % Aumenta o espaçamento entre linhas
 	\begin{tabular}{|>{\raggedright\arraybackslash}m{3cm} 
-			|>{\raggedright\arraybackslash}m{4.5cm} 
-			|>{\raggedright\arraybackslash}m{6.7cm}|}
+			|>{\raggedright\arraybackslash}m{2.6cm} |>{\raggedright\arraybackslash}m{2.6cm} 
+			|>{\raggedright\arraybackslash}m{6cm}|}
 		\hline
-		\textbf{Integrante} & \textbf{Função} & \textbf{Responsabilidades} \\ \hline
-		Guilherme Akio & Engenheiro de Dados (DBA) & Implementar, administrar e otimizar o banco de dados da aplicação, garantindo integridade, segurança e performance dos dados. \\ \hline
-		Guilherme Bittencourt & Documentador Técnico e Engenheiro de Software & Criar e manter a documentação técnica com clareza e acessibilidade. Definir e organizar a estrutura da aplicação. \\ \hline
-		Kelly Radchelle & Gerente de Projeto & Coordenar a equipe e gerenciar as atividades do projeto, facilitando a tomada de decisões e assegurando a comunicação entre as partes interessadas. \\ \hline
-		Rafael Teixeira & Desenvolvedor Frontend & Criar e implementar a interface da aplicação, garantindo boa experiência do usuário (UX) e design de interface (UI), além de desenvolver a lógica de apresentação. \\ \hline
-		Ricardo Carriel & Desenvolvedor Backend & Desenvolver a lógica de negócio, configurar e administrar o servidor, garantindo a integração e funcionamento da aplicação. \\ \hline
+		\textbf{Integrante} & \textbf{Função} &  \textbf{Papel Scrum}& \textbf{Responsabilidades} \\ \hline
+		Guilherme Akio & Engenheiro de Dados (DBA) & Time de Desenvolvimento & Implementar, administrar e otimizar o banco de dados da aplicação; Entregas de funcionalidades relacionadas ao gerenciamento e persistência de dados \\ \hline
+		Guilherme Bittencourt & Documentador Técnico e Engenheiro de Software & Scrum Master & Criar e manter a documentação técnica; Definir e organizar a estrutura da aplicação; Facilitar e práticas Scrum \\ \hline
+		Kelly Radchelle & Gerente de Projeto & Product Owner & Coordenar a equipe e gerenciar as atividades do projeto; Facilitar tomada de decisões e comunicação entre as partes interessadas; Acompanhamento do progresso das \textit{sprints}  \\ \hline
+		Rafael Teixeira & Desenvolvedor Frontend &  Time de Desenvolvimento & Projetar e implementar interfaces da aplicação; Entregas de funcionalidades relacionadas à experiência do usuário.\\ \hline
+		Ricardo Carriel & Desenvolvedor Backend &  Time de Desenvolvimento & Implementar lógica de negócio; Configurar e administrar o servidor; Entregas de funcionalidades relacionadas a lógica e integração do sistema \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
-%
-\section{Metodologias de Gestão e Desenvolvimento}
-Para assegurar que a entrega do produto final ocorresse dentro do prazo estipulado e estivesse em pleno alinhamento com as expectativas da cliente, a equipe envolvida no projeto optou pela adoção da metodologia ágil Scrum como ferramenta de gestão e desenvolvimento do projeto. Essa decisão fundamentou-se na familiaridade da equipe com a estrutura, na capacidade do Scrum de otimizar a organização, divisão e planejamento de atividades do projeto, e em sua relevância como \textit{framework} de gerenciamento– dado seu uso extensivo no contexto de desenvolvimento de softwares complexos.
-
-Segundo Schwaber e Sutherland \cite{scrumguide}, o Scrum é um \textit{framework} estruturado desenvolvido na década de 1990, com o objetivo de auxiliar equipes na criação e gerenciamento de produtos complexos. Por isso,  o Scrum tem como pilares fundamentais a transparência, a inspeção e a adaptação. A transparência garante que todos os aspectos significativos do processo estejam visíveis e claros para as partes interessadas a todo momento. Enquanto a inspeção envolve o acompanhamento regular dos artefatos e progresso, auxiliando na identificação precoce de problemas e garantindo a transparência dos processos. Seguida pela adaptação que refere-se à capacidade de fazer ajustes no processo  em resposta aos problemas anteriormente identificados na inspeção, com o objetivo de otimizar os resultados da equipe.
-
-Sabendo que para operacionalizar esses pilares e assegurar um ciclo de desenvolvimento iterativo e incremental, a metodologia Scrum sugere a definição de papeis específicos dentro do time, estabelece a realização de uma sequência de eventos formais e o uso de artefatos específicos, os integrantes da equipe desenvolveram as tarefas e eventos sugeridos pelo Scrum para a gestão e desenvolvimento do projeto.
-%
-\subsection{Time Scrum}
-Como estabelecido no Guia do Scrum \cite{scrumguide}, os membros da equipe do projeto assumem papeis específicos que compõem um \textit{time Scrum}: \textit{Product Owner}, \textit{Scrum Master} e Time de Desenvolvimento. 
-%
-\begin{enumerate}[label=\roman*)]
-	\item O \textit{Product Owner} é o representante das partes interessadas (\textit{Stakeholders}) e tem como responsabilidade principal gerenciar o \textit{backlog} do produto. Seu objetivo é maximizar o valor do produto para o usuário final e otimizar o trabalho do Time de Desenvolvimento. 
-	\item O \textit{Scrum Master}  é o responsável por promover e facilitar a aplicação da teoria e das práticas do \textit{framework}, a fim de ajudar a equipe a superar problemas que possam afetar seu progresso. 
-	\item O Time de Desenvolvimento é responsável por entregar um incremento (versão potencialmente usável do produto) ao final de cada \textit{sprint}, atuando de maneira auto-organizada e multifuncional.
-\end{enumerate}
-%
-
-Diante disso, houve a distribuição dos papeis de um \textit{time scrum} entre os integrantes da equipe registrada na \autoref{quadro:time_scrum}.
-%
-\begin{quadro}[H]
-	\centering
-	\caption{Função dos Integrantes da Equipe}
-	\label{quadro:time_scrum}
-	\begin{tabular}{|>{\centering\arraybackslash}m{3.2cm}|>{\centering\arraybackslash}m{3.5cm}|>{\centering\arraybackslash}m{3.5cm}|>{\centering\arraybackslash}m{4cm}|}
-		\hline
-		\multirow{2}{*}{\textbf{Integrante}} & \multicolumn{3}{c|}{\textbf{Função}} \\ \cline{2-4}
-		&\textit{Product Owner} & \textit{Scrum Master} & Time de Desenvolvimento \\ \hline 
-		 Guilherme Akio & & & X \\ \hline Guilherme Bittencourt & & & X \\ \hline Kelly Radchelle & X & & \\ \hline Rafael Teixeira & & & X \\ \hline Ricardo Carriel & & & X \\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
-%---
-
 %---
 \section{Artefatos}
-No Scrum,  os artefatos são elementos que ajudam a equipe a consolidar a transparência no processo de desenvolvimento  \cite{scrumguide}. Cientes das suas importâncias, o \textit {time scrum} realizou o planejamento inicial dos artefatos:  \textit {Product Backlog} e \textit {Sprints Backlog}.
+No Scrum,  os artefatos são elementos que ajudam a equipe a consolidar a transparência no processo de desenvolvimento  \cite{scrumguide}. Diante disso, o \textit {time scrum} realizou o planejamento dos artefatos:  \textit {Product Backlog} e \textit {Sprints Backlog}.
 %
 \subsection{Product Backlog}
 No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como uma lista ordenada de todos os itens de trabalho, incluindo funcionalidades e requisitos necessários para a produção do produto, que oferecem o máximo valor e utilidade para o cliente. Ciente disso, o \textit{product owner} do projeto elaborou o \textit{product backlog} inicial da aplicação web de gestão da pousada Chalés Água de Coco (\autoref{product_backlog}), com base nas histórias de usuário levantadas pela equipe.  Escolha realizada dada a capacidade dessas histórias de retratarem fielmente as necessidades e expectativas da usuária,  assegurando o caráter utilitário do \textit{product Backlog}.Enquanto, o product backlog completo do projeto esta detalhado no \autoref{apendice:productbacklogcomp}.
@@ -748,18 +725,11 @@ No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como 
 		6 & Implementar funcionalidades de autenticação de usuário & Autenticação e Segurança & ALTA \\ \hline
 		7 & Implementar funcionalidades de cadastro, edição e exclusão de quartos & Gestão de Quartos & ALTA \\ \hline
 		8 & Implementar funcionalidades de cadastro, edição e exclusão de hóspedes & Gestão de Hóspedes & ALTA \\ \hline
-		9 & Implementar funcionalidades de cadastro, edição e exclusão de reservas &	Gestão de Reservas & ALTA \\ \hline
+		9 & Implementar funcionalidades de cadastro, edição e exclusão de reservas & Gestão de Reservas & ALTA \\ \hline
 		10 & Implementar interfaces  de usuário & Requisito Técnico & ALTA \\ \hline
 		11 & Implementar funcionalidades de \textit{Check-in} e \textit {Check-out} &
 		\textit {Check-in} e \textit {Check-out} &	ALTA \\ \hline
 		12 & Integrar ambientes \textit{backend} e \textit {frontend} &	Requisito técnico & ALTA \\ \hline
-		14 & Implementar funcionalidades de cadastro, edição e exclusão de receitas & Gestão Financeira & BAIXA \\ \hline
-		15 & Implementar funcionalidade de registro de pagamento de reservas &Gestão Financeira e Gestão de Reservas &
-		BAIXA \\ \hline
-		16 & Implementar funcionalidades de cadastro, edição e exclusão de despesas &
-		Gestão Financeira & BAIXA \\ \hline
-		17 & Implementar funcionalidades de geração de relatórios &
-		Gestão Financeira &	BAIXA \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -770,6 +740,13 @@ No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como 
 	\begin{tabular}{|c|p{6.5cm}|p{3.8cm}|c|}
 		\hline
 		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline	
+		14 & Implementar funcionalidades de cadastro, edição e exclusão de receitas & Gestão Financeira & BAIXA \\ \hline
+		15 & Implementar funcionalidade de registro de pagamento de reservas &Gestão Financeira e Gestão de Reservas &
+		BAIXA \\ \hline
+		16 & Implementar funcionalidades de cadastro, edição e exclusão de despesas &
+		Gestão Financeira & BAIXA \\ \hline
+		17 & Implementar funcionalidades de geração de relatórios &
+		Gestão Financeira &	BAIXA \\ \hline
 		18 & Implementar balanço financeiro simples (receitas, despesas, saldo) por período & Gestão Financeira & BAIXA \\ \hline
 		19 & Implementar filtros de visualização de receita/despesa (data, categoria) &	Gestão Financeira & BAIXA \\ \hline
 		20 & Implementar  funcionalidades de notificação & Notificações &
@@ -786,75 +763,52 @@ No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como 
 % 
 % ---
 \subsection{Sprint Backlog}
-O \textit{Sprint Backlog} é um plano elaborado pelo time de desenvolvimento, formado por um conjunto de itens selecionados da \textit {product backlog}. Esse plano possui um período de tempo determinado para sua realização, chamado de \textit {sprint}. 
+O \textit{Sprint Backlog} constitui o plano de execução do projeto, derivado do \textit{Product Backlog}, e estabelece o conjunto de itens de trabalho a ser realizado em cada \textit {sprint}. Nesse contexto, o artefato foi desenvolvido pela equipe do projeto como ferramenta auxiliar na gestão, com o objetivo de garantir que todas as partes estivessem cientes do andamento e das etapas em desenvolvimento. E está registrado no  \autoref{sprints_backlog_1}.
 
-Esse artefato promove a transparência das atividades do projeto, tornando visíveis e acessíveis para todos os membros da equipe as atividades que devem ser realizadas na \textit {Sprint}, garantindo que todos estejam cientes do que está sendo desenvolvido. Por isso, o time implementou o \autoref{sprints_backlog_1} que registra todas as \textit {Sprints Backlog} planejadas para o decorrer do projeto.
+As \textit{sprints} foram organizadas em períodos de quinze dias (duas semanas), intervalo em conformidade com o Guia do Scrum \cite{scrumguide}. Totalizando 12 semanas de trabalho. Essa definição considerou a atuação majoritariamente remota da equipe e o tempo diário individual limitado para o trabalho, circunstâncias que demandaram períodos mais extensos para a execução das tarefas. Além disso, a organização das tarefas dentro de cada \textit{sprint} levou em consideração as datas de entrega do MVP, da documentação técnica e do produto final do projeto.
 
-Para isso, considerando a flexibilidade oferecida por essa metodologia dividiu-se as \textit {sprints} do projeto em períodos de quinze dias (duas semanas), período dentro do estipulado pelo Guia do Scrum \cite{scrumguide}. Essa escolha de duração para as \textit {sprints} levou em consideração que a equipe atuaria majoritariamente de forma remota, com tempo diário individual limitado para o trabalho. Este contexto demandava prazos mais longos para a execução das tarefas.
-
-As atividades incluídas nas \textit{sprints backlog} foram baseadas nos itens da \textit{product Backlog}, no prazo de entrega do MVP e nas demais tarefas essenciais do projeto, como realização de testes e a elaboração da documentação técnica. 
+Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma a cumprir um progresso gradual das atividades em 2 fases. Assim, na primeira fase, as primeiras \textit{sprints} focaram na modelagem do sistema e escolha das ferramentas e tecnologias de gestão e desenvolvimento. Para então, nas próximas \textit{sprints}, a equipe inicia tarefas relacionadas ao desenvolvimento do MVP e documentação do sistema. Enquanto que na segunda fase, a equipe focou em desenvolver as  funcionalidades faltantes, integrar com o MVP, realizar testes e revisão da documentação. Sendo que, as atividades de desenvolvimento foram distribuídas considerando: prioridade e relações de dependência. 
 \\
+%
 \begin{quadro}[H]
 	\caption{Sprints Backlog - Parte 1} 
 	\label{sprints_backlog_1} 
-\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{4.5cm}|>{\raggedright\arraybackslash}m{5.5cm}|}
+		\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3.5cm}|>{\raggedright\arraybackslash}m{6.5cm}|}
 		\hline
 		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
 		\hline 
-		1 & 25/03/2025 a 08/04/2025 & Realizar o planejamento do projeto  & 
-		- Organização do tema. \newline - Definição da metodologia de trabalho. \newline - Definição ferramentas de gestão. \newline
-		- Definição das plataformas e tecnologias de desenvolvimento. \newline  - Definição dos \textit{frameworks} e bibliotecas. \newline - Definição das ferramentas de desenvolvimento e hospedagem/publicação. \newline - Levantamento de custos. \\
+		1 & 25/03/2025 a 08/04/2025 & Planejamento Inicial do Projeto  & Definição de ferramentas, metodologias, tecnologias e ambientes de trabalho.
+		 \\
 		\hline
-		2 & 09/04/2025 a 22/04/2025 & Iniciar a modelagem do sistema  &
-		- Levantamento dos requisitos. \newline - Mapeamento dos casos de uso. \newline - Desenvolver \textit{Product Backlog} Inicial. \newline
-		- Definição do escopo do MVP. \newline - Organizar repositório e fluxo Git. \newline - Criação do Diagrama de Componentes. \newline - Criação do Diagrama de Implantação \\	\hline
+		2 & 09/04/2025 a 22/04/2025 & Início da Modelagem do Sistema  & Levantamento de requisitos e definição do escopo do projeto
+		 \\	\hline
+		3 & 23/04/2025 a 06/05/2025 & Finalizar Modelagem do Sistema & Configuração dos ambientes de trabalho  e criação dos diagramas faltantes.
+		\\	\hline
+		4 & 07/05/2025 a 20/05/2025 & Início do desenvolvimento do MVP & Desenvolvimento de funcionalidades CRUD de quartos.
+		 \\ \hline	
+		 5 & 21/05/2025 a 03/06/2025 & Continuidade do desenvolvimento do MVP & Desenvolvimento de funcionalidades CRUD de hóspedes e reservas; Criação de interfaces do CRUD de quartos.
+		 \\ \hline
+		 6 & 04/06/2025 a 24/06/2025 & Fim do desenvolvimento do MVP & Revisão da Documentação e criação das interfaces CRUDs de hóspedes e reservas \\ \hline	
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
-
 \begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 2}
+	\caption{Sprints Backlog - Parte 2} 
 	\label{sprints_backlog_2} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{4.5cm}|>{\raggedright\arraybackslash}m{5.5cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{4cm}|>{\raggedright\arraybackslash}m{6cm}|}
 		\hline
 		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
-		\hline	
-		3 & 23/04/2025 a 06/05/2025 & Finalizar Modelagem do Sistema &
-		- Criar do modelo relacional (MER). \newline - Criar do diagrama entidade- relacionamento (DER). \newline - Configurar ambiente e servidor local \newline - Configurar Banco de Dados (PostgreSQL). \newline - Desenvolvimento do \textit{Backend} – estrutura inicial. \newline - Desenvolvimento do \textit{Frontend} – estrutura inicial.	\\	\hline
-		4 & 07/05/2025 a 20/05/2025 & Iniciar o desenvolvimento do MVP & - Revisão dos Requisitos e Diagramas. \newline - Criar funcionalidade de cadastro de quartos. \newline - Criar interfaces para gestão de quartos. \newline - Criar funcionalidades de edição e exclusão do cadastro de quartos. \newline - Criar funcionalidade de listagem de quartos.\newline
-		- Documentar os diagramas produzidos. \\ \hline	
-		5 & 21/05/2025 a 03/06/2025 & Continuar desenvolvimento do MVP & - Criar funcionalidade de status quarto. \newline - Criar funcionalidade de cadastro de hóspedes. \newline - Criar funcionalidades de edição e exclusão do cadastro de hóspedes. \newline - Criar interfaces para gestão de hóspedes. \newline - Criar funcionalidade de cadastro de reservas. \newline - Criar funcionalidades de edição e exclusão do cadastro de reservas. \newline - Consolidar toda a documentação técnica e de requisitos. \\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
-\begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 3} 
-	\label{sprints_backlog_3} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{4.5cm}|>{\raggedright\arraybackslash}m{5.5cm}|}
-		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
-		\hline	
-		6 & 04/06/2025 a 24/06/2025 & Finalizar desenvolvimento do MVP & - Revisar Documentação Técnica. \newline - Revisar formatação e ortografia da documentação. \newline - Finalizar documentação técnica e Gerar  PDF. \newline - Criar interfaces para gestão de Reservas. \newline - Criar funcionalidades de \textit{check-in} e \textit{check-out}. \newline - Criar lógica de validação de disponibilidade de quartos para reservas. \newline - Implementar atualização automática do status.\\ \hline	
-		7 & 12/08/2025 a 18/08/2025 & Iniciar do Desenvolvimento das Funcionalidades de Gestão Financeira &
-		- Revisão dos Requisitos, Diagramas e Casos de Uso. \newline - Criar funcionalidade de cadastro de despesas. \newline - Criar funcionalidade de cadastro de receitas. \newline - Criar funcionalidade de edição do cadastro de receitas. \newline - Criar interface para gestão de receitas. \newline - Integrar novas funcionalidades ao MVP.\\ \hline	
-		8 & 27/08/2025 a 09/09/2025 & Finalizar Desenvolvimento do CRUD de despesas & - Criar funcionalidade de edição do cadastro de despesas. \newline - Criar funcionalidade de registro de comprovação de pagamento de reservas. \newline - Criar funcionalidade de filtragem de receita/despesa (data, categoria). \newline - Criar login e logout de usuário. \newline - Implementar autenticação/criptografia. \newline - Integrar novas funcionalidades ao MVP.\\ \hline	
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}	
-\begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 4} 
-	\label{sprints_backlog_4} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{4.5cm}|>{\raggedright\arraybackslash}m{5.5cm}|}
-		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
-		\hline	
-		9 & 10/09/2025 a 23/09/2025 & Desenvolver Funcionalidades Relacionadas aos Relatórios	 & - Criar funcionalidade para criar relatórios de quartos. \newline - Criar funcionalidade para criar relatórios de hóspedes. \newline - Criar funcionalidade para criar relatórios de reservas. \newline - Criar balanço financeiro simples (receitas, despesas, saldo) por período. \newline - Integrar novas funcionalidades ao MVP.\\ \hline
-		10 & 24/09/2025 a 07/10/2025 & Desenvolver o Plano de Testes &
-		- Definir escopo dos testes. \newline - Identificar cenários de teste. \newline - Elaborar casos de teste. \newline - Definir critérios de aceitação. \newline - Definir as ferramentas e ambiente de teste. \newline - Preparar dados de testes. \newline - Documentar plano de testes.\\ \hline	
-		11 & 08/10/2025 a 21/10/2025 & Executar o Plano de Testes &
-		- Executar testes gerais. \newline - Executar testes SSL. \newline - Executar testes de \textit{Headers} de segurança. \\ \hline
-		12 & 22/10/2025 a 07/11/2025 & Planejar a Implantação do Sistema & - Realizar ajustes de segurança. \newline - Documentar resultados dos testes. \newline - Registrar escolhas e mudanças de rumo. \newline - Documentar problemas ocorridos e lições aprendidas. \newline - Elaborar o plano de implantação.\\ \hline
-		13 & 04/11/2025 a 18/11/2025 & Implantar o Sistema & - Realizar a implantação da aplicação. \newline - Corrigir possíveis problemas da implantação. \newline - Revisão final da documentação técnica. \newline - Treinamento da proprietária da pousada para uso da aplicação. \newline - Entrega do produto final \\ \hline
+		\hline 
+		7 & 12/08/2025 a 18/08/2025 & Revisão e correções do MVP & Revisão e padronização do código; Criação do plano inicial de testes: Autenticação\\ \hline	
+		8 & 27/08/2025 a 09/09/2025 & Início do desenvolvimento do módulo financeiro & Implementação de CRUDs financeiros e cálculos avançados\\ \hline	
+		9 & 10/09/2025 a 23/09/2025 & Continuidade do desenvolvimento do módulo financeiro & Criação das interfaces dos CRUDs financeiros e implementação dos relatórios
+		\\ \hline
+		10 & 24/09/2025 a 07/10/2025 & Revisão do código & Correção de erros e planejamento de testes de integração
+		\\ \hline	
+		11 & 08/10/2025 a 21/10/2025 & Execução teste gerais & Realização de testes de integração e segurança
+		\\ \hline
+		12 & 22/10/2025 a 07/11/2025 & Deploy do sistema & Correção de bugs e implantação final do sistema
+		\\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -1077,12 +1031,24 @@ Neste contexto, para auxiliar a equipe na modelagem e desenvolvimento aplicaçã
 	\label{quadro_rn_1}
 	\begin{tabular}{|>{\centering\arraybackslash}p{3cm}|p{11cm}|}
 		\hline
-		\textbf{Regra} & \textbf{Descrição}  \\ \hline	
-		RN01 & A confirmação de uma reserva deve ocorrer mediante o pagamento de 50 por cento do valor total.   \\ \hline
-		RN02 & Cancelamentos e remarcações são permitidos, sujeitos a regras e taxas específicas.   \\ \hline
-		RN03 & As reservas devem ser registradas com, no mínimo, 2 dias de antecedência da data de entrada.  \\ \hline
-		RN04 & Um mesmo hóspede pode ter mais de uma reserva ativa.   \\ \hline
-		RN05 & Para efetuar uma reserva, os seguintes dados do hóspede são obrigatórios: nome completo, endereço completo, CPF, telefone e e-mail   \\ \hline
+		\textbf{Regra} & \textbf{Descrição} 
+		 \\ \hline	
+		RN01 &  Todas as operações de gestão da pousada devem ser realizadas exclusivamente no sistema, com acesso restrito à proprietária.   
+		\\ \hline
+		RN02 & Para efetuar uma reserva, os seguintes dados do hóspede são obrigatórios: nome completo, endereço completo, CPF, telefone e e-mail.
+		 \\ \hline
+		RN03 & Um mesmo hóspede pode ter mais de uma reserva ativa. 
+		 \\ \hline
+		RN04 &  As reservas devem ser registradas com, no mínimo, 2 dias de antecedência da data de entrada. 
+		\\ \hline
+		RN05 & A confirmação de uma reserva deve ocorrer mediante o pagamento de 50 por cento do valor total da reserva.  
+		\\ \hline
+		RN06 & São aceitas as formas de pagamento: Pix, dinheiro e cartão (com taxa da operadora). 
+		\\ \hline
+		RN07 & Deve ser enviada a confirmação da reserva para o cliente com todos os dados necessários.  
+		\\ \hline
+		RN08 &  Cancelamentos e remarcações são permitidos, sujeitos a regras e taxas específicas.  
+		\\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -1091,44 +1057,58 @@ Neste contexto, para auxiliar a equipe na modelagem e desenvolvimento aplicaçã
 	\caption{\label{quadro_rn_2}Regras de Negócio - Parte 2}
 	\begin{tabular}{|>{\centering\arraybackslash}p{3cm}|p{11cm}|}
 		\hline
-		\textbf{Regra} & \textbf{Descrição}  \\ \hline	
-		RN06 & Cada quarto deve ter um número máximo de hóspedes.   \\ \hline
-		RN07 & Os horários padrão de \textit{check-in} e \textit{check-out} são: \textit{check-in} das 16h às 22h; \textit{check-out} das 8h às 14h. Em períodos de temporada os horários mudam para: \textit{check-in} das 15h às 22h; \textit{check-out} das 8h às 11h.\\ \hline
-		RN08 & A emissão de recibos ou comprovantes após check-in/out não é obrigatória.   \\ \hline
-		RN09 & Um quarto pode ficar indisponível para manutenção.   \\ \hline
-		RN10 & É permitido reservar um mesmo quarto para hóspedes diferentes em datas seguidas.   \\ \hline
-		RN11 & Não há oferta de serviços adicionais vinculados à reserva.   \\ \hline
-		RN12 & São aceitas as formas de pagamento: Pix, dinheiro e cartão (com taxa da operadora).   \\ \hline
-		RN13 & Deve ser enviada a confirmação da reserva para o cliente com todos os dados necessários.   \\ \hline
-		RN14 & Apenas a proprietária deve acessar as informações dos hóspedes e reservas.   \\ \hline
-		RN15 & As tarifas das reservas podem sofrer alterações conforme: demanda, datas especiais, período de antecedência da reserva, quantidade de diárias, tipo de acomodação e quantidade de pessoas.   \\ \hline
-		RN16 & São permitidos \textit{early check-in} e \textit{late check-out} com cobrança de tarifas adicionais.   \\ \hline
-		RN17 & Toda a gestão financeira da pousada deve ser realizada dentro do sistema web de gestão.   \\ \hline
+		\textbf{Regra} & \textbf{Descrição} 
+		 \\ \hline	
+		RN09 & Não há oferta de serviços adicionais vinculados à reserva.  
+		 \\ \hline
+		RN10 & Os horários padrão de \textit{check-in} e \textit{check-out} são: \textit{check-in} das 16h às 22h; \textit{check-out} das 8h às 14h. Em períodos de temporada os horários mudam para: \textit{check-in} das 15h às 22h; \textit{check-out} das 8h às 11h.
+		\\ \hline
+		RN11 & A emissão de recibos ou comprovantes após check-in/out não é obrigatória.  
+		 \\ \hline
+		RN12 & São permitidos \textit{early check-in} e \textit{late check-out} com cobrança de tarifas adicionais.  
+		 \\ \hline
+		RN13 & As tarifas das reservas podem sofrer alterações conforme: demanda, datas especiais, período de antecedência da reserva, quantidade de diárias, tipo de acomodação e quantidade de pessoas.  
+		 \\ \hline
+		RN14 & Cada quarto tem uma capacidade máxima de pessoas.  
+		 \\ \hline
+		 RN15 &  Um quarto pode ficar indisponível para manutenção. 
+		 \\ \hline
+		RN16 & É permitido reservar um mesmo quarto para hóspedes diferentes em datas seguidas.  
+		 \\ \hline	
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 % REQUISITOS 
 % ---
 \subsection{Requisitos do Sistema}
-Segundo Sommerville \cite[p.57]{sommerville2011}, os requisitos de um sistema são descrições do que o sistema deve fazer, os serviços que oferece e as restrições a seu funcionamento. Assim, considerando a importância desses elementos para a modelagem da aplicação web de gestão para a Pousada Chalés Água de Coco, foi realizado o levantamento dos requisitos funcionais e não funcionais. 
+Segundo Sommerville \cite[p.57]{sommerville2011}, os requisitos de um sistema são descrições do que o sistema deve fazer, os serviços que oferece e as restrições a seu funcionamento. Dessa forma, refletem as necessidades dos clientes e, consequentemente, descrevem a estrutura e a operação do sistema. Por isso, a fim de orientar a equipe de desenvolvimento na modelagem da aplicação web de gestão da Pousada Chalés Água de Coco, foram levantados os requisitos funcionai e não funcionais do sistema.
 % ---
 \subsubsection{Requisitos Funcionais}
-Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviços do sistema \textit{web} de gestão da pousada. Tais requisitos estão listados no \autoref{quadro_rf1}.
+Os requisitos funcionais descrevem as funcionalidades e serviços do sistema \textit{web} de gestão da pousada e estão listados resumidamente no \autoref{quadro_rf1}. O quadro completo está disponível no \autoref{apendice:rfdetalhados}.
 %
 \begin{quadro}[H]
 	\caption{Requisitos Funcionais - Parte 1}
 	\label{quadro_rf1}
-	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{7.2cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{3.5cm}|}
 		\hline
-		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF01 & A aplicação deve possuir um sistema de login para a proprietária acessar a aplicação de forma segura, permitindo que ela altere ou recupere a sua senha de acesso sob demanda & Alta & RN14 \\ \hline
-		RF02 & O sistema deve permitir o cadastro de novas reservas, associando um quarto a um período (data de \textit{check-in} e \textit{check-out}) & Alta & RN04; RN10 \\ \hline
-		RF03 & O sistema deve impedir o cadastro de reservas que não estejam associadas a quartos disponíveis & Alta & RN06; RN09 \\ \hline
-		RF04 & O sistema deve exigir os dados pessoais do hóspede para que a reserva seja cadastrada: nome completo, endereço completo, CPF/Passaporte, telefone e e-mail & Alta & RN05 \\ \hline
-		RF05 & O sistema deve exigir o pagamento de 50\% do valor da estadia para confirmar o cadastro da reserva (a ser pago no momento da reserva ou em um prazo definido) & Média & RN01;RN12 \\ \hline
-		RF06 & O sistema deve permitir o registro de pagamento da reserva (forma, valor, data) & Média & RN01;RN12 \\ \hline
-		RF07 & A proprietária deve conseguir cancelar ou editar uma reserva já cadastrada, com possível registro do motivo & Média & RN02 \\ \hline
-		RF08 & A proprietária deve conseguir cadastrar mais de uma reserva no nome de um mesmo hóspede & Média & RN04 \\ \hline
+		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} 
+		\\ \hline
+		RF01 & A aplicação deve possuir um sistema de \textit{login} para a proprietária acessar a aplicação de forma segura, permitindo que ela altere ou recupere a sua senha de acesso sob demanda & Alta & RN01 
+		\\ \hline
+		RF02 & O sistema deve permitir o cadastro de novas reservas, desde que associadas um quarto e a um período (data de \textit{check-in} e \textit{check-out}) disponíveis & Alta & RN04; RN14; RN15; RN16
+		 \\ \hline
+		RF03 & O sistema deve exigir os dados pessoais do hóspede para que a reserva seja cadastrada: nome completo, endereço completo, data de nascimento, CPF/Passaporte, telefone e e-mail & Alta & RN02 
+		\\ \hline
+		RF04& O sistema deve impedir o registro de reservas com menos de 2 dias de antecedência da data do \textit{check-in} & Média & RN04 
+		\\ \hline
+		RF05 & O sistema deve exigir o pagamento de 50\% do valor da estadia para confirmar o cadastro da reserva (a ser pago no momento da reserva ou em um prazo definido) & Média & RN05 
+		\\ \hline
+		RF06 & O sistema deve permitir o registro de pagamento da reserva (forma, valor, data) & Média & RN05; RN06
+		\\ \hline
+		RF07 & A proprietária deve conseguir cancelar ou editar uma reserva já cadastrada, com possível registro do motivo & Média & RN08
+		\\ \hline
+		RF08 & A proprietária deve conseguir cadastrar mais de uma reserva no nome de um mesmo hóspede & Média & RN03 
+		\\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -1138,21 +1118,26 @@ Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviç
 	\label{quadro_rf2}
 	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
 		\hline
-		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-
-		RF09 & A proprietária deve conseguir reservar um mesmo quarto para diferentes clientes em datas seguidas, respeitando os horários de \textit{check-in} e \textit{check-out} configurados para o quarto & Alta & RN07; RN10\\ \hline
-		RF10 & A proprietária deve conseguir acessar o histórico de reservas de um hóspede & Média & RN04 \\ \hline
-		RF11 & O sistema deve permitir configurar tarifas de reserva com base nas regras de negócio da pousada & Média & RN15 \\ \hline
-		RF12 & O sistema deve enviar uma notificação para o hóspede via \textit{e-mail} após a confirmação da reserva & Baixa & RN13 \\ \hline
-		RF13 & O sistema deve impedir o registro de reservas com menos de 2 dias de antecedência da data do \textit{check-in} & Média & RN03 \\ \hline
-		RF14 & O sistema deve permitir  a edição dos dados de hóspedes já cadastrados & Média & RN05 \\ \hline 
-		RF15 & A proprietária deve poder fazer o cadastro de quartos (incluindo informações como número/nome do quarto, capacidade, tipo e preço por noite) e poder editar ou excluir o cadastro posteriormente & Alta & RN06; RN09
+		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} 
 		\\ \hline
-		RF16 & O sistema deve permitir a visualização dos quartos disponíveis no período de tempo selecionado para a reserva & Média & RN06; RN10 \\ \hline
-		RF17 & A proprietária deve conseguir mudar o status de um quarto (ex: disponível, ocupado, em manutenção) manualmente, se necessário & Alta & RN09 \\ \hline
-		RF18 & O sistema deve gerar relatórios de ocupação de quartos em períodos definidos & Média & RN04; RN06; RN07; RN09; RN10 \\ \hline
-		RF19 & O sistema deve mudar o status do quarto quando for realizado o registro do check-in ou do check-out & Alta & RN07; RN09 \\ \hline
-		RF20 & O sistema deve permitir à proprietária configurar os horários padrão de \textit{check-in} e \textit{check-out} & Alta & RN07 \\ \hline
+		RF09 & A proprietária deve conseguir reservar um mesmo quarto para diferentes clientes em datas seguidas, respeitando os horários de \textit{check-in} e \textit{check-out} configurados para o quarto & Alta & RN10; RN16
+		\\ \hline
+		RF10 & O sistema deve permitir configurar tarifas de reserva com base nas regras de negócio da pousada & Média & RN13
+		 \\ \hline
+		RF11 & O sistema deve enviar uma notificação para o hóspede via \textit{e-mail} após a confirmação da reserva & Baixa & RN07
+		 \\ \hline
+		RF12 & O sistema deve permitir que a proprietária acesse o histórico de reservas e edite ou exclua os dados de hóspedes cadastrados & Média & RN02; RN03; 
+		\\ \hline 
+		RF13 & A proprietária deve poder fazer o cadastro de quartos (incluindo informações como número/nome do quarto, capacidade, tipo e preço por noite) e poder editar ou excluir o cadastro posteriormente & Alta & RN014; RN15
+		\\ \hline
+		RF14 & O sistema deve permitir a visualização dos quartos disponíveis no período de tempo selecionado para a reserva & Média & RN14; RN16 
+		\\ \hline
+		RF15 & O sistema deve gerar relatórios de ocupação de quartos em períodos definidos & Média & RN14; RN10; RN15; RN16
+		 \\ \hline
+		RF16 & O sistema deve mudar o status do quarto automaticamente ao registrar o \textit{check-in} ou do \textit{check-out} e permitir que a proprietária altere manualmente o status quando necessário (ex.: disponível, ocupado, em manutenção)  & Alta & RN10; RN15 
+		\\ \hline
+		RF17 & O sistema deve permitir à proprietária configurar os horários padrão de \textit{check-in} e \textit{check-out} & Alta & RN10
+		\\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -1162,17 +1147,15 @@ Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviç
 	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
 		\hline
 		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF21 & O sistema deve permitir a geração de recibos ou comprovantes de pagamento e estadia, sob demanda & Média & RN08 \\ \hline
-		RF22 & O sistema deve permitir o registro de \textit{early check-in} e \textit{late check-out} para uma reserva & Média & RN16 \\ \hline
-		RF23 & O sistema deve permitir a configuração de tarifas adicionais para textit{early check-in} e \textit{late check-out} & Média & RN16 \\ \hline
-		RF24 & A proprietária deve poder registrar, editar e excluir as despesas da pousada, categorizando-as (ex: manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa & Média & RN17 
+		RF18 & O sistema deve permitir o registro de \textit{early check-in} e \textit{late check-out} para uma reserva, bem como a configuração de tarifas adicionais correspondentes a essas opções & Média & RN12, RN13  \\ \hline
+		RF19 & A proprietária deve poder registrar, editar e excluir as despesas da pousada, categorizando-as (ex: manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa & Média & RN01 
 		\\ \hline
-		RF25 & A proprietária deve poder registrar, editar e excluir receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita & Média & RN17 \\ \hline
-		RF26 & O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria & Média & RN17 \\ \hline
-		RF27 & O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo & Média & RN17 \\ \hline
-		RF28 & O sistema deve gerar relatórios de faturamento por período & Média & RN17 \\ \hline
-		RF29 & O sistema deve apresentar um painel (\textit{dashboard}) com métricas-chave da pousada & Média & Requisito essencial para a gestão e visualização do negócio \\ \hline
-		RF30 & O sistema deve permitir o envio de notificações automáticas à proprietária sobre eventos importantes (ex: \textit{check-ins} iminentes)
+		RF20 & A proprietária deve poder registrar, editar e excluir receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita & Média & RN01 \\ \hline
+		RF21 & O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria & Média & RN01 \\ \hline
+		RF22 & O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo & Média & RN01 \\ \hline
+		RF23 & O sistema deve gerar relatórios de faturamento por período & Média & RN01 \\ \hline
+		RF24 & O sistema deve apresentar um painel (\textit{dashboard}) com métricas-chave da pousada & Média & Requisito essencial para a gestão e visualização do negócio \\ \hline
+		RF25 & O sistema deve permitir o envio de notificações automáticas à proprietária sobre eventos importantes (ex: \textit{check-ins} iminentes)
 		& Baixa & Requisito de suporte à gestão operacional \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
@@ -1180,18 +1163,22 @@ Os requisitos funcionais são aqueles que descrevem as funcionalidades e serviç
 %
 % REQUISITOS NÃO FUNCIONAIS
 \subsubsection{Requisitos Não Funcionais}
-Os requisitos não funcionais descrevem, por sua vez, as restrições e características de qualidade que devem ser aplicadas às funções e serviços prestados pelo sistema web. Estes requisitos estão listados no \autoref{quadro_rnf1}
+Os requisitos não funcionais descrevem, por sua vez, as restrições e características de qualidade que devem ser aplicadas às funções e serviços prestados pelo sistema. E  estão listados no \autoref{quadro_rnf1}.
 % Quadro RFN
 \begin{quadro}[H]
 	\caption{\label{quadro_rnf1}Requisitos Não Funcionais - Parte 1}
 	\begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{4cm}|>{\raggedright\arraybackslash}m{8cm}|}
 		\hline
-		\textbf{Código} & \textbf{Módulo} & \textbf{Descrição} \\ \hline
+		\textbf{Código} & \textbf{Módulo} & \textbf{Descrição} 
+		\\ \hline
 		RNF01 & Usabilidade & A interface do sistema deve ser intuitiva, responsiva (compatível e adaptada tanto para dispositivos desktop quanto mobile)  e de fácil utilização, de modo que as tarefas essenciais da gestão da pousada sejam realizadas de forma eficiente e com mínimo esforço de aprendizado pela proprietária.  Para isso, deve-se adotar os princípios de interface amigável como a priorização da simplicidade e da clareza, padrões de interface consistentes e acessíveis
 		\\ \hline
-		RNF02 & Usabilidade & O sistema deve fornecer mensagens de feedback claras, objetivas e contextualizadas para  todas as ações  realizadas pela usuária, como confirmação de reserva (exemplo: reserva efetuada com sucesso) ou notificações de erros (exemplo: falha ao cadastrar um quarto), garantindo uma interação segura e  satisfatória \\ \hline
-		RNF03 & Performance & O sistema deve apresentar um tempo de resposta baixo, com carregamento das páginas e execução de ações da proprietária entre 2 e 3 segundos, para garantir uma navegação fluida. \\ \hline
-		RNF04 & Performance & O sistema deve ser capaz de lidar com a carga de trabalho estimada desde o registro e a consulta simultânea de dados à gestão de múltiplas reservas, sem degradação significativa no desempenho, este que deverá se manter estável mesmo em períodos de maior demanda, considerando o perfil sazonal do negócio. \\ \hline
+		RNF02 & Usabilidade & O sistema deve fornecer mensagens de feedback claras, objetivas e contextualizadas para  todas as ações  realizadas pela usuária, como confirmação de reserva (exemplo: reserva efetuada com sucesso) ou notificações de erros (exemplo: falha ao cadastrar um quarto), garantindo uma interação segura e  satisfatória 
+		\\ \hline
+		RNF03 & Performance & O sistema deve apresentar um tempo de resposta baixo, com carregamento das páginas e execução de ações da proprietária entre 2 e 3 segundos, para garantir uma navegação fluida.
+		 \\ \hline
+		RNF04 & Segurança & O sistema deve garantir a segurança das informações da pousada e dos hóspedes através da implementação de mecanismos robustos de autenticação e autorização, de forma a assegurar que apenas a usuária autorizada consiga acessar ou alterar dados na aplicação.
+		\\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -1200,25 +1187,23 @@ Os requisitos não funcionais descrevem, por sua vez, as restrições e caracter
 	\caption{\label{quadro_rnf2}Requisitos Não Funcionais - Parte 2}
 	\begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{4cm}|>{\raggedright\arraybackslash}m{8cm}|}
 		\hline
-		\textbf{Código} & \textbf{Módulo} & \textbf{Descrição} \\ \hline
-		RNF05 & Segurança & O sistema deve garantir a segurança das informações da pousada e dos hóspedes através da implementação de mecanismos robustos de autenticação e autorização, de forma a assegurar que apenas a usuária autorizada consiga acessar ou alterar dados na aplicação. \\ \hline
-		RNF06 & Segurança & Os dados sensíveis devem ser protegidos conforme as melhores práticas propostas pela LGPD (Lei Geral de Proteção de Dados Pessoais), incluindo: utilização de criptografia para proteger dados em trânsito (HTTPS) e em repouso, implementação de políticas de autenticação robusta e minimização da coleta de dados. \\ \hline
-		RNF07 & Confiabilidade & O sistema deve estar disponível e funcionando corretamente por pelo menos 99 por cento do tempo, a fim de garantir que a proprietária tenha acesso ao sistema sempre que necessário, inclusive nos períodos com maior movimento de hóspedes na pousada. \\ \hline
-		RNF08 & Confiabilidade & O sistema deve implementar mecanismos de tratamento de erros para que falhas e perdas de dados sejam prevenidas. \\ \hline
-		RNF09 & Confiabilidade & O deploy da aplicação deve ser realizado em uma infraestrutura de nuvem (Amazon EC2), a fim de proporcionar maior estabilidade, flexibilidade à aplicação e permitir que possíveis atualizações e manutenções tenham impacto mínimo para a usuária. \\ \hline
-		RNF10 & Escalabilidade & Embora o sistema, inicialmente, seja voltado para uma única usuária, a arquitetura deve ser projetada de forma a permitir futuras expansões no número de usuários e funcionalidades sem grandes refatorações. \\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
-%
-\begin{quadro}[H]
-	\caption{\label{quadro_rnf3}Requisitos Não Funcionais - Parte 3}
-	\begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{4cm}|>{\raggedright\arraybackslash}m{8cm}|}
-		\hline
-		\textbf{Código} & \textbf{Módulo} & \textbf{Descrição} \\ \hline
-		RNF11 & Documentação & O sistema deve possuir uma documentação completa, objetiva e atualizada, incluindo código-fonte, a arquitetura da aplicação, os fluxos de uso e as especificações de APIs possivelmente integradas. \\ \hline
-		RNF12 & Documentação & A documentação deve estar versionada e organizada em no repositório Git — o GitHub —, este que deve ser utilizado no controle de versão da aplicação e colaboração entre os membros da equipe. \\ \hline
-		RNF13 & Documentação & O desenvolvimento deve seguir as boas práticas de codificação e padrões recomendados para aplicações Django, a fim de assegurar a manutenibilidade, extensibilidade e integridade do sistema ao longo do seu ciclo de vida. \\ \hline
+		\textbf{Código} & \textbf{Módulo} & \textbf{Descrição}
+		 \\ \hline
+		RNF05 & Segurança & Os dados sensíveis devem ser protegidos conforme as melhores práticas propostas pela LGPD (Lei Geral de Proteção de Dados Pessoais), incluindo: utilização de criptografia para proteger dados em trânsito (HTTPS) e em repouso, implementação de políticas de autenticação robusta e minimização da coleta de dados. 
+		\\ \hline
+		RNF06 & Confiabilidade & O sistema deve estar disponível e funcionando corretamente por pelo menos 99 por cento do tempo, a fim de garantir que a proprietária tenha acesso ao sistema sempre que necessário, inclusive nos períodos com maior movimento de hóspedes na pousada.
+		 \\ \hline
+		RNF07 & Confiabilidade & O sistema deve implementar mecanismos de tratamento de erros para que falhas e perdas de dados sejam prevenidas. 
+		\\ \hline
+		RNF08 & Confiabilidade & O deploy da aplicação deve ser realizado em uma infraestrutura de nuvem (Amazon EC2), a fim de proporcionar maior estabilidade, flexibilidade à aplicação e permitir que possíveis atualizações e manutenções tenham impacto mínimo para a usuária.
+		 \\ \hline
+		RNF09 & Escalabilidade & Embora o sistema, inicialmente, seja voltado para uma única usuária, a arquitetura deve ser projetada de forma a permitir futuras expansões no número de usuários e funcionalidades sem grandes refatorações. 
+		\\ \hline
+		RNF10 & Documentação & O sistema deve possuir uma documentação completa, objetiva e atualizada, incluindo código-fonte, a arquitetura da aplicação, os fluxos de uso e as especificações de APIs possivelmente integradas.
+		\\ \hline
+		RNF11 & Documentação & A documentação deve estar versionada e organizada em no repositório Git — o GitHub —, este que deve ser utilizado no controle de versão da aplicação e colaboração entre os membros da equipe.
+		\\ \hline
+		RNF12 & Documentação & O desenvolvimento deve seguir as boas práticas de codificação e padrões recomendados para aplicações Django, a fim de assegurar a manutenibilidade, extensibilidade e integridade do sistema ao longo do seu ciclo de vida. \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -1228,7 +1213,6 @@ Os requisitos não funcionais descrevem, por sua vez, as restrições e caracter
 As histórias de usuário são descrições curtas e informais das funcionalidades esperadas do sistema, sob a perspectiva do usuário final. Dessa forma, elas possuem alto valor para o desenvolvimento do escopo, visto que, auxiliam a equipe a compreender e priorizar as necessidades reais dos usuários. Por isso, foram levantadas e listadas as histórias de usuário para a aplicação web de gestão da Pousada Chalés Água de Coco neste tópico, como parte da definição e organização das funcionalidades do sistema.
 \subsection{Descrição das Histórias de Usuário}
 A seguir, apresentam-se a as descrições das histórias de usuário levantadas para o desenvolvimento do sistema.
-
 % --- Enumeração das histórias
 \begin{enumerate}[label=\textbf{\arabic*.}]
 	%1
@@ -1252,7 +1236,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema força a proprietária a criar uma nova senha forte.
 			\item O sistema exibe mensagem de sucesso após o cadastro da nova senha.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF02.
+		\item \textbf{Requisito Funcional Relacionado:} RF01.
 	\end{itemize} 
 	%3
 	\item \textbf{Recuperação de Senha:}
@@ -1263,7 +1247,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A proprietária consegue solicitar recuperação de senha via e-mail.
 			\item A proprietária recebe e-mail com um link de recuperação temporário.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF03.
+		\item \textbf{Requisito Funcional Relacionado:} RF01.
 	\end{itemize} 
 	%4
 	\item \textbf{Cadastro de Reservas:}
@@ -1276,7 +1260,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema exibe uma mensagem de confirmação do cadastro
 			\item Os dados da reserva são salvos no banco de dados. 
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF04.
+		\item \textbf{Requisito Funcional Relacionado:} RF02.
 	\end{itemize} 
 	%5
 	\item \textbf{Edição de Reservas:}
@@ -1288,7 +1272,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A proprietária consegue salvar a reserva com os novos dados.
 			\item Os dados são atualizados no banco de dados.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF05.
+		\item \textbf{Requisito Funcional Relacionado:} RF07.
 	\end{itemize} 
 	%6
 	\item \textbf{Bloqueio do Cadastro de Reservas:}
@@ -1299,36 +1283,27 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema impede que a proprietária cadastre a reserva de um quarto que tenha o status diferente de “disponível” na data selecionada.
 			\item O sistema exibe uma mensagem de alerta avisando que o quarto não está disponível.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF06.
+		\item \textbf{Requisito Funcional Relacionado:} RF02 e RF14.
+		\\
+		\\
+		\\
 	\end{itemize} 
-	%
+	%7
 	\item \textbf{Reserva com Dados do Hóspede:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero registrar os dados pessoais de cada hóspede ao criar ou gerenciar uma reserva, para manter um registro completo e atualizado dos hóspedes.
 		\item \textbf{Critérios de Aceitação:}
 		\begin{itemize}
-			\item No formulário de cadastro de reserva devem ser exigidos o preenchimento de campos com os dados do hóspede (nome completo, endereço completo, CPF/Passaporte, telefone e e-mail).
+			\item No formulário de cadastro de reserva devem ser exigidos o preenchimento de campos com os dados do hóspede (nome completo, endereço completo, data de nascimento, CPF/Passaporte, telefone e e-mail).
 			\item Todos os campos devem ter validação de formato.
+			\item O campo de data de nascimento deve impedir o cadastro de pessoas menores de 18 anos, considerando a data de registro da reserva.
 			\item A proprietária deve conseguir buscar e selecionar hóspedes já cadastrados para novas reservas.
 			\item O sistema deve validar os campos obrigatórios para garantir a integridade dos dados.
 			\item Os dados dos hóspedes devem ser armazenados de forma segura.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF07.
+		\item \textbf{Requisito Funcional Relacionado:} RF03.
 	\end{itemize} 
 	%8
-	\item \textbf{Reserva em Nome de um Responsável:}
-	\begin{itemize}
-		\item \textbf{Descrição:} Como proprietária, quero cadastrar uma reserva em nome de um responsável pelo hóspede para atender situações em que outra pessoa cuida da reserva.
-		\item \textbf{Critérios de Aceitação:}
-		\begin{itemize}
-			\item O formulário de cadastro de reserva deve ter uma opção para indicar que a reserva está sendo feita por um responsável.
-			\item Opção selecionada: O sistema exibe os campos para registro dos dados pessoais do responsável.
-			\item Opção selecionada: O sistema mantém os campos para registro dos hóspedes.
-			\item Após concluído o cadastro da reserva o sistema deve deixar visível quem é o responsável e quem é o hóspede.
-		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF08.
-	\end{itemize} 
-	%9
 	\item \textbf{Pagamento de Confirmação de Reserva:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero registrar o pagamento  da estadia para confirmar a reserva e manter a organização das receitas da pousada.
@@ -1341,9 +1316,11 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema permite que a proprietária anexe um comprovante de pagamento ao registro.
 			\item Após o registro do pagamento, o sistema gera um comprovante de reserva e pagamento, sob demanda da proprietária.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF09, RF10 e RF27.
+		\item \textbf{Requisito Funcional Relacionado:} RF05, RF06 e RF18.
+		\\
+		\\
 	\end{itemize} 
-	%10
+	%09
 	\item \textbf{Cancelamento ou Alteração de Reservas:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero cancelar ou remarcar uma reserva, com a possibilidade de registrar o motivo  para manter o controle sobre mudanças.
@@ -1356,9 +1333,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item Novo status da reserva é salvo no banco de dados.
 			\item Proprietária seleciona cancelar: o status do quarto ocupado na reserva é atualizado para “Disponível”.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF11.
+		\item \textbf{Requisito Funcional Relacionado:} RF07.
 	\end{itemize} 
-	%11
+	%10
 	\item \textbf{Cadastro de Múltiplas Reservas:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero cadastrar múltiplas reservas para um mesmo hóspede, para facilitar reservas recorrentes.
@@ -1370,9 +1347,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item Cada reserva deve ser independente mesmo que seja do mesmo cliente.
 			\item O sistema deve registrar separadamente o pagamento de cada reserva.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF12.
+		\item \textbf{Requisito Funcional Relacionado:} RF08.
 	\end{itemize} 
-	%12
+	%11
 	\item \textbf{Cadastro de Múltiplas Reservas de Quarto:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero reservar um mesmo quarto para diferentes hóspedes em datas seguidas, para otimizar a ocupação dos quartos.
@@ -1382,9 +1359,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item Os horários de \textit{check-in} e \textit{check-out} devem estar configurados no sistema e devem ser respeitados durante o cadastro de reserva de um quarto.
 			\item O sistema deve impossibilitar que a proprietária faça reservas que se sobreponham parcial ou totalmente ao período de outra reserva já associada ao quarto.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF13.
+		\item \textbf{Requisito Funcional Relacionado:} RF09.
 	\end{itemize} 
-	%13
+	%12
 	\item \textbf{Acesso de Histórico de Reservas:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero visualizar o histórico de reservas dos hóspedes, para entender suas preferências e frequência de reservas.
@@ -1396,9 +1373,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A proprietária consegue acessar detalhes completos de cada reserva listada.
 			\item O histórico de reservas deve ser atualizado automaticamente a cada nova reserva ou alteração de reserva.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF14.
+		\item \textbf{Requisito Funcional Relacionado:} RF15.
 	\end{itemize} 
-	%14
+	%13
 	\item \textbf{Configuração de Tarifas:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero configurar as tarifas de reserva no sistema para aplicar preços personalizados.
@@ -1409,9 +1386,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema aplica automaticamente as tarifas ao valor total de uma reserva.
 			\item O sistema permite que a proprietária edite e salve novas regras de tarifação sem apagar reservas anteriores.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF15.
+		\item \textbf{Requisito Funcional Relacionado:} RF10.
 	\end{itemize} 
-	%15
+	%14
 	\item \textbf{Notificações de confirmação para clientes:}
 	\begin{itemize}
 		\item \textbf{Descrição:}Como proprietária, quero que meus clientes recebam informações da confirmação da reserva via \textit{e-mail}, para evitar os envios manuais para cada cliente. 
@@ -1422,9 +1399,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema registra que a notificação foi enviada.
 			\item Caso o envio da notificação falhe, o sistema deve alertar a proprietária para enviar manualmente.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF16.
+		\item \textbf{Requisito Funcional Relacionado:} RF11.
 	\end{itemize} 
-	%16
+	%15
 	\item \textbf{Impedimento de Cadastro de Reserva:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero que o sistema impeça o cadastro de reservas com menos de  2 dias de antecedência para o \textit{check-in}, para ter tempo suficiente para preparar a recepção do hóspede.
@@ -1433,9 +1410,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item Durante o cadastro da reserva, o sistema calcula a diferença entre a data atual e a data de\textit{check-in} solicitada.
 			\item Caso a diferença seja menor que 2 dias, o sistema impede o cadastro e exibe uma mensagem de erro.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF17.
+		\item \textbf{Requisito Funcional Relacionado:} RF04.
 	\end{itemize} 
-	%17
+	%16
 	\item \textbf{Edição do Cadastro de Hóspede:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero visualizar e editar os dados dos hóspedes existentes para manter as informações atualizadas.
@@ -1447,9 +1424,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema oferece uma opção de edição do cadastro do hóspede.
 			\item O sistema permite a edição dos dados que são atualizados no banco de dados.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF18.
+		\item \textbf{Requisito Funcional Relacionado:} RF12.
 	\end{itemize} 
-	%18
+	%17
 	\item \textbf{Cadastro de Quartos:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero cadastrar todos os quartos da pousada no sistema, para fazer o controle de disponibilidade e da limpeza dos quartos.
@@ -1462,9 +1439,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O quarto é registrado e adicionado ao banco de dados.
 			\item O quarto fica visível na lista de quartos após o registro.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF19.
+		\item \textbf{Requisito Funcional Relacionado:} RF13.
 	\end{itemize} 
-	%19
+	%18
 	\item \textbf{Edição de Cadastro de Quarto:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero editar o cadastro de um quarto, para caso eu precise adicionar ou remover informações importantes para a reserva.
@@ -1475,9 +1452,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema permite que a proprietária edite os dados dos campos disponíveis no formulário.
 			\item As alterações são registradas e atualizadas no banco de dados.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF20.
+		\item \textbf{Requisito Funcional Relacionado:} RF13.
 	\end{itemize} 
-	%20
+	%19
 	\item \textbf{Visualização Quartos Disponíveis:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero conseguir ver quais os quartos disponíveis durante o cadastro da reserva, para otimizar o atendimento.
@@ -1487,9 +1464,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema atualiza automaticamente a lista quando a proprietária altera as datas da reserva.
 			\item O sistema exibe os principais dados do quarto na seleção: número, tipo, capacidade e preço.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF21.
+		\item \textbf{Requisito Funcional Relacionado:} RF15.
 	\end{itemize} 
-	%21
+	%20
 	\item \textbf{Atualização do Status do Quarto:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero atualizar manualmente o  \textit{status} de um quarto (disponível, reservado, ocupado, em manutenção) para refletir sua condição real e evitar reservas indevidas.
@@ -1500,9 +1477,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A mudança de \textit{status} é atualizada automaticamente.
 			\item O sistema exibe uma mensagem de confirmação de mudança.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF22.
+		\item \textbf{Requisito Funcional Relacionado:} RF16.
 	\end{itemize} 
-	%22
+	%21
 	\item \textbf{Produção de Relatórios de Ocupação:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero gerar relatórios de ocupação de quartos por período (taxa de ocupação, quartos vagos) para analisar o desempenho da pousada.
@@ -1513,9 +1490,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema gera um relatório que exibe a taxa de ocupação do período selecionado (\% de dias ocupados por quarto).
 			\item O relatório também exibe a quantidade de quartos disponíveis e ocupados em cada dia do período.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF23.
+		\item \textbf{Requisito Funcional Relacionado:} RF15.
 	\end{itemize} 
-	%23
+	%22
 	\item \textbf{Configuração de Horários de \textit{Check-in} e\textit{Check-out}:}
 	\begin{itemize}
 		\item \textbf{Descrição:}  Como proprietária, quero configurar os horários de \textit{check-in} e \textit{check-out} para melhor controle de pessoas e, consequentemente, melhor recepção dos hóspedes.
@@ -1527,9 +1504,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A proprietária deve conseguir editar os horários configurados.
 			\item Os horários devem ser associados a disponibilidade para reserva das estadias.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF26.
+		\item \textbf{Requisito Funcional Relacionado:} RF17.
 	\end{itemize} 
-	%24
+	%23
 	\item \textbf{Registro do \textit{Check-out}:}
 	\begin{itemize}
 		\item \textbf{Descrição:}  Como proprietária, quero registrar o \textit{check-out} de um hóspede para atualizar status do quarto e finalizar reserva.
@@ -1540,9 +1517,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item Após o registro do \textit{check-out}, o sistema deve encerrar a reserva e impedir alterações na reserva.
 			\item Caso haja cobrança pendente, o sistema deve alertar antes de finalizar a reserva.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF24.
+		\item \textbf{Requisito Funcional Relacionado:} RF16.
 	\end{itemize} 
-	%25
+	%24
 	\item \textbf{Mudança de Status Pós \textit{Check-in}:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero que o sistema mude o status do quarto de reservado para ocupado ao registrar o \textit{check-in}, para manter atualizada a ocupação real da pousada.
@@ -1553,9 +1530,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema deve exibir uma mensagem de pagamento pendente, caso o pagamento não tenha sido registrado em sua totalidade.
 			\item O sistema deve exibir a alteração de \textit{status} imediatamente no painel da pousada.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF25.
+		\item \textbf{Requisito Funcional Relacionado:} RF16.
 	\end{itemize} 
-	%26
+	%25
 	\item \textbf{\textit{Early check-in} e \textit{Late check-out}:}
 	\begin{itemize}
 		\item \textbf{Descrição:}  Como proprietária, quero quero registrar \textit{early check-in} e \textit{late check-out} em reservas para oferecer mais flexibilidade ao cliente.
@@ -1568,9 +1545,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A opção deve estar disponível tanto no cadastro da reserva quanto na edição posterior.
 			\item O sistema deve registrar essa informação no histórico da reserva e no comprovante de pagamento.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF28.
+		\item \textbf{Requisito Funcional Relacionado:} RF19.
 	\end{itemize} 
-	%27
+	%26
 	\item \textbf{Configuração de Tarifas Adicionais:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero configurar tarifas adicionais para \textit{early check-in} e \textit{late check-out} para facilitar a cobrança correta do cliente.
@@ -1579,9 +1556,11 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema deve permitir que a proprietária adicione valores fixos ou percentuais adicionais para early \textit{early check-in} e \textit{late check-out} aos preços das estadias.
 			\item O valor total da reserva deve refletir os acréscimos automaticamente.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF29.
+		\item \textbf{Requisito Funcional Relacionado:} RF19.
+		\\
+		\\
 	\end{itemize} 
-	%28
+	%27
 	\item \textbf{Registro de Fluxos Financeiros:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero registrar receitas e despesas da pousada com data, valor, categoria e descrição para manter o controle financeiro. 
@@ -1591,9 +1570,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A proprietária consegue registrar receitas ou despesas a partir do preenchimento de um formulário com os campos obrigatórios: data, categoria, valor e descrição.
 			\item O sistema armazena no banco de dados a receita/ despesa registrada e salva.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF30 e RF31.
+		\item \textbf{Requisito Funcional Relacionado:} RF20 e RF21.
 	\end{itemize} 
-	%29
+	%28
 	\item \textbf{Edição e Exclusão dos Registros de Fluxo Financeiro:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero editar ou excluir uma receita ou despesa registrada para corrigir possíveis erros ou lançamentos equivocados.
@@ -1604,9 +1583,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A proprietária consegue alterar os campos obrigatórios do formulário de registro de receita/despesa.
 			\item O sistema atualiza o banco de dados, o saldo e o balanço financeiro automaticamente. 
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF32 e RF33.
+		\item \textbf{Requisito Funcional Relacionado:} RF20 e RF21.
 	\end{itemize} 
-	%30
+	%29
 	\item \textbf{Visualização das Transações Financeiras:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero visualizar todas as transações financeiras por período para entender a saúde financeira da pousada.
@@ -1616,9 +1595,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item A proprietária consegue fazer buscas por filtradas: tipo, valor, data e categoria.
 			\item A filtragem exibe apenas as transações que atendem aos critérios informados.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF34 e RF35.
+		\item \textbf{Requisito Funcional Relacionado:} RF22.
 	\end{itemize} 
-	%31
+	%30
 	\item \textbf{Produção de Relatórios Financeiros:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero gerar relatórios de financeiros automaticamente por período e categoria para me auxiliar nas decisões financeiras da pousada.
@@ -1630,9 +1609,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O relatório deve apresentar gráficos simples para representar os resultados por categoria.
 			\item O relatório desconsidera registros financeiros excluídos.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF36 e RF38.
+		\item \textbf{Requisito Funcional Relacionado:} RF24.
 	\end{itemize} 
-	%32
+	%31
 	\item \textbf{Balanço Financeiro:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero gerar um balanço financeiro simples com receitas, despesas e saldo para avaliar lucros e perdas.
@@ -1641,9 +1620,9 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema permite que a proprietária visualize o total de receitas, o total de despesas e o saldo, no painel do módulo de gestão financeira.
 			\item O sistema gera balanços com base nos filtros aplicados.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF37.
+		\item \textbf{Requisito Funcional Relacionado:} RF23.
 	\end{itemize} 
-	%33
+	%32
 	\item \textbf{Painel Inicial:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero visualizar um \textit{dashboard} inicial com métricas chaves (quartos ocupados, próximas reservas, próximos \textit{check-out}) para ter uma visão rápida e geral da pousada.
@@ -1655,18 +1634,18 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 			\item O sistema atualiza as informações do painel automaticamente a cada acesso.
 			\item A proprietária consegue acessar o painel diretamente após o \textit{login} no sistema.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF39.
+		\item \textbf{Requisito Funcional Relacionado:} RF14.
 	\end{itemize} 
-	%34
+	%33
 	\item \textbf{Notificações internas:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero receber notificações automáticas (via \textit{dashboard}) sobre eventos importantes para me preparar e melhorar a experiência dos hóspedes.
 		\item \textbf{Critérios de Aceitação:}
 		\begin{itemize}
-			\item O sistema exibe uma mensagem para a proprietária no dashboard sempre que uma reserva é criada, cancelada ou editada.
+			\item O sistema exibe uma mensagem para a proprietária no \textit{dashboard} sempre que uma reserva é criada, cancelada ou editada.
 			\item O sistema exibe lembretes de pendências de pagamento com base na data de vencimento.
 		\end{itemize}
-		\item \textbf{Requisito Funcional Relacionado:} RF40.
+		\item \textbf{Requisito Funcional Relacionado:} RF26.
 	\end{itemize} 
 \end{enumerate}
 % ---
@@ -2757,6 +2736,117 @@ Durante essa semana a documentação final consolidada foi revisada, para aplica
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
+%
+\chapter{Requisitos Funcionais Detalhados}
+\label{apendice:rfdetalhados}
+\begin{quadro}[H]
+	\caption{Requisitos Funcionais - Parte 1}
+	\label{quadro_rfc1}
+	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
+		\hline
+		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
+		RF01 & A aplicação deve possuir um sistema de login para a proprietária acessar a aplicação de forma segura & Alta & RN01 \\ \hline
+		RF02 & O sistema deve permitir que a proprietária altere sua senha de acesso  & Alta & RN01 \\ \hline
+		RF03 & O sistema deve permitir que a proprietária recupere sua senha via \textit{e-mail} & Alta & RN01 \\ \hline
+		RF04 & O sistema deve permitir o cadastro de	novas reservas, desde que associadas um quarto e a um período (data de check-in
+		e check-out) disponíveis (data de \textit{check-in} e \textit{check-out}) & Alta & RN04; RN14; RN15; RN16 \\ \hline
+		RF05 & O sistema deve permitir a edição de reservas já cadastradas & Alta & RN08 \\ \hline
+		RF06 & O sistema deve impedir o cadastro de reservas que não estejam associadas a quartos disponíveis & Alta & RN10; RN16 \\ \hline
+		RF07 & O sistema deve exigir os dados pessoais do hóspede para que a reserva seja cadastrada: nome completo, endereço completo, CPF/Passaporte, telefone e e-mail & Alta & RN02 \\ \hline
+		RF08 & O sistema deve exigir o pagamento de 50\% do valor da estadia para confirmar o cadastro da reserva (a ser pago no momento da reserva ou em um prazo definido) & Média & RN05; RN07 \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+
+\begin{quadro}[H]
+	\caption{Requisitos Funcionais - Parte 2}
+	\label{quadro_rfc2}
+	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
+		\hline
+		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
+		RF09 & O sistema deve permitir o registro de pagamento da reserva (forma, valor, data) & Média & RN05;RN06 
+		\\ \hline
+		RF10 & A proprietária deve conseguir cancelar ou alterar uma reserva, com possível registro do motivo & Média & RN08 \\ \hline
+		RF11 & A proprietária deve conseguir cadastrar mais de uma reserva no nome de um mesmo hóspede & Média & RN03
+		\\ \hline
+		RF12 & A proprietária deve conseguir reservar um mesmo quarto para diferentes clientes em datas seguidas, respeitando os horários de \textit{check-in} e \textit{check-out} configurados para o quarto & Alta & RN10; RN16
+		\\ \hline
+		RF13 & A proprietária deve conseguir acessar o histórico de reservas de um hóspede & Média & RN02; RN03  
+		\\ \hline
+		RF14 & O sistema deve permitir configurar tarifas de reserva com base nas regras de negócio da pousada & Média & RN13 
+		\\ \hline
+		RF15 & O sistema deve enviar uma notificação para o hóspede via \textit{e-mail} após a confirmação da reserva & Baixa & RN07
+		 \\ \hline
+		RF16 & O sistema deve impedir o registro de reservas com menos de 2 dias de antecedência da data do \textit{check-in} & Média & RN04
+		 \\ \hline
+		RF17 & O sistema deve permitir  a edição dos dados de hóspedes já cadastrados & Média & RN02
+		 \\ \hline 
+		RF18 & A proprietária deve poder fazer o cadastro de quartos, incluindo informações como número/nome do quarto, capacidade (número de hóspedes), tipo (ex: chalé, simples solteiro, simples casal, etc.), e preço por noite & Alta & RN14; RN15
+		\\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+\begin{quadro}[H]
+	\caption{Requisitos Funcionais - Parte 3}
+	\label{quadro_rfc3}
+	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
+		\hline
+		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
+		RF19 & A proprietária deve conseguir editar as informações dos quartos já cadastrados & Alta & RN14; RN15
+		\\ \hline
+		RF20 & O sistema deve permitir a visualização dos quartos disponíveis no período de tempo selecionado para a reserva & Média & RN14; RN16
+		 \\ \hline
+		RF21 & A proprietária deve conseguir mudar o status de um quarto (ex: disponível, ocupado, em manutenção) manualmente, se necessário & Alta & RN09
+		\\ \hline
+		RF22 & O sistema deve gerar relatórios de ocupação de quartos em períodos definidos & Média & RN03; RN14; RN07; RN15; RN16
+		 \\ \hline
+		RF23 & O sistema deve mudar o status do quarto quando for realizado o registro do \textit{check-out} & Alta & RN10
+		\\ \hline
+		RF24 & O sistema deve mudar o status do quarto de reservado para ocupado no registro do \textit{check-in} & Alta & RN10 
+		\\ \hline
+		RF25 & O sistema deve permitir à proprietária configurar os horários padrão de \textit{check-in} e \textit{check-out} & Alta & RN10 
+		\\ \hline
+		RF26 & O sistema deve permitir a geração de recibos ou comprovantes de pagamento e estadia, sob demanda & Média & RN11
+		 \\ \hline
+		RF27 & O sistema deve permitir o registro de \textit{early check-in} e \textit{late check-out} para uma reserva & Média & RN12 \\ \hline
+		RF28 & O sistema deve permitir a configuração de tarifas adicionais para textit{early check-in} e \textit{late check-out} & Média & RN12; RN13
+		 \\ \hline
+		RF29 & A proprietária deve poder registrar as despesas da pousada, categorizando-as (ex: manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa & Média & RN01
+		\\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+
+\begin{quadro}[H]
+	\caption{Requisitos Funcionais - Parte 4}
+	\label{quadro_rfc4}
+	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
+		\hline
+		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
+		RF30 & A proprietária deve poder registrar receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita & Média & RN01
+		 \\ \hline
+		RF31 & O sistema deve permitir a edição das transações financeiras registradas (receitas e despesas) & Média & RN01 
+		\\ \hline
+		RF32 & O sistema deve permitir a exclusão das transações financeiras registradas & Média & RN01
+		 \\ \hline
+		RF33 & O sistema deve permitir que a proprietária visualize todas as transações financeiras (receitas e despesas) em um determinado período & Média & RN01 
+		\\ \hline
+		RF34 & O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria & Média & RN01
+		 \\ \hline
+		RF35 & O sistema deve gerar relatórios financeiros detalhados automaticamente por período e por categoria & Média & RN01
+		\\ \hline
+		RF36 & O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo & Média & RN01
+		\\ \hline
+		RF37 & O sistema deve gerar relatórios de faturamento por período & Média & RN01
+		\\ \hline
+		RF38 & O sistema deve apresentar um painel (dashboard) com métricas-chave da pousada & Média & Requisito essencial para a gestão e visualização do negócio 
+		\\ \hline
+		RF39 & O sistema deve permitir o envio de notificações automáticas à proprietária sobre eventos importantes (ex: \textit{check-ins} iminentes)
+		& Baixa & Requisito de suporte à gestão operacional \\ \hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%
 \end{apendicesenv}
 % ---
 
