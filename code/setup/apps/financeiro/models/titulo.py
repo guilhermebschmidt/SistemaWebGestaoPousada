@@ -1,5 +1,5 @@
 from django.db import models
-from apps.core.models import Hospede, Reserva
+from apps.core.models import Hospede#, Reserva
 class Titulo(models.Model):
     TIPO_DOCUMENTO_CHOICES = [
         ('boleto', 'Boleto'),
@@ -21,7 +21,14 @@ class Titulo(models.Model):
     cancelado = models.BooleanField(verbose_name="Cancelado")
     tipo = models.BooleanField(default=True, verbose_name="Tipo")
     # Relações
-    reserva = models.ForeignKey(Reserva, on_delete=models.CASCADE, null=True, blank=True, verbose_name="Reserva")
+    #reserva = models.ForeignKey(Reserva, on_delete=models.CASCADE, null=True, blank=True, verbose_name="Reserva")
+    reserva = models.ForeignKey(
+        'core.Reserva',
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        verbose_name="Reserva"
+    )
     hospede = models.ForeignKey(Hospede, on_delete=models.CASCADE, null=True, blank=True, verbose_name="Hóspede")
 
     # Datas
