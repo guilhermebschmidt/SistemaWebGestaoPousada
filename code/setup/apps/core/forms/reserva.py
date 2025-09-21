@@ -5,14 +5,34 @@ from ..models.quarto import Quarto
 import datetime
 
 class ReservaForm(forms.ModelForm):
+    hospede_nome = forms.CharField(
+        label='Hóspede',
+        required=True,
+        widget=forms.TextInput(attrs={
+            'class': 'input input-bordered w-full',
+            'placeholder': 'Digite para buscar um hóspede...'
+        }),
+        help_text='Selecione o hóspede para a reserva.'
+    )
     class Meta:
         model = Reserva
         fields = ['id_hospede', 'id_quarto', 'data_reserva_inicio', 'data_reserva_fim']
         widgets = {
-            'id_hospede': forms.Select(attrs={'class': 'select select-bordered w-full'}),
             'id_quarto': forms.Select(attrs={'class': 'select select-bordered w-full'}),
-            'data_reserva_inicio': forms.DateInput(attrs={'class': 'input input-bordered w-full', 'type': 'date'}),
-            'data_reserva_fim': forms.DateInput(attrs={'class': 'input input-bordered w-full', 'type': 'date'}),
+            'data_reserva_inicio': forms.DateInput(
+                format='%Y-%m-%d',
+                attrs={
+                    'class': 'input input-bordered w-full',
+                    'type': 'date'
+                }
+            ),
+            'data_reserva_fim': forms.DateInput(
+                format='%Y-%m-%d',
+                attrs={
+                    'class': 'input input-bordered w-full',
+                    'type': 'date'
+                }
+            ),
         }
         labels = {
             'id_hospede': 'Hóspede',
@@ -60,5 +80,7 @@ class ReservaForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['id_hospede'].queryset = Hospede.objects.all().order_by('nome')
+        self.fields['id_hospede'].widget = forms.HiddenInput()
+        if self.instance and self.instance.pk:
+            self.fields['hospede_nome'].initial = self.instance.id_hospede.nome
         self.fields['id_quarto'].queryset = Quarto.objects.all().order_by('numero')

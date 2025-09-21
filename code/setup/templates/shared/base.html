@@ -26,7 +26,8 @@
 
     <!-- TAILWIND + DAISYUI -->
     <link href="{% static 'css/output.css' %}" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
     {% block extra_head %}{% endblock %}
 </head>
 
@@ -211,7 +212,8 @@
             </main>
         </div>
     </div>
-
+    {% block extra_js %}
+    {% endblock %}
     <!-- Font Awesome (ícones) -->
     <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
 
@@ -297,4 +299,5 @@
             transition: none !important;
         }
     </style>
+    </body>
 </html>

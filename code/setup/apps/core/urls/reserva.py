@@ -13,4 +13,5 @@ urlpatterns = [
     path('buscar/', reserva.search, name='search'),
     path('<int:pk>/checkin/', reserva.marcar_checkin, name='checkin'),
     path('<int:pk>/checkout/', reserva.marcar_checkout, name='checkout'),
+    path('buscar-hospedes/', reserva.buscar_hospedes, name='buscar_hospedes'),
 ]

@@ -24,12 +24,17 @@
 
                         <!-- Hóspede -->
                         <div class="form-control">
-                            <label class="label" for="id_hospede">
+                            <label class="label" for="id_hospede_nome">
                                 <span class="label-text font-medium">Hóspede</span>
                             </label>
-                            <br>
+
+                            {{ form.hospede_nome }}
+
                             {{ form.id_hospede }}
-                            {% if form.id_hospede.errors %}
+
+                            {% if form.hospede_nome.errors %}
+                                <p class="text-error text-sm">{{ form.hospede_nome.errors.0 }}</p>
+                            {% elif form.id_hospede.errors %}
                                 <p class="text-error text-sm">{{ form.id_hospede.errors.0 }}</p>
                             {% endif %}
                         </div>
@@ -90,4 +95,21 @@
         </div>
     </div>
 </div>
+{% endblock %}
+{% block extra_js %}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+    <script>
+    $(function() {
+        $("#id_hospede_nome").autocomplete({
+            source: "{% url 'reserva:buscar_hospedes' %}",
+            minLength: 2,
+            select: function(event, ui) {
+                $(this).val(ui.item.label);
+                $("#id_id_hospede").val(ui.item.id);
+                return false;
+            }
+        });
+        });
+    </script>
 {% endblock %}

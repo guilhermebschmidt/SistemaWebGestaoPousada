@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from ..models.reserva import Reserva
+from ..models.hospede import Hospede
 from ..forms.reserva  import ReservaForm
 import datetime
 from django.utils import timezone
+from django.http import JsonResponse
 
 def list(request):
     reservas = Reserva.objects.all()
@@ -62,13 +64,26 @@ def search(request):
 def marcar_checkin(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
     reserva.data_check_in = timezone.now()
-    reserva.status = 'ATIVA' 
+    reserva.status = 'ATIVA'
     reserva.save()
     return redirect('reserva:list_checkin')
 
 def marcar_checkout(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
     reserva.data_check_out = timezone.now()
-    reserva.status = 'CONCLUIDA' 
+    reserva.status = 'CONCLUIDA'
     reserva.save()
     return redirect('reserva:list_checkout')
+
+def buscar_hospedes(request):
+    if 'term' in request.GET:
+        qs = Hospede.objects.filter(nome__icontains=request.GET.get('term'))
+        hospedes = []
+        for hospede in qs:
+            hospedes.append({
+                'id': hospede.cpf,
+                'label': hospede.nome,
+                'value': hospede.nome
+            })
+        return JsonResponse(hospedes, safe=False)
+    return JsonResponse([], safe=False)
