@@ -26,7 +26,8 @@
 
     <!-- TAILWIND + DAISYUI -->
     <link href="{% static 'css/output.css' %}" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
     {% block extra_head %}{% endblock %}
 </head>
 
@@ -54,8 +55,8 @@
                         <details>
                             <summary><i class="fas fa-users mr-2"></i> Hóspedes</summary>
                             <ul>
-                                <li><a href="{% url 'hospede:hospede_list' %}">Listar Hóspedes</a></li>
-                                <li><a href="{% url 'hospede:hospede_create' %}">Adicionar Hóspede</a></li>
+                                <li><a href="{% url 'hospede:listar' %}">Listar Hóspedes</a></li>
+                                <li><a href="{% url 'hospede:form' %}">Adicionar Hóspede</a></li>
                             </ul>
                         </details>
                     </li>
@@ -65,7 +66,7 @@
                         <details>
                             <summary><i class="fas fa-bed mr-2"></i> Quartos</summary>
                             <ul>
-                                <li><a href="{% url 'quarto:quartos' %}">Listar Quartos</a></li>
+                                <li><a href="{% url 'quarto:listar' %}">Listar Quartos</a></li>
                                 <li><a href="{% url 'quarto:form' %}">Adicionar Quarto</a></li>
                                 <li><a href="{% url 'quarto:tipos_quarto' %}">Tipos de Quarto</a></li>
                             </ul>
@@ -84,7 +85,7 @@
                         </details>
                     </li>
 
-                    <li><a href="#"><i class="fas fa-money-bill-wave mr-2"></i> Financeiro</a></li>
+                    <li><a href="{% url 'financeiro:list' %}"><i class="fas fa-money-bill-wave mr-2"></i> Financeiro</a></li>
                     <li><a href="#"><i class="fas fa-cog mr-2"></i> Configurações</a></li>
                 </ul>
             </nav>
@@ -197,7 +198,7 @@
                             </div>
                         </label>
                         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a>Meu Perfil</a></li>
+                            <li><a href="{% url 'perfil' %}">Meu Perfil</a></li>
                             <li><a>Configurações</a></li>
                             <li><a href="{% url 'account_logout' %}">Sair</a></li>
                         </ul>
@@ -211,7 +212,8 @@
             </main>
         </div>
     </div>
-
+    {% block extra_js %}
+    {% endblock %}
     <!-- Font Awesome (ícones) -->
     <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
 
@@ -297,4 +299,5 @@
             transition: none !important;
         }
     </style>
+    </body>
 </html>

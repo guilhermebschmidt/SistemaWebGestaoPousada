@@ -10,7 +10,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger mb-4">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'hospede:hospede_list' %}">Hóspedes</a>
+        <a class="navbar-brand" href="{% url 'hospede:listar' %}">Hóspedes</a>
     </div>
 </nav>
 
@@ -21,7 +21,7 @@
     <form method="POST" action="">
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">Excluir</button>
-        <a href="{% url 'hospede:hospede_list' %}" class="btn btn-secondary ms-2">Cancelar</a>
+        <a href="{% url 'hospede:listar' %}" class="btn btn-secondary ms-2">Cancelar</a>
     </form>
 </div>
 

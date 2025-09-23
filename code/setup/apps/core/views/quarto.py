@@ -1,27 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from ..models.quarto import Quarto
 from ..forms.quarto import QuartoForm
-from django.contrib.auth.decorators import login_required
 
-@login_required
 def index(request):
-    return render(request, 'core/quarto/index.html', {'quartoss': quartos})
+    return render(request, 'core/quarto/index.html')#, {'quartos': list})
 
-@login_required
-def quartos(request):
+def listar(request):
     quartos = Quarto.objects.all()
-    return render(request, 'core/quarto/quartos.html', {'quartos': quartos})
+    return render(request, 'core/quarto/listar.html', {'quartos': quartos})
 
-@login_required
 def form(request, quarto_id=None):
     quarto = get_object_or_404(Quarto, pk=quarto_id) if quarto_id else None
-
-    if quarto:
-        print(f"Valores do quarto (ID: {quarto.id}):")
-        print(f"Número: {quarto.numero}")
-        print(f"Preço: {quarto.preco}")
-        print(f"Status: {quarto.status}")
-        print(f"Descrição: {quarto.descricao}")
 
     if request.method == 'POST':
         form = QuartoForm(request.POST, instance=quarto)
@@ -45,14 +34,12 @@ def form(request, quarto_id=None):
     }
     return render(request, 'core/quarto/form.html', context)
 
-@login_required
 def tipos_quarto(request):
     return render(request, 'core/quarto/tipos_quarto.html')
 
-@login_required
-def excluir_quarto(request, quarto_id):
+def excluir(request, quarto_id):
     quarto = get_object_or_404(Quarto, pk=quarto_id)
     if request.method == 'POST':
         quarto.delete()
-        return redirect('core/quarto:quartos')
-    return render(request, 'core/quarto/excluir_quarto.html', {'quarto': quarto})
+        return redirect('core/quarto:list')
+    return render(request, 'core/quarto/excluir.html', {'quarto': quarto})

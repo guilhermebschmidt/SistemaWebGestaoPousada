@@ -29,7 +29,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'app.pousadachalesaguadecoco.com.br']
+ALLOWED_HOSTS = ['app.pousadachalesaguadecoco.com.br', '18.117.219.212', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -42,21 +42,23 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites', 
+    #app allauth
     'allauth',
     'allauth.account',
-    'allauth.socialaccount',
+    #apps locais
     'apps.core',
+    'apps.financeiro',
+    'apps.usuarios'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',  
+    'allauth.account.middleware.AccountMiddleware',   
+    'apps.usuarios.middleware.LoginRequiredMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'setup.middleware.LoginRequiredMiddleware',
-   
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
@@ -140,16 +142,16 @@ STATIC_ROOT = '/home/admin/projetos/pousada/code/staticfiles'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+#configurações allauth
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',  
+    'allauth.account.auth_backends.AuthenticationBackend', 
+)
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
+SITE_ID = 1 
 
-SITE_ID = 1  
-LOGIN_REDIRECT_URL = '/'  
-ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/' 
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'none' 
+LOGIN_REDIRECT_URL = '/' 
+LOGOUT_REDIRECT_URL = '/accounts/login/' 
+ACCOUNT_SIGNUP_FIELDS = ["email*", "password1*", "password2*"]
+ACCOUNT_LOGIN_METHODS = {"email"}
+ACCOUNT_EMAIL_VERIFICATION = 'none'

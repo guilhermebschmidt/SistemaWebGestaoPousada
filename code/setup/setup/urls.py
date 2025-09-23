@@ -4,10 +4,11 @@ from django.shortcuts import render
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
+    path('accounts/', include('allauth.urls')), 
     path('', lambda request: render(request, 'index.html'), name='index'),
     path('quartos/', include('apps.core.urls.quarto')),
     path('hospedes/', include('apps.core.urls.hospede', namespace='hospede')),
     path('reservas/', include('apps.core.urls.reserva', namespace='reserva')),
-
+    path('financeiro/titulos/', include('apps.financeiro.urls.titulo', namespace='financeiro')),
+    path('usuarios/', include('apps.usuarios.urls')),
 ]

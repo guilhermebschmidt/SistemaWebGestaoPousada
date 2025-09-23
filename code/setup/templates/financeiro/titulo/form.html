@@ -1,0 +1,175 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block title %}
+    {% if form.instance.pk %}
+        Editar Título Financeiro
+    {% else %}
+        Novo Título Financeiro
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto">
+    <div class="card bg-base-100 shadow-sm">
+        <div class="card-body p-4 sm:p-6">
+            <h2 class="card-title text-xl sm:text-2xl font-bold mb-6">
+                {% if form.instance.pk %}
+                    <i class="fas fa-pencil-alt mr-2"></i>Editar Título #{{ form.instance.pk }}
+                {% else %}
+                    <i class="fas fa-plus-circle mr-2"></i>Novo Título Financeiro
+                {% endif %}
+            </h2>
+
+            <form method="POST" action="" class="space-y-4">
+                {% csrf_token %}
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Descrição -->
+                    <div class="form-control md:col-span-2">
+                        <label class="label" for="{{ form.descricao.id_for_label }}"><span class="label-text font-medium">{{ form.descricao.label }}</span></label>
+                        {{ form.descricao }}
+                        {% for error in form.descricao.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
+                    </div>
+
+                    <!-- Valor -->
+                    <div class="form-control">
+                        <label class="label" for="{{ form.valor.id_for_label }}"><span class="label-text font-medium">{{ form.valor.label }}</span></label>
+                        {{ form.valor }}
+                         {% for error in form.valor.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
+                    </div>
+
+                    <!-- Tipo de Documento -->
+                    <div class="form-control">
+                        <label class="label" for="{{ form.tipo_documento.id_for_label }}"><span class="label-text font-medium">{{ form.tipo_documento.label }}</span></label>
+                        {{ form.tipo_documento }}
+                        {% for error in form.tipo_documento.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
+                    </div>
+                </div>
+
+                <div class="divider">Datas</div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                     <!-- Data de Emissão -->
+                    <div class="form-control">
+                        <label class="label" for="{{ form.data.id_for_label }}"><span class="label-text font-medium">{{ form.data.label }}</span></label>
+                        {{ form.data }}
+                        {% for error in form.data.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
+                    </div>
+                     <!-- Data de Vencimento -->
+                    <div class="form-control">
+                        <label class="label" for="{{ form.data_vencimento.id_for_label }}"><span class="label-text font-medium">{{ form.data_vencimento.label }}</span></label>
+                        {{ form.data_vencimento }}
+                        {% for error in form.data_vencimento.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
+                    </div>
+                     <!-- Data de Pagamento -->
+                    <div class="form-control">
+                        <label class="label" for="{{ form.data_pagamento.id_for_label }}"><span class="label-text font-medium">{{ form.data_pagamento.label }}</span></label>
+                        {{ form.data_pagamento }}
+                        {% for error in form.data_pagamento.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
+                    </div>
+                     <!-- Data de Compensação -->
+                    <div class="form-control">
+                        <label class="label" for="{{ form.data_compensacao.id_for_label }}"><span class="label-text font-medium">{{ form.data_compensacao.label }}</span></label>
+                        {{ form.data_compensacao }}
+                        {% for error in form.data_compensacao.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
+                    </div>
+                </div>
+
+                <div class="divider">Detalhes e Relações</div>
+                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Conta Corrente -->
+                    <div class="form-control">
+                        <label class="label" for="{{ form.conta_corrente.id_for_label }}"><span class="label-text font-medium">{{ form.conta_corrente.label }}</span></label>
+                        {{ form.conta_corrente }}
+                        {% for error in form.conta_corrente.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
+                    </div>
+                    <!-- Hóspede -->
+                    <div class="form-control">
+                        <label class="label" for="{{ form.hospede.id_for_label }}"><span class="label-text font-medium">{{ form.hospede.label }}</span></label>
+                        {{ form.hospede }}
+                        {% for error in form.hospede.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
+                    </div>
+                    <!-- Reserva -->
+                    <div class="form-control">
+                        <label class="label" for="{{ form.reserva.id_for_label }}"><span class="label-text font-medium">{{ form.reserva.label }}</span></label>
+                        {{ form.reserva }}
+                        {% for error in form.reserva.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
+                    </div>
+                </div>
+
+                <!-- Observação -->
+                <div class="form-control">
+                    <label class="label" for="{{ form.observacao.id_for_label }}"><span class="label-text font-medium">{{ form.observacao.label }}</span></label>
+                    {{ form.observacao }}
+                    {% for error in form.observacao.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
+                </div>
+
+                <!-- Campos Booleanos com Checkboxes -->
+                <div class="space-y-6 pt-6 border-t border-base-200">
+                    <!-- Campo Tipo -->
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text font-semibold text-base">{{ form.tipo.label }}</span>
+                        </label>
+                        <div class="flex flex-wrap gap-4">
+                            {% for radio in form.tipo %}
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                {{ radio.tag }}
+                                <span class="label-text">{{ radio.choice_label }}</span>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Campo Pago -->
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text font-semibold text-base">{{ form.pago.label }}</span>
+                        </label>
+                        <div class="flex flex-wrap gap-4">
+                            {% for radio in form.pago %}
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                {{ radio.tag }}
+                                <span class="label-text">{{ radio.choice_label }}</span>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Campo Cancelado -->
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text font-semibold text-base">{{ form.cancelado.label }}</span>
+                        </label>
+                        <div class="flex flex-wrap gap-4">
+                            {% for radio in form.cancelado %}
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                {{ radio.tag }}
+                                <span class="label-text">{{ radio.choice_label }}</span>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Botões -->
+                <div class="flex flex-col sm:flex-row gap-3 pt-6">
+                    <button type="submit" class="btn btn-primary flex-1">
+                        {% if form.instance.pk %}
+                            <i class="fas fa-save mr-2"></i>Salvar Alterações
+                        {% else %}
+                            <i class="fas fa-plus mr-2"></i>Adicionar Título
+                        {% endif %}
+                    </button>
+                    <a href="{% url 'financeiro:list' %}" class="btn btn-neutral btn-outline flex-1">
+                        <i class="fas fa-times mr-2"></i>Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

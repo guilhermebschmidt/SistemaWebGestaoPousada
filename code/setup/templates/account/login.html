@@ -1,22 +1,59 @@
-{% extends "shared/base.html" %}
-
+{% extends "shared/base_publica.html" %}
 {% load i18n %}
-{% load account %}
+{% load static %}
+
+{% block head_title %}
+    {% trans "Sign In" %}
+{% endblock head_title %}
 
 {% block content %}
-<h1>Entrar</h1>
-
-<p>Se você ainda não tem uma conta, <a href="{% url 'account_signup' %}">cadastre-se</a>.</p>
-
-<form class="login" method="POST" action="{% url 'account_login' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-
-  {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">Esqueci minha senha</a>
-  <button class="primaryAction" type="submit">Entrar</button>
-</form>
-{% endblock %}
+<div class="flex justify-center items-center min-h-screen bg-base-200 px-4">
+    <div class="card w-full max-w-md shadow-xl bg-base-100">
+        <div class="card-body">
+            <h2 class="text-2xl font-bold text-center mb-4">{% trans "Entrar" %}</h2>
+            
+            <form method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                
+                <div class="form-control mb-4">
+                    {{ form.login.errors }}
+                    <label class="label" for="{{ form.login.id_for_label }}"></label>
+                    {{ form.login }}
+                </div>
+                
+                <div class="form-control mb-4">
+                    {{ form.password.errors }}
+                    <label class="label" for="{{ form.password.id_for_label }}"></label>
+                    {{ form.password }}
+                </div>
+                
+                <div class="form-control mb-4">
+                    <label class="label cursor-pointer">
+                        {{ form.remember }}
+                        <span class="label-text ml-2">{% trans "Lembre-me" %}</span>
+                    </label>
+                </div>
+                
+                <div class="form-control mt-6">
+                    <button type="submit" class="btn btn-primary w-full">{% trans "Entrar" %}</button>
+                </div>
+            </form>
+            <!--
+            <div class="mt-4 text-center">
+                <a href="{% url 'account_reset_password' %}" class="link link-primary">
+                    {% trans "Esqueceu a senha?" %}
+                </a>
+            </div>
+           -->
+            <div class="mt-2 text-center">
+                <a href="{% url 'account_signup' %}" class="link link-primary">
+                    {% trans "Não tem uma conta? Cadastra-se" %}
+                </a>
+                
+            </div>
+           
+        </div>
+    </div>
+</div>
+{% endblock content %}
