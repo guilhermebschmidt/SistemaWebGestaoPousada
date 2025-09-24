@@ -2851,6 +2851,196 @@ Durante essa semana a documentação final consolidada foi revisada, para aplica
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
+
+\chapter{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes} 
+	
+	\textbf{Data da Execução:} 22 de setembro de 2025 \\
+	\textbf{Testador: } Guilherme Bittencourt Schmidt  
+	
+	
+	\vspace{1cm}
+	
+	% --- Início dos Quadros de Teste ---
+	
+	% ==============================================================================
+	% Teste HOS-001
+	% ==============================================================================
+	\subsection*{ID do Teste: HOS-001}
+	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+		\toprule
+		\textbf{Funcionalidade} & Criar Hóspede \\
+		\midrule
+		\textbf{Cenário de Teste} & Criar um novo hóspede com todos os dados válidos \\
+		\midrule
+		\textbf{Passos para Execução} & 
+		\begin{itemize} \itemsep0em 
+			\item[1.] Clicar em Hospede.
+			\item[2.] Clicar em "Adicionar Hóspede".
+			\item[3.] Preencher todos os campos com dados válidos (CPF, nome completo, telefone, email e data de nascimento.).
+			\item[4.] Clicar em "Adicionar".
+		\end{itemize} \\
+		\midrule
+		\textbf{Resultado Esperado} & O sistema deve salvar o hóspede, redirecionar para a lista e o novo hóspede deve aparecer na tabela. \\
+		\midrule
+		\textbf{Status} & \textbf{Passou} \\
+		\midrule
+		\textbf{Observações} & Fluxo de criação principal funcionando corretamente. \\
+		\bottomrule
+	\end{tabular}
+	\vspace{1cm}
+	
+	% ==============================================================================
+	% Teste HOS-002
+	% ==============================================================================
+	\subsection*{ID do Teste: HOS-002}
+	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+		\toprule
+		\textbf{Funcionalidade} & Criar Hóspede \\
+		\midrule
+		\textbf{Cenário de Teste} & Tentar criar hóspede com campo obrigatório (nome) vazio \\
+		\midrule
+		\textbf{Passos para Execução} &
+		\begin{itemize} \itemsep0em 
+			\item[1.] Clicar em Hospede.
+			\item[2.] Clicar em "Adicionar Hóspede".
+			\item[3.] Preencher todos os campos, exceto o "Nome Completo".
+			\item[4.] Clicar em "Adicionar".
+		\end{itemize} \\
+		\midrule
+		\textbf{Resultado Esperado} & O sistema deve exibir uma mensagem de erro clara abaixo do campo "Nome Completo". O hóspede não deve ser criado. \\
+		\midrule
+		\textbf{Status} & \textbf{Passou} \\
+		\midrule
+		\textbf{Observações} &  O hóspede não foi criado (correto), e a pagina exibiu uma mensagem de erro abaixo do campo Nome Completo, com a seguinte frase "Preencha este campo". \\
+		\bottomrule
+	\end{tabular}
+	\newpage
+	
+	% ==============================================================================
+	% Teste HOS-003
+	% ==============================================================================
+	\subsection*{ID do Teste: HOS-003}
+	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+		\toprule
+		\textbf{Funcionalidade} & Visualizar Hóspede \\
+		\midrule
+		\textbf{Cenário de Teste} & Visualizar detalhes de um hóspede existente \\
+		\midrule
+		\textbf{Passos para Execução} &
+		\begin{itemize} \itemsep0em 
+			\item[1.] Clicar em Hospede.
+			\item[2.] Clicar em "Listar Hóspedes".
+			\item[3.] Na lista de hóspedes, clicar no nome de um hóspede cadastrado.
+		\end{itemize} \\
+		\midrule
+		\textbf{Resultado Esperado} & A página de detalhes do hóspede deve ser exibida, mostrando todas as informações corretas (CPF, nome, telefone, email e data de nascimento.). \\
+		\midrule
+		\textbf{Status} & \textbf{Passou} \\
+		\midrule
+		\textbf{Observações} & A página de detalhes do hóspede carrega corretamente. \\
+		\bottomrule
+	\end{tabular}
+	\vspace{1cm}
+	
+	% ==============================================================================
+	% Teste HOS-004
+	% ==============================================================================
+	\subsection*{ID do Teste: HOS-004}
+	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+		\toprule
+		\textbf{Funcionalidade} & Atualizar Hóspede \\
+		\midrule
+		\textbf{Cenário de Teste} & Editar o telefone de um hóspede \\
+		\midrule
+		\textbf{Passos para Execução} &
+		\begin{itemize} \itemsep0em 
+			\item[1.] Clicar em Hospede.
+			\item[2.] Clicar em "Listar Hóspedes".
+			\item[3.] Na lista de hóspedes, clicar no nome de um hóspede cadastrado.
+			\item[4.] Clicar em "Editar".
+			\item[5.] Alterar o número de telefone.
+			\item[6.] Clicar em "Salvar".
+		\end{itemize} \\
+		\midrule
+		\textbf{Resultado Esperado} & O sistema deve salvar a alteração e, na lista, o novo telefone deve ser exibido. \\
+		\midrule
+		\textbf{Status} & \textbf{Passou} \\
+		\midrule
+		\textbf{Observações} &  A alteração foi realizada corretamente. \\
+		\bottomrule
+	\end{tabular}
+	\vspace{1cm}
+	
+	% ==============================================================================
+	% Teste HOS-005
+	% ==============================================================================
+	\subsection*{ID do Teste: HOS-005}
+	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+		\toprule
+		\textbf{Funcionalidade} & Buscar Hóspede \\
+		\midrule
+		\textbf{Cenário de Teste} & Buscar por um hóspede existente e um inexistente \\
+		\midrule
+		\textbf{Passos para Execução} &
+		\begin{itemize} \itemsep0em 
+			\item[1.] Clicar em Hospede.
+			\item[2.] Clicar em "Listar Hóspedes".
+			\item[3.] Na lista de hóspedes, usar a barra de busca para procurar por parte do nome de um hóspede cadastrado.
+			\item[4.] Verificar o resultado.
+			\item[5.] Limpar a busca e procurar por um nome que não existe (ex: "Zzzzz").
+		\end{itemize} \\
+		\midrule
+		\textbf{Resultado Esperado} & Na primeira busca, a lista deve ser filtrada corretamente. Na segunda, a lista deve ficar vazia e exibir uma mensagem de "Nenhum hóspede encontrado". \\
+		\midrule
+		\textbf{Status} & \textbf{Falhou} \\
+		\midrule
+		\textbf{Observações} &  \textbf{BUG-001 (UX):} Após inserir um nome existente na barra de busca, o resultado foi abrir uma pagina com o erro \textbf{"Page not found (404)}. \\
+		\bottomrule
+	\end{tabular}
+	\vspace{1cm}
+	
+	% ==============================================================================
+	% Teste HOS-006
+	% ==============================================================================
+	\subsection*{ID do Teste: HOS-006}
+	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+		\toprule
+		\textbf{Funcionalidade} & Excluir Hóspede \\
+		\midrule
+		\textbf{Cenário de Teste} & Excluir um hóspede de forma permanente \\
+		\midrule
+		\textbf{Passos para Execução} &
+		\begin{itemize} \itemsep0em 
+			\item[1.] Clicar em Hospede.
+			\item[2.] Clicar em "Listar Hóspedes".
+			\item[3.] Clicar no botão "Excluir" de um hóspede na lista.
+			\item[4.] O modal de confirmação deve aparecer.
+			\item[5.] Clicar no botão "Excluir" dentro do modal.
+		\end{itemize} \\
+		\midrule
+		\textbf{Resultado Esperado} & O hóspede deve ser removido da lista e do banco de dados. \\
+		\midrule
+		\textbf{Status} & \textbf{Passou} \\
+		\midrule
+		\textbf{Observações} & O modal de confirmação funcionou corretamente, prevenindo exclusão acidental. \\
+		\bottomrule
+	\end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{apendicesenv}
 % ---
 
