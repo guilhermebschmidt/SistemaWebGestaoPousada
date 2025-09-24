@@ -5,6 +5,12 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.7 }
 
+\bibitem[Aldrigui 2007]{aldrigui2007}
+\abntrefinfo{Aldrigui}{ALDRIGUI}{2007}
+{ALDRIGUI, M. \emph{Meios de hospedagem}. São Paulo: Aleph, 2007.  (Coleção
+  ABC do Turismo).
+ISBN 978-85-7657-031-8.}
+
 \bibitem[ANATEL 2025]{anatel-anexo}
 \abntrefinfo{ANATEL}{ANATEL}{2025}
 {ANATEL. \emph{Documento Técnico Anatel}. 2025.
@@ -17,6 +23,15 @@ Dispon{\'\i}vel em:
 {AWS. \emph{AWS - Amazon Web Services}. 2025.
 Disponível em: \url{https://aws.amazon.com/documentation/}. Acesso em: 7 jun.
   2025.}
+
+\bibitem[Brasil 2011]{portaria100_2011}
+\abntrefinfo{Brasil}{BRASIL}{2011}
+{BRASIL. \emph{Portaria nº 100, de 16 de junho de 2011}. Brasília, DF:
+  [s.n.], 2011. Institui o Sistema Brasileiro de Classificação de Meios de
+  Hospedagem (SBClass), estabelece os critérios de classificação destes,
+  cria o Conselho Técnico Nacional de Classificação de Meios de Hospedagem
+  (CTClass) e dá outras providências.
+Diário Oficial da União, 21 jun. 2011. Acesso em: 22 set. 2025.}
 
 \bibitem[BRASIL 2018]{lgpd}
 \abntrefinfo{BRASIL}{BRASIL}{2018}
@@ -37,14 +52,6 @@ Diário Oficial da União, Brasília, DF, 15 ago. 2018.}
 ISSN 0261-5177.
 Dispon{\'\i}vel em:
   \url{https://www.researchgate.net/publication/222452921\_Strategic\_Use\_of\_Information\_Technologies\_in\_the\_Tourism\_Industry}.}
-
-\bibitem[Carniello e Santaella 2012]{franchi2012}
-\abntrefinfo{Carniello e Santaella}{CARNIELLO; SANTAELLA}{2012}
-{CARNIELLO, M. F.; SANTAELLA, L. A. \emph{A Imagem Turística de São
-  Sebastião (SP)}. Rio de Janeiro, Brasil: Universidade Federal do Rio de
-  Janeiro, 2012.
-Acesso em: 23 jun. 2025.
-Dispon{\'\i}vel em: \url{https://www.redalyc.org/pdf/1154/115425043003.pdf}.}
 
 \bibitem[Coco 2025]{pousada_chales_agua_de_coco}
 \abntrefinfo{Coco}{COCO}{2025}
@@ -70,12 +77,12 @@ Acessado em 7 de junho de 2025.
 Dispon{\'\i}vel em:
   \url{https://www.enel.com.br/pt-saopaulo/Para\_Voce/tarifa-energia-eletrica.html}.}
 
-\bibitem[FecomercioSP 2024]{fecomercio2024}
-\abntrefinfo{FecomercioSP}{FECOMERCIOSP}{2024}
-{FECOMERCIOSP. \emph{Setor de turismo fatura R\$ 207 bilhões em 2024 e cresce
-  4,3\% em relação ao ano anterior}. 2024.
-  \url{https://www.fecomercio.com.br}.
-Acesso em: 12 jun. 2025.}
+\bibitem[Fecomercio 2025]{fecomercio2025}
+\abntrefinfo{Fecomercio}{FECOMERCIO}{2025}
+{FECOMERCIO. \emph{Turismo nacional cresce 6,9\% no primeiro semestre e fatura
+  108 bilhões}. 2025. Fecomercio SP. Disponível em:
+  \url{https://www.fecomercio.com.br/noticia/turismo-nacional-cresce-6-9-no-primeiro-semestre-e-fatura-108-bilhoes}.
+Acesso em: 22 set. 2025.}
 
 \bibitem[{GESTÃO PRO} 2025]{gestaopro}
 \abntrefinfo{{GESTÃO PRO}}{{GESTÃO PRO}}{2025}
@@ -130,6 +137,15 @@ Dispon{\'\i}vel em: \url{https://www.ibm.com/br-pt/topics/business-rules}.}
 {LAUDON, K.~C.; LAUDON, J.~P. \emph{Sistemas de Informação Gerenciais}. 16.
   ed. São Paulo: Pearson, 2020.}
 
+\bibitem[Lunardi, Dolci e Maçada 2010]{lunardi2010}
+\abntrefinfo{Lunardi, Dolci e Maçada}{LUNARDI; DOLCI; MAçADA}{2010}
+{LUNARDI, G.~L.; DOLCI, P.~C.; MAçADA, A. C.~G. Adoção de tecnologia de
+  informação e seu impacto no desempenho organizacional: um estudo realizado
+  com micro e pequenas empresas.
+\emph{Revista de Administração}, v.~45, n.~1, p. 5--17, 2010.
+Acesso em: 21 set. 2025.
+Dispon{\'\i}vel em: \url{https://revistas.usp.br/rausp/article/view/44489}.}
+
 \bibitem[Martins e Gondim 2011]{martins2011}
 \abntrefinfo{Martins e Gondim}{MARTINS; GONDIM}{2011}
 {MARTINS, C. A. d. M.~G.; GONDIM, L.~R. \emph{Gestão hoteleira}. Manaus:
@@ -152,6 +168,14 @@ Dispon{\'\i}vel em:
   empreendimentos do setor de Turismo}.
 [S.l.], 2025. Acessado em 29 de agosto de 2025. Dispon{\'\i}vel em:
   \url{https://www.gov.br/turismo/pt-br/assuntos/noticias/micro-e-pequenas-empresas-representam-89-dos-empreendimentos-do-setor-de-turismo}.}
+
+\bibitem[Moura 2023]{moura2023}
+\abntrefinfo{Moura}{MOURA}{2023}
+{MOURA, V. \emph{Descubra diferentes tipos de hospedagens pelo país}. 2023.
+  Assessoria de Comunicação do Ministério do Turismo.
+Acesso em: 22 set. 2025.
+Dispon{\'\i}vel em:
+  \url{https://www.gov.br/turismo/pt-br/assuntos/noticias/descubra-diferentes-tipos-de-hospedagens-pelo-pais}.}
 
 \bibitem[POSTGRESQL 2025]{postgresql}
 \abntrefinfo{POSTGRESQL}{POSTGRESQL}{2025}
@@ -177,12 +201,6 @@ Disponível em: \url{https://docs.python.org/3/}. Acesso em: 7 jun. 2025.}
 [S.l.], 2013. Desenvolvido e mantido por Ken Schwaber e Jeff Sutherland.
   Dispon{\'\i}vel em:
   \url{https://scrumguides.org/docs/scrumguide/v1/Scrum-Guide-Portuguese-BR.pdf}.}
-
-\bibitem[Sidônio 2015]{sidonio2015}
-\abntrefinfo{Sidônio}{SIDôNIO}{2015}
-{SIDôNIO, L.~V. \emph{Gestão hoteleira}.
-[S.l.], 2015. Acesso em: 15 jun. 2025. Dispon{\'\i}vel em:
-  \url{https://biblioteca.unisced.edu.mz/bitstream/123456789/2326/1/Gest\%C3\%A3o\%20Hoteleira\%20Autor\%20Let\%C3\%ADcia\%20Veloso\%20Sid\%C3\%B4nio.pdf}.}
 
 \bibitem[Sommerville 2011]{sommerville2011}
 \abntrefinfo{Sommerville}{SOMMERVILLE}{2011}
@@ -213,6 +231,15 @@ Dispon{\'\i}vel em:
 \abntrefinfo{Turban, Pollard e Wood}{TURBAN; POLLARD; WOOD}{2018}
 {TURBAN, E.; POLLARD, C.; WOOD, G. \emph{Sistemas de Informação: Uma
   Abordagem Gerencial}. 9. ed. Porto Alegre: Bookman, 2018.}
+
+\bibitem[{United Nations} 2010]{un2008international}
+\abntrefinfo{{United Nations}}{{United Nations}}{2010}
+{{United Nations}. \emph{International Recommendations for Tourism Statistics
+  2008 (Revised 1)}. New York, 2010. United Nations. Studies in Methods, Series
+  M No. 83/Rev.1.
+P. 21. Acesso em: 22 set. 2025.
+Dispon{\'\i}vel em:
+  \url{https://unstats.un.org/unsd/publication/Seriesm/SeriesM\_83rev1e.pdf}.}
 
 \bibitem[VISUAL-PARADIGM 2024]{visual-paradigm}
 \abntrefinfo{VISUAL-PARADIGM}{VISUAL-PARADIGM}{2024}
