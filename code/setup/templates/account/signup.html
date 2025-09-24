@@ -1,45 +1,70 @@
 {% extends "shared/base_publica.html" %}
 {% load allauth i18n %}
+
 {% block head_title %}
     {% trans "Signup" %}
 {% endblock head_title %}
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign Up" %}
-    {% endelement %}
-    {% setvar link %}
-        <a href="{{ login_url }}">
-        {% endsetvar %}
-        {% setvar end_link %}
-        </a>
-    {% endsetvar %}
-    {% element p %}
-        {% blocktranslate %}Already have an account? Then please {{ link }}sign in{{ end_link }}.{% endblocktranslate %}
-    {% endelement %}
-    {% if not SOCIALACCOUNT_ONLY %}
-        {% url 'account_signup' as action_url %}
-        {% element form form=form method="post" action=action_url tags="entrance,signup" %}
-            {% slot body %}
+<div class="flex justify-center items-center min-h-screen bg-base-200 px-6">
+    <div class="card w-full max-w-md shadow-xl bg-base-100">
+        <div class="card-body">
+            <h2 class="text-2xl font-bold text-left mb-4">Cadastro</h2>
+            
+            <form method="POST" action="{% url 'account_signup' %}" class="space-y-4">
                 {% csrf_token %}
-                {% element fields form=form unlabeled=True %}
-                {% endelement %}
-                {{ redirect_field }}
-            {% endslot %}
-            {% slot actions %}
-                {% element button tags="prominent,signup" type="submit" %}
-                    {% trans "Sign Up" %}
-                {% endelement %}
-            {% endslot %}
-        {% endelement %}
-    {% endif %}
-    {% if PASSKEY_SIGNUP_ENABLED %}
-        {% element hr %}
-        {% endelement %}
-        {% element button href=signup_by_passkey_url tags="prominent,signup,outline,primary" %}
-            {% trans "Sign up using a passkey" %}
-        {% endelement %}
-    {% endif %}
-    {% if SOCIALACCOUNT_ENABLED %}
-        {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-    {% endif %}
+                {{ form.non_field_errors }}
+
+                <div  class="text-left text-sm mb-4">
+                    {{ form.first_name.label_tag }}
+                    {{ form.first_name }}
+                    {% if form.first_name.errors %}
+                        <p class="text-red-500 text-sm mt-1">{{ form.first_name.errors }}</p>
+                    {% endif %}
+                </div>
+                <div  class="text-left text-sm mb-4">
+                    {{ form.last_name.label_tag }}
+                    {{ form.last_name}}
+                    {% if form.last_name.errors %}
+                        <p class="text-red-500 text-sm mt-1">{{ form.last_name.errors }}</p>
+                    {% endif %}
+                </div>
+                <div class="text-left text-sm mb-4">
+                    {{ form.email.label_tag }}
+                    {{ form.email }}
+                    {% if form.email.errors %}
+                        <p class="text-red-500 text-sm mt-1">{{ form.email.errors }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="text-left text-sm mb-4">
+                    {{ form.password1.label_tag }}
+                    {{ form.password1 }}
+                    {% if form.password1.errors %}
+                        <p class="text-red-500 text-sm mt-1">{{ form.password1.errors }}</p>
+                    {% endif %}
+                </div>
+
+                <div class="text-left text-sm mb-4">
+                    {{ form.password2.label_tag }}
+                    {{ form.password2 }}
+                    {% if form.password2.errors %}
+                        <p class="text-red-500 text-sm mt-1">{{ form.password2.errors }}</p>
+                    {% endif %}
+                </div>
+
+                <button type="submit" class="btn btn-primary w-full">
+                    Cadastrar
+                </button>
+
+            </form>
+
+            <p class="text-center text-sm mb-4">
+                 Já tem uma conta? 
+                <a href="{{ login_url }}" class="link link-primary font-semibold">Entre</a>
+            </p> 
+
+        </div>
+    </div>
+</div>
 {% endblock content %}

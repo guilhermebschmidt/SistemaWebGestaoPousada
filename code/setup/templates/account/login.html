@@ -7,38 +7,34 @@
 {% endblock head_title %}
 
 {% block content %}
-<div class="flex justify-center items-center min-h-screen bg-base-200 px-4">
-    <div class="card w-full max-w-md shadow-xl bg-base-100">
-        <div class="card-body">
-            <h2 class="text-2xl font-bold text-center mb-4">{% trans "Entrar" %}</h2>
-            
-            <form method="POST" action="{% url 'account_login' %}">
-                {% csrf_token %}
-                {{ form.non_field_errors }}
+<div class="flex min-h-screen bg-base-200">
+    <div class="w-full md:w-1/2 flex items-center bg-base-200 px-4">
+        <div class="card w-full max-w-md shadow-xl bg-base-100">
+            <div class="card-body">
+                <h2 class="text-2xl font-bold text-center mb-4">Entrar</h2>
                 
-                <div class="form-control mb-4">
-                    {{ form.login.errors }}
-                    <label class="label" for="{{ form.login.id_for_label }}"></label>
-                    {{ form.login }}
-                </div>
+                <form method="POST" action="{% url 'account_login' %}">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
                 
-                <div class="form-control mb-4">
-                    {{ form.password.errors }}
-                    <label class="label" for="{{ form.password.id_for_label }}"></label>
-                    {{ form.password }}
-                </div>
-                
-                <div class="form-control mb-4">
-                    <label class="label cursor-pointer">
-                        {{ form.remember }}
-                        <span class="label-text ml-2">{% trans "Lembre-me" %}</span>
-                    </label>
-                </div>
-                
-                <div class="form-control mt-6">
-                    <button type="submit" class="btn btn-primary w-full">{% trans "Entrar" %}</button>
-                </div>
-            </form>
+                    <div class="form-control mb-4">
+                        {{ form.login.errors }}
+                        {{ form.login }}
+                    </div>
+                    <div class="form-control mb-4">
+                        {{ form.password.errors }}
+                        {{ form.password }}
+                    </div>
+                    <div class="form-control mb-4">
+                        <label class="label cursor-pointer">
+                            {{ form.remember }}
+                            <span class="label-text ml-2">Lembre-me</span>
+                        </label>
+                    </div>
+                    <div class="form-control mt-6">
+                        <button type="submit" class="btn btn-primary w-full">Entrar</button>
+                    </div>
+                </form>
             <!--
             <div class="mt-4 text-center">
                 <a href="{% url 'account_reset_password' %}" class="link link-primary">
@@ -48,12 +44,14 @@
            -->
             <div class="mt-2 text-center">
                 <a href="{% url 'account_signup' %}" class="link link-primary">
-                    {% trans "Não tem uma conta? Cadastra-se" %}
+                    Não tem uma conta? Cadastre-se
                 </a>
-                
-            </div>
-           
+            </div>   
         </div>
+    </div>
+
+    <div class="w-1/2 hidden md:flex items-center justify-center bg-blue-500">
+    <!-- Aqui você pode adicionar conteúdo futuramente -->
     </div>
 </div>
 {% endblock content %}

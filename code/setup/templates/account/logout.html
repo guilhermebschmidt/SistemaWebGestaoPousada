@@ -1,15 +1,39 @@
 {% extends "shared/base_publica.html" %}
 {% load allauth i18n %}
+{% load static %}
+
 {% block head_title %}
     {% trans "Sign Out" %}
 {% endblock head_title %}
+
 {% block content %}
-    {% element h1 %}
+<div class="flex justify-center items-center min-h-screen bg-base-200 px-4">
+    <div class="card w-full max-w-md shadow-xl bg-base-100">
+        <div class="card-body">
+             <form method="post" action="{% url 'account_logout' %}">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                    <p class="text-center mb-4">
+                    Você tem certeza de que deseja sair?
+                    </p>                   
+                     {{ form.logout.errors }}
+                    <div class="mt-6">
+                        <button  type="submit" class="btn btn-primary w-full">
+                            Sair
+                        </button>
+                    </div>
+                </div>
+             </form>
+        </div>
+    </div>
+</div>
+   <!--{% element h1 %}
         {% trans "Sign Out" %}
     {% endelement %}
     {% element p %}
         {% trans 'Are you sure you want to sign out?' %}
     {% endelement %}
+
     {% url 'account_logout' as action_url %}
     {% element form method="post" action=action_url no_visible_fields=True %}
         {% slot body %}
@@ -21,5 +45,5 @@
                 {% trans 'Sign Out' %}
             {% endelement %}
         {% endslot %}
-    {% endelement %}
+    {% endelement %}-->
 {% endblock content %}

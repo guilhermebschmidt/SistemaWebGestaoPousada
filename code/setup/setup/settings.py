@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites', 
-    #app allauth
+    #apps allauth
     'allauth',
     'allauth.account',
     #apps locais
@@ -128,6 +128,8 @@ USE_I18N = True
 
 USE_TZ = True
 
+#configurações de sessão 
+SESSION_COOKIE_AGE = 3600 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
@@ -142,6 +144,7 @@ STATIC_ROOT = '/home/admin/projetos/pousada/code/staticfiles'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 #configurações allauth
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',  
@@ -152,6 +155,13 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/' 
 LOGOUT_REDIRECT_URL = '/accounts/login/' 
+ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_SIGNUP_FIELDS = ["email*", "password1*", "password2*"]
 ACCOUNT_LOGIN_METHODS = {"email"}
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+ACCOUNT_FORMS = {
+    'login': 'apps.usuarios.forms.CustomLoginForm',
+    'signup': 'apps.usuarios.forms.CustomSignupForm',
+    'change_password': 'apps.usuarios.forms.CustomChangePasswordForm',
+}
