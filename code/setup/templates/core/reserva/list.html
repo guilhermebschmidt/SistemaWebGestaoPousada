@@ -77,12 +77,13 @@
     const fecharBtn = document.querySelector('.fechar');
     const links = document.querySelectorAll('.cancelamento-link');  //seleciona todos os links de cancelamento
 
-    links.forEach(link => {             //evento de clique para cada link
+    links.forEach(link => {                                          //evento de clique para cada link
         link.addEventListener('click', function(e) {
-            e.preventDefault();         // evita que o link navegue para #
-            const motivo = this.getAttribute('data-motivo');   //pega o motivo do atributo de dados
-            motivoTexto.textContent = motivo;   //coloca o motivo no modal e exibe
+            e.preventDefault();                                      // evita que o link navegue para #
+            const motivo = this.getAttribute('data-motivo');         //pega o motivo do atributo de dados
+            motivoTexto.textContent = motivo;                        //coloca o motivo no modal e exibe
             modal.style.display = 'block';
+            modal.style.visibility = 'visible';
         });
     });
     fecharBtn.addEventListener('click', function() {  //adiciona o evento de fechar o model
