@@ -677,9 +677,7 @@ Diante disso, nos tópicos a seguir, serão apresentadas as ferramentas e metodo
 Esta seção detalha as principais estratégias de gestão aplicadas no desenvolvimento da aplicação web de gestão para a pousada Chalés Água de Coco. Dessa forma, nela são apresentadas as metodologias, ferramentas e práticas que foram adotadas para o planejamento, execução e monitoramento do projeto, com o objetivo de garantir uma entrega organizada, eficiente e alinhada aos objetivos estabelecidos pelas partes interessadas.
 % 
 \section{Metodologia de Gestão e Desenvolvimento}
-A principal ferramenta de gestão e desenvolvimento do projeto adotada pela equipe responsável pelo projeto foi a metodologia ágil Scrum. Essa decisão fundamentou-se na familiaridade da equipe com a estrutura, na capacidade do Scrum de otimizar a organização, divisão e planejamento de atividades do projeto, e em sua relevância como \textit{framework} de gerenciamento, dado seu uso extensivo no contexto de desenvolvimento de softwares complexos.
-
-O Scrum, cujos pilares são a transparência, a inspeção e a adaptação, operacionaliza esses princípios por meio da definição de papéis específicos, da realização de eventos formais e do uso de artefatos próprios, tornando o ciclo de desenvolvimento iterativo e flexível. Diante disso, a equipe adaptou a metodologia de forma estratégica às condições do projeto, considerando prazos, recursos e estrutura disponíveis.
+A principal ferramenta de gestão e desenvolvimento do projeto adotada pela equipe responsável pelo projeto foi a metodologia ágil Scrum. Essa decisão fundamentou-se na familiaridade da equipe com a estrutura, na capacidade do Scrum de otimizar a organização, divisão e planejamento de atividades do projeto, e em sua relevância como \textit{framework} de gerenciamento, dado seu uso extensivo no contexto de desenvolvimento de softwares complexos. Diante disso, a equipe adaptou a metodologia de forma estratégica às condições do projeto, considerando prazos, recursos e estrutura disponíveis.
 
 Para atender às restrições de tempo e à execução majoritariamente remota do projeto, os eventos de inspeção do progresso que são propostos para serem diários, o \textit{daily scrum},  foram realizados de forma assíncrona e em menor frequência. Enquanto  as entregas semanais de incrementos utilizáveis do produto foram mantidas, de forma que os eventos de planejamento, revisão e retrospectiva (\textit{Sprint Planning}, \textit{Sprint Review} e \textit{Sprint Retrospective}) foram consolidados em reuniões semanais, assegurando um processo eficiente e a inspeção contínua do projeto. 
 
@@ -696,11 +694,16 @@ Adicionalmente, a divisão das funções e responsabilidades dos membros da equi
 			|>{\raggedright\arraybackslash}m{6cm}|}
 		\hline
 		\textbf{Integrante} & \textbf{Função} &  \textbf{Papel Scrum}& \textbf{Responsabilidades} \\ \hline
-		Guilherme Akio & Engenheiro de Dados (DBA) & Time de Desenvolvimento & Implementar, administrar e otimizar o banco de dados da aplicação; Entregas de funcionalidades relcionadas ao gerenciamento e persistência de dados \\ \hline
-		Guilherme Bittencourt & Documentador Técnico e Engenheiro de Software & Scrum Master & Criar e manter a documentação técnica; Definir e organizar a estrutura da aplicação; Facilitar e práticas Scrum \\ \hline
-		Kelly Radchelle & Gerente de Projeto & Product Owner & Coordenar a equipe e gerenciar as atividades do projeto; Facilitar tomada de decisões e comunicação entre as partes interessadas; Acompanhamento do progresso das \textit{sprints}  \\ \hline
-		Rafael Teixeira & Desenvolvedor Frontend &  Time de Desenvolvimento & Projetar e implementar interfaces da aplicação; Entregas de funcionalidades relacionadas à experiência do usuário.\\ \hline
-		Ricardo Carriel & Desenvolvedor Backend &  Time de Desenvolvimento & Implementar lógica de negócio; Configurar e administrar o servidor; Entregas de funcionalidades relacionadas a lógica e integração do sistema \\ \hline
+		Guilherme Akio & Engenheiro de Dados (DBA) & Time de Desenvolvimento & Implementar, administrar e otimizar o banco de dados da aplicação; Entregas de funcionalidades relacionadas ao gerenciamento e persistência de dados 
+		\\ \hline
+		Guilherme Bittencourt & Engenheiro de Software & Scrum Master & CPromover e facilitar a aplicação da teoria e das práticas do \textit{Scrum}; Definir e organizar a estrutura do sistema
+		\\ \hline
+		Kelly Radchelle & Gerente de Projeto & Product Owner & Acompanhar o progresso das sprints; Facilitar e coordenar tomada de decisões e comunicação entre as partes interessadas \textit{sprints} 
+		 \\ \hline
+		Rafael Teixeira & Desenvolvedor Frontend &  Time de Desenvolvimento & Entregas de funcionalidades relacionadas à experiência do usuário; Projetar e implementar interfaces da aplicação
+		\\ \hline
+		Ricardo Carriel & Desenvolvedor Backend &  Time de Desenvolvimento & Entregas de funcionalidades relacionadas a lógica e integração do sistema;  Implementar lógica de negócio; Configurar e administrar o servidor
+		\\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -709,7 +712,7 @@ Adicionalmente, a divisão das funções e responsabilidades dos membros da equi
 No Scrum,  os artefatos são elementos que ajudam a equipe a consolidar a transparência no processo de desenvolvimento  \cite{scrumguide}. Diante disso, o \textit {time scrum} realizou o planejamento dos artefatos:  \textit {Product Backlog} e \textit {Sprints Backlog}.
 %
 \subsection{Product Backlog}
-No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como uma lista ordenada de todos os itens de trabalho, incluindo funcionalidades e requisitos necessários para a produção do produto, que oferecem o máximo valor e utilidade para o cliente. Ciente disso, o \textit{product owner} do projeto elaborou o \textit{product backlog} inicial da aplicação web de gestão da pousada Chalés Água de Coco (\autoref{product_backlog}), com base nas histórias de usuário levantadas pela equipe.  Escolha realizada dada a capacidade dessas histórias de retratarem fielmente as necessidades e expectativas da usuária,  assegurando o caráter utilitário do \textit{product Backlog}.Enquanto, o product backlog completo do projeto esta detalhado no \autoref{apendice:productbacklogcomp}.
+O \textit{product Backlog} é definido como uma lista ordenada de todos os itens de trabalho, incluindo funcionalidades e requisitos necessários para a produção do produto, que oferecem o máximo valor e utilidade para o cliente \cite{scrumguide}. Por isso, o \textit{product owner} do projeto elaborou o \textit{product backlog} inicial da aplicação web de gestão da pousada Chalés Água de Coco (\autoref{product_backlog}). A lista foi desenvolvida com base nas histórias de usuário levantadas pela equipe, dada a capacidade dessas histórias de retratarem fielmente as necessidades e expectativas da usuária,  assegurando o caráter utilitário do \textit{product Backlog}.Enquanto, o product backlog completo do projeto esta detalhado no \autoref{apendice:productbacklogcomp}.
 %
 \begin{quadro}[H]
 	\caption{Product Backlog - Parte 1}
@@ -725,7 +728,7 @@ No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como 
 		6 & Implementar funcionalidades de autenticação de usuário & Autenticação e Segurança & ALTA \\ \hline
 		7 & Implementar funcionalidades de cadastro, edição e exclusão de quartos & Gestão de Quartos & ALTA \\ \hline
 		8 & Implementar funcionalidades de cadastro, edição e exclusão de hóspedes & Gestão de Hóspedes & ALTA \\ \hline
-		9 & Implementar funcionalidades de cadastro, edição e exclusão de reservas &	Gestão de Reservas & ALTA \\ \hline
+		9 & Implementar funcionalidades de cadastro, edição e exclusão de reservas & Gestão de Reservas & ALTA \\ \hline
 		10 & Implementar interfaces  de usuário & Requisito Técnico & ALTA \\ \hline
 		11 & Implementar funcionalidades de \textit{Check-in} e \textit {Check-out} &
 		\textit {Check-in} e \textit {Check-out} &	ALTA \\ \hline
@@ -763,58 +766,71 @@ No Guia do Scrum \cite{scrumguide}, o \textit{product Backlog} é definido como 
 % 
 % ---
 \subsection{Sprint Backlog}
-O \textit{Sprint Backlog} constitui o plano de execução do projeto, derivado do \textit{Product Backlog}, e estabelece o conjunto de itens de trabalho a ser realizado em cada \textit {sprint}. Nesse contexto, o artefato foi desenvolvido pela equipe do projeto como ferramenta auxiliar na gestão, com o objetivo de garantir que todas as partes estivessem cientes do andamento e das etapas em desenvolvimento. E está registrado no \autoref{sprints_backlog_1}.
+O \textit{Sprint Backlog} constitui o plano de execução do projeto, derivado do \textit{Product Backlog}, e estabelece o conjunto de itens de trabalho a ser realizado em cada \textit {sprint}. Nesse contexto, o artefato foi desenvolvido pela equipe do projeto como ferramenta auxiliar na gestão, com o objetivo de garantir que todas as partes estivessem cientes do andamento e das etapas em desenvolvimento. E está registrado no  \autoref{sprints_backlog_1}.
 
-As \textit{sprints} foram organizadas em períodos de quinze dias (duas semanas), intervalo em conformidade com o Guia do Scrum \cite{scrumguide}. Totalizando 13 semanas de trabalho. Essa definição considerou a atuação majoritariamente remota da equipe e o tempo diário individual limitado para o trabalho, circunstâncias que demandaram períodos mais extensos para a execução das tarefas. Além disso, a organização das tarefas dentro de cada \textit{sprint} levou em consideração as datas de entrega do MVP, da documentação técnica e do produto final do projeto.
+As \textit{sprints} foram organizadas em períodos de quinze dias (duas semanas), intervalo em conformidade com o Guia do Scrum \cite{scrumguide}. Totalizando 12 semanas de trabalho. Essa definição considerou a atuação majoritariamente remota da equipe e o tempo diário individual limitado para o trabalho, circunstâncias que demandaram períodos mais extensos para a execução das tarefas. Além disso, a organização das tarefas dentro de cada \textit{sprint} levou em consideração as datas de entrega do MVP, da documentação técnica e do produto final do projeto.
 
-Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma a cumprir um progresso gradual das atividades em 2 fases. Assim, na primeira fase, as primeiras \textit{sprints} focaram na modelagem do sistema e escolha das ferramentas e tecnologias de gestão e desenvolvimento. Para então, nas próximas \textit{sprints}, a equipe inicia tarefas relacionadas ao desenvolvimento do MVP e documentação do sistema. Enquanto que na segunda fase, a equipe focou em desenvolver as  funcionalidades faltantes, integrar com o MVP, realizar testes e revisão da documentação. Sendo que, as atividades de desenvolvimento foram distribuídas considerando: prioridade e relações de dependência. 
+Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma a cumprir um progresso gradual das atividades em duas fases. Na primeira fase, as primeiras \textit{sprints} focaram na modelagem do sistema e escolha das ferramentas e tecnologias de gestão e desenvolvimento. Enquanto, nas próximas \textit{sprints}, foram iniciadas tarefas relacionadas ao desenvolvimento do MVP e documentação do sistema. Ao passo que, na segunda fase, a equipe focou em desenvolver as  funcionalidades de gestão financeiro, integrar com o MVP, realizar testes e revisão da documentação. Sendo que, as atividades de desenvolvimento foram distribuídas considerando: prioridade e relações de dependência. 
 \\
 %
-
 \begin{quadro}[H]
-	\caption{Sprints Backlog} 
+	\caption{Sprints Backlog - Parte 1} 
 	\label{sprints_backlog_1} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\raggedright\arraybackslash}m{4cm}|>{\raggedright\arraybackslash}m{6.3cm}|}
+		\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\raggedright\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{3.5cm}|>{\raggedright\arraybackslash}m{6.5cm}|}
 		\hline
+		 \multicolumn{4}{|l|}{\textbf{Primeira fase}} \\ \hline
 		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
-		\hline	
-		1 & 25/03/2025 a 08/04/2025 & Planejamento Inicial do Projeto  & 
-		Definição de ferramentas, plataformas, \textit{frameworks} e hospedagem; levantar custos
-		\\
+		\hline 
+		1 & 25/03/2025 a 08/04/2025 & Planejamento Inicial do Projeto  & Definição de ferramentas, metodologias, tecnologias e ambientes de trabalho.
+		 \\
 		\hline
-		2 & 09/04/2025 a 22/04/2025 & Início da Modelagem do Sistema  &	Levantamento de requisitos e definição do escopo do projeto 
-		\\
-		\hline
-		3 & 23/04/2025 a 06/05/2025 & Término da Modelagem do Sistema &	Configuração dos ambientes de trabalho  e criação dos diagramas faltantes
+		2 & 09/04/2025 a 22/04/2025 & Início da Modelagem do Sistema  & Levantamento de requisitos e definição do escopo do projeto
+		 \\	\hline
+		3 & 23/04/2025 a 06/05/2025 & Finalização da Modelagem do Sistema & Configuração dos ambientes de trabalho  e criação dos diagramas faltantes.
+		\\	\hline
+		4 & 07/05/2025 a 20/05/2025 & Início do desenvolvimento do MVP & Desenvolvimento de funcionalidades CRUD de quartos.
+		 \\ \hline	
+		5 & 21/05/2025 a 03/06/2025 & Continuidade do desenvolvimento do MVP & Desenvolvimento de funcionalidades CRUD de hóspedes e reservas; Criação de interfaces do CRUD de quartos.
 		\\ \hline
-		4 & 07/05/2025 a 20/05/2025 &  Inicio do desenvolvimento do MVP & Desenvolvimento das funcionalidades CRUD do módulo quarto
+		6 & 04/06/2025 a 24/06/2025 & Finalização do desenvolvimento do MVP & Revisão da Documentação e criação das interfaces CRUDs de hóspedes e reservas \\ \hline	
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+\begin{quadro}[H]
+	\caption{Sprints Backlog - Parte 2} 
+	\label{sprints_backlog_2} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{4cm}|>{\raggedright\arraybackslash}m{6cm}|}
+		\hline
+		\multicolumn{4}{|l|}{\textbf{Segunda fase}} \\ \hline
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\hline 
+		7 & 12/08/2025 a 18/08/2025 & Revisão e Ajustes no MVP & Revisão e padronização do código; Criação do plano inicial de testes\\ \hline	
+		8 & 27/08/2025 a 09/09/2025 & Início do desenvolvimento do módulo financeiro & Implementação de CRUDs financeiros e cálculos avançados\\ \hline	
+		9 & 10/09/2025 a 23/09/2025 & Finalização 
+		do desenvolvimento do módulo financeiro & Criação das interfaces dos CRUDs financeiros e implementação dos relatórios
+		\\ \hline
+		10 & 24/09/2025 a 07/10/2025 & Revisão do código & Correção de erros e planejamento de testes de integração
 		\\ \hline	
-		5 & 21/05/2025 a 03/06/2025 & Continuidade do desenvolvimento do MVP & Desenvolvimento das funcionalidades CRUD dos módulos de hóspedes e de reservas;\\ \hline
-		6 & 04/06/2025 a 24/06/2025 & Revisão do Código e Estruturação do Plano de Testes & Criar estrutura inicial do plano de testes; Revisão e padronização do código\\ \hline	
-		7 & 12/08/2025 a 18/08/2025 & Início do desenvolvimento do módulo financeiro & Configuração da autenticação e CRUDs financeiros básicos e avançados \\ \hline	
-		8 & 27/08/2025 a 09/09/2025 & Continuidade no desenvolvimento do módulo financeiro & Aplicação de Regras Financeiras Avançadas  \\ \hline
-		9 & 10/09/2025 a 23/09/2025 & Continuidade no desenvolvimento do módulo financeiro & Criação das interfaces dos CRUDs financeiros e implementação das funcionalidades de geração de relatórios\\ \hline
-		10 & 24/09/2025 a 07/10/2025 & Testes gerais e Revisão do Código &
-		Testes integrados e revisão do código completo \\ \hline
-		12 & 22/10/2025 a 07/11/2025 & Deploy do Sistema & Correção de bugs e entrega final do sistema \\ \hline
+		11 & 08/10/2025 a 21/10/2025 & Execução teste gerais & Realização de testes de integração e segurança
+		\\ \hline
+		12 & 22/10/2025 a 07/11/2025 & Deploy do sistema & Correção de bugs e implantação final do sistema
+		\\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 % ---
 % Tópico de Gestão de Riscos
 \section{Gestão de Riscos}
-Diante da flexibilidade e do incentivo à melhoria contínua proporcionados pela metodologia Scrum, a equipe do projeto considerou pertinente a implementação de mecanismos de apoio à gestão de riscos, com o objetivo de fortalecer as práticas de inspeção e adaptação realizadas ao longo das \textit{sprints}.
+Os riscos de um projeto de software são elementos ou eventos de origem multifatorial que, caso ocorram, impactam negativamente  o cronograma, os custos, a qualidade ou o escopo do projeto. Dessa forma, o gerenciamento de riscos é um processo iterativo fundamental para prever os riscos associados ao desenvolvimento de um projeto, visto que, promove a compreensão dos riscos com vistas à sua previsão, detecção e tratamento, de modo a não comprometer a entrega do produto final. (\cite[p. 416]{sommerville2011}).
 
-Segundo \cite[p. 416]{sommerville2011}, o gerenciamento de riscos é um processo iterativo fundamental para prever os riscos associados ao desenvolvimento de um projeto, pois promove a compreensão dos riscos com vistas à sua previsão, detecção e tratamento, de modo a não comprometer a entrega do produto final.
+Diante disso, a equipe do projeto de desenvolvimento do sistema de gestão da Pousada Chalés Água de Coco considerou pertinente a implementação de mecanismos de apoio à gestão de riscos, com o objetivo de fortalecer as práticas de inspeção e adaptação realizadas ao longo das \textit{sprints}.
 
-Ainda segundo Sommerville \cite[p. 416]{sommerville2011},  os riscos podem ser definidos como elementos ou eventos de origem multifatorial que, caso ocorram, impactam negativamente  o cronograma, os custos, a qualidade ou o escopo do projeto.
+Para isso, a equipe elaborou um plano de identificação dos riscos iniciais do projeto e, a partir disso, definiu estratégias de mitigação para cada um deles, com o objetivo de garantir o cumprimento dos prazos estabelecidos e evitar retrabalho.
 
-Nesse sentido, a gestão de riscos foi uma atividade de suma importância para o desenvolvimento do sistema web, pois forneceu mecanismos que auxiliaram a equipe a identificar precocemente possíveis problemas, compreendê-los e tratá-los de maneira eficaz durante todo o desenvolvimento. 
-
-Dessa forma, a equipe do projeto do desenvolvimento do sistema de gestão da Pousada Chalés Água de Coco elaborou um processo de identificação dos riscos iniciais do projeto e, a partir disso, definiu estratégias de mitigação para cada um deles, com o objetivo de garantir o cumprimento dos prazos estabelecidos e evitar retrabalho.
+De forma que, a gestão de riscos foi uma atividade de suma importância para o desenvolvimento do sistema web, pois forneceu mecanismos que auxiliaram a equipe a identificar precocemente possíveis problemas, compreendê-los e tratá-los de maneira eficaz durante todo o desenvolvimento. 
 
 \subsection{Identificação dos Riscos do Projeto}
-O primeiro passo para o desenvolvimento das ações voltadas à gestão de riscos foi a identificação dos principais riscos associados ao projeto do sistema web de gestão da Pousada Chalés Água de Coco. Esses riscos foram levantados a partir do das características inerentes ao desenvolvimento de uma aplicação web, da equipe Scrum e do próprio negócio (\autoref{identificacao_riscos_1}).
+O primeiro passo para o desenvolvimento das ações voltadas à gestão de riscos foi a identificação dos principais riscos associados ao projeto do sistema web de gestão da Pousada Chalés Água de Coco. Esses riscos foram levantados a partir da análise das características inerentes ao desenvolvimento de uma aplicação web, da equipe Scrum e do próprio negócio  e foram registradas no (\autoref{identificacao_riscos_1}).
 \\
 % 
 \begin{quadro}[H]
@@ -872,11 +888,11 @@ Identificados os riscos associados ao projeto, a equipe analisou e definiu a pro
 		\hline
 		\textbf{Risco} & \textbf{Impacto} & \textbf{Probabilidade de \newline Ocorrência} & \textbf{Estratégias de \newline Prevenção} & \textbf{Estratégias de \newline Contingência}\\
 		\hline
-		R01 & Alto & Alta &
+		R01 & Baixo & Alta &
 		Fazer revisões e validações periódicas dos requisitos, conforme o andamento do projeto  & Interromper as atividades de desenvolvimento para revisão dos requisitos com o time de desenvolvimento e o \textit{product owner}
 		\\ 
 		\hline
-		R02 & Médio & Alta &
+		R02 & Baixo & Alta &
 		Monitorar o andamento das tarefas do projeto e solucionar problemas que possam vir a impactar o andamento do cronograma  & Reavaliar o \textit {backlog} das \textit{sprints} restantes e reorganizar as tarefas, priorizando a execução daquelas que são essenciais para a entrega final \\
 		\hline
 		R03 & Alto & Alta &
@@ -2835,6 +2851,196 @@ Durante essa semana a documentação final consolidada foi revisada, para aplica
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
+
+\chapter{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes} 
+	
+	\textbf{Data da Execução:} 22 de setembro de 2025 \\
+	\textbf{Testador: } Guilherme Bittencourt Schmidt  
+	
+	
+	\vspace{1cm}
+	
+	% --- Início dos Quadros de Teste ---
+	
+	% ==============================================================================
+	% Teste HOS-001
+	% ==============================================================================
+	\subsection*{ID do Teste: HOS-001}
+	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+		\toprule
+		\textbf{Funcionalidade} & Criar Hóspede \\
+		\midrule
+		\textbf{Cenário de Teste} & Criar um novo hóspede com todos os dados válidos \\
+		\midrule
+		\textbf{Passos para Execução} & 
+		\begin{itemize} \itemsep0em 
+			\item[1.] Clicar em Hospede.
+			\item[2.] Clicar em "Adicionar Hóspede".
+			\item[3.] Preencher todos os campos com dados válidos (CPF, nome completo, telefone, email e data de nascimento.).
+			\item[4.] Clicar em "Adicionar".
+		\end{itemize} \\
+		\midrule
+		\textbf{Resultado Esperado} & O sistema deve salvar o hóspede, redirecionar para a lista e o novo hóspede deve aparecer na tabela. \\
+		\midrule
+		\textbf{Status} & \textbf{Passou} \\
+		\midrule
+		\textbf{Observações} & Fluxo de criação principal funcionando corretamente. \\
+		\bottomrule
+	\end{tabular}
+	\vspace{1cm}
+	
+	% ==============================================================================
+	% Teste HOS-002
+	% ==============================================================================
+	\subsection*{ID do Teste: HOS-002}
+	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+		\toprule
+		\textbf{Funcionalidade} & Criar Hóspede \\
+		\midrule
+		\textbf{Cenário de Teste} & Tentar criar hóspede com campo obrigatório (nome) vazio \\
+		\midrule
+		\textbf{Passos para Execução} &
+		\begin{itemize} \itemsep0em 
+			\item[1.] Clicar em Hospede.
+			\item[2.] Clicar em "Adicionar Hóspede".
+			\item[3.] Preencher todos os campos, exceto o "Nome Completo".
+			\item[4.] Clicar em "Adicionar".
+		\end{itemize} \\
+		\midrule
+		\textbf{Resultado Esperado} & O sistema deve exibir uma mensagem de erro clara abaixo do campo "Nome Completo". O hóspede não deve ser criado. \\
+		\midrule
+		\textbf{Status} & \textbf{Passou} \\
+		\midrule
+		\textbf{Observações} &  O hóspede não foi criado (correto), e a pagina exibiu uma mensagem de erro abaixo do campo Nome Completo, com a seguinte frase "Preencha este campo". \\
+		\bottomrule
+	\end{tabular}
+	\newpage
+	
+	% ==============================================================================
+	% Teste HOS-003
+	% ==============================================================================
+	\subsection*{ID do Teste: HOS-003}
+	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+		\toprule
+		\textbf{Funcionalidade} & Visualizar Hóspede \\
+		\midrule
+		\textbf{Cenário de Teste} & Visualizar detalhes de um hóspede existente \\
+		\midrule
+		\textbf{Passos para Execução} &
+		\begin{itemize} \itemsep0em 
+			\item[1.] Clicar em Hospede.
+			\item[2.] Clicar em "Listar Hóspedes".
+			\item[3.] Na lista de hóspedes, clicar no nome de um hóspede cadastrado.
+		\end{itemize} \\
+		\midrule
+		\textbf{Resultado Esperado} & A página de detalhes do hóspede deve ser exibida, mostrando todas as informações corretas (CPF, nome, telefone, email e data de nascimento.). \\
+		\midrule
+		\textbf{Status} & \textbf{Passou} \\
+		\midrule
+		\textbf{Observações} & A página de detalhes do hóspede carrega corretamente. \\
+		\bottomrule
+	\end{tabular}
+	\vspace{1cm}
+	
+	% ==============================================================================
+	% Teste HOS-004
+	% ==============================================================================
+	\subsection*{ID do Teste: HOS-004}
+	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+		\toprule
+		\textbf{Funcionalidade} & Atualizar Hóspede \\
+		\midrule
+		\textbf{Cenário de Teste} & Editar o telefone de um hóspede \\
+		\midrule
+		\textbf{Passos para Execução} &
+		\begin{itemize} \itemsep0em 
+			\item[1.] Clicar em Hospede.
+			\item[2.] Clicar em "Listar Hóspedes".
+			\item[3.] Na lista de hóspedes, clicar no nome de um hóspede cadastrado.
+			\item[4.] Clicar em "Editar".
+			\item[5.] Alterar o número de telefone.
+			\item[6.] Clicar em "Salvar".
+		\end{itemize} \\
+		\midrule
+		\textbf{Resultado Esperado} & O sistema deve salvar a alteração e, na lista, o novo telefone deve ser exibido. \\
+		\midrule
+		\textbf{Status} & \textbf{Passou} \\
+		\midrule
+		\textbf{Observações} &  A alteração foi realizada corretamente. \\
+		\bottomrule
+	\end{tabular}
+	\vspace{1cm}
+	
+	% ==============================================================================
+	% Teste HOS-005
+	% ==============================================================================
+	\subsection*{ID do Teste: HOS-005}
+	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+		\toprule
+		\textbf{Funcionalidade} & Buscar Hóspede \\
+		\midrule
+		\textbf{Cenário de Teste} & Buscar por um hóspede existente e um inexistente \\
+		\midrule
+		\textbf{Passos para Execução} &
+		\begin{itemize} \itemsep0em 
+			\item[1.] Clicar em Hospede.
+			\item[2.] Clicar em "Listar Hóspedes".
+			\item[3.] Na lista de hóspedes, usar a barra de busca para procurar por parte do nome de um hóspede cadastrado.
+			\item[4.] Verificar o resultado.
+			\item[5.] Limpar a busca e procurar por um nome que não existe (ex: "Zzzzz").
+		\end{itemize} \\
+		\midrule
+		\textbf{Resultado Esperado} & Na primeira busca, a lista deve ser filtrada corretamente. Na segunda, a lista deve ficar vazia e exibir uma mensagem de "Nenhum hóspede encontrado". \\
+		\midrule
+		\textbf{Status} & \textbf{Falhou} \\
+		\midrule
+		\textbf{Observações} &  \textbf{BUG-001 (UX):} Após inserir um nome existente na barra de busca, o resultado foi abrir uma pagina com o erro \textbf{"Page not found (404)}. \\
+		\bottomrule
+	\end{tabular}
+	\vspace{1cm}
+	
+	% ==============================================================================
+	% Teste HOS-006
+	% ==============================================================================
+	\subsection*{ID do Teste: HOS-006}
+	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+		\toprule
+		\textbf{Funcionalidade} & Excluir Hóspede \\
+		\midrule
+		\textbf{Cenário de Teste} & Excluir um hóspede de forma permanente \\
+		\midrule
+		\textbf{Passos para Execução} &
+		\begin{itemize} \itemsep0em 
+			\item[1.] Clicar em Hospede.
+			\item[2.] Clicar em "Listar Hóspedes".
+			\item[3.] Clicar no botão "Excluir" de um hóspede na lista.
+			\item[4.] O modal de confirmação deve aparecer.
+			\item[5.] Clicar no botão "Excluir" dentro do modal.
+		\end{itemize} \\
+		\midrule
+		\textbf{Resultado Esperado} & O hóspede deve ser removido da lista e do banco de dados. \\
+		\midrule
+		\textbf{Status} & \textbf{Passou} \\
+		\midrule
+		\textbf{Observações} & O modal de confirmação funcionou corretamente, prevenindo exclusão acidental. \\
+		\bottomrule
+	\end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{apendicesenv}
 % ---
 
