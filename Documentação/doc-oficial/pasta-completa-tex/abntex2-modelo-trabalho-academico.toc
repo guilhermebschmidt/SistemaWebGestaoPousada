@@ -67,71 +67,71 @@
 \contentsline {section}{\numberline {4.7}Segurança, Privacidade e Legislação}{58}{section.4.7}%
 \contentsline {subsection}{\numberline {4.7.1}Segurança da Aplicação}{59}{subsection.4.7.1}%
 \contentsline {subsection}{\numberline {4.7.2}Segurança na Comunicação}{59}{subsection.4.7.2}%
-\contentsline {subsubsection}{\numberline {4.7.2.1}Conformidade com a LGPD}{59}{subsubsection.4.7.2.1}%
+\contentsline {subsection}{\numberline {4.7.3}Conformidade com a LGPD}{60}{subsection.4.7.3}%
 \contentsline {section}{\numberline {4.8}Modelagem do Banco de Dados}{60}{section.4.8}%
-\contentsline {subsection}{\numberline {4.8.1}Modelo Entidade-Relacionamento - MER}{60}{subsection.4.8.1}%
-\contentsline {subsection}{\numberline {4.8.2}Diagrama Entidade-Relacionamento - DER}{60}{subsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.8.1}Modelo Entidade-Relacionamento - MER}{61}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Diagrama Entidade-Relacionamento - DER}{61}{subsection.4.8.2}%
 \contentsline {section}{\numberline {4.9}Repositório da Aplicação}{61}{section.4.9}%
-\contentsline {subsection}{\numberline {4.9.1}Definição do repositório da aplicação}{61}{subsection.4.9.1}%
-\contentsline {section}{\numberline {4.10}Entregas}{63}{section.4.10}%
-\contentsline {subsection}{\numberline {4.10.1}Desenvolvimento de um Tema - 08/04}{63}{subsection.4.10.1}%
-\contentsline {subsection}{\numberline {4.10.2}Desenho da Aplicação - 29/04}{63}{subsection.4.10.2}%
+\contentsline {subsection}{\numberline {4.9.1}Definição do repositório da aplicação}{62}{subsection.4.9.1}%
+\contentsline {section}{\numberline {4.10}Entregas}{64}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Desenvolvimento de um Tema - 08/04}{64}{subsection.4.10.1}%
+\contentsline {subsection}{\numberline {4.10.2}Desenho da Aplicação - 29/04}{64}{subsection.4.10.2}%
 \contentsline {subsection}{\numberline {4.10.3}Prova de Conceito - 20/05}{64}{subsection.4.10.3}%
 \contentsline {subsection}{\numberline {4.10.4}Análise e Documentação - 10/06}{64}{subsection.4.10.4}%
-\contentsline {subsection}{\numberline {4.10.5}Produto Mínimo Viável - 24/06}{64}{subsection.4.10.5}%
+\contentsline {subsection}{\numberline {4.10.5}Produto Mínimo Viável - 24/06}{65}{subsection.4.10.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Viabilidade Financeira}}{65}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Custos}{65}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Custo Estrutural}{65}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Custo de Pessoal}{66}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Custo Total}{67}{subsection.5.1.3}%
-\contentsline {section}{\numberline {5.2}Cenários}{68}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Cenário Otimista}{68}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Cenário Pessimista}{68}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}Cenário Realista}{69}{subsection.5.2.3}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Viabilidade Financeira}}{66}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Custos}{66}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Custo Estrutural}{66}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Custo de Pessoal}{67}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Custo Total}{68}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Cenários}{69}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Cenário Otimista}{69}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Cenário Pessimista}{69}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Cenário Realista}{70}{subsection.5.2.3}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Considerações Finais}}{70}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Considerações Finais}}{71}{chapter.6}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Conclusão}}{71}{chapter.7}%
+\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Conclusão}}{72}{chapter.7}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{72}{section*.25}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{73}{section*.25}%
 \renewcommand *{\cftappendixname }{AP\^ENDICE \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Ap\^endices}}{75}{section*.26}%
+\contentsline {part}{\uppercase {Ap\^endices}}{77}{section*.26}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Diário de Bordo}}{76}{appendix.A}%
-\contentsline {section}{\numberline {A.1}1° SEMANA}{76}{section.A.1}%
-\contentsline {section}{\numberline {A.2}2° SEMANA}{76}{section.A.2}%
-\contentsline {section}{\numberline {A.3}3° SEMANA}{76}{section.A.3}%
-\contentsline {section}{\numberline {A.4}4° SEMANA}{77}{section.A.4}%
-\contentsline {section}{\numberline {A.5}5° SEMANA}{77}{section.A.5}%
-\contentsline {section}{\numberline {A.6}6° SEMANA}{77}{section.A.6}%
-\contentsline {section}{\numberline {A.7}7° SEMANA}{78}{section.A.7}%
-\contentsline {section}{\numberline {A.8}8° SEMANA}{78}{section.A.8}%
-\contentsline {section}{\numberline {A.9}9° SEMANA}{78}{section.A.9}%
-\contentsline {section}{\numberline {A.10}10° SEMANA}{78}{section.A.10}%
-\contentsline {section}{\numberline {A.11}11° SEMANA}{78}{section.A.11}%
-\contentsline {section}{\numberline {A.12}12° SEMANA}{79}{section.A.12}%
-\contentsline {section}{\numberline {A.13}13° SEMANA}{79}{section.A.13}%
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Diário de Bordo}}{78}{appendix.A}%
+\contentsline {section}{\numberline {A.1}1° SEMANA}{78}{section.A.1}%
+\contentsline {section}{\numberline {A.2}2° SEMANA}{78}{section.A.2}%
+\contentsline {section}{\numberline {A.3}3° SEMANA}{78}{section.A.3}%
+\contentsline {section}{\numberline {A.4}4° SEMANA}{79}{section.A.4}%
+\contentsline {section}{\numberline {A.5}5° SEMANA}{79}{section.A.5}%
+\contentsline {section}{\numberline {A.6}6° SEMANA}{79}{section.A.6}%
+\contentsline {section}{\numberline {A.7}7° SEMANA}{80}{section.A.7}%
+\contentsline {section}{\numberline {A.8}8° SEMANA}{80}{section.A.8}%
+\contentsline {section}{\numberline {A.9}9° SEMANA}{80}{section.A.9}%
+\contentsline {section}{\numberline {A.10}10° SEMANA}{80}{section.A.10}%
+\contentsline {section}{\numberline {A.11}11° SEMANA}{80}{section.A.11}%
+\contentsline {section}{\numberline {A.12}12° SEMANA}{81}{section.A.12}%
+\contentsline {section}{\numberline {A.13}13° SEMANA}{81}{section.A.13}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Questionário Aplicado à Proprietária da Pousada}}{80}{appendix.B}%
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Questionário Aplicado à Proprietária da Pousada}}{82}{appendix.B}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Product Backlog Detalhado}}{85}{appendix.C}%
+\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Product Backlog Detalhado}}{87}{appendix.C}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Requisitos Funcionais Detalhados}}{89}{appendix.D}%
+\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Requisitos Funcionais Detalhados}}{91}{appendix.D}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes}}{93}{appendix.E}%
+\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes}}{95}{appendix.E}%
 \vspace {\cftbeforechapterskip }

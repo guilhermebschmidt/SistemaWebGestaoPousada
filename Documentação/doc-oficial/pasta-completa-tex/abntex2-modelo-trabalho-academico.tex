@@ -1651,6 +1651,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 \end{enumerate}
 % ---
 % ---
+
 \section{Arquitetura}
 A arquitetura do sistema desenvolvido para a Pousada Chalés Água de Coco foi cuidadosamente planejada com foco na eficiência, escalabilidade e segurança. Seu objetivo principal é garantir o funcionamento estável da plataforma de reservas, oferecendo aos usuários uma experiência fluida e confiável, ao mesmo tempo em que facilita a manutenção e a evolução do sistema ao longo do tempo.
 
@@ -1762,38 +1763,47 @@ Por fim, o projeto segue um ciclo de desenvolvimento bem definido, com etapas de
 
 \section{Segurança, Privacidade e Legislação}
 
-A segurança da informação, a proteção de dados e o cumprimento das normas legais foram diretrizes centrais na concepção do sistema de reservas da Pousada Chalés Água de Coco. Para tanto, foram adotadas boas práticas de desenvolvimento seguro, recursos nativos do framework Django e medidas alinhadas à Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018).
+A segurança da informação e a conformidade com legislações específicas representam pilares fundamentais no desenvolvimento de sistemas web que envolvem dados pessoais e financeiros. No caso do sistema de reservas da Pousada Chalés Água de Coco, essas diretrizes foram centrais na concepção e implementação da aplicação. Para tanto, foram aplicadas boas práticas de desenvolvimento seguro, funcionalidades nativas do framework Django e medidas alinhadas à Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018)~\cite{lgpd}.
 
 \subsection{Segurança da Aplicação}
 
-O framework Django oferece proteção automática contra ameaças comuns da web, como injeção de SQL, execução remota de código, Cross-Site Scripting (XSS) e falsificação de requisições entre sites (CSRF)~\cite{django}. Além disso, foram implementadas as seguintes práticas:
+O framework Django oferece mecanismos nativos de defesa contra vulnerabilidades comuns em aplicações web, como injeção de SQL, execução remota de código, Cross-Site Scripting (XSS) e falsificação de requisições entre sites (CSRF)~\cite{django}. Além das proteções automáticas, foram aplicadas práticas adicionais, descritas a seguir:
 
-Sistema de autenticação e autorização: Controle de acesso baseado em permissões, exigência de credenciais válidas e proteção de páginas sensíveis por autenticação obrigatória.
+\begin{itemize}
+	\item \textbf{Autenticação e autorização}: O controle de acesso é baseado em permissões, restringindo páginas sensíveis apenas a usuários autenticados e devidamente autorizados.
+	\item \textbf{Proteção contra CSRF}: Todas as requisições POST utilizam tokens exclusivos para prevenir ações maliciosas.
+	\item \textbf{Escapamento automático de HTML (XSS)}: O sistema de templates do Django neutraliza a execução de scripts não autorizados.
+	\item \textbf{Armazenamento seguro de senhas}: Senhas são armazenadas utilizando algoritmos modernos de hash, como \textit{PBKDF2}, reduzindo significativamente os riscos em caso de vazamento~\cite{owasp}.
+	\item \textbf{Gerenciamento de sessões}: Utilização de identificadores criptografados, expiração automática de sessões inativas e proteção contra falsificação.
+\end{itemize}
 
-Proteção contra CSRF: Utilização de tokens em requisições POST, garantindo que apenas usuários legítimos possam executar ações críticas.
-
-Escapamento automático de HTML (XSS): O mecanismo de templates evita a execução de scripts maliciosos.
-Armazenamento seguro de senhas: Utilização de algoritmos modernos de hash, como PBKDF2, inviabilizando a recuperação das senhas mesmo em caso de vazamento.
-
-Gerenciamento seguro de sessões: Identificadores criptografados, proteção contra falsificação e expiração automática de sessões inativas.
-
+Essas medidas seguem recomendações amplamente adotadas pela comunidade de segurança, como as diretrizes da \textit{Open Web Application Security Project} (OWASP), voltadas à mitigação das principais ameaças em sistemas web~\cite{owasp}.
 
 \subsection{Segurança na Comunicação}
 
-Todas as comunicações entre cliente e servidor são realizadas via HTTPS, com uso de certificado SSL/TLS. O certificado foi emitido por uma autoridade certificadora confiável, após validação de domínio e instalação no servidor da AWS~\cite{aws-doc}. A criptografia das conexões assegura a confidencialidade, integridade e autenticidade dos dados transmitidos.
-A aplicação redireciona automaticamente requisições HTTP para HTTPS e adiciona cabeçalhos HTTP de segurança, prevenindo de possíveis ataques.
+Todas as comunicações entre cliente e servidor ocorrem por meio do protocolo HTTPS, utilizando certificado SSL/TLS emitido por uma autoridade certificadora confiável, instalado e configurado no ambiente AWS~\cite{aws-doc}. O uso de criptografia garante:
 
+\begin{itemize}
+	\item \textbf{Confidencialidade}: Proteção dos dados contra interceptação não autorizada.
+	\item \textbf{Integridade}: Garantia de que as informações não foram alteradas durante a transmissão.
+	\item \textbf{Autenticidade}: Validação da identidade do servidor pela autoridade certificadora.
+\end{itemize}
 
-\subsubsection{Conformidade com a LGPD}
-Para atender aos princípios da LGPD, o sistema foi projetado com foco na coleta mínima de dados, na transparência quanto ao uso das informações e no controle por parte do titular dos dados. São assegurados os seguintes direitos:
+Adicionalmente, todas as requisições HTTP são redirecionadas automaticamente para HTTPS. Foram configurados cabeçalhos de segurança (como \texttt{Strict-Transport-Security} e \texttt{X-Content-Type-Options}), reforçando a proteção contra ataques de \textit{downgrade} e manipulação de conteúdo~\cite{rfc-tls}.
 
-Solicitação de remoção de dados pessoais;
+\subsection{Conformidade com a LGPD}
 
-Alteração de consentimento previamente fornecido;
+A LGPD estabelece princípios fundamentais para o tratamento de dados pessoais, como a necessidade de consentimento, a finalidade específica do uso e a transparência para o titular. Em conformidade com essa legislação, o sistema adota os seguintes mecanismos:
 
-Acesso claro às finalidades do tratamento dos dados.
+\begin{itemize}
+	\item \textbf{Minimização de dados}: Coleta apenas informações estritamente necessárias para a operação das reservas.
+	\item \textbf{Gestão de consentimento}: Usuários podem alterar o consentimento previamente fornecido, em conformidade com os princípios de liberdade e autonomia.
+	\item \textbf{Direitos do titular}: Possibilidade de solicitação de acesso, correção ou exclusão de dados pessoais armazenados.
+	\item \textbf{Transparência}: Informações sobre a finalidade do tratamento de dados estão disponíveis de forma clara.
+	\item \textbf{Armazenamento seguro e backups}: Dados são protegidos por mecanismos de criptografia e submetidos a rotinas de backup regular em ambiente de nuvem (AWS), garantindo resiliência e prevenção contra perdas.
+\end{itemize}
 
-Além disso, os dados são armazenados de forma segura e submetidos a backups regulares em ambiente de nuvem, garantindo resiliência e conformidade com os princípios de segurança, prevenção e responsabilização da LGPD~\cite{lgpd}.
+A adoção desses recursos reforça a responsabilidade do sistema frente à segurança, privacidade e conformidade, estabelecendo uma base sólida para a proteção das informações dos hóspedes e para a credibilidade do serviço.
 
 
 \section{Modelagem do Banco de Dados}

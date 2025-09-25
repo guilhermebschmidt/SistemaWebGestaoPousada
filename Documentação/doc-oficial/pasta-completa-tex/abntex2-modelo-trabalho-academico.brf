@@ -43,9 +43,12 @@
 \backcite {google-meet}{{57}{4.5.5}{subsection.4.5.5}}
 \backcite {projectlibre}{{57}{4.5.6}{subsection.4.5.6}}
 \backcite {github-doc}{{58}{4.6}{section.4.6}}
+\backcite {lgpd}{{58}{4.7}{section.4.7}}
 \backcite {django}{{59}{4.7.1}{subsection.4.7.1}}
+\backcite {owasp}{{59}{4.7.1}{subsection.4.7.1}}
+\backcite {owasp}{{59}{4.7.1}{subsection.4.7.1}}
 \backcite {aws-doc}{{59}{4.7.2}{subsection.4.7.2}}
-\backcite {lgpd}{{59}{4.7.2.1}{subsubsection.4.7.2.1}}
+\backcite {rfc-tls}{{60}{4.7.2}{subsection.4.7.2}}
 \backcite {repositorio}{{63}{4.9.1}{Item.62}}
-\backcite {anatel-anexo}{{65}{5.1.1}{subsection.5.1.1}}
-\backcite {enel-tarifa}{{65}{5.1.1}{subsection.5.1.1}}
+\backcite {anatel-anexo}{{66}{5.1.1}{subsection.5.1.1}}
+\backcite {enel-tarifa}{{66}{5.1.1}{subsection.5.1.1}}

@@ -177,6 +177,13 @@ Acesso em: 22 set. 2025.
 Dispon{\'\i}vel em:
   \url{https://www.gov.br/turismo/pt-br/assuntos/noticias/descubra-diferentes-tipos-de-hospedagens-pelo-pais}.}
 
+\bibitem[{OWASP Foundation} 2021]{owasp}
+\abntrefinfo{{OWASP Foundation}}{{OWASP Foundation}}{2021}
+{{OWASP Foundation}. \emph{OWASP Top 10: The Ten Most Critical Web Application
+  Security Risks}.
+[S.l.], 2021. Acessado em: 20 set. 2025. Dispon{\'\i}vel em:
+  \url{https://owasp.org/Top10/}.}
+
 \bibitem[POSTGRESQL 2025]{postgresql}
 \abntrefinfo{POSTGRESQL}{POSTGRESQL}{2025}
 {POSTGRESQL. \emph{The PostgreSQL Documentation}. [S.l.]: PostgreSQL, 2025.
@@ -193,6 +200,13 @@ Dispon{\'\i}vel em:
 \abntrefinfo{PYTHON}{PYTHON}{2025}
 {PYTHON. \emph{Python Official Documentation}. 2025.
 Disponível em: \url{https://docs.python.org/3/}. Acesso em: 7 jun. 2025.}
+
+\bibitem[Rescorla 2018]{rfc-tls}
+\abntrefinfo{Rescorla}{RESCORLA}{2018}
+{RESCORLA, E. \emph{The Transport Layer Security (TLS) Protocol Version 1.3}.
+  2018. RFC 8446.
+Acessado em: 20 set. 2025.
+Dispon{\'\i}vel em: \url{https://www.rfc-editor.org/rfc/rfc8446.html}.}
 
 \bibitem[Schwaber e Sutherland 2013]{scrumguide}
 \abntrefinfo{Schwaber e Sutherland}{SCHWABER; SUTHERLAND}{2013}
