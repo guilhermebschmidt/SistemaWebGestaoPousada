@@ -31,6 +31,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['app.pousadachalesaguadecoco.com.br', '18.117.219.212', 'localhost', '127.0.0.1']
 
+# Ativar quando tiver o certificado https:
+#CSRF_COOKIE_SECURE = True
+#SESSION_COOKIE_SECURE = True
 
 # Application definition
 
@@ -129,7 +132,10 @@ USE_I18N = True
 USE_TZ = True
 
 #configurações de sessão 
-SESSION_COOKIE_AGE = 3600 
+SESSION_COOKIE_AGE = 28800  
+SESSION_SAVE_EVERY_REQUEST = True
+# configurações de recuperação da senha
+PASSWORD_RESET_TIMEOUT = 86400  
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
@@ -152,16 +158,33 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1 
-
+# Configuração envio de email
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = "Pousada Chalés Água de Coco <no-reply@pousadachalesaguadecoco.com>"
+#COM SMTP CONFIGURADO: 
+#EMAIL_BACKEND='django.core.mail.backend.smtp.EmailBackend'
+# Para produção com SMTP (exemplo Gmail)
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'seu-email@gmail.com'
+# EMAIL_HOST_PASSWORD = 'sua-senha'
+ACCOUNT_ALLOW_REGISTRATION = False
 LOGIN_REDIRECT_URL = '/' 
 LOGOUT_REDIRECT_URL = '/accounts/login/' 
 ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_SIGNUP_FIELDS = ["email*", "password1*", "password2*"]
 ACCOUNT_LOGIN_METHODS = {"email"}
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
 
 ACCOUNT_FORMS = {
     'login': 'apps.usuarios.forms.CustomLoginForm',
     'signup': 'apps.usuarios.forms.CustomSignupForm',
     'change_password': 'apps.usuarios.forms.CustomChangePasswordForm',
+    'reset_password': 'apps.usuarios.forms.CustomResetPasswordForm',
+    'set_password': 'apps.usuarios.forms.CustomSetPasswordForm',
 }
+

@@ -5,6 +5,9 @@ from ..forms.reserva  import ReservaForm
 import datetime
 from django.utils import timezone
 from django.http import JsonResponse
+from django.contrib import messages
+from ..utils.emails import enviar_email_confirmacao
+
 
 def list(request):
     reservas = Reserva.objects.all()
@@ -87,3 +90,18 @@ def buscar_hospedes(request):
             })
         return JsonResponse(hospedes, safe=False)
     return JsonResponse([], safe=False)
+
+def enviar_confirmacao_email_view(request, reserva_id):
+    reserva = get_object_or_404(Reserva, id=reserva_id)
+    
+    if request.method == 'POST':
+        try:
+            enviar_email_confirmacao(reserva)
+            reserva.email_confirmacao_enviado = True
+            reserva.save()
+            messages.success(request, f"E-mail de confirmação enviado com sucesso para {reserva.hospede.email}.")
+        except Exception as e:
+            print(f"DEBUG: O erro ao enviar o e-mail foi: {e}") 
+            messages.error(request, f"Ocorreu um erro ao enviar o e-mail: {e}")
+            
+    return redirect('reserva:list') 

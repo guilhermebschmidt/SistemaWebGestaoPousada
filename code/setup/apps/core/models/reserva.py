@@ -33,7 +33,10 @@ class Reserva(models.Model):
         choices=STATUS_CHOICES,
         default='PREVISTA',
         null=True
-    )
+    ) 
+
+    email_confirmacao_enviado = models.BooleanField(default=False)
+    
     motivo_cancelamento = models.TextField(
         null=True,
         blank=True,
@@ -122,3 +125,5 @@ class Reserva(models.Model):
             old_instance.data_reserva_fim != self.data_reserva_fim or
             old_instance.id_quarto != self.id_quarto
         )
+
+   

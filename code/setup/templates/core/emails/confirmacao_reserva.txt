@@ -1,0 +1,17 @@
+Olá, {{ reserva.id_hospede.nome}}!
+
+Sua reserva na Pousada Chalés Água de Coco foi confirmada com sucesso. Estamos ansiosos para recebê-lo(a)!
+
+---
+Detalhes da Reserva
+- Nº da Reserva: {{ reserva.id }}
+- Quarto: {{ reserva.id_quarto.numero }}
+- Check-in: {{ reserva.data_check_in|date:"d/m/Y" }}
+- Check-out: {{ reserva.data_check_out|date:"d/m/Y" }}
+- Valor Total: R$ {{ reserva.valor }}
+---
+
+Qualquer dúvida, entre em contato conosco.
+
+Atenciosamente,
+Equipe Pousada Chalés Água de Coco

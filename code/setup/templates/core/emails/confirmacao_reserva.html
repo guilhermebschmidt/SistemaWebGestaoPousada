@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirmação de Reserva - Pousada Chalés Água de Coco</title>
+</head>
+<body style="font-family: sans-serif;">
+    <p>Olá, {{ reserva.id_hospede.nome }}!</p>
+    <p>Sua reserva na Pousada foi confirmada com sucesso. Estamos ansiosos para recebê-lo(a)!</p>
+    <hr>
+    <h3>Detalhes da Reserva</h3>
+    <ul>
+        <li><strong>Nº da Reserva:</strong> {{ reserva.id }}</li>
+        <li><strong>Quarto:</strong> {{ reserva.id_quarto.numero }} ({{ reserva.id_quarto.tipo.nome }})</li>
+        <li><strong>Check-in:</strong> {{ reserva.data_check_in }}</li>
+        <li><strong>Check-out:</strong> {{ reserva.data_check_out }}</li>
+        <li><strong>Valor Total:</strong> R$ {{ reserva.valor }}</li>
+    </ul>
+    <hr>
+    <p>Qualquer dúvida, entre em contato conosco.</p>
+    <p>Atenciosamente,<br>Equipe Pousada Chalés Água de Coco</p>
+</body>
+</html>

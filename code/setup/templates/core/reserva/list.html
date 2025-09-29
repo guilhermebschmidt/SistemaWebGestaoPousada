@@ -52,6 +52,14 @@
                         <button onclick="abrirModalCancelamento('{{ reserva.id }}')" class="btn btn-error btn-sm" title="Cancelar Reserva">
                             <i class="fas fa-trash">Cancelar</i>
                         </button>
+                        {% if reserva.status == 'PREVISTA' and not reserva.email_confirmacao_enviado %}
+                        <form action="{% url 'reserva:enviar_confirmacao_email' reserva.id %}" method="POST" class="m-0">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-info btn-sm" title="Enviar confirmação por e-mail">
+                            <i class="fas fa-envelope"></i> E-mail
+                            </button>
+                        </form>
+                        {% endif %}
                     </td>
                 </tr>
                 {% empty %}
