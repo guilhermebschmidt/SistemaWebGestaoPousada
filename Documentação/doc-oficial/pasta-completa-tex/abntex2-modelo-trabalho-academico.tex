@@ -533,6 +533,7 @@ Este trabalho tem, portanto, como objetivo geral o desenvolvimento de um sistema
 % ----------------------------------------------------------
 % ---
 \section{Objetivos}
+Os objetivos deste trabalho foram definidos a partir das necessidades da Pousada Chalés Água de Coco. Atualmente, a gestão é feita em planilhas, o que dificulta a organização e aumenta a chance de erros. Assim, este projeto busca centralizar as informações em um sistema web, tornando os processos mais ágeis e confiáveis.
 
 \subsection{Objetivo Geral}
 Desenvolver um sistema \textit{web} para automatizar os processos administrativos da pousada Chalés Água de Coco, atualmente realizados por meio de planilhas eletrônicas. A adoção de ferramentas digitais em pequenos empreendimentos do setor de hospitalidade tem se mostrado fundamental para aumentar a eficiência e reduzir falhas operacionais~\cite{totvs}. Dessa forma, o objetivo central deste trabalho é propor uma solução que centralize informações de hóspedes, reservas, acomodações e finanças em uma plataforma única, acessível via Internet, promovendo maior organização, segurança e suporte à tomada de decisão.
@@ -1653,22 +1654,46 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 % ---
 
 \section{Arquitetura}
-A arquitetura do sistema desenvolvido para a Pousada Chalés Água de Coco foi cuidadosamente planejada com foco na eficiência, escalabilidade e segurança. Seu objetivo principal é garantir o funcionamento estável da plataforma de reservas, oferecendo aos usuários uma experiência fluida e confiável, ao mesmo tempo em que facilita a manutenção e a evolução do sistema ao longo do tempo.
 
-A estrutura escolhida contempla as boas práticas de desenvolvimento web moderno, utilizando tecnologias consolidadas no mercado. A seguir, são descritos o desenho da arquitetura, a organização das camadas da aplicação, o banco de dados utilizado e a infraestrutura de hospedagem.
-\subsection{Desenho da Arquitetura}
-A arquitetura do sistema de reservas da Pousada Chalés Água de Coco foi criada com base no framework Django~\cite{django}, utilizando o padrão de arquitetura MTV (Model-Template-View). Esse padrão permite a separação lógica das responsabilidades entre modelo de dados, interface de apresentação e regras de controle, garantindo organização, reutilização de código e manutenibilidade da aplicação.
+A arquitetura do sistema desenvolvido para a Pousada Chalés Água de Coco foi planejada com base em princípios de eficiência, escalabilidade, modularidade e segurança, aspectos considerados fundamentais para sistemas de informação de uso corporativo~\cite{pressman, sommerville}. O objetivo principal é garantir o funcionamento estável da plataforma de reservas, proporcionando aos gestores uma experiência fluida, confiável e segura, ao mesmo tempo em que facilita a manutenção e a evolução da solução no longo prazo.
 
-\subsubsection{Estrutura da Solução}
+A definição da arquitetura seguiu boas práticas de desenvolvimento de software orientado a serviços e apoiou-se em tecnologias consolidadas no mercado. A seguir, são descritos o desenho arquitetural, a organização das camadas da aplicação, o banco de dados utilizado e a infraestrutura de hospedagem.
 
-A camada de interface (Template) é responsável pela exibição das páginas HTML aos usuários. Ela recebe os dados dinamicamente da camada de controle (View), que, por sua vez, realiza o processamento necessário, interage com o banco de dados e fornece as informações pertinentes à exibição. A camada de modelo (Model) representa a estrutura do banco de dados relacional, utilizando o ORM (Object-Relational Mapper) nativo do Django para abstrair a manipulação dos dados de forma segura e eficiente.
-A aplicação foi projetada como uma solução fullstack, sendo o Django responsável tanto pelo front-end quanto pelo back-end. No front-end, a interface é construída com HTML e CSS, que promovem responsividade e usabilidade~\cite{duckett}. No back-end, são implementadas as regras de negócio, controle de autenticação, segurança da aplicação e comunicação com o banco de dados PostgreSQL
-.
-\subsubsection{Banco de Dados e Infraestrutura}
+\subsection{Arquitetura Lógica}
 
-O banco de dados utilizado é o PostgreSQL, devido à sua robustez, suporte a dados relacionais e facilidade de integração com o Django~\cite{postgresql}. Todas as tabelas, relacionamentos e consultas são gerenciados pelo ORM, o que minimiza riscos de injeção de código malicioso e facilita a manutenção.
-A infraestrutura de hospedagem está baseada na Amazon Web Services (AWS), garantindo alta disponibilidade, escalabilidade e segurança. O servidor é configurado para suportar conexões seguras via HTTPS, e mecanismos de backup e monitoramento são empregados para garantir a continuidade do serviço~\cite{aws-doc}.
-Por fim, a arquitetura proposta está preparada para evoluções futuras, permitindo a integração com APIs externas e relatórios gerenciais, com base em uma estrutura modular e escalável.
+O sistema adota o \textit{framework Django}~\cite{django}, que segue o padrão de arquitetura MTV (\textit{Model-Template-View}). Esse padrão promove a separação de responsabilidades, característica importante para manter a aplicação organizada, escalável e de fácil manutenção. Conforme defendem Bass, Clements e Kazman~\cite{bass2012}, a modularidade arquitetural é um fator crítico para a evolução e a qualidade de sistemas de software.
+
+\subsubsection{Camada de Apresentação (Template)}
+
+Responsável pela interface com o usuário, esta camada é construída com HTML e CSS, priorizando responsividade e usabilidade~\cite{duckett}. Os dados exibidos ao usuário são carregados dinamicamente a partir da camada de controle, garantindo atualização em tempo real e interação consistente.
+
+\subsubsection{Camada de Controle (View)}
+
+Na camada de controle são implementadas as regras de negócio da aplicação. Essa camada processa as requisições recebidas, interage com os modelos de dados e retorna as informações organizadas para a interface de apresentação. Também é responsável pela autenticação, controle de acessos e segurança no fluxo de informações.
+
+\subsubsection{Camada de Modelo (Model)}
+
+A camada de modelo representa a estrutura de dados da aplicação. Utiliza o ORM (\textit{Object-Relational Mapper}) do Django para abstrair as operações no banco relacional, reduzindo a complexidade da manipulação de dados e prevenindo falhas de segurança como \textit{SQL Injection}~\cite{postgresql}. Essa camada assegura integridade, consistência e eficiência na persistência de dados.
+
+\subsection{Banco de Dados}
+
+O banco de dados escolhido foi o \textit{PostgreSQL}, considerado uma solução robusta, segura e compatível com aplicações de missão crítica. Sua adoção é justificada pelo suporte avançado a transações, confiabilidade e integração nativa com o Django~\cite{postgresql}. Essa escolha também está alinhada às recomendações de Sommerville~\cite{sommerville}, que destaca a importância de bancos de dados maduros e estáveis em sistemas corporativos.
+
+\subsection{Infraestrutura em Nuvem}
+
+A aplicação está hospedada na \textit{Amazon Web Services (AWS)}, que oferece recursos de alta disponibilidade, escalabilidade e mecanismos de segurança em conformidade com padrões internacionais~\cite{aws-doc}. A configuração contempla:
+\begin{itemize}
+	\item Suporte a conexões seguras via HTTPS, garantindo confidencialidade e integridade dos dados trafegados;
+	\item Rotinas automáticas de backup para prevenir perda de informações;
+	\item Monitoramento contínuo dos serviços, possibilitando respostas rápidas a falhas e incidentes.
+\end{itemize}
+
+O uso da computação em nuvem é reforçado por Laudon e Laudon~\cite{laudon2020sistemas}, que destacam sua relevância para pequenos e médios negócios devido à flexibilidade e à redução de custos com infraestrutura física.
+
+\subsection{Preparação para Evoluções Futuras}
+
+Por fim, a arquitetura proposta foi estruturada para suportar futuras expansões, como integração com APIs externas (ex.: canais de venda e pagamentos online) e módulos avançados de relatórios gerenciais. De acordo com Turban, Pollard e Wood~\cite{turban2018sistemas}, a capacidade de evolução é um atributo importante para a sustentabilidade de sistemas de informação em ambientes competitivos. Dessa forma, a solução desenvolvida não apenas atende às necessidades atuais da pousada, mas também abre caminho para a modernização contínua de seus processos administrativos.
+
 
 
 \subsection{Diagrama da Arquitetura}

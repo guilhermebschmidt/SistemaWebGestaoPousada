@@ -24,6 +24,11 @@ Dispon{\'\i}vel em:
 Disponível em: \url{https://aws.amazon.com/documentation/}. Acesso em: 7 jun.
   2025.}
 
+\bibitem[Bass, Clements e Kazman 2012]{bass2012}
+\abntrefinfo{Bass, Clements e Kazman}{BASS; CLEMENTS; KAZMAN}{2012}
+{BASS, L.; CLEMENTS, P.; KAZMAN, R. \emph{Software Architecture in Practice}.
+  3. ed. [S.l.]: Addison-Wesley, 2012.}
+
 \bibitem[Brasil 2011]{portaria100_2011}
 \abntrefinfo{Brasil}{BRASIL}{2011}
 {BRASIL. \emph{Portaria nº 100, de 16 de junho de 2011}. Brasília, DF:
@@ -190,6 +195,11 @@ Dispon{\'\i}vel em:
   Disponível em: \url{https://www.postgresql.org/docs/}. Acesso em: 7 jun.
   2025.}
 
+\bibitem[Pressman 2016]{pressman}
+\abntrefinfo{Pressman}{PRESSMAN}{2016}
+{PRESSMAN, R.~S. \emph{Engenharia de Software: uma abordagem profissional}. 8.
+  ed. Porto Alegre: McGraw-Hill, 2016.}
+
 \bibitem[ProjectLibre 2025]{projectlibre}
 \abntrefinfo{ProjectLibre}{PROJECTLIBRE}{2025}
 {PROJECTLIBRE. \emph{ProjectLibre}.
@@ -221,6 +231,11 @@ Dispon{\'\i}vel em: \url{https://www.rfc-editor.org/rfc/rfc8446.html}.}
 {SOMMERVILLE, I. \emph{Engenharia de software}. 9. ed. São Paulo: Pearson,
   2011. E-book. Disponível em: \url{https://plataforma.bvirtual.com.br}.
   Acesso em: 04 jun. 2025.}
+
+\bibitem[Sommerville 2019]{sommerville}
+\abntrefinfo{Sommerville}{SOMMERVILLE}{2019}
+{SOMMERVILLE, I. \emph{Engenharia de Software}. 10. ed. São Paulo: Pearson,
+  2019.}
 
 \bibitem[SOUSA et al. 2025]{repositorio}
 \abntrefinfo{SOUSA et al.}{SOUSA et al.}{2025}
