@@ -3046,7 +3046,7 @@ Durante essa semana a documentação final consolidada foi revisada, para aplica
 		\midrule
 		\textbf{Status} & \textbf{Falhou} \\
 		\midrule
-		\textbf{Observações} &  \textbf{BUG-001 (UX):} Após inserir um nome existente na barra de busca, o resultado foi abrir uma pagina com o erro \textbf{"Page not found (404)}. \\
+		\textbf{Observações} &  \textbf{BUG-001:} Após inserir um nome existente na barra de busca, o resultado foi abrir uma pagina com o erro \textbf{"Page not found (404)}. \\
 		\bottomrule
 	\end{tabular}
 	\vspace{1cm}
@@ -3079,8 +3079,402 @@ Durante essa semana a documentação final consolidada foi revisada, para aplica
 	\end{tabular}
 
 
+\chapter{Relatório de Testes Funcionais - Módulo de Gestão de Quartos}
+\textbf{Data da Execução:} 29 de setembro de 2025 \\
+\textbf{Testador:} Guilherme Bittencourt Schmidt \\
+
+\vspace{1cm}
+
+% --- Início dos Quadros de Teste ---
+
+% ==============================================================================
+% Teste QUA-001
+% ==============================================================================
+\subsection*{ID do Teste: QUA-001}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Criar Quarto \\
+	\midrule
+	\textbf{Cenário de Teste} & Criar um novo quarto com status "Disponível" \\
+	\midrule
+	\textbf{Passos para Execução} & 
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em "Quartos".
+		\item[2.] Clicar no botão "Adicionar Quarto".
+		\item[3.] Preencher todos os campos.
+		\item[4.] Clicar em "Adicionar".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & O sistema deve salvar o quarto e redirecionar para a lista. O novo quarto deve aparecer com o status "Disponível". \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Ao clicar em "Adicionar", o sistema redirecionou para a lista de quartos, com o status certo. \\
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste QUA-002
+% ==============================================================================
+\subsection*{ID do Teste: QUA-002}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Criar Quarto \\
+	\midrule
+	\textbf{Cenário de Teste} & Criar um novo quarto com status "Indisponível" \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em "Quartos".
+		\item[2.] Clicar no botão "Adicionar Quarto".
+		\item[3.] Preencher os campos, mas deixar a caixa "Status" desmarcada.
+		\item[4.] Clicar em "Adicionar".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & O quarto deve ser criado e aparecer na lista com o status "Indisponível". \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Ao clicar em "Adicionar", o sistema redirecionou para a lista de quartos, com o status certo "Indisponível". \\
+\end{tabular}
+\newpage
+
+% ==============================================================================
+% Teste QUA-003
+% ==============================================================================
+\subsection*{ID do Teste: QUA-003}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Criar Quarto \\
+	\midrule
+	\textbf{Cenário de Teste} & Tentar salvar sem preencher campos obrigatórios \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em "Quartos".
+		\item[2.] Clicar no botão "Adicionar Quarto".
+		\item[3.] Deixar algum campo em branco e clicar em "Adicionar".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & Deve exibir uma mensagem abaixo do campo, pedindo para preencher o campo. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & A validação de campos obrigatórios está funcionando. O a mensagem foi exibida corretamente. \\
+	
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste QUA-004
+% ==============================================================================
+\subsection*{ID do Teste: QUA-004}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Visualizar Quartos \\
+	\midrule
+	\textbf{Cenário de Teste} & Listagem de quartos com status diferentes \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em "Quartos".
+		\item[2.] Clicar em "Listar Quartos".
+		\item[3.] Garantir que existam quartos com status "Disponível"  e "Indisponível".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & A tabela deve exibir todos os quartos. A coluna "Status"  deve mostrar "Disponível"  e "Indisponível"  para os quartos. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Aparece todos os quartos e todos com seus respectivos status corretos.
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste QUA-005
+% ==============================================================================
+\subsection*{ID do Teste: QUA-005}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Atualizar Quarto \\
+	\midrule
+	\textbf{Cenário de Teste} & Editar o preço de um quarto existente \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em "Quartos".
+		\item[2.] Clicar em "Listar Quartos".
+		\item[3.] Clicar em "Editar" no quarto escolhido.
+		\item[4.] Alterar um campo do quarto.
+		\item[5.] Clicar em "Salvar Alterações".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & O sistema salva a alteração, redireciona para a lista e o novo preço é exibido na tabela. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & O fluxo de edição está funcionando normalmente. \\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste QUA-006
+% ==============================================================================
+\subsection*{ID do Teste: QUA-006}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Excluir Quarto \\
+	\midrule
+	\textbf{Cenário de Teste} & Excluir um quarto de forma permanente \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em "Quartos".
+		\item[2.] Clicar em "Listar Quartos".
+		\item[3.] Clicar em "Excluir" no quarto escolhido.
+		\item[4.] No modal de confirmação, clicar em "Sim, excluir".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & O quarto deve ser removido da lista permanentemente. \\
+	\midrule
+	\textbf{Status} & \textbf{Falhou} \\
+	\midrule
+	\textbf{Observações} & \textbf{BUG-002:} após clicar na confirmação de exclusão, a pagina é redirecionada para uma outra pagina contendo o erro " \textbf{TemplateDoesNotExist}". \\
+\end{tabular}
 
 
+
+\chapter{Relatório de Testes Funcionais - Módulo de Gestão de Reservas}
+
+\textbf{Data da Execução:} 29 de setembro de 2025 \\
+\textbf{Testador:} Guilherme Bittencourt Schmidt \\
+
+\vspace{1cm}
+
+% --- Início dos Quadros de Teste ---
+
+% ==============================================================================
+% Teste RES-001
+% ==============================================================================
+\subsection*{ID do Teste: RES-001}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Criar Reserva \\
+	\midrule
+	\textbf{Cenário de Teste} & Criar uma nova reserva com dados válidos \\
+	\midrule
+	\textbf{Passos para Execução} & 
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em "Reservas".
+		\item[2.] Clicar em "Listar Reservas".
+		\item[3.] Clicar em "Adicionar Reserva".
+		\item[4.] Selecionar hóspede e quarto.
+		\item[5.] Escolher data de início e fim.
+		\item[6.] Clicar em "Reservar".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & O sistema salva e redireciona para a lista. A nova reserva nela. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Tudo ocorreu perfeitamente. \\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste RES-002
+% ==============================================================================
+\subsection*{ID do Teste: RES-002}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Criar Reserva \\
+	\midrule
+	\textbf{Cenário de Teste} & Tentar criar com data de início no passado \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em "Reservas".
+		\item[2.] Clicar em "Listar Reservas".
+		\item[3.] Clicar em "Adicionar Reserva".
+		\item[4.] Selecionar hóspede e quarto.
+		\item[5.] Escolher data de início e fim antigas.
+		\item[6.] Clicar em "Reservar".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & O sistema exibe uma mensagem de erro abaixo do campo de data. A reserva não é criada. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Mensagem de erro exibida corretamente. \\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste RES-003
+% ==============================================================================
+\subsection*{ID do Teste: RES-003}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Criar Reserva \\
+	\midrule
+	\textbf{Cenário de Teste} & Tentar criar com data de fim antes do início \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em "Reservas".
+		\item[2.] Clicar em "Listar Reservas".
+		\item[3.] Clicar em "Adicionar Reserva".
+		\item[4.] Selecionar hóspede e quarto.
+		\item[5.] Escolher data de início e fim mais antiga que a data de início.
+		\item[6.] Clicar em "Reservar".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & O sistema exibe mensagem de erro abaixo do campo de data de fim. A reserva não é criada. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Aparece a mensagem de erro corretamente. \\
+	\bottomrule
+\end{tabular}
+\newpage
+
+% ==============================================================================
+% Teste RES-004
+% ==============================================================================
+\subsection*{ID do Teste: RES-004}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Visualizar Reservas \\
+	\midrule
+	\textbf{Cenário de Teste} & Filtrar check-ins para hoje \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em "Reservas".
+		\item[2.] Clicar em "Listar Reservas".
+		\item[3.] Criar/editar uma reserva com data de início do dia atual.
+		\item[4.] Acessar a página "Check-ins de Hoje".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & Apenas a reserva com data de início para hoje deve aparecer na lista. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Filtro funcionou como esperado. \\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste RES-005
+% ==============================================================================
+\subsection*{ID do Teste: RES-005}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Visualizar Reservas \\
+	\midrule
+	\textbf{Cenário de Teste} & Filtrar check-outs para hoje \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em "Reservas".
+		\item[2.] Clicar em "Listar Reservas".
+		\item[3.] Criar/editar uma reserva com data de fim do dia atual.
+		\item[4.] Acessar a página "Check-outs de Hoje".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & Apenas a reserva com data de fim para hoje deve aparecer na lista. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Filtro funcionou como esperado. \\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste RES-006
+% ==============================================================================
+\subsection*{ID do Teste: RES-006}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Ações \\
+	\midrule
+	\textbf{Cenário de Teste} & Marcar Check-in de uma reserva \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em "Reservas".
+		\item[2.] Clicar em "Check-ins de Hoje".
+		\item[3.] Clicar no botão "Check-in" de uma reserva.
+		\item[4.] Confirmar a ação.
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & O botão muda para "Check-in marcado" e o campo de check-in na lista principal é preenchido com a data/hora. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Ação de check-in e atualização ocorreram com sucesso. \\
+	\bottomrule
+\end{tabular}
+\newpage
+
+% ==============================================================================
+% Teste RES-007
+% ==============================================================================
+\subsection*{ID do Teste: RES-007}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Ações \\
+	\midrule
+	\textbf{Cenário de Teste} & Marcar Check-out de uma reserva \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em "Reservas".
+		\item[2.] Clicar em "Check-outs de Hoje".
+		\item[3.] Clicar no botão "Check-out" de uma reserva.
+		\item[4.] Confirmar a ação.
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & O botão muda de estado e o campo de check-out na lista principal é preenchido. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Funcionalidade OK. \\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste RES-008
+% ==============================================================================
+\subsection*{ID do Teste: RES-008}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Excluir Reserva \\
+	\midrule
+	\textbf{Cenário de Teste} & Excluir uma reserva existente \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em "Reservas".
+		\item[2.] Clicar em "Listar Reservas".
+		\item[3.] Na lista principal, clicar para cancelar uma reserva.
+		\item[4.] Confirmar o cancelamento no modal/página de confirmação.
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & A reserva é removida da lista de forma permanente. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Modal de confirmação funcionou, porém a reserva não é removida da lista, fica como "Cancelada". \\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
 
 
 
