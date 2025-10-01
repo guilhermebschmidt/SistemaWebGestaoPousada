@@ -103,6 +103,12 @@ Dispon{\'\i}vel em:
 [S.l.], 2024. Acessado em 7 de junho de 2025. Dispon{\'\i}vel em:
   \url{https://docs.github.com/}.}
 
+\bibitem[{Glassdoor} 2025]{glassdoor2025}
+\abntrefinfo{{Glassdoor}}{{Glassdoor}}{2025}
+{{Glassdoor}. \emph{Salarios de empresas}. 2025.
+Disponível em: \url{https://www.glassdoor.com.br/Salarios/index.htm}. Acesso
+  em: 05 jun. 2025.}
+
 \bibitem[{GOOGLE} 2024]{google-meet}
 \abntrefinfo{{GOOGLE}}{{GOOGLE}}{2024}
 {{GOOGLE}. \emph{Google Meet Help}.
@@ -130,6 +136,12 @@ Dispon{\'\i}vel em: \url{https://www.ibm.com/br-pt/topics/business-rules}.}
 \abntrefinfo{Ignarra}{IGNARRA}{2013}
 {IGNARRA, L.~R. \emph{Fundamentos do turismo}. 3. ed. São Paulo: Thomson
   Learning, 2013.}
+
+\bibitem[{Indeed Brasil} 2025]{indeed2025}
+\abntrefinfo{{Indeed Brasil}}{{Indeed Brasil}}{2025}
+{{Indeed Brasil}. \emph{Salários de empresas}. 2025.
+Acesso em: 05 jun. 2025.
+Dispon{\'\i}vel em: \url{https://br.indeed.com/career/salaries}.}
 
 \bibitem[{LATEX} 2024]{latex-project}
 \abntrefinfo{{LATEX}}{{LATEX}}{2024}
@@ -210,6 +222,13 @@ Dispon{\'\i}vel em:
 \abntrefinfo{PYTHON}{PYTHON}{2025}
 {PYTHON. \emph{Python Official Documentation}. 2025.
 Disponível em: \url{https://docs.python.org/3/}. Acesso em: 7 jun. 2025.}
+
+\bibitem[{Receita Federal do Brasil} 2017]{receita-norma}
+\abntrefinfo{{Receita Federal do Brasil}}{{Receita Federal do Brasil}}{2017}
+{{Receita Federal do Brasil}. \emph{Consulta Externa — Norma nº 81268}.
+  2017.
+  \url{https://normasinternet2.receita.fazenda.gov.br/\#/consulta/externa/81268}.
+Acessado em: 30/10/2025.}
 
 \bibitem[Rescorla 2018]{rfc-tls}
 \abntrefinfo{Rescorla}{RESCORLA}{2018}

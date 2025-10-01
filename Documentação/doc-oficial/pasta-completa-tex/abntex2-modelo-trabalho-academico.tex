@@ -1933,67 +1933,91 @@ O Produto Mínimo Viável (MVP) entregue contempla as funcionalidades essenciais
 
 
 \chapter{Viabilidade Financeira}
-Visando a viabilidade financeira do desenvolvimento do sistema web de gestão da pousada Chalés Água de Coco foi conduzido um estudo dos custos necessários, acompanhado da elaboração de relatórios contemplando diferentes cenários. Os dados utilizados no estudo são concretos e provenientes de fontes confiáveis. Esses que foram empregados com o objetivo de auxiliar a equipe na análise da factibilidade do projeto e proporcionar uma melhor percepção na tomada de decisões estratégicas.
+Este capítulo apresenta o estudo de viabilidade financeira do sistema de gestão desenvolvido, contemplando custos de infraestrutura, mão de obra e manutenção. A análise considera a natureza de extensão acadêmica do projeto, caracterizado pelo trabalho de desenvolvimento voluntário, em regime \textit{home office} e uso de equipamentos e infraestrutura próprios da equipe, apresentando os custos efetivos. Adicionalmente, também, apresenta projeções para um contexto comercial, incluindo custos indiretos. Essa abordagem tem como objetivo avaliar a factibilidade do projeto tanto para a aplicação imediata na pousada quanto para futuras possíveis expansões ou adaptações do sistema.
 
-\section{Custos} Neste tópico são apresentados os custos financeiros envolvidos no desenvolvimento do sistema web de gestão da Pousada Chalés Água de Coco. Contempla tanto os custos estruturais quanto os relacionados a serviços e pessoal.
+
+\section{Custos} 
+O levantamento dos custos relacionados ao projeto considerou os dois contextos em que ele se aplica: como extensão acadêmica e a projeção para ambiente comercial. Dentro do período de 9 meses de desenvolvimento (correspondente ao tempo total estimado de projeto). E, adotando os seguinte critérios: cotações oficiais de serviços e \textit{softwares} disponíveis publicamente em seus sites institucionais; valores de mercado obtidos através de pesquisas salariais em plataformas especializadas; estimativas de consumo de energia elétrica baseadas em especificações técnicas dos equipamentos; e cálculos de depreciação fundamentados na vida útil padrão dos equipamentos tecnológicos utilizados.
+
 
 \subsection{Custo Estrutural}
-A parte de custos por estrutura está divida entre Equipamentos e Serviços, que diz respeito aos equipamentos e serviços necessários para que cada colaborador do time consiga desempenhar suas funções. E Infraestrutura, que aborda os custos relativos a sustentação do sistema.
+Os custos estruturais englobam os ativos e serviços necessários para o desenvolvimento e implantação do sistema. Isso inclui desde os equipamentos (\textit{hardware}) utilizados pela equipe até os serviços de hospedagem, domínios e licenças de \textit{software} (serviços e infraestrutura).
 
-Considerando que a equipe trabalha no regime \textit{home office} e utiliza seus próprios equipamentos, entendemos os gastos como nulos. Partindo assim para tarifas referentes a energia e internet~\cite{anatel-anexo}.
-Já nos custos indicados na parte de infraestrutura foram considerados nulos pois o sistema será desenvolvido utilizando serviços gratuito (lembrando que essa análise se trata de uma estimativa, e que caso haja alguma mudança significativa no projeto ou necessidade de serviços pagos, esses custos podem mudar)~\cite{enel-tarifa}.
+Para análise desses custos, a \autoref{tab:custos-estruturais} consolida todos esses itens, distinguindo os custos efetivos no contexto acadêmico dos custos estimados para uma implementação comercial.
+
 
 \begin{table}[H]
 	\centering
-	\caption{Resumo dos custos de Equipamentos e Serviços}
-	\label{tab:equipamentos-servicos}
-	\begin{tabular}{|l|c|r|r|r|}
-		\hline
-		\textbf{Itens} & \textbf{Quantidade} & \textbf{Custo mensal} & \textbf{Total 4 meses} & \textbf{Total 9 meses} \\
-		\hline
-		Notebooks & 6 & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
-		\hline
-		Roteadores & 6 & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
-		\hline
-		Internet (Assinatura) & 6 & R\$ 114,97 & R\$ 2.759,28 & R\$ 6.208,38 \\
-		\hline
-		Eletricidade (Fatura) & 6 & R\$ 3,44 & R\$ 82,56 & R\$ 185,76 \\
-		\hline
-		\textbf{Total} & 24 & R\$ 118,41 & R\$ 2.841,84 & R\$ 6.394,14 \\
-		\hline
-	\end{tabular}
+	\caption{Resumo dos custos estruturais}
+	\label{tab:custos-estruturais}
+	\adjustbox{max width=\textwidth}{
+		\begin{tabular}{|>{\RaggedRight\arraybackslash}p{5.5cm}|c|c|c|c|}
+			\hline
+			\textbf{Item} & \textbf{Tipo} & \textbf{Qtd.} & \textbf{Custo Efetivo} & \textbf{Custo Estimado} 
+			\\
+			\hline
+			Notebooks & Equipamento & 5 & R\$ 0,00 & R\$ 17.500,00/único 
+			\\
+			\hline
+			Depreciação Notebooks &	Custo indireto&	5 &	R\$ 0,00 & R\$ 291,65/ mês
+			\\
+			\hline
+			Roteadores&Equipamento&	5&	R\$ 0,00 &	R\$ 750,00/único 
+			\\
+			\hline
+			Internet&Infraestrutura&5&	R\$ 0,00 &	R\$ 574,85/ mês
+			\\
+			\hline
+			Eletricidade&Infraestrutura&	5&	R\$ 0,00 & R\$ 17,20/mês
+			\\
+			\hline
+			Hospedagem em Nuvem	& Serviço	&1&	R\$ 0,00 &	R\$ 0,00 
+			\\
+			\hline
+			Total (9 meses)	& - & -	&	R\$ 0.00	&	26.234,00
+			\\
+			\hline
+		\end{tabular}
+	}
 	\fonte{Elaborado pelos autores}
 \end{table}
 
-\begin{table}[H]
-	\centering
-	\caption{Resumo dos custos de Infraestrutura}
-	\label{tab:infraestrutura}
-	\begin{tabular}{|l|l|r|r|r|}
-		\hline
-		\textbf{Tipo} & \textbf{Serviço} & \textbf{Mensal} & \textbf{Total 4 meses} & \textbf{Total 9 meses} \\
-		\hline
-		Proxy Reverso & Servidor Nginx & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
-		\hline
-		Aplicação & Servidor Gunicorn & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
-		\hline
-		Framework Web & Servidor Django & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
-		\hline
-		Banco de Dados & PostgreSQL & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
-		\hline
-		Hospedagem & AWS & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
-		\hline
-		\textbf{Total} & & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
-		\hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{table}
+A \autoref{tab:custos-estruturais} evidencia a disparidade entre os dois cenários aplicados no projeto. No contexto acadêmico, o custo estrutural direto foi nulo (R\$ 0,00), viabilizado pela utilização de recursos preexistentes da equipe, serviços com planos gratuitos e \textit{softwares} de código aberto.
+
+Em contrapartida, uma operação comercial exigiria um investimento inicial de R\$ 18.250,00 para aquisição de equipamentos. Adicionalmente, haveria custos operacionais mensais recorrentes estimados em R\$ 883,70 (somando depreciação, energia, internet e hospedagem). As estimativas dos custos comerciais dos equipamentos de \textit{hardware} consideraram valores médios do mercado de cana unidade. Os valores mensais de infraestrutura (eletricidade e internet) foram estimados através do custo médio local de tarifas de energia (consumo por kWh) e planos mensais de internet \cite{anatel-anexo, enel-tarifa}. Enquanto, o cálculo de depreciação linear dos 5 notebooks considerou vida útil de 5 anos (taxa de 20\% a.a.) \cite{receita-norma}.
+
+
+\begin{comment}
+	\begin{table}[H]
+		\centering
+		\caption{Resumo dos custos de Infraestrutura}
+		\label{tab:infraestrutura}
+		\begin{tabular}{|l|l|r|r|r|}
+			\hline
+			\textbf{Tipo} & \textbf{Serviço} & \textbf{Mensal} & \textbf{Total 4 meses} & \textbf{Total 9 meses} \\
+			\hline
+			Proxy Reverso & Servidor Nginx & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+			\hline
+			Aplicação & Servidor Gunicorn & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+			\hline
+			Framework Web & Servidor Django & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+			\hline
+			Banco de Dados & PostgreSQL & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+			\hline
+			Hospedagem & AWS & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+			\hline
+			\textbf{Total} & & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
+			\hline
+		\end{tabular}
+		\fonte{Elaborado pelos autores.}
+	\end{table}
+\end{comment}
 
 \subsection{Custo de Pessoal}
+O levantamento de custos de pessoal focou no cenário comercial, visto que, enquanto projeto acadêmico, a mão de obra é voluntária e resulta em um custo nulo para a pousada. Diante disso, foram obtidos dados salariais em plataformas especializadas para projetar os custos associados ao sistema em  ambiente comercial \cite{glassdoor2025, indeed2025}. 
 
-A \autoref{tab:mao-de-obra-horas} detalha com os custos referentes a mão de obra do desenvolvimento do projeto. 
-Na primeira coluna temos a especificação dos papéis de cada profissional, em seguida quantidade de pessoas por cargo, horas trabalhadas ao dia e dias trabalhados ao mês(média).
-Também podemos checar o preço por hora de cada profissional, assim finalizamos com as estimativas de custo mensal, total 4 meses (correspondente ao tempo em que a equipe já trabalhou no projeto até então) e projeção 9 meses (correspondente ao tempo total estimado de projeto).
+A \autoref{tab:mao-de-obra-horas} reúne os custos referentes a mão de obra do desenvolvimento do projeto, no contexto comercial. 
+Nela são especificados: funções ocupadas pelos membros da equipe, seguida por quantidade de pessoas por cargo, horas trabalhadas ao dia e dias trabalhados ao mês(média). Enquanto a \autoref{tab:mao-de-obra-custos} detalha: o preço por hora de cada profissional. A partir disso, faz-se as estimativas de custo mensal, total 4 meses e projeção 9 meses (correspondente ao tempo total estimado de projeto).
 
 % Tabela 1 - Dados de horas
 \begin{table}[H]
@@ -2004,8 +2028,6 @@ Também podemos checar o preço por hora de cada profissional, assim finalizamos
 		\begin{tabular}{|>{\RaggedRight\arraybackslash}p{5.5cm}|c|c|c|c|}
 			\hline
 			\textbf{Função} & \textbf{Quantidade} & \textbf{Horas/Dia} & \textbf{Dias/Mês} & \textbf{Total de Horas/Mês} \\
-			\hline
-			Analista de Cronograma (PMO)     & 1 & 6 & 22 & 132 \\
 			\hline
 			Engenheiro de Dados (DBA)        & 1 & 6 & 22 & 132 \\
 			\hline
@@ -2033,11 +2055,9 @@ Também podemos checar o preço por hora de cada profissional, assim finalizamos
 			\hline
 			\textbf{Função} & \textbf{Custo Hora (R\$)} & \textbf{Custo Mensal (R\$)} & \textbf{Total 4 meses (R\$)} & \textbf{Total 9 meses (R\$)} \\
 			\hline
-			Analista de Cronograma (PMO)     & 16,00 & 2.112,00 & 8.448,00 & 19.008,00 \\
+			Analista de QA  & 15,86 & 2.093,85 & 8.375,40 & 18.844,65 \\
 			\hline
-			Engenheiro de Dados (DBA)        & 13,00 & 1.716,00 & 6.864,00 & 15.444,00 \\
-			\hline
-			Analista de Documentação         & 15,00 & 1.980,00 & 7.920,00 & 17.820,00 \\
+			Engenheiro de Software & 18,75 & 2.475,00 & 9.900,00 & 22.275,00 \\
 			\hline
 			Gerente de Projeto (PM)          & 16,00 & 2.112,00 & 8.448,00 & 19.008,00 \\
 			\hline
@@ -2045,7 +2065,7 @@ Também podemos checar o preço por hora de cada profissional, assim finalizamos
 			\hline
 			Desenvolvedor Back-End           & 13,00 & 1.716,00 & 6.864,00 & 15.444,00 \\
 			\hline
-			\textbf{Total Mão de Obra}       & 86,00 & 11.352,00 & 45.408,00 & 102.168,00 \\
+			\textbf{Total Mão de Obra}       & 86,00 & 10.112,85 & 40.451,40 & 91.015,65 \\
 			\hline
 		\end{tabular}
 	}

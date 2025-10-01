@@ -57,5 +57,8 @@
 \backcite {aws-doc}{{61}{4.7.2}{subsection.4.7.2}}
 \backcite {rfc-tls}{{62}{4.7.2}{subsection.4.7.2}}
 \backcite {repositorio}{{65}{4.9.1}{Item.62}}
-\backcite {anatel-anexo}{{68}{5.1.1}{subsection.5.1.1}}
-\backcite {enel-tarifa}{{68}{5.1.1}{subsection.5.1.1}}
+\backcite {anatel-anexo, enel-tarifa}{{69}{5.1.1}{table.caption.14}}
+\backcite {anatel-anexo, enel-tarifa}{{69}{5.1.1}{table.caption.14}}
+\backcite {receita-norma}{{69}{5.1.1}{table.caption.14}}
+\backcite {glassdoor2025, indeed2025}{{69}{5.1.2}{subsection.5.1.2}}
+\backcite {glassdoor2025, indeed2025}{{69}{5.1.2}{subsection.5.1.2}}
