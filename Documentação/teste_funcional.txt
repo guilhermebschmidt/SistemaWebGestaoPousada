@@ -1,82 +1,6 @@
-# Plano de Testes Funcionais
+### 1 Casos de Teste
 
----
-
-### 1. Introdução
-
-O presente documento descreve o Plano de Testes Funcionais do sistema de hospedagem, desenvolvido em Django.
-O objetivo é validar o funcionamento de todas as funcionalidades críticas sob a ótica do usuário final, garantindo que os requisitos de negócio sejam atendidos e que o sistema esteja pronto para utilização em produção.
-
-
----
-
-### 2. Objetivos
-
-Validar o correto funcionamento do sistema do ponto de vista do cliente/usuário.
-
-Garantir que as regras de negócio sejam respeitadas em todos os módulos (Hóspede, Quarto e Reserva).
-
-Testar a integração entre os módulos e os fluxos end-to-end.
-
-Detectar falhas e inconsistências antes da entrega final.
-
-
-
----
-
-### 3. Escopo
-
-Os testes contemplam:
-
-Gestão de Hóspedes: cadastro, edição, consulta, pesquisa e exclusão.
-
-Gestão de Quartos: cadastro, edição, consulta, pesquisa, alteração de status e exclusão.
-
-Gestão de Reservas: criação, edição, consulta, exclusão, check-in e check-out.
-
-Regras de Negócio: disponibilidade de quartos, validação de datas, unicidade de registros.
-
-Fluxos End-to-End: interações completas entre hóspede, quarto e reserva.
-
-
-Não estão no escopo: testes de performance, segurança ou testes de carga.
-
-
----
-
-### 4. Metodologia
-
-Abordagem Manual: simulação de uso real do sistema pelo cliente.
-
-Abordagem Automatizada: suporte com testes unitários existentes (forms, models e views).
-
-Ferramentas: Pytest + Django Test Client (para automação).
-
-Cada caso de teste possui ID, pré-condição, passos e resultado esperado.
-
-
-
----
-
-### 5. Critérios de Aceite
-
-Todas as funcionalidades críticas devem estar operacionais.
-
-Campos obrigatórios não podem ser deixados em branco.
-
-O sistema deve rejeitar entradas inválidas e apresentar mensagens claras de erro.
-
-Regras de negócio devem ser aplicadas corretamente (ex.: reservas sobrepostas, datas inconsistentes).
-
-Fluxos end-to-end devem ser concluídos com sucesso.
-
-
-
----
-
-### 6. Casos de Teste
-
-#### 6.1 Gestão de Hóspedes
+#### 1.1 Gestão de Hóspedes
 
 ID	Caso de Teste	Pré-condição	Passos	Resultado Esperado
 
@@ -90,7 +14,7 @@ CT-H05	Pesquisa de hóspede	Hóspede cadastrado	Buscar pelo nome em campo de pes
 
 ---
 
-#### 6.2 Gestão de Quartos
+#### 1.2 Gestão de Quartos
 
 ID	Caso de Teste	Pré-condição	Passos	Resultado Esperado
 
@@ -103,7 +27,7 @@ CT-Q04	Exclusão de quarto com reserva ativa	Quarto com reserva vinculada	Tentar
 
 ---
 
-#### 6.3 Gestão de Reservas
+#### 1.3 Gestão de Reservas
 
 ID	Caso de Teste	Pré-condição	Passos	Resultado Esperado
 
@@ -120,7 +44,7 @@ CT-R08	Pesquisa de reservas por hóspede	Reserva cadastrada	Buscar pelo nome do 
 
 ---
 
-#### 6.4 Fluxos End-to-End
+#### 1.4 Fluxos End-to-End
 
 ID	Caso de Teste	Passos	Resultado Esperado
 
@@ -132,7 +56,7 @@ CT-F03	Atualização de quarto em manutenção	Criar reserva → tentar alterar 
 
 ---
 
-### 7. Relatório de Testes
+### 2. Relatório de Testes
 
 Cada caso de teste será registrado com status: Aprovado (✓) ou Reprovado (✗).
 
@@ -144,7 +68,7 @@ O relatório consolidado será entregue ao cliente após a execução.
 
 ---
 
-### 8. Conclusão
+### 3. Conclusão
 
 Este plano garante a validação end-to-end do sistema, assegurando confiabilidade, integridade e aderência às regras de negócio.
 A execução permitirá identificar falhas antes da entrada em produção e oferecer maior segurança na entrega ao cliente final.
