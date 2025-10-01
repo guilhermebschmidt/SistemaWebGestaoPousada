@@ -5,34 +5,37 @@
 {% block head_title %}Entrar{% endblock head_title %}
 
 {% block content %}
-<div class="flex flex-col items-center gap-10 text-center">
-    <div>
-        <h1 class="text-xl font-bold">Nome da Pousada</h1>
-        <p class="py-6 text-lg">Bem-vinda ao painel de gestão</p>
-    </div>
-
+<div class="flex flex-col items-center gap-16 text-left">
     <div class="card shrink-0 w-full max-w-xs shadow-2xl bg-base-100">
-        <form class="card-body items-center" method="POST" action="{% url 'account_login' %}">
+        <form class="card-body" method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
-            <p class="text-8xl font-bold">Acesse sua conta para continuar</p>
-            
+            <div class="text-center">
+            <img src="{% static 'imagens/logo.png' %}" 
+             alt="Logo da Pousada Chalés Água de Coco" 
+             class="mx-auto w-32 h-auto mb-4">
+            <h2 class="text-3xl font-bold tex'center">Bem-vinda</h2>
+            <h3 class="text-1xl ">Acesse sua conta para continuar</h3>
+            </div>
+
+            <div class="my-2"></div>
+
             {% if form.non_field_errors %}
             <div role="alert" class="alert alert-error mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 <span>{{ form.non_field_errors|striptags }}</span>
             </div>
             {% endif %}
-
+            
             {% include "partials/form_field.html" with field=form.login %}
             {% include "partials/form_field.html" with field=form.password %}
             {% include "partials/form_field.html" with field=form.remember %}
             
-            <div class="form-control mt-6">
+            <div class="form-control mt-8 text-center">
                 <button type="submit" class="btn btn-primary">Entrar</button>
             </div>
 
             <div class="text-center mt-4">
-                <a href="{% url 'account_reset_password' %}" class="link link-hover text-sm">Esqueceu a senha?</a>
+                <a href="{% url 'account_reset_password' %}" class="link link-hover text-sm underline">Esqueceu a senha?</a>
             </div>
         </form>
     </div>

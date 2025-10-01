@@ -51,7 +51,9 @@ INSTALLED_APPS = [
     #apps locais
     'apps.core',
     'apps.financeiro',
-    'apps.usuarios'
+    'apps.usuarios',
+
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -175,8 +177,8 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login/' 
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_SIGNUP_FIELDS = ["email*", "password1*", "password2*"]
-ACCOUNT_LOGIN_METHODS = {"email"}
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
+ACCOUNT_LOGIN_METHODS = {'email'}
 ACCOUNT_EMAIL_VERIFICATION = "none"
 
 

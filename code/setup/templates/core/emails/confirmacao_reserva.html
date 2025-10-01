@@ -10,9 +10,9 @@
     <h3>Detalhes da Reserva</h3>
     <ul>
         <li><strong>Nº da Reserva:</strong> {{ reserva.id }}</li>
-        <li><strong>Quarto:</strong> {{ reserva.id_quarto.numero }} ({{ reserva.id_quarto.tipo.nome }})</li>
-        <li><strong>Check-in:</strong> {{ reserva.data_check_in }}</li>
-        <li><strong>Check-out:</strong> {{ reserva.data_check_out }}</li>
+        <li><strong>Quarto:</strong> {{ reserva.id_quarto.descricao}}</li>
+        <li><strong>Data de Check-in:</strong> {{ reserva.data_reserva_inicio }}</li>    
+        <li><strong>Data de Check-out:</strong> {{ reserva.data_reserva_fim }}</li>
         <li><strong>Valor Total:</strong> R$ {{ reserva.valor }}</li>
     </ul>
     <hr>

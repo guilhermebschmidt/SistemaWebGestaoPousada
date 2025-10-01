@@ -9,8 +9,7 @@ from django.utils.crypto import get_random_string
 class StyleFormMixin:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
-        text_input_class = "input input-bordered w-full"
+        text_input_class = "input input-bordered w-full shadow-sm rounded-lg"
         checkbox_class = "checkbox"
 
         for field_name, field in self.fields.items():
@@ -20,7 +19,7 @@ class StyleFormMixin:
             elif isinstance(widget, forms.CheckboxInput):
                 widget.attrs.update({"class": checkbox_class})
 
-class CustomLoginForm(LoginForm):
+class CustomLoginForm(StyleFormMixin, LoginForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)   
         self.fields['login'].label = "Email"
@@ -81,32 +80,31 @@ class CustomLoginForm(LoginForm):
             user.save()
             return user"""
 
-class CustomChangePasswordForm(ChangePasswordForm):
-    def __init__(self, *args, **kwargs):
+class CustomChangePasswordForm(StyleFormMixin,ChangePasswordForm):
+     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['oldpassword'].label = "Senha Atual"
-        self.fields['oldpassword'].widget = forms.PasswordInput(attrs={
-            "class": "input input-bordered w-full",
+        self.fields['oldpassword'].widget.attrs.update({
             "placeholder": "Digite sua senha atual"
         })
+        
         self.fields['password1'].label = "Nova Senha"
-        self.fields['password1'].widget = forms.PasswordInput(attrs={
-            "class": "input input-bordered w-full",
+        self.fields['password1'].widget.attrs.update({
             "placeholder": "Digite a nova senha"
         })
+
         self.fields['password2'].label = "Confirme a Nova Senha"
-        self.fields['password2'].widget = forms.PasswordInput(attrs={
-            "class": "input input-bordered w-full",
+        self.fields['password2'].widget.attrs.update({
             "placeholder": "Confirme a nova senha"
         })
     
-class CustomResetPasswordForm(ResetPasswordForm):
+class CustomResetPasswordForm(StyleFormMixin, ResetPasswordForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['email'].label = "Email"
         self.fields['email'].widget.attrs.update({"placeholder": "Digite seu e-mail de cadastro"})
 
-class CustomSetPasswordForm(SetPasswordForm):
+class CustomSetPasswordForm(StyleFormMixin, SetPasswordForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['new_password1'].label = "Nova Senha"
