@@ -1937,7 +1937,7 @@ Este capítulo apresenta o estudo de viabilidade financeira do sistema de gestã
 
 
 \section{Custos} 
-O levantamento dos custos relacionados ao projeto considerou os dois contextos em que ele se aplica: como extensão acadêmica e a projeção para ambiente comercial. Dentro do período de 9 meses de desenvolvimento (correspondente ao tempo total estimado de projeto). E, adotando os seguinte critérios: cotações oficiais de serviços e \textit{softwares} disponíveis publicamente em seus sites institucionais; valores de mercado obtidos através de pesquisas salariais em plataformas especializadas; estimativas de consumo de energia elétrica baseadas em especificações técnicas dos equipamentos; e cálculos de depreciação fundamentados na vida útil padrão dos equipamentos tecnológicos utilizados.
+O levantamento dos custos relacionados ao projeto considerou os dois contextos em que ele se aplica: como extensão acadêmica e a projeção para ambiente comercial. Dentro do período de 9 meses de desenvolvimento (correspondente ao tempo total estimado de projeto). E, adotando os seguinte critérios: cotações oficiais de serviços e \textit{softwares} disponíveis publicamente em seus sites institucionais; valores de mercado obtidos através de pesquisas salariais em plataformas especializadas; estimativas de consumo de energia elétrica baseadas em especificações técnicas dos equipamentos e tarifas locais; e cálculos de depreciação fundamentados na vida útil padrão dos equipamentos tecnológicos utilizados.
 
 
 \subsection{Custo Estrutural}
@@ -1982,9 +1982,9 @@ Para análise desses custos, a \autoref{tab:custos-estruturais} consolida todos 
 	\fonte{Elaborado pelos autores}
 \end{table}
 
-A \autoref{tab:custos-estruturais} evidencia a disparidade entre os dois cenários aplicados no projeto. No contexto acadêmico, o custo estrutural direto foi nulo (R\$ 0,00), viabilizado pela utilização de recursos preexistentes da equipe, serviços com planos gratuitos e \textit{softwares} de código aberto.
+A \autoref{tab:custos-estruturais} evidencia a disparidade entre os dois cenários aplicados no projeto. No contexto acadêmico, o custo estrutural direto foi nulo (R\$ 0,00), viabilizado pela utilização de recursos preexistentes da equipe, planos gratuitos de serviços e \textit{softwares} de código aberto.
 
-Em contrapartida, uma operação comercial exigiria um investimento inicial de R\$ 18.250,00 para aquisição de equipamentos. Adicionalmente, haveria custos operacionais mensais recorrentes estimados em R\$ 883,70 (somando depreciação, energia, internet e hospedagem). As estimativas dos custos comerciais dos equipamentos de \textit{hardware} consideraram valores médios do mercado de cana unidade. Os valores mensais de infraestrutura (eletricidade e internet) foram estimados através do custo médio local de tarifas de energia (consumo por kWh) e planos mensais de internet \cite{anatel-anexo, enel-tarifa}. Enquanto, o cálculo de depreciação linear dos 5 notebooks considerou vida útil de 5 anos (taxa de 20\% a.a.) \cite{receita-norma}.
+Em contrapartida, uma operação comercial exigiria um investimento inicial de R\$ 18.250,00 para aquisição de equipamentos. Adicionalmente, haveria custos operacionais mensais recorrentes estimados em R\$ 883,70 (somando depreciação, energia, internet e hospedagem). As estimativas dos custos comerciais dos equipamentos de \textit{hardware} consideraram valores médios do mercado de cana unidade. Os valores mensais de infraestrutura (eletricidade e internet) foram estimados através do custo médio local de tarifas de energia (consumo por kWh) e planos mensais de internet \cite{anatel-anexo, enel-tarifa}. Enquanto, o cálculo de depreciação linear dos 5 notebooks considerou vida útil de 5 anos com uma taxa de 20\% ao ano para cada \cite{receita-norma}.
 
 
 \begin{comment}
@@ -2014,10 +2014,10 @@ Em contrapartida, uma operação comercial exigiria um investimento inicial de R
 \end{comment}
 
 \subsection{Custo de Pessoal}
-O levantamento de custos de pessoal focou no cenário comercial, visto que, enquanto projeto acadêmico, a mão de obra é voluntária e resulta em um custo nulo para a pousada. Diante disso, foram obtidos dados salariais em plataformas especializadas para projetar os custos associados ao sistema em  ambiente comercial \cite{glassdoor2025, indeed2025}. 
+O levantamento de custos de pessoal focou no cenário comercial, visto que, enquanto projeto acadêmico, a mão de obra é voluntária e resulta em um custo inicial nulo para a pousada. Diante disso, foram obtidos dados salariais em plataformas especializadas para projetar os custos associados ao sistema em  ambiente comercial \cite{glassdoor2025, indeed2025}. 
 
 A \autoref{tab:mao-de-obra-horas} reúne os custos referentes a mão de obra do desenvolvimento do projeto, no contexto comercial. 
-Nela são especificados: funções ocupadas pelos membros da equipe, seguida por quantidade de pessoas por cargo, horas trabalhadas ao dia e dias trabalhados ao mês(média). Enquanto a \autoref{tab:mao-de-obra-custos} detalha: o preço por hora de cada profissional. A partir disso, faz-se as estimativas de custo mensal, total 4 meses e projeção 9 meses (correspondente ao tempo total estimado de projeto).
+Nela são especificados: funções ocupadas pelos membros da equipe, seguida por quantidade de pessoas por cargo, horas trabalhadas por dia e dias trabalhados por mês(média). Enquanto a \autoref{tab:mao-de-obra-custos} detalha: o preço por hora de cada profissional. A partir disso, faz-se as estimativas de custo mensal e a projeção em 4 meses e 9 meses.
 
 % Tabela 1 - Dados de horas
 \begin{table}[H]
@@ -2065,19 +2065,21 @@ Nela são especificados: funções ocupadas pelos membros da equipe, seguida por
 			\hline
 			Desenvolvedor Back-End           & 13,00 & 1.716,00 & 6.864,00 & 15.444,00 \\
 			\hline
-			\textbf{Total Mão de Obra}       & 86,00 & 10.112,85 & 40.451,40 & 91.015,65 \\
+			\textbf{Total Mão de Obra}       & 76,61 & 10.112,85 & 46.451,7 & 91.015,65 \\
 			\hline
 		\end{tabular}
 	}
 	\fonte{Elaborado pelos autores.}
 \end{table}
 
-\subsection{Custo Total}
+A projeção de custos de pessoal levou em consideração os períodos de 4 e 9 meses, pois foram momentos importantes no desenvolvimento. Nos primeiros 4 meses foi desenvolvido e entregue o MVP do projeto, enquanto que o período de 9 meses representa o tempo disponível para o planejamento, desenvolvimento e implantação do sistema. Permitindo, assim, uma visão mais ampla dos custos de mão de obra.
 
-A \autoref{tab:custo-total} tem a junção dos custos por mão de obra e custos por estrutura, sendo visualizadas em 3 períodos diferentes:
-Custo Mensal - Referente a gastos de um único mês.
-Custo Total (4 meses) - Custos referentes aos meses que foram trabalhados até a data de escrita deste texto.
-Custo Total (9 meses) - Custos referentes ao total de meses programado para a realização do projeto.
+Enquanto que,  os cargos representam os papéis necessários e atuados para a entrega do sistema projetado, de forma que, os valores levantados são referentes a salários de profissionais júnior. Assim como a quantidade de horas e dias trabalhados, que representam o tempo investido efetivamento pela equipe no atual projeto.
+
+Portanto, em um cenário de implementação comercial e baseado nos dados coletados, a pousada parceira teria um investimento mínimo para mão de obra de R\$ 46.451,70 no primeiro quadrimestre e um total de R\$ 91.015,00 para todo o processo.
+%
+\subsection{Custo Total}
+O custo total do projeto representa a somatória dos custos estruturais e de pessoal para a realização do projeto. Essa despesa integral está demonstrada na  \autoref{tab:custo-total} que une os custos por mão de obra e custos por estrutura em 3 períodos diferentes: mensal — valor referente a gastos de um único mês; 4 meses — valor referente primeiro quadrimestre trabalhado até a entrega do MVP; e 9 meses — referente ao total de meses programado para a realização do projeto.
 
 \begin{table}[h!]
 	\centering
@@ -2088,15 +2090,19 @@ Custo Total (9 meses) - Custos referentes ao total de meses programado para a re
 			\hline
 			\textbf{Categoria} & \textbf{Custo Mensal (R\$)} & \textbf{Custo Total (4 meses) (R\$)} & \textbf{Custo Total (9 meses) (R\$)} \\
 			\hline
-			Mão de Obra & 11.352,00 & 45.408,00 & 102.168,00 \\
-			Estrutura   & 710,46    & 2.841,84  & 6.394,14 \\
+			Mão de Obra & 10.112,85 & 46.451,7 & 91.015,65 \\
+			Estrutura   & 883,70    & 3.534,80  & 7.953,30 \\
 			\hline
-			\textbf{Total} & 12.062,46 & 48.249,84 & 108.562,14 \\
+			\textbf{Total} & 10.996,55 & 49.986,5 &  98.968,95 \\
 			\hline
 		\end{tabular}
 	}
 	\fonte{Elaborado pelos autores.}
 \end{table}
+
+Dessa forma, contabilizando os custos estruturais e de pessoal, a pousada teria que destinar o valor mínimo inicial de R\$ 98.968,95 para o atual projeto. 
+
+\begin{comment}
 
 \section{Cenários}
 Esse tópico documenta os custos estimados em relação aos diferentes cenários financeiros que podem ser enfrentados, durante o desenvolvimento da solução proposta, pela equipe.
@@ -2360,6 +2366,8 @@ Na \autoref{fig:custo-receita-realista} é possível observar a projeção const
 	\fonte{Elaborado pelos autores.}
 	\label{fig:custo-receita-realista}
 \end{figure}
+
+\end{comment}
 
 \chapter{Considerações Finais}
 
