@@ -7,8 +7,24 @@ from django.utils import timezone
 from django.http import JsonResponse
 
 def list(request):
-    reservas = Reserva.objects.all()
-    return render(request, 'core/reserva/list.html', {'reservas': reservas})
+    filtro_status = request.GET.get('status', 'todos')
+    filtro_hospede = request.GET.get('hospede', '') 
+    
+    reservas = Reserva.objects.all().order_by('data_reserva_inicio')
+
+    if filtro_status != 'todos':
+        reservas = reservas.filter(status=filtro_status)
+        
+    if filtro_hospede:
+        reservas = reservas.filter(id_hospede__nome__icontains=filtro_hospede)
+
+    context = {
+        'reservas': reservas,
+        'filtro_status': filtro_status,
+        'filtro_hospede': filtro_hospede,
+    }
+
+    return render(request, 'core/reserva/list.html', context)
 
 def list_checkin(request):
     hoje = datetime.date.today()
@@ -31,7 +47,6 @@ def add(request):
 
     return render(request, 'core/reserva/form.html', {'form': form})
 
-
 def update(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
 
@@ -44,7 +59,6 @@ def update(request, pk):
         form = ReservaForm(instance=reserva)
 
     return render(request, 'core/reserva/form.html', {'form': form, 'reserva': reserva})
-
 
 def cancelar_reserva(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)

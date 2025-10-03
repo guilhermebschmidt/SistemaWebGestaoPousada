@@ -12,6 +12,43 @@
         </a>
     </div>
 
+<div class="card bg-base-100 shadow-sm">
+    <div class="card-body p-4">
+        <form method="GET" action="{% url 'reserva:list' %}" class="flex flex-col sm:flex-row items-center gap-4">
+            <div class="form-control w-full sm:w-auto flex-grow">
+                <label class="label" for="hospede">
+                    <span class="label-text">Nome do Hóspede</span>
+                </label>
+                <input type="text" 
+                       name="hospede" 
+                       id="hospede" 
+                       placeholder="Buscar por nome..." 
+                       class="input input-bordered"
+                       value="{{ filtro_hospede|default:'' }}"> 
+            </div>
+
+            <div class="form-control w-full sm:w-auto">
+                <label class="label" for="status">
+                    <span class="label-text">Status da Reserva</span>
+                </label>
+                <select name="status" id="status" class="select select-bordered">
+                    <option value="todos" {% if filtro_status == 'todos' %}selected{% endif %}>Todos os Status</option>
+                    <option value="PREVISTA" {% if filtro_status == 'PREVISTA' %}selected{% endif %}>Prevista</option>
+                    <option value="CONFIRMADA" {% if filtro_status == 'CONFIRMADA' %}selected{% endif %}>Confirmada</option>
+                    <option value="ATIVA" {% if filtro_status == 'ATIVA' %}selected{% endif %}>Ativa</option>
+                    <option value="CONCLUÍDA" {% if filtro_status == 'CONCLUÍDA' %}selected{% endif %}>Concluída</option>
+                    <option value="CANCELADA" {% if filtro_status == 'CANCELADA' %}selected{% endif %}>Cancelada</option>
+                </select>
+            </div>
+
+            <div class="form-control w-full sm:w-auto mt-auto">
+                <button type="submit" class="btn btn-primary w-full">Filtrar</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
     <div class="overflow-x-auto bg-base-100 rounded-lg shadow">
         <table class="table">
             <thead>
@@ -120,13 +157,10 @@
         const modal = document.getElementById('modal-cancelamento');
         const form = document.getElementById('form-cancelamento');
 
-        // Define o ID da reserva no campo hidden do formulário
         document.getElementById('reserva-id-input').value = reservaId;
 
-        // Define a URL de ação do formulário para a view de delete
         form.action = `{% url 'reserva:delete' pk=0 %}`.replace('0', reservaId);
 
-        // Exibe o modal
         modal.classList.remove('hidden');
         modal.classList.add('flex');
     }
