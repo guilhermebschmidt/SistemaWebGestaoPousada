@@ -5,6 +5,7 @@ from ..forms.reserva  import ReservaForm
 import datetime
 from django.utils import timezone
 from django.http import JsonResponse
+from django.contrib import messages
 
 def list(request):
     filtro_status = request.GET.get('status', 'todos')
@@ -62,12 +63,21 @@ def update(request, pk):
 
 def cancelar_reserva(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
+    if reserva.status in ['CANCELADA', 'CONCLUIDA']:
+        messages.error(request, f"A reserva #{pk} não pode ser cancelada, pois já está {reserva.status}.")
+        return redirect('reserva:list')
+
+    if reserva.data_check_in or reserva.data_check_out:
+        messages.error(request, f"A reserva #{pk} já possui registro de Check-in/Check-out e não pode ser cancelada.")
+        return redirect('reserva:list')
     if request.method != 'POST':
         return render(request, 'core/reserva/confirmar_cancelamento.html', {'reserva': reserva})
+    
     motivo = request.POST.get('motivo_cancelamento', 'Motivo não especificado.')
     reserva.status = 'CANCELADA'
     reserva.motivo_cancelamento = motivo
     reserva.save()
+    messages.success(request, f"A reserva #{pk} foi cancelada com sucesso.")
     return redirect('reserva:list')
 
 def search(request):

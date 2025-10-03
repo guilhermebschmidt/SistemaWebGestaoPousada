@@ -83,12 +83,26 @@
                         {% endif %}
                     </td>
                     <td class="flex gap-2">
-                        <a href="{% url 'reserva:update' reserva.id %}" class="btn btn-warning btn-sm" title="Editar Reserva">
-                            <i class="fas fa-edit">Editar</i>
-                        </a>
-                        <button onclick="abrirModalCancelamento('{{ reserva.id }}')" class="btn btn-error btn-sm" title="Cancelar Reserva">
-                            <i class="fas fa-trash">Cancelar</i>
-                        </button>
+                        {% if reserva.status not in 'CANCELADA' and reserva.status not in 'CONCLUIDA' %}
+                            <a href="{% url 'reserva:update' reserva.id %}" class="btn btn-warning btn-sm" title="Editar Reserva">
+                                <i class="fas fa-edit">Editar</i>
+                            </a>
+                        {% else %}
+                            <span class="btn btn-warning btn-sm btn-disabled" title="Não pode ser editada">Editar</span>
+                        {% endif %}
+                        {% if reserva.status == 'CANCELADA' or reserva.status == 'CONCLUIDA' %}
+                            <button class="btn btn-error btn-sm btn-disabled" title="Ação indisponível">
+                                <i class="fas fa-trash">Cancelada</i>
+                            </button>
+                        {% elif reserva.data_check_in or reserva.data_check_out %}
+                            <button class="btn btn-error btn-sm btn-disabled" title="Reserva em andamento ou finalizada">
+                                <i class="fas fa-trash">Cancelar</i>
+                            </button>
+                        {% else %}
+                            <button onclick="abrirModalCancelamento('{{ reserva.id }}')" class="btn btn-error btn-sm" title="Cancelar Reserva">
+                                <i class="fas fa-trash">Cancelar</i>
+                            </button>
+                        {% endif %}    
                     </td>
                 </tr>
                 {% empty %}
