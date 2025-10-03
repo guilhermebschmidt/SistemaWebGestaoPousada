@@ -114,37 +114,56 @@
         </table>
     </div>
 </div>
-<div id="modal-motivo" class="modal">
-    <div class="modal-content">
-        <span class="fechar">&times;</span>
-        <h3>Motivo do Cancelamento</h3>
-        <p id="motivo-texto"></p>
+<div id="modal-motivo" class="modal"> 
+    <div class="modal-box">
+        <div class="flex justify-between items-start">
+            <h3 class="font-bold text-lg mr-4">Motivo do Cancelamento</h3>
+            <button id="fechar-motivo-btn" class="btn btn-sm btn-circle btn-ghost">✕</button>
+        </div>
+        
+        <p id="motivo-texto" class="py-4 text-base-content"></p>
     </div>
+    <form method="dialog" class="modal-backdrop">
+        <button id="fechar-backdrop-motivo"></button>
+    </form>
 </div>
 
 <script>
-    const modal = document.getElementById('modal-motivo');           
-    const motivoTexto = document.getElementById('motivo-texto');
-    const fecharBtn = document.querySelector('.fechar');
-    const links = document.querySelectorAll('.cancelamento-link');  
-
-    links.forEach(link => {                                          
+document.addEventListener('DOMContentLoaded', (event) => {
+    
+    const modalMotivo = document.getElementById('modal-motivo');
+    const motivoTexto = document.getElementById('motivo-texto'); 
+    const fecharBtnMotivo = document.getElementById('fechar-motivo-btn');
+    const links = document.querySelectorAll('.cancelamento-link');
+    const modalBackdropMotivo = modalMotivo.querySelector('.modal-backdrop');
+    
+    function fecharModalMotivo() {
+        modalMotivo.classList.remove('modal-open');
+    }
+    
+    links.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();                                      
-            const motivo = this.getAttribute('data-motivo');         
-            motivoTexto.textContent = motivo;                        
-            modal.style.display = 'block';
-            modal.style.visibility = 'visible';
+            e.preventDefault(); 
+            const motivo = this.getAttribute('data-motivo'); 
+            motivoTexto.textContent = motivo;
+            modalMotivo.classList.add('modal-open');
         });
     });
-    fecharBtn.addEventListener('click', function() {  
-        modal.style.display = 'none';
-    });
-    window.addEventListener('click', function(e) {  
-        if (e.target == modal) {
-            modal.style.display = 'none';
+
+    modalMotivo.addEventListener('click', function(e) {
+        if (e.target === modalMotivo) {
+            fecharModalMotivo();
         }
     });
+
+    if (fecharBtnMotivo) {
+        fecharBtnMotivo.addEventListener('click', fecharModalMotivo);
+    }
+    
+    if (modalBackdropMotivo) {
+        modalBackdropMotivo.addEventListener('click', fecharModalMotivo);
+    }
+}); 
 </script>
 
 <div id="modal-cancelamento" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
