@@ -104,7 +104,7 @@
                             </button>
                         {% endif %}    
                         <!--Botão de envio de email de confirmação-->
-                        {% if reserva.status == 'PREVISTA' %}
+                        {% if reserva.status == 'CONFIRMADA' %}
                             {% if not reserva.email_confirmacao_enviado %}
                                 <form id="form-email-{{ reserva.id }}" action="{% url 'reserva:enviar_confirmacao_email' reserva.id %}" method="POST" class="m-0">
                                 {% csrf_token %}
