@@ -4,11 +4,26 @@
 {% block title %}{% if hospede %}Editar Hóspede{% else %}Adicionar Hóspede{% endif %}{% endblock %}
 
 {% block content %}
-<div class="flex flex-col flex-1 overflow-auto">  <!-- Container flexível que preenche o espaço disponível -->
-    <div class="p-4 sm:p-6 flex-1">  <!-- Padding responsivo e flex-1 para ocupar espaço -->
-        <div class="max-w-2xl mx-auto">  <!-- Largura máxima centralizada -->
-            <div class="card bg-base-100 shadow-sm">  <!-- Sombra mais suave -->
-                <div class="card-body p-4 sm:p-6">  <!-- Padding ajustado -->
+
+{% if errors|length > 0 %}
+<script>
+    const messages = [
+        {% for error in errors %}
+            "{{ error|escapejs }}"{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    ];
+    alert(messages.join("\n"));
+</script>
+{% endif %}
+
+
+
+
+<div class="flex flex-col flex-1 overflow-auto">
+    <div class="p-4 sm:p-6 flex-1">
+        <div class="max-w-2xl mx-auto">
+            <div class="card bg-base-100 shadow-sm">
+                <div class="card-body p-4 sm:p-6">
                     <h2 class="card-title text-xl sm:text-2xl font-bold mb-4">
                         {% if hospede %}
                         <i class="fas fa-user-edit mr-2"></i>Editar Hóspede
@@ -74,6 +89,67 @@
                                    class="input input-bordered w-full bg-base-200" />
                         </div>
 
+                        <!-- Endereço Fields -->
+                        <div class="form-control">
+                            <label class="label" for="rua">
+                                <span class="label-text font-medium">Rua</span>
+                            </label>
+                            <input type="text" id="rua" name="rua"
+                                   value="{% if hospede %}{{ hospede.rua }}{% endif %}"
+                                   class="input input-bordered w-full bg-base-200"
+                                   placeholder="Digite a rua" />
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label" for="numero">
+                                <span class="label-text font-medium">Número</span>
+                            </label>
+                            <input type="text" id="numero" name="numero"
+                                   value="{% if hospede %}{{ hospede.numero }}{% endif %}"
+                                   class="input input-bordered w-full bg-base-200"
+                                   placeholder="Número" />
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label" for="complemento">
+                                <span class="label-text font-medium">Complemento</span>
+                            </label>
+                            <input type="text" id="complemento" name="complemento"
+                                   value="{% if hospede %}{{ hospede.complemento }}{% endif %}"
+                                   class="input input-bordered w-full bg-base-200"
+                                   placeholder="Apto, Bloco, etc." />
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label" for="bairro">
+                                <span class="label-text font-medium">Bairro</span>
+                            </label>
+                            <input type="text" id="bairro" name="bairro"
+                                   value="{% if hospede %}{{ hospede.bairro }}{% endif %}"
+                                   class="input input-bordered w-full bg-base-200"
+                                   placeholder="Digite o bairro" />
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label" for="cidade">
+                                <span class="label-text font-medium">Cidade</span>
+                            </label>
+                            <input type="text" id="cidade" name="cidade"
+                                   value="{% if hospede %}{{ hospede.cidade }}{% endif %}"
+                                   class="input input-bordered w-full bg-base-200"
+                                   placeholder="Digite a cidade" />
+                        </div>
+
+                        <div class="form-control">
+                            <label class="label" for="cep">
+                                <span class="label-text font-medium">CEP</span>
+                            </label>
+                            <input type="text" id="cep" name="cep"
+                                   value="{% if hospede %}{{ hospede.cep }}{% endif %}"
+                                   class="input input-bordered w-full bg-base-200"
+                                   placeholder="00000-000" />
+                        </div>
+
                         <!-- Form Actions -->
                         <div class="flex flex-col sm:flex-row gap-3 pt-6">
                             <button type="submit" class="btn btn-primary flex-1">
@@ -101,6 +177,7 @@
 $(document).ready(function(){
     $('#cpf').mask('000.000.000-00');
     $('#telefone').mask('(00) 00000-0000');
+    $('#cep').mask('00000-000');  // Máscara para CEP
 });
 </script>
 {% endblock %}

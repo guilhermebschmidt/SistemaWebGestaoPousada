@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from ..models import Hospede
+from django.core.exceptions import ValidationError
+from ..models import Hospede, Reserva
 
 def listar(request):
     hospedes = Hospede.objects.all()
@@ -7,24 +8,46 @@ def listar(request):
 
 def form(request, cpf=None):
     hospede = get_object_or_404(Hospede, cpf=cpf) if cpf else None
+    errors = None
+
     if request.method == 'POST':
         if hospede:
             hospede.nome = request.POST.get('nome')
             hospede.telefone = request.POST.get('telefone')
             hospede.email = request.POST.get('email')
             hospede.data_nascimento = request.POST.get('data_nascimento')
-            hospede.save()
-            return redirect('/hospedes/')
+            hospede.rua = request.POST.get('rua')
+            hospede.numero = request.POST.get('numero')
+            hospede.complemento = request.POST.get('complemento')
+            hospede.bairro = request.POST.get('bairro')
+            hospede.cidade = request.POST.get('cidade')
+            hospede.cep = request.POST.get('cep')
         else:
-            Hospede.objects.create(
+            hospede = Hospede(
                 cpf=request.POST.get('cpf'),
                 nome=request.POST.get('nome'),
                 telefone=request.POST.get('telefone'),
                 email=request.POST.get('email'),
-                data_nascimento=request.POST.get('data_nascimento')
+                data_nascimento=request.POST.get('data_nascimento'),
+                rua=request.POST.get('rua'),
+                numero=request.POST.get('numero'),
+                complemento=request.POST.get('complemento'),
+                bairro=request.POST.get('bairro'),
+                cidade=request.POST.get('cidade'),
+                cep=request.POST.get('cep'),
             )
+
+        try:
+            hospede.clean()  
+            hospede.save()
             return redirect('/hospedes/')
-    return render(request, 'core/hospede/form.html', {'hospede': hospede})
+        except ValidationError as e:
+            errors = [str(err) for err in e.error_list]
+
+    return render(request, 'core/hospede/form.html', {
+        'hospede': hospede,
+        'errors': errors
+    })
 
 def excluir(request, cpf):
     hospede = get_object_or_404(Hospede, cpf=cpf)
@@ -34,10 +57,12 @@ def excluir(request, cpf):
     return render(request, 'core/hospede/hospede_confirm_delete.html', {'hospede': hospede})
 
 def buscar(request):
-    hospedes = []
-    if request.method == 'POST':
-        search = request.POST.get('search')
-        hospedes = Hospede.objects.filter(nome__icontains=search)
+    nome = request.GET.get('search', '')
+    if nome:
+        hospedes = Hospede.objects.filter(nome__icontains=nome)
+    else:
+        hospedes = Hospede.objects.all()
+
     return render(request, 'core/hospede/listar.html', {'hospedes': hospedes})
 
 def detalhes(request, cpf):
@@ -51,4 +76,3 @@ def historico_hospede(request, cpf):
         'hospede': hospede,
         'reservas': reservas
     })
-
