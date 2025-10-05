@@ -43,3 +43,12 @@ def buscar(request):
 def detalhes(request, cpf):
     hospede = get_object_or_404(Hospede, cpf=cpf)
     return render(request, 'core/hospede/detalhes.html', {'hospede': hospede})
+
+def historico_hospede(request, cpf):
+    hospede = get_object_or_404(Hospede, cpf=cpf)
+    reservas = Reserva.objects.filter(id_hospede=hospede).order_by('-data_reserva_inicio')
+    return render(request, 'core/hospede/historico.html', {
+        'hospede': hospede,
+        'reservas': reservas
+    })
+

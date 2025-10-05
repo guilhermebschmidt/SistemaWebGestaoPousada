@@ -10,4 +10,5 @@ urlpatterns = [
     path('<str:cpf>/editar/', hospede.form, name='form'),
     path('<str:cpf>/excluir/', hospede.excluir, name='excluir'),
     path('buscar/', hospede.buscar, name='buscar'),
+    path('<str:cpf>/historico/', hospede.historico_hospede, name='historico'),
 ]

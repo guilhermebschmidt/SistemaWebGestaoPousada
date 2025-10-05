@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Histórico de Reservas - {{ hospede.nome }}</h2>
+    <p><strong>CPF:</strong> {{ hospede.cpf }}</p>
+    <hr>
+
+    {% if reservas %}
+        <table class="table table-striped mt-4">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Quarto</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Período</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reserva in reservas %}
+                <tr>
+                    <td>{{ reserva.id }}</td>
+                    <td>{{ reserva.id_quarto }}</td>
+                    <td>{{ reserva.data_check_in|date:"d/m/Y H:i" }}</td>
+                    <td>{{ reserva.data_check_out|date:"d/m/Y H:i" }}</td>
+                    <td>{{ reserva.data_reserva_inicio|date:"d/m/Y" }} a {{ reserva.data_reserva_fim|date:"d/m/Y" }}</td>
+                    <td>R$ {{ reserva.valor }}</td>
+                    <td>
+                        {% if reserva.status == "ATIVA" %}
+                            <span class="badge bg-success">Ativa</span>
+                        {% elif reserva.status == "PREVISTA" %}
+                            <span class="badge bg-warning text-dark">Prevista</span>
+                        {% elif reserva.status == "CONCLUIDA" %}
+                            <span class="badge bg-primary">Concluída</span>
+                        {% else %}
+                            <span class="badge bg-danger">Cancelada</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info mt-3">
+            Nenhuma reserva encontrada para este hóspede.
+        </div>
+    {% endif %}
+
+    <a href="{% url 'hospede:listar' %}" class="btn btn-secondary mt-4">Voltar</a>
+</div>
+{% endblock %}
