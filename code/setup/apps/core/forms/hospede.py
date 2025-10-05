@@ -4,50 +4,51 @@ import datetime
 
 
 class HospedeForm(forms.ModelForm):
-    model = Hospede
-    fields = ['nome', 'cpf', 'data_nascimento', 'telefone', 'email']
-    widgets = {
-        'nome': forms.TextInput(attrs={'class': 'form-control'}),
-        'cpf': forms.TextInput(attrs={'class': 'form-control'}),
-        'data_nascimento': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-        'telefone': forms.TextInput(attrs={'class': 'form-control'}),
-        'email': forms.EmailInput(attrs={'class': 'form-control'}),
-    }
-    labels = {
-        'nome': 'Nome do Hóspede',
-        'cpf': 'CPF',
-        'data_nascimento': 'Data de Nascimento',
-        'telefone': 'Telefone',
-        'email': 'Email',
-    }
-    help_texts = {
-        'nome': 'Insira o nome do hóspede.',
-        'cpf': 'Insira o CPF do hóspede.',
-        'data_nascimento': 'Insira a data de nascimento do hóspede.',
-        'telefone': 'Insira o telefone do hóspede.',
-        'email': 'Insira o email do hóspede.',
-    }
-    error_messages = {
-        'nome': {
-            'required': 'Este campo é obrigatório.',
-            'max_length': 'O nome deve ter no máximo 100 caracteres.',
-        },
-        'cpf': {
-            'required': 'Este campo é obrigatório.',
-            'max_length': 'O CPF deve ter no máximo 100 caracteres.',
-        },
-        'data_nascimento': {
-            'required': 'Este campo é obrigatório.',
-        },
-        'telefone': {
-            'required': 'Este campo é obrigatório.',
-            'max_length': 'O telefone deve ter no máximo 100 caracteres.',
-        },
-        'email': {
-            'required': 'Este campo é obrigatório.',
-            'max_length': 'O email deve ter no máximo 100 caracteres.',
-        },
-    }
+    class Meta:
+        model = Hospede
+        fields = ['nome', 'cpf', 'data_nascimento', 'telefone', 'email']
+        widgets = {
+            'nome': forms.TextInput(attrs={'class': 'form-control'}),
+            'cpf': forms.TextInput(attrs={'class': 'form-control'}),
+            'data_nascimento': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'telefone': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+        }
+        labels = {
+            'nome': 'Nome do Hóspede',
+            'cpf': 'CPF',
+            'data_nascimento': 'Data de Nascimento',
+            'telefone': 'Telefone',
+            'email': 'Email',
+        }
+        help_texts = {
+            'nome': 'Insira o nome do hóspede.',
+            'cpf': 'Insira o CPF do hóspede.',
+            'data_nascimento': 'Insira a data de nascimento do hóspede.',
+            'telefone': 'Insira o telefone do hóspede.',
+            'email': 'Insira o email do hóspede.',
+        }
+        error_messages = {
+            'nome': {
+                'required': 'Este campo é obrigatório.',
+                'max_length': 'O nome deve ter no máximo 100 caracteres.',
+            },
+            'cpf': {
+                'required': 'Este campo é obrigatório.',
+                'max_length': 'O CPF deve ter no máximo 100 caracteres.',
+            },
+            'data_nascimento': {
+                'required': 'Este campo é obrigatório.',
+            },
+            'telefone': {
+                'required': 'Este campo é obrigatório.',
+                'max_length': 'O telefone deve ter no máximo 100 caracteres.',
+            },
+            'email': {
+                'required': 'Este campo é obrigatório.',
+                'max_length': 'O email deve ter no máximo 100 caracteres.',
+            },
+        }
 
     def clean_cpf(self):
         cpf = self.cleaned_data.get('cpf')
@@ -69,6 +70,21 @@ class HospedeForm(forms.ModelForm):
 
     def clean_data_nascimento(self):
         data_nascimento = self.cleaned_data.get('data_nascimento')
-        if data_nascimento > datetime.date.today():
+        hoje = datetime.date.today()
+
+        if data_nascimento > hoje:
             raise forms.ValidationError("A data de nascimento não pode ser futura.")
+
+        # Impede cadastro com ano atual ou posterior
+        if data_nascimento.year >= hoje.year:
+            raise forms.ValidationError("A data de nascimento não pode ser no ano atual ou em anos futuros.")
+
+        # Calcula idade
+        idade = hoje.year - data_nascimento.year - (
+            (hoje.month, hoje.day) < (data_nascimento.month, data_nascimento.day)
+        )
+
+        if idade < 18:
+            raise forms.ValidationError("O hóspede deve ter 18 anos ou mais.")
+
         return data_nascimento
