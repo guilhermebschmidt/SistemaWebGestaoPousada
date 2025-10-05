@@ -24,8 +24,9 @@ class Reserva(models.Model):
 
     STATUS_CHOICES = (
         ('PREVISTA', 'Prevista'),
+        ('CONFIRMADA', 'Confirmada'),
         ('ATIVA', 'Ativa'),
-        ('CONCLUIDA', 'Concluída'),
+        ('CONCLUÍDA', 'Concluída'),
         ('CANCELADA', 'Cancelada'),
     )
     status = models.CharField(

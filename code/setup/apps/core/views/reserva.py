@@ -6,12 +6,26 @@ import datetime
 from django.utils import timezone
 from django.http import JsonResponse
 from django.contrib import messages
-from ..utils.emails import enviar_email_confirmacao
-
 
 def list(request):
-    reservas = Reserva.objects.all()
-    return render(request, 'core/reserva/list.html', {'reservas': reservas})
+    filtro_status = request.GET.get('status', 'todos')
+    filtro_hospede = request.GET.get('hospede', '') 
+    
+    reservas = Reserva.objects.all().order_by('data_reserva_inicio')
+
+    if filtro_status != 'todos':
+        reservas = reservas.filter(status=filtro_status)
+        
+    if filtro_hospede:
+        reservas = reservas.filter(id_hospede__nome__icontains=filtro_hospede)
+
+    context = {
+        'reservas': reservas,
+        'filtro_status': filtro_status,
+        'filtro_hospede': filtro_hospede,
+    }
+
+    return render(request, 'core/reserva/list.html', context)
 
 def list_checkin(request):
     hoje = datetime.date.today()
@@ -34,7 +48,6 @@ def add(request):
 
     return render(request, 'core/reserva/form.html', {'form': form})
 
-
 def update(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
 
@@ -48,15 +61,23 @@ def update(request, pk):
 
     return render(request, 'core/reserva/form.html', {'form': form, 'reserva': reserva})
 
-
 def cancelar_reserva(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
+    if reserva.status in ['CANCELADA', 'CONCLUIDA']:
+        messages.error(request, f"A reserva #{pk} não pode ser cancelada, pois já está {reserva.status}.")
+        return redirect('reserva:list')
+
+    if reserva.data_check_in or reserva.data_check_out:
+        messages.error(request, f"A reserva #{pk} já possui registro de Check-in/Check-out e não pode ser cancelada.")
+        return redirect('reserva:list')
     if request.method != 'POST':
         return render(request, 'core/reserva/confirmar_cancelamento.html', {'reserva': reserva})
+    
     motivo = request.POST.get('motivo_cancelamento', 'Motivo não especificado.')
     reserva.status = 'CANCELADA'
     reserva.motivo_cancelamento = motivo
     reserva.save()
+    messages.success(request, f"A reserva #{pk} foi cancelada com sucesso.")
     return redirect('reserva:list')
 
 def search(request):
@@ -90,18 +111,3 @@ def buscar_hospedes(request):
             })
         return JsonResponse(hospedes, safe=False)
     return JsonResponse([], safe=False)
-
-def enviar_confirmacao_email_view(request, reserva_id):
-    reserva = get_object_or_404(Reserva, id=reserva_id)
-    
-    if request.method == 'POST':
-        try:
-            enviar_email_confirmacao(reserva)
-            reserva.email_confirmacao_enviado = True
-            reserva.save()
-            messages.success(request, f"E-mail de confirmação enviado com sucesso para {reserva.hospede.email}.")
-        except Exception as e:
-            print(f"DEBUG: O erro ao enviar o e-mail foi: {e}") 
-            messages.error(request, f"Ocorreu um erro ao enviar o e-mail: {e}")
-            
-    return redirect('reserva:list') 

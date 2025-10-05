@@ -12,6 +12,43 @@
         </a>
     </div>
 
+<div class="card bg-base-100 shadow-sm">
+    <div class="card-body p-4">
+        <form method="GET" action="{% url 'reserva:list' %}" class="flex flex-col sm:flex-row items-center gap-4">
+            <div class="form-control w-full sm:w-auto flex-grow">
+                <label class="label" for="hospede">
+                    <span class="label-text">Nome do Hóspede</span>
+                </label>
+                <input type="text" 
+                       name="hospede" 
+                       id="hospede" 
+                       placeholder="Buscar por nome..." 
+                       class="input input-bordered"
+                       value="{{ filtro_hospede|default:'' }}"> 
+            </div>
+
+            <div class="form-control w-full sm:w-auto">
+                <label class="label" for="status">
+                    <span class="label-text">Status da Reserva</span>
+                </label>
+                <select name="status" id="status" class="select select-bordered">
+                    <option value="todos" {% if filtro_status == 'todos' %}selected{% endif %}>Todos os Status</option>
+                    <option value="PREVISTA" {% if filtro_status == 'PREVISTA' %}selected{% endif %}>Prevista</option>
+                    <option value="CONFIRMADA" {% if filtro_status == 'CONFIRMADA' %}selected{% endif %}>Confirmada</option>
+                    <option value="ATIVA" {% if filtro_status == 'ATIVA' %}selected{% endif %}>Ativa</option>
+                    <option value="CONCLUÍDA" {% if filtro_status == 'CONCLUÍDA' %}selected{% endif %}>Concluída</option>
+                    <option value="CANCELADA" {% if filtro_status == 'CANCELADA' %}selected{% endif %}>Cancelada</option>
+                </select>
+            </div>
+
+            <div class="form-control w-full sm:w-auto mt-auto">
+                <button type="submit" class="btn btn-primary w-full">Filtrar</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+
     <div class="overflow-x-auto bg-base-100 rounded-lg shadow">
         <table class="table">
             <thead>
@@ -46,46 +83,26 @@
                         {% endif %}
                     </td>
                     <td class="flex gap-2">
-                        <a href="{% url 'reserva:update' reserva.id %}" class="btn btn-warning btn-sm" title="Editar Reserva">
-                            <i class="fas fa-edit">Editar</i>
-                        </a>
-                        <button onclick="abrirModalCancelamento('{{ reserva.id }}')" class="btn btn-error btn-sm" title="Cancelar Reserva">
-                            <i class="fas fa-trash">Cancelar</i>
-                        </button>
-                        <!--Botão de envio de email de confirmação-->
-                        {% if reserva.status == 'PREVISTA' %}
-                            {% if not reserva.email_confirmacao_enviado %}
-                                <form id="form-email-{{ reserva.id }}" action="{% url 'reserva:enviar_confirmacao_email' reserva.id %}" method="POST" class="m-0">
-                                    {% csrf_token %}
-                                    <button type="button" 
-                                            class="btn btn-info btn-sm btn-abrir-modal-email" 
-                                            title="Enviar confirmação por e-mail"
-                                            data-hospede-nome="{{ reserva.id_hospede.nome }}"
-                                            data-form-id="form-email-{{ reserva.id }}"
-                                            data-action-text="enviar">
-                                        <i class="fas fa-envelope"></i> Enviar E-mail
-                                    </button>
-                                </form>
-                            {% else %}
-                                <div class="flex items-center gap-2">
-                                    <div class="tooltip" data-tip="E-mail de confirmação já enviado">
-                                    <span class="text-success"><i class="fas fa-check-circle fa-lg"></i></span>
-                                    </div>
-                                
-                                    <form id="form-reenviar-email-{{ reserva.id }}" action="{% url 'reserva:enviar_confirmacao_email' reserva.id %}" method="POST" class="m-0">
-                                    {% csrf_token %}
-                                        <button type="button" 
-                                                class="btn btn-ghost btn-xs btn-abrir-modal-email" 
-                                                title="Reenviar e-mail de confirmação"
-                                                data-hospede-nome="{{ reserva.id_hospede.nome }}"
-                                                data-form-id="form-reenviar-email-{{ reserva.id }}"
-                                                data-action-text="reenviar">
-                                            Reenviar
-                                        </button>
-                                    </form>
-                                </div>
-                            {% endif %}    
+                        {% if reserva.status not in 'CANCELADA' and reserva.status not in 'CONCLUIDA' %}
+                            <a href="{% url 'reserva:update' reserva.id %}" class="btn btn-warning btn-sm" title="Editar Reserva">
+                                <i class="fas fa-edit">Editar</i>
+                            </a>
+                        {% else %}
+                            <span class="btn btn-warning btn-sm btn-disabled" title="Não pode ser editada">Editar</span>
                         {% endif %}
+                        {% if reserva.status == 'CANCELADA' or reserva.status == 'CONCLUIDA' %}
+                            <button class="btn btn-error btn-sm btn-disabled" title="Ação indisponível">
+                                <i class="fas fa-trash">Cancelada</i>
+                            </button>
+                        {% elif reserva.data_check_in or reserva.data_check_out %}
+                            <button class="btn btn-error btn-sm btn-disabled" title="Reserva em andamento ou finalizada">
+                                <i class="fas fa-trash">Cancelar</i>
+                            </button>
+                        {% else %}
+                            <button onclick="abrirModalCancelamento('{{ reserva.id }}')" class="btn btn-error btn-sm" title="Cancelar Reserva">
+                                <i class="fas fa-trash">Cancelar</i>
+                            </button>
+                        {% endif %}    
                     </td>
                 </tr>
                 {% empty %}
@@ -97,37 +114,56 @@
         </table>
     </div>
 </div>
-<div id="modal-motivo" class="modal">
-    <div class="modal-content">
-        <span class="fechar">&times;</span>
-        <h3>Motivo do Cancelamento</h3>
-        <p id="motivo-texto"></p>
+<div id="modal-motivo" class="modal"> 
+    <div class="modal-box">
+        <div class="flex justify-between items-start">
+            <h3 class="font-bold text-lg mr-4">Motivo do Cancelamento</h3>
+            <button id="fechar-motivo-btn" class="btn btn-sm btn-circle btn-ghost">✕</button>
+        </div>
+        
+        <p id="motivo-texto" class="py-4 text-base-content"></p>
     </div>
+    <form method="dialog" class="modal-backdrop">
+        <button id="fechar-backdrop-motivo"></button>
+    </form>
 </div>
 
 <script>
-    const modal = document.getElementById('modal-motivo');           //seleciona o modal e o elemento de texto
-    const motivoTexto = document.getElementById('motivo-texto');
-    const fecharBtn = document.querySelector('.fechar');
-    const links = document.querySelectorAll('.cancelamento-link');  //seleciona todos os links de cancelamento
-
-    links.forEach(link => {             //evento de clique para cada link
+document.addEventListener('DOMContentLoaded', (event) => {
+    
+    const modalMotivo = document.getElementById('modal-motivo');
+    const motivoTexto = document.getElementById('motivo-texto'); 
+    const fecharBtnMotivo = document.getElementById('fechar-motivo-btn');
+    const links = document.querySelectorAll('.cancelamento-link');
+    const modalBackdropMotivo = modalMotivo.querySelector('.modal-backdrop');
+    
+    function fecharModalMotivo() {
+        modalMotivo.classList.remove('modal-open');
+    }
+    
+    links.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();         // evita que o link navegue para #
-            const motivo = this.getAttribute('data-motivo');   //pega o motivo do atributo de dados
-            motivoTexto.textContent = motivo;   //coloca o motivo no modal e exibe
-            modal.style.display = 'block';
+            e.preventDefault(); 
+            const motivo = this.getAttribute('data-motivo'); 
+            motivoTexto.textContent = motivo;
+            modalMotivo.classList.add('modal-open');
         });
     });
-    fecharBtn.addEventListener('click', function() {  //adiciona o evento de fechar o model
-        modal.style.display = 'none';
-    });
-    window.addEventListener('click', function(e) {  //fecha o model caso o usuario clique fora
-        if (e.target == modal) {
-            modal.style.display = 'none';
+
+    modalMotivo.addEventListener('click', function(e) {
+        if (e.target === modalMotivo) {
+            fecharModalMotivo();
         }
     });
 
+    if (fecharBtnMotivo) {
+        fecharBtnMotivo.addEventListener('click', fecharModalMotivo);
+    }
+    
+    if (modalBackdropMotivo) {
+        modalBackdropMotivo.addEventListener('click', fecharModalMotivo);
+    }
+}); 
 </script>
 
 <div id="modal-cancelamento" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
@@ -148,35 +184,16 @@
         </form>
     </div>
 </div>
-<!--Janela Flutuante para confirmar envio do email de confirmação da reserva-->
-<dialog id="modal_confirmar_email" class="modal">
-  <div class="modal-box">
-    <h3 class="font-bold text-lg">Confirmar Envio</h3>
-    <p class="py-4">
-        Você tem certeza que deseja <strong id="modal_action_text" class="text-info"></strong> o e-mail para 
-        <strong id="modal_hospede_nome" class="text-primary"></strong>?
-    </p>
-    <div class="modal-action">
-      <form method="dialog">
-        <button class="btn">Cancelar</button>
-      </form>
-      <button id="modal_botao_confirmar" class="btn btn-info">Sim, Enviar</button>
-    </div>
-  </div>
-</dialog>
 
 <script>
     function abrirModalCancelamento(reservaId) {
         const modal = document.getElementById('modal-cancelamento');
         const form = document.getElementById('form-cancelamento');
 
-        // Define o ID da reserva no campo hidden do formulário
         document.getElementById('reserva-id-input').value = reservaId;
 
-        // Define a URL de ação do formulário para a view de delete
         form.action = `{% url 'reserva:delete' pk=0 %}`.replace('0', reservaId);
 
-        // Exibe o modal
         modal.classList.remove('hidden');
         modal.classList.add('flex');
     }
@@ -186,32 +203,6 @@
         modal.classList.add('hidden');
         modal.classList.remove('flex');
     }
-</script>
-
-<script>
-//MODAL: ENVIO DE EMAIL DE CONFIRMAÇÃO DE RESERVA 
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('modal_confirmar_email');
-    const hospedeNomeEl = document.getElementById('modal_hospede_nome');
-    const actionTextEl = document.getElementById('modal_action_text');
-    const botaoConfirmar = document.getElementById('modal_botao_confirmar');
-    const botoesAbrir = document.querySelectorAll('.btn-abrir-modal-email');
-    botoesAbrir.forEach(botao => {
-        botao.addEventListener('click', function() {
-            const hospedeNome = botao.dataset.hospedeNome;
-            const formId = botao.dataset.formId;
-            const actionText = botao.dataset.actionText;
-
-            hospedeNomeEl.textContent = hospedeNome;
-            actionTextEl.textContent = actionText;
-
-            modal.showModal();
-            botaoConfirmar.onclick = function() {
-                document.getElementById(formId).submit();
-            };
-        });
-    });
-});
 </script>
 
 {% endblock %}
