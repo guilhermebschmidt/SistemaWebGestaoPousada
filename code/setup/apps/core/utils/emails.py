@@ -1,7 +1,7 @@
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.conf import settings
-from ..models.reserva import Reserva # Importando o modelo de reserva
+from ..models.reserva import Reserva 
 
 # Renderiza os templates de e-mail e envia a confirmação para o hóspede
 def enviar_email_confirmacao(reserva: Reserva):

@@ -103,8 +103,42 @@
                                 <i class="fas fa-trash">Cancelar</i>
                             </button>
                         {% endif %}    
+                        <!--Botão de envio de email de confirmação-->
+                        {% if reserva.status == 'PREVISTA' %}
+                            {% if not reserva.email_confirmacao_enviado %}
+                                <form id="form-email-{{ reserva.id }}" action="{% url 'reserva:enviar_confirmacao_email' reserva.id %}" method="POST" class="m-0">
+                                {% csrf_token %}
+                                    <button type="button"
+                                        class="btn btn-info btn-sm btn-abrir-modal-email"
+                                        title="Enviar confirmação por e-mail"
+                                        data-hospede-nome="{{ reserva.id_hospede.nome }}"
+                                        data-form-id="form-email-{{ reserva.id }}"
+                                        data-action-text="enviar">
+                                        <i class="fas fa-envelope"></i> Enviar E-mail
+                                    </button>
+                                </form>
+                                {% else %}
+                                <div class="flex items-center gap-2">
+                                    <div class="tooltip" data-tip="E-mail de confirmação já enviado">
+                                        <span class="text-success"><i class="fas fa-check-circle fa-lg"></i></span>
+                                    </div>
+                                    
+                                    <form id="form-reenviar-email-{{ reserva.id }}" action="{% url 'reserva:enviar_confirmacao_email' reserva.id %}" method="POST" class="m-0">
+                                    {% csrf_token %}
+                                        <button type="button"
+                                            class="btn btn-ghost btn-xs btn-abrir-modal-email"
+                                            title="Reenviar e-mail de confirmação"
+                                            data-hospede-nome="{{ reserva.id_hospede.nome }}"
+                                            data-form-id="form-reenviar-email-{{ reserva.id }}"
+                                            data-action-text="reenviar">
+                                            Reenviar
+                                        </button>
+                                    </form>
+                                </div>
+                            {% endif %}    
+                        {% endif %}
                     </td>
-                </tr>
+                </tr>  
                 {% empty %}
                 <tr>
                     <td colspan="7" class="text-center text-gray-500">Nenhuma reserva cadastrada.</td>
@@ -127,6 +161,23 @@
         <button id="fechar-backdrop-motivo"></button>
     </form>
 </div>
+
+<!--Janela Flutuante para confirmar envio do email de confirmação da reserva-->
+<dialog id="modal_confirmar_email" class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">Confirmar Envio</h3>
+    <p class="py-4">
+        Você tem certeza que deseja <strong id="modal_action_text" class="text-info"></strong> o e-mail para
+        <strong id="modal_hospede_nome" class="text-primary"></strong>?
+    </p>
+    <div class="modal-action">
+      <form method="dialog">
+        <button class="btn">Cancelar</button>
+      </form>
+      <button id="modal_botao_confirmar" class="btn btn-info">Sim, Enviar</button>
+    </div>
+  </div>
+</dialog>
 
 <script>
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -164,6 +215,32 @@ document.addEventListener('DOMContentLoaded', (event) => {
         modalBackdropMotivo.addEventListener('click', fecharModalMotivo);
     }
 }); 
+
+//MODAL: ENVIO DE EMAIL DE CONFIRMAÇÃO DE RESERVA
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('modal_confirmar_email');
+    const hospedeNomeEl = document.getElementById('modal_hospede_nome');
+    const actionTextEl = document.getElementById('modal_action_text');
+    const botaoConfirmar = document.getElementById('modal_botao_confirmar');
+    const botoesAbrir = document.querySelectorAll('.btn-abrir-modal-email');
+    botoesAbrir.forEach(botao => {
+        botao.addEventListener('click', function() {
+            const hospedeNome = botao.dataset.hospedeNome;
+            const formId = botao.dataset.formId;
+            const actionText = botao.dataset.actionText;
+
+
+            hospedeNomeEl.textContent = hospedeNome;
+            actionTextEl.textContent = actionText;
+
+
+            modal.showModal();
+            botaoConfirmar.onclick = function() {
+                document.getElementById(formId).submit();
+            };
+        });
+    });
+});
 </script>
 
 <div id="modal-cancelamento" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
