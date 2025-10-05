@@ -11,27 +11,95 @@
             <i class="fas fa-plus mr-2"></i>Adicionar Título
         </a>
     </div>
+<!-- Seção de Filtros -->
+<div class="card bg-base-100 shadow-sm">
+    <div class="card-body p-4">
+        <form method="GET" action="{% url 'financeiro:list' %}" class="flex flex-col sm:flex-row flex-wrap items-center gap-4">
 
-    <!-- Seção de Filtros -->
-    <div class="card bg-base-100 shadow-sm">
-        <div class="card-body p-4">
-            <form method="GET" action="{% url 'financeiro:list' %}" class="flex flex-col sm:flex-row items-center gap-4">
-                <div class="form-control w-full sm:w-auto">
-                    <label class="label" for="pago">
-                        <span class="label-text">Situação do Pagamento</span>
-                    </label>
-                    <select name="pago" id="pago" class="select select-bordered">
-                        <option value="todos" {% if filtro_pago == 'todos' %}selected{% endif %}>Todos</option>
-                        <option value="sim" {% if filtro_pago == 'sim' %}selected{% endif %}>Pago</option>
-                        <option value="nao" {% if filtro_pago == 'nao' %}selected{% endif %}>Não Pago</option>
-                    </select>
-                </div>
-                <div class="form-control w-full sm:w-auto mt-auto">
-                    <button type="submit" class="btn btn-primary w-full">Filtrar</button>
-                </div>
-            </form>
-        </div>
+            <!-- Situação do Pagamento -->
+            <div class="form-control w-full sm:w-auto">
+                <label class="label" for="pago">
+                    <span class="label-text">Situação do Pagamento</span>
+                </label>
+                <select name="pago" id="pago" class="select select-bordered">
+                    <option value="" {% if filtros.pago == None %}selected{% endif %}>Todos</option>
+                    <option value="sim" {% if filtros.pago == 'sim' %}selected{% endif %}>Pago</option>
+                    <option value="nao" {% if filtros.pago == 'nao' %}selected{% endif %}>Não Pago</option>
+                </select>
+            </div>
+
+            <!-- Tipo de Documento -->
+            <div class="form-control w-full sm:w-auto">
+                <label class="label" for="tipo_documento">
+                    <span class="label-text">Tipo de Documento</span>
+                </label>
+                <select name="tipo_documento" id="tipo_documento" class="select select-bordered">
+                    <option value="">Todos</option>
+                    <option value="boleto" {% if filtros.tipo_documento == 'boleto' %}selected{% endif %}>Boleto</option>
+                    <option value="pix" {% if filtros.tipo_documento == 'pix' %}selected{% endif %}>PIX</option>
+                    <option value="cartao" {% if filtros.tipo_documento == 'cartao' %}selected{% endif %}>Cartão</option>
+                    <option value="dinheiro" {% if filtros.tipo_documento == 'dinheiro' %}selected{% endif %}>Dinheiro</option>
+                    <option value="transferencia" {% if filtros.tipo_documento == 'transferencia' %}selected{% endif %}>Transferência</option>
+                    <option value="outro" {% if filtros.tipo_documento == 'outro' %}selected{% endif %}>Outro</option>
+                </select>
+            </div>
+
+            <!-- Tipo Entrada/Saída -->
+            <div class="form-control w-full sm:w-auto">
+                <label class="label" for="tipo">
+                    <span class="label-text">Tipo</span>
+                </label>
+                <select name="tipo" id="tipo" class="select select-bordered">
+                    <option value="">Todos</option>
+                    <option value="entrada" {% if filtros.tipo == 'entrada' %}selected{% endif %}>Entrada</option>
+                    <option value="saida" {% if filtros.tipo == 'saida' %}selected{% endif %}>Saída</option>
+                </select>
+            </div>
+
+            <!-- Cancelado -->
+            <div class="form-control w-full sm:w-auto">
+                <label class="label" for="cancelado">
+                    <span class="label-text">Cancelado</span>
+                </label>
+                <select name="cancelado" id="cancelado" class="select select-bordered">
+                    <option value="">Todos</option>
+                    <option value="sim" {% if filtros.cancelado == 'sim' %}selected{% endif %}>Sim</option>
+                    <option value="nao" {% if filtros.cancelado == 'nao' %}selected{% endif %}>Não</option>
+                </select>
+            </div>
+
+            <!-- Hóspede -->
+            <div class="form-control w-full sm:w-auto">
+                <label class="label" for="hospede">
+                    <span class="label-text">Hóspede</span>
+                </label>
+                <input type="text" name="hospede" id="hospede" value="{{ filtros.hospede }}" class="input input-bordered" placeholder="Nome do Hóspede">
+            </div>
+
+
+            <!-- Data de Vencimento -->
+            <div class="form-control w-full sm:w-auto">
+                <label class="label" for="data_inicio">
+                    <span class="label-text">Vencimento Inicial</span>
+                </label>
+                <input type="date" name="data_inicio" id="data_inicio" value="{{ filtros.data_inicio }}" class="input input-bordered">
+            </div>
+
+            <div class="form-control w-full sm:w-auto">
+                <label class="label" for="data_fim">
+                    <span class="label-text">Vencimento Final</span>
+                </label>
+                <input type="date" name="data_fim" id="data_fim" value="{{ filtros.data_fim }}" class="input input-bordered">
+            </div>
+
+            <!-- Botão Filtrar -->
+            <div class="form-control w-full sm:w-auto mt-auto">
+                <button type="submit" class="btn btn-primary w-full">Filtrar</button>
+            </div>
+        </form>
     </div>
+</div>
+
 
     <div class="overflow-x-auto bg-base-100 rounded-lg shadow">
         <table class="table">
