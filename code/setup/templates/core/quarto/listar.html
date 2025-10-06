@@ -48,9 +48,11 @@
                         </a>
                         <a href="{% url 'quarto:mudar_status' quarto.id %}" class="btn btn-info btn-sm">Mudar Status
                         </a>
+                        {% if quarto.status == 'DISPONIVEL'%}
                         <button onclick="confirmarExclusao('{{ quarto.id }}')" class="btn btn-error btn-sm" title="Excluir Quarto">
                             <i class="fas fa-trash">Excluir</i>
                         </button>
+                        {% endif %}
                     </td>
                 </tr>
                 {% empty %}
