@@ -13,12 +13,13 @@
     </div>
 
     <div class="overflow-x-auto bg-base-100 rounded-lg shadow">
-        <table class="table">
+        <table class="table text-center" >
             <thead>
                 <tr class="bg-base-200">
                     <th>Número</th>
                     <th>Status</th>
                     <th>Descrição</th>
+                    <th>Capacidade</th>
                     <th>Preço</th>
                     <th>Ações</th>
                 </tr>
@@ -28,17 +29,24 @@
                 <tr class="hover">
                     <td>{{ quarto.numero }}</td>
                     <td>
-                        {% if quarto.status %}
-                            <span class="badge badge-success">Disponível</span>
+                       {% if quarto.status == 'DISPONIVEL' %}
+                            <span class="badge badge-success">{{ quarto.get_status_display }}</span>
+                        {% elif quarto.status == 'OCUPADO' %}
+                            <span class="badge badge-error">{{ quarto.get_status_display }}</span>
+                        {% elif quarto.status == 'MANUTENCAO' %}
+                            <span class="badge badge-neutral">{{ quarto.get_status_display }}</span>
                         {% else %}
-                            <span class="badge badge-error">Indisponível</span>
+                            <span class="badge">{{ quarto.get_status_display }}</span>
                         {% endif %}
                     </td>
                     <td>{{ quarto.descricao }}</td>
+                    <td>{{ quarto.capacidade }}</td>
                     <td>R$ {{ quarto.preco }}</td>
                     <td class="flex gap-2">
                         <a href="{% url 'quarto:form' quarto.id %}" class="btn btn-warning btn-sm" title="Editar Quarto">
                             <i class="fas fa-edit">Editar</i>
+                        </a>
+                        <a href="{% url 'quarto:mudar_status' quarto.id %}" class="btn btn-info btn-sm">Mudar Status
                         </a>
                         <button onclick="confirmarExclusao('{{ quarto.id }}')" class="btn btn-error btn-sm" title="Excluir Quarto">
                             <i class="fas fa-trash">Excluir</i>

@@ -91,6 +91,11 @@ def marcar_checkin(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
     reserva.data_check_in = timezone.now()
     reserva.status = 'ATIVA'
+
+    quarto = reserva.id_quarto
+    quarto.status = 'OCUPADO'
+    quarto.save()
+
     reserva.save()
     return redirect('reserva:list_checkin')
 
@@ -98,6 +103,9 @@ def marcar_checkout(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
     reserva.data_check_out = timezone.now()
     reserva.status = 'CONCLUIDA'
+
+    quarto = reserva.id_quarto
+    quarto.status = 'DISPONIVEL'
     reserva.save()
     return redirect('reserva:list_checkout')
 

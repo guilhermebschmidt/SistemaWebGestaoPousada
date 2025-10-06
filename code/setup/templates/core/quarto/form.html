@@ -73,7 +73,7 @@
                         <i class="fas fa-save"></i>
                         {% if quarto %}Salvar Alterações{% else %}Adicionar{% endif %}
                     </button>
-                    <a href="{{ cancel_url }}"
+                    <a  href="{% url 'quarto:listar' %}"
                        class="btn btn-outline btn-neutral flex-1 gap-2">
                         <i class="fas fa-times"></i>
                         Cancelar

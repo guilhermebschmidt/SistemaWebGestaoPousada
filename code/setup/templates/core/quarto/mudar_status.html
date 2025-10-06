@@ -1,0 +1,36 @@
+{% extends "shared/base.html" %}
+
+{% block title %}Mudar Status do Quarto {{ quarto.numero }}{% endblock %}
+
+{% block content %}
+<div class="max-w-lg mx-auto p-4">
+    <div class="card bg-base-100 shadow-lg">
+        <div class="card-body">
+            <h2 class="card-title text-2xl font-bold">
+                Mudar Status do Quarto {{ quarto.numero }}
+            </h2>
+            <p>Selecione o novo status para o quarto.</p>
+
+            <form method="POST" class="space-y-4 mt-4">
+                {% csrf_token %}
+                
+                <div class="form-control">
+                    <label class="label" for="{{ form.status.id_for_label }}">
+                        <span class="label-text">{{ form.status.label }}</span>
+                    </label>
+                    {{ form.status }}
+                </div>
+
+                <div class="flex gap-4 pt-6">
+                    <button type="submit" class="btn btn-primary flex-1">
+                        <i class="fas fa-save"></i> Salvar Status
+                    </button>
+                    <a href="{% url 'quarto:listar' %}" class="btn btn-ghost flex-1">
+                        Cancelar
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
