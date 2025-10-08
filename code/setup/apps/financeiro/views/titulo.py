@@ -6,7 +6,7 @@ from django.utils import timezone
 
 def list_titulos(request):
     queryset = Titulo.objects.select_related('hospede', 'reserva').all().order_by('data_vencimento')
-    
+
     filtro_pago = request.GET.get('pago')
     filtro_tipo_doc = request.GET.get('tipo_documento')
     filtro_tipo = request.GET.get('tipo')  # Entrada / Saída
@@ -58,25 +58,24 @@ def list_titulos(request):
 
     return render(request, 'financeiro/titulo/listar.html', context)
 
+
 def form(request, pk=None):
-    instance = None
-    if pk:
-        instance = get_object_or_404(Titulo, pk=pk)
+    instance = get_object_or_404(Titulo, pk=pk) if pk else None
 
     if request.method == 'POST':
         form = TituloForm(request.POST, instance=instance)
         if form.is_valid():
             titulo = form.save(commit=False)
             titulo.save()
-
+            # se o form tiver campos M2M:
+            form.save_m2m()
             return redirect('financeiro:list')
+        else:
+            print(form.errors)  # 👈 ajuda a depurar
     else:
         form = TituloForm(instance=instance)
 
-    context = {
-        'form': form
-    }
-
+    context = {'form': form}
     return render(request, 'financeiro/titulo/form.html', context)
 
 

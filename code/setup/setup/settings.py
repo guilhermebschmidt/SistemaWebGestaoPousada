@@ -56,8 +56,8 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',  
-    'allauth.account.middleware.AccountMiddleware',  
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
     'apps.usuarios.middleware.LoginRequiredMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-'''DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'pousada',
@@ -95,12 +95,6 @@ WSGI_APPLICATION = 'setup.wsgi.application'
         'PASSWORD': 'abc123',
         'HOST': 'localhost',
         'PORT': '5432',
-    }
-}'''
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -149,7 +143,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #configurações allauth
 AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',  
+    'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
 

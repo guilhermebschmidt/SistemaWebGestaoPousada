@@ -11,13 +11,13 @@ from django.contrib import messages
 
 def list(request):
     filtro_status = request.GET.get('status', 'todos')
-    filtro_hospede = request.GET.get('hospede', '') 
-    
+    filtro_hospede = request.GET.get('hospede', '')
+
     reservas = Reserva.objects.all().order_by('data_reserva_inicio')
 
     if filtro_status != 'todos':
         reservas = reservas.filter(status=filtro_status)
-        
+
     if filtro_hospede:
         reservas = reservas.filter(id_hospede__nome__icontains=filtro_hospede)
 
@@ -74,7 +74,7 @@ def cancelar_reserva(request, pk):
         return redirect('reserva:list')
     if request.method != 'POST':
         return render(request, 'core/reserva/confirmar_cancelamento.html', {'reserva': reserva})
-    
+
     motivo = request.POST.get('motivo_cancelamento', 'Motivo não especificado.')
     reserva.status = 'CANCELADA'
     reserva.motivo_cancelamento = motivo
@@ -115,7 +115,7 @@ def buscar_hospedes(request):
         hospedes = []
         for hospede in qs:
             hospedes.append({
-                'id': hospede.cpf,
+                'id': hospede.id,
                 'label': hospede.nome,
                 'value': hospede.nome
             })
@@ -124,7 +124,7 @@ def buscar_hospedes(request):
 
 def enviar_confirmacao_email_view(request, reserva_id):
     reserva = get_object_or_404(Reserva, id=reserva_id)
-   
+
     if request.method == 'POST':
         try:
             enviar_email_confirmacao(reserva)
@@ -134,5 +134,5 @@ def enviar_confirmacao_email_view(request, reserva_id):
         except Exception as e:
             print(f"DEBUG: O erro ao enviar o e-mail foi: {e}")
             messages.error(request, f"Ocorreu um erro ao enviar o e-mail: {e}")
-           
+
     return redirect('reserva:list')

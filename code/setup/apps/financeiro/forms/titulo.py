@@ -23,7 +23,8 @@ class TituloForm(forms.ModelForm):
         choices=BOOLEAN_CHOICES,
         widget=forms.RadioSelect,
         coerce=lambda x: x == 'True',
-        initial=False
+        initial=False,
+        required=False,
     )
     cancelado = forms.TypedChoiceField(
         label="Cancelado?",
@@ -70,3 +71,7 @@ class TituloForm(forms.ModelForm):
             'data': 'Data de Emissão',
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['hospede'].required = False
+        self.fields['reserva'].required = False
