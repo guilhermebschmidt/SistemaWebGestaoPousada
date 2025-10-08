@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from ..models.reserva import Reserva
 from ..models.hospede import Hospede
+from ..models.quarto import Quarto
 from ..forms.reserva  import ReservaForm
 from ..utils.emails import enviar_email_confirmacao
-
 import datetime
 from django.utils import timezone
 from django.http import JsonResponse
@@ -12,8 +12,10 @@ from django.contrib import messages
 def list(request):
     filtro_status = request.GET.get('status', 'todos')
     filtro_hospede = request.GET.get('hospede', '')
+    filtro_quarto = request.GET.get('quarto', 'todos')
 
     reservas = Reserva.objects.all().order_by('data_reserva_inicio')
+    quartos = Quarto.objects.all()
 
     if filtro_status != 'todos':
         reservas = reservas.filter(status=filtro_status)
@@ -21,10 +23,16 @@ def list(request):
     if filtro_hospede:
         reservas = reservas.filter(id_hospede__nome__icontains=filtro_hospede)
 
+    if filtro_quarto != 'todos':
+        reservas = reservas.filter(id_quarto__id=filtro_quarto)
+
+
     context = {
         'reservas': reservas,
         'filtro_status': filtro_status,
         'filtro_hospede': filtro_hospede,
+        'filtro_quarto': filtro_quarto,
+        'quartos': quartos, 
     }
 
     return render(request, 'core/reserva/list.html', context)

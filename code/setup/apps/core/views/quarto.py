@@ -43,7 +43,7 @@ def excluir(request, quarto_id):
     if request.method == 'POST':
         quarto.delete()
         return redirect('core/quarto:list')
-    return render(request, 'core/quarto/excluir.html', {'quarto': quarto})
+    return render(request, 'core/quarto/listar.html', {'quarto': quarto})
 
 def mudar_status_quarto(request, pk):
     quarto = get_object_or_404(Quarto, pk=pk)

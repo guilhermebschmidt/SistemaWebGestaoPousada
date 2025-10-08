@@ -41,6 +41,18 @@
                 </select>
             </div>
 
+            <div class="form-control w-full sm:w-auto">
+                <label class="label" for="quarto">
+                    <span class="label-text">Quarto</span>
+                </label>
+                <select name="quarto" id="quarto" class="select select-bordered">
+                    <option value="todos">Todos os Quartos</option>
+                    {% for quarto in quartos %}
+                        <option value="{{ quarto.id }}" {% if quarto.id|stringformat:"s" == filtro_quarto %}selected{% endif %}>
+                        {{ quarto }}  </option>
+                    {% endfor %}
+                </select>
+            </div>
             <div class="form-control w-full sm:w-auto mt-auto">
                 <button type="submit" class="btn btn-primary w-full">Filtrar</button>
             </div>

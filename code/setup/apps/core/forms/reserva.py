@@ -2,7 +2,7 @@ from django import forms
 from ..models.reserva import Reserva
 from ..models.hospede import Hospede
 from ..models.quarto import Quarto
-import datetime
+from datetime import date, timedelta
 
 class ReservaForm(forms.ModelForm):
     hospede_nome = forms.CharField(
@@ -65,8 +65,15 @@ class ReservaForm(forms.ModelForm):
 
     def clean_data_reserva_inicio(self):
         data_inicio = self.cleaned_data.get('data_reserva_inicio')
-        if data_inicio and data_inicio < datetime.date.today():
-            raise forms.ValidationError("A data de início não pode ser anterior à data atual.")
+   
+        # Aplicação da regra de negócio - reserva com 2 dias de antecedência
+        hoje = date.today()
+        data_minima_reserva = hoje + timedelta(days=2)
+       
+        if data_inicio < data_minima_reserva:
+            raise forms.ValidationError(
+                f"A data de início da reserva deve ser a partir de {data_minima_reserva.strftime('%d/%m/%Y')}."
+            )
         return data_inicio
 
     def clean_data_reserva_fim(self):
