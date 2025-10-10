@@ -4,7 +4,6 @@ from datetime import date, datetime
 import re
 
 class Hospede(models.Model):
-    id = models.BigAutoField(primary_key=True)
     cpf = models.CharField(max_length=11, unique=True)
     nome = models.CharField(max_length=100)
     telefone = models.CharField(max_length=15)
