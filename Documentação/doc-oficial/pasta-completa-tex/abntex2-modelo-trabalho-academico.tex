@@ -679,9 +679,9 @@ A principal ferramenta de gestão e desenvolvimento do projeto adotada pela equi
 
 Para atender às restrições de tempo e à execução majoritariamente remota do projeto, os eventos de inspeção do progresso que são propostos para serem diários, o \textit{daily scrum},  foram realizados de forma assíncrona e em menor frequência. Enquanto  as entregas semanais de incrementos utilizáveis do produto foram mantidas, de forma que os eventos de planejamento, revisão e retrospectiva (\textit{Sprint Planning}, \textit{Sprint Review} e \textit{Sprint Retrospective}) foram consolidados em reuniões semanais, assegurando um processo eficiente e a inspeção contínua do projeto. 
 
-Essas adaptações flexibilizaram os processos, conferindo maior autonomia aos integrantes para organizar seus horários e ritmos de trabalho. Entretanto, o número reduzido de reuniões e tempo limitado de colaboração síncrona dificultaram a comunicação e a definição de \textit{sprints} mais produtivos.
-
 Adicionalmente, a divisão das funções e responsabilidades dos membros da equipe combinou competências técnicas individuais com papéis Scrum (\textit{Product Owner}, \textit{Scrum Master} e \textit{Development Team}). Essa distribuição facilitou a colaboração entre os integrantes, dada a especialização do trabalho, e tornou os processos mais eficientes. As funções, papel Scrum e responsabilidades de cada membro estão detalhadas no \autoref{quadro_funcao_responsabilidade}.
+
+Essas adaptações flexibilizaram os processos, conferindo maior autonomia aos integrantes para organizar seus horários e ritmos de trabalho. No entanto, o número reduzido de reuniões e tempo limitado de colaboração síncrona dificultaram a comunicação e a definição de \textit{sprints} mais produtivos, exigindo maior revisão do planejamento.
 %	
 \begin{quadro}[H]
 	\caption{Divisão das Funções e Responsabilidades da Equipe do Projeto}
@@ -692,7 +692,7 @@ Adicionalmente, a divisão das funções e responsabilidades dos membros da equi
 			|>{\raggedright\arraybackslash}m{6cm}|}
 		\hline
 		\textbf{Integrante} & \textbf{Função} &  \textbf{Papel Scrum}& \textbf{Responsabilidades} \\ \hline
-		Guilherme Akio & Engenheiro de Dados (DBA) & Time de Desenvolvimento & Implementar, administrar e otimizar o banco de dados da aplicação; Entregas de funcionalidades relacionadas ao gerenciamento e persistência de dados 
+		Guilherme Akio & Analista de QA & Time de Desenvolvimento & Implementar, executar e documentar testes; Entrega de funcionalidades relacionadas a qualidade e perfomance do sistema  
 		\\ \hline
 		Guilherme Bittencourt & Engenheiro de Software & Scrum Master & CPromover e facilitar a aplicação da teoria e das práticas do \textit{Scrum}; Definir e organizar a estrutura do sistema
 		\\ \hline
@@ -710,8 +710,9 @@ Adicionalmente, a divisão das funções e responsabilidades dos membros da equi
 No Scrum,  os artefatos são elementos que ajudam a equipe a consolidar a transparência no processo de desenvolvimento  \cite{scrumguide}. Diante disso, o \textit {time scrum} realizou o planejamento dos artefatos:  \textit {Product Backlog} e \textit {Sprints Backlog}.
 %
 \subsection{Product Backlog}
-O \textit{product Backlog} é definido como uma lista ordenada de todos os itens de trabalho, incluindo funcionalidades e requisitos necessários para a produção do produto, que oferecem o máximo valor e utilidade para o cliente \cite{scrumguide}. Por isso, o \textit{product owner} do projeto elaborou o \textit{product backlog} inicial da aplicação web de gestão da pousada Chalés Água de Coco (\autoref{product_backlog}). A lista foi desenvolvida com base nas histórias de usuário levantadas pela equipe, dada a capacidade dessas histórias de retratarem fielmente as necessidades e expectativas da usuária,  assegurando o caráter utilitário do \textit{product Backlog}.Enquanto, o product backlog completo do projeto esta detalhado no \autoref{apendice:productbacklogcomp}.
-%
+O \textit{product backlog} é definido como uma lista ordenada de todos os itens de trabalho, incluindo funcionalidades e requisitos necessários para a produção do produto, que oferecem o máximo valor e utilidade para o cliente \cite{scrumguide}. Por isso, o \textit{product owner} do projeto elaborou o \textit{product backlog} inicial da aplicação web de gestão da pousada Chalés Água de Coco (\autoref{product_backlog}). Enquanto, o product backlog completo do projeto esta detalhado no \autoref{apendice:productbacklogcomp}.
+
+A lista foi elaborada com base nas histórias de usuário levantadas pela equipe, considerando que essas histórias refletem fielmente as necessidades e expectativas da usuária, assegurando o caráter utilitário do \textit{product backlog}. Além disso, foi atribuída uma classificação de prioridade a cada item, variando entre alta, média e baixa. Essa priorização definiu como de alta prioridade os itens essenciais para a entrega do MVP do sistema; de prioridade média, aqueles necessários para a conclusão do escopo final do projeto, mas não previstos para a entrega do MVP; e de prioridade baixa, os itens importantes, porém que não comprometem o funcionamento básico nem a entrega final do sistema.
 \begin{quadro}[H]
 	\caption{Product Backlog - Parte 1}
 	\label{product_backlog}
@@ -741,19 +742,19 @@ O \textit{product Backlog} é definido como uma lista ordenada de todos os itens
 	\begin{tabular}{|c|p{6.5cm}|p{3.8cm}|c|}
 		\hline
 		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline	
-		14 & Implementar funcionalidades de cadastro, edição e exclusão de receitas & Gestão Financeira & BAIXA \\ \hline
+		14 & Implementar funcionalidades de cadastro, edição e exclusão de receitas & Gestão Financeira & MÉDIA \\ \hline
 		15 & Implementar funcionalidade de registro de pagamento de reservas &Gestão Financeira e Gestão de Reservas &
-		BAIXA \\ \hline
+		MÉDIA \\ \hline
 		16 & Implementar funcionalidades de cadastro, edição e exclusão de despesas &
-		Gestão Financeira & BAIXA \\ \hline
+		Gestão Financeira & MÉDIA \\ \hline
 		17 & Implementar funcionalidades de geração de relatórios &
 		Gestão Financeira &	BAIXA \\ \hline
 		18 & Implementar balanço financeiro simples (receitas, despesas, saldo) por período & Gestão Financeira & BAIXA \\ \hline
 		19 & Implementar filtros de visualização de receita/despesa (data, categoria) &	Gestão Financeira & BAIXA \\ \hline
 		20 & Implementar  funcionalidades de notificação & Notificações &
 		BAIXA \\ \hline
-		21 & Implementar ferramentas de segurança &	Autenticação e Segurança &
-		BAIXA \\ \hline
+		21 & Implementar configurações de segurança &	Autenticação e Segurança &
+		ALTA \\ \hline
 		22 & Definir, executar e documentar plano de testes & Testes & MÉDIA \\ \hline
 		23 & Elaborar e executar o plano de implantação & Implantação & 
 		MÉDIA \\ \hline
@@ -768,7 +769,7 @@ O \textit{Sprint Backlog} constitui o plano de execução do projeto, derivado d
 
 As \textit{sprints} foram organizadas em períodos de quinze dias (duas semanas), intervalo em conformidade com o Guia do Scrum \cite{scrumguide}. Totalizando 12 semanas de trabalho. Essa definição considerou a atuação majoritariamente remota da equipe e o tempo diário individual limitado para o trabalho, circunstâncias que demandaram períodos mais extensos para a execução das tarefas. Além disso, a organização das tarefas dentro de cada \textit{sprint} levou em consideração as datas de entrega do MVP, da documentação técnica e do produto final do projeto.
 
-Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma a cumprir um progresso gradual das atividades em duas fases. Na primeira fase, as primeiras \textit{sprints} focaram na modelagem do sistema e escolha das ferramentas e tecnologias de gestão e desenvolvimento. Enquanto, nas próximas \textit{sprints}, foram iniciadas tarefas relacionadas ao desenvolvimento do MVP e documentação do sistema. Ao passo que, na segunda fase, a equipe focou em desenvolver as  funcionalidades de gestão financeiro, integrar com o MVP, realizar testes e revisão da documentação. Sendo que, as atividades de desenvolvimento foram distribuídas considerando: prioridade e relações de dependência. 
+Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma a cumprir um progresso gradual das atividades em duas fases. Na primeira fase, as primeiras \textit{sprints} focaram na modelagem do sistema e escolha das ferramentas e tecnologias de gestão e desenvolvimento. Enquanto, nas próximas \textit{sprints}, foram iniciadas tarefas relacionadas ao desenvolvimento do MVP e documentação do sistema. Ao passo que, na segunda fase, a equipe focou em desenvolver as  funcionalidades de gestão financeira, integração com o MVP, realização de testes e revisão da documentação. Sendo que, as atividades de desenvolvimento foram distribuídas considerando: prioridade e relações de dependência. 
 \\
 %
 \begin{quadro}[H]
@@ -816,6 +817,11 @@ Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma 
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
+
+Para auxiliar a equipe na visualização, acompanhamento e organização das \textit{sprints}, foram utilizadas duas ferramentas de gestão distintas. Na primeira fase do projeto, empregou-se o ProjectLibre, no qual foram cadastradas as atividades com seus respectivos prazos e responsáveis. No entanto, devido a dificuldades técnicas e a demandas externas, a equipe passou a utilizar, na segunda fase do projeto, um quadro \textit{Kanban}. Essa mudança proporcionou maior flexibilidade no controle das tarefas e autonomia para cada membro da equipe gerenciar suas próprias atividades, especialmente pela familiaridade de alguns integrantes com esse modelo. O quadro foi criado no próprio repositório do projeto e está disponível na seção \textit{Projects} do GitHub.A transição entre as ferramentas permitiu otimizar a comunicação interna e o acompanhamento do progresso das entregas, contribuindo para uma gestão mais ágil das \textit{sprints}.
+
+
+
 % ---
 % Tópico de Gestão de Riscos
 \section{Gestão de Riscos}
