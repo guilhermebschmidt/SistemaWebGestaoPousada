@@ -7,139 +7,147 @@
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução}}{12}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Objetivos}{13}{section.1.1}%
-\contentsline {subsection}{\numberline {1.1.1}Objetivo Geral}{13}{subsection.1.1.1}%
-\contentsline {subsection}{\numberline {1.1.2}Objetivos Específicos}{13}{subsection.1.1.2}%
-\contentsline {section}{\numberline {1.2}Justificativa}{13}{section.1.2}%
-\contentsline {section}{\numberline {1.3}Análise da Concorrência}{14}{section.1.3}%
-\contentsline {subsection}{\numberline {1.3.1}SimplesHotel}{15}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}HospedaJá}{15}{subsection.1.3.2}%
-\contentsline {subsection}{\numberline {1.3.3}Diferenciais do Chalés Água de Coco}{15}{subsection.1.3.3}%
-\contentsline {subsection}{\numberline {1.3.4}Comparativo}{16}{subsection.1.3.4}%
+\contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução}}{13}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Objetivos}{14}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Objetivo Geral}{14}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Objetivos Específicos}{14}{subsection.1.1.2}%
+\contentsline {section}{\numberline {1.2}Justificativa}{14}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Análise da Concorrência}{15}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}SimplesHotel}{16}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}HospedaJá}{16}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}Diferenciais do Chalés Água de Coco}{16}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.4}Comparativo}{17}{subsection.1.3.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Revisão de Literatura}}{17}{chapter.2}%
-\contentsline {subsection}{\numberline {2.0.1}Histórico do Turismo e da Hospitalidade}{17}{subsection.2.0.1}%
-\contentsline {subsection}{\numberline {2.0.2}A Gestão Hoteleira e o Impacto da Tecnologia}{18}{subsection.2.0.2}%
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Revisão de Literatura}}{18}{chapter.2}%
+\contentsline {subsection}{\numberline {2.0.1}Histórico do Turismo e da Hospitalidade}{18}{subsection.2.0.1}%
+\contentsline {subsection}{\numberline {2.0.2}A Gestão Hoteleira e o Impacto da Tecnologia}{19}{subsection.2.0.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Gestão do Projeto}}{19}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Metodologia de Gestão e Desenvolvimento}{19}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Artefatos}{20}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Product Backlog}{20}{subsection.3.2.1}%
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Gestão do Projeto}}{20}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Metodologia de Gestão e Desenvolvimento}{20}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Artefatos}{21}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Product Backlog}{21}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Sprint Backlog}{23}{subsection.3.2.2}%
 \contentsline {section}{\numberline {3.3}Gestão de Riscos}{25}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Identificação dos Riscos do Projeto}{26}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Análise e Planejamento dos Riscos}{28}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Monitoramento dos Riscos}{31}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Identificação dos Riscos do Projeto}{25}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Análise e Planejamento dos Riscos}{27}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Monitoramento dos Riscos}{30}{subsection.3.3.3}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Desenvolvimento do Projeto}}{33}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Escopo do Projeto}{33}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Funcionalidades do Sistema}{33}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Regras de Negócio}{34}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Requisitos do Sistema}{35}{subsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.3.1}Requisitos Funcionais}{35}{subsubsection.4.1.3.1}%
-\contentsline {subsubsection}{\numberline {4.1.3.2}Requisitos Não Funcionais}{38}{subsubsection.4.1.3.2}%
-\contentsline {section}{\numberline {4.2}Histórias de Usuário}{41}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Descrição das Histórias de Usuário}{41}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}Arquitetura}{53}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Arquitetura Lógica}{54}{subsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.1.1}Camada de Apresentação (Template)}{54}{subsubsection.4.3.1.1}%
-\contentsline {subsubsection}{\numberline {4.3.1.2}Camada de Controle (View)}{54}{subsubsection.4.3.1.2}%
-\contentsline {subsubsection}{\numberline {4.3.1.3}Camada de Modelo (Model)}{54}{subsubsection.4.3.1.3}%
-\contentsline {subsection}{\numberline {4.3.2}Banco de Dados}{54}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Infraestrutura em Nuvem}{55}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Preparação para Evoluções Futuras}{55}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Diagrama da Arquitetura}{55}{subsection.4.3.5}%
-\contentsline {subsubsection}{\numberline {4.3.5.1}Diagrama de Implantação}{55}{subsubsection.4.3.5.1}%
-\contentsline {subsubsection}{\numberline {4.3.5.2}Diagrama de Componentes}{56}{subsubsection.4.3.5.2}%
-\contentsline {section}{\numberline {4.4}Tecnologias}{57}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Django}{57}{subsection.4.4.1}%
-\contentsline {subsubsection}{\numberline {4.4.1.1}Front-end}{58}{subsubsection.4.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.4.1.2}Back-end}{58}{subsubsection.4.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.4.1.3}Banco de Dados}{58}{subsubsection.4.4.1.3}%
-\contentsline {subsection}{\numberline {4.4.2}Justificativa da Escolha}{58}{subsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.2.1}Justificativa Técnica}{58}{subsubsection.4.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.4.2.2}Infraestrutura com AWS}{59}{subsubsection.4.4.2.2}%
-\contentsline {section}{\numberline {4.5}Ferramentas de Apoio}{59}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}GitHub}{59}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}BRModelo}{60}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Visual Paradigm Online}{60}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}Latex}{60}{subsection.4.5.4}%
-\contentsline {subsection}{\numberline {4.5.5}Google Meet}{60}{subsection.4.5.5}%
-\contentsline {subsection}{\numberline {4.5.6}ProjectLibre}{60}{subsection.4.5.6}%
-\contentsline {section}{\numberline {4.6}Manutenibilidade}{61}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Segurança, Privacidade e Legislação}{61}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Segurança da Aplicação}{62}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}Segurança na Comunicação}{62}{subsection.4.7.2}%
-\contentsline {subsection}{\numberline {4.7.3}Conformidade com a LGPD}{63}{subsection.4.7.3}%
-\contentsline {section}{\numberline {4.8}Modelagem do Banco de Dados}{63}{section.4.8}%
-\contentsline {subsection}{\numberline {4.8.1}Modelo Entidade-Relacionamento - MER}{64}{subsection.4.8.1}%
-\contentsline {subsection}{\numberline {4.8.2}Diagrama Entidade-Relacionamento - DER}{64}{subsection.4.8.2}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Desenvolvimento do Projeto}}{32}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Escopo do Projeto}{32}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Funcionalidades do Sistema}{32}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Regras de Negócio}{33}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Requisitos do Sistema}{34}{subsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.3.1}Requisitos Funcionais}{34}{subsubsection.4.1.3.1}%
+\contentsline {subsubsection}{\numberline {4.1.3.2}Requisitos Não Funcionais}{37}{subsubsection.4.1.3.2}%
+\contentsline {section}{\numberline {4.2}Histórias de Usuário}{40}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Descrição das Histórias de Usuário}{40}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Arquitetura}{52}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Arquitetura Lógica}{53}{subsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.1}Camada de Apresentação (Template)}{53}{subsubsection.4.3.1.1}%
+\contentsline {subsubsection}{\numberline {4.3.1.2}Camada de Controle (View)}{53}{subsubsection.4.3.1.2}%
+\contentsline {subsubsection}{\numberline {4.3.1.3}Camada de Modelo (Model)}{53}{subsubsection.4.3.1.3}%
+\contentsline {subsection}{\numberline {4.3.2}Banco de Dados}{53}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Infraestrutura em Nuvem}{54}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Preparação para Evoluções Futuras}{54}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Diagrama da Arquitetura}{54}{subsection.4.3.5}%
+\contentsline {subsubsection}{\numberline {4.3.5.1}Diagrama de Implantação}{54}{subsubsection.4.3.5.1}%
+\contentsline {subsubsection}{\numberline {4.3.5.2}Diagrama de Componentes}{55}{subsubsection.4.3.5.2}%
+\contentsline {section}{\numberline {4.4}Tecnologias}{56}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Django}{56}{subsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.1.1}Front-end}{57}{subsubsection.4.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.4.1.2}Back-end}{57}{subsubsection.4.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.4.1.3}Banco de Dados}{57}{subsubsection.4.4.1.3}%
+\contentsline {subsection}{\numberline {4.4.2}Justificativa da Escolha}{57}{subsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.2.1}Justificativa Técnica}{57}{subsubsection.4.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.4.2.2}Infraestrutura com AWS}{58}{subsubsection.4.4.2.2}%
+\contentsline {section}{\numberline {4.5}Ferramentas de Apoio}{58}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}GitHub}{58}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}BRModelo}{59}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Visual Paradigm Online}{59}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}Latex}{59}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.5.5}Google Meet}{59}{subsection.4.5.5}%
+\contentsline {subsection}{\numberline {4.5.6}ProjectLibre}{59}{subsection.4.5.6}%
+\contentsline {section}{\numberline {4.6}Manutenibilidade}{60}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Segurança, Privacidade e Legislação}{60}{section.4.7}%
+\contentsline {subsection}{\numberline {4.7.1}Segurança da Aplicação}{61}{subsection.4.7.1}%
+\contentsline {subsection}{\numberline {4.7.2}Segurança na Comunicação}{61}{subsection.4.7.2}%
+\contentsline {subsection}{\numberline {4.7.3}Conformidade com a LGPD}{62}{subsection.4.7.3}%
+\contentsline {section}{\numberline {4.8}Modelagem do Banco de Dados}{62}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Modelo Entidade-Relacionamento - MER}{63}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Diagrama Entidade-Relacionamento - DER}{63}{subsection.4.8.2}%
 \contentsline {section}{\numberline {4.9}Repositório da Aplicação}{64}{section.4.9}%
-\contentsline {subsection}{\numberline {4.9.1}Definição do repositório da aplicação}{65}{subsection.4.9.1}%
-\contentsline {section}{\numberline {4.10}Entregas}{67}{section.4.10}%
-\contentsline {subsection}{\numberline {4.10.1}Desenvolvimento de um Tema - 08/04}{67}{subsection.4.10.1}%
-\contentsline {subsection}{\numberline {4.10.2}Desenho da Aplicação - 29/04}{67}{subsection.4.10.2}%
+\contentsline {subsection}{\numberline {4.9.1}Definição do repositório da aplicação}{64}{subsection.4.9.1}%
+\contentsline {section}{\numberline {4.10}Entregas}{66}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Desenvolvimento de um Tema - 08/04}{66}{subsection.4.10.1}%
+\contentsline {subsection}{\numberline {4.10.2}Desenho da Aplicação - 29/04}{66}{subsection.4.10.2}%
 \contentsline {subsection}{\numberline {4.10.3}Prova de Conceito - 20/05}{67}{subsection.4.10.3}%
 \contentsline {subsection}{\numberline {4.10.4}Análise e Documentação - 10/06}{67}{subsection.4.10.4}%
-\contentsline {subsection}{\numberline {4.10.5}Produto Mínimo Viável - 24/06}{68}{subsection.4.10.5}%
+\contentsline {subsection}{\numberline {4.10.5}Produto Mínimo Viável - 24/06}{67}{subsection.4.10.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Viabilidade Financeira}}{69}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Custos}{69}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Custo Estrutural}{69}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Custo de Pessoal}{70}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Custo Total}{71}{subsection.5.1.3}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Viabilidade Financeira}}{68}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Custos}{68}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Custo Estrutural}{68}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Custo de Pessoal}{69}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Custo Total}{70}{subsection.5.1.3}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Considerações Finais}}{73}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Considerações Finais}}{72}{chapter.6}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Conclusão}}{74}{chapter.7}%
+\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Conclusão}}{73}{chapter.7}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{75}{section*.21}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{74}{section*.23}%
 \renewcommand *{\cftappendixname }{AP\^ENDICE \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Ap\^endices}}{79}{section*.22}%
+\contentsline {part}{\uppercase {Ap\^endices}}{78}{section*.24}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Diário de Bordo}}{80}{appendix.A}%
-\contentsline {section}{\numberline {A.1}1° SEMANA}{80}{section.A.1}%
-\contentsline {section}{\numberline {A.2}2° SEMANA}{80}{section.A.2}%
-\contentsline {section}{\numberline {A.3}3° SEMANA}{80}{section.A.3}%
-\contentsline {section}{\numberline {A.4}4° SEMANA}{81}{section.A.4}%
-\contentsline {section}{\numberline {A.5}5° SEMANA}{81}{section.A.5}%
-\contentsline {section}{\numberline {A.6}6° SEMANA}{81}{section.A.6}%
-\contentsline {section}{\numberline {A.7}7° SEMANA}{82}{section.A.7}%
-\contentsline {section}{\numberline {A.8}8° SEMANA}{82}{section.A.8}%
-\contentsline {section}{\numberline {A.9}9° SEMANA}{82}{section.A.9}%
-\contentsline {section}{\numberline {A.10}10° SEMANA}{82}{section.A.10}%
-\contentsline {section}{\numberline {A.11}11° SEMANA}{82}{section.A.11}%
-\contentsline {section}{\numberline {A.12}12° SEMANA}{83}{section.A.12}%
-\contentsline {section}{\numberline {A.13}13° SEMANA}{83}{section.A.13}%
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Diário de Bordo}}{79}{appendix.A}%
+\contentsline {section}{\numberline {A.1}1° SEMANA}{79}{section.A.1}%
+\contentsline {section}{\numberline {A.2}2° SEMANA}{79}{section.A.2}%
+\contentsline {section}{\numberline {A.3}3° SEMANA}{79}{section.A.3}%
+\contentsline {section}{\numberline {A.4}4° SEMANA}{80}{section.A.4}%
+\contentsline {section}{\numberline {A.5}5° SEMANA}{80}{section.A.5}%
+\contentsline {section}{\numberline {A.6}6° SEMANA}{80}{section.A.6}%
+\contentsline {section}{\numberline {A.7}7° SEMANA}{81}{section.A.7}%
+\contentsline {section}{\numberline {A.8}8° SEMANA}{81}{section.A.8}%
+\contentsline {section}{\numberline {A.9}9° SEMANA}{81}{section.A.9}%
+\contentsline {section}{\numberline {A.10}10° SEMANA}{81}{section.A.10}%
+\contentsline {section}{\numberline {A.11}11° SEMANA}{81}{section.A.11}%
+\contentsline {section}{\numberline {A.12}12° SEMANA}{82}{section.A.12}%
+\contentsline {section}{\numberline {A.13}13° SEMANA}{82}{section.A.13}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Questionário Aplicado à Proprietária da Pousada}}{84}{appendix.B}%
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Questionário Aplicado à Proprietária da Pousada}}{83}{appendix.B}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Product Backlog Detalhado}}{89}{appendix.C}%
+\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Product Backlog Detalhado}}{88}{appendix.C}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Requisitos Funcionais Detalhados}}{93}{appendix.D}%
+\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Sprint Backlog Detalhado}}{92}{appendix.D}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes}}{97}{appendix.E}%
+\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Certificados de Segurança}}{100}{appendix.E}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {F}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Quartos}}{103}{appendix.F}%
+\contentsline {appendix}{\chapternumberline {F}\MakeTextUppercase []{Requisitos Funcionais Detalhados}}{101}{appendix.F}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {G}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Reservas}}{109}{appendix.G}%
+\contentsline {appendix}{\chapternumberline {G}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes}}{105}{appendix.G}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\cftinsert {A}
+\contentsline {appendix}{\chapternumberline {H}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Quartos}}{111}{appendix.H}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\cftinsert {A}
+\contentsline {appendix}{\chapternumberline {I}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Reservas}}{117}{appendix.I}%
 \vspace {\cftbeforechapterskip }

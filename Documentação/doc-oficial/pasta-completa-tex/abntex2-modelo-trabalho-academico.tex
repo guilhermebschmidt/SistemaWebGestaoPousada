@@ -84,8 +84,8 @@
 \usepackage{lipsum}				% para geração de dummy text
 \usepackage{placeins}
 \usepackage{multirow}
-
-
+\usepackage{qrcode}
+\usepackage{xcolor}
 % ---
 
 % ---
@@ -687,20 +687,20 @@ Essas adaptações flexibilizaram os processos, conferindo maior autonomia aos i
 	\caption{Divisão das Funções e Responsabilidades da Equipe do Projeto}
 	\label{quadro_funcao_responsabilidade}
 	\renewcommand{\arraystretch}{1.3} % Aumenta o espaçamento entre linhas
-	\begin{tabular}{|>{\raggedright\arraybackslash}m{3cm} 
-			|>{\raggedright\arraybackslash}m{2.6cm} |>{\raggedright\arraybackslash}m{2.6cm} 
-			|>{\raggedright\arraybackslash}m{6cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{3cm} 
+			|>{\centering\arraybackslash}m{2.6cm} |>{\centering\arraybackslash}m{3cm} 
+			|>{\raggedright\arraybackslash}m{5.6cm}|}
 		\hline
 		\textbf{Integrante} & \textbf{Função} &  \textbf{Papel Scrum}& \textbf{Responsabilidades} \\ \hline
-		Guilherme Akio & Analista de QA & Time de Desenvolvimento & Implementar, executar e documentar testes; Entrega de funcionalidades relacionadas a qualidade e perfomance do sistema  
+		Guilherme Akio & Analista de QA & Time de \newline Desenvolvimento & Implementar, executar e documentar testes; Entrega de funcionalidades relacionadas a qualidade e perfomance do sistema  
 		\\ \hline
 		Guilherme Bittencourt & Engenheiro de Software & Scrum Master & CPromover e facilitar a aplicação da teoria e das práticas do \textit{Scrum}; Definir e organizar a estrutura do sistema
 		\\ \hline
 		Kelly Radchelle & Gerente de Projeto & Product Owner & Acompanhar o progresso das sprints; Facilitar e coordenar tomada de decisões e comunicação entre as partes interessadas \textit{sprints} 
 		 \\ \hline
-		Rafael Teixeira & Desenvolvedor Frontend &  Time de Desenvolvimento & Entregas de funcionalidades relacionadas à experiência do usuário; Projetar e implementar interfaces da aplicação
+		Rafael Teixeira & Desenvolvedor Frontend &  Time  de \newline Desenvolvimento & Entregas de funcionalidades relacionadas à experiência do usuário; Projetar e implementar interfaces da aplicação
 		\\ \hline
-		Ricardo Carriel & Desenvolvedor Backend &  Time de Desenvolvimento & Entregas de funcionalidades relacionadas a lógica e integração do sistema;  Implementar lógica de negócio; Configurar e administrar o servidor
+		Ricardo Carriel & Desenvolvedor Backend &  Time de \newline Desenvolvimento & Entregas de funcionalidades relacionadas a lógica e integração do sistema;  Implementar lógica de negócio; Configurar e administrar o servidor
 		\\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
@@ -712,7 +712,8 @@ No Scrum,  os artefatos são elementos que ajudam a equipe a consolidar a transp
 \subsection{Product Backlog}
 O \textit{product backlog} é definido como uma lista ordenada de todos os itens de trabalho, incluindo funcionalidades e requisitos necessários para a produção do produto, que oferecem o máximo valor e utilidade para o cliente \cite{scrumguide}. Por isso, o \textit{product owner} do projeto elaborou o \textit{product backlog} inicial da aplicação web de gestão da pousada Chalés Água de Coco (\autoref{product_backlog}). Enquanto, o product backlog completo do projeto esta detalhado no \autoref{apendice:productbacklogcomp}.
 
-A lista foi elaborada com base nas histórias de usuário levantadas pela equipe, considerando que essas histórias refletem fielmente as necessidades e expectativas da usuária, assegurando o caráter utilitário do \textit{product backlog}. Além disso, foi atribuída uma classificação de prioridade a cada item, variando entre alta, média e baixa. Essa priorização definiu como de alta prioridade os itens essenciais para a entrega do MVP do sistema; de prioridade média, aqueles necessários para a conclusão do escopo final do projeto, mas não previstos para a entrega do MVP; e de prioridade baixa, os itens importantes, porém que não comprometem o funcionamento básico nem a entrega final do sistema.
+A lista foi elaborada com base nas histórias de usuário levantadas pela equipe, considerando que essas histórias refletem fielmente as necessidades e expectativas da usuária, assegurando o caráter utilitário do \textit{product backlog}. Além disso, foi atribuída uma classificação de prioridade a cada item, variando entre alta, média e baixa. Essa priorização definiu como de alta prioridade os itens essenciais para a entrega do MVP do sistema; de prioridade média, aqueles necessários para a conclusão do escopo final do projeto, mas não previstos para a entrega do MVP; e de prioridade baixa, os itens importantes, porém que não comprometem o funcionamento básico nem a entrega final do sistema. \\
+%
 \begin{quadro}[H]
 	\caption{Product Backlog - Parte 1}
 	\label{product_backlog}
@@ -729,9 +730,6 @@ A lista foi elaborada com base nas histórias de usuário levantadas pela equipe
 		8 & Implementar funcionalidades de cadastro, edição e exclusão de hóspedes & Gestão de Hóspedes & ALTA \\ \hline
 		9 & Implementar funcionalidades de cadastro, edição e exclusão de reservas & Gestão de Reservas & ALTA \\ \hline
 		10 & Implementar interfaces  de usuário & Requisito Técnico & ALTA \\ \hline
-		11 & Implementar funcionalidades de \textit{Check-in} e \textit {Check-out} &
-		\textit {Check-in} e \textit {Check-out} &	ALTA \\ \hline
-		12 & Integrar ambientes \textit{backend} e \textit {frontend} &	Requisito técnico & ALTA \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -742,6 +740,11 @@ A lista foi elaborada com base nas histórias de usuário levantadas pela equipe
 	\begin{tabular}{|c|p{6.5cm}|p{3.8cm}|c|}
 		\hline
 		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline	
+		11 & Implementar funcionalidades de \textit{Check-in} e \textit {Check-out} &
+		\textit {Check-in} e \textit {Check-out} &	ALTA
+		 \\ \hline
+		12 & Integrar ambientes \textit{backend} e \textit {frontend} &	Requisito técnico & ALTA 
+		\\ \hline
 		14 & Implementar funcionalidades de cadastro, edição e exclusão de receitas & Gestão Financeira & MÉDIA \\ \hline
 		15 & Implementar funcionalidade de registro de pagamento de reservas &Gestão Financeira e Gestão de Reservas &
 		MÉDIA \\ \hline
@@ -765,13 +768,13 @@ A lista foi elaborada com base nas histórias de usuário levantadas pela equipe
 % 
 % ---
 \subsection{Sprint Backlog}
-O \textit{Sprint Backlog} constitui o plano de execução do projeto, derivado do \textit{Product Backlog}, e estabelece o conjunto de itens de trabalho a ser realizado em cada \textit {sprint}. Nesse contexto, o artefato foi desenvolvido pela equipe do projeto como ferramenta auxiliar na gestão, com o objetivo de garantir que todas as partes estivessem cientes do andamento e das etapas em desenvolvimento. E está registrado no  \autoref{sprints_backlog_1}.
+O \textit{Sprint Backlog} constitui o plano de execução do projeto, derivado do \textit{Product Backlog}, e estabelece o conjunto de itens de trabalho a ser realizado em cada \textit {sprint}. Nesse contexto, o artefato foi desenvolvido pela equipe do projeto como ferramenta auxiliar na gestão, com o objetivo de garantir que todas as partes estivessem cientes do andamento e das etapas em desenvolvimento. O plano completo encontra-se disponível no \autoref{apendice:sprintbacklogdetalhado}.
 
-As \textit{sprints} foram organizadas em períodos de quinze dias (duas semanas), intervalo em conformidade com o Guia do Scrum \cite{scrumguide}. Totalizando 12 semanas de trabalho. Essa definição considerou a atuação majoritariamente remota da equipe e o tempo diário individual limitado para o trabalho, circunstâncias que demandaram períodos mais extensos para a execução das tarefas. Além disso, a organização das tarefas dentro de cada \textit{sprint} levou em consideração as datas de entrega do MVP, da documentação técnica e do produto final do projeto.
+As \textit{sprints} foram organizadas em períodos de sete dias (uma semana), intervalo estabelecido em conformidade com o Guia do Scrum \cite{scrumguide}, totalizando 25 semanas de trabalho. Essa definição considerou as circunstâncias acadêmicas que envolvem o projeto, as quais exigiam entregas semanais e acompanhamento contínuo das atividades.
 
-Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma a cumprir um progresso gradual das atividades em duas fases. Na primeira fase, as primeiras \textit{sprints} focaram na modelagem do sistema e escolha das ferramentas e tecnologias de gestão e desenvolvimento. Enquanto, nas próximas \textit{sprints}, foram iniciadas tarefas relacionadas ao desenvolvimento do MVP e documentação do sistema. Ao passo que, na segunda fase, a equipe focou em desenvolver as  funcionalidades de gestão financeira, integração com o MVP, realização de testes e revisão da documentação. Sendo que, as atividades de desenvolvimento foram distribuídas considerando: prioridade e relações de dependência. 
-\\
+Dessa forma, os itens do \textit{Product Backlog} foram distribuídos de modo a garantir um progresso gradual das atividades, organizadas em duas fases. Na primeira fase, as \textit{sprints} iniciais concentraram-se na modelagem do sistema e na escolha das ferramentas e tecnologias de gestão e desenvolvimento. Nas \textit{sprints} seguintes, foram iniciadas as tarefas relacionadas ao desenvolvimento do MVP e à documentação do sistema. Já na segunda fase, a equipe concentrou esforços na implementação das funcionalidades de gestão financeira, na integração com o MVP, na realização de testes e na revisão da documentação. As atividades de desenvolvimento foram distribuídas considerando critérios de prioridade e relações de dependência entre tarefas.
 %
+\begin{comment}
 \begin{quadro}[H]
 	\caption{Sprints Backlog - Parte 1} 
 	\label{sprints_backlog_1} 
@@ -817,9 +820,25 @@ Diante disso, os itens do \textit{Product Backlog} foram distribuídos de forma 
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
+\end{comment}
 
-Para auxiliar a equipe na visualização, acompanhamento e organização das \textit{sprints}, foram utilizadas duas ferramentas de gestão distintas. Na primeira fase do projeto, empregou-se o ProjectLibre, no qual foram cadastradas as atividades com seus respectivos prazos e responsáveis. No entanto, devido a dificuldades técnicas e a demandas externas, a equipe passou a utilizar, na segunda fase do projeto, um quadro \textit{Kanban}. Essa mudança proporcionou maior flexibilidade no controle das tarefas e autonomia para cada membro da equipe gerenciar suas próprias atividades, especialmente pela familiaridade de alguns integrantes com esse modelo. O quadro foi criado no próprio repositório do projeto e está disponível na seção \textit{Projects} do GitHub.A transição entre as ferramentas permitiu otimizar a comunicação interna e o acompanhamento do progresso das entregas, contribuindo para uma gestão mais ágil das \textit{sprints}.
+Para auxiliar a equipe na visualização, acompanhamento e organização das \textit{sprints}, foram utilizadas duas ferramentas de gestão distintas. Na primeira fase do projeto, empregou-se o ProjectLibre, no qual foram cadastradas as atividades com seus respectivos prazos e responsáveis \autoref{fig:qrcode_tarefas_projectlibre}. No entanto, devido a dificuldades técnicas e a demandas externas, a equipe passou a utilizar, na segunda fase do projeto, um quadro \textit{Kanban}. Essa mudança proporcionou maior flexibilidade no controle das tarefas e autonomia para cada membro da equipe gerenciar suas próprias atividades, especialmente pela familiaridade de alguns integrantes com esse modelo. O quadro foi criado no próprio repositório do projeto e está disponível na seção \textit{projects} \autoref{fig:qrcode_github_project}.A transição entre as ferramentas permitiu otimizar a comunicação interna e o acompanhamento do progresso das entregas, contribuindo para uma gestão mais ágil das \textit{sprints}.
 
+\begin{figure}[H]
+	\centering
+	\caption{Link para o documento do ProjectLibre}
+	\label{fig:qrcode_tarefas_projectlibre}
+	{\color{black}\qrcode[height=3cm]{https://github.com/guilhermebschmidt/SistemaWebGestaoPousada/blob/main/Projeto/Gest%C3%A3o%20de%20Tarefas%20do%20Projeto.pod}}
+	\fonte{Elaboração própria.}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\caption{Link para o quadro Kanban no GitHub}
+	\label{fig:qrcode_github_project}
+	{\color{black}\qrcode[height=3cm]{https://github.com/users/guilhermebschmidt/projects/1}}
+	\fonte{Elaboração própria.}
+\end{figure}
 
 
 % ---
@@ -1822,6 +1841,8 @@ Todas as comunicações entre cliente e servidor ocorrem por meio do protocolo H
 
 Adicionalmente, todas as requisições HTTP são redirecionadas automaticamente para HTTPS. Foram configurados cabeçalhos de segurança (como \texttt{Strict-Transport-Security} e \texttt{X-Content-Type-Options}), reforçando a proteção contra ataques de \textit{downgrade} e manipulação de conteúdo~\cite{rfc-tls}.
 
+Para verificar a segurança da implementação, a comunicação HTTPS do sistema web da Pousada Chalés de Água de Coco foi avaliada através da plataforma SSL Labs, por meio do SSL Server Test, que analisa detalhadamente a implementação do protocolo TLS/SSL pelo servidor e a proteção das conexões estabelecidas \cite{ssllabs_app_pousada}. O certificado utilizado foi emitido pela autoridade certificadora gratuita Let's Encrypt \cite{letsencrypt}. A aplicação recebeu a nota A, indicando uma configuração segura e adequada, e a captura de tela do resultado está disponível no \autoref{apendice:certificado_SSL}.
+
 \subsection{Conformidade com a LGPD}
 
 A LGPD estabelece princípios fundamentais para o tratamento de dados pessoais, como a necessidade de consentimento, a finalidade específica do uso e a transparência para o titular. Em conformidade com essa legislação, o sistema adota os seguintes mecanismos:
@@ -2806,7 +2827,335 @@ Durante essa semana a documentação final consolidada foi revisada, para aplica
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
+% ----------------------------------------------------------%
+\chapter{Sprint Backlog Detalhado}
+\label{apendice:sprintbacklogdetalhado}
+\begin{quadro}[H]
+	\caption{Sprints Backlog - Parte 1} 
+	\label{sprints_backlog_1} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7.5cm}|}
+		\hline
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\hline 
+		1 & 26/03/2025 a 02/04/2025 &  Fundação e Alinhamento do Projeto & Organização do tema
+		Definição da metodologia de trabalho;
+		Definição ferramentas de gestão;
+		Definição das plataformas e tecnologias de desenvolvimento
+		\\
+		\hline 
+		2 & 03/04/2025 a 09/04/2025 & Detalhamento Técnico e Análise de Viabilidade  & Definição dos frameworks e bibliotecas;
+		Definição das ferramentas de desenvolvimento e hospedagem/publicação;
+		Levantamento de custos 
+		\\
+		\hline 
+		3 & 10/04/2025 a 16/04/2025 & Estruturação do Escopo  & Levantamento dos requisitos;
+		Mapeamento dos casos de uso;
+		Desenvolver Product Backlog Inicial
+		\\
+		\hline 
+		4 & 17/04/2025 a 23/04/2025 &  Estruturação da Arquitetura e do MVP & Definição do escopo do MVP;
+		Organizar repositório e fluxo GitHub;
+		Criação do Diagrama de Componentes;
+		Criação do Diagrama de Implantação
+		\\
+		\hline 
+		5 & 24/04/2025 a 30/04/2025 & Avanço na Estruturação da Arquitetura & Criar do modelo relacional (MER);
+		Criar do diagrama entidade-relacionamento (DER);
+		Configurar ambiente e servidor local;
+		Configurar Banco de Dados (PostgreSQL) 
+		\\
+		\hline 
+		6 & 01/05/2025 a 07/05/2025 & Implementação da Estrutura Base e Módulos Iniciais  & Estrutura inicial do Backend:
+		Criar App Quarto; Criar App Hóspede; Criar App Reserva; Criar Usuário Admin. 
+		Estrutura inicial do frontend: configurações tailwind e daisyiu
+		\\
+		\hline 
+		7 & 08/05/2025 a 14/05/2025 &  Desenvolvimento do Cadastro de Quartos & Revisão dos Requisitos e Diagramas; 
+		Criar funcionalidade de cadastro de quartos:
+		Criar Model Quarto; Executar migrations; Criar formulário de cadastro; Criar view de criação (QuartoViewCreate); Maper rota (URL) para view criada
+		\\
+		\hline  
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
 %
+\begin{quadro}[H]
+	\caption{Sprints Backlog - Parte 2} 
+	\label{sprints_backlog_2} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7.5cm}|}
+		\hline
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\hline 
+		8 & 15/05/2025 a 21/05/2025 & Implementação do CRUD de Quartos  & Criar interfaces para gestão de quartos:
+		Criar template do formulário de cadastro. 
+		Criar funcionalidades de edição e exclusão do cadastro de quartos: Criar view de edição  (QuartoViewUpdate); Criar view de exclusão (QuartoViewDelete); Criar template de edição de quarto; Criar template de exclusão de quarto; Maper rotas (URL) para views criadas.
+		Criar funcionalidade de listagem de quartos:
+		Criar view de listagem (QuartoViewList); Criar template de listagem de quartos; Maper rota (URL) para view criada.
+		\\
+		\hline 
+		9 & 22/05/2025 a 28/05/2025 & Implementação do CRUD de Hóspedes  & Criar funcionalidade de cadastro de hóspedes: Criar Model Hóspede; Executar migrations; Criar formulário de cadastro; Criar view de criação (HospedeViewCreate); Maper rota (URL) para view criada.Criar funcionalidades de edição e exclusão do cadastro de hóspedes: Criar view de edição  (HospedeViewUpdate); Criar view de exclusão (HospedeViewDelete); Maper rotas (URL) para views criadas
+		\\
+		\hline 	
+		10 & 29/05/2025 a 04/06/2025 &  Estruturação do Módulo de Reservas e Conclusão da Gestão de Hóspedes  & Criar interfaces para gestão de hóspedes: Criar template do formulário de cadastro de hóspede; Criar template de edição de hóspede; Criar template de exclusão de hóspede; Criar template de listagem de hóspede. Criar funcionalidade de cadastro de reservas:
+		Criar Model Reserva; Executar migrations; Criar formulário de cadastro; Criar view de criação ; Maper rota (URL) para view criada. Criar funcionalidades de edição e exclusão do cadastro de reservas: Criar view de edição; Criar view de exclusão; Maper rotas (URL) para views criadas; Consolidar toda a documentação técnica e de requisitos
+		\\
+		\hline 
+		\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%
+\begin{quadro}[H]
+	\caption{Sprints Backlog - Parte 3} 
+	\label{sprints_backlog_3} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7.5cm}|}
+		\hline
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\hline 
+		11 & 05/06/2025 a 11/06/2025 & Operacionalização do Módulo de Reservas  & Finalizar Documentação Técnica e Gerar  PDF; Criar interfaces para gestão de Reservas: Criar template do formulário de cadastro de reserva;Criar template de edição de reserva;Criar template de exclusão de reserva; Criar template de listagem de reserva.		
+		Criar funcionalidades de check-in e check-out:
+		Adicionar função de check-in na view Reserva; Adicionar função de check-out na view Reserva;
+		Adicionar função de registrar check-in/check-out no template de listagem de reservas;
+		Criar templates para check-in do dia (hoje);
+		Criar templates para check-out do dia (hoje)
+		\\
+		\hline 
+		12 & 12/06/2025 a 18/06/2025 & Preparação e Lançamento do MVP  & Revisar formatação e ortografia da documentação; Revisar e  fazer ajustes no código:
+		Revisar alinhamento com requisitos do projeto;
+		Ajustar possíveis \textit{bugs}; Entrega do MVP 
+		\\
+		\hline 
+		13 & 19/06/2025 a 25/06/2025 & Apresentação do MVP & 
+		Preparo do material da apresentação do MVP
+		\\
+		\hline 
+		14 & 27/08/2025 a 02/09/2025 & Consolidação da Qualidade e Evolução do MVP  & Ajuste e adição de funcionalidades ao MVP: Adicionar campo de motivo de cancelamento de reserva; Adicionar campo no template de listagem de reservas; Editar função de edição do cadastro de quartos; Adicionar ajustes de adequação da função com o escopo. Revisar e padronizar código;
+		Ajustar código de acordo com as boas práticas do Django;	
+		Criar estrutura do plano de testes; Definir o que será testado e como; Documentar escopo de testes.		
+		Documentação: Revisar e corrigir tópico Introdução;
+		Revisar e corrigir o tópico objetivo;
+		Revisar e ajustar \textit{product backlog};
+		Revisar e atualizar o escopo do projeto 
+		\\
+		\hline 
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%
+\begin{quadro}[H]
+	\caption{Sprints Backlog - Parte 4} 
+	\label{sprints_backlog_4} 
+\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7.5cm}|}
+		\hline
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\hline 
+		15 & 03/09/2025 a 10/09/2025 & Estruturação do Módulo Financeiro e Implementação de Testes Unitários  & Criar app Financeiro com configurações iniciais: Executar python manage.py startapp quartos e adicioná-lo ao INSTALLED\_APPS
+		Criar tabela financeiro\_título : Criar model Título;
+		Executar migrations; 
+		Realizar testes unitários no módulo de gestão de hóspedes.
+		Testar funções CRUD do app Hóspede.
+		Documentação: Revisar histórias de usuário (garantir clareza, critérios de aceite iniciais e alinhamento com backlog);
+		Atualizar sprint backlog de acordo com ajustes feitos;
+		Revisar e corrigir a  Análise da concorrência;
+		Revisar e corrigir a justificativa
+		\\
+		\hline 
+		16 & 11/09/2025 a 17/09/2025 & Implementação do Sistema de Autenticação e Evolução do Módulo Financeiro  & Configurar autenticação Django: 
+		Importar biblioteca django allauth; Ajustar mapeamento de rotas de autenticação;
+		Ajustar configurações de acesso (autorização).
+		Criar tabela financeiro\_categoria: Criar model Categoria.
+		Executar migrations.
+		Criar tabela financeiro\_banco:
+		Criar model Banco;
+		Executar migrations.	 
+		Realizar testes no módulo de gestão de Reservas: Testar funções CRUD do app Hóspede.
+		Documentação: Revisar e corrigir tópico de Modelagem do banco de dados; Revisar e corrigir tópico de gestão do projeto
+		\\
+		\hline 
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%
+\begin{quadro}[H]
+	\caption{Sprints Backlog - Parte 5} 
+	\label{sprints_backlog_5} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7cm}|}
+		\hline
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\hline 
+		17 & 18/09/2025 a 24/09/2025 & Implementação da Gestão de Títulos Financeiros e Validação dos Módulos Core  & Desenvolver funcionalidade CRUD de Títulos:
+		Criar view de títulos financeiros no app Título;
+		-Criar função de criação títulos financeiros ;
+		Criar função de edição títulos financeiros;
+		Criar função de listar títulos financeiros;
+		Criar formulário para criação de títulos financeiros.
+		
+		Implementar integração com módulo de reservas: 
+		Adicionar lógica de criação de um título de receita relacionado ao registro de uma nova reserva.
+		
+		Ajuste: Adicionar campo de motivo de cancelamento de reserva.
+		
+		Personalizar templates padrões de login, alteração de senha e logout do django allauth. 
+		
+		Realizar testes unitários módulo de gestão de quartos: Testar funções CRUD do app Quarto.
+		
+		Realizar testes funcionais módulo de gestão de hóspedes:
+		Testar funções CRUD do app Hóspede.
+		
+		Documentação: Revisar e corrigir tópico de Segurança;
+		Revisar e corrigir tópico de Revisão de Literatura
+		\\
+		\hline 
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%
+\begin{quadro}[H]
+	\caption{Sprints Backlog - Parte 6} 
+	\label{sprints_backlog_6} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7cm}|}
+		\hline
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\hline 
+		18 & 25/09/2025 a 01/10/2025 & Automação do Fluxo de Reservas e Validação de Regras de Negócio  & 
+		Criar função de envio de e-mail de confirmação de reserva: 
+		Adicionar configurações de envio de email do django;
+		Adicionar campo de envio no model de Reserva;
+		Adicionar lógica de envio na view Reserva;
+		Adicionar função no template de listagem de reservas.
+		Implementar regra de pagamento parcial para confirmação da reserva: 
+		Adicionar lógica de criação de 2  títulos relacionados a uma reserva; 
+		Adicionar função de troca de status da reserva quando pagamento do sinal for confirmado.
+		Criar funcionalidade de baixa do pagamento: Adicionar lógica de confirmação de pagamento do título na view Título.
+		Realizar ajustes módulo hóspedes: 
+		Sistema não deve permitir o cadastro de hóspedes menores de idade ou com data de nascimento no ano vigente ou posterior;
+		A usuária deve conseguir acessar um histórico do hóspedes e visualizar todas as reservas já cadastradas no cpf : criar função na view hóspede e template;
+		Arrumar erro de busca por nome do hóspede;
+		Adicionar atributo: endereço.
+		Criar filtros para lista de reservas:
+		Adicionar filtros no template de listagem de reservas: por período, quarto, por status (canceladas).
+		Implementar cadastro de categorias de despesa.	
+		Realizar testes funcionais módulo de gestão de quartos:
+		Testar funções CRUD do app Hóspede;
+		Realizar testes funcionais módulo de gestão de reservas:
+		Testar funções CRUD do app Hóspede.	
+		Documentação: Revisar e corrigir tópico de Arquitetura do Projeto;       
+		Revisar e corrigir tópico de Viabilidade Financeira
+		\\
+		\hline 	
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+\begin{quadro}[H]
+	\caption{Sprints Backlog - Parte 7} 
+	\label{sprints_backlog_7} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7cm}|}
+		\hline
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\hline 
+		19 & 02/10/2025 - 08/10/2025  & Operacionalização do Módulo Financeiro e Sofisticação das Reservas  & Criar lógica da funcionalidade: balanço financeiro.
+		Criar filtros por categoria para títulos:
+		Adicionar filtros no template de listagem de títulos finaiceiros: tipo (despesa/receita), tipo de documento, tipo conta corrente.
+		
+		Criar template CRUD de título:
+		Criar templates de títulos; 
+		Criar template de listagem de títulos: adicionar filtros, função de edição e exclusão;
+		Criar template do formulário para criação de títulos financeiros.
+		
+		Módulo de reservas-criar funcionalidade de adição de tarifas:
+		Criar Model Tarifa;
+		Executar Migrations;
+		Criar view de Tarifa com funções de criação, edição e exclusão.
+		
+		Módulo de reservas: Criar pacotes de reservas (mensalista).
+		Realizar ajustes módulo quartos.
+		Realizar ajustes módulo reservas.
+		
+		Realizar testes unitários de títulos: cadastro e edição.
+		Realizar testes unitários autenticação.
+		
+		Documentação: revisar e corrigir tópico de Tecnologias e ferramentas de apoio utilizadas
+		\\
+		\hline 
+		20 & 09/10/2025 - 15/10/2025   & mplementação de Relatórios e Dashboard & Criar view relatórios: ocupação (temporada, mensal, quarto). 
+		Criar view relatórios: financeiro (tipo:receitas/despesas, categoria, período, faturamento).
+		Criar view: painel de métricas.
+		
+		Realizar testes unitários: baixa de pagamento
+		Realizar testes funcionais de títulos: cadastro e edição
+		
+		Documentação: Revisão e atualização dos diagramas (MER, DER, Casos de Uso)
+		\\
+		\hline 
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%
+\begin{quadro}[H]
+	\caption{Sprints Backlog - Parte 8} 
+	\label{sprints_backlog_8} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7cm}|}
+		\hline
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\hline  
+		21 & 16/10/ 2025 a 22/10/2025   &  Instrumentação do Sistema com Relatórios e Notificações Operacionais  & Configurar envio de email no servidor AWS:
+		Adicionar configuração SMTP no servidor;
+		Atualizar configurações no settings. py de envio de email.
+		
+		Criar template: painel de métricas.
+		Criar template relatórios: ocupação (temporada, mensal, quarto).
+		Criar template relatórios: financeiro (tipo:receitas/despesas, categoria, período).
+		
+		Implementar exportação de relatórios financeiro/ocupação em PDF/Excel.
+		
+		Criar funcionalidade notificação do módulo reservas (nova reserva, reserva pendente).
+		Criar funcionalidade notificação do módulo quartos (limpeza pós check-out).
+		
+		Realizar testes unitários: cálculos balanço financeiro.
+		Realizar testes unitários: funções CRUD de Tarifas.
+		
+		Documentação: Revisão e atualização dos diagramas (Implantação, Componentes)
+		\\
+		\hline
+		22 & 23/10/2025 a 29/10/2025   &  Validação Completa e Homologação do Sistema  & Realizar testes funcionais completos (finanças, relatórios).
+		Realizar testes de envio de email (Integração AWS).
+		Realizar testes de integração/backup com postgreSQL.
+		Documentação: revisar e corrigir tópico de Repositório da aplicação;
+		Ajustes parciais dos tópicos revisados anteriormente
+		\\
+		\hline  
+		23 & 30/10/2025 a 5/11/2025   &  Testes Finais  & Documentar testes finais.
+		Ajustes finais do código.
+		Realizar testes de  headers de segurança .
+		Realizar testes de SSL .
+		Documentação: ajustes finais.
+		\\
+		\hline  
+		24 & 30/10/2025 a 11/5/2025   & Preparação para Implantação Final  & Ajustes finais de bugs.
+		Revisão de documentação completa.
+		Deploy final.
+		\\
+		\hline  
+		25 & 12/11/2025 a 22/11/2025   &  Apresentação do Produto Final & Preparar apresentação final do projeto 
+		\\
+		\hline    
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+% ----------------------------------------------------------%
+\chapter{Certificados de Segurança}
+
+\label{apendice:certificado_SSL}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{ssl_lab_result.png}
+	\includegraphics[width=0.8\textwidth]{ssl_lab_result2.png}
+	\caption{Resultado do teste SSL Server Test da aplicação da Pousada Chalés de Água de Coco, realizado na plataforma SSL Labs~\cite{ssllabs_app_pousada}.}
+	\label{fig:ssllabs_result}
+\end{figure}
+
+
+% ----------------------------------------------------------%
 \chapter{Requisitos Funcionais Detalhados}
 \label{apendice:rfdetalhados}
 \begin{quadro}[H]

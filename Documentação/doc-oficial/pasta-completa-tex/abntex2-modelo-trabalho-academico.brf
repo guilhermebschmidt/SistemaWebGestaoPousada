@@ -1,64 +1,68 @@
-\backcite {mtur}{{12}{1}{chapter.1}}
-\backcite {gestaopro}{{12}{1}{chapter.1}}
-\backcite {totvs}{{12}{1}{chapter.1}}
-\backcite {totvs}{{13}{1.1.1}{subsection.1.1.1}}
-\backcite {laudon2020sistemas,stair2020principios}{{14}{1.2}{section.1.2}}
-\backcite {laudon2020sistemas,stair2020principios}{{14}{1.2}{section.1.2}}
-\backcite {mtur}{{14}{1.2}{section.1.2}}
-\backcite {turban2018sistemas}{{14}{1.2}{section.1.2}}
-\backcite {un2008international}{{17}{2.0.1}{subsection.2.0.1}}
-\backcite {fecomercio2025}{{17}{2.0.1}{subsection.2.0.1}}
-\backcite {aldrigui2007}{{17}{2.0.1}{subsection.2.0.1}}
-\backcite {ignarra2013}{{17}{2.0.1}{subsection.2.0.1}}
-\backcite {zanella2006}{{17}{2.0.1}{subsection.2.0.1}}
-\backcite {portaria100_2011}{{17}{2.0.1}{subsection.2.0.1}}
-\backcite {moura2023}{{18}{2.0.1}{subsection.2.0.1}}
-\backcite {zanella2006}{{18}{2.0.2}{subsection.2.0.2}}
-\backcite {martins2011}{{18}{2.0.2}{subsection.2.0.2}}
-\backcite {mauricio2011}{{18}{2.0.2}{subsection.2.0.2}}
-\backcite {buhalis1998}{{18}{2.0.2}{subsection.2.0.2}}
-\backcite {zeferino2012}{{18}{2.0.2}{subsection.2.0.2}}
-\backcite {lunardi2010}{{18}{2.0.2}{subsection.2.0.2}}
-\backcite {scrumguide}{{20}{3.2}{section.3.2}}
-\backcite {scrumguide}{{20}{3.2.1}{subsection.3.2.1}}
-\backcite {scrumguide}{{23}{3.2.2}{subsection.3.2.2}}
-\backcite {sommerville2011}{{26}{3.3}{section.3.3}}
-\backcite {pousada_chales_agua_de_coco}{{33}{4.1}{section.4.1}}
-\backcite {ibmBusinessRules}{{34}{4.1.2}{subsection.4.1.2}}
-\backcite {sommerville2011}{{35}{4.1.3}{subsection.4.1.3}}
-\backcite {pressman, sommerville}{{53}{4.3}{section.4.3}}
-\backcite {pressman, sommerville}{{53}{4.3}{section.4.3}}
-\backcite {django}{{54}{4.3.1}{subsection.4.3.1}}
-\backcite {bass2012}{{54}{4.3.1}{subsection.4.3.1}}
-\backcite {duckett}{{54}{4.3.1.1}{subsubsection.4.3.1.1}}
-\backcite {postgresql}{{54}{4.3.1.3}{subsubsection.4.3.1.3}}
-\backcite {postgresql}{{54}{4.3.2}{subsection.4.3.2}}
-\backcite {sommerville}{{54}{4.3.2}{subsection.4.3.2}}
-\backcite {aws-doc}{{55}{4.3.3}{subsection.4.3.3}}
-\backcite {laudon2020sistemas}{{55}{4.3.3}{subsection.4.3.3}}
-\backcite {turban2018sistemas}{{55}{4.3.4}{subsection.4.3.4}}
-\backcite {python}{{57}{4.4.1}{subsection.4.4.1}}
-\backcite {django}{{57}{4.4.1}{subsection.4.4.1}}
-\backcite {postgresql}{{58}{4.4.1.3}{subsubsection.4.4.1.3}}
-\backcite {python}{{58}{4.4.2}{subsection.4.4.2}}
-\backcite {django}{{59}{4.4.2.1}{subsubsection.4.4.2.1}}
-\backcite {aws-doc}{{59}{4.4.2.2}{subsubsection.4.4.2.2}}
-\backcite {github-doc}{{59}{4.5.1}{subsection.4.5.1}}
-\backcite {brmodelo}{{60}{4.5.2}{subsection.4.5.2}}
-\backcite {visual-paradigm}{{60}{4.5.3}{subsection.4.5.3}}
-\backcite {latex-project}{{60}{4.5.4}{subsection.4.5.4}}
-\backcite {google-meet}{{60}{4.5.5}{subsection.4.5.5}}
-\backcite {projectlibre}{{60}{4.5.6}{subsection.4.5.6}}
-\backcite {github-doc}{{61}{4.6}{section.4.6}}
-\backcite {lgpd}{{61}{4.7}{section.4.7}}
-\backcite {django}{{62}{4.7.1}{subsection.4.7.1}}
-\backcite {owasp}{{62}{4.7.1}{subsection.4.7.1}}
-\backcite {owasp}{{62}{4.7.1}{subsection.4.7.1}}
-\backcite {aws-doc}{{62}{4.7.2}{subsection.4.7.2}}
-\backcite {rfc-tls}{{63}{4.7.2}{subsection.4.7.2}}
+\backcite {ssllabs_app_pousada}{{4}{(document)}{Doc-Start}}
+\backcite {mtur}{{13}{1}{chapter.1}}
+\backcite {gestaopro}{{13}{1}{chapter.1}}
+\backcite {totvs}{{13}{1}{chapter.1}}
+\backcite {totvs}{{14}{1.1.1}{subsection.1.1.1}}
+\backcite {laudon2020sistemas,stair2020principios}{{15}{1.2}{section.1.2}}
+\backcite {laudon2020sistemas,stair2020principios}{{15}{1.2}{section.1.2}}
+\backcite {mtur}{{15}{1.2}{section.1.2}}
+\backcite {turban2018sistemas}{{15}{1.2}{section.1.2}}
+\backcite {un2008international}{{18}{2.0.1}{subsection.2.0.1}}
+\backcite {fecomercio2025}{{18}{2.0.1}{subsection.2.0.1}}
+\backcite {aldrigui2007}{{18}{2.0.1}{subsection.2.0.1}}
+\backcite {ignarra2013}{{18}{2.0.1}{subsection.2.0.1}}
+\backcite {zanella2006}{{18}{2.0.1}{subsection.2.0.1}}
+\backcite {portaria100_2011}{{18}{2.0.1}{subsection.2.0.1}}
+\backcite {moura2023}{{19}{2.0.1}{subsection.2.0.1}}
+\backcite {zanella2006}{{19}{2.0.2}{subsection.2.0.2}}
+\backcite {martins2011}{{19}{2.0.2}{subsection.2.0.2}}
+\backcite {mauricio2011}{{19}{2.0.2}{subsection.2.0.2}}
+\backcite {buhalis1998}{{19}{2.0.2}{subsection.2.0.2}}
+\backcite {zeferino2012}{{19}{2.0.2}{subsection.2.0.2}}
+\backcite {lunardi2010}{{19}{2.0.2}{subsection.2.0.2}}
+\backcite {scrumguide}{{21}{3.2}{section.3.2}}
+\backcite {scrumguide}{{21}{3.2.1}{subsection.3.2.1}}
+\backcite {scrumguide}{{24}{3.2.2}{subsection.3.2.2}}
+\backcite {sommerville2011}{{25}{3.3}{section.3.3}}
+\backcite {pousada_chales_agua_de_coco}{{32}{4.1}{section.4.1}}
+\backcite {ibmBusinessRules}{{33}{4.1.2}{subsection.4.1.2}}
+\backcite {sommerville2011}{{34}{4.1.3}{subsection.4.1.3}}
+\backcite {pressman, sommerville}{{52}{4.3}{section.4.3}}
+\backcite {pressman, sommerville}{{52}{4.3}{section.4.3}}
+\backcite {django}{{53}{4.3.1}{subsection.4.3.1}}
+\backcite {bass2012}{{53}{4.3.1}{subsection.4.3.1}}
+\backcite {duckett}{{53}{4.3.1.1}{subsubsection.4.3.1.1}}
+\backcite {postgresql}{{53}{4.3.1.3}{subsubsection.4.3.1.3}}
+\backcite {postgresql}{{53}{4.3.2}{subsection.4.3.2}}
+\backcite {sommerville}{{53}{4.3.2}{subsection.4.3.2}}
+\backcite {aws-doc}{{54}{4.3.3}{subsection.4.3.3}}
+\backcite {laudon2020sistemas}{{54}{4.3.3}{subsection.4.3.3}}
+\backcite {turban2018sistemas}{{54}{4.3.4}{subsection.4.3.4}}
+\backcite {python}{{56}{4.4.1}{subsection.4.4.1}}
+\backcite {django}{{56}{4.4.1}{subsection.4.4.1}}
+\backcite {postgresql}{{57}{4.4.1.3}{subsubsection.4.4.1.3}}
+\backcite {python}{{57}{4.4.2}{subsection.4.4.2}}
+\backcite {django}{{58}{4.4.2.1}{subsubsection.4.4.2.1}}
+\backcite {aws-doc}{{58}{4.4.2.2}{subsubsection.4.4.2.2}}
+\backcite {github-doc}{{58}{4.5.1}{subsection.4.5.1}}
+\backcite {brmodelo}{{59}{4.5.2}{subsection.4.5.2}}
+\backcite {visual-paradigm}{{59}{4.5.3}{subsection.4.5.3}}
+\backcite {latex-project}{{59}{4.5.4}{subsection.4.5.4}}
+\backcite {google-meet}{{59}{4.5.5}{subsection.4.5.5}}
+\backcite {projectlibre}{{59}{4.5.6}{subsection.4.5.6}}
+\backcite {github-doc}{{60}{4.6}{section.4.6}}
+\backcite {lgpd}{{60}{4.7}{section.4.7}}
+\backcite {django}{{61}{4.7.1}{subsection.4.7.1}}
+\backcite {owasp}{{61}{4.7.1}{subsection.4.7.1}}
+\backcite {owasp}{{61}{4.7.1}{subsection.4.7.1}}
+\backcite {aws-doc}{{61}{4.7.2}{subsection.4.7.2}}
+\backcite {rfc-tls}{{62}{4.7.2}{subsection.4.7.2}}
+\backcite {ssllabs_app_pousada}{{62}{4.7.2}{subsection.4.7.2}}
+\backcite {letsencrypt}{{62}{4.7.2}{subsection.4.7.2}}
 \backcite {repositorio}{{66}{4.9.1}{Item.62}}
-\backcite {anatel-anexo, enel-tarifa}{{70}{5.1.1}{table.caption.14}}
-\backcite {anatel-anexo, enel-tarifa}{{70}{5.1.1}{table.caption.14}}
-\backcite {receita-norma}{{70}{5.1.1}{table.caption.14}}
-\backcite {glassdoor2025, indeed2025}{{70}{5.1.2}{subsection.5.1.2}}
-\backcite {glassdoor2025, indeed2025}{{70}{5.1.2}{subsection.5.1.2}}
+\backcite {anatel-anexo, enel-tarifa}{{69}{5.1.1}{table.caption.16}}
+\backcite {anatel-anexo, enel-tarifa}{{69}{5.1.1}{table.caption.16}}
+\backcite {receita-norma}{{69}{5.1.1}{table.caption.16}}
+\backcite {glassdoor2025, indeed2025}{{69}{5.1.2}{subsection.5.1.2}}
+\backcite {glassdoor2025, indeed2025}{{69}{5.1.2}{subsection.5.1.2}}
+\backcite {ssllabs_app_pousada}{{100}{7}{figure.caption.25}}

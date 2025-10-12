@@ -154,6 +154,11 @@ Dispon{\'\i}vel em: \url{https://br.indeed.com/career/salaries}.}
 {LAUDON, K.~C.; LAUDON, J.~P. \emph{Sistemas de Informação Gerenciais}. 16.
   ed. São Paulo: Pearson, 2020.}
 
+\bibitem[{Let's Encrypt} 2025]{letsencrypt}
+\abntrefinfo{{Let's Encrypt}}{{Let's Encrypt}}{2025}
+{{Let's Encrypt}. \emph{Let's Encrypt}. 2025. \url{https://letsencrypt.org/}.
+Acesso em: 12 set. 2025.}
+
 \bibitem[Lunardi, Dolci e Maçada 2010]{lunardi2010}
 \abntrefinfo{Lunardi, Dolci e Maçada}{LUNARDI; DOLCI; MAçADA}{2010}
 {LUNARDI, G.~L.; DOLCI, P.~C.; MAçADA, A. C.~G. Adoção de tecnologia de
@@ -222,6 +227,13 @@ Dispon{\'\i}vel em:
 \abntrefinfo{PYTHON}{PYTHON}{2025}
 {PYTHON. \emph{Python Official Documentation}. 2025.
 Disponível em: \url{https://docs.python.org/3/}. Acesso em: 7 jun. 2025.}
+
+\bibitem[{Qualys SSL Labs} 2025]{ssllabs_app_pousada}
+\abntrefinfo{{Qualys SSL Labs}}{{Qualys SSL Labs}}{2025}
+{{Qualys SSL Labs}. \emph{SSL Server Test — análise do host
+  \texttt{app.pousadachalesaguadecoco.com.br}}. 2025.
+Dispon{\'\i}vel em:
+  \url{https://www.ssllabs.com/ssltest/analyze.html?d=app.pousadachalesaguadecoco.com.br}.}
 
 \bibitem[{Receita Federal do Brasil} 2017]{receita-norma}
 \abntrefinfo{{Receita Federal do Brasil}}{{Receita Federal do Brasil}}{2017}
