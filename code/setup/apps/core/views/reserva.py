@@ -8,6 +8,8 @@ import datetime
 from django.utils import timezone
 from django.http import JsonResponse
 from django.contrib import messages
+from ..utils.conflito_datas import verifica_conflito_de_datas 
+
 
 def list(request):
     filtro_status = request.GET.get('status', 'todos')
@@ -37,6 +39,50 @@ def list(request):
 
     return render(request, 'core/reserva/list.html', context)
 
+def reserva_form(request, pk=None):
+    if pk:
+        instance = get_object_or_404(Reserva, pk=pk)
+        success_message = "Reserva atualizada com sucesso!"
+    else:
+        instance = None
+        success_message = "Reserva criada com sucesso!"
+
+    if request.method == 'POST':
+        form = ReservaForm(request.POST, instance=instance)
+        if form.is_valid():
+            quarto = form.cleaned_data.get('id_quarto')
+            data_inicio = form.cleaned_data.get('data_reserva_inicio')
+            data_fim = form.cleaned_data.get('data_reserva_fim')
+
+            reserva_conflitante = verifica_conflito_de_datas(quarto, data_inicio, data_fim, reserva_a_ignorar=instance)
+
+            if reserva_conflitante:
+                messages.error(
+                    request, 
+                    f'ERRO: O quarto selecionado já está reservado no período de '
+                    f'{reserva_conflitante.data_reserva_inicio.strftime("%d/%m/%Y")} a '
+                    f'{reserva_conflitante.data_reserva_fim.strftime("%d/%m/%Y")} '
+                    f'(Reserva #{reserva_conflitante.id}).'
+                )
+            else:
+                form.save()
+                messages.success(request, success_message)
+                return redirect('reserva:list') 
+    else:
+        form = ReservaForm(instance=instance)
+
+    context = {
+        'form': form,
+        'reserva': instance
+    }
+    return render(request, 'core/reserva/form.html', context)
+
+
+def search(request):
+    query = request.GET.get('q', '')
+    reservas = Reserva.objects.filter(id_hospede__nome__icontains=query)
+    return render(request, 'core/reserva/list.html', {'reservas': reservas})
+
 def list_checkin(request):
     hoje = datetime.date.today()
     reservas = Reserva.objects.filter(data_reserva_inicio = hoje)
@@ -46,54 +92,6 @@ def list_checkout(request):
     hoje = datetime.date.today()
     reservas = Reserva.objects.filter(data_reserva_fim = hoje)
     return render(request, 'core/reserva/list_check_out.html', {'reservas': reservas})
-
-def add(request):
-    if request.method == 'POST':
-        form = ReservaForm(request.POST)
-        if form.is_valid():
-            reserva = form.save()
-            return redirect('reserva:list')
-    else:
-        form = ReservaForm()
-
-    return render(request, 'core/reserva/form.html', {'form': form})
-
-def update(request, pk):
-    reserva = get_object_or_404(Reserva, pk=pk)
-
-    if request.method == 'POST':
-        form = ReservaForm(request.POST, instance=reserva)
-        if form.is_valid():
-            form.save()
-            return redirect('reserva:list')
-    else:
-        form = ReservaForm(instance=reserva)
-
-    return render(request, 'core/reserva/form.html', {'form': form, 'reserva': reserva})
-
-def cancelar_reserva(request, pk):
-    reserva = get_object_or_404(Reserva, pk=pk)
-    if reserva.status in ['CANCELADA', 'CONCLUIDA']:
-        messages.error(request, f"A reserva #{pk} não pode ser cancelada, pois já está {reserva.status}.")
-        return redirect('reserva:list')
-
-    if reserva.data_check_in or reserva.data_check_out:
-        messages.error(request, f"A reserva #{pk} já possui registro de Check-in/Check-out e não pode ser cancelada.")
-        return redirect('reserva:list')
-    if request.method != 'POST':
-        return render(request, 'core/reserva/confirmar_cancelamento.html', {'reserva': reserva})
-
-    motivo = request.POST.get('motivo_cancelamento', 'Motivo não especificado.')
-    reserva.status = 'CANCELADA'
-    reserva.motivo_cancelamento = motivo
-    reserva.save()
-    messages.success(request, f"A reserva #{pk} foi cancelada com sucesso.")
-    return redirect('reserva:list')
-
-def search(request):
-    query = request.GET.get('q', '')
-    reservas = Reserva.objects.filter(id_hospede__nome__icontains=query)
-    return render(request, 'core/reserva/list.html', {'reservas': reservas})
 
 def marcar_checkin(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
@@ -116,6 +114,25 @@ def marcar_checkout(request, pk):
     quarto.status = 'DISPONIVEL'
     reserva.save()
     return redirect('reserva:list_checkout')
+
+def cancelar_reserva(request, pk):
+    reserva = get_object_or_404(Reserva, pk=pk)
+    if reserva.status in ['CANCELADA', 'CONCLUIDA']:
+        messages.error(request, f"A reserva #{pk} não pode ser cancelada, pois já está {reserva.status}.")
+        return redirect('reserva:list')
+
+    if reserva.data_check_in or reserva.data_check_out:
+        messages.error(request, f"A reserva #{pk} já possui registro de Check-in/Check-out e não pode ser cancelada.")
+        return redirect('reserva:list')
+    if request.method != 'POST':
+        return render(request, 'core/reserva/confirmar_cancelamento.html', {'reserva': reserva})
+
+    motivo = request.POST.get('motivo_cancelamento', 'Motivo não especificado.')
+    reserva.status = 'CANCELADA'
+    reserva.motivo_cancelamento = motivo
+    reserva.save()
+    messages.success(request, f"A reserva #{pk} foi cancelada com sucesso.")
+    return redirect('reserva:list')
 
 def buscar_hospedes(request):
     if 'term' in request.GET:

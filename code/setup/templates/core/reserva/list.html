@@ -7,7 +7,7 @@
 <div class="space-y-6">
     <div class="flex justify-between items-center">
         <h2 class="text-2xl font-bold">Lista de Reservas</h2>
-        <a href="{% url 'reserva:form' %}" class="btn btn-success">
+        <a href="{% url 'reserva:criar' %}" class="btn btn-success">
             <i class="fas fa-plus mr-2"></i>Adicionar Reserva
         </a>
     </div>
@@ -96,7 +96,7 @@
                     </td>
                     <td class="flex gap-2">
                         {% if reserva.status not in 'CANCELADA' and reserva.status not in 'CONCLUIDA' %}
-                            <a href="{% url 'reserva:update' reserva.id %}" class="btn btn-warning btn-sm" title="Editar Reserva">
+                            <a href="{% url 'reserva:editar' reserva.id %}" class="btn btn-warning btn-sm" title="Editar Reserva">
                                 <i class="fas fa-edit">Editar</i>
                             </a>
                         {% else %}
@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.getElementById('reserva-id-input').value = reservaId;
 
-        form.action = `{% url 'reserva:delete' pk=0 %}`.replace('0', reservaId);
+        form.action = `{% url 'reserva:cancelar' pk=0 %}`.replace('0', reservaId);
 
         modal.classList.remove('hidden');
         modal.classList.add('flex');

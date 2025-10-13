@@ -65,8 +65,10 @@ class ReservaForm(forms.ModelForm):
 
     def clean_data_reserva_inicio(self):
         data_inicio = self.cleaned_data.get('data_reserva_inicio')
-   
-        # Aplicação da regra de negócio - reserva com 2 dias de antecedência
+
+        '''
+        Aplicação da regra de negócio - reserva com 2 dias de antecedência
+        '''
         hoje = date.today()
         data_minima_reserva = hoje + timedelta(days=2)
        

@@ -7,8 +7,18 @@ def index(request):
     return render(request, 'core/quarto/index.html')#, {'quartos': list})
 
 def listar(request):
-    quartos = Quarto.objects.all()
-    return render(request, 'core/quarto/listar.html', {'quartos': quartos})
+    filtro_tipo = request.GET.get('tipo_quarto', 'todos')
+    quartos = Quarto.objects.all().order_by('numero')
+
+    if filtro_tipo != 'todos':
+        quartos = quartos.filter(tipo_quarto=filtro_tipo)
+
+    context = {
+        'quartos': quartos,
+        'tipos_de_quarto': Quarto.TIPOS_QUARTOS_CHOICES,
+        'filtro_tipo_atual': filtro_tipo,
+    }
+    return render(request, 'core/quarto/listar.html', context)
 
 def form(request, quarto_id=None):
     quarto = get_object_or_404(Quarto, pk=quarto_id) if quarto_id else None
@@ -27,6 +37,7 @@ def form(request, quarto_id=None):
     context = {
         'form': form,
         'quarto': quarto,
+        'tipos_de_quarto': Quarto.TIPOS_QUARTOS_CHOICES,
         'is_editing': quarto_id is not None,
         'debug_data': {
             'numero': quarto.numero if quarto else None,

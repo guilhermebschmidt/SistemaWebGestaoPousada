@@ -71,7 +71,7 @@ def form(request, pk=None):
             form.save_m2m()
             return redirect('financeiro:list')
         else:
-            print(form.errors)  # 👈 ajuda a depurar
+            print(form.errors)  # ajuda a depurar
     else:
         form = TituloForm(instance=instance)
 

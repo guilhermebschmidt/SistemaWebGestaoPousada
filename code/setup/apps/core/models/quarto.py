@@ -15,7 +15,19 @@ class Quarto(models.Model):
         default='DISPONIVEL',
         verbose_name='Status'
     )  
-    
+    TIPOS_QUARTOS_CHOICES=(
+        ('SUITE', 'Quarto Suite'),
+        ('TERREO', 'Chalé Térreo'),
+        ('LOFT', 'Chalé Loft'),
+        ('FLAT', 'flat'),
+    )
+    tipo_quarto= models.CharField(
+        max_length=15,
+        choices=TIPOS_QUARTOS_CHOICES,
+        default='SUITE',
+        verbose_name='Tipo de Quarto'
+    )
+
     descricao = models.TextField(max_length=100)
     capacidade = models.PositiveSmallIntegerField(
         verbose_name='Capacidade',
@@ -32,6 +44,3 @@ class Quarto(models.Model):
     def __str__(self):
         return f"Quarto {self.numero}"
     
-
-    class Meta:
-        db_table = 'quarto'

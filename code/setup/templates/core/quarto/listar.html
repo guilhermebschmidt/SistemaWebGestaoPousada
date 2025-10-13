@@ -7,10 +7,33 @@
 <div class="space-y-6">
     <div class="flex justify-between items-center">
         <h2 class="text-2xl font-bold">Lista de Quartos</h2>
-        <a href="{% url 'quarto:form' %}" class="btn btn-success">
-            <i class="fas fa-plus mr-2"></i>Adicionar Quarto
-        </a>
+        <a href="{% url 'quarto:form' %}" class="btn btn-primary">Adicionar Quarto</a>
     </div>
+
+    <form method="get" action="{% url 'quarto:listar' %}" class="mb-6 p-4 bg-base-100 rounded-lg shadow-sm flex items-end space-x-4">
+        
+        <div class="form-control w-full sm:w-auto">
+            <label class="label" for="tipo_quarto">
+                <span class="label-text">Filtrar por Tipo de Quarto</span>
+            </label>
+            <select name="tipo_quarto" id="tipo_quarto" class="select select-bordered">
+                <option value="todos" {% if filtro_tipo_atual == 'todos' %}selected{% endif %}>
+                    Todos os Tipos
+                </option>
+                                {% for value, display in tipos_de_quarto %}
+                    <option value="{{ value }}" {% if filtro_tipo_atual == value %}selected{% endif %}>
+                        {{ display }}
+                    </option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="btn btn-secondary">Filtrar</button>
+
+        </div>
+    
+        <div class="form-control">
+        </div>
+
+    </form>
 
     <div class="overflow-x-auto bg-base-100 rounded-lg shadow">
         <table class="table text-center" >

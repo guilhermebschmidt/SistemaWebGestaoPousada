@@ -4,7 +4,7 @@ from ..models.quarto import Quarto
 class QuartoForm(forms.ModelForm):
     class Meta:
         model = Quarto
-        fields = ['numero','capacidade' , 'descricao', 'preco']
+        fields = ['numero','capacidade' , 'tipo_quarto', 'descricao', 'preco']
         widgets = {
             'numero': forms.TextInput(attrs={
                 'class': 'input input-bordered w-full'
@@ -12,6 +12,9 @@ class QuartoForm(forms.ModelForm):
            'capacidade': forms.NumberInput(attrs={
                 'class': 'input input-bordered w-full',
                 'step': '1'
+            }),
+            'tipo_quarto':forms.Select(attrs={
+                'class': 'select select-bordered w-full'
             }),
             'descricao': forms.Textarea(attrs={
                 'class': 'textarea textarea-bordered w-full',

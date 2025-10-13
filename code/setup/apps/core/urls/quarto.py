@@ -8,6 +8,5 @@ urlpatterns = [
     path('form/', quarto.form, name='form'),
     path('form/<int:quarto_id>/', quarto.form, name='form'),
     path('excluir/<int:quarto_id>/', quarto.excluir, name='excluir'),
-    path('tipos/', quarto.tipos_quarto, name='tipos_quarto'),
-    path('<int:pk>/mudar-status/', quarto.mudar_status_quarto, name='mudar_status'),
+    path('<int:pk>/mudar-status/', quarto.mudar_status_quarto, name='mudar_status')
 ]
