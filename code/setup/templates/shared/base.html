@@ -83,7 +83,15 @@
                         </details>
                     </li>
 
-                    <li><a href="{% url 'financeiro:list' %}"><i class="fas fa-money-bill-wave mr-2"></i> Financeiro</a></li>
+                    <li>
+                        <details>
+                            <summary><i class="fas fa-money-bill-wave mr-2"></i> Financeiro</summary>
+                            <ul>
+                                <li><a href="{% url 'financeiro:list' %}"><i class="fas fa-file-invoice-dollar mr-2"></i> Títulos</a></li>
+                                <li><a href="{% url 'financeiro:categoria_list' %}"><i class="fas fa-tags mr-2"></i> Adicionar Categorias</a></li>
+                            </ul>
+                        </details>
+                    </li>
                     <li><a href="#"><i class="fas fa-cog mr-2"></i> Configurações</a></li>
                 </ul>
             </nav>

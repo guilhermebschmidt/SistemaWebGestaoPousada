@@ -1,0 +1,42 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block title %}Categorias de Despesa{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <h2 class="text-2xl font-bold">Categorias de Despesa</h2>
+        <a href="{% url 'financeiro:categoria_create' %}" class="btn btn-success">
+            <i class="fas fa-plus mr-2"></i>Adicionar Categoria
+        </a>
+    </div>
+
+    <div class="overflow-x-auto items-center bg-base-100 rounded-lg shadow">
+        <table class="table">
+            <thead>
+                <tr class="bg-base-200">
+                    <th>Descrição da Categoria</th>
+                    <th class="w-48">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for categoria in categorias %}
+                <tr class="hover">
+                    <td>{{ categoria.descricao }}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm" disabled>Editar</button>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="2" class="text-center text-gray-500 py-4">
+                        Nenhuma categoria de despesa cadastrada. Clique em "Adicionar Categoria" para começar.
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

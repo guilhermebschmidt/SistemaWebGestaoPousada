@@ -9,6 +9,6 @@ urlpatterns = [
     path('quartos/', include('apps.core.urls.quarto')),
     path('hospedes/', include('apps.core.urls.hospede', namespace='hospede')),
     path('reservas/', include('apps.core.urls.reserva', namespace='reserva')),
-    path('financeiro/titulos/', include('apps.financeiro.urls.titulo', namespace='financeiro')),
+    path('financeiro/', include('apps.financeiro.urls', namespace='financeiro')),
     path('usuarios/', include('apps.usuarios.urls')),
 ]

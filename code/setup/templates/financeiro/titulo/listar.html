@@ -11,7 +11,7 @@
             <i class="fas fa-plus mr-2"></i>Adicionar Título
         </a>
     </div>
-<!-- Seção de Filtros -->
+    <!-- Seção de Filtros -->
 <div class="card bg-base-100 shadow-sm">
     <div class="card-body p-4">
         <form method="GET" action="{% url 'financeiro:list' %}" class="flex flex-col sm:flex-row flex-wrap items-center gap-4">
@@ -105,6 +105,7 @@
             <thead>
                 <tr class="bg-base-200">
                     <th>Descrição</th>
+                    <th>Categoria</th> <!--  <-- 1. ADICIONE O CABEÇALHO -->
                     <th>Hóspede</th>
                     <th>Valor</th>
                     <th>Vencimento</th>
@@ -117,6 +118,7 @@
                 {% for titulo in titulos %}
                 <tr class="hover">
                     <td>{{ titulo.descricao }}</td>
+                    <td>{{ titulo.categoria|default:"--" }}</td> <!--  <-- 2. ADICIONE O DADO -->
                     <td>
                         {% if titulo.hospede %}
                             {{ titulo.hospede.nome }}
@@ -133,7 +135,7 @@
                         {% if titulo.pago %}
                             <span class="badge badge-success">Pago</span>
                         {% elif titulo.data_vencimento < hoje %}
-                             <span class="badge badge-error">Vencido</span>
+                                <span class="badge badge-error">Vencido</span>
                         {% else %}
                             <span class="badge badge-warning">Aberto</span>
                         {% endif %}
@@ -142,7 +144,7 @@
                         <a href="{% url 'financeiro:update' titulo.id %}" class="btn btn-warning btn-sm" title="Editar Título">
                             <i class="fas fa-edit">Editar</i>
                         </a>
-                        <button class="btn btn-error btn-sm" title="Excluir Título"> <!-- Adicionar lógica de exclusão -->
+                        <button class="btn btn-error btn-sm" title="Excluir Título">
                             <i class="fas fa-trash">Cancelar</i>
                         </button>
                         {% if titulo.pago == False %}
@@ -156,7 +158,7 @@
                 </tr>
                 {% empty %}
                 <tr>
-                    <td colspan="7" class="text-center text-gray-500 py-4">Nenhum título financeiro encontrado.</td>
+                    <td colspan="8" class="text-center text-gray-500 py-4">Nenhum título financeiro encontrado.</td> <!--  <-- 3. ATUALIZE O COLSPAN -->
                 </tr>
                 {% endfor %}
             </tbody>

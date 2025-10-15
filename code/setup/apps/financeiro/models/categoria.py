@@ -15,7 +15,6 @@ class Categoria(models.Model):
 
     descricao = models.CharField(
         max_length=255,
-        unique=True,
         verbose_name='Descrição'
     )
 
@@ -23,6 +22,7 @@ class Categoria(models.Model):
         verbose_name = 'Categoria'
         verbose_name_plural = 'Categorias'
         ordering = ['descricao']
+        unique_together = ('tipo', 'descricao')
 
     def __str__(self):
-        return self.descricao
+        return f"{self.descricao} ({self.get_tipo_display()})"

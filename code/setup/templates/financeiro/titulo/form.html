@@ -36,7 +36,7 @@
                     <div class="form-control">
                         <label class="label" for="{{ form.valor.id_for_label }}"><span class="label-text font-medium">{{ form.valor.label }}</span></label>
                         {{ form.valor }}
-                         {% for error in form.valor.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
+                        {% for error in form.valor.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
                     </div>
 
                     <!-- Tipo de Documento -->
@@ -50,25 +50,25 @@
                 <div class="divider">Datas</div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                     <!-- Data de Emissão -->
+                    <!-- Data de Emissão -->
                     <div class="form-control">
                         <label class="label" for="{{ form.data.id_for_label }}"><span class="label-text font-medium">{{ form.data.label }}</span></label>
                         {{ form.data }}
                         {% for error in form.data.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
                     </div>
-                     <!-- Data de Vencimento -->
+                    <!-- Data de Vencimento -->
                     <div class="form-control">
                         <label class="label" for="{{ form.data_vencimento.id_for_label }}"><span class="label-text font-medium">{{ form.data_vencimento.label }}</span></label>
                         {{ form.data_vencimento }}
                         {% for error in form.data_vencimento.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
                     </div>
-                     <!-- Data de Pagamento -->
+                    <!-- Data de Pagamento -->
                     <div class="form-control">
                         <label class="label" for="{{ form.data_pagamento.id_for_label }}"><span class="label-text font-medium">{{ form.data_pagamento.label }}</span></label>
                         {{ form.data_pagamento }}
                         {% for error in form.data_pagamento.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
                     </div>
-                     <!-- Data de Compensação -->
+                    <!-- Data de Compensação -->
                     <div class="form-control">
                         <label class="label" for="{{ form.data_compensacao.id_for_label }}"><span class="label-text font-medium">{{ form.data_compensacao.label }}</span></label>
                         {{ form.data_compensacao }}
@@ -77,13 +77,22 @@
                 </div>
 
                 <div class="divider">Detalhes e Relações</div>
-                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4"> <!-- Ajustei para 2 colunas para ficar melhor -->
                     <!-- Conta Corrente -->
                     <div class="form-control">
                         <label class="label" for="{{ form.conta_corrente.id_for_label }}"><span class="label-text font-medium">{{ form.conta_corrente.label }}</span></label>
                         {{ form.conta_corrente }}
                         {% for error in form.conta_corrente.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
                     </div>
+                    
+                    <!-- ADICIONE ESTE BLOCO -->
+                    <div class="form-control">
+                        <label class="label" for="{{ form.categoria.id_for_label }}"><span class="label-text font-medium">{{ form.categoria.label }}</span></label>
+                        {{ form.categoria }}
+                        {% for error in form.categoria.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
+                    </div>
+                    <!-- FIM DO BLOCO -->
+
                     <!-- Hóspede -->
                     <div class="form-control">
                         <label class="label" for="{{ form.hospede.id_for_label }}"><span class="label-text font-medium">{{ form.hospede.label }}</span></label>
@@ -105,7 +114,7 @@
                     {% for error in form.observacao.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
                 </div>
 
-                <!-- Campos Booleanos com Checkboxes -->
+                <!-- Campos Booleanos -->
                 <div class="space-y-6 pt-6 border-t border-base-200">
                     <!-- Campo Tipo -->
                     <div class="form-control">
@@ -121,23 +130,6 @@
                             {% endfor %}
                         </div>
                     </div>
-
-                    <!-- Campo Pago -->
-                     <!--
-                    <div class="form-control">
-                        <label class="label">
-                            <span class="label-text font-semibold text-base">{{ form.pago.label }}</span>
-                        </label>
-                        <div class="flex flex-wrap gap-4">
-                            {% for radio in form.pago %}
-                            <label class="flex items-center gap-2 cursor-pointer">
-                                {{ radio.tag }}
-                                <span class="label-text">{{ radio.choice_label }}</span>
-                            </label>
-                            {% endfor %}
-                        </div>
-                    </div>-->
-
                     <!-- Campo Cancelado -->
                     <div class="form-control">
                         <label class="label">
@@ -153,7 +145,6 @@
                         </div>
                     </div>
                 </div>
-
 
                 <!-- Botões -->
                 <div class="flex flex-col sm:flex-row gap-3 pt-6">
@@ -173,4 +164,3 @@
     </div>
 </div>
 {% endblock %}
-
