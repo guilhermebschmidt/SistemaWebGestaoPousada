@@ -4,16 +4,51 @@ from .quarto import Quarto
 import datetime
 
 class Reserva(models.Model):
-    id_hospede = models.ForeignKey(Hospede, on_delete=models.CASCADE, verbose_name='Hóspede')
-    id_quarto = models.ForeignKey(Quarto, on_delete=models.CASCADE, verbose_name='Quarto')
+    id_hospede = models.ForeignKey(
+        Hospede, on_delete=models.CASCADE, 
+        verbose_name='Hóspede'
+    )
 
-    data_check_in = models.DateTimeField(verbose_name='Check-in', null=True, blank=True)
-    data_check_out = models.DateTimeField(verbose_name='Check-out', null=True, blank=True)
+    id_quarto = models.ForeignKey(
+        Quarto, 
+        on_delete=models.CASCADE, 
+        verbose_name='Quarto'
+    )
 
-    data_reserva_inicio = models.DateField(verbose_name='Data início da Reserva', null=True, blank=True)
-    data_reserva_fim = models.DateField(verbose_name='Data fim da Reserva', null=True, blank=True)
+    data_check_in = models.DateTimeField(
+        verbose_name='Check-in', 
+        null=True, 
+        blank=True
+    )
+    data_check_out = models.DateTimeField(
+        verbose_name='Check-out',
+         null=True,
+           blank=True)
 
-    quantidade_dias = models.IntegerField(verbose_name='Quantidade de Dias', default=0)
+    data_reserva_inicio = models.DateField(
+        verbose_name='Data início da Reserva',
+        null=True, blank=True
+    )
+    data_reserva_fim = models.DateField(
+        verbose_name='Data fim da Reserva', 
+        null=True, 
+        blank=True
+    )
+
+    quantidade_dias = models.IntegerField(
+        verbose_name='Quantidade de Dias', 
+        default=0
+    )
+
+    quantidade_adultos = models.PositiveSmallIntegerField(
+        default=1, 
+        verbose_name="Quantidade de Adultos"
+    )
+    
+    quantidade_criancas = models.PositiveSmallIntegerField(
+        default=0, 
+        verbose_name="Quantidade de Crianças"
+    )
 
     valor = models.DecimalField(
         verbose_name='Preço',
@@ -126,5 +161,11 @@ class Reserva(models.Model):
             old_instance.data_reserva_fim != self.data_reserva_fim or
             old_instance.id_quarto != self.id_quarto
         )
+    def numero_total_hospedes(self):
+        return self.numero_adultos + self.numero_criancas
+
+    def __str__(self):
+        return f"Reserva #{self.id} - {self.numero_total_hospedes} pessoa(s) - Quarto {self.id_quarto}"
+
 
    

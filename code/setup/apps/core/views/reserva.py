@@ -8,7 +8,6 @@ import datetime
 from django.utils import timezone
 from django.http import JsonResponse
 from django.contrib import messages
-from ..utils.conflito_datas import verifica_conflito_de_datas 
 
 
 def list(request):
@@ -49,25 +48,12 @@ def reserva_form(request, pk=None):
 
     if request.method == 'POST':
         form = ReservaForm(request.POST, instance=instance)
+        
         if form.is_valid():
-            quarto = form.cleaned_data.get('id_quarto')
-            data_inicio = form.cleaned_data.get('data_reserva_inicio')
-            data_fim = form.cleaned_data.get('data_reserva_fim')
-
-            reserva_conflitante = verifica_conflito_de_datas(quarto, data_inicio, data_fim, reserva_a_ignorar=instance)
-
-            if reserva_conflitante:
-                messages.error(
-                    request, 
-                    f'ERRO: O quarto selecionado já está reservado no período de '
-                    f'{reserva_conflitante.data_reserva_inicio.strftime("%d/%m/%Y")} a '
-                    f'{reserva_conflitante.data_reserva_fim.strftime("%d/%m/%Y")} '
-                    f'(Reserva #{reserva_conflitante.id}).'
-                )
-            else:
-                form.save()
-                messages.success(request, success_message)
-                return redirect('reserva:list') 
+            form.save()
+            messages.success(request, success_message)
+            return redirect('reserva:list')
+        
     else:
         form = ReservaForm(instance=instance)
 
@@ -161,3 +147,4 @@ def enviar_confirmacao_email_view(request, reserva_id):
             messages.error(request, f"Ocorreu um erro ao enviar o e-mail: {e}")
 
     return redirect('reserva:list')
+

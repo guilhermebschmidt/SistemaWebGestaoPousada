@@ -64,7 +64,7 @@
     <div class="overflow-x-auto bg-base-100 rounded-lg shadow">
         <table class="table">
             <thead>
-                <tr class="bg-base-200">
+                <tr class="bg-base-200 ">
                     <th>ID</th>
                     <th>Hóspede</th>
                     <th>Quarto</th>
@@ -121,12 +121,13 @@
                                 <form id="form-email-{{ reserva.id }}" action="{% url 'reserva:enviar_confirmacao_email' reserva.id %}" method="POST" class="m-0">
                                 {% csrf_token %}
                                     <button type="button"
-                                        class="btn btn-info btn-sm btn-abrir-modal-email"
-                                        title="Enviar confirmação por e-mail"
-                                        data-hospede-nome="{{ reserva.id_hospede.nome }}"
-                                        data-form-id="form-email-{{ reserva.id }}"
-                                        data-action-text="enviar">
-                                        <i class="fas fa-envelope"></i> Enviar E-mail
+                                            class="btn btn-info btn-sm btn-abrir-modal-email flex items-center gap-2 whitespace-nowrap break-normal hyphens-none"
+                                            title="Enviar confirmação por e-mail"
+                                            data-hospede-nome="{{ reserva.id_hospede.nome }}"
+                                            data-form-id="form-email-{{ reserva.id }}"
+                                            data-action-text="enviar">
+                                        <i class="fas fa-envelope text-base"></i>
+                                        <span>Enviar E-mail</span>
                                     </button>
                                 </form>
                                 {% else %}
