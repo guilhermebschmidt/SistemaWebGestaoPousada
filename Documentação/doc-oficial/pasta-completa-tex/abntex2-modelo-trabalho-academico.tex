@@ -692,7 +692,7 @@ Essas adaptações flexibilizaram os processos, conferindo maior autonomia aos i
 			|>{\raggedright\arraybackslash}m{5.6cm}|}
 		\hline
 		\textbf{Integrante} & \textbf{Função} &  \textbf{Papel Scrum}& \textbf{Responsabilidades} \\ \hline
-		Guilherme Akio & Analista de QA & Time de \newline Desenvolvimento & Implementar, executar e documentar testes; Entrega de funcionalidades relacionadas a qualidade e perfomance do sistema  
+		Guilherme Akio & Analista de Testes & Time de \newline Desenvolvimento & Implementar, executar e documentar testes; Entrega de funcionalidades relacionadas a qualidade e perfomance do sistema  
 		\\ \hline
 		Guilherme Bittencourt & Engenheiro de Software & Scrum Master & CPromover e facilitar a aplicação da teoria e das práticas do \textit{Scrum}; Definir e organizar a estrutura do sistema
 		\\ \hline
@@ -1968,15 +1968,15 @@ O levantamento dos custos relacionados ao projeto considerou os dois contextos e
 
 
 \subsection{Custo Estrutural}
-Os custos estruturais englobam os ativos e serviços necessários para o desenvolvimento e implantação do sistema. Isso inclui desde os equipamentos (\textit{hardware}) utilizados pela equipe até os serviços de hospedagem, domínios e licenças de \textit{software} (serviços e infraestrutura).
+Os custos estruturais englobam os ativos e serviços necessários para o ciclo de vida completo do sistema, desde o seu desenvolvimento até a sua implantação. O que inclui os equipamentos (\textit{hardware}) utilizados pela equipe até os serviços de hospedagem, domínios e licenças de \textit{software} (serviços e infraestrutura).
 
-Para análise desses custos, a \autoref{tab:custos-estruturais} consolida todos esses itens, distinguindo os custos efetivos no contexto acadêmico dos custos estimados para uma implementação comercial.
+Para análise desses custos, foram construídas a \autoref{tab:custos-equipamentos} e a \autoref{tab:custos-implantacao}. Ambas as tabelas adotam uma abordagem de duplo contexto: o Custo Efetivo, que reflete os valores atuais como projeto acadêmico, e o Custo Estimado, que projeta os valores de mercado para uma eventual implementação comercial.
 
 
 \begin{table}[H]
 	\centering
-	\caption{Resumo dos custos estruturais}
-	\label{tab:custos-estruturais}
+	\caption{Resumo dos Custos da Infraestrutura de Desenvolvimento}
+	\label{tab:custos-equipamentos}
 	\adjustbox{max width=\textwidth}{
 		\begin{tabular}{|>{\RaggedRight\arraybackslash}p{5.5cm}|c|c|c|c|}
 			\hline
@@ -1998,53 +1998,60 @@ Para análise desses custos, a \autoref{tab:custos-estruturais} consolida todos 
 			Eletricidade&Infraestrutura&	5&	R\$ 0,00 & R\$ 17,20/mês
 			\\
 			\hline
-			Hospedagem em Nuvem	& Serviço	&1&	R\$ 0,00 &	R\$ 0,00 
-			\\
+			Github & Plataforma de Desenvolvimento & 1 &R\$ 0,00 &  R\$ 0,00
+			\\		
 			\hline
-			Total (9 meses)	& - & -	&	R\$ 0.00	&	26.234,00
+			Total (9 meses)	& -- & ---	&	R\$ 0.00
+			& R\$ 19.133,70
 			\\
 			\hline
 		\end{tabular}
 	}
 	\fonte{Elaborado pelos autores}
 \end{table}
+% ---------------------------------------------------%
+ A \autoref{tab:custos-equipamentos} elucida os custos relacionados ao ambiente de trabalho da equipe. As estimativas dos custos comerciais dos equipamentos de \textit{hardware} consideraram valores médios do mercado de cada unidade, avaliados através de uma pesquisa em grandes sites de vendas. Os valores mensais de infraestrutura (eletricidade e internet) foram estimados através do custo médio local de tarifas de energia (consumo por kWh) e planos mensais de internet \cite{anatel-anexo, enel-tarifa}. Enquanto, o cálculo de depreciação linear dos 5 notebooks considerou vida útil de 5 anos com uma taxa de 20\% ao ano para cada \cite{receita-norma}.
+% ---------------------------------------------------%
+\begin{table}[H]
+	\centering
+	\caption{Resumo dos Custos da Infraestrutura de Implantação e Software}
+	\label{tab:custos-implantacao}
+	\begin{tabular}{|>{\RaggedRight\arraybackslash}c|c|c|c|}
+		\hline
+		\textbf{Item} & \textbf{Tipo} & \textbf{Custo Efetivo} & \textbf{Custo Estimado} \\
+		\hline
+		AWS & Hospedagem em Nuvem & R\$ 0,00 & R\$ 41,00/mês \\
+		\hline
+		Certificado SSL & Certificação & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Nginx & Proxy Reverso & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Gunicorn & Servidor de Aplicação & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Django & Framework Web & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		PostgreSQL & Banco de Dados & R\$ 0,00 & R\$ 0,00 \\
+		\hline
+		Total (9 meses) & -- & R\$ 0,00 & R\$ 369,00 \\
+		\hline
+	\end{tabular}
+	\fonte{Elaborado pelos autores}
+\end{table}
+% --------------------------------------------------%
 
-A \autoref{tab:custos-estruturais} evidencia a disparidade entre os dois cenários aplicados no projeto. No contexto acadêmico, o custo estrutural direto foi nulo (R\$ 0,00), viabilizado pela utilização de recursos preexistentes da equipe, planos gratuitos de serviços e \textit{softwares} de código aberto.
+A \autoref{tab:custos-implantacao} detalha os componentes de software e serviços em nuvem para a operação do sistema. No contexto acadêmico, o custo efetivo foi zerado pela utilização do nível gratuito (\textit{Free Tier}) da AWS, que possui duração de 12 meses para serviços essenciais. 
 
-Em contrapartida, uma operação comercial exigiria um investimento inicial de R\$ 18.250,00 para aquisição de equipamentos. Adicionalmente, haveria custos operacionais mensais recorrentes estimados em R\$ 883,70 (somando depreciação, energia, internet e hospedagem). As estimativas dos custos comerciais dos equipamentos de \textit{hardware} consideraram valores médios do mercado de cana unidade. Os valores mensais de infraestrutura (eletricidade e internet) foram estimados através do custo médio local de tarifas de energia (consumo por kWh) e planos mensais de internet \cite{anatel-anexo, enel-tarifa}. Enquanto, o cálculo de depreciação linear dos 5 notebooks considerou vida útil de 5 anos com uma taxa de 20\% ao ano para cada \cite{receita-norma}.
+Para o cenário comercial, o Custo Estimado é composto essencialmente pelo serviço de hospedagem em nuvem, em específico do servidor EC2, projetado para um custo mensal de aproximadamente R\$ 41,00. Enquanto, a estratégia de negócio se apoia no uso de tecnologias de código aberto (Nginx, Gunicorn, Django, PostgreSQL) e certificados de segurança gratuitos da Let's Encrypt, que mantêm os custos de licenciamento zerados em ambos os cenários. 
+% --------------------------------------------------%
 
+A análise comparativa das tabelas evidenciam a viabilidade do projeto nos dois cenários. No contexto acadêmico, o custo estrutural direto foi nulo (R\$ 0,00), viabilizado pela utilização de recursos preexistentes da equipe, planos gratuitos de serviços e \textit{softwares} de código aberto.
 
-\begin{comment}
-	\begin{table}[H]
-		\centering
-		\caption{Resumo dos custos de Infraestrutura}
-		\label{tab:infraestrutura}
-		\begin{tabular}{|l|l|r|r|r|}
-			\hline
-			\textbf{Tipo} & \textbf{Serviço} & \textbf{Mensal} & \textbf{Total 4 meses} & \textbf{Total 9 meses} \\
-			\hline
-			Proxy Reverso & Servidor Nginx & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
-			\hline
-			Aplicação & Servidor Gunicorn & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
-			\hline
-			Framework Web & Servidor Django & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
-			\hline
-			Banco de Dados & PostgreSQL & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
-			\hline
-			Hospedagem & AWS & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
-			\hline
-			\textbf{Total} & & R\$ 0,00 & R\$ 0,00 & R\$ 0,00 \\
-			\hline
-		\end{tabular}
-		\fonte{Elaborado pelos autores.}
-	\end{table}
-\end{comment}
-
+Em contrapartida, uma transição para um modelo comercial exigiria um planejamento financeiro robusto. A operação demandaria um investimento inicial de R\$ 18.250,00 para aquisição de equipamentos. Adicionalmente, haveria custos operacionais mensais recorrentes estimados em R\$ 924,70 para a manutenção do sistema. Totalizando em um  investimento de R\$ 26.572,30.
+%----------------------------------------------------%
 \subsection{Custo de Pessoal}
-O levantamento de custos de pessoal focou no cenário comercial, visto que, enquanto projeto acadêmico, a mão de obra é voluntária e resulta em um custo inicial nulo para a pousada. Diante disso, foram obtidos dados salariais em plataformas especializadas para projetar os custos associados ao sistema em  ambiente comercial \cite{glassdoor2025, indeed2025}. 
+A análise do custo de pessoal visa quantificar o valor de mercado da mão de obra investida no desenvolvimento e implantação do sistema. Nesse sentido, o levantamento foca na projeção para um cenário comercial, uma vez que a execução do projeto no âmbito acadêmico se deu de forma voluntária, representando um custo efetivo nulo para a pousada. Para realizar tal projeção, a metodologia adotada baseou-se em dados salariais consultados em plataformas especializadas, a fim de estimar os custos de mão de obra em um ambiente de mercado \cite{glassdoor2025, indeed2025}.
 
-A \autoref{tab:mao-de-obra-horas} reúne os custos referentes a mão de obra do desenvolvimento do projeto, no contexto comercial. 
-Nela são especificados: funções ocupadas pelos membros da equipe, seguida por quantidade de pessoas por cargo, horas trabalhadas por dia e dias trabalhados por mês(média). Enquanto a \autoref{tab:mao-de-obra-custos} detalha: o preço por hora de cada profissional. A partir disso, faz-se as estimativas de custo mensal e a projeção em 4 meses e 9 meses.
+A estrutura de cálculo para o custo de pessoal é apresentada em duas fases. Primeiramente, o esforço de mão de obra foi dimensionado na \autoref{tab:mao-de-obra-horas}, que especifica os parâmetros de trabalho, como as funções da equipe, a quantidade de profissionais por cargo e a dedicação em horas diárias e dias por mês. Em seguida, a \autoref{tab:mao-de-obra-custos} apresenta o valor da hora técnica para cada função e, a partir do cruzamento desses dados, consolida as estimativas de custo mensal, bem como as projeções de custo total.
 
 % Tabela 1 - Dados de horas
 \begin{table}[H]
@@ -2056,23 +2063,23 @@ Nela são especificados: funções ocupadas pelos membros da equipe, seguida por
 			\hline
 			\textbf{Função} & \textbf{Quantidade} & \textbf{Horas/Dia} & \textbf{Dias/Mês} & \textbf{Total de Horas/Mês} \\
 			\hline
-			Engenheiro de Dados (DBA)        & 1 & 6 & 22 & 132 \\
+			Engenheiro de Dados (DBA)        & 1 & 3 & 22 & 66 \\
 			\hline
-			Analista de Documentação         & 1 & 6 & 22 & 132 \\
+			Analista de Documentação         & 1 & 3 & 22 & 66 \\
 			\hline
-			Gerente de Projeto (PM)          & 1 & 6 & 22 & 132 \\
+			Gerente de Projeto (PM)          & 1 & 3 & 22 & 66 \\
 			\hline
-			Desenvolvedor Front-End          & 1 & 6 & 22 & 132 \\
+			Desenvolvedor Front-End          & 1 & 3 & 22 & 66 \\
 			\hline
-			Desenvolvedor Back-End           & 1 & 6 & 22 & 132 \\
+			Desenvolvedor Back-End           & 1 & 3 & 22 & 66 \\
 			\hline
-			\textbf{Total Mão de Obra}       & 6 & 36 & 132 & 792 \\
+			\textbf{Total Mão de Obra}       & 5 & 3 & 22 & 330 \\
 			\hline
 		\end{tabular}
 	}
 	\fonte{Elaborado pelos autores.}
 \end{table}
-
+% Tabela 1 - Salários
 \begin{table}[H]
 	\centering
 	\caption{Custos por função}
@@ -2082,52 +2089,70 @@ Nela são especificados: funções ocupadas pelos membros da equipe, seguida por
 			\hline
 			\textbf{Função} & \textbf{Custo Hora (R\$)} & \textbf{Custo Mensal (R\$)} & \textbf{Total 4 meses (R\$)} & \textbf{Total 9 meses (R\$)} \\
 			\hline
-			Analista de QA  & 15,86 & 2.093,85 & 8.375,40 & 18.844,65 \\
+			Analista de Testes  & 13,63 & 899,58 & 3.598,32 & 8.096,22 \\
 			\hline
-			Engenheiro de Software & 18,75 & 2.475,00 & 9.900,00 & 22.275,00 \\
+			Engenheiro de Software & 26,13 & 1.724,58 & 6.898,32 & 15.521,22 \\
 			\hline
-			Gerente de Projeto (PM)          & 16,00 & 2.112,00 & 8.448,00 & 19.008,00 \\
+			Gerente de Projeto (PM)          & 17,42 & 1.149,72 & 4.598,88 & 10.347,48 \\
 			\hline
-			Desenvolvedor Front-End          & 13,00 & 1.716,00 & 6.864,00 & 15.444,00 \\
+			Desenvolvedor Front-End & 22,35 & 1.475,10 & 5.900,40 & 13.275,90 \\
 			\hline
-			Desenvolvedor Back-End           & 13,00 & 1.716,00 & 6.864,00 & 15.444,00 \\
+			Desenvolvedor Back-End & 23,50 & 1.551,00 & 6.204,00 & 13.959,00 \\
 			\hline
-			\textbf{Total Mão de Obra}       & 76,61 & 10.112,85 & 46.451,7 & 91.015,65 \\
+			\textbf{Total Mão de Obra}       & 103,03 & 6.799,98 & 27.199,92 & 61.199,82 \\
 			\hline
 		\end{tabular}
 	}
 	\fonte{Elaborado pelos autores.}
 \end{table}
+% ---------------------------------------------------------%
+A projeção dos custos de pessoal foi dividida em dois intervalos temporais: 4 e 9 meses. O período de quatro meses corresponde ao marco de entrega da primeira versão funcional do sistema (MVP), enquanto o de nove meses abrange o ciclo completo de planejamento, desenvolvimento e implantação do projeto. 
 
-A projeção de custos de pessoal levou em consideração os períodos de 4 e 9 meses, pois foram momentos importantes no desenvolvimento. Nos primeiros 4 meses foi desenvolvido e entregue o MVP do projeto, enquanto que o período de 9 meses representa o tempo disponível para o planejamento, desenvolvimento e implantação do sistema. Permitindo, assim, uma visão mais ampla dos custos de mão de obra.
-
-Enquanto que,  os cargos representam os papéis necessários e atuados para a entrega do sistema projetado, de forma que, os valores levantados são referentes a salários de profissionais júnior. Assim como a quantidade de horas e dias trabalhados, que representam o tempo investido efetivamento pela equipe no atual projeto.
-
-Portanto, em um cenário de implementação comercial e baseado nos dados coletados, a pousada parceira teria um investimento mínimo para mão de obra de R\$ 46.451,70 no primeiro quadrimestre e um total de R\$ 91.015,00 para todo o processo.
+As condições para os cálculos consideram que os cargos listados refletem as funções essenciais desempenhadas pela equipe, com valores salariais de referência correspondentes ao nível júnior de mercado. Adicionalmente, a carga horária e os dias de trabalho especificados representam o tempo efetivamente investido pela equipe na execução do projeto. Dessa forma, a projeção para um cenário de implementação comercial indica que o investimento em mão de obra para a pousada parceira seria de R\$ 27.199,92 no primeiro quadrimestre e um total de R\$ 61.199,82 para a execução e conclusão completa do projeto em nove meses.
 %
 \subsection{Custo Total}
-O custo total do projeto representa a somatória dos custos estruturais e de pessoal para a realização do projeto. Essa despesa integral está demonstrada na  \autoref{tab:custo-total} que une os custos por mão de obra e custos por estrutura em 3 períodos diferentes: mensal — valor referente a gastos de um único mês; 4 meses — valor referente primeiro quadrimestre trabalhado até a entrega do MVP; e 9 meses — referente ao total de meses programado para a realização do projeto.
+O custo total do projeto representa a somatória dos custos estruturais e de pessoal para a realização do projeto. A  despesa integral recorrente está demonstrada na  \autoref{tab:custo-total} que une os custos por mão de obra e estrutura em 3 períodos distintos:
 
-\begin{table}[h!]
+\begin{itemize}
+	\item Mensal: valor estimado para um único mês de operação.
+	\item 4 meses: Corresponde ao valor acumulado no primeiro quadrimestre, resultando na entrega do MVP.
+	\item 9 meses: Representa o custo projetado para o ciclo de vida completo do projeto.
+\end{itemize}
+
+%-----------------------------------------------------------%
+\begin{table}[H]
 	\centering
-	\caption{Custo Total por Categoria}
+	\caption{Custo Recorrente Total por Categoria}
 	\label{tab:custo-total}
 	\adjustbox{max width=\textwidth}{
 		\begin{tabular}{|l|r|r|r|}
 			\hline
 			\textbf{Categoria} & \textbf{Custo Mensal (R\$)} & \textbf{Custo Total (4 meses) (R\$)} & \textbf{Custo Total (9 meses) (R\$)} \\
 			\hline
-			Mão de Obra & 10.112,85 & 46.451,7 & 91.015,65 \\
-			Estrutura   & 883,70    & 3.534,80  & 7.953,30 \\
+			Mão de Obra & 6.799,98 & R\$ 27.199,92 & R\$ 61.199,82 \\
 			\hline
-			\textbf{Total} & 10.996,55 & 49.986,5 &  98.968,95 \\
+			Estrutura& 924,70 & 3.698,80  & 8.322,30 \\
+			\hline
+			\textbf{Total} & 7.724,68 & 30.897,92 &  69.522,12\\
 			\hline
 		\end{tabular}
 	}
 	\fonte{Elaborado pelos autores.}
 \end{table}
 
-Dessa forma, contabilizando os custos estruturais e de pessoal, a pousada teria que destinar o valor mínimo inicial de R\$ 98.968,95 para o atual projeto. 
+Dessa forma, Ao consolidar o investimento fixo em equipamentos com os custos recorrentes de estrutura e pessoal, o custo total estimado para a pousada parceira realizar o projeto ao longo de 9 meses é de R\$ 87.772,12.
+
+%-----------------------------------------------------%
+% TÓPICO DE PROPOSTA DE VIABILIDADE COMERCIAL
+\begin{comment}
+\subsection{Proposta de Viabilidade Comercial}
+O levantamento de custos associados ao projeto demonstrou que o desenvolvimento de um sistema customizado possui um custo inicial e operacional significativo. O que torna o modelo de venda única inviável para uma única pousada de pequeno porte.
+
+Este tópico propõe um cenário hipotético de viabilidade comercial a longo prazo, transformando o sistema em um produto de \textit{Software as Service} (SaaS). Com o objetivo de diluir o custo de desenvolvimento e manutenção entre múltiplos clientes, através de um modelo de assinatura mensal, tornando a solução acessível para o mercado de pequenas pousadas.
+
+\subsubsection{Solução}
+\end{comment}
+
 
 \begin{comment}
 
