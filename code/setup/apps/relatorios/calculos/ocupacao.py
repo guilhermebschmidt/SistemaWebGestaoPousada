@@ -1,23 +1,16 @@
-from ..models import Reserva
-from ..models import Quarto
+from apps.core.models import Quarto, Reserva
+from apps.financeiro.models import Titulo
 from datetime import date
 from django.db.models import Sum, F
 
 '''
 Arquivo para adicionar cálculos utilizados nos relatórios de ocupação.
 '''
-def _calcular_dias_ocupados_no_periodo(data_inicio_relatorio, data_fim_relatorio):
+def _calcular_dias_ocupados_no_periodo(data_inicio_relatorio, data_fim_relatorio, reservas_validas):
     """
     Função auxiliar interna que calcula o total de dias-quarto ocupado em um determinado período.
     Dias-quarto = quantidade de quarto x numero de dias do periodo
     """
-    STATUS_DE_OCUPACAO = ['CONFIRMADA', 'ATIVA', 'CONCLUÍDA']
-
-    reservas_validas = Reserva.objects.filter(
-        data_reserva_inicio__lt=data_fim,
-        data_reserva_fim__gt=data_inicio,
-        status__in=STATUS_DE_OCUPACAO 
-    )   
     total_dias_ocupados = 0
 
     for reserva in reservas_validas:
@@ -44,12 +37,13 @@ def gerar_relatorio_de_ocupacao(data_inicio, data_fim):
             'erro': 'A data de início não pode ser posterior à data de fim.'
         }
     
-    # Cálculo da quantidade de reservas dentro do período selecionado 
-    # (exclui reservas previstas e reservas canceladas)
-
+    '''
+    Cálculo da quantidade de reservas dentro do período selecionado 
+     (exclui reservas previstas e reservas canceladas)
+    '''
     STATUS_DE_OCUPACAO = ['CONFIRMADA', 'ATIVA', 'CONCLUÍDA']
 
-    reservas_relevantes = Reserva.objects.filter(
+    reservas_validas = Reserva.objects.filter(
         data_reserva_inicio__lt=data_fim,
         data_reserva_fim__gt=data_inicio,
         status__in=STATUS_DE_OCUPACAO 
@@ -59,7 +53,7 @@ def gerar_relatorio_de_ocupacao(data_inicio, data_fim):
     Cálculo taxa de ocupação por período: 
     Taxa de Ocupação= (Total de Dias-Quarto Ocupados/Total de Dias-Quarto Disponíveis)* 100
     '''
-    dias_quarto_ocupados = _calcular_dias_ocupados_no_periodo(data_inicio, data_fim)
+    dias_quarto_ocupados = _calcular_dias_ocupados_no_periodo(data_inicio, data_fim, reservas_validas)
     
     num_dias_periodo = (data_fim - data_inicio).days + 1
     total_quartos = Quarto.objects.count()
@@ -69,19 +63,25 @@ def gerar_relatorio_de_ocupacao(data_inicio, data_fim):
     if dias_quarto_disponiveis > 0:
         taxa_ocupacao= (dias_quarto_ocupados/dias_quarto_disponiveis)*100
 
-    #Cálculo de quartos distintos ocupados no período
-    quartos_distintos_ocupados = reservas_relevantes.values('id_quarto').distinct().count()   
-    
-    #Cálculo da quantidade dos hóspedes presentes na pousada (soma quantidade de pessoas em cada reserva)
-    resultado_hospedes = reservas_relevantes.aggregate(total_hospedes=Sum('quantidade_pessoas'))
+    '''
+    Cálculo de quartos distintos ocupados no período
+    '''
+    quartos_distintos_ocupados = reservas_validas.values('id_quarto').distinct().count()   
+
+    '''
+    Cálculo da quantidade dos hóspedes presentes na pousada (soma quantidade de pessoas em cada reserva)
+    '''
+    resultado_hospedes = reservas_validas.aggregate(total_hospedes=Sum('quantidade_pessoas'))
     quantidade_hospedes = resultado_hospedes['total_hospedes'] or 0
+
     '''
     Cálculo da Duração Média das Reservas:
     Soma total dos dias de todas as reservas/Número total de reservas
     '''
     reservas_iniciadas_no_periodo = Reserva.objects.filter(
-        data_reserva_inicio__range=(data_inicio, data_fim)
-    ).exclude(status='CANCELADA')
+        data_reserva_inicio__range=(data_inicio, data_fim),
+        status__in=STATUS_DE_OCUPACAO 
+    )
 
     numero_de_reservas = reservas_iniciadas_no_periodo.count()
 
