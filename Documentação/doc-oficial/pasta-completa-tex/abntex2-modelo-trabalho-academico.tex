@@ -1745,38 +1745,46 @@ A Figura~\ref{fig:diagramacomponentes} mostra o funcionamento da arquitetura do 
 
 
 \section{Tecnologias}
-O desenvolvimento do sistema da Pousada Chalés Água de Coco foi baseado na adoção de tecnologias modernas, acessíveis e amplamente utilizadas no mercado. A escolha dessas tecnologias teve como objetivo garantir robustez, escalabilidade, segurança e facilidade de manutenção. Nesta seção, são apresentadas as principais ferramentas e frameworks adotados, com ênfase no Django, framework principal da aplicação, além da infraestrutura de banco de dados e nuvem utilizada. Também são detalhados os motivos técnicos que justificam essas escolhas.
+
+O desenvolvimento do sistema da Pousada Chalés Água de Coco foi pautado na utilização de tecnologias modernas, acessíveis e amplamente consolidadas no mercado. As escolhas realizadas tiveram como objetivo garantir robustez, escalabilidade, segurança, custo-benefício e facilidade de manutenção, assegurando a aderência às boas práticas de desenvolvimento web. Nesta seção, são apresentadas as principais ferramentas e frameworks empregados, destacando-se o \textit{framework} Django, o sistema gerenciador de banco de dados PostgreSQL e a infraestrutura de nuvem provida pela Amazon Web Services (AWS).
+
 \subsection{Django}
 
-O Django é um framework web de alto nível baseado em Python que oferece uma série de recursos que o tornam ideal para o desenvolvimento de sistemas como o nosso gerenciador de reservas de quartos~\cite{python}. Uma de suas principais vantagens é a rapidez no desenvolvimento, já que ele vem com diversas funcionalidades já prontas~\cite{django}.
+O Django é um \textit{framework} web de alto nível baseado em Python, projetado para acelerar o desenvolvimento e incentivar práticas de código limpo e seguro~\cite{django,python}. Sua principal vantagem é a disponibilização de diversos recursos prontos para uso, como sistema de autenticação, ORM (Object-Relational Mapper), administração nativa e proteção contra vulnerabilidades comuns (SQL Injection, Cross-Site Scripting e Cross-Site Request Forgery), reduzindo significativamente o tempo de desenvolvimento e aumentando a segurança da aplicação.
 
 \subsubsection{Front-end}
 
-O desenvolvimento do Frond-end da aplicação Chalés Água de Coco se dá pela combinação de templates HTML associados a Views (Django) para gerar páginas dinâmicas. Os templates exibem essas informações de forma estruturada na interface do usuário, permitindo que elementos HTML sejam preenchidos com dados fornecidos pelo servidor, assim utilizando o padrão MTV.
-
-O que facilita a manutenção e a escalabilidade do sistema. Isso é essencial em um sistema de reservas, que pode crescer em funcionalidades como calendário de disponibilidade, gestão de hóspedes, geração de relatórios, envio de notificações, entre outros.
+No front-end, a aplicação utiliza o padrão MTV (\textit{Model-Template-View}), em que os \textit{templates} HTML, associados às \textit{views}, geram páginas dinâmicas e responsivas. A interface foi estruturada com HTML e CSS, possibilitando usabilidade e responsividade em diferentes dispositivos~\cite{duckett}. Esse modelo favorece a manutenção e a escalabilidade, permitindo a inclusão de novas funcionalidades, como calendário de disponibilidade, relatórios personalizados e notificações automatizadas.
 
 \subsubsection{Back-end}
 
-O desenvolvimento do back-end desta aplicação Django é baseada no padrão MTV, assim funcionando com manipulação de dados e lógica de negócio através das Views, que são responsáveis por processar requisições, acessar o banco de dados e enviar informações para os templates.
+O back-end concentra as regras de negócio e a lógica da aplicação. As \textit{views} do Django processam as requisições, acessam o banco de dados via ORM e retornam as informações aos \textit{templates}. Além disso, o Django disponibiliza controle granular de permissões e autenticação, fundamentais para proteger informações sensíveis de hóspedes e reservas.
 
-\subsubsection{Banco de Dados}
+\subsection{Banco de Dados}
 
-O Banco de Dados é o PostgreSQL, sendo um banco escalável e flexível, este SGBD pode suportar grandes volumes de dados e de usuários além de ser compatível com uma grande gama de linguagens de programação.
-O PostgreSQL também é uma ótima opção por ser acessível, já que sua licença é livre, assim sem custos de licenciamento e a liberdade para modificar ou implementar o código-fonte da maneira que for necessária~\cite{postgresql}.
+O banco de dados utilizado é o PostgreSQL, um dos sistemas gerenciadores de banco de dados relacionais (SGBDR) mais robustos e confiáveis atualmente~\cite{postgresql}. Entre seus diferenciais técnicos estão: suporte ao padrão ACID, tipos de dados avançados como \texttt{JSONB}, replicação nativa, \textit{triggers}, \textit{stored procedures} e mecanismos de índices sofisticados. Sua natureza de código aberto garante liberdade de modificação, ausência de custos de licenciamento e ampla compatibilidade com diferentes linguagens e \textit{frameworks}, sendo uma opção altamente escalável para sistemas de pequeno a grande porte.
 
-\subsection{Justificativa da Escolha}
+\subsection{Infraestrutura em Nuvem com AWS}
 
-A escolha do framework Django para o desenvolvimento do sistema da Pousada Chalés Água de Coco baseou-se em critérios técnicos, de segurança, escalabilidade e aderência às boas práticas de desenvolvimento web moderno. Django é um framework escrito em Python, que segue o padrão MTV, semelhante ao clássico MVC(Model-View-Controller), promovendo uma clara separação entre as camadas da aplicação ~\cite{python}.
+A hospedagem do sistema foi estruturada na Amazon Web Services (AWS), provedora líder de serviços em nuvem. A escolha pela AWS fundamenta-se em sua capacidade de oferecer alta disponibilidade, escalabilidade e segurança, alinhadas ao modelo de computação em nuvem definido pelo NIST, que recomenda elasticidade, autosserviço sob demanda, medição de uso e ampla conectividade~\cite{nist-cloud,aws-doc}. 
 
-\subsubsection{Justificativa Técnica}
+Entre os serviços utilizados destacam-se: 
+\begin{itemize}
+	\item \textbf{Amazon RDS}: gerenciamento simplificado do banco de dados relacional PostgreSQL;
+	\item \textbf{Amazon S3}: armazenamento seguro e escalável de arquivos e mídias;
+	\item \textbf{Amazon CloudWatch}: monitoramento e geração de métricas em tempo real.
+\end{itemize}
 
-Entre os diferenciais do Django, destacam-se o ORM nativo, que abstrai o uso de SQL e facilita a manipulação segura dos dados; o sistema integrado de autenticação e autorização, que oferece controle de acesso granular; e a proteção nativa contra ataques como SQL Injection, Cross-Site Scripting (XSS) e Cross-Site Request Forgery (CSRF). Esses recursos reduzem significativamente o tempo de desenvolvimento e aumentam a segurança da aplicação.
-Além disso, o Django é um software de código aberto, com forte comunidade ativa, documentação completa e contínua evolução. Essa característica o torna ideal para projetos acadêmicos e corporativos, permitindo a entrega de soluções confiáveis e bem estruturadas~\cite{django}.
+Essa infraestrutura garante redundância, políticas de backup e suporte a conexões seguras via HTTPS, fatores indispensáveis para um sistema que manipula dados pessoais e financeiros.
 
-\subsubsection{Infraestrutura com AWS}
-A escolha pela Amazon Web Services (AWS) como provedora da infraestrutura em nuvem está relacionada à sua capacidade de oferecer escalabilidade, disponibilidade e segurança~\cite{aws-doc}. Os recursos de computação elástica, gerenciamento de banco de dados, balanceamento de carga, armazenamento e backup são fundamentais para a operação de um sistema que lida com informações sensíveis de clientes e reservas.
-A integração entre Django e AWS ocorre de forma transparente, possibilitando o uso de serviços como S3 (armazenamento de mídia), RDS (gerenciamento de banco de dados relacional) e CloudWatch (monitoramento), ampliando o potencial da aplicação e assegurando a continuidade do serviço com mínimo risco de falhas.
+\subsection{Boas Práticas de Desenvolvimento}
+
+Além da escolha tecnológica, adotaram-se boas práticas de engenharia de software, como versionamento de código com Git, integração e entrega contínuas (CI/CD), aplicação de testes automatizados e atualizações periódicas de dependências. Tais práticas favorecem a manutenibilidade, reduzem riscos de falhas em produção e facilitam a evolução da aplicação, assegurando qualidade e estabilidade ao longo de seu ciclo de vida.
+
+\subsection{Resumo da Escolha Tecnológica}
+
+A adoção do Django, PostgreSQL e AWS foi motivada pela combinação de fatores como robustez, segurança, escalabilidade e baixo custo de implementação. Essas tecnologias, em conjunto com boas práticas de desenvolvimento, formam a base de uma solução moderna e confiável, alinhada às necessidades da Pousada Chalés Água de Coco e coerente com os objetivos do projeto.
+
 
 
 \section{Ferramentas de Apoio}

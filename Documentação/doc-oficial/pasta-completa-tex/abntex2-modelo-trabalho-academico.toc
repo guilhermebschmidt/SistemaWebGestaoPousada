@@ -56,10 +56,10 @@
 \contentsline {subsection}{\numberline {4.4.1}Django}{56}{subsection.4.4.1}%
 \contentsline {subsubsection}{\numberline {4.4.1.1}Front-end}{57}{subsubsection.4.4.1.1}%
 \contentsline {subsubsection}{\numberline {4.4.1.2}Back-end}{57}{subsubsection.4.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.4.1.3}Banco de Dados}{57}{subsubsection.4.4.1.3}%
-\contentsline {subsection}{\numberline {4.4.2}Justificativa da Escolha}{57}{subsection.4.4.2}%
-\contentsline {subsubsection}{\numberline {4.4.2.1}Justificativa Técnica}{57}{subsubsection.4.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.4.2.2}Infraestrutura com AWS}{58}{subsubsection.4.4.2.2}%
+\contentsline {subsection}{\numberline {4.4.2}Banco de Dados}{57}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}Infraestrutura em Nuvem com AWS}{57}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}Boas Práticas de Desenvolvimento}{58}{subsection.4.4.4}%
+\contentsline {subsection}{\numberline {4.4.5}Resumo da Escolha Tecnológica}{58}{subsection.4.4.5}%
 \contentsline {section}{\numberline {4.5}Ferramentas de Apoio}{58}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}GitHub}{58}{subsection.4.5.1}%
 \contentsline {subsection}{\numberline {4.5.2}BRModelo}{59}{subsection.4.5.2}%
