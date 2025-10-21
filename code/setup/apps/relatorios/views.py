@@ -2,7 +2,7 @@ from apps.core.models import Reserva, Quarto
 from .calculos import ocupacao
 from django.shortcuts import render
 from datetime import date 
-from dateutil import relativedelta
+from dateutil.relativedelta import relativedelta
 
 '''
 View para funções dos relatórios de ocupação e financeiros.

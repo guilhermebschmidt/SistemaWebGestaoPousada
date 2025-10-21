@@ -71,7 +71,9 @@ def gerar_relatorio_de_ocupacao(data_inicio, data_fim):
     '''
     Cálculo da quantidade dos hóspedes presentes na pousada (soma quantidade de pessoas em cada reserva)
     '''
-    resultado_hospedes = reservas_validas.aggregate(total_hospedes=Sum('quantidade_pessoas'))
+    resultado_hospedes = reservas_validas.aggregate(
+        total_hospedes=Sum(F('quantidade_adultos') + F('quantidade_criancas'))
+    )
     quantidade_hospedes = resultado_hospedes['total_hospedes'] or 0
 
     '''
