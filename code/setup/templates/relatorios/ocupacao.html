@@ -26,13 +26,24 @@
                     </label>
                     <button type="submit" class="btn btn-primary  text-accent w-full">Gerar Relatório</button>
                 </div>
-                <!-- EXPORTAR 
-                <div class="form-control w-full sm:w-auto">
-                    <a href="?{{ request.GET.urlencode }}&export=csv" class="btn btn-secondary w-full">
-                        <i class="fas fa-file-csv mr-2"></i>Exportar CSV
-                    </a>
-                </div>
-                -->
+                <!-- EXPORTAR  -->
+                <div class= "form-control w-full sm:w-auto">
+                    <div class="dropdown dropdown-bottom">
+                            <button tabindex="0" class="btn m-1 btn-secondary text-white" aria-label="Exportar">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                </svg>
+                                <span>Exportar</span>
+                            </button>
+                     
+                        <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                            <li>
+                                <a href="?{{ request.GET.urlencode }}&export=csv" class="btn w-full">CSV</a>
+                            </li>
+                            <li><a>PDF</a></li>
+                        </ul>
+                    </div>
+                </div>    
             </form>
         </div>
     </div>
@@ -86,11 +97,16 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td> Número de Dias no Período</td>
+                        <td> {{ dados.num_dias_periodo}}</td>  
+                    </tr>
+
+                    <tr>
                         <td> Número de Reservas</td>
                         <td> {{ dados.numero_de_estadias_iniciadas }}</td>  
                     </tr>
                     <tr>
-                        <td> Número de Quartos Ocupados</td>
+                        <td>  Quartos Distintos Ocupados</td>
                         <td>{{ dados.quartos_distintos_ocupados }}</td>
                     </tr>
                     <tr>
@@ -99,17 +115,17 @@
                     </tr>
 
                     <tr>
-                        <td>Quantidade Total de Hóspedes</td>
+                        <td>Total de Hóspedes</td>
                         <td>{{ dados.quantidade_hospedes }}</td>
                     </tr>
 
                     <tr>
-                        <td>Quantidade de Dias-Quarto Disponíveis</td>
+                        <td>Dias-Quarto Disponíveis</td>
                         <td>{{ dados.dias_disponiveis }}</td>
                     </tr>
 
                     <tr>
-                        <td>Quantidade de Dias-Quarto Ocupados</td>
+                        <td> Dias-Quarto Ocupados</td>
                         <td>{{ dados.dias_ocupados }}</td>
                     </tr>
 

@@ -185,6 +185,7 @@ def gerar_relatorio_de_ocupacao(data_inicio, data_fim):
         'data_inicio': data_inicio,
         'data_fim': data_fim,
         'total_quartos_pousada': total_quartos,
+        'num_dias_periodo': num_dias_periodo,
         'dias_disponiveis': dias_quarto_disponiveis,
         'dias_ocupados': dias_quarto_ocupados,
         'taxa_ocupacao': taxa_ocupacao,
