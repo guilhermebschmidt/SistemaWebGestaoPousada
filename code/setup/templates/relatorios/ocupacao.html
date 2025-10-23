@@ -70,23 +70,74 @@
         </div>
 
         <!--                                      Tabela                  -->
-        <div class="overflow-x-auto items-center text-center bg-base-100 rounded-lg shadow mt-6">
+        <div class="overflow-x-auto bg-base-100 rounded-lg shadow mt-6">
             <table class="table w-full">
                 <thead>
                     <tr class="bg-base-200 text-sm text-base-content text-center ">
-                        <td>Período Analisado</td>
-                        <td>{{ dados.data_inicio|date:"d/m/Y" }} a {{ dados.data_fim|date:"d/m/Y" }}</td>
+                        <th colspan="2">Período Analisado: 
+                            {{ dados.data_inicio|date:"d/m/Y" }} a {{ dados.data_fim|date:"d/m/Y" }}
+                        </th>
                     </tr>
 
-                    <tr class="bg-base-200 text-xs text-center text-base-content">
+                    <tr class="bg-base-200 text-md  text-base-content text-left">
                         <th>Métrica</th>
                         <th>Valor</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td> Número de Reservas</td>
+                        <td> {{ dados.numero_de_estadias_iniciadas }}</td>  
+                    </tr>
+                    <tr>
+                        <td> Número de Quartos Ocupados</td>
+                        <td>{{ dados.quartos_distintos_ocupados }}</td>
+                    </tr>
+                    <tr>
+                        <td> Duração Média das Estadias (em dias)</td>
+                        <td>{{ dados.duracao_media|floatformat:0 }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Quantidade Total de Hóspedes</td>
+                        <td>{{ dados.quantidade_hospedes }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Quantidade de Dias-Quarto Disponíveis</td>
+                        <td>{{ dados.dias_disponiveis }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Quantidade de Dias-Quarto Ocupados</td>
+                        <td>{{ dados.dias_ocupados }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Taxa de Ocupação (%)</td>
+                        <td>{{ dados.taxa_ocupacao|floatformat:2 }}</td>
+                    </tr>
+
+                    <tr>
+                        <td> Quarto Mais Popular</td>
+                        <td>{{dados.quarto_mais_ocupado}}</td>
+                    </tr>
+
+                    <tr>
+                        <td> Quarto Menos Popular</td>
+                        <td>{{dados.quarto_menos_ocupado}}</td>
+                    </tr>
+                    
+                    <tr>
+                        <td> Tipo de Quarto Mais Popular</td>
+                        <td>{{dados.tipo_quarto_mais_ocupado}}</td>
+                    </tr>
+
+                    <tr>
+                        <td> Tipo de Quarto Menos Popular</td>
+                        <td>{{dados.tipo_quarto_menos_ocupado}}</td>
+                    </tr>
                    
-                    
-                    
                 </tbody>
             </table>
         </div>

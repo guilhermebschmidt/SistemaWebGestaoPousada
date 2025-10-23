@@ -63,9 +63,17 @@ class HospedeForm(forms.ModelForm):
         }
 
     def clean_cpf(self):
-        cpf = self.cleaned_data.get('cpf', '').replace('.', '').replace('-', '')
-        if not cpf.isdigit():
-            raise forms.ValidationError("O CPF deve conter apenas números.")
+        cpf = self.cleaned_data.get('cpf', '').replace('.', '').replace('-', '') 
+
+        if not cpf.isdigit(): raise forms.ValidationError("O CPF deve conter apenas números.")
+        query = Hospede.objects.filter(cpf) 
+        
+        if self.instance and self.instance.pk: 
+            query = query.exclude(pk=self.instance.pk) 
+            
+        if query.exists(): 
+            raise forms.ValidationError("Este CPF já está cadastrado para outro hóspede.")
+            
         return cpf
 
     def clean_telefone(self):

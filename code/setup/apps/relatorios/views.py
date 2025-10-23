@@ -10,7 +10,8 @@ View para funções dos relatórios de ocupação e financeiros.
 
 def relatorio_ocupacao(request):
     '''
-    View 
+    View que define o filtro por período e chama os dados que compõem o relátorio de ocupação  
+    (calculados pela função gerar_relatorio_de_ocupação de calculos/ocupacao.py)
     '''
     today = date.today()
     data_inicio_str = request.GET.get('data_inicio', today.replace(day=1).strftime('%Y-%m-%d'))

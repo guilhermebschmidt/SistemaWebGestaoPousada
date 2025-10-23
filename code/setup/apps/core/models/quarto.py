@@ -19,7 +19,7 @@ class Quarto(models.Model):
         ('SUITE', 'Quarto Suite'),
         ('TERREO', 'Chalé Térreo'),
         ('LOFT', 'Chalé Loft'),
-        ('FLAT', 'flat'),
+        ('FLAT', 'Flat'),
     )
     tipo_quarto= models.CharField(
         max_length=15,
