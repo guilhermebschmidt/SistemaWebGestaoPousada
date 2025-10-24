@@ -61,6 +61,24 @@
                         </details>
                     </li>
 
+                    <li class="{% if 'mensalistas' in request.path %} active {% endif %}">
+                        <details open>
+                            <summary>Mensalistas</summary>
+                            <ul>
+                                <li>
+                                    <a href="{% url 'mensalista:listar_mensalistas' %}">
+                                       Listar Mensalistas
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'mensalista:adicionar_mensalista' %}">
+                                        Adicionar Mensalista
+                                    </a>
+                                </li>
+                            </ul>
+                        </details>
+                    </li>
+
                     <!-- Outros menus seguem igual... -->
                     <li>
                         <details>
