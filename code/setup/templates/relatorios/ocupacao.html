@@ -11,8 +11,8 @@
     <!--Filtro: período do relatório -->
     <div class="card bg-base-100 items-center shadow-sm">
         <div class="card-body p-4">
-            <form method="get" class="flex flex-col sm:flex-row items-end gap-2">
-                <div class="form-control w-full sm:w-auto">
+            <form method="get" class="flex flex-col sm:flex-row items-center gap-2">
+                <div class="form-control w-full sm:w-auto ">
                     <label class="label" for="data_inicio"><span class="label-text">Data Início</span></label>
                     <input type="date" name="data_inicio" id="data_inicio" class="input input-bordered" value="{{ data_inicio|date:'Y-m-d' }}">
                 </div>
@@ -20,30 +20,39 @@
                     <label class="label" for="data_fim"><span class="label-text">Data Fim</span></label>
                     <input type="date" name="data_fim" id="data_fim" class="input input-bordered" value="{{ data_fim|date:'Y-m-d' }}">
                 </div>
-                <div class="form-control w-full sm:w-auto">
-                    <label class="label">
-                        <span class="label-text">&nbsp;</span>
+                <div class="form-control w-full sm:w-auto flex items-center">
+                    <label class="label invisible">
+                        <span class="label-text"></span>
                     </label>
                     <button type="submit" class="btn btn-primary  text-accent w-full">Gerar Relatório</button>
                 </div>
                 <!-- EXPORTAR  -->
-                <div class= "form-control w-full sm:w-auto">
+                <div class="form-control w-full sm:w-auto flex items-center">
+                    <label class="label invisible">
+                        <span class="label-text"></span>
+                    </label>
                     <div class="dropdown dropdown-bottom">
-                            <button tabindex="0" class="btn m-1 btn-secondary text-white" aria-label="Exportar">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                                <span>Exportar</span>
-                            </button>
-                     
+                        <button tabindex="0" class="btn btn-secondary text-white" aria-label="Exportar">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            <span>Exportar</span>
+                        </button>
+                        
                         <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                             <li>
-                                <a href="?{{ request.GET.urlencode }}&export=csv" class="btn w-full">CSV</a>
+                                <a href="?{{ request.GET.urlencode }}&export=csv" class="btn w-full">
+                                    CSV
+                                </a>
                             </li>
-                            <li><a>PDF</a></li>
+                            <li>
+                                <a href="?{{ request.GET.urlencode }}&export=pdf" class="btn w-full">
+                                    PDF
+                                </a>
+                            </li>
                         </ul>
-                    </div>
-                </div>    
+                    </div>  
+                </div>
             </form>
         </div>
     </div>
@@ -56,17 +65,9 @@
                 <div class="stat-title">Taxa de Ocupação</div>
             </div>
             
-           <div class="stat text-center rounded-lg shadow-lg flex-1 min-w-[200px] h-48">
-                
+            <div class="stat text-center rounded-lg shadow-lg flex-1 min-w-[200px] h-48">
                 <div class="stat-value text-xl text-primary font-bold">{{ dados.quantidade_hospedes }}</div>
                 <div class="stat-title"> Hóspedes</div>
-                   <!--
-                <div class="stat-figure text-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="inline-block w-6 h-6">
-                        <path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" />
-                    </svg>
-                </div>
-                --> 
             </div>
 
             <div class="stat text-center rounded-lg shadow-lg flex-1 min-w-[200px] h-48">
@@ -80,7 +81,7 @@
             </div>
         </div>
 
-        <!--                                      Tabela                  -->
+        <!----------------Tabela com indicadores ------------------->
         <div class="overflow-x-auto bg-base-100 rounded-lg shadow mt-6">
             <table class="table w-full">
                 <thead>
@@ -91,7 +92,7 @@
                     </tr>
 
                     <tr class="bg-base-200 text-md  text-base-content text-left">
-                        <th>Métrica</th>
+                        <th>Indicador</th>
                         <th>Valor</th>
                     </tr>
                 </thead>
@@ -102,20 +103,17 @@
                     </tr>
 
                     <tr>
-                        <td> Número de Reservas</td>
+                        <td> Nº de Novas Reservas no Período </td>
                         <td> {{ dados.numero_de_estadias_iniciadas }}</td>  
-                    </tr>
-                    <tr>
-                        <td>  Quartos Distintos Ocupados</td>
-                        <td>{{ dados.quartos_distintos_ocupados }}</td>
-                    </tr>
-                    <tr>
-                        <td> Duração Média das Estadias (em dias)</td>
-                        <td>{{ dados.duracao_media|floatformat:0 }}</td>
                     </tr>
 
                     <tr>
-                        <td>Total de Hóspedes</td>
+                        <td> Nº de Quartos Distintos Ocupados</td>
+                        <td>{{ dados.quartos_distintos_ocupados }}</td>
+                    </tr>
+
+                     <tr>
+                        <td>Quantidade de Hóspedes no Período </td>
                         <td>{{ dados.quantidade_hospedes }}</td>
                     </tr>
 
@@ -128,10 +126,15 @@
                         <td> Dias-Quarto Ocupados</td>
                         <td>{{ dados.dias_ocupados }}</td>
                     </tr>
-
+                   
                     <tr>
                         <td>Taxa de Ocupação (%)</td>
                         <td>{{ dados.taxa_ocupacao|floatformat:2 }}</td>
+                    </tr>
+
+                     <tr>
+                        <td> Duração Média das Estadias (em dias)</td>
+                        <td>{{ dados.duracao_media|floatformat:0 }}</td>
                     </tr>
 
                     <tr>
@@ -143,8 +146,8 @@
                         <td> Quarto Menos Popular</td>
                         <td>{{dados.quarto_menos_ocupado}}</td>
                     </tr>
-                    
-                    <tr>
+
+                     <tr>
                         <td> Tipo de Quarto Mais Popular</td>
                         <td>{{dados.tipo_quarto_mais_ocupado}}</td>
                     </tr>
