@@ -1,9 +1,11 @@
 from django.urls import path
-from .. import views
+from apps.financeiro.views.titulo import list_titulos, titulo_form, marcar_pago
+
+app_name = 'financeiro'
 
 urlpatterns = [
-    path('', views.list_titulos, name='list'),
-    path('novo/', views.form, name='form'),
-    path('editar/<int:pk>/', views.form, name='update'),
-    path('titulos/<int:pk>/marcar-pago/', views.marcar_pago, name='marcar_pago'),
+    path('titulos/', list_titulos, name='list_titulos'),
+    path('titulos/novo/', titulo_form, name='novo_titulo'),
+    path('titulos/<int:titulo_id>/editar/', titulo_form, name='editar_titulo'),
+    path('titulos/<int:titulo_id>/marcar_pago/', marcar_pago, name='marcar_pago'),
 ]

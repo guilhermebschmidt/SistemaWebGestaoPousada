@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from ..models.titulo import Titulo
 from ..forms.titulo import TituloForm
-import datetime
 from django.utils import timezone
+from datetime import datetime
 
 def list_titulos(request):
-    queryset = Titulo.objects.select_related('hospede', 'reserva').all().order_by('data_vencimento')
+    queryset = Titulo.objects.select_related('hospede', 'reserva', 'categoria').all().order_by('data_vencimento')
 
+    # Captura dos filtros
     filtro_pago = request.GET.get('pago')
     filtro_tipo_doc = request.GET.get('tipo_documento')
     filtro_tipo = request.GET.get('tipo')  # Entrada / Saída
@@ -15,32 +16,48 @@ def list_titulos(request):
     filtro_data_inicio = request.GET.get('data_inicio')
     filtro_data_fim = request.GET.get('data_fim')
 
+    # 🔹 Filtro por pagamento
     if filtro_pago == 'sim':
         queryset = queryset.filter(pago=True)
     elif filtro_pago == 'nao':
         queryset = queryset.filter(pago=False)
 
+    # 🔹 Filtro por tipo de documento
     if filtro_tipo_doc:
         queryset = queryset.filter(tipo_documento=filtro_tipo_doc)
 
+    # 🔹 Filtro por tipo (Entrada / Saída)
     if filtro_tipo:
         if filtro_tipo.lower() == 'entrada':
             queryset = queryset.filter(tipo=True)
         elif filtro_tipo.lower() == 'saida':
             queryset = queryset.filter(tipo=False)
 
+    # 🔹 Filtro por cancelado
     if filtro_cancelado == 'sim':
         queryset = queryset.filter(cancelado=True)
     elif filtro_cancelado == 'nao':
         queryset = queryset.filter(cancelado=False)
 
+    # 🔹 Filtro por hóspede (busca parcial)
     if filtro_hospede:
-        queryset = queryset.filter(hospede__nome__icontains=filtro_hospede)
+        queryset = queryset.filter(hospede__nome__icontains=filtro_hospede.strip())
 
+    # 🔹 Filtro por data de vencimento — agora com conversão segura
+    formato_data = "%Y-%m-%d"
     if filtro_data_inicio:
-        queryset = queryset.filter(data_vencimento__gte=filtro_data_inicio)
+        try:
+            data_inicio = datetime.strptime(filtro_data_inicio, formato_data).date()
+            queryset = queryset.filter(data_vencimento__gte=data_inicio)
+        except ValueError:
+            pass  # ignora formato inválido
+
     if filtro_data_fim:
-        queryset = queryset.filter(data_vencimento__lte=filtro_data_fim)
+        try:
+            data_fim = datetime.strptime(filtro_data_fim, formato_data).date()
+            queryset = queryset.filter(data_vencimento__lte=data_fim)
+        except ValueError:
+            pass
 
     context = {
         'titulos': queryset,
@@ -53,42 +70,34 @@ def list_titulos(request):
             'data_inicio': filtro_data_inicio,
             'data_fim': filtro_data_fim,
         },
-        'hoje': datetime.date.today(),
+        'hoje': timezone.now().date(),
     }
 
     return render(request, 'financeiro/titulo/listar.html', context)
 
-
-def form(request, pk=None):
-    instance = get_object_or_404(Titulo, pk=pk) if pk else None
+def titulo_form(request, pk=None):
+    if pk:
+        titulo = get_object_or_404(Titulo, pk=pk)
+    else:
+        titulo = None
 
     if request.method == 'POST':
-        form = TituloForm(request.POST, instance=instance)
+        form = TituloForm(request.POST, instance=titulo)
         if form.is_valid():
-            titulo = form.save(commit=False)
-            titulo.save()
-            # se o form tiver campos M2M:
-            form.save_m2m()
-            return redirect('financeiro:list')
-        else:
-            print(form.errors)  # ajuda a depurar
+            form.save()
+            return redirect('financeiro:titulo:list')
     else:
-        form = TituloForm(instance=instance)
+        form = TituloForm(instance=titulo)
 
-    context = {'form': form}
+    context = {
+        'form': form,
+        'titulo': titulo,
+    }
     return render(request, 'financeiro/titulo/form.html', context)
-
 
 def marcar_pago(request, pk):
     titulo = get_object_or_404(Titulo, pk=pk)
-
     titulo.pago = True
     titulo.data_pagamento = timezone.now().date()
     titulo.save()
-
-    # Confirma reserva vinculada
-    if titulo.reserva:
-        titulo.reserva.status = "CONFIRMADA"
-        titulo.reserva.save()
-
-    return redirect('financeiro:list')
+    return redirect('financeiro:titulo:list')
