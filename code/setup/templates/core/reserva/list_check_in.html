@@ -34,7 +34,7 @@
                     <td>{{ reserva.data_check_out }}</td>
                     <td>R$ {{ reserva.valor }}</td>
                     <td class="flex gap-2">
-                        <a href="{% url 'reserva:update' reserva.id %}" class="btn btn-warning btn-sm" title="Editar Reserva">
+                        <a href="{% url 'reserva:editar' reserva.id %}" class="btn btn-warning btn-sm" title="Editar Reserva">
                             <i class="fas fa-edit">Editar</i>
                         </a>
                         {% if reserva.data_check_in %}

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
      #apps allauth
     'allauth',
     'allauth.account',
@@ -49,8 +50,7 @@ INSTALLED_APPS = [
     'apps.core',
     'apps.financeiro',
     'apps.usuarios',
-
-    'django_extensions',
+    'apps.relatorios',
 ]
 
 MIDDLEWARE = [

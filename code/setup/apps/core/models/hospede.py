@@ -4,7 +4,7 @@ from datetime import date, datetime
 import re
 
 class Hospede(models.Model):
-    cpf = models.CharField(max_length=11, unique=True)
+    cpf = models.CharField(max_length=11, unique=True, verbose_name="CPF")
     nome = models.CharField(max_length=100)
     telefone = models.CharField(max_length=15)
     email = models.EmailField(max_length=100)

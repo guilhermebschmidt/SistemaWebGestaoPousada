@@ -11,4 +11,6 @@ urlpatterns = [
     path('reservas/', include('apps.core.urls.reserva', namespace='reserva')),
     path('financeiro/', include('apps.financeiro.urls', namespace='financeiro')),
     path('usuarios/', include('apps.usuarios.urls')),
+    path('relatorios/', include('apps.relatorios.urls', namespace='relatorios')),
+    path('mensalistas/', include('apps.core.urls.mensalista',namespace='mensalista')),
 ]
