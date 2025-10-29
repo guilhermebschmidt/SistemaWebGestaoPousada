@@ -85,7 +85,7 @@ def titulo_form(request, pk=None):
         form = TituloForm(request.POST, instance=titulo)
         if form.is_valid():
             form.save()
-            return redirect('financeiro:titulo:list')
+            return redirect('financeiro:list_titulos')
     else:
         form = TituloForm(instance=titulo)
 
@@ -100,4 +100,4 @@ def marcar_pago(request, pk):
     titulo.pago = True
     titulo.data_pagamento = timezone.now().date()
     titulo.save()
-    return redirect('financeiro:titulo:list')
+    return redirect('financeiro:list_titulos')

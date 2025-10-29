@@ -7,14 +7,14 @@
 <div class="space-y-6">
     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <h2 class="text-2xl font-bold">Títulos Financeiros</h2>
-        <a href="{% url 'financeiro:form' %}" class="btn btn-success">
+        <a href="{% url 'financeiro:novo_titulo' %}" class="btn btn-success">
             <i class="fas fa-plus mr-2"></i>Adicionar Título
         </a>
     </div>
     <!-- Seção de Filtros -->
 <div class="card bg-base-100 shadow-sm">
     <div class="card-body p-4">
-        <form method="GET" action="{% url 'financeiro:list' %}" class="flex flex-col sm:flex-row flex-wrap items-center gap-4">
+        <form method="GET" action="{% url 'financeiro:list_titulos' %}" class="flex flex-col sm:flex-row flex-wrap items-center gap-4">
 
             <!-- Situação do Pagamento -->
             <div class="form-control w-full sm:w-auto">
@@ -141,14 +141,14 @@
                         {% endif %}
                     </td>
                     <td class="flex gap-2">
-                        <a href="{% url 'financeiro:update' titulo.id %}" class="btn btn-warning btn-sm" title="Editar Título">
+                        <a href="{% url 'financeiro:editar_titulo' titulo.pk %}" class="btn btn-warning btn-sm" title="Editar Título">
                             <i class="fas fa-edit">Editar</i>
                         </a>
                         <button class="btn btn-error btn-sm" title="Excluir Título">
                             <i class="fas fa-trash">Cancelar</i>
                         </button>
                         {% if titulo.pago == False %}
-                            <a href="{% url 'financeiro:marcar_pago' titulo.id %}"
+                            <a href="{% url 'financeiro:marcar_pago' titulo.pk %}"
                                 class="btn btn-sm btn-success"
                                 onclick="return confirm('Marcar este título como pago?');">
                                 Marcar como Pago
