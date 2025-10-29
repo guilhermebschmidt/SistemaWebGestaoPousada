@@ -28,125 +28,130 @@
                             </div>
                         </div>
                     {% endif %}
+
                     <form method="POST" action="" class="space-y-4">
                         {% csrf_token %}
+                        <div class="flex flex-col flex-1 p-4">
+                            <div class="flex w-full flex-col">
+                                <div class="divider divider-start font-medium">Dados Pessoais</div>
+                                <!--Campo CPF-->
+                                <div class="form-control">
+                                    <label class="label" for="{{ form.cpf.id_for_label }}">
+                                        <span class="label-text font-medium">CPF</span>
+                                    </label>
+                                    <br>
+                                    {{ form.cpf }}
+                                    {% if form.cpf.errors %}
+                                        <p class="text-error text-sm">{{ form.cpf.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+                                <!-- Campo Nome -->
+                                <div class="form-control w-full">
+                                    <label class="label" for="{{ form.nome.id_for_label }}">
+                                        <span class="label-text font-medium">{{ form.nome.label }}</span>
+                                    </label>
+                                    {{ form.nome }} 
+                                    {% for error in form.nome.errors %}
+                                        <label class="label"><span class="label-text-alt text-error">{{ error }}</span></label>
+                                    {% endfor %}
+                                </div>
+                                <!--Campo Telefone-->
+                                <div class="form-control">
+                                    <label class="label" for="{{form.telefone.id_for_label}}">
+                                        <span class="label-text font-medium">Telefone</span>
+                                    </label>
+                                    {{form.telefone }}
+                                    {% for error in form.telefone.errors %}
+                                        <div class="label"><span class="label-text-alt text-error">{{ error }}</span></div>
+                                    {% endfor %}
+                                </div>
+                                <!--Campo Email-->
+                                <div class="form-control">
+                                    <label class="label" for="{{form.email.id_for_label}}">
+                                        <span class="label-text font-medium">E-mail</span>
+                                    </label>
+                                    {{form.email }}
+                                    {% for error in form.email.errors %}
+                                        <div class="label"><span class="label-text-alt text-error">{{ error }}</span></div>
+                                    {% endfor %}
+                                </div>
+                                <!--Campo Data de Nascimento-->
+                                <div class="form-control">
+                                    <label class="label" for="{{form.data_nascimento.id_for_label}}">
+                                        <span class="label-text font-medium">Data Nascimento</span>
+                                    </label>
+                                    {{form.data_nascimento }}
+                                    {% for error in form.data_nascimento.errors %}
+                                        <div class="label"><span class="label-text-alt text-error">{{ error }}</span></div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <br>
+                            <!-- Dados de Endereço-->
+                            <div class="divider divider-start font-medium"> Endereço</div>
+                            <div class="form-control">
+                                <label class="label" for="{{form.cep.id_for_label}}">
+                                    <span class="label-text font-medium">CEP</span>
+                                </label>
+                                {{form.cep }}
+                                {% for error in form.cep.errors %}
+                                    <div class="label"><span class="label-text-alt text-error">{{ error }}</span></div>
+                                {% endfor %}
+                            </div>
 
-                        <!-- CPF Field -->
-                        <div class="form-control">
-                            <label class="label" for="cpf">
-                                <span class="label-text font-medium">CPF</span>
-                            </label>
-                            <input type="text" id="cpf" name="cpf" required
-                                   {% if hospede %} value="{{ hospede.cpf }}" readonly {% endif %}
-                                   class="input input-bordered w-full bg-base-200"
-                                   placeholder="000.000.000-00" />
+                            <div class="form-control">
+                                <label class="label" for="{{form.rua.id_for_label}}">
+                                    <span class="label-text font-medium">Rua</span>
+                                </label>
+                                {{form.rua }}
+                                {% for error in form.rua.errors %}
+                                    <div class="label"><span class="label-text-alt text-error">{{ error }}</span></div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div class="form-control">
+                                    <label class="label" for="{{form.numero.id_for_label}}">
+                                        <span class="label-text font-medium">Número</span>
+                                    </label>
+                                    {{form.numero }}
+                                    {% for error in form.numero.errors %}
+                                        <div class="label"><span class="label-text-alt text-error">{{ error }}</span></div>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="form-control">
+                                    <label class="label" for="{{form.complemento.id_for_label}}">
+                                        <span class="label-text font-medium">Número</span>
+                                    </label>
+                                    {{form.complemento }}
+                                    {% for error in form.complemento.errors %}
+                                        <div class="label"><span class="label-text-alt text-error">{{ error }}</span></div>
+                                    {% endfor %}
+                                </div>
+                            
+                                <div class="form-control">
+                                    <label class="label" for="{{form.bairro.id_for_label}}">
+                                        <span class="label-text font-medium">Bairro</span>
+                                    </label>
+                                    {{form.bairro }}
+                                    {% for error in form.bairro.errors %}
+                                        <div class="label"><span class="label-text-alt text-error">{{ error }}</span></div>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="form-control">
+                                    <label class="label" for="{{form.cidade.id_for_label}}">
+                                        <span class="label-text font-medium">Cidade</span>
+                                    </label>
+                                    {{form.cidade }}
+                                    {% for error in form.cidade.errors %}
+                                        <div class="label"><span class="label-text-alt text-error">{{ error }}</span></div>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
-
-                        <!-- Nome Field -->
-                        <div class="form-control">
-                            <label class="label" for="nome">
-                                <span class="label-text font-medium">Nome Completo</span>
-                            </label>
-                            <input type="text" id="nome" name="nome" required
-                                   value="{% if hospede %}{{ hospede.nome }}{% endif %}"
-                                   class="input input-bordered w-full bg-base-200"
-                                   placeholder="Digite o nome completo" />
-                        </div>
-
-                        <!-- Telefone Field -->
-                        <div class="form-control">
-                            <label class="label" for="telefone">
-                                <span class="label-text font-medium">Telefone</span>
-                            </label>
-                            <input type="tel" id="telefone" name="telefone" required
-                                   value="{% if hospede %}{{ hospede.telefone }}{% endif %}"
-                                   class="input input-bordered w-full bg-base-200"
-                                   placeholder="(00) 00000-0000" />
-                        </div>
-
-                        <!-- Email Field -->
-                        <div class="form-control">
-                            <label class="label" for="email">
-                                <span class="label-text font-medium">Email</span>
-                            </label>
-                            <input type="email" id="email" name="email" required
-                                   value="{% if hospede %}{{ hospede.email }}{% endif %}"
-                                   class="input input-bordered w-full bg-base-200"
-                                   placeholder="exemplo@email.com" />
-                        </div>
-
-                        <!-- Data de Nascimento Field -->
-                        <div class="form-control">
-                            <label class="label" for="data_nascimento">
-                                <span class="label-text font-medium">Data de Nascimento</span>
-                            </label>
-                            <input type="date" id="data_nascimento" name="data_nascimento" required
-                                   value="{% if hospede %}{{ hospede.data_nascimento|date:'Y-m-d' }}{% endif %}"
-                                   class="input input-bordered w-full bg-base-200" />
-                        </div>
-
-                        <!-- Endereço Fields -->
-                        <div class="form-control">
-                            <label class="label" for="rua">
-                                <span class="label-text font-medium">Rua</span>
-                            </label>
-                            <input type="text" id="rua" name="rua"
-                                   value="{% if hospede %}{{ hospede.rua }}{% endif %}"
-                                   class="input input-bordered w-full bg-base-200"
-                                   placeholder="Digite a rua" />
-                        </div>
-
-                        <div class="form-control">
-                            <label class="label" for="numero">
-                                <span class="label-text font-medium">Número</span>
-                            </label>
-                            <input type="text" id="numero" name="numero"
-                                   value="{% if hospede %}{{ hospede.numero }}{% endif %}"
-                                   class="input input-bordered w-full bg-base-200"
-                                   placeholder="Número" />
-                        </div>
-
-                        <div class="form-control">
-                            <label class="label" for="complemento">
-                                <span class="label-text font-medium">Complemento</span>
-                            </label>
-                            <input type="text" id="complemento" name="complemento"
-                                   value="{% if hospede %}{{ hospede.complemento }}{% endif %}"
-                                   class="input input-bordered w-full bg-base-200"
-                                   placeholder="Apto, Bloco, etc." />
-                        </div>
-
-                        <div class="form-control">
-                            <label class="label" for="bairro">
-                                <span class="label-text font-medium">Bairro</span>
-                            </label>
-                            <input type="text" id="bairro" name="bairro"
-                                   value="{% if hospede %}{{ hospede.bairro }}{% endif %}"
-                                   class="input input-bordered w-full bg-base-200"
-                                   placeholder="Digite o bairro" />
-                        </div>
-
-                        <div class="form-control">
-                            <label class="label" for="cidade">
-                                <span class="label-text font-medium">Cidade</span>
-                            </label>
-                            <input type="text" id="cidade" name="cidade"
-                                   value="{% if hospede %}{{ hospede.cidade }}{% endif %}"
-                                   class="input input-bordered w-full bg-base-200"
-                                   placeholder="Digite a cidade" />
-                        </div>
-
-                        <div class="form-control">
-                            <label class="label" for="cep">
-                                <span class="label-text font-medium">CEP</span>
-                            </label>
-                            <input type="text" id="cep" name="cep"
-                                   value="{% if hospede %}{{ hospede.cep }}{% endif %}"
-                                   class="input input-bordered w-full bg-base-200"
-                                   placeholder="00000-000" />
-                        </div>
-
-                        <!-- Form Actions -->
+                        <!-- Botões de Ações -->
                         <div class="flex flex-col sm:flex-row gap-3 pt-6">
                             <button type="submit" class="btn btn-primary flex-1">
                                 {% if hospede %}
@@ -165,15 +170,17 @@
         </div>
     </div>
 </div>
-
+{% endblock %}
 <!-- Adicionando máscaras para os campos -->
+ {% block extra_js%}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
 <script>
 $(document).ready(function(){
-    $('#cpf').mask('000.000.000-00');
-    $('#telefone').mask('(00) 00000-0000');
-    $('#cep').mask('00000-000');  // Máscara para CEP
+    $('#{{ form.cpf.id_for_label }}').mask('000.000.000-00');
+    $('#{{ form.telefone.id_for_label }}').mask('(00) 00000-0000');
+    $('#{{ form.cep.id_for_label }}').mask('00000-000');
 });
 </script>
 {% endblock %}

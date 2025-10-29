@@ -1,34 +1,29 @@
+{% extends "shared/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Detalhes do Hóspede</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-    <div class="container">
-        <a class="navbar-brand" href="{% url 'hospede:listar' %}">Hóspedes</a>
-    </div>
-</nav>
 
+{% block title %}Detalhes do Hóspede{% endblock %}
+
+{% block content %}
 <div class="container">
-    <h1>Detalhes do Hóspede</h1>
+
     <ul class="list-group">
         <li class="list-group-item"><strong>CPF:</strong> {{ hospede.cpf }}</li>
         <li class="list-group-item"><strong>Nome:</strong> {{ hospede.nome }}</li>
         <li class="list-group-item"><strong>Telefone:</strong> {{ hospede.telefone }}</li>
         <li class="list-group-item"><strong>Email:</strong> {{ hospede.email }}</li>
         <li class="list-group-item"><strong>Data de Nascimento:</strong> {{ hospede.data_nascimento|date:"d/m/Y" }}</li>
+        <li class="list-group-item"><strong>Rua:</strong> {{ hospede.rua}}</li>
+        <li class="list-group-item"><strong>Número:</strong> {{ hospede.numero}}</li>
+        <li class="list-group-item"><strong>Complemento:</strong> {{ hospede.complemento}}</li>
+        <li class="list-group-item"><strong>Bairro:</strong> {{ hospede.bairro}}</li>
+        <li class="list-group-item"><strong>Cidade:</strong> {{ hospede.cidade}}</li>
+        <li class="list-group-item"><strong>CEP:</strong> {{ hospede.cep}}</li>
     </ul>
-    <a href="{% url 'hospede:form' hospede.cpf %}" class="btn btn-warning mt-3">Editar</a>
-    <a href="{% url 'hospede:form' hospede.cpf %}" class="btn btn-danger mt-3 ms-2">Excluir</a>
-    <a href="{% url 'hospede:listar' %}" class="btn btn-secondary mt-3 ms-2">Voltar</a>
-    <a href="{% url 'hospede:historico' hospede.cpf %}" class="btn btn-primary">Ver histórico de reservas</a>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+    <a href="{% url 'hospede:criar' %}" class="btn btn-warning mt-3">Editar</a>
+    <a href="{% url 'hospede:excluir' hospede.pk %}" class="btn btn-danger mt-3 ms-2">Excluir</a>
+    <a href="{% url 'hospede:listar' %}" class="btn btn-secondary mt-3 ms-2">Voltar</a>
+    <a href="{% url 'hospede:historico' hospede.pk %}" class="btn btn-primary mt-3 ms-2">Ver histórico de reservas</a>
+</div>
+{% endblock %}
+   

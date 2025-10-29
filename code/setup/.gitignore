@@ -172,3 +172,14 @@ cython_debug/
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
+# Dependências do Python
+/venv/
+*.pyc
+__pycache__/
+db.sqlite3
+
+# Dependências do Node.js
+/node_modules/
+
+# Arquivos de Build CSS (opcional, mas recomendado)
+/code/setup/static/css/output.css

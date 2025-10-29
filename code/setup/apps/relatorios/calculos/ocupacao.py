@@ -1,11 +1,11 @@
 from apps.core.models import Quarto, Reserva
-from apps.financeiro.models import Titulo
+
 from datetime import date
 from django.db.models import Sum, F
 from collections import defaultdict
 
 '''
-Arquivo com os cálculos dos dados que são utilizados nos relatórios de ocupação.
+Arquivo com os cálculos dos indicadores que são utilizados nos relatórios de ocupação.
 '''
 def _calcular_dias_ocupados_no_periodo(data_inicio_relatorio, data_fim_relatorio, reservas_validas):
     """
@@ -20,7 +20,7 @@ def _calcular_dias_ocupados_no_periodo(data_inicio_relatorio, data_fim_relatorio
         fim_sobreposicao = min(reserva.data_reserva_fim, data_fim_relatorio)
         
         dias_no_periodo = (fim_sobreposicao - inicio_sobreposicao).days
-        
+        # Uso do fim exclusivo - consideração só dos dias com pernoite para o cálculo
         if dias_no_periodo > 0:
             total_dias_ocupados += dias_no_periodo
             
@@ -36,6 +36,7 @@ def _calcular_dias_ocupados_por_quarto(data_inicio_relatorio, data_fim_relatorio
         inicio_sobreposicao = max(reserva.data_reserva_inicio, data_inicio_relatorio)
         fim_sobreposicao = min(reserva.data_reserva_fim, data_fim_relatorio)
         dias_no_periodo = (fim_sobreposicao - inicio_sobreposicao).days
+        # Uso do fim exclusivo - consideração só dos dias com pernoite para o cálculo
         if dias_no_periodo > 0:
             dias_por_quarto[reserva.id_quarto_id] += dias_no_periodo 
             
@@ -94,6 +95,12 @@ def gerar_relatorio_de_ocupacao(data_inicio, data_fim):
     quantidade_hospedes = resultado_hospedes['total_hospedes'] or 0
 
     '''
+    Cálculo da quantidade de hóspedes mensalistas 
+    '''
+
+
+    # filtrar reservas de mensalistas #
+    '''
     Cálculo da Duração Média das Reservas:
     Soma total dos dias de todas as reservas/Número total de reservas
     '''
@@ -104,14 +111,14 @@ def gerar_relatorio_de_ocupacao(data_inicio, data_fim):
 
     numero_de_reservas = reservas_iniciadas_no_periodo.count()
 
-    soma_das_duracoes = reservas_iniciadas_no_periodo.aggregate(
-        duracao_total=Sum(F('data_reserva_fim') - F('data_reserva_inicio'))
-    )['duracao_total']
+    duracoes = [
+        (reserva.data_reserva_fim - reserva.data_reserva_inicio).days
+        for reserva in reservas_iniciadas_no_periodo
+    ]
 
     duracao_media = 0
-    if numero_de_reservas > 0 and soma_das_duracoes is not None:
-        duracao_media = soma_das_duracoes.days / numero_de_reservas
-
+    if numero_de_reservas > 0:
+        duracao_media = sum(duracoes) / numero_de_reservas
 
     '''
     Cálculo dos quartos que tiveram mais e menos dias ocupados no período

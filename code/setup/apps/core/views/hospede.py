@@ -34,8 +34,8 @@ def hospede_form(request, pk=None):
     }
     return render(request, 'core/hospede/form.html', context)
 
-def excluir(request, cpf):
-    hospede = get_object_or_404(Hospede, cpf=cpf)
+def excluir(request, pk):
+    hospede = get_object_or_404(Hospede, pk=pk)
     if request.method == 'POST':
         hospede.delete()
         return redirect('/hospedes/')
@@ -50,12 +50,12 @@ def buscar(request):
 
     return render(request, 'core/hospede/listar.html', {'hospedes': hospedes})
 
-def detalhes(request, cpf):
-    hospede = get_object_or_404(Hospede, cpf=cpf)
+def detalhes(request, pk):
+    hospede = get_object_or_404(Hospede, pk=pk)
     return render(request, 'core/hospede/detalhes.html', {'hospede': hospede})
 
-def historico_hospede(request, cpf):
-    hospede = get_object_or_404(Hospede, cpf=cpf)
+def historico_hospede(request, pk):
+    hospede = get_object_or_404(Hospede, pk=pk)
     reservas = Reserva.objects.filter(id_hospede=hospede).order_by('-data_reserva_inicio')
     return render(request, 'core/hospede/historico.html', {
         'hospede': hospede,

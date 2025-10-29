@@ -1,27 +1,67 @@
 from django import forms
 from ..models import Hospede
 import datetime
-
+import re
 
 class HospedeForm(forms.ModelForm):
+    cpf = forms.CharField(
+        label='CPF',
+        max_length=14, 
+        required=True, 
+        widget=forms.TextInput(attrs={
+            'class': 'input input-bordered w-full', 
+            'placeholder': '000.000.000-00' 
+        }), 
+        help_text='Insira o CPF do hóspede.'
+    )
     class Meta:
         model = Hospede
         fields = [
             'nome', 'cpf', 'data_nascimento', 'telefone', 'email',
             'rua', 'numero', 'complemento', 'bairro', 'cidade', 'cep'
         ]
+        
         widgets = {
-            'nome': forms.TextInput(attrs={'class': 'form-control'}),
-            'cpf': forms.TextInput(attrs={'class': 'form-control'}),
-            'data_nascimento': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
-            'telefone': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'rua': forms.TextInput(attrs={'class': 'form-control'}),
-            'numero': forms.TextInput(attrs={'class': 'form-control'}),
-            'complemento': forms.TextInput(attrs={'class': 'form-control'}),
-            'bairro': forms.TextInput(attrs={'class': 'form-control'}),
-            'cidade': forms.TextInput(attrs={'class': 'form-control'}),
-            'cep': forms.TextInput(attrs={'class': 'form-control'}),
+            'nome': forms.TextInput(attrs={
+                'class': 'input input-bordered w-full',
+                'placeholder': 'Insira o nome completo do hóspede'
+                }),
+            'data_nascimento': forms.DateInput(attrs={
+                'class': 'input input-bordered w-full', 
+                'type': 'date' 
+                }),
+            'telefone': forms.TextInput(attrs={
+                'class': 'input input-bordered w-full',
+                'placeholder': '(00) 00000-0000'
+                }),
+            'email': forms.EmailInput(attrs={
+                'class': 'input input-bordered w-full',
+                'placeholder': 'exemplo@email.com'
+                }),
+            'rua': forms.TextInput(attrs={
+                'class': 'input input-bordered w-full',
+                'placeholder': 'Insira o nome da rua'
+                }),
+            'numero': forms.TextInput(attrs={
+                'class': 'input input-bordered w-full',
+                'placeholder': 'Número'
+                }),
+            'complemento': forms.TextInput(attrs={
+                'class': 'input input-bordered w-full',
+                'placeholder': 'Apto, Bloco, Casa (Opcional)'
+                }),
+            'bairro': forms.TextInput(attrs={
+                'class': 'input input-bordered w-full',
+                'placeholder': 'Insira o bairro'
+                }),
+            'cidade': forms.TextInput(attrs={
+                'class': 'input input-bordered w-full',
+                'placeholder': 'Insira a cidade'
+                }),
+            'cep': forms.TextInput(attrs={
+                'class': 'input input-bordered w-full',
+                'placeholder': '0000-000'
+                }),
         }
         labels = {
             'nome': 'Nome do Hóspede',
@@ -63,18 +103,28 @@ class HospedeForm(forms.ModelForm):
         }
 
     def clean_cpf(self):
-        cpf = self.cleaned_data.get('cpf', '').replace('.', '').replace('-', '') 
+        cpf_digitado = self.cleaned_data.get('cpf', '')
 
-        if not cpf.isdigit(): raise forms.ValidationError("O CPF deve conter apenas números.")
-        query = Hospede.objects.filter(cpf) 
+        if not cpf_digitado: # P/ adicionar passaporte
+            return cpf_digitado 
+
+        cpf_limpo = re.sub(r'\D', '', cpf_digitado)
+
+        if not cpf_limpo.isdigit():
+            raise forms.ValidationError("O CPF deve conter apenas números.")
         
+        if len(cpf_limpo) != 11:
+            raise forms.ValidationError("O CPF deve conter exatamente 11 dígitos.")
+       
+        query = Hospede.objects.filter(cpf=cpf_limpo) 
+
         if self.instance and self.instance.pk: 
             query = query.exclude(pk=self.instance.pk) 
-            
+    
         if query.exists(): 
             raise forms.ValidationError("Este CPF já está cadastrado para outro hóspede.")
             
-        return cpf
+        return cpf_limpo
 
     def clean_telefone(self):
         telefone = self.cleaned_data.get('telefone', '').replace('(', '').replace(')', '').replace('-', '').replace(' ', '')

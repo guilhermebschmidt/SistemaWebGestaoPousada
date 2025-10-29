@@ -14,7 +14,7 @@ class Hospede(models.Model):
     complemento = models.CharField(max_length=100, blank=True, null=True, verbose_name="Complemento")
     bairro = models.CharField(max_length=100, verbose_name="Bairro")
     cidade = models.CharField(max_length=100, verbose_name="Cidade")
-    cep = models.CharField(max_length=20, verbose_name="CEP")
+    cep = models.CharField(max_length=10, verbose_name="CEP")
 
     def clean(self):
         hoje = date.today()
@@ -25,15 +25,15 @@ class Hospede(models.Model):
             except ValueError:
                 raise ValidationError("Data de nascimento inválida.")
 
+        if self.data_nascimento:
+            if self.data_nascimento > hoje:
+                raise ValidationError("A data de nascimento não pode ser futura.")
 
-        if self.data_nascimento > hoje:
-            raise ValidationError("A data de nascimento não pode ser futura.")
-
-        idade = hoje.year - self.data_nascimento.year - (
-            (hoje.month, hoje.day) < (self.data_nascimento.month, self.data_nascimento.day)
-        )
-        if idade < 18:
-            raise ValidationError("O hóspede deve ter 18 anos ou mais.")
+            idade = hoje.year - self.data_nascimento.year - (
+                (hoje.month, hoje.day) < (self.data_nascimento.month, self.data_nascimento.day)
+            )
+            if idade < 18:
+                raise ValidationError("O hóspede deve ter 18 anos ou mais.")
 
     def __str__(self):
         return self.nome
@@ -46,4 +46,7 @@ class Hospede(models.Model):
     def save(self, *args, **kwargs):
         if self.cpf:
             self.cpf = re.sub(r'\D', '', self.cpf)
+
+        self.full_clean()
+
         super().save(*args, **kwargs)
