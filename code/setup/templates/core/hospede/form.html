@@ -45,6 +45,17 @@
                                         <p class="text-error text-sm">{{ form.cpf.errors.0 }}</p>
                                     {% endif %}
                                 </div>
+                                <!--Campo Passaporte-->
+                                <div class="form-control">
+                                    <label class="label" for="{{ form.passaporte.id_for_label }}">
+                                        <span class="label-text font-medium">Número do Passaporte</span>
+                                    </label>
+                                    <br>
+                                    {{ form.passaporte }}
+                                    {% if form.passaporte.errors %}
+                                        <p class="text-error text-sm">{{ form.passaporte.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
                                 <!-- Campo Nome -->
                                 <div class="form-control w-full">
                                     <label class="label" for="{{ form.nome.id_for_label }}">
@@ -122,7 +133,7 @@
 
                                 <div class="form-control">
                                     <label class="label" for="{{form.complemento.id_for_label}}">
-                                        <span class="label-text font-medium">Número</span>
+                                        <span class="label-text font-medium">Complemento</span>
                                     </label>
                                     {{form.complemento }}
                                     {% for error in form.complemento.errors %}

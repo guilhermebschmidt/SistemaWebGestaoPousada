@@ -7,7 +7,11 @@
 <div class="container">
 
     <ul class="list-group">
-        <li class="list-group-item"><strong>CPF:</strong> {{ hospede.cpf }}</li>
+        {% if hospede.cpf %}
+            <li class="list-group-item"><strong>CPF:</strong> {{ hospede.cpf }}</li>
+        {% else %}
+            <li class="list-group-item"><strong>Número do Passaporte:</strong> {{ hospede.passaporte }}</li>
+        {% endif %}
         <li class="list-group-item"><strong>Nome:</strong> {{ hospede.nome }}</li>
         <li class="list-group-item"><strong>Telefone:</strong> {{ hospede.telefone }}</li>
         <li class="list-group-item"><strong>Email:</strong> {{ hospede.email }}</li>
