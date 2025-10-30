@@ -1785,6 +1785,31 @@ Além da escolha tecnológica, adotaram-se boas práticas de engenharia de softw
 
 A adoção do Django, PostgreSQL e AWS foi motivada pela combinação de fatores como robustez, segurança, escalabilidade e baixo custo de implementação. Essas tecnologias, em conjunto com boas práticas de desenvolvimento, formam a base de uma solução moderna e confiável, alinhada às necessidades da Pousada Chalés Água de Coco e coerente com os objetivos do projeto.
 
+\section{Estilo de Código}
+O desenvolvimento do sistema de gestão para a Pousada Chalés Água de Coco foi orientado pela adoção de um estilo de codificação consistente e pelo uso de padrões amplamente reconhecidos na comunidade de desenvolvimento Python e Django. Essa abordagem garante legibilidade, manutenibilidade e escalabilidade do código ao longo de todo o ciclo de vida do sistema~\cite{pep8, django}.
+
+\subsection{Estrutura e Organização do Projeto}
+O projeto segue a arquitetura padrão do framework Django, caracterizada pela clara separação de responsabilidades (\textit{Separation of Concerns}). A estrutura é modular, sendo as funcionalidades agrupadas em aplicações (\textit{apps}) específicas, como \textit{core} (responsável por hóspedes, quartos e reservas) e \textit{financeiro} (voltada ao controle de títulos, categorias e bancos).
+Dentro de cada app, o código é organizado conforme sua finalidade: \texttt{models.py} define a estrutura de dados e relacionamentos; \texttt{views.py} contém a lógica de negócio e o controle das requisições; \texttt{forms.py} é responsável pela validação e renderização de formulários; \texttt{urls.py} gerencia o roteamento de páginas; e o diretório \texttt{templates/} abriga os arquivos HTML da camada de apresentação. 
+Além disso, foi criada uma pasta \texttt{utils/} para funções auxiliares reutilizáveis (como validação de datas e envio de e-mails), seguindo o princípio DRY (\textit{Don't Repeat Yourself})~\cite{django}. A configuração central do projeto reside nos arquivos \texttt{settings.py} e \texttt{urls.py} localizados na pasta principal \texttt{setup/}, em conformidade com as convenções do Django.
+
+\subsection{Convenções de Nomenclatura}
+As convenções de nomenclatura seguem as diretrizes da PEP 8~\cite{pep8}, garantindo padronização e clareza:
+\begin{itemize}
+	\item \textbf{Classes (Models, Forms, Views baseadas em classes)}: utilizam o padrão \textit{CamelCase} (ex.: \texttt{Hospede}, \texttt{ReservaForm}, \texttt{CategoriaDespesaListView});
+	\item \textbf{Funções, métodos e variáveis}: seguem o padrão \textit{snake\_case} (ex.: \texttt{listar\_hospedes}, \texttt{form\_valid}, \texttt{data\_reserva\_inicio});
+	\item \textbf{Constantes}: utilizam letras maiúsculas e o padrão \textit{UPPER\_CASE\_SNAKE\_CASE} (ex.: \texttt{STATUS\_CHOICES}, \texttt{DJANGO\_SETTINGS\_MODULE});
+	\item \textbf{Arquivos e módulos}: seguem o padrão \textit{snake\_case} (ex.: \texttt{test\_models.py}, \texttt{conflito\_datas.py});
+	\item \textbf{Templates}: utilizam nomes descritivos em \textit{snake\_case} ou \textit{kebab-case} (ex.: \texttt{listar.html}, \texttt{form.html}, \texttt{list-check-in.html}).
+\end{itemize}
+
+\subsection{Padrões de Código e Legibilidade}
+O código demonstra boa legibilidade, utilizando identação consistente, nomes descritivos e separação lógica de blocos. Comentários são empregados para explicar trechos mais complexos, tanto no backend, quanto no frontend.
+As importações seguem boas práticas: primeiro as bibliotecas padrão do Python, depois as dependências externas e, por fim, os módulos locais, conforme as recomendações da PEP 8.
+
+
+\subsection{Considerações Finais sobre o Estilo}
+Em resumo, o projeto apresenta uma codificação consistente, modular e alinhada às boas práticas da comunidade Django e Python. A separação em apps, a organização interna dos módulos e o uso de recursos nativos do framework favorecem a manutenibilidade e a evolução do sistema.
 
 
 \section{Ferramentas de Apoio}

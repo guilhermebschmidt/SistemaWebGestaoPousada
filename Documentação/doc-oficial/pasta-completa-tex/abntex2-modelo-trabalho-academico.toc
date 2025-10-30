@@ -60,94 +60,99 @@
 \contentsline {subsection}{\numberline {4.4.3}Infraestrutura em Nuvem com AWS}{57}{subsection.4.4.3}%
 \contentsline {subsection}{\numberline {4.4.4}Boas Práticas de Desenvolvimento}{58}{subsection.4.4.4}%
 \contentsline {subsection}{\numberline {4.4.5}Resumo da Escolha Tecnológica}{58}{subsection.4.4.5}%
-\contentsline {section}{\numberline {4.5}Ferramentas de Apoio}{58}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}GitHub}{58}{subsection.4.5.1}%
-\contentsline {subsection}{\numberline {4.5.2}BRModelo}{59}{subsection.4.5.2}%
-\contentsline {subsection}{\numberline {4.5.3}Visual Paradigm Online}{59}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}Latex}{59}{subsection.4.5.4}%
-\contentsline {subsection}{\numberline {4.5.5}Google Meet}{59}{subsection.4.5.5}%
-\contentsline {subsection}{\numberline {4.5.6}ProjectLibre}{59}{subsection.4.5.6}%
-\contentsline {section}{\numberline {4.6}Manutenibilidade}{60}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Segurança, Privacidade e Legislação}{60}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}Segurança da Aplicação}{61}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}Segurança na Comunicação}{61}{subsection.4.7.2}%
-\contentsline {subsection}{\numberline {4.7.3}Conformidade com a LGPD}{62}{subsection.4.7.3}%
-\contentsline {section}{\numberline {4.8}Modelagem do Banco de Dados}{62}{section.4.8}%
-\contentsline {subsection}{\numberline {4.8.1}Modelo Entidade-Relacionamento - MER}{63}{subsection.4.8.1}%
-\contentsline {subsection}{\numberline {4.8.2}Diagrama Entidade-Relacionamento - DER}{63}{subsection.4.8.2}%
-\contentsline {section}{\numberline {4.9}Repositório da Aplicação}{64}{section.4.9}%
-\contentsline {subsection}{\numberline {4.9.1}Definição do repositório da aplicação}{64}{subsection.4.9.1}%
-\contentsline {section}{\numberline {4.10}Entregas}{66}{section.4.10}%
-\contentsline {subsection}{\numberline {4.10.1}Desenvolvimento de um Tema - 08/04}{66}{subsection.4.10.1}%
-\contentsline {subsection}{\numberline {4.10.2}Desenho da Aplicação - 29/04}{66}{subsection.4.10.2}%
-\contentsline {subsection}{\numberline {4.10.3}Prova de Conceito - 20/05}{67}{subsection.4.10.3}%
-\contentsline {subsection}{\numberline {4.10.4}Análise e Documentação - 10/06}{67}{subsection.4.10.4}%
-\contentsline {subsection}{\numberline {4.10.5}Produto Mínimo Viável - 24/06}{67}{subsection.4.10.5}%
+\contentsline {section}{\numberline {4.5}Estilo de Código}{58}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Estrutura e Organização do Projeto}{58}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.2}Convenções de Nomenclatura}{59}{subsection.4.5.2}%
+\contentsline {subsection}{\numberline {4.5.3}Padrões de Código e Legibilidade}{59}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}Considerações Finais sobre o Estilo}{59}{subsection.4.5.4}%
+\contentsline {section}{\numberline {4.6}Ferramentas de Apoio}{60}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}GitHub}{60}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}BRModelo}{60}{subsection.4.6.2}%
+\contentsline {subsection}{\numberline {4.6.3}Visual Paradigm Online}{60}{subsection.4.6.3}%
+\contentsline {subsection}{\numberline {4.6.4}Latex}{60}{subsection.4.6.4}%
+\contentsline {subsection}{\numberline {4.6.5}Google Meet}{61}{subsection.4.6.5}%
+\contentsline {subsection}{\numberline {4.6.6}ProjectLibre}{61}{subsection.4.6.6}%
+\contentsline {section}{\numberline {4.7}Manutenibilidade}{61}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Segurança, Privacidade e Legislação}{62}{section.4.8}%
+\contentsline {subsection}{\numberline {4.8.1}Segurança da Aplicação}{62}{subsection.4.8.1}%
+\contentsline {subsection}{\numberline {4.8.2}Segurança na Comunicação}{63}{subsection.4.8.2}%
+\contentsline {subsection}{\numberline {4.8.3}Conformidade com a LGPD}{63}{subsection.4.8.3}%
+\contentsline {section}{\numberline {4.9}Modelagem do Banco de Dados}{64}{section.4.9}%
+\contentsline {subsection}{\numberline {4.9.1}Modelo Entidade-Relacionamento - MER}{64}{subsection.4.9.1}%
+\contentsline {subsection}{\numberline {4.9.2}Diagrama Entidade-Relacionamento - DER}{64}{subsection.4.9.2}%
+\contentsline {section}{\numberline {4.10}Repositório da Aplicação}{65}{section.4.10}%
+\contentsline {subsection}{\numberline {4.10.1}Definição do repositório da aplicação}{66}{subsection.4.10.1}%
+\contentsline {section}{\numberline {4.11}Entregas}{67}{section.4.11}%
+\contentsline {subsection}{\numberline {4.11.1}Desenvolvimento de um Tema - 08/04}{68}{subsection.4.11.1}%
+\contentsline {subsection}{\numberline {4.11.2}Desenho da Aplicação - 29/04}{68}{subsection.4.11.2}%
+\contentsline {subsection}{\numberline {4.11.3}Prova de Conceito - 20/05}{68}{subsection.4.11.3}%
+\contentsline {subsection}{\numberline {4.11.4}Análise e Documentação - 10/06}{68}{subsection.4.11.4}%
+\contentsline {subsection}{\numberline {4.11.5}Produto Mínimo Viável - 24/06}{68}{subsection.4.11.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Viabilidade Financeira}}{68}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Custos}{68}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Custo Estrutural}{68}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Custo de Pessoal}{70}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Custo Total}{71}{subsection.5.1.3}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Viabilidade Financeira}}{69}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Custos}{69}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Custo Estrutural}{69}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Custo de Pessoal}{71}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Custo Total}{72}{subsection.5.1.3}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Considerações Finais}}{73}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Considerações Finais}}{74}{chapter.6}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Conclusão}}{74}{chapter.7}%
+\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Conclusão}}{75}{chapter.7}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{75}{section*.24}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{76}{section*.24}%
 \renewcommand *{\cftappendixname }{AP\^ENDICE \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Ap\^endices}}{79}{section*.25}%
+\contentsline {part}{\uppercase {Ap\^endices}}{80}{section*.25}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Diário de Bordo}}{80}{appendix.A}%
-\contentsline {section}{\numberline {A.1}1° SEMANA}{80}{section.A.1}%
-\contentsline {section}{\numberline {A.2}2° SEMANA}{80}{section.A.2}%
-\contentsline {section}{\numberline {A.3}3° SEMANA}{80}{section.A.3}%
-\contentsline {section}{\numberline {A.4}4° SEMANA}{81}{section.A.4}%
-\contentsline {section}{\numberline {A.5}5° SEMANA}{81}{section.A.5}%
-\contentsline {section}{\numberline {A.6}6° SEMANA}{81}{section.A.6}%
-\contentsline {section}{\numberline {A.7}7° SEMANA}{82}{section.A.7}%
-\contentsline {section}{\numberline {A.8}8° SEMANA}{82}{section.A.8}%
-\contentsline {section}{\numberline {A.9}9° SEMANA}{82}{section.A.9}%
-\contentsline {section}{\numberline {A.10}10° SEMANA}{82}{section.A.10}%
-\contentsline {section}{\numberline {A.11}11° SEMANA}{82}{section.A.11}%
-\contentsline {section}{\numberline {A.12}12° SEMANA}{83}{section.A.12}%
-\contentsline {section}{\numberline {A.13}13° SEMANA}{83}{section.A.13}%
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Diário de Bordo}}{81}{appendix.A}%
+\contentsline {section}{\numberline {A.1}1° SEMANA}{81}{section.A.1}%
+\contentsline {section}{\numberline {A.2}2° SEMANA}{81}{section.A.2}%
+\contentsline {section}{\numberline {A.3}3° SEMANA}{81}{section.A.3}%
+\contentsline {section}{\numberline {A.4}4° SEMANA}{82}{section.A.4}%
+\contentsline {section}{\numberline {A.5}5° SEMANA}{82}{section.A.5}%
+\contentsline {section}{\numberline {A.6}6° SEMANA}{82}{section.A.6}%
+\contentsline {section}{\numberline {A.7}7° SEMANA}{83}{section.A.7}%
+\contentsline {section}{\numberline {A.8}8° SEMANA}{83}{section.A.8}%
+\contentsline {section}{\numberline {A.9}9° SEMANA}{83}{section.A.9}%
+\contentsline {section}{\numberline {A.10}10° SEMANA}{83}{section.A.10}%
+\contentsline {section}{\numberline {A.11}11° SEMANA}{83}{section.A.11}%
+\contentsline {section}{\numberline {A.12}12° SEMANA}{84}{section.A.12}%
+\contentsline {section}{\numberline {A.13}13° SEMANA}{84}{section.A.13}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Questionário Aplicado à Proprietária da Pousada}}{84}{appendix.B}%
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Questionário Aplicado à Proprietária da Pousada}}{85}{appendix.B}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Product Backlog Detalhado}}{89}{appendix.C}%
+\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Product Backlog Detalhado}}{90}{appendix.C}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Sprint Backlog Detalhado}}{93}{appendix.D}%
+\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Sprint Backlog Detalhado}}{94}{appendix.D}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Certificados de Segurança}}{101}{appendix.E}%
+\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Certificados de Segurança}}{102}{appendix.E}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {F}\MakeTextUppercase []{Requisitos Funcionais Detalhados}}{102}{appendix.F}%
+\contentsline {appendix}{\chapternumberline {F}\MakeTextUppercase []{Requisitos Funcionais Detalhados}}{103}{appendix.F}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {G}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes}}{106}{appendix.G}%
+\contentsline {appendix}{\chapternumberline {G}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes}}{107}{appendix.G}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {H}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Quartos}}{112}{appendix.H}%
+\contentsline {appendix}{\chapternumberline {H}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Quartos}}{113}{appendix.H}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {I}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Reservas}}{118}{appendix.I}%
+\contentsline {appendix}{\chapternumberline {I}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Reservas}}{119}{appendix.I}%
 \vspace {\cftbeforechapterskip }

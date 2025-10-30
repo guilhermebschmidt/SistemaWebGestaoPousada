@@ -255,6 +255,12 @@ Acessado em: 30/10/2025.}
 Acessado em: 20 set. 2025.
 Dispon{\'\i}vel em: \url{https://www.rfc-editor.org/rfc/rfc8446.html}.}
 
+\bibitem[Rossum 2013]{pep8}
+\abntrefinfo{Rossum}{ROSSUM}{2013}
+{ROSSUM, G. V. \emph{PEP 8 – Style Guide for Python Code}. 2013.
+  \url{https://peps.python.org/pep-0008/}.
+Acesso em: 20 out. 2025.}
+
 \bibitem[Schwaber e Sutherland 2013]{scrumguide}
 \abntrefinfo{Schwaber e Sutherland}{SCHWABER; SUTHERLAND}{2013}
 {SCHWABER, K.; SUTHERLAND, J. \emph{The Scrum Guide -- Scrum Guide em

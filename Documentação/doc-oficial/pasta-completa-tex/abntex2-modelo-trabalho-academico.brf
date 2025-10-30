@@ -43,24 +43,28 @@
 \backcite {postgresql}{{57}{4.4.2}{subsection.4.4.2}}
 \backcite {nist-cloud,aws-doc}{{57}{4.4.3}{subsection.4.4.3}}
 \backcite {nist-cloud,aws-doc}{{57}{4.4.3}{subsection.4.4.3}}
-\backcite {github-doc}{{58}{4.5.1}{subsection.4.5.1}}
-\backcite {brmodelo}{{59}{4.5.2}{subsection.4.5.2}}
-\backcite {visual-paradigm}{{59}{4.5.3}{subsection.4.5.3}}
-\backcite {latex-project}{{59}{4.5.4}{subsection.4.5.4}}
-\backcite {google-meet}{{59}{4.5.5}{subsection.4.5.5}}
-\backcite {projectlibre}{{59}{4.5.6}{subsection.4.5.6}}
-\backcite {github-doc}{{60}{4.6}{section.4.6}}
-\backcite {lgpd}{{60}{4.7}{section.4.7}}
-\backcite {django}{{61}{4.7.1}{subsection.4.7.1}}
-\backcite {owasp}{{61}{4.7.1}{subsection.4.7.1}}
-\backcite {owasp}{{61}{4.7.1}{subsection.4.7.1}}
-\backcite {aws-doc}{{61}{4.7.2}{subsection.4.7.2}}
-\backcite {rfc-tls}{{62}{4.7.2}{subsection.4.7.2}}
-\backcite {ssllabs_app_pousada}{{62}{4.7.2}{subsection.4.7.2}}
-\backcite {letsencrypt}{{62}{4.7.2}{subsection.4.7.2}}
-\backcite {repositorio}{{66}{4.9.1}{Item.62}}
-\backcite {anatel-anexo, enel-tarifa}{{69}{5.1.1}{table.caption.16}}
-\backcite {anatel-anexo, enel-tarifa}{{69}{5.1.1}{table.caption.16}}
-\backcite {receita-norma}{{69}{5.1.1}{table.caption.16}}
-\backcite {glassdoor2025, indeed2025}{{70}{5.1.2}{subsection.5.1.2}}
-\backcite {glassdoor2025, indeed2025}{{70}{5.1.2}{subsection.5.1.2}}
+\backcite {pep8, django}{{58}{4.5}{section.4.5}}
+\backcite {pep8, django}{{58}{4.5}{section.4.5}}
+\backcite {django}{{59}{4.5.1}{subsection.4.5.1}}
+\backcite {pep8}{{59}{4.5.2}{subsection.4.5.2}}
+\backcite {github-doc}{{60}{4.6.1}{subsection.4.6.1}}
+\backcite {brmodelo}{{60}{4.6.2}{subsection.4.6.2}}
+\backcite {visual-paradigm}{{60}{4.6.3}{subsection.4.6.3}}
+\backcite {latex-project}{{60}{4.6.4}{subsection.4.6.4}}
+\backcite {google-meet}{{61}{4.6.5}{subsection.4.6.5}}
+\backcite {projectlibre}{{61}{4.6.6}{subsection.4.6.6}}
+\backcite {github-doc}{{61}{4.7}{section.4.7}}
+\backcite {lgpd}{{62}{4.8}{section.4.8}}
+\backcite {django}{{62}{4.8.1}{subsection.4.8.1}}
+\backcite {owasp}{{62}{4.8.1}{subsection.4.8.1}}
+\backcite {owasp}{{63}{4.8.1}{subsection.4.8.1}}
+\backcite {aws-doc}{{63}{4.8.2}{subsection.4.8.2}}
+\backcite {rfc-tls}{{63}{4.8.2}{subsection.4.8.2}}
+\backcite {ssllabs_app_pousada}{{63}{4.8.2}{subsection.4.8.2}}
+\backcite {letsencrypt}{{63}{4.8.2}{subsection.4.8.2}}
+\backcite {repositorio}{{67}{4.10.1}{Item.62}}
+\backcite {anatel-anexo, enel-tarifa}{{70}{5.1.1}{table.caption.16}}
+\backcite {anatel-anexo, enel-tarifa}{{70}{5.1.1}{table.caption.16}}
+\backcite {receita-norma}{{70}{5.1.1}{table.caption.16}}
+\backcite {glassdoor2025, indeed2025}{{71}{5.1.2}{subsection.5.1.2}}
+\backcite {glassdoor2025, indeed2025}{{71}{5.1.2}{subsection.5.1.2}}
