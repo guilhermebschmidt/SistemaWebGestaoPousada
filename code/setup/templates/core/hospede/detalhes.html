@@ -4,30 +4,112 @@
 {% block title %}Detalhes do Hóspede{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="flex justify-between items-center">
+            <h2 class="card-title text-xl sm:text-2xl font-bold mb-4">
+                Informações do Hóspede
+            </h2>
+            <div class="text-sm breadcrumbs">
+                <ul>
+                    <li><a href="{% url 'hospede:listar' %}">Voltar</a></li>
+                </ul>
+        </div>
+    </div>
 
-    <ul class="list-group">
-        {% if hospede.cpf %}
-            <li class="list-group-item"><strong>CPF:</strong> {{ hospede.cpf }}</li>
-        {% else %}
-            <li class="list-group-item"><strong>Número do Passaporte:</strong> {{ hospede.passaporte }}</li>
-        {% endif %}
-        <li class="list-group-item"><strong>Nome:</strong> {{ hospede.nome }}</li>
-        <li class="list-group-item"><strong>Telefone:</strong> {{ hospede.telefone }}</li>
-        <li class="list-group-item"><strong>Email:</strong> {{ hospede.email }}</li>
-        <li class="list-group-item"><strong>Data de Nascimento:</strong> {{ hospede.data_nascimento|date:"d/m/Y" }}</li>
-        <li class="list-group-item"><strong>Rua:</strong> {{ hospede.rua}}</li>
-        <li class="list-group-item"><strong>Número:</strong> {{ hospede.numero}}</li>
-        <li class="list-group-item"><strong>Complemento:</strong> {{ hospede.complemento}}</li>
-        <li class="list-group-item"><strong>Bairro:</strong> {{ hospede.bairro}}</li>
-        <li class="list-group-item"><strong>Cidade:</strong> {{ hospede.cidade}}</li>
-        <li class="list-group-item"><strong>CEP:</strong> {{ hospede.cep}}</li>
-    </ul>
+<div class="overflow-x-auto bg-base-100 rounded-lg shadow">
+    <div class="card bg-base-100 shadow-sm">
+        <div class="text-sm breadcrumbs">
+        </div>
 
-    <a href="{% url 'hospede:criar' %}" class="btn btn-warning mt-3">Editar</a>
-    <a href="{% url 'hospede:excluir' hospede.pk %}" class="btn btn-danger mt-3 ms-2">Excluir</a>
-    <a href="{% url 'hospede:listar' %}" class="btn btn-secondary mt-3 ms-2">Voltar</a>
-    <a href="{% url 'hospede:historico' hospede.pk %}" class="btn btn-primary mt-3 ms-2">Ver histórico de reservas</a>
+        <div class="card-body p-4 sm:p-6">
+            <table class="table w-full border">
+                <tbody>
+                    <tr>
+                        {% if hospede.cpf %}
+                            <th class="font-regular">
+                                CPF:
+                            </th>
+                            <td>{{ hospede.cpf }}</td>
+                        {% else %}
+                            <th class="font-regular">
+                                Número do Passaporte:
+                            </th>
+                            <td>{{ hospede.passaporte }}</td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <th class="bg-gray-200">
+                           Nome:
+                        </th>
+                        <td>{{ hospede.nome }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-gray-200">
+                           Telefone:
+                        </th>
+                        <td>{{ hospede.telefone }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-gray-200">
+                            E-mail:
+                        </th>
+                        <td>{{ hospede.email }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-gray-200">
+                            Data de Nascimento:
+                        </th>
+                        <td>{{ hospede.data_nascimento|date:"d/m/Y" }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-gray-200">
+                            Endereço
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="bg-gray-200">
+                           CEP:
+                        </th>
+                        <td>{{ hospede.cep }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-gray-200">
+                            Rua:
+                        </th>
+                        <td>{{ hospede.rua }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-gray-200">
+                           Número:
+                        </th>
+                        <td>{{ hospede.numero }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-gray-200">
+                            Complemento:
+                        </th>
+                        <td>{{ hospede.complemento }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-gray-200">
+                            Bairro:
+                        </th>
+                        <td>{{ hospede.bairro }}</td>
+                    </tr>
+                    <tr>
+                        <th class="bg-gray-200">
+                            Cidade
+                        </th>
+                        <td>{{ hospede.cidade }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
+<a href="{% url 'hospede:criar' %}" class="btn btn-warning mt-3">Editar</a>
+<a href="{% url 'hospede:excluir' hospede.pk %}" class="btn btn-danger mt-3 ms-2">Excluir</a>
+<a href="{% url 'hospede:historico' hospede.pk %}" class="btn btn-primary mt-3 ms-2">Ver histórico de reservas</a>
+
 {% endblock %}
    

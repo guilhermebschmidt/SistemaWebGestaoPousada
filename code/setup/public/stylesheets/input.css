@@ -2,3 +2,7 @@
 @plugin "daisyui" {
   themes: light --default, dark --prefersdark, cupcake;
 }
+
+.login-page .card {
+  @apply bg-[#F7C948] text-[#1F1F1F] shadow-2xl;
+}

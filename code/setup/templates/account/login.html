@@ -5,8 +5,8 @@
 {% block head_title %}Entrar{% endblock head_title %}
 
 {% block content %}
-<div class="flex flex-col items-center gap-16 text-left">
-    <div class="card shrink-0 w-full max-w-xs shadow-2xl bg-base-100">
+<div class="login-page flex flex-col items-center gap-16 text-left">
+    <div class="card shrink-0 w-full max-w-xs shadow-2xl ">
         <form class="card-body" method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
             <div class="text-center">
