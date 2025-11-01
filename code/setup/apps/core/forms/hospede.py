@@ -206,48 +206,31 @@ class HospedeForm(forms.ModelForm):
     def clean(self):
         cleaned_data = super().clean()
         
-        # Pega os valores JÁ LIMPOS pelos métodos clean_cpf e clean_passaporte
         cpf = cleaned_data.get('cpf')
         passaporte = cleaned_data.get('passaporte')
 
-        # --- DEBUG LOGS ---
-        # Verifique o terminal do 'runserver' após submeter o formulário
-        print(f"--- DEBUG CLEAN METHOD ---")
-        print(f"Valor CPF (limpo): {cpf} (Tipo: {type(cpf)})")
-        print(f"Valor Passaporte (limpo): {passaporte} (Tipo: {type(passaporte)})")
-        # --------------------
-
-        # --- REGRA 1: NÃO AMBOS (Anti-Autofill) ---
+        # --- REGRA 1: NÃO AMBOS (CPF ou Passaporte) ---
         if cpf and passaporte:
-            print("DEBUG: ERRO - Ambos os campos (CPF e Passaporte) estão preenchidos.")
-            # Este é o erro que você deveria estar vendo.
             raise forms.ValidationError(
                 'Forneça apenas o CPF ou o Passaporte, não ambos. Apague o campo preenchido automaticamente pelo navegador.'
             )
 
-        # --- REGRA 2: PELO MENOS UM ---
+        # --- REGRA 2: PELO MENOS UM (CPF ou Passaporte) ---
         if not cpf and not passaporte:
-            print("DEBUG: ERRO - Nenhum documento foi preenchido.")
             raise forms.ValidationError(
                 'É obrigatório fornecer um CPF ou um número de Passaporte.'
             )
-            
-        # Se o código chegou aqui, significa que APENAS UM dos campos foi preenchido.
-        # Agora podemos verificar a unicidade com segurança.
-
-        # --- REGRA 3: UNICIDADE (se CPF foi usado) ---
+        
+        # --- REGRA 3: UNICIDADE  ---
         if cpf:
-            print(f"DEBUG: Verificando unicidade do CPF {cpf}...")
             query = Hospede.objects.filter(cpf=cpf)
             if self.instance and self.instance.pk:
                 query = query.exclude(pk=self.instance.pk)
             if query.exists():
-                print("DEBUG: ERRO - CPF duplicado encontrado.")
                 self.add_error('cpf', "Este CPF já está cadastrado para outro hóspede.")
 
         # --- REGRA 4: UNICIDADE (se Passaporte foi usado) ---
         if passaporte:
-            print(f"DEBUG: Verificando unicidade do Passaporte {passaporte}...")
             query = Hospede.objects.filter(passaporte=passaporte)
             if self.instance and self.instance.pk:
                 query = query.exclude(pk=self.instance.pk)

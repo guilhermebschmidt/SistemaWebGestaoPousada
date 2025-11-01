@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Quarto(models.Model):
-    numero = models.CharField(max_length=100)
+    numero = models.CharField(max_length=5)
     
     STATUS_CHOICES = (
         ('DISPONIVEL', 'Disponível'),
@@ -28,7 +28,7 @@ class Quarto(models.Model):
         verbose_name='Tipo de Quarto'
     )
 
-    descricao = models.TextField(max_length=100)
+    descricao = models.TextField(max_length=100, blank=True)
     capacidade = models.PositiveSmallIntegerField(
         verbose_name='Capacidade',
         help_text='Número máximo de pessoas que o quarto acomoda.'

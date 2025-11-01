@@ -11,9 +11,9 @@
                 <div class="card-body p-4 sm:p-6">
                     <h2 class="card-title text-xl sm:text-2xl font-bold mb-4">
                         {% if hospede %}
-                        <i class="fas fa-user-edit mr-2"></i>Editar Hóspede
+                            <i class="fas fa-user-edit mr-2"></i>Editar Hóspede
                         {% else %}
-                        <i class="fas fa-user-plus mr-2"></i>Adicionar Hóspede
+                            <i class="fas fa-user-plus mr-2"></i>Adicionar Hóspede
                         {% endif %}
                     </h2>
                     {% if form.non_field_errors %}
@@ -60,6 +60,7 @@
                                 <div class="form-control w-full">
                                     <label class="label" for="{{ form.nome.id_for_label }}">
                                         <span class="label-text font-medium">{{ form.nome.label }}</span>
+                                        <span class="text-error">*</span>
                                     </label>
                                     {{ form.nome }} 
                                     {% for error in form.nome.errors %}
@@ -70,6 +71,7 @@
                                 <div class="form-control">
                                     <label class="label" for="{{form.telefone.id_for_label}}">
                                         <span class="label-text font-medium">Telefone</span>
+                                        <span class="text-error">*</span>
                                     </label>
                                     {{form.telefone }}
                                     {% for error in form.telefone.errors %}
@@ -80,6 +82,7 @@
                                 <div class="form-control">
                                     <label class="label" for="{{form.email.id_for_label}}">
                                         <span class="label-text font-medium">E-mail</span>
+                                        <span class="text-error">*</span>
                                     </label>
                                     {{form.email }}
                                     {% for error in form.email.errors %}
@@ -90,6 +93,7 @@
                                 <div class="form-control">
                                     <label class="label" for="{{form.data_nascimento.id_for_label}}">
                                         <span class="label-text font-medium">Data Nascimento</span>
+                                        <span class="text-error">*</span>
                                     </label>
                                     {{form.data_nascimento }}
                                     {% for error in form.data_nascimento.errors %}
@@ -103,6 +107,7 @@
                             <div class="form-control">
                                 <label class="label" for="{{form.cep.id_for_label}}">
                                     <span class="label-text font-medium">CEP</span>
+                                    <span class="text-error">*</span>
                                 </label>
                                 {{form.cep }}
                                 {% for error in form.cep.errors %}
@@ -113,6 +118,7 @@
                             <div class="form-control">
                                 <label class="label" for="{{form.rua.id_for_label}}">
                                     <span class="label-text font-medium">Rua</span>
+                                    <span class="text-error">*</span>
                                 </label>
                                 {{form.rua }}
                                 {% for error in form.rua.errors %}
@@ -124,6 +130,7 @@
                                 <div class="form-control">
                                     <label class="label" for="{{form.numero.id_for_label}}">
                                         <span class="label-text font-medium">Número</span>
+                                        <span class="text-error">*</span>
                                     </label>
                                     {{form.numero }}
                                     {% for error in form.numero.errors %}
@@ -144,6 +151,7 @@
                                 <div class="form-control">
                                     <label class="label" for="{{form.bairro.id_for_label}}">
                                         <span class="label-text font-medium">Bairro</span>
+                                        <span class="text-error">*</span>
                                     </label>
                                     {{form.bairro }}
                                     {% for error in form.bairro.errors %}
@@ -154,6 +162,7 @@
                                 <div class="form-control">
                                     <label class="label" for="{{form.cidade.id_for_label}}">
                                         <span class="label-text font-medium">Cidade</span>
+                                        <span class="text-error">*</span>
                                     </label>
                                     {{form.cidade }}
                                     {% for error in form.cidade.errors %}
