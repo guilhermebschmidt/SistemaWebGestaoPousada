@@ -11,7 +11,8 @@ class HospedeForm(forms.ModelForm):
         required=False, 
         widget=forms.TextInput(attrs={
             'class': 'input input-bordered w-full', 
-            'placeholder': '000.000.000-00' 
+            'placeholder': '000.000.000-00',
+            'autocomplete': 'off'
         }), 
         help_text='Obrigatório se Passaporte não for preenchido'
     )
@@ -21,7 +22,8 @@ class HospedeForm(forms.ModelForm):
         required=False, 
         widget=forms.TextInput(attrs={
             'class': 'input input-bordered w-full',
-            'placeholder': 'Número do Passaporte'
+            'placeholder': 'Número do Passaporte',
+            'autocomplete': 'off'
         }),
         help_text='Obrigatório se CPF não for preenchido.'
     )
@@ -165,7 +167,7 @@ class HospedeForm(forms.ModelForm):
         return passaporte_limpo 
 
 
-    """def clean (self):
+    def clean (self):
         cleaned_data=super().clean()
 
         cpf=cleaned_data.get('cpf')
@@ -198,43 +200,7 @@ class HospedeForm(forms.ModelForm):
         return cleaned_data
     
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)"""
+        super().__init__(*args, **kwargs)
     
 
-    # Em apps/core/forms/hospede.py
-    
-    def clean(self):
-        cleaned_data = super().clean()
-        
-        cpf = cleaned_data.get('cpf')
-        passaporte = cleaned_data.get('passaporte')
-
-        # --- REGRA 1: NÃO AMBOS (CPF ou Passaporte) ---
-        if cpf and passaporte:
-            raise forms.ValidationError(
-                'Forneça apenas o CPF ou o Passaporte, não ambos. Apague o campo preenchido automaticamente pelo navegador.'
-            )
-
-        # --- REGRA 2: PELO MENOS UM (CPF ou Passaporte) ---
-        if not cpf and not passaporte:
-            raise forms.ValidationError(
-                'É obrigatório fornecer um CPF ou um número de Passaporte.'
-            )
-        
-        # --- REGRA 3: UNICIDADE  ---
-        if cpf:
-            query = Hospede.objects.filter(cpf=cpf)
-            if self.instance and self.instance.pk:
-                query = query.exclude(pk=self.instance.pk)
-            if query.exists():
-                self.add_error('cpf', "Este CPF já está cadastrado para outro hóspede.")
-
-        # --- REGRA 4: UNICIDADE (se Passaporte foi usado) ---
-        if passaporte:
-            query = Hospede.objects.filter(passaporte=passaporte)
-            if self.instance and self.instance.pk:
-                query = query.exclude(pk=self.instance.pk)
-            if query.exists():
-                self.add_error('passaporte', "Este Passaporte já está cadastrado para outro hóspede.")
-        
-        return cleaned_data
+  

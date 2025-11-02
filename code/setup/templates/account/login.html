@@ -26,9 +26,9 @@
             </div>
             {% endif %}
             
-            {% include "partials/form_field.html" with field=form.login %}
-            {% include "partials/form_field.html" with field=form.password %}
-            {% include "partials/form_field.html" with field=form.remember %}
+            {% include "shared/form_field.html" with field=form.login %}
+            {% include "shared/form_field.html" with field=form.password %}
+            {% include "shared/form_field.html" with field=form.remember %}
             
             <div class="form-control mt-8 text-center">
                 <button type="submit" class="btn btn-primary">Entrar</button>

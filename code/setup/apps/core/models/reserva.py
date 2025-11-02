@@ -61,7 +61,7 @@ class Reserva(models.Model):
         ('PREVISTA', 'Prevista'),
         ('CONFIRMADA', 'Confirmada'),
         ('ATIVA', 'Ativa'),
-        ('CONCLUÍDA', 'Concluída'),
+        ('CONCLUIDA', 'Concluída'),
         ('CANCELADA', 'Cancelada'),
     )
     status = models.CharField(

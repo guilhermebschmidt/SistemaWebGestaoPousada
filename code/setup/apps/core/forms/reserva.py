@@ -86,7 +86,6 @@ class ReservaForm(forms.ModelForm):
 
     def clean_data_reserva_inicio(self):
         data_inicio = self.cleaned_data.get('data_reserva_inicio')
-
         '''
         Aplicação da regra de negócio - reserva com 2 dias de antecedência
         '''
@@ -108,6 +107,16 @@ class ReservaForm(forms.ModelForm):
         adultos = cleaned_data.get('quantidade_adultos') or 0
         criancas = cleaned_data.get('quantidade_criancas') or 0
 
+        if data_inicio == None:
+            raise forms.ValidationError(
+                f"Selecione uma data para início da reserva!"
+            )
+        
+        if data_fim == None:
+            raise forms.ValidationError(
+                f"Selecione uma data para o fim da reserva!"
+            )
+        
         if data_fim and data_inicio:
             if data_fim <= data_inicio:
                 self.add_error('data_reserva_fim', "A data de fim deve ser posterior à data de início.")

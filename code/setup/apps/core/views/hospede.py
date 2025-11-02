@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from ..models import Hospede, Reserva
 from django.contrib import messages
 from ..forms import HospedeForm
+from django.contrib import messages
 
 def listar(request):
     hospedes = Hospede.objects.all()
@@ -36,8 +37,16 @@ def hospede_form(request, pk=None):
 
 def excluir(request, pk):
     hospede = get_object_or_404(Hospede, pk=pk)
+    reservas_ativas = hospede.reserva_set.exclude(status='Cancelada')
+    
+    if reservas_ativas.exists():
+        messages.error(request, 'Este hóspede não pode ser excluído pois possui reservas ativas.')
+        
+        return redirect('/hospedes/')
+
     if request.method == 'POST':
         hospede.delete()
+        messages.success(request, 'Hóspede excluído com sucesso.')
         return redirect('/hospedes/')
     return render(request, 'core/hospede/hospede_confirm_delete.html', {'hospede': hospede})
 

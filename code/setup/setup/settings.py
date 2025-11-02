@@ -147,7 +147,10 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
-
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+ACCOUNT_SESSION_REMEMBER= None
+ACCOUNT_SESSION_COOKIE_AGE= 86400 #24 horas
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT= 5
 SITE_ID = 1
 # Configuração envio de email
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -170,15 +173,12 @@ ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
 ACCOUNT_LOGIN_METHODS = {'email'}
 ACCOUNT_EMAIL_VERIFICATION = "none"
 
-
-
-
 ACCOUNT_FORMS = {
     'login': 'apps.usuarios.forms.CustomLoginForm',
     'signup': 'apps.usuarios.forms.CustomSignupForm',
     'change_password': 'apps.usuarios.forms.CustomChangePasswordForm',
     'reset_password': 'apps.usuarios.forms.CustomResetPasswordForm',
-    'set_password': 'apps.usuarios.forms.CustomSetPasswordForm',
+    'reset_password_from_key': 'apps.usuarios.forms.CustomResetPasswordFromKeyForm',
 }
 
 
