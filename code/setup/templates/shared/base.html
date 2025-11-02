@@ -36,8 +36,27 @@
     <div class="flex h-screen overflow-hidden">
         <!-- Menu Lateral -->
         <aside id="sidebar" class="w-64 bg-base-300 text-base-content flex flex-col h-full fixed lg:static z-50 -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
-            <div class="p-4 border-b border-base-300 flex items-center gap-3 h-16">
-                <h1 class="text-xl font-bold leading-none">Chalés Água de Coco</h1>
+            <div class="p-4 border-b border-base-300  items-center gap-3 h-16">
+               <div class="flex items-center">
+                    <h1 class="text-xl font-bold leading-none">
+                        Chalés Água de Coco
+                    </h1>
+                    <br>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                        viewBox="0 0 512 512" 
+                        fill="currentColor"
+                        class="w-6 h-6">
+                        <g> 
+                            <path d="M255.73,217.366l29.491,95.203l24.925-7.72l-19.684,24.638l35.545,114.717 c30.691-35.24,42.986-85.1,28.138-133.014C339.299,263.25,300.981,229.092,255.73,217.366z"></path> 
+                            <path d="M416.29,181.136c-49.968-23.049-106.854-17.84-157.415,9.114l150.161,69.272l16.165-35.359l3.399,44.388 l83.4,38.479C499.403,250.924,466.258,204.185,416.29,181.136z"></path> 
+                            <path d="M318.973,101.414l41.988,22.448l35.832-18.804L378.48,70.172l41.97,22.457l74.421-39.07 C449.434,21.48,388.067,15.41,335.444,43.032c-52.624,27.631-82.487,81.608-81.879,137.224l83.721-43.966L318.973,101.414z"></path> s
+                            <path d="M145.138,54.379l-24.368,25.72l111.268,105.45c13.24-48.853-1.217-104.571-42.106-143.312 C149.045,3.488,92.616-7.951,44.558,7.894l57.815,54.788L145.138,54.379z"></path> 
+                            <path d="M92.143,150.343C44.406,163.956,10.383,202.256,0,247.44l53.892-15.371l8.608-26.05l6.206,21.839 l48.227-13.748l10.028-30.395l7.254,25.475l87.424-24.909C188.986,151.366,139.896,136.747,92.143,150.343z"></path> 
+                            <path d="M255.814,199.551l-18.533-9.266c-94.544,116.797-81.574,320.722-81.574,320.722h77.87 C205.76,362.699,242.844,227.359,255.814,199.551z"></path> 
+                        </g> 
+                    </svg>
+                </div>
+               
                 <!-- Botão para fechar o menu no mobile -->
                 <button id="close-sidebar" class="lg:hidden ml-auto cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -57,36 +76,28 @@
                             Painel Inicial
                         </a>
                     </li>
-
-                    <!-- Item com submenu - Hospedes -->
+                    <!---------------------HÓSPEDES--------------------------------->                    
                     <li>
-                        <a href="{% url 'hospede:listar' %}">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
-                            </svg>
-                            Hóspedes 
-                        </a>
-                    </li>
-                    <!-- Item com submenu - Mensalistas -->
-                    <li class="{% if 'mensalistas' in request.path %} active {% endif %}"> 
                         <details open>
-                            <summary>Mensalistas</summary>
+                            <summary>
+                                <a >
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+                                    </svg>
+                                </a> Hóspedes
+                            </summary>
                             <ul>
                                 <li>
-                                    <a href="{% url 'mensalista:listar_mensalistas' %}">
-                                       Listar Mensalistas
-                                    </a>
+                                    <a href="{% url 'hospede:listar' %}">Lista de Hóspedes </a>
                                 </li>
                                 <li>
-                                    <a href="{% url 'mensalista:adicionar_mensalista' %}">
-                                        Adicionar Mensalista
-                                    </a>
+                                    <a href="{% url 'mensalista:listar_mensalistas' %}">Lista de Mensalistas</a>
                                 </li>
                             </ul>
+                                
                         </details>
                     </li>
-
-                    <!-- Outros menus seguem igual... -->
+                    <!---------------------QUARTOS--------------------------------->
                     <li>
                         <a href="{% url 'quarto:listar' %}">
                             <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" > 
@@ -95,7 +106,7 @@
                             Quartos
                         </a> 
                     </li>
-
+                    <!---------------------RESERVAS--------------------------------->
                     <li>
                         <details>
                             <summary>
@@ -106,14 +117,14 @@
                                 </a> Reservas
                             </summary>
                             <ul>
-                                <li><a href="{% url 'reserva:list' %}">Lista de Reservas</a></li>
+                                <li><a href="{% url 'reserva:list' %}"> Lista de Reservas</a></li>
                                 <li><a href="{% url 'reserva:list_checkin' %}">Check-ins de Hoje</a></li>
                                 <li><a href="{% url 'reserva:list_checkout' %}">Check-outs de Hoje</a></li>
                                 <li><a href="#">Calendário</a></li>
                             </ul>
                         </details>
                     </li>
-
+                    <!---------------------FINANCEIRO--------------------------------->
                     <li>
                         <details>
                             <summary>
@@ -130,11 +141,22 @@
                             </ul>
                         </details>
                     </li>
+                    <!---------------------RELATÓRIOS--------------------------------->
                     <li>
                         <details>
-                            <summary><i class="fas fa-bed mr-2"></i> Relatórios</summary>
+                            <summary>
+                                <a>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
+                                    </svg>
+                                </a>Relatórios
+                            </summary>
                             <ul>
-                                <li><a href="{% url 'relatorios:ocupacao' %}">Relatório de Ocupação</a></li>
+                                <li>
+                                    <a href="{% url 'relatorios:ocupacao' %}">
+                                        Relatório de Ocupação
+                                    </a>
+                                </li>
                             </ul>
                         </details>
                     </li>
