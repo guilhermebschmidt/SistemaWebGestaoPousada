@@ -131,32 +131,34 @@
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
 \contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Questionário Aplicado à Proprietária da Pousada}}{89}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Questionário 1: Levantamento de Requisitos}{89}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Questionário 2: Viabilidade Financeira}{93}{section.B.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Product Backlog Detalhado}}{94}{appendix.C}%
+\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Product Backlog Detalhado}}{95}{appendix.C}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Sprint Backlog Detalhado}}{98}{appendix.D}%
+\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Sprint Backlog Detalhado}}{99}{appendix.D}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Certificados de Segurança}}{106}{appendix.E}%
+\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Certificados de Segurança}}{107}{appendix.E}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {F}\MakeTextUppercase []{Requisitos Funcionais Detalhados}}{107}{appendix.F}%
+\contentsline {appendix}{\chapternumberline {F}\MakeTextUppercase []{Requisitos Funcionais Detalhados}}{108}{appendix.F}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {G}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes}}{111}{appendix.G}%
+\contentsline {appendix}{\chapternumberline {G}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes}}{112}{appendix.G}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {H}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Quartos}}{117}{appendix.H}%
+\contentsline {appendix}{\chapternumberline {H}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Quartos}}{118}{appendix.H}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {I}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Reservas}}{123}{appendix.I}%
+\contentsline {appendix}{\chapternumberline {I}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Reservas}}{124}{appendix.I}%
 \vspace {\cftbeforechapterskip }

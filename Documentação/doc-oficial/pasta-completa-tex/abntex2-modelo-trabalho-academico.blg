@@ -17,11 +17,11 @@ Reallocating 'wiz_functions' (item size: 4) to 9000 items.
 Database file #1: abntex2-options.bib
 Database file #2: referencias.bib
 Warning--entry type for "Sebrae2024EmpresasFormais" isn't style-file defined
---line 1057 of file referencias.bib
+--line 529 of file referencias.bib
 Warning--entry type for "fgv2022" isn't style-file defined
---line 1077 of file referencias.bib
+--line 539 of file referencias.bib
 Warning--entry type for "sebrae2020" isn't style-file defined
---line 1091 of file referencias.bib
+--line 546 of file referencias.bib
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'glb_str_end' (item size: 4) to 20 items.
 Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
@@ -31,45 +31,45 @@ Reallocating 'global_strs' (item size: 1) to 4000000 items.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 54 entries,
+You've used 55 entries,
             6714 wiz_defined-function locations,
-            1496 strings with 18237 characters,
-and the built_in function-call counts, 75059 in all, are:
-= -- 9031
-> -- 1097
-< -- 2045
-+ -- 2449
-- -- 347
-* -- 4423
-:= -- 9280
-add.period$ -- 252
-call.type$ -- 54
-change.case$ -- 449
-chr.to.int$ -- 93
-cite$ -- 53
-duplicate$ -- 7812
-empty$ -- 3122
-format.name$ -- 1613
-if$ -- 14884
+            1507 strings with 18704 characters,
+and the built_in function-call counts, 77062 in all, are:
+= -- 9269
+> -- 1148
+< -- 2099
++ -- 2522
+- -- 362
+* -- 4558
+:= -- 9516
+add.period$ -- 258
+call.type$ -- 55
+change.case$ -- 464
+chr.to.int$ -- 94
+cite$ -- 54
+duplicate$ -- 8009
+empty$ -- 3192
+format.name$ -- 1683
+if$ -- 15284
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 952
-newline$ -- 283
-num.names$ -- 265
-pop$ -- 1195
+missing$ -- 972
+newline$ -- 289
+num.names$ -- 270
+pop$ -- 1227
 preamble$ -- 1
-purify$ -- 179
+purify$ -- 184
 quote$ -- 0
-skip$ -- 7921
+skip$ -- 8122
 stack$ -- 1
-substring$ -- 3221
-swap$ -- 2791
-text.length$ -- 45
+substring$ -- 3295
+swap$ -- 2863
+text.length$ -- 46
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 363
+while$ -- 370
 width$ -- 0
-write$ -- 838
+write$ -- 855
 (There were 3 warnings)
