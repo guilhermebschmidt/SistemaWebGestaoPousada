@@ -94,65 +94,69 @@
 \contentsline {subsection}{\numberline {5.1.1}Custo Estrutural}{69}{subsection.5.1.1}%
 \contentsline {subsection}{\numberline {5.1.2}Custo de Pessoal}{71}{subsection.5.1.2}%
 \contentsline {subsection}{\numberline {5.1.3}Custo Total}{72}{subsection.5.1.3}%
+\contentsline {section}{\numberline {5.2}Cenários de Comercialização}{73}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Cenário A: Aquisição da Propriedade Intelectual}{73}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Cenário B: Licenciamento de Uso e Manutenção}{74}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Análise de Viabilidade dos Cenários}{75}{subsection.5.2.3}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Considerações Finais}}{74}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Considerações Finais}}{77}{chapter.6}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Conclusão}}{75}{chapter.7}%
+\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Conclusão}}{78}{chapter.7}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{76}{section*.24}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{79}{section*.24}%
 \renewcommand *{\cftappendixname }{AP\^ENDICE \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Ap\^endices}}{80}{section*.25}%
+\contentsline {part}{\uppercase {Ap\^endices}}{83}{section*.25}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Diário de Bordo}}{81}{appendix.A}%
-\contentsline {section}{\numberline {A.1}1° SEMANA}{81}{section.A.1}%
-\contentsline {section}{\numberline {A.2}2° SEMANA}{81}{section.A.2}%
-\contentsline {section}{\numberline {A.3}3° SEMANA}{81}{section.A.3}%
-\contentsline {section}{\numberline {A.4}4° SEMANA}{82}{section.A.4}%
-\contentsline {section}{\numberline {A.5}5° SEMANA}{82}{section.A.5}%
-\contentsline {section}{\numberline {A.6}6° SEMANA}{82}{section.A.6}%
-\contentsline {section}{\numberline {A.7}7° SEMANA}{83}{section.A.7}%
-\contentsline {section}{\numberline {A.8}8° SEMANA}{83}{section.A.8}%
-\contentsline {section}{\numberline {A.9}9° SEMANA}{83}{section.A.9}%
-\contentsline {section}{\numberline {A.10}10° SEMANA}{83}{section.A.10}%
-\contentsline {section}{\numberline {A.11}11° SEMANA}{83}{section.A.11}%
-\contentsline {section}{\numberline {A.12}12° SEMANA}{84}{section.A.12}%
-\contentsline {section}{\numberline {A.13}13° SEMANA}{84}{section.A.13}%
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Diário de Bordo}}{84}{appendix.A}%
+\contentsline {section}{\numberline {A.1}1° SEMANA}{84}{section.A.1}%
+\contentsline {section}{\numberline {A.2}2° SEMANA}{84}{section.A.2}%
+\contentsline {section}{\numberline {A.3}3° SEMANA}{84}{section.A.3}%
+\contentsline {section}{\numberline {A.4}4° SEMANA}{85}{section.A.4}%
+\contentsline {section}{\numberline {A.5}5° SEMANA}{85}{section.A.5}%
+\contentsline {section}{\numberline {A.6}6° SEMANA}{85}{section.A.6}%
+\contentsline {section}{\numberline {A.7}7° SEMANA}{86}{section.A.7}%
+\contentsline {section}{\numberline {A.8}8° SEMANA}{86}{section.A.8}%
+\contentsline {section}{\numberline {A.9}9° SEMANA}{86}{section.A.9}%
+\contentsline {section}{\numberline {A.10}10° SEMANA}{86}{section.A.10}%
+\contentsline {section}{\numberline {A.11}11° SEMANA}{86}{section.A.11}%
+\contentsline {section}{\numberline {A.12}12° SEMANA}{87}{section.A.12}%
+\contentsline {section}{\numberline {A.13}13° SEMANA}{87}{section.A.13}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Questionário Aplicado à Proprietária da Pousada}}{85}{appendix.B}%
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Questionário Aplicado à Proprietária da Pousada}}{88}{appendix.B}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Product Backlog Detalhado}}{90}{appendix.C}%
+\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Product Backlog Detalhado}}{93}{appendix.C}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Sprint Backlog Detalhado}}{94}{appendix.D}%
+\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Sprint Backlog Detalhado}}{97}{appendix.D}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Certificados de Segurança}}{102}{appendix.E}%
+\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Certificados de Segurança}}{105}{appendix.E}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {F}\MakeTextUppercase []{Requisitos Funcionais Detalhados}}{103}{appendix.F}%
+\contentsline {appendix}{\chapternumberline {F}\MakeTextUppercase []{Requisitos Funcionais Detalhados}}{106}{appendix.F}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {G}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes}}{107}{appendix.G}%
+\contentsline {appendix}{\chapternumberline {G}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes}}{110}{appendix.G}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {H}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Quartos}}{113}{appendix.H}%
+\contentsline {appendix}{\chapternumberline {H}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Quartos}}{116}{appendix.H}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {I}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Reservas}}{119}{appendix.I}%
+\contentsline {appendix}{\chapternumberline {I}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Reservas}}{122}{appendix.I}%
 \vspace {\cftbeforechapterskip }

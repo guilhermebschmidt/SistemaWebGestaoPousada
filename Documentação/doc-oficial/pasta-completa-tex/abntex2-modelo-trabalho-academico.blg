@@ -16,6 +16,8 @@ Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'wiz_functions' (item size: 4) to 9000 items.
 Database file #1: abntex2-options.bib
 Database file #2: referencias.bib
+Warning--entry type for "Sebrae2024EmpresasFormais" isn't style-file defined
+--line 529 of file referencias.bib
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'glb_str_end' (item size: 4) to 20 items.
 Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
@@ -25,44 +27,45 @@ Reallocating 'global_strs' (item size: 1) to 4000000 items.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 50 entries,
+You've used 52 entries,
             6714 wiz_defined-function locations,
-            1474 strings with 17286 characters,
-and the built_in function-call counts, 66133 in all, are:
-= -- 7819
-> -- 1037
-< -- 1699
-+ -- 2083
-- -- 327
-* -- 3936
-:= -- 8239
-add.period$ -- 235
-call.type$ -- 50
-change.case$ -- 423
-chr.to.int$ -- 89
-cite$ -- 49
-duplicate$ -- 6670
-empty$ -- 2893
-format.name$ -- 1521
-if$ -- 13274
+            1487 strings with 17784 characters,
+and the built_in function-call counts, 69679 in all, are:
+= -- 8279
+> -- 1067
+< -- 1823
++ -- 2217
+- -- 337
+* -- 4131
+:= -- 8660
+add.period$ -- 244
+call.type$ -- 52
+change.case$ -- 437
+chr.to.int$ -- 91
+cite$ -- 51
+duplicate$ -- 7098
+empty$ -- 3008
+format.name$ -- 1567
+if$ -- 13934
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 886
-newline$ -- 263
-num.names$ -- 245
-pop$ -- 1109
+missing$ -- 920
+newline$ -- 273
+num.names$ -- 255
+pop$ -- 1153
 preamble$ -- 1
-purify$ -- 167
+purify$ -- 173
 quote$ -- 0
-skip$ -- 6754
+skip$ -- 7191
 stack$ -- 1
-substring$ -- 2800
-swap$ -- 2404
-text.length$ -- 42
+substring$ -- 2963
+swap$ -- 2551
+text.length$ -- 43
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 336
+while$ -- 349
 width$ -- 0
-write$ -- 781
+write$ -- 810
+(There was 1 warning)

@@ -64,6 +64,14 @@ Dispon{\'\i}vel em:
 Acesso em: 10 de abril de 2025.
 Dispon{\'\i}vel em: \url{https://pousadachalesaguadecoco.com.br/}.}
 
+\bibitem[{Comitê de Pronunciamentos Contábeis} 2010]{CPC04R1}
+\abntrefinfo{{Comitê de Pronunciamentos Contábeis}}{{Comitê de
+  Pronunciamentos Contábeis}}{2010}
+{{Comitê de Pronunciamentos Contábeis}. \emph{CPC 04 (R1)- Ativo
+  Intangível}. 2010.
+  \url{https://conteudo.cvm.gov.br/export/sites/cvm/menu/regulados/normascontabeis/cpc/CPC_04_R1_rev_12.pdf}.
+Acesso em: 29 out. 2025.}
+
 \bibitem[{DJANGO} 2024]{django}
 \abntrefinfo{{DJANGO}}{{DJANGO}}{2024}
 {{DJANGO}. \emph{Django Documentation}.
@@ -268,6 +276,13 @@ Acesso em: 20 out. 2025.}
 [S.l.], 2013. Desenvolvido e mantido por Ken Schwaber e Jeff Sutherland.
   Dispon{\'\i}vel em:
   \url{https://scrumguides.org/docs/scrumguide/v1/Scrum-Guide-Portuguese-BR.pdf}.}
+
+\bibitem[SEBRAE 2024]{Sebrae2024EmpresasFormais}
+\abntrefinfo{SEBRAE}{SEBRAE}{2024}
+{SEBRAE. \emph{Empresas formais têm rendimento médio 3 vezes maior que
+  negócios sem CNPJ}. 2024.
+Dispon{\'\i}vel em:
+  \url{https://agenciasebrae.com.br/economia-e-politica/empresas-formais-tem-rendimento-medio-3-vezes-maior-que-negocios-sem-cnpj/}.}
 
 \bibitem[Sommerville 2011]{sommerville2011}
 \abntrefinfo{Sommerville}{SOMMERVILLE}{2011}

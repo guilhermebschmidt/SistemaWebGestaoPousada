@@ -2034,7 +2034,7 @@ Para análise desses custos, foram construídas a \autoref{tab:custos-equipament
 			Github & Plataforma de Desenvolvimento & 1 &R\$ 0,00 &  R\$ 0,00
 			\\		
 			\hline
-			Total (9 meses)	& -- & ---	&	R\$ 0.00
+			Total (9 meses)	& -- & 26	&	R\$ 0.00
 			& R\$ 19.133,70
 			\\
 			\hline
@@ -2053,7 +2053,7 @@ Para análise desses custos, foram construídas a \autoref{tab:custos-equipament
 		\hline
 		\textbf{Item} & \textbf{Tipo} & \textbf{Custo Efetivo} & \textbf{Custo Estimado} \\
 		\hline
-		AWS & Hospedagem em Nuvem & R\$ 0,00 & R\$ 41,00/mês \\
+		AWS & Hospedagem em Nuvem & R\$ 0,00 & R\$ 56,80/mês \\
 		\hline
 		Certificado SSL & Certificação & R\$ 0,00 & R\$ 0,00 \\
 		\hline
@@ -2065,7 +2065,7 @@ Para análise desses custos, foram construídas a \autoref{tab:custos-equipament
 		\hline
 		PostgreSQL & Banco de Dados & R\$ 0,00 & R\$ 0,00 \\
 		\hline
-		Total (9 meses) & -- & R\$ 0,00 & R\$ 369,00 \\
+		Total (9 meses) & -- & R\$ 0,00 & R\$ 511,20 \\
 		\hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores}
@@ -2074,12 +2074,12 @@ Para análise desses custos, foram construídas a \autoref{tab:custos-equipament
 
 A \autoref{tab:custos-implantacao} detalha os componentes de software e serviços em nuvem para a operação do sistema. No contexto acadêmico, o custo efetivo foi zerado pela utilização do nível gratuito (\textit{Free Tier}) da AWS, que possui duração de 12 meses para serviços essenciais. 
 
-Para o cenário comercial, o Custo Estimado é composto essencialmente pelo serviço de hospedagem em nuvem, em específico do servidor EC2, projetado para um custo mensal de aproximadamente R\$ 41,00. Enquanto, a estratégia de negócio se apoia no uso de tecnologias de código aberto (Nginx, Gunicorn, Django, PostgreSQL) e certificados de segurança gratuitos da Let's Encrypt, que mantêm os custos de licenciamento zerados em ambos os cenários. 
+Para o cenário comercial, o Custo Estimado é composto essencialmente pelo serviço de hospedagem em nuvem, em específico do servidor EC2 com serviços adicionais de armazenamento e de envio de \textit{e-mail} , projetado para um custo mensal de aproximadamente R\$ 56,80. Enquanto, a estratégia de negócio se apoia no uso de tecnologias de código aberto (Nginx, Gunicorn, Django, PostgreSQL) e certificados de segurança gratuitos da Let's Encrypt, que mantêm os custos de licenciamento zerados em ambos os cenários. 
 % --------------------------------------------------%
 
 A análise comparativa das tabelas evidenciam a viabilidade do projeto nos dois cenários. No contexto acadêmico, o custo estrutural direto foi nulo (R\$ 0,00), viabilizado pela utilização de recursos preexistentes da equipe, planos gratuitos de serviços e \textit{softwares} de código aberto.
 
-Em contrapartida, uma transição para um modelo comercial exigiria um planejamento financeiro robusto. A operação demandaria um investimento inicial de R\$ 18.250,00 para aquisição de equipamentos. Adicionalmente, haveria custos operacionais mensais recorrentes estimados em R\$ 924,70 para a manutenção do sistema. Totalizando em um  investimento de R\$ 26.572,30.
+Em contrapartida, uma transição para um modelo comercial exigiria um planejamento financeiro robusto. A operação demandaria um investimento inicial de R\$ 18.250,00 para aquisição de equipamentos. Adicionalmente, haveria custos operacionais mensais recorrentes estimados em R\$ 940,50 para a manutenção do sistema. Totalizando em um  investimento de R\$ 26.572,30.
 %----------------------------------------------------%
 \subsection{Custo de Pessoal}
 A análise do custo de pessoal visa quantificar o valor de mercado da mão de obra investida no desenvolvimento e implantação do sistema. Nesse sentido, o levantamento foca na projeção para um cenário comercial, uma vez que a execução do projeto no âmbito acadêmico se deu de forma voluntária, representando um custo efetivo nulo para a pousada. Para realizar tal projeção, a metodologia adotada baseou-se em dados salariais consultados em plataformas especializadas, a fim de estimar os custos de mão de obra em um ambiente de mercado \cite{glassdoor2025, indeed2025}.
@@ -2102,11 +2102,9 @@ A estrutura de cálculo para o custo de pessoal é apresentada em duas fases. Pr
 			\hline
 			Gerente de Projeto (PM)          & 1 & 3 & 22 & 66 \\
 			\hline
-			Desenvolvedor Front-End          & 1 & 3 & 22 & 66 \\
+			Desenvolvedor \textit{Front-End}          & 1 & 3 & 22 & 66 \\
 			\hline
-			Desenvolvedor Back-End           & 1 & 3 & 22 & 66 \\
-			\hline
-			\textbf{Total Mão de Obra}       & 5 & 3 & 22 & 330 \\
+			Desenvolvedor \textit{Back-End}           & 1 & 3 & 22 & 66 \\
 			\hline
 		\end{tabular}
 	}
@@ -2164,27 +2162,80 @@ O custo total do projeto representa a somatória dos custos estruturais e de pes
 			\hline
 			Mão de Obra & 6.799,98 & R\$ 27.199,92 & R\$ 61.199,82 \\
 			\hline
-			Estrutura& 924,70 & 3.698,80  & 8.322,30 \\
+			Estrutura& 940,50 & 3.762,80  & 8.464,50 \\
 			\hline
-			\textbf{Total} & 7.724,68 & 30.897,92 &  69.522,12\\
+			\textbf{Total} & 7.740,48 & 30.962,72 &  69.664,32\\
 			\hline
 		\end{tabular}
 	}
 	\fonte{Elaborado pelos autores.}
 \end{table}
 
-Dessa forma, Ao consolidar o investimento fixo em equipamentos com os custos recorrentes de estrutura e pessoal, o custo total estimado para a pousada parceira realizar o projeto ao longo de 9 meses é de R\$ 87.772,12.
+Dessa forma, Ao consolidar o investimento fixo em equipamentos com os custos recorrentes de estrutura e pessoal, o custo total estimado para a pousada parceira realizar o projeto ao longo de 9 meses é de R\$ 87.914,32.
 
 %-----------------------------------------------------%
 % TÓPICO DE PROPOSTA DE VIABILIDADE COMERCIAL
-\begin{comment}
-\subsection{Proposta de Viabilidade Comercial}
-O levantamento de custos associados ao projeto demonstrou que o desenvolvimento de um sistema customizado possui um custo inicial e operacional significativo. O que torna o modelo de venda única inviável para uma única pousada de pequeno porte.
 
-Este tópico propõe um cenário hipotético de viabilidade comercial a longo prazo, transformando o sistema em um produto de \textit{Software as Service} (SaaS). Com o objetivo de diluir o custo de desenvolvimento e manutenção entre múltiplos clientes, através de um modelo de assinatura mensal, tornando a solução acessível para o mercado de pequenas pousadas.
+\section{Cenários de Comercialização}
+Este tópico propõe cenários hipotéticos de viabilidade comercial a longo prazo, considerando que a pousada parceira arcaria com os custos de desenvolvimento e manutenção futura do sistema. A arquitetura atual foi desenvolvida exclusivamente para o uso interno e administrativo da pousada, de forma que, trata-se de um software proprietário exclusivo.
 
-\subsubsection{Solução}
-\end{comment}
+Neste contexto, a primeira solução comercial analisada seria a aquisição da propriedade intelectual do sistema pela pousada, amortizando o custo total do projeto.
+
+\subsection{Cenário A: Aquisição da Propriedade Intelectual}
+Este cenário prevê o pagamento gradual do custo total de desenvolvimento do projeto, que foi de R\$ 87.914,32. Para fins de análise, vamos considerar um período de quatro anos (48 meses) para quitação do ativo. A escolha deste prazo fundamenta-se no conceito contábil de vida útil finita de um ativo intangível, conforme estabelecido no CPC 04 (R1) \cite{CPC04R1}. Já que os sistema que possui vida útil limitada por fatores como a dependência de \textit{frameworks} de terceiros, a rápida evolução do mercado e a obsolescência tecnológica.
+
+Além do custo de desenvolvimento, o cenário de aquisição também exigiria que a pousada arcasse com os custos operacionais contínuos de manutenção (corretiva, preventiva e adaptativa) e suporte, compostos por:
+\begin{itemize}
+	\item \textbf{Mão de Obra Técnica}: Estimada em 2 horas mensais (1h de manutenção, 1h de suporte) com valor médio de R\$ 20,60/hora (\autoref{tab:mao-de-obra-custos}), totalizando R\$ 41,20 por mês.
+	\item \textbf{Hospedagem em Nuvem (AWS)}: Estimada em R\$ 56,80 mensais (\autoref{tab:custos-implantacao}).
+\end{itemize}
+
+Dessa forma, o custo operacional mensal seria de aproximadamente R\$ 98,00.
+	
+Nesse cenário de aquisição, portanto, o custo total do projeto (R\$ 87.914,32) seria amortizado em 48 parcelas mensais de R\$ 1.831,55. Adicionalmente, seria necessário arcar com o custo operacional de R\$ 98,00, totalizando um custo mensal de R\$ 1.929,55 durante quatro anos.
+
+\subsection{Cenário B: Licenciamento de Uso e Manutenção}
+Neste cenário, a empresa parceira pagaria um custo mensal para o licenciamento de uso e manutenção do software, enquanto a equipe do projeto deteria a propriedade intelectual do sistema. Isso permitiria à equipe fazer ajustes e melhorias no sistema, a fim de torná-lo um Software como Serviço (SaaS) e comercializar o sistema para outras pousadas de pequeno e médio porte que ainda utilizam planilhas e papel na sua gestão, gerando receita e lucro em cima da aplicação projetada e reavendo, a longo prazo, o custo de estrutura e pessoal investidos inicialmente. Nesse arranjo, a pousada parceira continuaria atuando como o principal estudo de caso e parceiro de \textit{design} do projeto, auxiliando na arquitetura, validação e \textit{marketing} do sistema.
+
+Em troca dessa parceria estratégica, ela continuaria utilizando o sistema em condições especiais, pagando uma mensalidade de licenciamento que cobre apenas os custos operacionais (hospedagem e manutenção). Ela teria, então, a opção de migrar para a plataforma SaaS completa quando esta estiver finalizada.
+
+Adicionalmente, ter a pousada como o principal estudo de caso e parceiro de \textit{design} ajudaria não só no desenvolvimento de um PMS, no modelo SaaS, robusto (por ter sido construído com base na realidade concreta de um gestor autônomo), como também nas campanhas de \textit{marketing}. Inclusive, a fim de viabilizar a adaptação do sistema, na captação de investidores, usando-a na exemplificação e metrificação do projeto.
+
+Para lançar a primeira versão do sistema, a equipe reutilizaria todo o código já desenvolvido, fazendo ajustes na arquitetura em nuvem e adaptações no banco de dados e na estrutura do código, para atender diferentes regras de negócio. Com o foco em um público alvo constituído por  pousadas com as mesmas características da pousada parceira: com 10 a 20 acomodações e gestão altamente manual. E com um lançamento que não prevê um produto com todas as funcionalidades presentes em um PMS tradicional, mas sim uma aplicação focada em simplicidade e usabilidade, constituindo-se como um serviço de rápida adoção e baixo custo que resolve o problema mais imediato do público-alvo. 
+
+Para além disso, o desenvolvimento de um modelo SaaS permite custos previsíveis e escalabilidade, dado que é um modelo de disponibilização de software em nuvem, o que permite o acesso dos usuários à aplicação via internet a partir de um pagamento periódico (Correia, 2024). Além de ser um modelo que independe de estruturas de operação e manutenção robustas para o usuário final, que consegue ter acesso a infraestrutura de software a um baixo custo, o que facilita a adesão de ferramentas tecnológicas para empresas de diferentes portes (Correia, 2024). Sendo assim, conclui-se que este é um sistema financeiramente sustentável tanto para os desenvolvedores e investidores quanto para os futuros clientes.
+
+\subsection{Análise de Viabilidade dos Cenários}
+Para comprovar a viabilidade diante dos cenários propostos, foi feita a análise das respostas fornecidas pela proprietária (Anexo X) para medir os benefícios causados pela adoção do sistema. Foi utilizado como custo de mão de obra da proprietária o valor de R\$ 35,88/hora, baseado no salário médio de um empreendedor formalizado \cite{Sebrae2024EmpresasFormais}.
+
+\begin{enumerate}
+	\item \textbf{Otimização da Administração de Reservas}: Embora a gestora veja o envio da confirmação como uma tarefa imediata, ela também confirmou um fluxo manual de múltiplas etapas e diversos registros para se organizar. Neste contexto, estabeleceu-se uma premissa conservadora de 4 minutos economizados por reserva (considerando que o processo manual leva de 8 a 10 minutos e as funcionalidades atuais do sistema).
+	\begin{itemize}
+		\item {Cálculo}: (4 min/reserva $\times$ 15 reservas/mês) = 60 min/mês
+		\item \textbf{Total Economizado}: R\$ 35,88 por mês
+	\end{itemize}
+	
+	\item \textbf{Otimização da Gestão de Mensalistas}: Atualmente, a proprietária precisa gerir, paralelamente, hóspedes mensalistas com diferentes datas de vencimento. O que demanda esforço organizacional. O sistema irá auxiliar a gestora nesse processo de organização diminuindo a energia empregada em pelo menos 1 minuto por mensalista. 
+	\begin{itemize}
+		\item {Premissa}: Economia de 1 minuto por mensalista
+		\item {Cálculo}: (1 min/mensalista $\times$ 10 mensalistas) = 10 min/mês
+		\item \textbf{Total Economizado}: R\$ 5,98 por mês
+	\end{itemize}
+	
+	\item \textbf{Auxílio no Fechamento Financeiro}: A gestora confirmou que a atividade de fechamento financeiro mensal é uma carga de trabalho pesada. Neste contexto, estima-se pelo menos 3h de trabalho mensal empregado nas tarefas relacionadas. E, para fins de análise, supõe-se que o sistema, com seus relatórios e filtros, economiza de 2h das 3h estimadas para a conferência manual de receitas e despesas.
+	\begin{itemize}
+		\item {Cálculo}: (2 horas economizadas/mês $\times$ R\$ 35,88/hora)
+		\item \textbf{Total Economizado}: R\$ 71,76 por mês
+	\end{itemize}
+\end{enumerate}
+
+O total de benefícios financeiros quantificáveis (R\$ 35,88 + R\$ 5,98 + R\$ 71,76) é de R\$ 113,62 por mês.
+
+Esta análise comprova que o Cenário A, com um custo de R\$ 1.929,55, é inviável. O benefício de R\$ 113,62 não é suficiente para justificar o investimento. Mesmo com outros benefícios indiretos decorrentes da transição para uma gestão baseada em dados (relatórios) e não em achismos, seria um cenário de difícil manutenção para pousada. Isso porque, até em um cenário de aumento em 5 reservas diárias, decorrentes de estratégias de marketing, totalizando em 20 reservas mensais, cada uma com valor médio de R\$ 210,00, o valor restante mensal a ser pago para aquisição do sistema demandaria uma cessão de aproximadamente 40.20\% da receita de cada reserva concluída. Um cenário inviável ao que tange a saúde financeira da pousada. 
+
+Em contrapartida, um cenário de licenciamento de uso através do estabelecimento de uma parceria comercial (Cenário B) é altamente viável. O custo da licença de R\$ 98,00 é facilmente coberto pelos benefícios quantificáveis de R\$ 113,62, gerando um retorno sobre o investimento (ROI) positivo imediato de R\$ 15,62 por mês. Este valor não inclui o benefício estratégico dos relatórios, que permitiria o aumento do retorno em até R\$ 210,00 , no caso da geração de uma reserva a mais por mês.
+
+
 
 
 \begin{comment}
