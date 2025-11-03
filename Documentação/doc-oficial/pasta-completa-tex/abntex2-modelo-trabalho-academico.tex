@@ -533,28 +533,45 @@ Este trabalho tem, portanto, como objetivo geral o desenvolvimento de um sistema
 % ----------------------------------------------------------
 % ---
 \section{Objetivos}
-Os objetivos deste trabalho foram definidos a partir das necessidades da Pousada Chalés Água de Coco. Atualmente, a gestão é feita em planilhas, o que dificulta a organização e aumenta a chance de erros. Assim, este projeto busca centralizar as informações em um sistema web, tornando os processos mais ágeis e confiáveis.
+
+Os objetivos deste trabalho foram definidos com base nas necessidades identificadas na Pousada Chalés Água de Coco. Para melhor organização e clareza, foram divididos em duas categorias: o objetivo geral, que apresenta a finalidade principal do projeto, e os objetivos específicos, que detalham as etapas necessárias para o seu alcance.
+
 
 \subsection{Objetivo Geral}
-Desenvolver um sistema \textit{web} para automatizar os processos administrativos da pousada Chalés Água de Coco, atualmente realizados por meio de planilhas eletrônicas. A adoção de ferramentas digitais em pequenos empreendimentos do setor de hospitalidade tem se mostrado fundamental para aumentar a eficiência e reduzir falhas operacionais~\cite{totvs}. Dessa forma, o objetivo central deste trabalho é propor uma solução que centralize informações de hóspedes, reservas, acomodações e finanças em uma plataforma única, acessível via Internet, promovendo maior organização, segurança e suporte à tomada de decisão.
+Desenvolver um sistema \textit{web} para automatizar os processos administrativos da pousada Chalés Água de Coco. Dessa forma, o objetivo central deste trabalho é propor uma solução que centralize informações de hóspedes, reservas, acomodações e finanças em uma plataforma única, acessível via Internet, promovendo maior organização, segurança e suporte à tomada de decisão.
 
 \subsection{Objetivos Específicos}
-Para atingir o objetivo geral, foram definidos os seguintes objetivos específicos:
+
+Para atingir o objetivo geral proposto, foram definidos os seguintes objetivos específicos, que orientaram o processo de desenvolvimento do sistema e da documentação técnica:
+
 \begin{itemize}
-	\item Implementar funcionalidades para o gerenciamento de hóspedes, reservas e acomodações;
-	\item Desenvolver um módulo de controle financeiro que permita registrar receitas e despesas;
-	\item Proporcionar maior organização e acessibilidade às informações administrativas;
-	\item Reduzir a ocorrência de falhas decorrentes do uso de planilhas manuais;
-	\item Disponibilizar relatórios gerenciais que apoiem a tomada de decisão dos gestores.
+	\item Realizar reuniões com a proprietária da pousada para o levantamento de requisitos e regras de negócio, identificando as principais necessidades operacionais e os fluxos administrativos existentes;
+	
+	\item Elaborar a modelagem do banco de dados com base nas informações coletadas, estruturando as entidades e relacionamentos necessários;
+	
+	\item Projetar a arquitetura do sistema conforme o padrão \textit{Model-Template-View} (MTV) do framework Django;
+	
+	\item Implementar as funcionalidades essenciais do sistema, incluindo o cadastro e gerenciamento de hóspedes, acomodações, reservas e movimentações financeiras;
+	
+	\item Integrar o sistema com o banco de dados PostgreSQL hospedado na infraestrutura de nuvem AWS, garantindo persistência e segurança das informações;
+	
+	\item Aplicar recursos de segurança e privacidade de dados, tais como autenticação de usuários, criptografia de comunicações via protocolo HTTPS;
+	
+	\item Desenvolver relatórios gerenciais para apoiar a tomada de decisão, com foco em indicadores financeiros e operacionais relevantes à gestão da pousada;
+	
+	\item Implementar testes automatizados (\textit{unit tests}) utilizando \textit{pytest-django} para validar o funcionamento das principais funcionalidades do sistema;
+	
+	\item Documentar detalhadamente o projeto, abrangendo os aspectos de análise, arquitetura, desenvolvimento, segurança, implantação e manutenção do sistema, entre outros;
+	
+	\item Entregar a versão final do código e da documentação técnica, consolidando o produto como uma solução funcional e aplicável ao contexto da pousada Chalés Água de Coco.
 \end{itemize}
 
 \section{Justificativa}
 
-A escolha deste projeto se justifica pela necessidade real de modernização enfrentada por pequenos empreendimentos do setor de hospedagem, como a pousada Chalés Água de Coco, que atualmente depende de controles manuais realizados por meio de planilhas no Excel. Esse tipo de gestão, embora comum em pequenos negócios, apresenta diversas limitações, como a suscetibilidade a erros humanos, dificuldade de atualização simultânea, falta de integração entre os dados e ausência de acessibilidade remota.
+A escolha deste projeto se justifica pela necessidade real de modernização enfrentada por pequenos empreendimentos do setor de hospedagem~\cite{fgv2022}, como a pousada Chalés Água de Coco, que atualmente depende de controles manuais realizados por meio de planilhas no Excel. Esse tipo de gestão, que depende de planilhas, tem base no fato de que estudos recentes mostram que cerca de 65\% dos empresários de pequenas empresas utilizam planilhas para controle, o que aponta para limitações estruturais, como erros humanos, falta de integração entre os dados e dificuldade de atualização simultânea e de acesso remoto~\cite{sebrae2020}.
+
 
 No contexto do setor de turismo e hotelaria, estudos indicam que a transformação digital tem se consolidado como um fator estratégico para aumentar a competitividade e a qualidade dos serviços \cite{laudon2020sistemas,stair2020principios}. O uso de sistemas de informação pode proporcionar ganhos em eficiência, reduzir custos operacionais e melhorar a experiência do cliente, aspectos essenciais para a sobrevivência de pequenos empreendimentos em um mercado cada vez mais exigente. De acordo com o Ministério do Turismo \cite{mtur}, pequenos meios de hospedagem representam parcela significativa da rede de serviços no Brasil, desempenhando papel relevante no desenvolvimento econômico local. Portanto, a adoção de tecnologias adequadas contribui não apenas para a gestão interna, mas também para a valorização do setor como um todo.
-
-Além da relevância prática, o desenvolvimento deste projeto apresenta também uma dimensão acadêmica. A proposta permite a aplicação prática dos conhecimentos adquiridos ao longo do curso, abrangendo áreas como análise de requisitos, modelagem de dados, programação web, computação em nuvem, experiência do usuário e segurança da informação. Segundo Turban, Pollard e Wood \cite{turban2018sistemas}, projetos que envolvem o desenvolvimento de sistemas de informação proporcionam uma visão integrada dos desafios tecnológicos e de gestão, favorecendo a formação de profissionais mais preparados para atuar no mercado.
 
 Por fim, a solução proposta tem potencial de gerar impacto direto e positivo na gestão da pousada parceira, ao promover maior organização, acessibilidade e controle das operações. Do ponto de vista acadêmico, o projeto contribui para o avanço do conhecimento na área de sistemas aplicados ao setor de serviços, e do ponto de vista social e econômico, fortalece a sustentabilidade e a competitividade de pequenos empreendimentos locais. Dessa forma, o presente trabalho se mostra relevante tanto no âmbito prático quanto no científico, atendendo às exigências de um Trabalho de Conclusão de Curso alinhado às necessidades da sociedade e do mercado.
 
