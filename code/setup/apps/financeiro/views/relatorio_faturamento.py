@@ -1,90 +1,158 @@
 from django.shortcuts import render
 from django.db.models import Sum, Count
 from ..models.titulo import Titulo
-import datetime
-import io
-import csv
-from django.http import HttpResponse
-from reportlab.pdfgen import canvas
+from datetime import date
+from dateutil.relativedelta import relativedelta
+from apps.relatorios.utils import exportar_relatorio_csv
+from reportlab.platypus import Paragraph, Table, TableStyle, SimpleDocTemplate, Spacer
+from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from django.http import HttpResponse
+import io
 
 
 def relatorio_faturamento(request):
-    data_inicio = request.GET.get('data_inicio')
-    data_fim = request.GET.get('data_fim')
-    exportar = request.GET.get('exportar')  # pode ser 'pdf' ou 'csv'
+    """
+    View que gera o relatório de faturamento com filtros por data e opções de exportação.
+    Mantém a estrutura original, mas melhora o layout e alinhamento do PDF exportado.
+    """
 
-    queryset = Titulo.objects.filter(tipo=True, cancelado=False, pago=True)
+    today = date.today()
+    data_inicio_str = request.GET.get('data_inicio', today.replace(day=1).strftime('%Y-%m-%d'))
+    data_fim_str = request.GET.get('data_fim', (
+        today.replace(day=1) + relativedelta(months=1, days=-1)).strftime('%Y-%m-%d'))
+    exportar = request.GET.get('exportar')
 
-    if data_inicio:
-        queryset = queryset.filter(data_pagamento__gte=data_inicio)
-    if data_fim:
-        queryset = queryset.filter(data_pagamento__lte=data_fim)
+    # --- Validação de datas ---
+    try:
+        data_inicio = date.fromisoformat(data_inicio_str)
+        data_fim = date.fromisoformat(data_fim_str)
+        if data_inicio > data_fim:
+            raise ValueError("Data de início não pode ser posterior à data de fim.")
+    except ValueError:
+        data_inicio = today.replace(day=1)
+        data_fim = today.replace(day=1) + relativedelta(months=1, days=-1)
+
+    # --- Consulta principal ---
+    queryset = (
+        Titulo.objects.filter(tipo=True, cancelado=False, pago=True)
+        .filter(data_pagamento__range=(data_inicio, data_fim))
+    )
 
     total = queryset.aggregate(total=Sum('valor'))['total'] or 0
     quantidade = queryset.aggregate(qtd=Count('id'))['qtd'] or 0
     media = round(total / quantidade, 2) if quantidade > 0 else 0
 
-    # Exportar CSV
-    if exportar == 'csv':
-        response = HttpResponse(content_type='text/csv')
-        response['Content-Disposition'] = 'attachment; filename="relatorio_faturamento.csv"'
-        writer = csv.writer(response)
-        writer.writerow(['Descrição', 'Valor', 'Data Pagamento'])
-        for t in queryset:
-            writer.writerow([t.descricao, t.valor, t.data_pagamento])
-        writer.writerow([])
-        writer.writerow(['TOTAL', total])
-        return response
+    # --- Exportação CSV ---
+    if exportar == 'csv' and queryset.exists():
+        cabecalhos_csv = ['Descrição', 'Valor (R$)', 'Data Pagamento']
+        dados_csv = [
+            (t.descricao, f"{t.valor:.2f}", t.data_pagamento.strftime('%d/%m/%Y'))
+            for t in queryset
+        ]
+        dados_csv.append(('TOTAL', f"{total:.2f}", ''))
+        return exportar_relatorio_csv(
+            nome_arquivo_base='relatorio_faturamento',
+            cabecalhos=cabecalhos_csv,
+            dados_linhas=dados_csv,
+            request=request
+        )
 
-    # Exportar PDF
-    elif exportar == 'pdf':
+    # --- Exportação PDF (melhorada) ---
+    elif exportar == 'pdf' and queryset.exists():
         response = HttpResponse(content_type='application/pdf')
         response['Content-Disposition'] = 'attachment; filename="relatorio_faturamento.pdf"'
 
         buffer = io.BytesIO()
-        p = canvas.Canvas(buffer, pagesize=A4)
-        width, height = A4
-        y = height - 50
+        doc = SimpleDocTemplate(buffer, pagesize=A4, leftMargin=40, rightMargin=40, topMargin=50, bottomMargin=40)
+        elements = []
 
-        p.setFont("Helvetica-Bold", 14)
-        p.drawString(200, y, "Relatório de Faturamento")
-        y -= 40
-        p.setFont("Helvetica", 10)
-        p.drawString(50, y, f"Período: {data_inicio or 'Início'} até {data_fim or 'Hoje'}")
-        y -= 20
+        styles = getSampleStyleSheet()
+        title_style = ParagraphStyle(
+            'TitleCustom',
+            parent=styles['Title'],
+            fontSize=16,
+            leading=20,
+            alignment=1,  # Centralizado
+            textColor=colors.HexColor('#333333'),
+            spaceAfter=6,
+        )
+        subtitle_style = ParagraphStyle(
+            'SubtitleCustom',
+            parent=styles['Normal'],
+            fontSize=10,
+            alignment=1,
+            textColor=colors.grey,
+            spaceAfter=14,
+        )
 
-        p.setFont("Helvetica-Bold", 10)
-        p.drawString(50, y, "Descrição")
-        p.drawString(300, y, "Valor (R$)")
-        p.drawString(450, y, "Data Pagamento")
-        y -= 15
-        p.line(50, y, 550, y)
-        y -= 10
+        titulo_pdf = "Relatório de Faturamento"
+        periodo_str = f"Período: {data_inicio.strftime('%d/%m/%Y')} a {data_fim.strftime('%d/%m/%Y')}"
 
-        p.setFont("Helvetica", 9)
+        # Cabeçalho
+        elements.append(Paragraph(titulo_pdf, title_style))
+        elements.append(Paragraph(periodo_str, subtitle_style))
+        elements.append(Spacer(1, 10))
+
+        # Tabela de dados
+        dados_pdf = [
+            [Paragraph('<b>Descrição</b>', styles['Normal']),
+             Paragraph('<b>Valor (R$)</b>', styles['Normal']),
+             Paragraph('<b>Data Pagamento</b>', styles['Normal'])]
+        ]
+
         for t in queryset:
-            p.drawString(50, y, t.descricao[:40])
-            p.drawString(300, y, f"{t.valor:.2f}")
-            p.drawString(450, y, t.data_pagamento.strftime('%d/%m/%Y') if t.data_pagamento else '-')
-            y -= 15
-            if y < 50:
-                p.showPage()
-                y = height - 50
+            dados_pdf.append([
+                Paragraph(t.descricao or '-', styles['Normal']),
+                f"R$ {t.valor:.2f}",
+                t.data_pagamento.strftime('%d/%m/%Y') if t.data_pagamento else '-'
+            ])
 
-        y -= 20
-        p.setFont("Helvetica-Bold", 10)
-        p.drawString(50, y, f"Total Faturado: R$ {total:.2f}")
-        p.drawString(300, y, f"Quantidade: {quantidade}")
-        p.drawString(450, y, f"Média: R$ {media:.2f}")
+        # Totais
+        dados_pdf.append(['', '', ''])
+        dados_pdf.append([
+            Paragraph('<b>Total:</b>', styles['Normal']),
+            Paragraph(f"R$ {total:.2f}", styles['Normal']),
+            ''
+        ])
+        dados_pdf.append([
+            Paragraph('<b>Quantidade:</b>', styles['Normal']),
+            Paragraph(str(quantidade), styles['Normal']),
+            ''
+        ])
+        dados_pdf.append([
+            Paragraph('<b>Média:</b>', styles['Normal']),
+            Paragraph(f"R$ {media:.2f}", styles['Normal']),
+            ''
+        ])
 
-        p.save()
+        # Tabela configurada com larguras e estilo visual
+        colWidths = [280, 100, 100]
+        tabela = Table(dados_pdf, colWidths=colWidths)
+        tabela.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#E0E0E0')),  # Cabeçalho
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.black),
+            ('ALIGN', (1, 1), (1, -1), 'RIGHT'),  # Coluna de valores à direita
+            ('ALIGN', (2, 1), (2, -1), 'CENTER'),  # Datas centralizadas
+            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+            ('FONTNAME', (0, 1), (-1, -1), 'Helvetica'),
+            ('FONTSIZE', (0, 0), (-1, -1), 9),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 6),
+            ('GRID', (0, 0), (-1, -1), 0.25, colors.grey),
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            ('ROWBACKGROUNDS', (0, 1), (-1, -2), [colors.whitesmoke, colors.lightgrey]),  # zebra
+        ]))
+
+        elements.append(tabela)
+        doc.build(elements)
+
         pdf = buffer.getvalue()
         buffer.close()
         response.write(pdf)
         return response
 
-    # Exibir no navegador
+    # --- Contexto padrão (exibição na tela) ---
     context = {
         'titulos': queryset,
         'data_inicio': data_inicio,
@@ -92,6 +160,6 @@ def relatorio_faturamento(request):
         'total': total,
         'quantidade': quantidade,
         'media': media,
-        'hoje': datetime.date.today(),
     }
+
     return render(request, 'financeiro/relatorio/faturamento.html', context)

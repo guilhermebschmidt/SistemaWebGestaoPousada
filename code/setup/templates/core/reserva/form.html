@@ -168,5 +168,21 @@
             }
         });
         });
+        // Quando o usuário alterar as datas, recarrega a página (GET) com as datas na query
+        function refreshWithDates(){
+            const inicio = $('#id_data_reserva_inicio').val();
+            const fim = $('#id_data_reserva_fim').val();
+            if(!inicio || !fim) return;
+            const params = new URLSearchParams(window.location.search);
+            params.set('data_reserva_inicio', inicio);
+            params.set('data_reserva_fim', fim);
+            // navega para a mesma rota com querystring atualizada
+            window.location.search = params.toString();
+        }
+
+        $('#id_data_reserva_inicio, #id_data_reserva_fim').on('change', function(){
+            // esperar pequeno debounce para permitir seleção do outro campo
+            setTimeout(refreshWithDates, 200);
+        });
     </script>
 {% endblock %}

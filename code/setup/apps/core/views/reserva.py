@@ -55,7 +55,11 @@ def reserva_form(request, pk=None):
             return redirect('reserva:list')
         
     else:
-        form = ReservaForm(instance=instance)
+        # Se vierem parâmetros via GET (datas), repassa-los como initial para o form
+        if request.GET.get('data_reserva_inicio') or request.GET.get('data_reserva_fim'):
+            form = ReservaForm(initial=request.GET, instance=instance)
+        else:
+            form = ReservaForm(instance=instance)
 
     context = {
         'form': form,

@@ -147,4 +147,56 @@ class ReservaForm(forms.ModelForm):
         
         if self.instance and self.instance.pk:
             self.fields['hospede_nome'].initial = self.instance.id_hospede.nome
-        self.fields['id_quarto'].queryset = Quarto.objects.all().order_by('numero')
+        # Por padrão considera apenas quartos com status 'DISPONIVEL'
+        quartos_qs = Quarto.objects.filter(status='DISPONIVEL').order_by('numero')
+
+        # Tentar obter datas informadas para filtrar apenas quartos disponíveis
+        data_inicio = None
+        data_fim = None
+
+        # valores podem vir em self.data (quando POST) ou em initial/instance
+        data = getattr(self, 'data', None)
+        if data:
+            try:
+                data_inicio = data.get('data_reserva_inicio')
+                data_fim = data.get('data_reserva_fim')
+            except Exception:
+                data_inicio = data_fim = None
+
+        # se não vierem via POST, verificar initial/instance
+        if not data_inicio or not data_fim:
+            if self.initial:
+                data_inicio = data_inicio or self.initial.get('data_reserva_inicio')
+                data_fim = data_fim or self.initial.get('data_reserva_fim')
+            if self.instance and self.instance.pk:
+                data_inicio = data_inicio or self.instance.data_reserva_inicio
+                data_fim = data_fim or self.instance.data_reserva_fim
+
+        # Se tivermos ambas as datas, excluir quartos com reservas conflitantes
+        if data_inicio and data_fim:
+            try:
+                # garantir objetos datetime.date
+                if isinstance(data_inicio, str):
+                    from datetime import datetime
+                    data_inicio = datetime.strptime(data_inicio, '%Y-%m-%d').date()
+                if isinstance(data_fim, str):
+                    from datetime import datetime
+                    data_fim = datetime.strptime(data_fim, '%Y-%m-%d').date()
+
+                from ..models.reserva import Reserva
+                STATUS_BLOQUEANTES = ['CONFIRMADA', 'ATIVA', 'CONCLUIDA']
+                conflitos = Reserva.objects.filter(
+                    data_reserva_inicio__lt=data_fim,
+                    data_reserva_fim__gt=data_inicio,
+                    status__in=STATUS_BLOQUEANTES,
+                )
+                if self.instance and self.instance.pk:
+                    conflitos = conflitos.exclude(pk=self.instance.pk)
+
+                quartos_indisponiveis = conflitos.values_list('id_quarto_id', flat=True)
+                quartos_qs = quartos_qs.exclude(pk__in=list(quartos_indisponiveis))
+            except Exception:
+                # em caso de erro ao parsear datas, manter lista completa de quartos disponíveis
+                pass
+
+        self.fields['id_quarto'].queryset = quartos_qs

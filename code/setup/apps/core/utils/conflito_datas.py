@@ -12,8 +12,9 @@ def verifica_conflito_de_datas(quarto, data_inicio, data_fim, reserva_a_ignorar=
     conflitos = Reserva.objects.filter(
         id_quarto=quarto,
         data_reserva_inicio__lt=data_fim,
-        data_reserva_fim__gt=data_inicio
-    ).exclude(status__in=STATUS_DE_OCUPACAO)
+        data_reserva_fim__gt=data_inicio,
+        status__in=STATUS_DE_OCUPACAO,
+    )
 
     if reserva_a_ignorar:
         conflitos = conflitos.exclude(pk=reserva_a_ignorar.pk)

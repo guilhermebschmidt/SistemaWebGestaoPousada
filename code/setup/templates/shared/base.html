@@ -138,7 +138,7 @@
                             <ul>
                                 <li><a href="{% url 'financeiro:list_titulos' %}"><i class="fas fa-file-invoice-dollar mr-2"></i> Títulos</a></li>
                                 <li><a href="{% url 'financeiro:categoria_list' %}"><i class="fas fa-tags mr-2"></i> Adicionar Categorias</a></li>
-                            </ul>
+                             </ul>
                         </details>
                     </li>
                     <!---------------------RELATÓRIOS--------------------------------->
@@ -153,9 +153,10 @@
                             </summary>
                             <ul>
                                 <li>
-                                    <a href="{% url 'relatorios:ocupacao' %}">
-                                        Relatório de Ocupação
-                                    </a>
+                                    <a href="{% url 'relatorios:ocupacao' %}"><i class="fas fa-chart-line mr-2"></i>Relatório de Ocupação</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'financeiro:relatorio_faturamento' %}"><i class="fas fa-chart-line mr-2"></i> Relatório Faturamento</a>
                                 </li>
                             </ul>
                         </details>
