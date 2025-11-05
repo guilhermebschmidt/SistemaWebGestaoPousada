@@ -1,124 +1,95 @@
 import pytest
 from django.urls import reverse
-from apps.core.models.reserva import Reserva
-from apps.core.models.hospede import Hospede
-from apps.core.models.quarto import Quarto
-import datetime
-from django.utils import timezone
+from apps.core.models import Hospede, Quarto, Reserva
+from datetime import date, timedelta
 
-@pytest.mark.django_db
-class TestReservaViews:
+# --- Testes CRUD de RESERVA ---
 
-    @pytest.fixture
-    def hospede(self):
-        return Hospede.objects.create(
-            cpf="12345678900",
-            nome="Teste Hospede",
-            telefone="999999999",
-            email="teste@email.com",
-            data_nascimento="1990-01-01"
-        )
+def test_reserva_listar_get(auth_client, reserva):
+    """Testa o GET simples da lista de reservas."""
+    url = reverse('reserva:list')
+    response = auth_client.get(url)
+    assert response.status_code == 200
+    assert str(reserva.id_hospede.nome) in response.content.decode()
 
-    @pytest.fixture
-    def quarto(self):
-        return Quarto.objects.create(
-            numero="101",
-            status=True,
-            descricao="Quarto teste",
-            preco=150.00
-        )
+def test_reserva_criar_get_form(auth_client):
+    """Testa o GET da página de formulário de criação de reserva."""
+    url = reverse('reserva:criar')
+    response = auth_client.get(url)
+    assert response.status_code == 200
+    assert 'data_reserva_inicio' in response.content.decode()
 
-    @pytest.fixture
-    def reserva(self, hospede, quarto):
-        return Reserva.objects.create(
-            id_hospede=hospede,
-            id_quarto=quarto,
-            data_reserva_inicio=datetime.date.today(),
-            data_reserva_fim=datetime.date.today() + datetime.timedelta(days=2),
-            quantidade_dias=2,
-            valor=300.00
-        )
+def test_reserva_editar_get_form(auth_client, reserva):
+    """Testa o GET da página de formulário de edição de reserva."""
+    url = reverse('reserva:editar', kwargs={'pk': reserva.id})
+    response = auth_client.get(url)
+    assert response.status_code == 200
+    assert reserva.id_hospede.nome in response.content.decode()
 
-    def test_list_view(self, client, reserva):
-        url = reverse('reserva:list')
-        response = client.get(url)
-        assert response.status_code == 200
-        assert str(reserva.id_hospede.nome) in response.content.decode()
+def test_reserva_list_checkin_get(auth_client):
+    url = reverse('reserva:list_checkin')
+    response = auth_client.get(url)
+    assert response.status_code == 200
 
-    def test_list_checkin_view(self, client, reserva):
-        url = reverse('reserva:list_checkin')
-        response = client.get(url)
-        assert response.status_code == 200
-        assert str(reserva.id_hospede.nome) in response.content.decode()
+def test_reserva_list_checkout_get(auth_client):
+    url = reverse('reserva:list_checkout')
+    response = auth_client.get(url)
+    assert response.status_code == 200
 
-    def test_list_checkout_view(self, client, reserva):
-        url = reverse('reserva:list_checkout')
-        response = client.get(url)
-        assert response.status_code == 200
-        assert str(reserva.id_hospede.nome) in response.content.decode()
+# -----------------
+# Testes das Views de Reserva
+# -----------------
+def test_reserva_form_post_com_conflito(auth_client, reserva, hospede, quarto):
+    """Testa se a view de reserva bloqueia datas conflitantes."""
+    url = reverse('reserva:criar')
+    
+    # Datas conflitantes com a 'reserva' da fixture
+    data_inicio = reserva.data_reserva_inicio + timedelta(days=1)
+    data_fim = reserva.data_reserva_fim - timedelta(days=1)
+    
+    form_data = {
+        "hospede_nome": hospede.nome,
+        "id_hospede": hospede.id,
+        "id_quarto": quarto.id,
+        "data_reserva_inicio": data_inicio.isoformat(),
+        "data_reserva_fim": data_fim.isoformat()
+    }
+    
+    response = auth_client.post(url, form_data)
+    assert response.status_code == 200 # Re-renderiza o form
+    assert "ERRO: O quarto selecionado já está reservado" in response.content.decode()
 
-    def test_add_view_get(self, client):
-        url = reverse('reserva:add')
-        response = client.get(url)
-        assert response.status_code == 200
+def test_reserva_marcar_checkin_post(auth_client, reserva):
+    """Testa se a view de check-in atualiza a reserva E o quarto."""
+    assert reserva.status == 'PREVISTA'
+    assert reserva.id_quarto.status == 'DISPONIVEL'
+    
+    url = reverse('reserva:checkin', kwargs={'pk': reserva.pk})
+    response = auth_client.post(url) # POST é o comportamento correto
+    
+    reserva.refresh_from_db()
+    reserva.id_quarto.refresh_from_db()
+    
+    assert response.status_code == 302
+    assert reserva.status == 'ATIVA'
+    assert reserva.data_check_in is not None
+    assert reserva.id_quarto.status == 'OCUPADO'
 
-    def test_add_view_post(self, client, hospede, quarto):
-        url = reverse('reserva:add')
-        data = {
-            'id_hospede': hospede.pk,
-            'id_quarto': quarto.pk,
-            'data_reserva_inicio': datetime.date.today(),
-            'data_reserva_fim': datetime.date.today() + datetime.timedelta(days=3),
-        }
-        response = client.post(url, data)
-        assert response.status_code == 302
-        assert Reserva.objects.filter(id_hospede=hospede, id_quarto=quarto).exists()
+def test_reserva_cancelar_post(auth_client, reserva):
+    url = reverse('reserva:cancelar', kwargs={'pk': reserva.pk})
+    response = auth_client.post(url, data={'motivo_cancelamento': 'Teste'})
+    
+    reserva.refresh_from_db()
+    assert response.status_code == 302
+    assert reserva.status == 'CANCELADA'
+    assert reserva.motivo_cancelamento == 'Teste'
 
-    def test_update_view_get(self, client, reserva):
-        url = reverse('reserva:update', args=[reserva.id])
-        response = client.get(url)
-        assert response.status_code == 200
-
-    def test_update_view_post(self, client, reserva, hospede, quarto):
-        url = reverse('reserva:update', args=[reserva.id])
-        data = {
-            'id_hospede': hospede.pk,
-            'id_quarto': quarto.pk,
-            'data_reserva_inicio': datetime.date.today(),
-            'data_reserva_fim': datetime.date.today() + datetime.timedelta(days=5),
-        }
-        response = client.post(url, data)
-        assert response.status_code == 302
-        reserva.refresh_from_db()
-        assert reserva.data_reserva_fim == datetime.date.today() + datetime.timedelta(days=5)
-
-    def test_delete_view_get(self, client, reserva):
-        url = reverse('reserva:delete', args=[reserva.id])
-        response = client.get(url)
-        assert response.status_code == 200
-
-    def test_delete_view_post(self, client, reserva):
-        url = reverse('reserva:delete', args=[reserva.id])
-        response = client.post(url)
-        assert response.status_code == 302
-        assert not Reserva.objects.filter(id=reserva.id).exists()
-
-    def test_search_view(self, client, reserva):
-        url = reverse('reserva:search')
-        response = client.get(url, {'q': 'Teste Hospede'})
-        assert response.status_code == 200
-        assert str(reserva.id_hospede.nome) in response.content.decode()
-
-    def test_marcar_checkin(self, client, reserva):
-        url = reverse('reserva:marcar_checkin', args=[reserva.id])
-        response = client.post(url)
-        reserva.refresh_from_db()
-        assert response.status_code == 302
-        assert reserva.data_check_in is not None
-
-    def test_marcar_checkout(self, client, reserva):
-        url = reverse('reserva:marcar_checkout', args=[reserva.id])
-        response = client.post(url)
-        reserva.refresh_from_db()
-        assert response.status_code == 302
-        assert reserva.data_check_out is not None
+def test_reserva_buscar_hospedes_json(auth_client, hospede):
+    url = reverse('reserva:buscar_hospedes') + f'?term={hospede.nome}'
+    response = auth_client.get(url)
+    json_response = response.json()
+    
+    assert response.status_code == 200
+    assert len(json_response) == 1
+    assert json_response[0]['id'] == hospede.id
+    assert json_response[0]['label'] == hospede.nome

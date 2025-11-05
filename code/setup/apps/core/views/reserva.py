@@ -53,6 +53,11 @@ def reserva_form(request, pk=None):
             form.save()
             messages.success(request, success_message)
             return redirect('reserva:list')
+        else:
+            # Propagar erros não-field para o sistema de mensagens para
+            # que templates que exibem mensagens possam mostrá-los aos testes.
+            for err in form.non_field_errors():
+                messages.error(request, str(err))
         
     else:
         # Se vierem parâmetros via GET (datas), repassa-los como initial para o form

@@ -52,6 +52,13 @@ class QuartoForm(forms.ModelForm):
             'preco': {'required': 'Este campo é obrigatório.'},
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Tornar descricao obrigatório no formulário para corresponder aos testes
+        # que esperam erro quando está vazio.
+        if 'descricao' in self.fields:
+            self.fields['descricao'].required = True
+
 
 class QuartoStatusForm(forms.ModelForm):
     class Meta:

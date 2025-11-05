@@ -1,80 +1,61 @@
 import pytest
-import datetime
-from apps.core.models.hospede import Hospede
-from apps.core.models.quarto import Quarto
-from apps.core.models.reserva import Reserva
+from datetime import date, timedelta
+from django.core.exceptions import ValidationError
+from apps.core.models import Hospede, Reserva
+from apps.financeiro.models import Titulo
+
+
+def test_reserva_str(reserva):
+    assert str(reserva).startswith(f"Reserva #{reserva.id}")
+
+def test_reserva_save_calcula_valores(reserva, quarto):
+    """Testa se o .save() calcula dias e valor total corretamente."""
+    assert reserva.quantidade_dias == 3
+    assert reserva.valor == 600.00 # 3 dias * R$ 200.00 (do quarto)
 
 @pytest.mark.django_db
-def test_create_reserva():
-    """Testa a criação de uma reserva com hospede e quarto"""
-    hospede = Hospede.objects.create(
-        cpf="12345678900",
-        nome="João Silva",
-        telefone="11999999999",
-        email="joao@example.com",
-        data_nascimento=datetime.date(1990, 1, 1)
-    )
-    quarto = Quarto.objects.create(
-        numero="101",
-        status=True,
-        descricao="Quarto deluxe",
-        preco=250.00
-    )
+def test_reserva_save_cria_titulos_financeiros(reserva, hospede, quarto):
+    """
+    TESTE DE INTEGRAÇÃO CRÍTICO:
+    Verifica se salvar uma *nova* reserva cria os 2 títulos financeiros.
+    """
+    # A fixture 'reserva' já chamou o .save()
+    assert Titulo.objects.filter(reserva=reserva).count() == 2
 
-    reserva = Reserva.objects.create(
-        id_hospede=hospede,
-        id_quarto=quarto,
-        data_reserva_inicio=datetime.date.today() + datetime.timedelta(days=1),
-        data_reserva_fim=datetime.date.today() + datetime.timedelta(days=3),
-        quantidade_dias=2,
-        valor=500.00
-    )
+    sinal = Titulo.objects.get(reserva=reserva, descricao__startswith='Sinal')
+    restante = Titulo.objects.get(reserva=reserva, descricao__startswith='Pagamento Restante')
 
-    saved_reserva = Reserva.objects.get(id=reserva.id)
-    assert saved_reserva.id_hospede == hospede
-    assert saved_reserva.id_quarto == quarto
-    assert saved_reserva.quantidade_dias == 2
-    assert saved_reserva.valor == 500.00
+    # Testa o Título 1 (Sinal de 50%)
+    assert sinal.valor == 300.00 # 50% de 600
+    assert sinal.data_pagamento is not None # Sinal é "pago" na hora
+
+    # Testa o Título 2 (Restante)
+    assert restante.valor == 300.00 # 50% de 600
+    assert restante.data_pagamento is None # Restante fica em aberto
+    assert restante.data_vencimento == reserva.data_reserva_inicio
 
 @pytest.mark.django_db
-def test_reserva_str_method():
-    """Testa o método __str__ do model Reserva"""
-    hospede = Hospede.objects.create(
-        cpf="98765432100",
-        nome="Maria Souza",
-        telefone="11988888888",
-        email="maria@example.com",
-        data_nascimento=datetime.date(1992, 5, 20)
-    )
-    quarto = Quarto.objects.create(
-        numero="102",
-        status=True,
-        descricao="Quarto standard",
-        preco=150.00
-    )
-    reserva = Reserva.objects.create(
-        id_hospede=hospede,
-        id_quarto=quarto
-    )
-    expected_str = f"Reserva #{reserva.id} - Hóspede {hospede} - Quarto {quarto}"
-    assert str(reserva) == expected_str
+def test_reserva_save_atualiza_titulos_financeiros(reserva, quarto):
+    """
+    TESTE DE INTEGRAÇÃO CRITICO:
+    Verifica se atualizar uma reserva (datas ou quarto) atualiza os tttulos.
+    """
+    # Cenario: A reserva ja existe e o sinal (R$ 300) NÃO foi pago
+    sinal = Titulo.objects.get(reserva=reserva, descricao__startswith='Sinal')
+    restante = Titulo.objects.get(reserva=reserva, descricao__startswith='Pagamento Restante')
+    
+    # Simula que o sinal ainda não foi pago (para permitir alteração)
+    sinal.data_pagamento = None
+    sinal.save()
 
-@pytest.mark.django_db
-def test_reserva_fields_properties():
-    """Verifica propriedades dos campos do model Reserva"""
-    field_quantidade_dias = Reserva._meta.get_field('quantidade_dias')
-    field_valor = Reserva._meta.get_field('valor')
-    field_data_inicio = Reserva._meta.get_field('data_reserva_inicio')
-    field_data_fim = Reserva._meta.get_field('data_reserva_fim')
+    # Ação: Mudar a reserva de 3 para 5 dias
+    reserva.data_reserva_fim = reserva.data_reserva_fim + timedelta(days=2)
+    reserva.save() # Deve recalcular (R$ 1000) e atualizar os títulos
+    
+    sinal.refresh_from_db()
+    restante.refresh_from_db()
 
-    assert field_quantidade_dias.default == 0
-    assert field_valor.max_digits == 10
-    assert field_valor.decimal_places == 2
-    assert field_valor.default == 0.00
-    assert field_data_inicio.null is True
-    assert field_data_fim.null is True
-
-@pytest.mark.django_db
-def test_reserva_db_table():
-    """Verifica se o db_table está correto"""
-    assert Reserva._meta.db_table == "reserva"
+    # Verificação:
+    assert reserva.valor == 1000.00 # 5 dias * R$ 200.00
+    assert sinal.valor == 500.00 # 50% de 1000
+    assert restante.valor == 500.00 # 50% de 1000

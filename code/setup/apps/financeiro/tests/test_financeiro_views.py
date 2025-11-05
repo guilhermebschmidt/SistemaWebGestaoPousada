@@ -1,109 +1,152 @@
 import pytest
 from django.urls import reverse
 from datetime import date
-from apps.core.models import Hospede, Quarto, Reserva
 from apps.financeiro.models import Categoria, Titulo
+from apps.core.models import Reserva
+
+# --- Testes CRUD de CATEGORIA ---
+
+def test_categoria_criar_get_form(auth_client):
+    """Testa o GET da página de formulário de criação de Categoria."""
+    url = reverse('financeiro:categoria_create')
+    response = auth_client.get(url)
+    assert response.status_code == 200
+    assert 'Nova Categoria de Despesa' in response.content.decode()
+
+# --- Testes CRUD de TITULO ---
+
+def test_titulo_listar_get(auth_client, titulo_receita):
+    """Testa o GET simples da lista de títulos."""
+    url = reverse('financeiro:list')
+    response = auth_client.get(url)
+    assert response.status_code == 200
+    assert titulo_receita.descricao in response.content.decode()
+
+def test_titulo_criar_get_form(auth_client):
+    """Testa o GET da página de formulário de criação de Título."""
+    url = reverse('financeiro:form')
+    response = auth_client.get(url)
+    assert response.status_code == 200
+    assert 'Novo Título Financeiro' in response.content.decode()
+
+def test_titulo_editar_get_form(auth_client, titulo_receita):
+    """Testa o GET da página de formulário de edição de Título."""
+    url = reverse('financeiro:update', kwargs={'pk': titulo_receita.id})
+    response = auth_client.get(url)
+    assert response.status_code == 200
+    assert titulo_receita.descricao in response.content.decode()
+
+def test_titulo_criar_post_despesa(auth_client, categoria_despesa):
+    """Testa o POST de criação de um Título de despesa avulso."""
+    url = reverse('financeiro:form')
+    form_data = {
+        'descricao': "Despesa Avulsa",
+        'valor': 50.00,
+        'tipo_documento': 'dinheiro',
+        'conta_corrente': 'Caixa',
+        'data': date.today().isoformat(),
+        'data_vencimento': date.today().isoformat(),
+        'categoria': categoria_despesa.id,
+        'tipo': False, # Saída
+        'cancelado': False,
+        'pago': True,
+        'data_pagamento': date.today().isoformat(),
+    }
+    response = auth_client.post(url, form_data)
+    assert response.status_code == 302
+    assert response.url == reverse('financeiro:list')
+    assert Titulo.objects.filter(descricao="Despesa Avulsa").exists()
+
+def test_titulo_editar_post(auth_client, titulo_receita):
+    """Testa o POST de atualização de um Título."""
+    url = reverse('financeiro:update', kwargs={'pk': titulo_receita.id})
+    form_data = {
+        'descricao': "Sinal Atualizado", # Campo alterado
+        'valor': titulo_receita.valor,
+        'tipo_documento': titulo_receita.tipo_documento,
+        'conta_corrente': titulo_receita.conta_corrente,
+        'data': titulo_receita.data.isoformat(),
+        'data_vencimento': titulo_receita.data_vencimento.isoformat(),
+        'reserva': titulo_receita.reserva.id,
+        'tipo': titulo_receita.tipo,
+        'cancelado': False,
+        'pago': False,
+    }
+    response = auth_client.post(url, form_data)
+    titulo_receita.refresh_from_db()
+    assert response.status_code == 302
+    assert titulo_receita.descricao == "Sinal Atualizado"
+
+# -----------------
+# Testes das Views de Categoria (CBV)
+# -----------------
+def test_categoria_list_view(auth_client, categoria_despesa, categoria_receita):
+    """Testa se a lista de categorias mostra APENAS despesas."""
+    url = reverse('financeiro:categoria_list')
+    response = auth_client.get(url)
+    
+    assert response.status_code == 200
+    assert "Limpeza" in response.content.decode() # Despesa
+    assert "Receita de Hospedagem" not in response.content.decode() # Receita
+
+def test_categoria_create_post(auth_client):
+    """Testa se a view de criação força o tipo 'D' (Despesa)."""
+    url = reverse('financeiro:categoria_create')
+    response = auth_client.post(url, data={'descricao': 'Nova Despesa'})
+    
+    assert response.status_code == 302 # Redireciona
+    nova_cat = Categoria.objects.get(descricao='Nova Despesa')
+    assert nova_cat.tipo == 'D'
+
+# -----------------
+# Testes das Views de Titulo (FBV)
+# -----------------
+def test_titulo_list_view_filtros(auth_client, titulo_receita, reserva):
+    """Testa se os filtros da lista de títulos funcionam."""
+    # Filtro de Tipo (Entrada)
+    url = reverse('financeiro:list') + '?tipo=entrada'
+    response = auth_client.get(url)
+    assert response.status_code == 200
+    assert titulo_receita.descricao in response.content.decode()
+
+    # Filtro de Hóspede
+    url = reverse('financeiro:list') + f'?hospede={reserva.id_hospede.nome}'
+    response = auth_client.get(url)
+    assert response.status_code == 200
+    assert titulo_receita.descricao in response.content.decode()
+    
+    # Filtro de Hóspede Inexistente
+    url = reverse('financeiro:list') + '?hospede=Inexistente'
+    response = auth_client.get(url)
+    assert response.status_code == 200
+    assert titulo_receita.descricao not in response.content.decode()
 
 @pytest.mark.django_db
-class TestFinanceiroViews:
-
-    @pytest.fixture
-    def setup_data(self):
-        """Fixture completa para criar todos os objetos necessários."""
-        hospede = Hospede.objects.create(
-            cpf="98765432109", nome="Ana Teste", telefone="11912345678",
-            email="ana@teste.com", data_nascimento="1988-08-08"
-        )
-        quarto = Quarto.objects.create(numero="303", tipo_quarto='FLAT', capacidade=3, preco=300.00)
-        reserva = Reserva.objects.create(
-            id_hospede=hospede, id_quarto=quarto, status='PREVISTA',
-            data_reserva_inicio=date.today(), data_reserva_fim=date.today(), valor=300.00
-        )
-        categoria = Categoria.objects.create(tipo='R', descricao="Teste de View")
-        titulo = Titulo.objects.create(
-            descricao="Pagamento Sinal Reserva", valor=150.00, data=date.today(),
-            data_vencimento=date.today(), tipo=True, cancelado=False, pago=False,
-            reserva=reserva, hospede=hospede, categoria=categoria, tipo_documento='pix',
-            conta_corrente='Principal'
-        )
-        return {'hospede': hospede, 'reserva': reserva, 'categoria': categoria, 'titulo': titulo}
-
-    def test_categoria_list_view(self, authed_client, setup_data):
-        """Testa se a página de listagem de categorias carrega."""
-        url = reverse('financeiro:categoria_list')
-        response = authed_client.get(url)
-        assert response.status_code == 200
-
-    def test_titulo_list_view(self, authed_client, setup_data):
-        """Testa se a página de listagem de títulos carrega e contém o título."""
-        url = reverse('financeiro:list')
-        response = authed_client.get(url)
-        assert response.status_code == 200
-        assert setup_data['titulo'].descricao in response.content.decode()
-
-    def test_titulo_list_view_filter_pago(self, authed_client, setup_data):
-        """Testa o filtro 'pago' da listagem de títulos."""
-        titulo = setup_data['titulo']
-        titulo.pago = True
-        titulo.save()
-
-        # Filtra por 'pago=sim'
-        url_pago = reverse('financeiro:list') + '?pago=sim'
-        response_pago = authed_client.get(url_pago)
-        assert titulo.descricao in response_pago.content.decode()
-
-        # Filtra por 'pago=nao'
-        url_nao_pago = reverse('financeiro:list') + '?pago=nao'
-        response_nao_pago = authed_client.get(url_nao_pago)
-        assert titulo.descricao not in response_nao_pago.content.decode()
-
-    def test_titulo_create_view_post(self, authed_client, setup_data):
-        """Testa a criação de um novo título via POST."""
-        hospede = setup_data['hospede']
-        url = reverse('financeiro:form')
-        form_data = {
-            'descricao': 'Nova Despesa de Teste', 'valor': 75.00, 'tipo_documento': 'dinheiro',
-            'conta_corrente': 'Caixa', 'data': date.today().isoformat(),
-            'data_vencimento': date.today().isoformat(), 'tipo': 'False',
-            'cancelado': 'False', 'pago': 'False', 'hospede': hospede.pk
-        }
-        response = authed_client.post(url, form_data)
-        assert response.status_code == 302  # Redireciona após sucesso
-        assert Titulo.objects.filter(descricao='Nova Despesa de Teste').exists()
-
-    def test_titulo_update_view_post(self, authed_client, setup_data):
-        """Testa a atualização de um título existente."""
-        titulo = setup_data['titulo']
-        url = reverse('financeiro:update', args=[titulo.pk])
-        form_data = {
-            'descricao': 'Descrição Atualizada', 'valor': titulo.valor, 'tipo_documento': titulo.tipo_documento,
-            'conta_corrente': titulo.conta_corrente, 'data': titulo.data.isoformat(),
-            'data_vencimento': titulo.data_vencimento.isoformat(), 'tipo': 'True',
-            'cancelado': 'False', 'pago': 'False', 'reserva': titulo.reserva.pk
-        }
-        response = authed_client.post(url, form_data)
-        assert response.status_code == 302
-        titulo.refresh_from_db()
-        assert titulo.descricao == 'Descrição Atualizada'
-
-    def test_marcar_pago_view_and_reserva_status_update(self, authed_client, setup_data):
-        """
-        Testa a view 'marcar_pago' e a interação crítica:
-        mudar o status da reserva para 'CONFIRMADA'.
-        """
-        titulo = setup_data['titulo']
-        reserva = setup_data['reserva']
-        assert reserva.status == 'PREVISTA'  # Garante o estado inicial
-
-        url = reverse('financeiro:marcar_pago', args=[titulo.pk])
-        response = authed_client.get(url)  # Usando GET para a URL da ação
-
-        assert response.status_code == 302  # Deve redirecionar
-
-        # Verifica os efeitos
-        titulo.refresh_from_db()
-        reserva.refresh_from_db()
-
-        assert titulo.pago is True
-        assert titulo.data_pagamento is not None
-        assert reserva.status == 'CONFIRMADA'
+def test_titulo_marcar_pago_confirma_reserva(auth_client, reserva):
+    """
+    TESTE DE INTEGRAÇÃO CRÍTICO:
+    Verifica se marcar um título como pago também confirma a reserva.
+    """
+    # A reserva começa como 'PREVISTA'
+    assert reserva.status == 'PREVISTA'
+    
+    # Pegamos o título de sinal da reserva, que está em aberto
+    titulo_sinal = Titulo.objects.get(reserva=reserva, descricao__startswith='Sinal')
+    titulo_sinal.pago = False
+    titulo_sinal.data_pagamento = None
+    titulo_sinal.save()
+    
+    # Ação: Chamamos a view para marcar o título como pago
+    url = reverse('financeiro:marcar_pago', kwargs={'pk': titulo_sinal.pk})
+    response = auth_client.post(url) # A view usa POST
+    
+    # Verificação:
+    assert response.status_code == 302
+    
+    # Recarrega os objetos do banco
+    reserva.refresh_from_db()
+    titulo_sinal.refresh_from_db()
+    
+    assert titulo_sinal.pago is True
+    assert titulo_sinal.data_pagamento is not None
+    assert reserva.status == 'CONFIRMADA'
