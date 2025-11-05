@@ -27,6 +27,7 @@ def form_quarto(request, pk=None):
         form = QuartoForm(request.POST, instance=quarto)
         if form.is_valid():
             form.save()
+            messages.success(request, 'Quarto salvo com sucesso.')
             return redirect('quarto:listar')
     else:
         form = QuartoForm(instance=quarto)

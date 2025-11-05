@@ -45,32 +45,36 @@ def setup_reserva(db):
     categoria = Categoria.objects.create(tipo='R', descricao="Teste")
     return hospede, reserva, categoria
 
-    def test_titulo_creation_with_reserva(self, setup_reserva):
-        """Testa a criação de um Titulo associado a uma Reserva."""
-        hospede, reserva, categoria = setup_reserva
-        titulo = Titulo.objects.create(
-            descricao="Pagamento da Reserva #1", valor=250.00, data=date.today(),
-            data_vencimento=date.today(), tipo=True, cancelado=False, pago=False,
-            reserva=reserva, hospede=hospede, categoria=categoria, tipo_documento='pix',
-            conta_corrente='Principal'
-        )
-        assert Titulo.objects.count() == 1
-        assert titulo.reserva == reserva
-        assert titulo.hospede == hospede
-        assert titulo.categoria == categoria
+
+@pytest.mark.django_db
+def test_titulo_creation_with_reserva(setup_reserva):
+    """Testa a criação de um Titulo associado a uma Reserva."""
+    hospede, reserva, categoria = setup_reserva
+    titulo = Titulo.objects.create(
+        descricao="Pagamento da Reserva #1", valor=250.00, data=date.today(),
+        data_vencimento=date.today(), tipo=True, cancelado=False, pago=False,
+        reserva=reserva, hospede=hospede, categoria=categoria, tipo_documento='pix',
+        conta_corrente='Principal'
+    )
+    assert Titulo.objects.count() == 1
+    assert titulo.reserva == reserva
+    assert titulo.hospede == hospede
+    assert titulo.categoria == categoria
     # Formata dinamicamente para evitar discrepâncias de representação decimal
     assert str(titulo) == f"Pagamento da Reserva #1 - {titulo.valor:.2f}"
 
-    def test_titulo_tipo_display_method(self, setup_reserva):
-        """Testa o método tipo_display do modelo Titulo."""
-        hospede, reserva, categoria = setup_reserva
-        titulo_entrada = Titulo.objects.create(
-            descricao="Entrada", valor=100.00, data=date.today(), data_vencimento=date.today(),
-            tipo=True, cancelado=False, pago=False, tipo_documento='pix', conta_corrente='Principal'
-        )
-        titulo_saida = Titulo.objects.create(
-            descricao="Saída", valor=50.00, data=date.today(), data_vencimento=date.today(),
-            tipo=False, cancelado=False, pago=False, tipo_documento='pix', conta_corrente='Principal'
-        )
-        assert titulo_entrada.tipo_display() == "Entrada"
-        assert titulo_saida.tipo_display() == "Saída"
+
+@pytest.mark.django_db
+def test_titulo_tipo_display_method(setup_reserva):
+    """Testa o método tipo_display do modelo Titulo."""
+    hospede, reserva, categoria = setup_reserva
+    titulo_entrada = Titulo.objects.create(
+        descricao="Entrada", valor=100.00, data=date.today(), data_vencimento=date.today(),
+        tipo=True, cancelado=False, pago=False, tipo_documento='pix', conta_corrente='Principal'
+    )
+    titulo_saida = Titulo.objects.create(
+        descricao="Saída", valor=50.00, data=date.today(), data_vencimento=date.today(),
+        tipo=False, cancelado=False, pago=False, tipo_documento='pix', conta_corrente='Principal'
+    )
+    assert titulo_entrada.tipo_display() == "Entrada"
+    assert titulo_saida.tipo_display() == "Saída"

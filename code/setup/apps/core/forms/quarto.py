@@ -27,7 +27,7 @@ class QuartoForm(forms.ModelForm):
             }),
             'preco': forms.NumberInput(attrs={
                 'class': 'input input-bordered w-full',
-                'step': '0.00',
+                'step': '0.01',
                 'placeholder': 'Insira o preço do quarto'
             }),
         }
@@ -42,7 +42,7 @@ class QuartoForm(forms.ModelForm):
             'numero': 'Insira o número do quarto',
             'capacidade': 'Insira a capacidade máxima do quarto',
             'tipo_quarto': 'Insira o tipo do quarto',
-            'descricao': 'Insira uma descrição ara o quarto',
+            'descricao': 'Insira uma descrição para o quarto',
             'preco': '0.00',
         }
         error_messages = {

@@ -7,7 +7,8 @@ def verifica_conflito_de_datas(quarto, data_inicio, data_fim, reserva_a_ignorar=
         Função reutilizável: verifica se há conflito de datas para a reserva de um quarto e
         retorna a reserva conflitante se encontrar uma, ou None se estiver livre.
     """
-    STATUS_DE_OCUPACAO = ['CONFIRMADA', 'ATIVA', 'CONCLUÍDA']
+    # status que representam reservas que ocupam o quarto e devem bloquear novas reservas
+    STATUS_DE_OCUPACAO = ['CONFIRMADA', 'ATIVA', 'CONCLUIDA']
 
     conflitos = Reserva.objects.filter(
         id_quarto=quarto,
