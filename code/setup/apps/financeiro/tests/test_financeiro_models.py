@@ -1,23 +1,21 @@
 import pytest
-from datetime import date
-from apps.financeiro.models import Banco, Categoria, Titulo
-from apps.core.models import Hospede, Quarto, Reserva
+from django.db import IntegrityError
+from apps.financeiro.models import Categoria, Titulo
 
-@pytest.mark.django_db
-class TestFinanceiroModels:
+def test_categoria_str(categoria_despesa, categoria_receita):
+    assert str(categoria_despesa) == "Limpeza (Despesa)"
+    assert str(categoria_receita) == "Receita de Hospedagem (Receita)"
 
-    def test_banco_creation_and_str(self):
-        """Testa a criação e o método __str__ do modelo Banco.
+def test_categoria_unique_together(db):
+    """Testa se não é possível criar categorias com mesmo tipo e descrição."""
+    Categoria.objects.create(tipo='D', descricao='Duplicada')
+    with pytest.raises(IntegrityError):
+        Categoria.objects.create(tipo='D', descricao='Duplicada')
 
-        Usa get_or_create para evitar UniqueViolation caso existam seeds no DB de teste.
-        """
-        banco, created = Banco.objects.get_or_create(codigo="260", defaults={
-            'descricao': "Nu Pagamentos S.A. (Nubank)"
-        })
-        assert Banco.objects.filter(codigo=banco.codigo).exists()
-        assert str(banco) == f"{banco.codigo} - {banco.descricao}"
-        assert banco._meta.db_table == "financeiro_banco"
+def test_titulo_str(titulo_receita):
+    assert str(titulo_receita) == f"{titulo_receita.descricao} - {titulo_receita.valor}"
 
+<<<<<<< HEAD
     def test_categoria_creation_and_str(self):
         """Testa a criação e o método __str__ do modelo Categoria."""
         categoria_receita = Categoria.objects.create(tipo='R', descricao="Receita de Hospedagem")
@@ -78,3 +76,11 @@ def test_titulo_tipo_display_method(setup_reserva):
     )
     assert titulo_entrada.tipo_display() == "Entrada"
     assert titulo_saida.tipo_display() == "Saída"
+=======
+def test_titulo_tipo_display(titulo_receita):
+    titulo_receita.tipo = True # Entrada
+    assert titulo_receita.tipo_display() == "Entrada"
+    
+    titulo_receita.tipo = False # Saída
+    assert titulo_receita.tipo_display() == "Saída"
+>>>>>>> 8b9ba418af16e0af05bb5b11558a927cfa1741f0

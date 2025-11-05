@@ -100,4 +100,13 @@ def marcar_pago(request, pk):
     titulo.pago = True
     titulo.data_pagamento = timezone.now().date()
     titulo.save()
+    # Se o título pertence a uma reserva e é o sinal, confirmar a reserva
+    try:
+        reserva = titulo.reserva
+        if reserva and reserva.status == 'PREVISTA' and str(titulo.descricao).lower().startswith('sinal'):
+            reserva.status = 'CONFIRMADA'
+            reserva.save()
+    except Exception:
+        pass
+
     return redirect('financeiro:list_titulos')

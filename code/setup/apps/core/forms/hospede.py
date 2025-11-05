@@ -7,8 +7,8 @@ class HospedeForm(forms.ModelForm):
 
     cpf = forms.CharField(
         label='CPF',
-        max_length=14, 
-        required=False, 
+        max_length=14,
+        required=True,
         widget=forms.TextInput(attrs={
             'class': 'input input-bordered w-full', 
             'placeholder': '000.000.000-00',
@@ -104,9 +104,10 @@ class HospedeForm(forms.ModelForm):
         }
         error_messages = {
             'nome': {'required': 'Este campo é obrigatório.'},
+            'cpf': {'required': 'Este campo é obrigatório.'},
             'data_nascimento': {'required': 'Este campo é obrigatório.'},
             'telefone': {'required': 'Este campo é obrigatório.'},
-            'email': {'required': 'Este campo é obrigatório.'},
+            'email': {'required': 'Este campo é obrigatório.', 'invalid': 'Insira um email válido.'},
             'rua': {'required': 'Este campo é obrigatório.'},
             'numero': {'required': 'Este campo é obrigatório.'},
             'bairro': {'required': 'Este campo é obrigatório.'},
@@ -116,7 +117,10 @@ class HospedeForm(forms.ModelForm):
 
    
     def clean_email(self):
-        email = self.cleaned_data.get('email', '')
+        email = self.cleaned_data.get('email')
+        if not email:
+            return email
+        # basic sanity check; EmailField will also validate and raise its own message
         if '@' not in email or '.' not in email:
             raise forms.ValidationError("Insira um email válido.")
         return email
@@ -124,6 +128,8 @@ class HospedeForm(forms.ModelForm):
     def clean_data_nascimento(self):
         data_nascimento = self.cleaned_data.get('data_nascimento')
         hoje = datetime.date.today()
+        if not data_nascimento:
+            return data_nascimento
 
         if data_nascimento > hoje:
             raise forms.ValidationError("A data de nascimento não pode ser futura.")
@@ -143,17 +149,18 @@ class HospedeForm(forms.ModelForm):
     def clean_cpf(self):
         cpf_digitado = self.cleaned_data.get('cpf', '')
 
-        if not cpf_digitado: 
-            return None 
+        if not cpf_digitado:
+            return None
+
+        # Se contiver letras (ex.: '123ABC456'), considerar inválido.
+        if re.search(r'[A-Za-z]', cpf_digitado):
+            raise forms.ValidationError("O CPF deve conter apenas números.")
 
         cpf_limpo = re.sub(r'\D', '', cpf_digitado)
-        
-        if not cpf_limpo.isdigit():
-            raise forms.ValidationError("O CPF deve conter apenas números.")
-        
+
         if len(cpf_limpo) != 11:
             raise forms.ValidationError("O CPF deve conter exatamente 11 dígitos.")
-            
+
         return cpf_limpo
 
     def clean_passaporte(self):
@@ -165,6 +172,18 @@ class HospedeForm(forms.ModelForm):
         passaporte_limpo = passaporte_digitado.strip().upper()
         
         return passaporte_limpo 
+
+    def clean_telefone(self):
+        telefone = self.cleaned_data.get('telefone')
+        if not telefone:
+            return telefone
+
+        # rejeita entradas que contenham letras
+        if re.search(r'[A-Za-z]', telefone):
+            raise forms.ValidationError("O telefone deve conter apenas números.")
+
+        telefone_limpo = re.sub(r'\D', '', telefone)
+        return telefone_limpo
 
 
     def clean (self):

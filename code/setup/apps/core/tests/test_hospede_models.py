@@ -1,6 +1,8 @@
 import pytest
-from apps.core.models.hospede import Hospede
-import datetime
+from datetime import date, timedelta
+from django.core.exceptions import ValidationError
+from apps.core.models import Hospede, Reserva
+from apps.financeiro.models import Titulo
 
 @pytest.mark.django_db
 def test_create_hospede():
@@ -10,7 +12,7 @@ def test_create_hospede():
         nome="João Silva",
         telefone="999999999",
         email="joao@email.com",
-        data_nascimento=datetime.date(1990, 1, 1)
+        data_nascimento=date(1990, 1, 1)
     )
 
     # Verifica se foi salvo no banco
@@ -18,7 +20,7 @@ def test_create_hospede():
     assert saved_hospede.nome == "João Silva"
     assert saved_hospede.telefone == "999999999"
     assert saved_hospede.email == "joao@email.com"
-    assert saved_hospede.data_nascimento == datetime.date(1990, 1, 1)
+    assert saved_hospede.data_nascimento == date(1990, 1, 1)
 
 @pytest.mark.django_db
 def test_hospede_str_method():
@@ -28,7 +30,7 @@ def test_hospede_str_method():
         nome="Maria Souza",
         telefone="888888888",
         email="maria@email.com",
-        data_nascimento=datetime.date(1992, 5, 15)
+        data_nascimento=date(1992, 5, 15)
     )
     assert str(hospede) == "Maria Souza"
 
@@ -41,11 +43,24 @@ def test_hospede_fields_max_length():
     field_email = Hospede._meta.get_field('email')
 
     assert field_nome.max_length == 100
-    assert field_cpf.max_length == 100
-    assert field_telefone.max_length == 100
+    assert field_cpf.max_length == 11
+    assert field_telefone.max_length == 15
     assert field_email.max_length == 100
 
 @pytest.mark.django_db
 def test_hospede_db_table():
     """Verifica se o db_table está correto"""
     assert Hospede._meta.db_table == "hospede"
+
+def test_hospede_save_limpa_cpf(db):
+    """Testa se o método save() do Hospede limpa a formatação do CPF."""
+    hospede = Hospede.objects.create(
+        cpf="123.456.789-00",
+        nome="Hóspede com CPF formatado",
+        telefone="11999998888",
+        email="hospede.cpf@email.com",
+        data_nascimento=date(1990, 1, 1),
+        rua="Rua", numero="1", bairro="Bairro", cidade="Cidade", cep="12345"
+    )
+    hospede.refresh_from_db()
+    assert hospede.cpf == "12345678900"

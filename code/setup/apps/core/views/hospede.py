@@ -9,9 +9,16 @@ def listar(request):
     hospedes = Hospede.objects.all()
     return render(request, 'core/hospede/listar.html', {'hospedes': hospedes})
 
-def hospede_form(request, pk=None): 
-    if pk:
-        hospede = get_object_or_404(Hospede, pk=pk)
+def hospede_form(request, pk=None, cpf=None):
+    # aceitar tanto 'pk' quanto 'cpf' como identificador na URL
+    hospede = None
+    identifier = pk or cpf
+    if identifier:
+        # tentar buscar por pk (id) primeiro, senão por cpf
+        try:
+            hospede = get_object_or_404(Hospede, pk=identifier)
+        except Exception:
+            hospede = get_object_or_404(Hospede, cpf=identifier)
         success_message = "Hóspede atualizado com sucesso!"
     else:
         hospede = None
@@ -35,8 +42,18 @@ def hospede_form(request, pk=None):
     }
     return render(request, 'core/hospede/form.html', context)
 
-def excluir(request, pk):
-    hospede = get_object_or_404(Hospede, pk=pk)
+def excluir(request, pk=None, cpf=None):
+    # aceitar 'pk' ou 'cpf'
+    identifier = pk or cpf
+    if identifier:
+        try:
+            hospede = get_object_or_404(Hospede, pk=identifier)
+        except Exception:
+            hospede = get_object_or_404(Hospede, cpf=identifier)
+    else:
+        # sem identificador, redireciona para lista
+        return redirect('/hospedes/')
+
     reservas_ativas = hospede.reserva_set.exclude(status='Cancelada')
     
     if reservas_ativas.exists():
@@ -59,12 +76,26 @@ def buscar(request):
 
     return render(request, 'core/hospede/listar.html', {'hospedes': hospedes})
 
-def detalhes(request, pk):
-    hospede = get_object_or_404(Hospede, pk=pk)
+def detalhes(request, pk=None, cpf=None):
+    identifier = pk or cpf
+    if identifier:
+        try:
+            hospede = get_object_or_404(Hospede, pk=identifier)
+        except Exception:
+            hospede = get_object_or_404(Hospede, cpf=identifier)
+    else:
+        return redirect('/hospedes/')
     return render(request, 'core/hospede/detalhes.html', {'hospede': hospede})
 
-def historico_hospede(request, pk):
-    hospede = get_object_or_404(Hospede, pk=pk)
+def historico_hospede(request, pk=None, cpf=None):
+    identifier = pk or cpf
+    if identifier:
+        try:
+            hospede = get_object_or_404(Hospede, pk=identifier)
+        except Exception:
+            hospede = get_object_or_404(Hospede, cpf=identifier)
+    else:
+        return redirect('/hospedes/')
     reservas = Reserva.objects.filter(id_hospede=hospede).order_by('-data_reserva_inicio')
     return render(request, 'core/hospede/historico.html', {
         'hospede': hospede,

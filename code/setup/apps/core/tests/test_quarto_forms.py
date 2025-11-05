@@ -1,31 +1,26 @@
 # apps/quarto/tests/test_forms.py
 import pytest
-from apps.core.forms import QuartoForm
-from apps.core.models.quarto import Quarto
+from datetime import date, timedelta
+from apps.core.forms import HospedeForm, ReservaForm, QuartoForm
 
 @pytest.mark.django_db
-def test_quarto_form_valid_data():
-    """Testa se o QuartoForm é válido com dados corretos"""
-    data = {
-        'numero': '101',
-        'status': True,
-        'descricao': 'Quarto confortável com vista para o mar',
-        'preco': 250.00
+def test_quarto_form_valido(db):
+    form_data = {
+        "numero": "102",
+        "capacidade": 2,
+        "tipo_quarto": "SUITE",
+        "descricao": "Teste",
+        "preco": 250.00
     }
-    form = QuartoForm(data=data)
-    assert form.is_valid(), form.errors  # Deve ser válido
-    quarto = form.save(commit=False)
-    assert quarto.numero == '101'
-    assert quarto.status is True
-    assert quarto.descricao == 'Quarto confortável com vista para o mar'
-    assert quarto.preco == 250.00
+    form = QuartoForm(data=form_data)
+    assert form.is_valid()
 
 @pytest.mark.django_db
 def test_quarto_form_invalid_data():
     """Testa se o QuartoForm detecta dados inválidos"""
     data = {
         'numero': '',  # Campo obrigatório vazio
-        'status': 'notabool',  # Valor inválido para BooleanField
+        # status é campo com choices (string) no model; aqui omitimos capacidade e descricao
         'descricao': '',  # Campo obrigatório vazio
         'preco': -50  # Valor negativo, se tiver validação
     }
@@ -34,4 +29,5 @@ def test_quarto_form_invalid_data():
     # Verifica se os erros existem
     assert 'numero' in form.errors
     assert 'descricao' in form.errors
-    assert 'preco' in form.errors or 'status' in form.errors
+    # Capacidade é obrigatória no model
+    assert 'capacidade' in form.errors

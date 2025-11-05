@@ -1,20 +1,43 @@
 import pytest
 from datetime import date, timedelta
-from apps.core.forms import HospedeForm
+from apps.core.forms import HospedeForm, ReservaForm, QuartoForm
 
 
 @pytest.mark.django_db
-def test_hospede_form_valido():
+def test_hospede_form_valido(db):
     form_data = {
         "nome": "João Silva",
         "cpf": "12345678900",
         "data_nascimento": "1990-05-20",
         "telefone": "11999999999",
-        "email": "joao.silva@test.com"
+        "email": "joao.silva@test.com",
+        "rua": "Rua", "numero": "1", "bairro": "Bairro", "cidade": "Cidade", "cep": "12345"
     }
     form = HospedeForm(data=form_data)
     assert form.is_valid()
 
+def test_hospede_form_clean_cpf_formatacao(db):
+    form_data = {
+        'nome': 'Teste',
+        'cpf': '123.456.789-00',
+        'data_nascimento': '1990-01-01',
+        'telefone': '11999999999',
+        'email': 'teste@example.com',
+        'rua': 'Rua', 'numero': '1', 'bairro': 'Bairro', 'cidade': 'Cidade', 'cep': '12345'
+    }
+    form = HospedeForm(data=form_data)
+    # Mesmo que o form geral seja inválido por outros campos, o campo 'cpf'
+    # deve ser limpo corretamente. Chamamos is_valid() para disparar a validação
+    # e então verificamos o valor limpo do CPF.
+    form.is_valid()
+    assert form.cleaned_data.get('cpf') == '12345678900'
+
+def test_hospede_form_clean_data_nascimento_menor(db):
+    """Testa a validação de idade no formulário."""
+    data_menor = date.today() - timedelta(days=17 * 365)
+    form = HospedeForm(data={'data_nascimento': data_menor.isoformat()})
+    assert not form.is_valid()
+    assert "O hóspede deve ter 18 anos ou mais." in form.errors['data_nascimento']
 
 @pytest.mark.django_db
 def test_hospede_form_cpf_invalido():

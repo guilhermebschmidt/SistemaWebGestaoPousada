@@ -20,8 +20,10 @@ def listar(request):
     }
     return render(request, 'core/quarto/listar.html', context)
 
-def form_quarto(request, pk=None):
-    quarto = get_object_or_404(Quarto, pk=pk) if pk else None
+def form_quarto(request, pk=None, quarto_id=None):
+    # aceitar tanto 'pk' quanto 'quarto_id' como identificador
+    identifier = pk or quarto_id
+    quarto = get_object_or_404(Quarto, pk=identifier) if identifier else None
 
     if request.method == 'POST':
         form = QuartoForm(request.POST, instance=quarto)
@@ -47,8 +49,9 @@ def form_quarto(request, pk=None):
     }
     return render(request, 'core/quarto/form.html', context)
 
-def excluir(request, pk):
-    quarto = get_object_or_404(Quarto, pk=pk)
+def excluir(request, pk=None, quarto_id=None):
+    identifier = pk or quarto_id
+    quarto = get_object_or_404(Quarto, pk=identifier)
     
     if request.method == 'POST':
         quarto.delete()
@@ -57,8 +60,9 @@ def excluir(request, pk):
 
     return redirect('quarto:listar')
 
-def mudar_status_quarto(request, pk):
-    quarto = get_object_or_404(Quarto, pk=pk)
+def mudar_status_quarto(request, pk=None, quarto_id=None):
+    identifier = pk or quarto_id
+    quarto = get_object_or_404(Quarto, pk=identifier)
 
     if request.method == 'POST':
         form = QuartoStatusForm(request.POST, instance=quarto)
