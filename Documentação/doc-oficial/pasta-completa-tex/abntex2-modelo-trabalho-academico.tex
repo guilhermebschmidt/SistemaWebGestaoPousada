@@ -840,28 +840,29 @@ Dessa forma, os itens do \textit{Product Backlog} foram distribuídos de modo a 
 \end{comment}
 
 Para auxiliar a equipe na visualização, acompanhamento e organização das \textit{sprints}, foram utilizadas duas ferramentas de gestão distintas. Na primeira fase do projeto, empregou-se o ProjectLibre, no qual foram cadastradas as atividades com seus respectivos prazos e responsáveis \autoref{fig:qrcode_tarefas_projectlibre}. No entanto, devido a dificuldades técnicas e a demandas externas, a equipe passou a utilizar, na segunda fase do projeto, um quadro \textit{Kanban}. Essa mudança proporcionou maior flexibilidade no controle das tarefas e autonomia para cada membro da equipe gerenciar suas próprias atividades, especialmente pela familiaridade de alguns integrantes com esse modelo. O quadro foi criado no próprio repositório do projeto e está disponível na seção \textit{projects} \autoref{fig:qrcode_github_project}.A transição entre as ferramentas permitiu otimizar a comunicação interna e o acompanhamento do progresso das entregas, contribuindo para uma gestão mais ágil das \textit{sprints}.
-
+{\hypersetup{urlcolor=black}
 \begin{figure}[H]
 	\centering
 	\caption{Link para o documento do ProjectLibre}
 	\label{fig:qrcode_tarefas_projectlibre}
 	{\color{black}\qrcode[height=3cm]{https://github.com/guilhermebschmidt/SistemaWebGestaoPousada/blob/main/Projeto/Gest%C3%A3o%20de%20Tarefas%20do%20Projeto.pod}}
 	\fonte{Elaboração própria.}
-\end{figure}
-
+\end{figure}}
+%
+{\hypersetup{urlcolor=black}
 \begin{figure}[H]
 	\centering
 	\caption{Link para o quadro Kanban no GitHub}
 	\label{fig:qrcode_github_project}
 	{\color{black}\qrcode[height=3cm]{https://github.com/users/guilhermebschmidt/projects/1}}
 	\fonte{Elaboração própria.}
-\end{figure}
+\end{figure}}
 
 
 % ---
 % Tópico de Gestão de Riscos
 \section{Gestão de Riscos}
-Os riscos de um projeto de software são elementos ou eventos de origem multifatorial que, caso ocorram, impactam negativamente  o cronograma, os custos, a qualidade ou o escopo do projeto. Dessa forma, o gerenciamento de riscos é um processo iterativo fundamental para prever os riscos associados ao desenvolvimento de um projeto, visto que, promove a compreensão dos riscos com vistas à sua previsão, detecção e tratamento, de modo a não comprometer a entrega do produto final. (\cite[p. 416]{sommerville2011}).
+Os riscos de um projeto de software são elementos ou eventos de origem multifatorial que, caso ocorram, impactam negativamente  o cronograma, os custos, a qualidade ou o escopo do projeto. Dessa forma, o gerenciamento de riscos é um processo iterativo fundamental para prever os riscos associados ao desenvolvimento de um projeto, visto que, promove a compreensão dos riscos com vistas à sua previsão, detecção e tratamento, de modo a não comprometer a entrega do produto final \cite[p. 416]{sommerville2011}.
 
 Diante disso, a equipe do projeto de desenvolvimento do sistema de gestão da Pousada Chalés Água de Coco considerou pertinente a implementação de mecanismos de apoio à gestão de riscos, com o objetivo de fortalecer as práticas de inspeção e adaptação realizadas ao longo das \textit{sprints}.
 
@@ -1932,59 +1933,105 @@ A Figura~\ref{fig:der} mostra o Diagrama Entidade-Relacionamento (DER) do sistem
 	\label{fig:der}
 \end{figure}
 
-\section{Repositório da Aplicação}Nesta seção é apresentada a estrutura do ambiente de desenvolvimento do sistema web de gestão da Pousada Chalés Água de Coco. O código-fonte do sistema foi estruturado em aplicações modulares, arquivos de configuração geral do ambiente \textit{Django} e arquivos auxiliares. Essa configuração segue as boas práticas do \textit{framework}, promovendo baixo acoplamento e alta coesão, o que garante um bom encapsulamento entre os módulos. Os códigos foram mantidos simples e otimizados para aproveitar as características dinâmicas do \textit{Python} e as boas práticas do \textit{framework}. Além disso, foram aplicadas boas práticas de organização e arquitetura para garantir facilidade de manutenção e evolução do sistema.
-\subsection{Definição do repositório da aplicação}A estrutura dos diretórios e arquivos do sistema foi definida  seguindo o padrão recomendado pelo Django. Essa organização visa facilitar o desenvolvimento, manutenção e segurança do sistema.
+\section{Repositório da Aplicação}Nesta seção é apresentada a estrutura do ambiente de desenvolvimento do sistema web de gestão da Pousada Chalés Água de Coco. Visando facilitar o gerenciamento, a colaboração entre os desenvolvedores e o controle do versionamento do código-fonte do sistema de gestão, a estrutura foi armazenada em um repositório remoto no GitHub (\autoref{fig:qrcode_github_repo}). 
+
+O código-fonte do sistema foi estruturado em aplicações modulares, arquivos de configuração geral do ambiente \textit{Django} e arquivos auxiliares, seguindo o padrão recomendado pelo \textit{framework}. Essa organização, que visa facilitar o desenvolvimento, a manutenção e a segurança do sistema, está estruturada da seguinte forma:
 %
 \begin{enumerate}
-	\item \textbf{/code/setup/setup:} Armazena os \textit{scripts} de configuração do \textit{framework} do sistema Django.
-	\begin{enumerate}
-		\item \textbf{\textit{settings.py}:} Define o diretório base do projeto (BASE\_DIR), configura variáveis sensíveis como SECRET\_KEY, modo de \textit{debug}, domínios autorizados (ALLOWED\_HOSTS), lista de aplicativos instalados (INSTALLED\_APPS), \textit{middlewares}, arquivos de URLs, sistema de templates e banco de dados (\textit{PostgreSQL}).
-		\item \textbf{\textit{urls.py}:} Define as rotas URLs do projeto.
-		\item \textbf{\textit{wsgi.py}:} Arquivo padrão para \textit{deploy} da aplicação via servidor WSGI (\textit{Web Server Gateway Interface}). Define a \textit{callable application} para a comunicação entre o servidor WSGI e o servidor \textit{Django}.
-		\item \textbf{\textit{manage.py}:} Arquivo de execução dos comandos administrativos do \textit{Django} via terminal. Define a configuração padrão, importa e executa o Django.
-	\end{enumerate}
-	%
-	\item \textbf{/code/setup/apps/core:} Armazena as aplicações internas do sistema, sendo que cada aplicação representa um módulo do sistema.
-	\begin{enumerate}
-		\item \textbf{\textit{/models:}} Armazena os modelos que representam as tabelas no banco de dados:
+	\item \textbf{/code/setup/:}
+		\begin{comment}		
 		\begin{enumerate}
-			\item \textbf{\textit{hospede.py}:} Define a estrutura da tabela “Hóspede”.
-			\item \textbf{\textit{quarto.py:}:} Define a estrutura da tabela “Quarto”.
-			\item \textbf{\textit{reserva.py}:}  Define a estrutura da tabela “Reserva”.
+			\item \textbf{\textit{manage.py}:} Arquivo de execução dos comandos administrativos do \textit{Django} via terminal. Define a configuração padrão, importa e executa o Django.
+			\item\textbf {\textit{requirements.txt}:}
+			\item\textbf {\textit{package.json}:}
+			\item\textbf {\textit{package-lock.json}:}
 		\end{enumerate}
-		\item \textbf{\textit{/forms:}} Contém os formulários baseados nos modelos:
+		\end{comment}		
+	% ---------- SETUP/SETUP -------------- %	
+		\item \textbf{/code/setup/setup:} Armazena  \textit{scripts} de configuração do \textit{framework} do sistema Django.
+		\begin{comment}
 		\begin{enumerate}
-			\item \textbf{\textit{hospede.py}:} Define os formulários para criar e editar objetos do tipo “Hóspede” na interface web.
-			\item \textbf{\textit{quarto.py}:} Define os formulários baseados no modelo “Quarto”, usados para atividades como criar e editar quartos na interface web. Utiliza \textit{widgets} para estilizar \textit{inputs} e \textit{labels}.
-			\item \textbf{\textit{reserva.py}:} Define os formulários para criar e editar objetos do tipo “Reserva” na interface web.
+			\item \textbf{\textit{settings.py}:} Define o diretório base do projeto (BASE\_DIR), configura variáveis sensíveis como SECRET\_KEY, modo de \textit{debug}, domínios autorizados (ALLOWED\_HOSTS), lista de aplicativos instalados (INSTALLED\_APPS), \textit{middlewares}, arquivos de URLs, sistema de templates e banco de dados (\textit{PostgreSQL}).
+			\item \textbf{\textit{urls.py}:} Define as rotas URLs do projeto.
+			\item \textbf{\textit{wsgi.py}:} Arquivo padrão para \textit{deploy} da aplicação via servidor WSGI (\textit{Web Server Gateway Interface}). Define a \textit{callable application} para a comunicação entre o servidor WSGI e o servidor \textit{Django}.
+			\item\textbf{\textit{asgi.py}:}
 		\end{enumerate}
-		\item \textbf{\textit{/urls:}} Contém arquivos que os mapeiam as URLs específicas de cada módulo:
+		\end{comment}
+		% ---------- core -------------- %	
+		\item \textbf{/code/setup/apps/core:} Armazena as aplicações internas do sistema relacionadas a gestão de reservas (quarto, hóspede e reserva)
 		\begin{enumerate}
-			\item \textbf{\textit{hospede.py}:} Define as rotas da aplicação “Hóspede”.
-			\item \textbf{\textit{quarto.py}:} Define as rotas da aplicação “Quarto”, como listagem de quartos e criação de um novo quarto.
-			\item \textbf{\textit{reserva.py}:} Define as rotas da aplicação “Reserva”, como listagem de quartos e criação de um novo quarto.
+			% models
+			\item \textbf{\textit{/models:}} Armazena os arquivos dos modelos 
+			\textit{hospede.py},\textit{quarto.py:} e \textit{reserva.py}.
+			% forms
+			\item \textbf{\textit{/forms:}} Contém os formulários baseados nos modelos: \textit{hospede.py}, \textit{quarto.py:} e \textit{reserva.py}.
+			% URLs
+			\item \textbf{\textit{/urls:}} Contém arquivos que os mapeiam as URLs específicas de cada módulo:
+			\textit{hospede.py}, \textit{quarto.py} e \textit{reserva.py}.
+			\item \textbf{\textit{/views:}} Contém as funções responsáveis por processar as requisições
+			\begin{enumerate}
+				\item \textbf{\textit{hospede.py}:} Contém as \textit{views} do módulo “Hóspede”, como hospede\_list, hospede\_create e hospede\_update.
+				\item \textbf{\textit{quarto.py}:} Contém as \textit{views} do módulo “Quarto”, como excluir\_quarto e tipos\_quarto.
+				\item \textbf{\textit{reserva.py}:} Contém as \textit{views} do módulo “Reserva”, como marcar\_checkin e list\_quarto.
+			\end{enumerate}
+			\item \textbf{/code/setup/apps/tests:} Armazena 
 		\end{enumerate}
-		\item \textbf{\textit{/views:}} Contém as funções responsáveis por processar as requisições:
+		% ---------- FINANCEIRO  -------------- %	
+		\item \textbf{/code/setup/apps/financeiro:} Armazena  \textit{scripts} de configuração do \textit{framework} do sistema Django.
 		\begin{enumerate}
-			\item \textbf{\textit{hospede.py}:} Contém as \textit{views} do módulo “Hóspede”, como hospede\_list, hospede\_create e hospede\_update.
-			\item \textbf{\textit{quarto.py}:} Contém as \textit{views} do módulo “Quarto”, como excluir\_quarto e tipos\_quarto.
-			\item \textbf{\textit{reserva.py}:} Contém as \textit{views} do módulo “Reserva”, como marcar\_checkin e list\_quarto.
+			% models
+			\item \textbf{\textit{/models:}} Armazena os modelos que representam as tabelas do módulo financeiro no banco de dados: \textit{balanco.py},\textit{categoria.py} e \textit{titulo.py}. 
+			% forms
+			\item \textbf{\textit{/forms:}} Contém os formulários baseados nos modelos financeiros:\textit{categoria.py} e 
+			\textit{titulo.py}
+			% views
+			\item \textbf{\textit{/views:}} Contém as funções responsáveis por processar as requisições financeiras:
+			\textit{categoria.py} e\textit{titulo.py}.
+			% urls
+			\item \textbf{\textit{/urls:}} Contém arquivos que os mapeiam as URLs:
+			\textit{balanco.py},\textit{categoria.py} e \textit{titulo.py}.
 		\end{enumerate}
-	\end{enumerate}
-	\item \textbf{/code/setup/templates:} Armazena os arquivos HTML do sistema.
-	\begin{enumerate}
-		\item \textbf{\textit{/core/}:}
+		% ---------- USUÁRIO  -------------- %
+	\begin{comment}
+		\item \textbf{/code/setup/apps/usuarios:}
 		\begin{enumerate}
-			\item \textbf{\textit{/hospede/}:} Armazena os arquivos HTML do módulo de gestão de hóspedes.
-			\item \textbf{\textit{/quarto/}:} Armazena os arquivos HTML do módulo de gestão de quartos.
-			\item \textbf{\textit{/reserva/}:}  Armazena os arquivos HTML do módulo de gestão de reservas.
+			\item
 		\end{enumerate}
-		\item \textbf{\textit{/shared/base.html}:} \textit{Template} utilizado como estrutura principal de todas as páginas do sistema, definindo um \textit{layout} comum. Utiliza ícones do FontAwesome e é estilizado pelo arquivo \textit{output.css}, criado com o Tailwind CSS e DaisyUI.
-	\end{enumerate}
-	\item \textbf{/code/setup/static/css/output.css:} \textit{CSS} gerado pela biblioteca Tailwind CSS com base nas configurações do sistema. Contém variáveis, estilos base e camadas para definir cores, espaçamentos, tamanhos de fonte, \textit{paddings}, bordas e define comportamentos padrão.
+		% ---------- RELATORIOS  -------------- %
+		\item \textbf{/code/setup/apps/relatorios:}
+		\begin{enumerate}
+			\item
+			\item \textbf{\textit{relatorio\_faturamento.py}:}
+		\end{enumerate}
+			\item \textbf{/code/setup/templates:} Armazena os arquivos HTML do sistema.
+		% ---------- TEMPLATES -------------- %	
+		\begin{enumerate}
+			\item \textbf{\textit{/core/}:}
+			\begin{enumerate}
+				\item \textbf{\textit{/hospede/}:} Armazena os arquivos HTML do módulo de gestão de hóspedes.
+				\item \textbf{\textit{/quarto/}:} Armazena os arquivos HTML do módulo de gestão de quartos.
+				\item \textbf{\textit{/reserva/}:}  Armazena os arquivos HTML do módulo de gestão de reservas.
+			\end{enumerate}
+			\item \textbf{\textit{/shared/base.html}:} \textit{Template} utilizado como estrutura principal de todas as páginas do sistema, definindo um \textit{layout} comum. Utiliza ícones do FontAwesome e é estilizado pelo arquivo \textit{output.css}, criado com o Tailwind CSS e DaisyUI.
+		\end{enumerate}
+	\end{comment}
+		% ---------- STATIC -------------- %	
+		\item \textbf{/code/setup/static/css/output.css:} \textit{CSS} gerado pela biblioteca Tailwind CSS com base nas configurações do sistema. Contém variáveis, estilos base e camadas para definir cores, espaçamentos, tamanhos de fonte, \textit{paddings}, bordas e define comportamentos padrão.
 \end{enumerate}
+%
 
-Essa estrutura foi armazenada em um repositório remoto no Git Hub \cite{repositorio}, para facilitar o gerenciamento, a colaboração entre os desenvolvedores e o controle do versionamento do código-fonte do sistema de gestão. 
+Essa configuração segue as boas práticas do \textit{framework}, promovendo baixo acoplamento e alta coesão. Na camada de lógica, essa coesão foi aplicada especificamente no \textit{app} "core", que organiza os arquivos models e views das entidades quarto, hóspede e reserva, as quais formam o domínio central do negócio: a gestão de reservas. Os demais \textit{apps} representam preocupações separadas: usuários (autenticação), financeiro (contabilidade) e relatórios (camada de leitura e agregação). E, por isso, seguiram uma lógica de baixo acoplamento.
+ 
+No entanto, para a camada de apresentação (templates), optou-se por centralizar todos os arquivos em um único diretório (/code/setup/templates). Essa escolha, apesar de reduzir a portabilidade individual de cada app, aumenta a coesão do projeto e facilita a manutenção e a organização das interfaces, simplificando o fluxo de trabalho. 
+
+{\hypersetup{urlcolor=black}
+	\begin{figure}[H]
+		\centering
+		\caption{Link para o repositório do sistema no GitHub}
+		\label{fig:qrcode_github_repo}
+		\qrcode[height=3cm]{https://github.com/guilhermebschmidt/SistemaWebGestaoPousada.git}
+		\fonte{Elaboração própria.}
+\end{figure}}
 
 \section{Entregas}
 O desenvolvimento do sistema seguiu um cronograma baseado em entregas parciais, cada uma representando uma etapa importante na evolução do projeto. Essas entregas permitiram o acompanhamento contínuo do progresso, validação das funcionalidades e documentação formal de todas as fases do trabalho. A seguir, são descritas as principais entregas realizadas ao longo do semestre, com seus respectivos objetivos e resultados.

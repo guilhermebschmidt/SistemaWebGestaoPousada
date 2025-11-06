@@ -81,10 +81,9 @@
 \contentsline {subsection}{\numberline {4.9.1}Modelo Entidade-Relacionamento - MER}{64}{subsection.4.9.1}%
 \contentsline {subsection}{\numberline {4.9.2}Diagrama Entidade-Relacionamento - DER}{64}{subsection.4.9.2}%
 \contentsline {section}{\numberline {4.10}Repositório da Aplicação}{65}{section.4.10}%
-\contentsline {subsection}{\numberline {4.10.1}Definição do repositório da aplicação}{66}{subsection.4.10.1}%
 \contentsline {section}{\numberline {4.11}Entregas}{67}{section.4.11}%
-\contentsline {subsection}{\numberline {4.11.1}Desenvolvimento de um Tema - 08/04}{68}{subsection.4.11.1}%
-\contentsline {subsection}{\numberline {4.11.2}Desenho da Aplicação - 29/04}{68}{subsection.4.11.2}%
+\contentsline {subsection}{\numberline {4.11.1}Desenvolvimento de um Tema - 08/04}{67}{subsection.4.11.1}%
+\contentsline {subsection}{\numberline {4.11.2}Desenho da Aplicação - 29/04}{67}{subsection.4.11.2}%
 \contentsline {subsection}{\numberline {4.11.3}Prova de Conceito - 20/05}{68}{subsection.4.11.3}%
 \contentsline {subsection}{\numberline {4.11.4}Análise e Documentação - 10/06}{68}{subsection.4.11.4}%
 \contentsline {subsection}{\numberline {4.11.5}Produto Mínimo Viável - 24/06}{68}{subsection.4.11.5}%
@@ -105,11 +104,11 @@
 \contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Conclusão}}{78}{chapter.7}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{79}{section*.24}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{79}{section*.25}%
 \renewcommand *{\cftappendixname }{AP\^ENDICE \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Ap\^endices}}{84}{section*.25}%
+\contentsline {part}{\uppercase {Ap\^endices}}{84}{section*.26}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
