@@ -1,0 +1,29 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}Balanço Financeiro{% endblock %}
+
+{% block content %}
+<div class="container mt-6">
+    <h2>Balanço Financeiro</h2>
+    <p><strong>Total Arrecadado:</strong> R$ {{ total_arrecadado|floatformat:2 }}</p>
+
+    {% if titulos_list %}
+        <table class="table table-striped mt-4">
+            <thead>
+                <tr><th>Descrição</th><th>Valor</th><th>Data Pagamento</th></tr>
+            </thead>
+            <tbody>
+                {% for t in titulos_list %}
+                    <tr>
+                        <td>{{ t.descricao }}</td>
+                        <td>R$ {{ t.valor }}</td>
+                        <td>{{ t.data_pagamento|date:'d/m/Y' }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="alert alert-info">Nenhum título encontrado no período.</div>
+    {% endif %}
+</div>
+{% endblock %}

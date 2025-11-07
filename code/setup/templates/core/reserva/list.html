@@ -5,11 +5,44 @@
 
 {% block content %}
 <div class="space-y-6">
+    {% if messages %}
+        {% for message in messages %}
+            <div 
+                x-data="{ show: true }"
+                
+                x-show="show"
+                
+                x-init="setTimeout(() => show = false, 5000)"
+                
+                x-transition:leave="transition ease-in-out duration-500"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0 -translate-y-4"
+
+                class="p-4 mb-4 text-center text-sm rounded-lg 
+                        {% if message.tags == 'error' %} bg-red-100 text-red-700 {% endif %}
+                        {% if message.tags == 'success' %} bg-green-100 text-green-700 {% endif %}" 
+                role="alert">
+                
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="flex text-sm breadcrumbs justify-end">
+        <ul>
+            <li><a href="{% url 'index' %}">Painel Inicial</a></li>
+            <li>Lista de Reservas</li>
+        </ul>
+    </div>
     <div class="flex justify-between items-center">
         <h2 class="text-2xl font-bold">Lista de Reservas</h2>
-        <a href="{% url 'reserva:criar' %}" class="btn btn-success">
-            <i class="fas fa-plus mr-2"></i>Adicionar Reserva
-        </a>
+        <div>
+            <a href="{% url 'reserva:criar' %}" class="btn btn-active btn-primary ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                Adicionar Reserva
+            </a>
+        </div>
     </div>
 
 <div class="card bg-base-100 shadow-sm">
@@ -36,7 +69,7 @@
                     <option value="PREVISTA" {% if filtro_status == 'PREVISTA' %}selected{% endif %}>Prevista</option>
                     <option value="CONFIRMADA" {% if filtro_status == 'CONFIRMADA' %}selected{% endif %}>Confirmada</option>
                     <option value="ATIVA" {% if filtro_status == 'ATIVA' %}selected{% endif %}>Ativa</option>
-                    <option value="CONCLUÍDA" {% if filtro_status == 'CONCLUÍDA' %}selected{% endif %}>Concluída</option>
+                    <option value="CONCLUIDA" {% if filtro_status == 'CONCLUIDA' %}selected{% endif %}>Concluída</option>
                     <option value="CANCELADA" {% if filtro_status == 'CANCELADA' %}selected{% endif %}>Cancelada</option>
                 </select>
             </div>
@@ -54,15 +87,20 @@
                 </select>
             </div>
             <div class="form-control w-full sm:w-auto mt-auto">
-                <button type="submit" class="btn btn-primary w-full">Filtrar</button>
+                <button type="submit" class="btn btn-secondary w-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3c2.755 0 5.455.232 8.083.678.533.09.917.556.917 1.096v1.044a2.25 2.25 0 0 1-.659 1.591l-5.432 5.432a2.25 2.25 0 0 0-.659 1.591v2.927a2.25 2.25 0 0 1-1.244 2.013L9.75 21v-6.568a2.25 2.25 0 0 0-.659-1.591L3.659 7.409A2.25 2.25 0 0 1 3 5.818V4.774c0-.54.384-1.006.917-1.096A48.32 48.32 0 0 1 12 3Z" />
+                    </svg>
+                    Filtrar
+                </button>
             </div>
             
         </form>
     </div>
 </div>
 
-    <div class="overflow-x-auto bg-base-100 rounded-lg shadow">
-        <table class="table">
+    <div class="overflow-x-auto bg-base-100 rounded-lg shadow ">
+        <table class="table items-center text-center">
             <thead>
                 <tr class="bg-base-200 ">
                     <th>ID</th>
@@ -82,37 +120,47 @@
                     <td>{{ reserva.id }}</td>
                     <td>{{ reserva.id_hospede.nome }}</td>
                     <td>{{ reserva.id_quarto.numero }}</td>
-                    <td>{{ reserva.data_reserva_inicio }}</td>
-                    <td>{{ reserva.data_check_in }}</td>
-                    <td>{{ reserva.data_check_out }}</td>
+                    <td>{{ reserva.data_reserva_inicio|date:"d/m/Y"}}</td>
+                    <td>{{ reserva.data_check_in|date:"d/m/Y"}}</td>
+                    <td>{{ reserva.data_check_out|date:"d/m/Y"}}</td>
                     <td>R$ {{ reserva.valor }}</td>
-                    <td>{% if reserva.status == 'CANCELADA' %}
-                        <a href="#" class="cancelamento-link" data-motivo="{{ reserva.motivo_cancelamento }}">
-                            {{ reserva.status }}
+                    <td >
+                    {% if reserva.status == 'CANCELADA' %}
+                        <a href="#" class="cancelamento-link badge badge-outline badge-error" 
+                            data-motivo="{{ reserva.motivo_cancelamento }}" title="Ver Motivo">
+                            {{ reserva.get_status_display }}
                         </a>
-                        {% else %}
-                            {{ reserva.status }}
-                        {% endif %}
+                    {% else %}
+                        {{ reserva.get_status_display }}
+                    {% endif %}
                     </td>
                     <td class="flex gap-2">
                         {% if reserva.status not in 'CANCELADA' and reserva.status not in 'CONCLUIDA' %}
                             <a href="{% url 'reserva:editar' reserva.id %}" class="btn btn-warning btn-sm" title="Editar Reserva">
-                                <i class="fas fa-edit">Editar</i>
+                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"/>
+                                </svg>
                             </a>
                         {% else %}
                             <span class="btn btn-warning btn-sm btn-disabled" title="Não pode ser editada">Editar</span>
                         {% endif %}
                         {% if reserva.status == 'CANCELADA' or reserva.status == 'CONCLUIDA' %}
                             <button class="btn btn-error btn-sm btn-disabled" title="Ação indisponível">
-                                <i class="fas fa-trash">Cancelada</i>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m6 4.125 2.25 2.25m0 0 2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                                </svg>
                             </button>
                         {% elif reserva.data_check_in or reserva.data_check_out %}
                             <button class="btn btn-error btn-sm btn-disabled" title="Reserva em andamento ou finalizada">
-                                <i class="fas fa-trash">Cancelar</i>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m6 4.125 2.25 2.25m0 0 2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                                </svg>
                             </button>
                         {% else %}
                             <button onclick="abrirModalCancelamento('{{ reserva.id }}')" class="btn btn-error btn-sm" title="Cancelar Reserva">
-                                <i class="fas fa-trash">Cancelar</i>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m6 4.125 2.25 2.25m0 0 2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                                </svg>
                             </button>
                         {% endif %}    
                         <!--Botão de envio de email de confirmação-->
@@ -126,8 +174,11 @@
                                             data-hospede-nome="{{ reserva.id_hospede.nome }}"
                                             data-form-id="form-email-{{ reserva.id }}"
                                             data-action-text="enviar">
-                                        <i class="fas fa-envelope text-base"></i>
-                                        <span>Enviar E-mail</span>
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                                            </svg>
+                                        </span>
                                     </button>
                                 </form>
                                 {% else %}
@@ -175,19 +226,23 @@
     </form>
 </div>
 
+
 <!--Janela Flutuante para confirmar envio do email de confirmação da reserva-->
 <dialog id="modal_confirmar_email" class="modal">
   <div class="modal-box">
     <h3 class="font-bold text-lg">Confirmar Envio</h3>
     <p class="py-4">
-        Você tem certeza que deseja <strong id="modal_action_text" class="text-info"></strong> o e-mail para
+        Você tem certeza que deseja <strong id="modal_action_text" class="text-primary"></strong> o e-mail para
         <strong id="modal_hospede_nome" class="text-primary"></strong>?
     </p>
     <div class="modal-action">
-      <form method="dialog">
-        <button class="btn">Cancelar</button>
+        <button id="modal_botao_confirmar" class="btn btn-primary">Sim, Enviar</button>
+        <form method="dialog">
+        <button class="btn btn-outline btn-neutral">
+            Cancelar
+            </svg>
+        </button>
       </form>
-      <button id="modal_botao_confirmar" class="btn btn-info">Sim, Enviar</button>
     </div>
   </div>
 </dialog>
@@ -269,7 +324,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="flex justify-end gap-2">
                 <button type="button" onclick="fecharModalCancelamento()" class="btn btn-ghost">Cancelar</button>
-                <button type="submit" class="btn btn-error">Confirmar Exclusão</button>
+                <button type="submit" class="btn btn-error">Confirmar Cancelamento</button>
             </div>
         </form>
     </div>

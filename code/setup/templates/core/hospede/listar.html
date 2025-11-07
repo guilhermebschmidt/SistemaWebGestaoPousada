@@ -5,90 +5,109 @@
 
 {% block content %}
 <div class="space-y-6">
+    {% if messages %}
+        {% for message in messages %}
+            <div 
+                x-data="{ show: true }"
+                x-show="show"
+                x-init="setTimeout(() => show = false, 5000)"
+                x-transition:leave="transition ease-in-out duration-500"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="opacity-0 -translate-y-4"
+                class="p-4 mb-4 text-center text-sm rounded-lg 
+                        {% if message.tags == 'error' %} bg-red-100 text-red-700 {% endif %}
+                        {% if message.tags == 'success' %} bg-green-100 text-green-700 {% endif %}" 
+                role="alert">
+                {{ message }}
+            </div> 
+        {% endfor %}
+    {% endif %}
+    <div class="flex breadcrumbs justify-end">
+        <ul>
+            <li><a href="{% url 'index' %}">Painel Inicial</a></li>
+            <li>Hóspedes</li>
+        </ul>
+    </div>
     <!-- Cabeçalho da página -->
     <div class="flex justify-between items-center">
         <h2 class="text-2xl font-bold">Lista de Hóspedes</h2>
-        <div class="text-sm breadcrumbs">
-            <ul>
-                <li><a href="{% url 'index' %}">Painel Inicial</a></li>
-                <li>Hóspedes</li>
-            </ul>
+        <div>
+            <a href="{% url 'hospede:criar' %}" class="btn btn-active btn-primary" title="Adicionar Hóspede">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                Adicionar Hóspede
+            </a>
         </div>
     </div>
 
-    <!-- Barra de ações e busca -->
-    <div class="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
-        <a href="{% url 'hospede:form' %}" class="btn btn-success">
-            <i class="fas fa-plus mr-2"></i>Adicionar Hóspede
-        </a>
-
+    <!-- Barra de busca -->
+    <div class=" flex flex-col md:flex-row gap-4 justify-start items-start md:items-center">    
         <form method="GET" action="{% url 'hospede:buscar' %}" class="w-full md:w-auto">
             <div class="join">
-                <input class="input input-bordered join-item"
+                <input class="input input-bordered join-item" 
                     type="search"
                     name="search"
                     placeholder="Buscar por nome"
                     value="{{ request.GET.search|default_if_none:'' }}">
-                <button class="btn btn-primary join-item" type="submit">
-                    <i class="fas fa-search"></i>
+                <button class="btn btn-secondary join-item" type="submit" title="Buscar Hóspede"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /> 
+                    </svg>
                 </button>
             </div>
         </form>
-
     </div>
-
+    <br>
     <!-- Tabela de hóspedes -->
     {% if hospedes %}
-    <div class="overflow-x-auto bg-base-100 rounded-lg shadow">
-        <table class="table">
+    <div class="overflow-x-auto bg-base-100 rounded-lg shadow ">
+        <table class="table items-center text-center">
             <thead>
                 <tr class="bg-base-200">
-                    <th>CPF</th>
+                    <th>ID</th>
                     <th>Nome</th>
                     <th>Telefone</th>
                     <th>Email</th>
-                    <th>Data de nasc.</th>
-                    <th>Rua</th>
-                    <th>Número</th>
-                    <th>Complemento</th>
-                    <th>Bairro</th>
-                    <th>Cidade</th>
-                    <th>CEP</th>
+                    <th>Data de Nascimento</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
                 {% for hospede in hospedes %}
-                <tr class="hover:bg-base-100">
-                    <td>{{ hospede.cpf }}</td>
-                    <td>
-                        <a href="{% url 'hospede:detalhes' hospede.cpf %}" class="link link-primary">
-                            {{ hospede.nome }}
-                        </a>
-                    </td>
-                    <td>{{ hospede.telefone }}</td>
-                    <td>{{ hospede.email }}</td>
-                    <td>{{ hospede.data_nascimento|date:"d/m/Y" }}</td>
-                    <td>{{ hospede.rua }}</td>
-                    <td>{{ hospede.numero }}</td>
-                    <td>{{ hospede.complemento }}</td>
-                    <td>{{ hospede.bairro }}</td>
-                    <td>{{ hospede.cidade }}</td>
-                    <td>{{ hospede.cep }}</td>
-                    <td>
-                        <div class="flex flex-wrap gap-2">
-                            <a href="{% url 'hospede:form' hospede.cpf %}" class="btn btn-warning btn-sm">
-                                <i class="fas fa-edit mr-1"></i>Editar
+                    <tr class="hover:bg-base-100">
+                        <td>{{ hospede.pk }}</td>
+                        <td>
+                            <a href="{% url 'hospede:detalhes' hospede.pk %}" class="link link-primary" title="Ver Detalhes">
+                                {{ hospede.nome }}
                             </a>
-                            <a href="{% url 'hospede:excluir' hospede.cpf %}" class="btn btn-error btn-sm">
-                                <i class="fas fa-trash mr-1"></i>Excluir
-                            </a>
-                            <a href="{% url 'hospede:historico' hospede.cpf %}" class="btn btn-info btn-sm">
-                                <i class="fas fa-edit mr-1"></i>Histórico
-                            </a>
-                        </div>
-                    </td>
-                </tr>
+                        </td>
+                        <td>{{ hospede.telefone }}</td>
+                        <td>{{ hospede.email }}</td>
+                        <td>{{ hospede.data_nascimento|date:"d/m/Y" }}</td>
+                        <td>
+                            <div class="flex flex-wrap gap-2 justify-center">
+                                <!--Botão Editar-->
+                                <a href="{% url 'hospede:editar' hospede.pk %}" class="btn btn-warning btn-sm" title="Editar Hóspede">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                                    </svg>
+                                </a>
+                                <!--Botão Excluir-->
+                                <a href="{% url 'hospede:excluir' hospede.pk %}" class="btn btn-error btn-sm" title="Excluir Hóspede">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"> 
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                    </svg>
+                                </a>
+                                <!--Botão Histórico-->
+                                <a href="{% url 'hospede:historico' hospede.pk %}" class="btn btn-info btn-sm" title="Ver Histórico">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>

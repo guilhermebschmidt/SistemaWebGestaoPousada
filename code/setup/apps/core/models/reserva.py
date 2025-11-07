@@ -61,7 +61,7 @@ class Reserva(models.Model):
         ('PREVISTA', 'Prevista'),
         ('CONFIRMADA', 'Confirmada'),
         ('ATIVA', 'Ativa'),
-        ('CONCLUÍDA', 'Concluída'),
+        ('CONCLUIDA', 'Concluída'),
         ('CANCELADA', 'Cancelada'),
     )
     status = models.CharField(
@@ -161,11 +161,17 @@ class Reserva(models.Model):
             old_instance.data_reserva_fim != self.data_reserva_fim or
             old_instance.id_quarto != self.id_quarto
         )
+    
+    @property
     def numero_total_hospedes(self):
-        return self.numero_adultos + self.numero_criancas
+        return (self.quantidade_adultos or 0) + (self.quantidade_criancas or 0)
 
     def __str__(self):
-        return f"Reserva #{self.id} - {self.numero_total_hospedes} pessoa(s) - Quarto {self.id_quarto}"
 
+        total_hospedes= (self.quantidade_adultos or 0) + (self.quantidade_criancas or 0)
+        
+        if self.pk :
+           return f"Reserva #{self.id} - {self.numero_total_hospedes} pessoa(s) - Quarto {self.id_quarto}"
 
+        return "Nova Reserva"
    

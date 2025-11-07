@@ -1,101 +1,124 @@
 {% extends "shared/base.html" %}
 {% load static %}
 
-{% block title %}{% if quarto %}Editar Quarto {{ quarto.numero }}{% else %}Adicionar Quarto{% endif %}{% endblock %}
+{% block title %}{% if quarto %}Editar Quarto {{ quarto.pk }}{% else %}Adicionar Quarto{% endif %}{% endblock %}
 
 {% block content %}
-<div class="max-w-2xl mx-auto p-4 sm:p-6">
-    <div class="card bg-base-100 shadow-lg">
-        <div class="card-body">
-            <h2 class="card-title text-2xl font-bold">
-                <i class="fas {% if quarto %}fa-pen{% else %}fa-plus{% endif %} mr-2"></i>
-                {% if quarto %}Editar Quarto {{ quarto.numero }}{% else %}Adicionar Novo Quarto{% endif %}
-            </h2>
-            
-            <form method="POST" class="space-y-4 mt-4" {% if form.is_multipart %}enctype="multipart/form-data"{% endif %}>
-                {% csrf_token %}
-                {{ form.non_field_errors }}
-
-                {% for field in form %}
-                <div class="form-control">
-                    <label for="{{ field.id_for_label }}" class="label">
-                        <span class="label-text">{{ field.label }}</span>
-                        {% if field.field.required %}<span class="text-error">*</span>{% endif %}
-                    </label>
-
-                    {% if field.field.widget.input_type == 'select' %}
-                        <select class="select select-bordered w-full {% if field.errors %}select-error{% endif %}"
-                                name="{{ field.name }}"
-                                id="{{ field.id_for_label }}">
-                            {% for value, label in field.field.choices %}
-                                <option value="{{ value }}" {% if field.value == value %}selected{% endif %}>{{ label }}</option>
-                            {% endfor %}
-                        </select>
-                    {% elif field.field.widget.input_type == 'checkbox' %}
-                        <input type="checkbox"
-                            class="toggle toggle-primary"
-                            name="{{ field.name }}"
-                            id="{{ field.id_for_label }}"
-                            {% if field.value %}checked{% endif %}>
-                    {% else %}
-                        {% if field.name == 'numero' %}
-                            <input type="number"
-                                class="input input-bordered w-full {% if field.errors %}input-error{% endif %}"
-                                name="{{ field.name }}"
-                                id="{{ field.id_for_label }}"
-                                value="{{ field.value|default_if_none:'' }}"
-                                {% if field.field.required %}required{% endif %}>
+<div class="flex flex-col flex-1 overflow-auto">
+    <div class="p-4 sm:p-6 flex-1">
+        <div class="max-w-2xl mx-auto">
+            <div class="card bg-base-100 shadow-lg">
+                <div class="card-body p-4 sm:p-6">
+                   <h2 class="card-title text-xl sm:text-2xl font-bold mb-4">
+                        {% if quarto %}
+                            <i class="fas fa-user-edit mr-2"></i>Editar Quarto
                         {% else %}
-                            <input type="{{ field.field.widget.input_type }}"
-                                class="input input-bordered w-full {% if field.errors %}input-error{% endif %}"
-                                name="{{ field.name }}"
-                                id="{{ field.id_for_label }}"
-                                value="{{ field.value|default_if_none:'' }}"
-                                {% if field.field.required %}required{% endif %}>
+                            <i class="fas fa-user-plus mr-2"></i>Adicionar Novo Quarto
                         {% endif %}
+                    </h2>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="p-4 mb-4 text-center text-sm  rounded-lg 
+                                {% if message.tags == 'error' %} bg-red-100 text-red-700 {% endif %}
+                                {% if message.tags == 'success' %} bg-green-100 text-green-700 {% endif %}" 
+                                role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
                     {% endif %}
 
-                    {% if field.help_text %}
-                        <p class="text-xs text-gray-500 mt-1">{{ field.help_text }}</p>
-                    {% endif %}
-                    {% if field.errors %}
-                        <div class="text-sm text-error mt-1">
-                            {% for error in field.errors %}
-                                <p>{{ error }}</p>
+                    {% if form.non_field_errors %}
+                        <div class="p-4 mb-4 text-center text-sm rounded-lg bg-red-100 text-red-700" role="alert">
+                            <ul class="list-none p-0">
+                            {% for error in form.non_field_errors %}
+                                <li><strong>{{ error }}</strong></li>
                             {% endfor %}
+                            </ul>
                         </div>
                     {% endif %}
-                </div>
-                {% endfor %}
 
-                <div class="flex flex-col sm:flex-row gap-4 pt-6">
-                    <button type="submit" class="btn btn-primary flex-1 gap-2">
-                        <i class="fas fa-save"></i>
-                        {% if quarto %}Salvar Alterações{% else %}Adicionar{% endif %}
-                    </button>
-                    <a  href="{% url 'quarto:listar' %}"
-                       class="btn btn-outline btn-neutral flex-1 gap-2">
-                        <i class="fas fa-times"></i>
-                        Cancelar
-                    </a>
+                    <form method="POST" class="space-y-4">
+                        {% csrf_token %}
+                        <div class="flex flex-col flex-1 p-4">
+                            <div class="flex w-full flex-col">
+                                <div class="form-control">
+                                    <label class="label" for="{{ form.numero.id_for_label }}">
+                                        <span class="label-text font-medium">Número do Quarto
+                                            <span class="text-error">*</span>
+                                        </span>
+                                    </label>
+                                    {{ form.numero }}
+                                    {% if form.numero.errors %}
+                                        <p class="text-error text-sm">{{ form.numero.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-control">
+                                    <label class="label" for="{{ form.capacidade.id_for_label }}">
+                                        <span class="label-text font-medium">Capacidade
+                                            <span class="text-error">*</span>
+                                        </span>
+                                    </label>
+                                    {{ form.capacidade }}
+                                    {% if form.capacidade.errors %}
+                                        <p class="text-error text-sm">{{ form.capacidade.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-control">
+                                    <label class="label" for="{{ form.tipo_quarto.id_for_label }}">
+                                        <span class="label-text font-medium">Tipo de Quarto
+                                            <span class="text-error">*</span>
+                                        </span>
+                                    </label>
+                                    {{ form.tipo_quarto }}
+                                    {% if form.tipo_quarto.errors %}
+                                        <p class="text-error text-sm">{{ form.tipo_quarto.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-control">
+                                    <label class="label" for="{{ form.descricao.id_for_label }}">
+                                        <span class="label-text font-medium">Descrição
+                                        </span>
+                                    </label>
+                                    {{ form.descricao }}
+                                    {% if form.descricao.errors %}
+                                        <p class="text-error text-sm">{{ form.descricao.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-control">
+                                    <label class="label" for="{{ form.preco.id_for_label }}">
+                                        <span class="label-text font-medium">Preço
+                                            <span class="text-error">*</span>
+                                        </span>
+                                    </label>
+                                    {{ form.preco }}
+                                    {% if form.preco.errors %}
+                                        <p class="text-error text-sm">{{ form.preco.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+
+                                <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                                    <button type="submit" class="btn btn-primary flex-1 gap-2">
+                                        <i class="fas fa-save"></i>
+                                        {% if quarto %}Salvar Alterações{% else %}Adicionar{% endif %}
+                                    </button>
+                                    <a href="{% url 'quarto:listar' %}"
+                                    class="btn btn-outline btn-neutral flex-1 gap-2">
+                                        <i class="fas fa-times"></i>
+                                        Cancelar
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const selects = document.querySelectorAll('select:not(.select)');
-    selects.forEach(select => {
-        select.classList.add('select', 'select-bordered', 'w-full');
-    });
 
-    // Adiciona tratamento para campos de data
-    const dateInputs = document.querySelectorAll('input[type="date"]');
-    dateInputs.forEach(input => {
-        input.classList.add('input', 'input-bordered', 'w-full');
-    });
-});
-</script>
 {% endblock %}

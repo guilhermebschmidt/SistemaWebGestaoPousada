@@ -6,22 +6,41 @@
         Editar Título Financeiro
     {% else %}
         Novo Título Financeiro
-    {% endif %}
+    {% endif %} 
 {% endblock %}
 
 {% block content %}
-<div class="max-w-4xl mx-auto">
+<div class=" flex max-w-4xl mx-auto">
     <div class="card bg-base-100 shadow-sm">
         <div class="card-body p-4 sm:p-6">
             <h2 class="card-title text-xl sm:text-2xl font-bold mb-6">
                 {% if form.instance.pk %}
                     <i class="fas fa-pencil-alt mr-2"></i>Editar Título #{{ form.instance.pk }}
                 {% else %}
-                    <i class="fas fa-plus-circle mr-2"></i>Novo Título Financeiro
+                    Novo Título Financeiro
                 {% endif %}
             </h2>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="p-4 mb-4 text-center text-sm  rounded-lg 
+                        {% if message.tags == 'error' %} bg-red-100 text-red-700 {% endif %}
+                        {% if message.tags == 'success' %} bg-green-100 text-green-700 {% endif %}" 
+                        role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
 
-            <form method="POST" action="" class="space-y-4">
+            {% if form.non_field_errors %}
+                <div class="p-4 mb-4 text-center text-sm rounded-lg bg-red-100 text-red-700" role="alert">
+                    <ul class="list-none p-0">
+                        {% for error in form.non_field_errors %}
+                            <li><strong>{{ error }}</strong></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}            
+            <form method="POST" action="" class="space-y-6">
                 {% csrf_token %}
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -47,7 +66,7 @@
                     </div>
                 </div>
 
-                <div class="divider">Datas</div>
+                <div class="divider font-medium">Datas</div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     <!-- Data de Emissão -->
@@ -76,22 +95,20 @@
                     </div>
                 </div>
 
-                <div class="divider">Detalhes e Relações</div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4"> <!-- Ajustei para 2 colunas para ficar melhor -->
+                <div class="divider font-medium mt-4">Detalhes e Relações</div>
+                <div class="grid grid-cols-1 md:grid-cols-2  gap-4"> <!-- Ajustei para 2 colunas para ficar melhor -->
                     <!-- Conta Corrente -->
                     <div class="form-control">
                         <label class="label" for="{{ form.conta_corrente.id_for_label }}"><span class="label-text font-medium">{{ form.conta_corrente.label }}</span></label>
                         {{ form.conta_corrente }}
                         {% for error in form.conta_corrente.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
                     </div>
-                    
-                    <!-- ADICIONE ESTE BLOCO -->
+                    <!-- Categoria -->
                     <div class="form-control">
                         <label class="label" for="{{ form.categoria.id_for_label }}"><span class="label-text font-medium">{{ form.categoria.label }}</span></label>
                         {{ form.categoria }}
                         {% for error in form.categoria.errors %}<p class="text-error text-sm mt-1">{{ error }}</p>{% endfor %}
                     </div>
-                    <!-- FIM DO BLOCO -->
 
                     <!-- Hóspede -->
                     <div class="form-control">
@@ -115,7 +132,7 @@
                 </div>
 
                 <!-- Campos Booleanos -->
-                <div class="space-y-6 pt-6 border-t border-base-200">
+                <div class="space-y-4 pt-6 border-t border-base-200">
                     <!-- Campo Tipo -->
                     <div class="form-control">
                         <label class="label">
@@ -155,7 +172,7 @@
                             <i class="fas fa-plus mr-2"></i>Adicionar Título
                         {% endif %}
                     </button>
-                    <a href="{% url 'financeiro:list' %}" class="btn btn-neutral btn-outline flex-1">
+                    <a href="{% url 'financeiro:list_titulos' %}" class="btn btn-neutral btn-outline flex-1">
                         <i class="fas fa-times mr-2"></i>Cancelar
                     </a>
                 </div>

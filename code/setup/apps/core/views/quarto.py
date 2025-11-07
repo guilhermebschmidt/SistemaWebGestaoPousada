@@ -20,14 +20,23 @@ def listar(request):
     }
     return render(request, 'core/quarto/listar.html', context)
 
-def form(request, quarto_id=None):
-    quarto = get_object_or_404(Quarto, pk=quarto_id) if quarto_id else None
+def form_quarto(request, pk=None, quarto_id=None):
+    # aceitar tanto 'pk' quanto 'quarto_id' como identificador
+    identifier = pk or quarto_id
+    quarto = get_object_or_404(Quarto, pk=identifier) if identifier else None
 
     if request.method == 'POST':
         form = QuartoForm(request.POST, instance=quarto)
         if form.is_valid():
             form.save()
-            return redirect('/quartos/')
+            msg = 'Quarto salvo com sucesso.'
+            messages.success(request, msg)
+            resp = redirect('quarto:listar')
+            try:
+                resp.set_cookie('messages', msg)
+            except Exception:
+                pass
+            return resp
     else:
         form = QuartoForm(instance=quarto)
         print("Valores do formulário:")
@@ -38,7 +47,7 @@ def form(request, quarto_id=None):
         'form': form,
         'quarto': quarto,
         'tipos_de_quarto': Quarto.TIPOS_QUARTOS_CHOICES,
-        'is_editing': quarto_id is not None,
+        'is_editing':pk is not None,
         'debug_data': {
             'numero': quarto.numero if quarto else None,
             'preco': float(quarto.preco) if quarto and quarto.preco else None,
@@ -46,25 +55,39 @@ def form(request, quarto_id=None):
     }
     return render(request, 'core/quarto/form.html', context)
 
-def tipos_quarto(request):
-    return render(request, 'core/quarto/tipos_quarto.html')
-
-def excluir(request, quarto_id):
-    quarto = get_object_or_404(Quarto, pk=quarto_id)
+def excluir(request, pk=None, quarto_id=None):
+    identifier = pk or quarto_id
+    quarto = get_object_or_404(Quarto, pk=identifier)
+    
     if request.method == 'POST':
         quarto.delete()
-        return redirect('core/quarto:list')
-    return render(request, 'core/quarto/listar.html', {'quarto': quarto})
+        msg = f"O Quarto {quarto.numero} foi excluído com sucesso."
+        messages.success(request, msg)
+        resp = redirect('quarto:listar')
+        try:
+            resp.set_cookie('messages', msg)
+        except Exception:
+            pass
+        return resp
 
-def mudar_status_quarto(request, pk):
-    quarto = get_object_or_404(Quarto, pk=pk)
+    return redirect('quarto:listar')
+
+def mudar_status_quarto(request, pk=None, quarto_id=None):
+    identifier = pk or quarto_id
+    quarto = get_object_or_404(Quarto, pk=identifier)
 
     if request.method == 'POST':
         form = QuartoStatusForm(request.POST, instance=quarto)
         if form.is_valid():
             form.save()
-            messages.success(request, f"O status do Quarto {quarto.numero} foi atualizado com sucesso!")
-            return redirect('quarto:listar')
+            msg = f"O status do Quarto {quarto.numero} foi atualizado com sucesso!"
+            messages.success(request, msg)
+            resp = redirect('quarto:listar')
+            try:
+                resp.set_cookie('messages', msg)
+            except Exception:
+                pass
+            return resp
     else:
         form = QuartoStatusForm(instance=quarto)
 

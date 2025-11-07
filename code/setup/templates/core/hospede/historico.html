@@ -2,10 +2,17 @@
 
 {% block content %}
 <div class="container mt-5">
+    <div class=" flex text-sm breadcrumbs justify-end">
+        <ul>
+            <li><a href="{% url 'index' %}">Painel Inicial</a></li>
+            <li><a href="{% url 'hospede:listar' %}">Hóspedes</li></a></li>
+            <li>Histórico</li>
+        </ul>
+    </div>
+
     <h2>Histórico de Reservas - {{ hospede.nome }}</h2>
     <p><strong>CPF:</strong> {{ hospede.cpf }}</p>
     <hr>
-
     {% if reservas %}
         <table class="table table-striped mt-4">
             <thead>
@@ -22,7 +29,7 @@
             <tbody>
                 {% for reserva in reservas %}
                 <tr>
-                    <td>{{ reserva.id }}</td>
+                    <td>Reserva #{{ reserva.id }}</td>
                     <td>{{ reserva.id_quarto }}</td>
                     <td>{{ reserva.data_check_in|date:"d/m/Y H:i" }}</td>
                     <td>{{ reserva.data_check_out|date:"d/m/Y H:i" }}</td>
@@ -48,7 +55,12 @@
             Nenhuma reserva encontrada para este hóspede.
         </div>
     {% endif %}
-
-    <a href="{% url 'hospede:listar' %}" class="btn btn-secondary mt-4">Voltar</a>
+    <div class=" flex justify-end">
+        <a href="{% url 'hospede:listar' %}" class="btn btn-secondary mt-4" title="Voltar">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+            </svg> Voltar
+         </a>
+    </div>
 </div>
 {% endblock %}

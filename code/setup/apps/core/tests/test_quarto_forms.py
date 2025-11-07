@@ -1,37 +1,35 @@
-# apps/quarto/tests/test_forms.py
 import pytest
-from apps.core.forms import QuartoForm
-from apps.core.models.quarto import Quarto
+from apps.core.forms import QuartoForm, QuartoStatusForm
 
 @pytest.mark.django_db
-def test_quarto_form_valid_data():
-    """Testa se o QuartoForm é válido com dados corretos"""
-    data = {
-        'numero': '101',
-        'status': True,
-        'descricao': 'Quarto confortável com vista para o mar',
-        'preco': 250.00
+def test_quarto_form_valid(db):
+    form_data = {
+        "numero": "102",
+        "capacidade": 2,
+        "tipo_quarto": "SUITE",
+        "descricao": "Teste",
+        "preco": 250.00
     }
-    form = QuartoForm(data=data)
-    assert form.is_valid(), form.errors  # Deve ser válido
-    quarto = form.save(commit=False)
-    assert quarto.numero == '101'
-    assert quarto.status is True
-    assert quarto.descricao == 'Quarto confortável com vista para o mar'
-    assert quarto.preco == 250.00
+    form = QuartoForm(data=form_data)
+    assert form.is_valid(), form.errors
 
 @pytest.mark.django_db
-def test_quarto_form_invalid_data():
-    """Testa se o QuartoForm detecta dados inválidos"""
+def test_quarto_form_invalid_data(db):
+    """Testa se o QuartoForm detecta dados inválidos (campos obrigatórios)."""
     data = {
-        'numero': '',  # Campo obrigatório vazio
-        'status': 'notabool',  # Valor inválido para BooleanField
-        'descricao': '',  # Campo obrigatório vazio
-        'preco': -50  # Valor negativo, se tiver validação
+        'numero': '', 'capacidade': '', 'tipo_quarto': '',
+        'descricao': '', 'preco': ''
     }
     form = QuartoForm(data=data)
-    assert not form.is_valid()  # Deve ser inválido
-    # Verifica se os erros existem
+    assert not form.is_valid()
     assert 'numero' in form.errors
-    assert 'descricao' in form.errors
-    assert 'preco' in form.errors or 'status' in form.errors
+    assert 'capacidade' in form.errors
+    assert 'tipo_quarto' in form.errors
+    assert 'preco' in form.errors
+    # Descricao é obrigatória no form (init)
+    assert 'descricao' in form.errors 
+
+@pytest.mark.django_db
+def test_quarto_status_form_valid(quarto):
+    form = QuartoStatusForm(data={'status': 'MANUTENCAO'}, instance=quarto)
+    assert form.is_valid()

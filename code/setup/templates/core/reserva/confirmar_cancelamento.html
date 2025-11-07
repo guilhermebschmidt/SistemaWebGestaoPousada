@@ -1,0 +1,26 @@
+{% extends "shared/base.html" %}
+{% load static %}
+
+{% block title %}Confirmar Cancelamento{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto p-6">
+    <div class="card bg-base-100 shadow-sm">
+        <div class="card-body">
+            <h2 class="card-title">Confirmar Cancelamento da Reserva</h2>
+            <p>Você tem certeza que deseja cancelar a reserva <strong>Reserva #{{ reserva.id }}</strong> para <strong>{{ reserva.id_hospede.nome }}</strong>?</p>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-control mt-4">
+                    <label class="label">Motivo do cancelamento</label>
+                    <textarea name="motivo_cancelamento" class="textarea textarea-bordered" rows="3"></textarea>
+                </div>
+                <div class="mt-4 flex gap-2">
+                    <button type="submit" class="btn btn-danger">Confirmar Cancelamento</button>
+                    <a href="{% url 'reserva:list' %}" class="btn btn-outline">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

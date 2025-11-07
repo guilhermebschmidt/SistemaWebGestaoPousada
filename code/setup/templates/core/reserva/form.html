@@ -12,12 +12,13 @@
             <div class="card bg-base-100 shadow-sm">
                 <div class="card-body p-4 sm:p-6">
                     <h2 class="card-title text-xl sm:text-2xl font-bold mb-4">
-                        {% if form.instance.pk %}
+                        {% if reserva %}
                             <i class="fas fa-calendar-edit mr-2"></i>Editar Reserva
                         {% else %}
                             <i class="fas fa-calendar-plus mr-2"></i>Nova Reserva
                         {% endif %}
                     </h2>
+
                     {% if messages %}
                         {% for message in messages %}
                             <div class="p-4 mb-4 text-center text-sm  rounded-lg 
@@ -42,106 +43,109 @@
                 
                     <form method="POST" action="" class="space-y-4">
                         {% csrf_token %}
+                        <div class="flex flex-col flex-1 p-4">
+                            <div class="flex w-full flex-col">
+                                <!-- Hóspede -->
+                                <div class="form-control">
+                                    <label class="label" for="id_hospede_nome">
+                                        <span class="label-text font-medium">Hóspede</span>
+                                    </label>
 
-                        <!-- Hóspede -->
-                        <div class="form-control">
-                            <label class="label" for="id_hospede_nome">
-                                <span class="label-text font-medium">Hóspede</span>
-                            </label>
+                                    {{ form.hospede_nome }}
 
-                            {{ form.hospede_nome }}
+                                    {{ form.id_hospede }}
 
-                            {{ form.id_hospede }}
+                                    {% if form.hospede_nome.errors %}
+                                        <p class="text-error text-sm">{{ form.hospede_nome.errors.0 }}</p>
+                                    {% elif form.id_hospede.errors %}
+                                        <p class="text-error text-sm">{{ form.id_hospede.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
 
-                            {% if form.hospede_nome.errors %}
-                                <p class="text-error text-sm">{{ form.hospede_nome.errors.0 }}</p>
-                            {% elif form.id_hospede.errors %}
-                                <p class="text-error text-sm">{{ form.id_hospede.errors.0 }}</p>
-                            {% endif %}
-                        </div>
+                                <!-- Quarto -->
+                                <div class="form-control">
+                                    <label class="label" for="id_quarto">
+                                        <span class="label-text font-medium">Quarto</span>
+                                    </label>
+                                    <br>
+                                    {{ form.id_quarto }}
+                                    {% if form.id_quarto.errors %}
+                                        <p class="text-error text-sm">{{ form.id_quarto.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+                                <!-- Quantidade de Adultos e Crianças -->
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
+                                    <div class="form-control">
+                                        <label class="label" for="{{ form.quantidade_adultos.id_for_label }}">
+                                            <span class="label-text font-medium">{{ form.quantidade_adultos.label }}</span>
+                                        </label>
+                                        <br>
+                                        {{ form.quantidade_adultos }}
 
-                        <!-- Quarto -->
-                        <div class="form-control">
-                            <label class="label" for="id_quarto">
-                                <span class="label-text font-medium">Quarto</span>
-                            </label>
-                            <br>
-                            {{ form.id_quarto }}
-                            {% if form.id_quarto.errors %}
-                                <p class="text-error text-sm">{{ form.id_quarto.errors.0 }}</p>
-                            {% endif %}
-                        </div>
-                        <!-- Quantidade de Adultos e Crianças -->
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-12">
-                            <div class="form-control">
-                                <label class="label" for="{{ form.quantidade_adultos.id_for_label }}">
-                                    <span class="label-text font-medium">{{ form.quantidade_adultos.label }}</span>
-                                </label>
-                                <br>
-                                {{ form.quantidade_adultos }}
-
-                                {% for error in form.quantidade_adultos.errors %}
-                                    <div class="label">
-                                        <span class="label-text-alt text-error">{{ error }}</span>
+                                        {% for error in form.quantidade_adultos.errors %}
+                                            <div class="label">
+                                                <span class="label-text-alt text-error">{{ error }}</span>
+                                            </div>
+                                        {% endfor %}
                                     </div>
-                                {% endfor %}
-                            </div>
 
-                            <div class="form-control">
-                                <label class="label" for="{{ form.quantidade_criancas.id_for_label }}">
-                                    <span class="label-text font-medium">{{ form.quantidade_criancas.label }}</span>
-                                </label>
-                                <br>
+                                    <div class="form-control">
+                                        <label class="label" for="{{ form.quantidade_criancas.id_for_label }}">
+                                            <span class="label-text font-medium">{{ form.quantidade_criancas.label }}</span>
+                                        </label>
+                                        <br>
 
-                                {{ form.quantidade_criancas }}
+                                        {{ form.quantidade_criancas }}
 
-                                {% for error in form.quantidade_criancas.errors %}
-                                    <div class="label">
-                                        <span class="label-text-alt text-error">{{ error }}</span>
+                                        {% for error in form.quantidade_criancas.errors %}
+                                            <div class="label">
+                                                <span class="label-text-alt text-error">{{ error }}</span>
+                                            </div>
+                                        {% endfor %}
                                     </div>
-                                {% endfor %}
+
+                                </div>
+
+                                <!-- Data início da Reserva -->
+                                <div class="form-control">
+                                    <label class="label" for="id_data_reserva_inicio">
+                                        <span class="label-text font-medium">Data início da Reserva</span>
+                                    </label>
+                                    <br>
+                                    {{ form.data_reserva_inicio }}
+                                    {% if form.data_reserva_inicio.errors %}
+                                        <p class="text-error text-sm">{{ form.data_reserva_inicio.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Data fim da Reserva -->
+                                <div class="form-control">
+                                    <label class="label" for="id_data_reserva_fim">
+                                        <span class="label-text font-medium">Data fim da Reserva</span>
+                                    </label>
+                                    <br>
+                                    {{ form.data_reserva_fim }}
+                                    {% if form.data_reserva_fim.errors %}
+                                        <p class="text-error text-sm">{{ form.data_reserva_fim.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+
+                                <!-- Botões -->
+                                <div class="flex flex-col sm:flex-row gap-3 pt-6">
+                                    <button type="submit" class="btn btn-primary flex-1">
+                                        {% if form.instance.pk %}
+                                            <i class="fas fa-save mr-2"></i>Salvar
+                                        {% else %}
+                                            <i class="fas fa-plus mr-2"></i>Reservar
+                                        {% endif %}
+                                    </button>
+                                    <a href="{% url 'reserva:list' %}" class="btn btn-neutral btn-outline flex-1">
+                                        <i class="fas fa-times mr-2"></i>Cancelar
+                                    </a>
+                                </div>
+                    
                             </div>
-
                         </div>
-
-                        <!-- Data início da Reserva -->
-                        <div class="form-control">
-                            <label class="label" for="id_data_reserva_inicio">
-                                <span class="label-text font-medium">Data início da Reserva</span>
-                            </label>
-                            <br>
-                            {{ form.data_reserva_inicio }}
-                            {% if form.data_reserva_inicio.errors %}
-                                <p class="text-error text-sm">{{ form.data_reserva_inicio.errors.0 }}</p>
-                            {% endif %}
-                        </div>
-
-                        <!-- Data fim da Reserva -->
-                        <div class="form-control">
-                            <label class="label" for="id_data_reserva_fim">
-                                <span class="label-text font-medium">Data fim da Reserva</span>
-                            </label>
-                            <br>
-                            {{ form.data_reserva_fim }}
-                            {% if form.data_reserva_fim.errors %}
-                                <p class="text-error text-sm">{{ form.data_reserva_fim.errors.0 }}</p>
-                            {% endif %}
-                        </div>
-
-                        <!-- Botões -->
-                        <div class="flex flex-col sm:flex-row gap-3 pt-6">
-                            <button type="submit" class="btn btn-primary flex-1">
-                                {% if form.instance.pk %}
-                                    <i class="fas fa-save mr-2"></i>Salvar
-                                {% else %}
-                                    <i class="fas fa-plus mr-2"></i>Reservar
-                                {% endif %}
-                            </button>
-                            <a href="{% url 'reserva:list' %}" class="btn btn-neutral btn-outline flex-1">
-                                <i class="fas fa-times mr-2"></i>Cancelar
-                            </a>
-                        </div>
-
                     </form>
                 </div>
             </div>
@@ -163,6 +167,22 @@
                 return false;
             }
         });
+        });
+        // Quando o usuário alterar as datas, recarrega a página (GET) com as datas na query
+        function refreshWithDates(){
+            const inicio = $('#id_data_reserva_inicio').val();
+            const fim = $('#id_data_reserva_fim').val();
+            if(!inicio || !fim) return;
+            const params = new URLSearchParams(window.location.search);
+            params.set('data_reserva_inicio', inicio);
+            params.set('data_reserva_fim', fim);
+            // navega para a mesma rota com querystring atualizada
+            window.location.search = params.toString();
+        }
+
+        $('#id_data_reserva_inicio, #id_data_reserva_fim').on('change', function(){
+            // esperar pequeno debounce para permitir seleção do outro campo
+            setTimeout(refreshWithDates, 200);
         });
     </script>
 {% endblock %}
