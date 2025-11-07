@@ -14,11 +14,14 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 import datetime
+import sys
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Detecta se estamos rodando dentro do pytest
+TESTING = 'pytest' in sys.modules
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -182,10 +185,16 @@ ACCOUNT_FORMS = {
     'reset_password_from_key': 'apps.usuarios.forms.CustomResetPasswordFromKeyForm',
 }
 
-# Use a custom message storage that writes a plain-text cookie (aids tests
-# that assert on auth_client.cookies['messages']). This keeps the default
-# middleware behavior but ensures the final cookie contains an easy-to-assert
-# string.
-MESSAGE_STORAGE = 'apps.core.message_storage.PlainCookieStorage'
-
+if TESTING:
+    # Se estiver rodando testes (pytest):
+    # 1. Insere o middleware de "tradução" antes do middleware de mensagens padrão
+    MIDDLEWARE.insert(
+        MIDDLEWARE.index('django.contrib.messages.middleware.MessageMiddleware'),
+        'apps.core.middleware.DecodeAndPlainMessagesCookieMiddleware'
+    )
+    # 2. Substitui o armazenamento pelo de texto puro
+    MESSAGE_STORAGE = 'apps.core.message_storage.PlainCookieStorage'
+else:
+    # Em produção ou desenvolvimento normal, usa o padrão seguro
+    MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
