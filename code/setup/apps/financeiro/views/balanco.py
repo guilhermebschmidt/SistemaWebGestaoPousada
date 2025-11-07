@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.db.models import Sum
+from django.db.models import Sum, Q
 from ..models.titulo import Titulo 
 import datetime
 

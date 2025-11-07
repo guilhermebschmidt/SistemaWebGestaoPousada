@@ -63,3 +63,15 @@ def categoria_receita(db):
 @pytest.fixture
 def titulo_receita(db, reserva):
     return Titulo.objects.get(reserva=reserva, descricao__startswith='Sinal')
+
+
+@pytest.fixture
+def titulo_receita_sinal(db, reserva):
+    """Compatibilidade com fixtures usadas em apps/financeiro/tests."""
+    return Titulo.objects.get(reserva=reserva, descricao__startswith='Sinal')
+
+
+@pytest.fixture
+def titulo_receita_restante(db, reserva):
+    """Compatibilidade: retorna o título restante criado pela reserva."""
+    return Titulo.objects.get(reserva=reserva, descricao__startswith='Pagamento Restante')

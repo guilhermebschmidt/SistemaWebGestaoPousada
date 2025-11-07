@@ -1,108 +1,122 @@
 import pytest
 from django.urls import reverse
-from apps.core.models import Hospede, Quarto, Reserva
-from datetime import date, timedelta
+from apps.core.models import Hospede, Reserva
+from datetime import date
 
-# --- Testes CRUD de HOSPEDE ---
-
+@pytest.mark.django_db
 def test_hospede_listar_get(auth_client, hospede):
-    """Testa o GET simples da lista de hóspedes."""
     url = reverse('hospede:listar')
     response = auth_client.get(url)
     assert response.status_code == 200
     assert hospede.nome in response.content.decode()
 
+@pytest.mark.django_db
 def test_hospede_criar_get_form(auth_client):
-    """Testa o GET da página de formulário de criação de hóspede."""
-    # URL name in urls/hospede.py uses 'form' for creation
-    url = reverse('hospede:form')
+    url = reverse('hospede:criar')
     response = auth_client.get(url)
     assert response.status_code == 200
     assert '<form' in response.content.decode()
+    assert 'Adicionar Hóspede' in response.content.decode()
 
+@pytest.mark.django_db
 def test_hospede_editar_get_form(auth_client, hospede):
-    """Testa o GET da página de formulário de edição de hóspede."""
-    # URLs use the same 'form' view for editing and creation; pass cpf for edit
-    url = reverse('hospede:form', kwargs={'cpf': hospede.cpf})
+    url = reverse('hospede:editar', kwargs={'cpf': hospede.cpf})
     response = auth_client.get(url)
     assert response.status_code == 200
-    assert hospede.nome in response.content.decode() # Verifica se os dados do hospede estão no form
+    assert hospede.nome in response.content.decode()
+    assert 'Editar Hóspede' in response.content.decode()
 
+@pytest.mark.django_db
 def test_hospede_detalhes_get(auth_client, hospede):
-    """Testa o GET da página de detalhes do hóspede."""
     url = reverse('hospede:detalhes', kwargs={'cpf': hospede.cpf})
     response = auth_client.get(url)
     assert response.status_code == 200
     assert hospede.email in response.content.decode()
 
+@pytest.mark.django_db
 def test_hospede_historico_get(auth_client, hospede, reserva):
-    """Testa o GET da página de histórico de reservas do hóspede."""
     url = reverse('hospede:historico', kwargs={'cpf': hospede.cpf})
     response = auth_client.get(url)
     assert response.status_code == 200
-    content = response.content.decode()
-    # Template rendering may differ; assert that either the reservation id or the
-    # hospede name appears in the response body.
-    assert str(reserva.id) in content or reserva.id_hospede.nome in content
+    assert f"Reserva #{reserva.id}" in response.content.decode()
 
+@pytest.mark.django_db
 def test_hospede_excluir_get_confirm(auth_client, hospede):
-    """Testa o GET da página de confirmação de exclusão."""
     url = reverse('hospede:excluir', kwargs={'cpf': hospede.cpf})
     response = auth_client.get(url)
     assert response.status_code == 200
     assert "Tem certeza que deseja excluir" in response.content.decode()
 
-def test_hospede_excluir_post(auth_client, hospede):
-    """Testa o POST que de fato exclui o hóspede."""
+@pytest.mark.django_db
+def test_hospede_excluir_post_sucesso(auth_client, hospede):
     url = reverse('hospede:excluir', kwargs={'cpf': hospede.cpf})
     response = auth_client.post(url)
-    assert response.status_code == 302 # Redireciona
+    assert response.status_code == 302
     assert response.url == '/hospedes/'
     assert not Hospede.objects.filter(cpf=hospede.cpf).exists()
 
+@pytest.mark.django_db
+def test_hospede_excluir_post_com_reserva_ativa(auth_client, reserva):
+    hospede = reserva.id_hospede
+    url = reverse('hospede:excluir', kwargs={'cpf': hospede.cpf})
+    response = auth_client.post(url)
+    
+    assert response.status_code == 302 # Redireciona de volta
+    assert response.url == '/hospedes/'
+    assert "Este hóspede não pode ser excluído" in auth_client.cookies['messages'].value
+    assert Hospede.objects.filter(cpf=hospede.cpf).exists()
+
+@pytest.mark.django_db
 def test_hospede_buscar_get(auth_client, hospede):
-    """Testa a view de busca de hóspede."""
     url = reverse('hospede:buscar') + f'?search={hospede.nome}'
     response = auth_client.get(url)
     assert response.status_code == 200
     assert hospede.nome in response.content.decode()
 
-# -----------------
-# Testes das Views de Hospede
-# -----------------
-def test_hospede_listar_view(auth_client, hospede):
-    url = reverse('hospede:listar')
-    response = auth_client.get(url)
-    assert response.status_code == 200
-    assert hospede.nome in response.content.decode()
-
-def test_hospede_form_create_post(auth_client):
-    """Testa a view de criação manual de hospede."""
-    url = reverse('hospede:form')
+@pytest.mark.django_db
+def test_hospede_form_create_post_sucesso(auth_client):
+    """Testa a nova view (hospede_form) que usa form.is_valid()."""
+    url = reverse('hospede:criar')
     form_data = {
-        "nome": "Novo Hóspede",
-        "cpf": "11122233344",
-        "data_nascimento": "1985-01-01",
-        "telefone": "11977776666",
-        "email": "novo.hospede@email.com",
-        "rua": "Rua Nova", "numero": "1", "bairro": "Bairro", "cidade": "Cidade", "cep": "12345"
+        "nome": "Novo Hóspede", "cpf": "11122233344", "passaporte": "",
+        "data_nascimento": "1985-01-01", "telefone": "11977776666",
+        "email": "novo.hospede@email.com", "rua": "Rua Nova", "numero": "1",
+        "bairro": "Bairro", "cidade": "Cidade", "cep": "12345"
     }
     response = auth_client.post(url, form_data)
-    assert response.status_code == 302 # Redireciona
-    assert response.url == '/hospedes/'
+    assert response.status_code == 302
+    assert response.url == reverse('hospede:listar')
     assert Hospede.objects.filter(cpf="11122233344").exists()
 
+@pytest.mark.django_db
 def test_hospede_form_post_invalido(auth_client):
-    """Testa se a view de hospede trata erros de validação (ex: menor de idade)."""
-    url = reverse('hospede:form')
-    form_data = {
-        "nome": "Novo Hóspede",
-        "cpf": "11122233355",
-        "data_nascimento": "2010-01-01", # Menor de idade
-        "telefone": "11977776666",
-        "email": "novo.hospede@email.com",
-        "rua": "Rua Nova", "numero": "1", "bairro": "Bairro", "cidade": "Cidade", "cep": "12345"
-    }
+    """Testa se a view hospede_form trata erros de validação."""
+    url = reverse('hospede:criar')
+    form_data = {"nome": "Novo Hóspede", "cpf": "", "passaporte": ""} # Sem CPF/Passaporte
     response = auth_client.post(url, form_data)
     assert response.status_code == 200 # Re-renderiza o form
-    assert "O hóspede deve ter 18 anos ou mais." in response.content.decode()
+    assert "É obrigatório fornecer um CPF ou um número de Passaporte." in response.content.decode()
+
+
+@pytest.mark.django_db
+def test_hospede_editar_post_sucesso(auth_client, hospede):
+    """Testa o POST de edição de um hospede (usando a view hospede_form)."""
+    url = reverse('hospede:editar', kwargs={'cpf': hospede.cpf})
+    form_data = {
+        "nome": "Hóspede Nome Editado", # Campo alterado
+        "cpf": hospede.cpf,
+        "passaporte": hospede.passaporte,
+        "data_nascimento": hospede.data_nascimento.isoformat(),
+        "telefone": "11911112222", # Campo alterado
+        "email": hospede.email,
+        "rua": hospede.rua, "numero": hospede.numero,
+        "bairro": hospede.bairro, "cidade": hospede.cidade, "cep": hospede.cep
+    }
+    
+    response = auth_client.post(url, form_data)
+    assert response.status_code == 302 # Redireciona
+    assert response.url == reverse('hospede:listar')
+    
+    hospede.refresh_from_db()
+    assert hospede.nome == "Hóspede Nome Editado"
+    assert hospede.telefone == "11911112222"

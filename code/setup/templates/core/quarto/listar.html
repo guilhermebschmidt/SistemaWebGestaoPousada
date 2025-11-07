@@ -86,7 +86,7 @@
             <tbody>
                 {% for quarto in quartos %}
                 <tr class="hover">
-                    <td>{{ quarto.numero }}</td>
+                    <td>Quarto {{ quarto.numero }}</td>
                     <td>
                         {% if quarto.status == 'DISPONIVEL' %}
                             <span class="badge badge-outline badge-success">{{ quarto.get_status_display }}</span>

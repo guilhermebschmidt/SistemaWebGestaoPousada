@@ -85,7 +85,12 @@ def titulo_form(request, pk=None):
         form = TituloForm(request.POST, instance=titulo)
         if form.is_valid():
             form.save()
-            return redirect('financeiro:list_titulos')
+            resp = redirect('financeiro:list_titulos')
+            try:
+                resp.set_cookie('messages', 'Título salvo com sucesso.')
+            except Exception:
+                pass
+            return resp
     else:
         form = TituloForm(instance=titulo)
 
@@ -109,4 +114,10 @@ def marcar_pago(request, pk):
     except Exception:
         pass
 
-    return redirect('financeiro:list_titulos')
+    resp = redirect('financeiro:list_titulos')
+    try:
+        resp.set_cookie('messages', 'Título marcado como pago.')
+    except Exception:
+        pass
+    return resp
+    

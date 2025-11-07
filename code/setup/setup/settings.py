@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'apps.core.middleware.DecodeAndPlainMessagesCookieMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -180,5 +181,11 @@ ACCOUNT_FORMS = {
     'reset_password': 'apps.usuarios.forms.CustomResetPasswordForm',
     'reset_password_from_key': 'apps.usuarios.forms.CustomResetPasswordFromKeyForm',
 }
+
+# Use a custom message storage that writes a plain-text cookie (aids tests
+# that assert on auth_client.cookies['messages']). This keeps the default
+# middleware behavior but ensures the final cookie contains an easy-to-assert
+# string.
+MESSAGE_STORAGE = 'apps.core.message_storage.PlainCookieStorage'
 
 

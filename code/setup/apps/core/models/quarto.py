@@ -3,13 +3,8 @@ from decimal import Decimal
 
 
 class Quarto(models.Model):
-<<<<<<< HEAD
-    numero = models.CharField(max_length=5)
-
-=======
     numero = models.CharField(max_length=100)
     
->>>>>>> 8b9ba418af16e0af05bb5b11558a927cfa1741f0
     STATUS_CHOICES = (
         ('DISPONIVEL', 'Disponível'),
         ('OCUPADO', 'Ocupado'),
@@ -45,16 +40,11 @@ class Quarto(models.Model):
         verbose_name='Preço',
         max_digits=10,
         decimal_places=2,
-<<<<<<< HEAD
-        default=Decimal('0.00')
-=======
         default=0.00
->>>>>>> 8b9ba418af16e0af05bb5b11558a927cfa1741f0
     )
 
     def __str__(self):
         return f"Quarto {self.numero}"
-<<<<<<< HEAD
 
     def is_available(self, data_inicio, data_fim, reserva_a_ignorar=None):
         """Verifica se este quarto está disponível no período [data_inicio, data_fim).
@@ -76,7 +66,3 @@ class Quarto(models.Model):
             conflitos = conflitos.exclude(pk=reserva_a_ignorar.pk)
         return not conflitos.exists()
     
-=======
-     
-     
->>>>>>> 8b9ba418af16e0af05bb5b11558a927cfa1741f0

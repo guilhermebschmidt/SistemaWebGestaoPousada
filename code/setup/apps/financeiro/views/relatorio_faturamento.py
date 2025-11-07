@@ -162,4 +162,14 @@ def relatorio_faturamento(request):
         'media': media,
     }
 
+    # Preparar strings de exibição com formatação brasileira (vírgula decimal)
+    for t in queryset:
+        try:
+            t.valor_display = f"R$ {t.valor:.2f}".replace('.', ',')
+        except Exception:
+            t.valor_display = f"R$ {t.valor}"
+
+    context['total_display'] = f"R$ {total:.2f}".replace('.', ',')
+    context['media_display'] = f"R$ {media:.2f}".replace('.', ',') if isinstance(media, (int, float)) else media
+
     return render(request, 'financeiro/relatorio/faturamento.html', context)

@@ -8,7 +8,7 @@ class HospedeForm(forms.ModelForm):
     cpf = forms.CharField(
         label='CPF',
         max_length=14,
-        required=True,
+        required=False,
         widget=forms.TextInput(attrs={
             'class': 'input input-bordered w-full', 
             'placeholder': '000.000.000-00',

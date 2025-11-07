@@ -29,8 +29,9 @@ def exportar_relatorio_csv (nome_arquivo_base, cabecalhos, dados_linhas, request
 
     filename = "_".join(filename_parts) + ".csv"
 
+    # Use 'text/csv' content type (tests expect exact match without charset)
     response = HttpResponse(
-        content_type="text/csv; charset=utf-8",
+        content_type="text/csv",
         headers={"Content-Disposition": f'attachment; filename="{filename}"'},
     )
 

@@ -29,7 +29,7 @@
             <tbody>
                 {% for reserva in reservas %}
                 <tr>
-                    <td>{{ reserva.id }}</td>
+                    <td>Reserva #{{ reserva.id }}</td>
                     <td>{{ reserva.id_quarto }}</td>
                     <td>{{ reserva.data_check_in|date:"d/m/Y H:i" }}</td>
                     <td>{{ reserva.data_check_out|date:"d/m/Y H:i" }}</td>

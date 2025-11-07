@@ -107,7 +107,7 @@
                     {% for t in titulos %}
                     <tr>
                         <td>{{ t.descricao }}</td>
-                        <td>R$ {{ t.valor|floatformat:2 }}</td>
+                        <td>{{ t.valor_display }}</td>
                         <td>{{ t.data_pagamento|date:"d/m/Y" }}</td>
                     </tr>
                     {% endfor %}
@@ -118,7 +118,7 @@
         <!-- Totais -->
         <div class="flex flex-wrap items-stretch rounded-lg gap-8 mt-12 shadow-lg">
             <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
-                <div class="stat-value text-3xl text-primary font-extrabold">R$ {{ total|floatformat:2 }}</div>
+                <div class="stat-value text-3xl text-primary font-extrabold">{{ total_display }}</div>
                 <div class="stat-title text-sm text-gray-500 mt-2">Total</div>
             </div>
 
@@ -128,7 +128,7 @@
             </div>
 
             <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
-                <div class="stat-value text-3xl text-primary font-extrabold">R$ {{ media|floatformat:2 }}</div>
+                <div class="stat-value text-3xl text-primary font-extrabold">{{ media_display }}</div>
                 <div class="stat-title text-sm text-gray-500 mt-2">Média</div>
             </div>
         </div>

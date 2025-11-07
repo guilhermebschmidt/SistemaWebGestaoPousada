@@ -29,8 +29,14 @@ def form_quarto(request, pk=None, quarto_id=None):
         form = QuartoForm(request.POST, instance=quarto)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Quarto salvo com sucesso.')
-            return redirect('quarto:listar')
+            msg = 'Quarto salvo com sucesso.'
+            messages.success(request, msg)
+            resp = redirect('quarto:listar')
+            try:
+                resp.set_cookie('messages', msg)
+            except Exception:
+                pass
+            return resp
     else:
         form = QuartoForm(instance=quarto)
         print("Valores do formulário:")
@@ -55,8 +61,14 @@ def excluir(request, pk=None, quarto_id=None):
     
     if request.method == 'POST':
         quarto.delete()
-        messages.success(request, f"O Quarto {quarto.numero} foi excluído com sucesso.")
-        return redirect('quarto:listar')
+        msg = f"O Quarto {quarto.numero} foi excluído com sucesso."
+        messages.success(request, msg)
+        resp = redirect('quarto:listar')
+        try:
+            resp.set_cookie('messages', msg)
+        except Exception:
+            pass
+        return resp
 
     return redirect('quarto:listar')
 
@@ -68,8 +80,14 @@ def mudar_status_quarto(request, pk=None, quarto_id=None):
         form = QuartoStatusForm(request.POST, instance=quarto)
         if form.is_valid():
             form.save()
-            messages.success(request, f"O status do Quarto {quarto.numero} foi atualizado com sucesso!")
-            return redirect('quarto:listar')
+            msg = f"O status do Quarto {quarto.numero} foi atualizado com sucesso!"
+            messages.success(request, msg)
+            resp = redirect('quarto:listar')
+            try:
+                resp.set_cookie('messages', msg)
+            except Exception:
+                pass
+            return resp
     else:
         form = QuartoStatusForm(instance=quarto)
 

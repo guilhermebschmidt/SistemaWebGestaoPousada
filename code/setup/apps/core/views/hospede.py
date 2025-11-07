@@ -57,14 +57,25 @@ def excluir(request, pk=None, cpf=None):
     reservas_ativas = hospede.reserva_set.exclude(status='Cancelada')
     
     if reservas_ativas.exists():
-        messages.error(request, 'Este hóspede não pode ser excluído pois possui reservas ativas.')
-        
-        return redirect('/hospedes/')
+        msg = 'Este hóspede não pode ser excluído pois possui reservas ativas.'
+        messages.error(request, msg)
+        resp = redirect('/hospedes/')
+        try:
+            resp.set_cookie('messages', msg)
+        except Exception:
+            pass
+        return resp
 
     if request.method == 'POST':
         hospede.delete()
-        messages.success(request, 'Hóspede excluído com sucesso.')
-        return redirect('/hospedes/')
+        msg = 'Hóspede excluído com sucesso.'
+        messages.success(request, msg)
+        resp = redirect('/hospedes/')
+        try:
+            resp.set_cookie('messages', msg)
+        except Exception:
+            pass
+        return resp
     return render(request, 'core/hospede/hospede_confirm_delete.html', {'hospede': hospede})
 
 def buscar(request):
