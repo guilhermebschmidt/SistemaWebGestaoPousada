@@ -1935,18 +1935,18 @@ A Figura~\ref{fig:der} mostra o Diagrama Entidade-Relacionamento (DER) do sistem
 
 \section{Repositório da Aplicação}Nesta seção é apresentada a estrutura do ambiente de desenvolvimento do sistema web de gestão da Pousada Chalés Água de Coco. Visando facilitar o gerenciamento, a colaboração entre os desenvolvedores e o controle do versionamento do código-fonte do sistema de gestão, a estrutura foi armazenada em um repositório remoto no GitHub (\autoref{fig:qrcode_github_repo}). 
 
-O código-fonte do sistema foi estruturado em aplicações modulares, arquivos de configuração geral do ambiente \textit{Django} e arquivos auxiliares, seguindo o padrão recomendado pelo \textit{framework}. Essa organização, que visa facilitar o desenvolvimento, a manutenção e a segurança do sistema, está estruturada da seguinte forma:
+O código-fonte do sistema foi estruturado em aplicações modulares, arquivos de configuração geral do ambiente \textit{Django} e arquivos auxiliares, seguindo o padrão recomendado pelo \textit{framework}. Essa organização, que visa facilitar o desenvolvimento, a manutenção e a segurança do sistema, está estruturada como  ilustrado na \autoref{fig:estrutura_rep}
 %
+\begin{comment}		
 \begin{enumerate}
 	\item \textbf{/code/setup/:}
-		\begin{comment}		
 		\begin{enumerate}
 			\item \textbf{\textit{manage.py}:} Arquivo de execução dos comandos administrativos do \textit{Django} via terminal. Define a configuração padrão, importa e executa o Django.
 			\item\textbf {\textit{requirements.txt}:}
 			\item\textbf {\textit{package.json}:}
 			\item\textbf {\textit{package-lock.json}:}
 		\end{enumerate}
-		\end{comment}		
+
 	% ---------- SETUP/SETUP -------------- %	
 		\item \textbf{/code/setup/setup:} Armazena  \textit{scripts} de configuração do \textit{framework} do sistema Django.
 		\begin{comment}
@@ -1956,7 +1956,7 @@ O código-fonte do sistema foi estruturado em aplicações modulares, arquivos d
 			\item \textbf{\textit{wsgi.py}:} Arquivo padrão para \textit{deploy} da aplicação via servidor WSGI (\textit{Web Server Gateway Interface}). Define a \textit{callable application} para a comunicação entre o servidor WSGI e o servidor \textit{Django}.
 			\item\textbf{\textit{asgi.py}:}
 		\end{enumerate}
-		\end{comment}
+
 		% ---------- core -------------- %	
 		\item \textbf{/code/setup/apps/core:} Armazena as aplicações internas do sistema relacionadas a gestão de reservas (quarto, hóspede e reserva)
 		\begin{enumerate}
@@ -2014,15 +2014,23 @@ O código-fonte do sistema foi estruturado em aplicações modulares, arquivos d
 			\end{enumerate}
 			\item \textbf{\textit{/shared/base.html}:} \textit{Template} utilizado como estrutura principal de todas as páginas do sistema, definindo um \textit{layout} comum. Utiliza ícones do FontAwesome e é estilizado pelo arquivo \textit{output.css}, criado com o Tailwind CSS e DaisyUI.
 		\end{enumerate}
-	\end{comment}
+
 		% ---------- STATIC -------------- %	
 		\item \textbf{/code/setup/static/css/output.css:} \textit{CSS} gerado pela biblioteca Tailwind CSS com base nas configurações do sistema. Contém variáveis, estilos base e camadas para definir cores, espaçamentos, tamanhos de fonte, \textit{paddings}, bordas e define comportamentos padrão.
 \end{enumerate}
+\end{comment}
 %
-
+\begin{figure}[H]
+	\centering
+	\caption{Exemplificação da Estrutura do Repositório}
+	\label{fig:estrutura_rep}
+	\includegraphics[height=0.9\textheight]{estrutura_pastas.png}
+	\fonte{Elaboração própria.}
+\end{figure}
+%
 Essa configuração segue as boas práticas do \textit{framework}, promovendo baixo acoplamento e alta coesão. Na camada de lógica, essa coesão foi aplicada especificamente no \textit{app} "core", que organiza os arquivos models e views das entidades quarto, hóspede e reserva, as quais formam o domínio central do negócio: a gestão de reservas. Os demais \textit{apps} representam preocupações separadas: usuários (autenticação), financeiro (contabilidade) e relatórios (camada de leitura e agregação). E, por isso, seguiram uma lógica de baixo acoplamento.
  
-No entanto, para a camada de apresentação (templates), optou-se por centralizar todos os arquivos em um único diretório (/code/setup/templates). Essa escolha, apesar de reduzir a portabilidade individual de cada app, aumenta a coesão do projeto e facilita a manutenção e a organização das interfaces, simplificando o fluxo de trabalho. 
+No entanto, para a camada de apresentação (templates), optou-se por centralizar todos os arquivos em um único diretório (code/setup/templates/). Essa escolha, apesar de reduzir a portabilidade individual de cada app, aumenta a coesão do projeto e facilita a manutenção e a organização das interfaces, simplificando o fluxo de trabalho. 
 
 {\hypersetup{urlcolor=black}
 	\begin{figure}[H]
@@ -2897,7 +2905,7 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 \begin{quadro}[H]
 	\caption{Product Backlog - Parte 1}
 	\label{quadro:product_backlog}
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\raggedright\arraybackslash}m{3.8cm}|>{\raggedright\arraybackslash}m{2.5cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{3.8cm}|>{\centering\arraybackslash}m{2.5cm}|}
 		\hline
 		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\ \hline
 		1 & Definir e configurar ambiente de desenvolvimento & Requisito Técnico   & ALTA    \\ \hline
@@ -2930,7 +2938,7 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 \begin{quadro}[H]
 	\caption{Product Backlog - Parte 2}
 	\label{quadro:product_backlog_2}
-	\begin{tabular}{|c|p{6.5cm}|p{3.8cm}|c|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{3.8cm}|>{\centering\arraybackslash}m{2.5cm}|}
 		\hline
 		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline	
 		19 & Criar interfaces para gestão de quartos & Gestão de Quartos & MÉDIA \\ \hline
@@ -2964,7 +2972,7 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 \begin{quadro}[H]
 	\caption{Product Backlog - Parte 3}
 	\label{quadro:product_backlog_3}
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\raggedright\arraybackslash}m{3.8cm}|>{\raggedright\arraybackslash}m{2.5cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{3.8cm}|>{\centering\arraybackslash}m{2.5cm}|}
 		\hline
 		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline
 		36 & Criar funcionalidade para registrar comprovação de pagamento de reservas &	Gestão Financeira/Gestão de Reservas &
@@ -3004,7 +3012,7 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 \begin{quadro}[H]
 	\caption{Product Backlog - Parte 4}
 	\label{quadro:product_backlog_4}
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\raggedright\arraybackslash}m{3.8cm}|>{\raggedright\arraybackslash}m{2.5cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{3.8cm}|>{\centering\arraybackslash}m{2.5cm}|}
 		\hline
 		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline
 		56 & Definir critérios de aceitação & Testes & MÉDIA \\ \hline
@@ -3020,16 +3028,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		ALTA \\ \hline
 		64 & Documentar o plano e a execução de testes & Documentação &
 		MÉDIA \\ \hline
-		65 & Registrar escolhas e mudanças de rumo & Documentação &
-		ALTA \\ \hline
-		66 & Documentar problemas ocorridos e lições aprendidas &
+		65 & Documentar problemas ocorridos e lições aprendidas &
 		Documentação & ALTA \\ \hline
-		67 & Elaborar o plano de implantação & Implantação & 
+		66 & Elaborar o plano de implantação & Implantação & 
 		MÉDIA \\ \hline
-		68 & Realizar implantação do sistema & Implantação & MÉDIA \\ \hline
-		69 & Revisão final da documentação técnica & Documentação &
+		67 & Realizar implantação do sistema & Implantação & MÉDIA \\ \hline
+		68 & Revisão final da documentação técnica & Documentação &
 		ALTA \\ \hline
-		70 & Treinamento da proprietária da pousada para uso da aplicação &	Implantação & MÉDIA \\ \hline
+		69 & Treinamento da proprietária da pousada para uso da aplicação &	Implantação & MÉDIA \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
@@ -3282,7 +3288,7 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		Documentação: revisar e corrigir tópico de Tecnologias e ferramentas de apoio utilizadas
 		\\
 		\hline 
-		20 & 09/10/2025 - 15/10/2025   & mplementação de Relatórios e Dashboard & Criar view relatórios: ocupação (temporada, mensal, quarto). 
+		20 & 09/10/2025 - 15/10/2025   & Implementação de Relatórios e Dashboard & Criar view relatórios: ocupação (temporada, mensal, quarto). 
 		Criar view relatórios: financeiro (tipo:receitas/despesas, categoria, período, faturamento).
 		Criar view: painel de métricas.
 		
