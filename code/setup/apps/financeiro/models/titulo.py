@@ -1,5 +1,7 @@
 from django.db import models
-from apps.core.models import Hospede#, Reserva
+from apps.core.models import Hospede
+from .categoria import Categoria 
+
 class Titulo(models.Model):
     TIPO_DOCUMENTO_CHOICES = [
         ('boleto', 'Boleto'),
@@ -20,8 +22,6 @@ class Titulo(models.Model):
     conta_corrente = models.CharField(max_length=100, verbose_name="Conta Corrente")
     cancelado = models.BooleanField(verbose_name="Cancelado")
     tipo = models.BooleanField(default=True, verbose_name="Tipo")
-    # Relações
-    #reserva = models.ForeignKey(Reserva, on_delete=models.CASCADE, null=True, blank=True, verbose_name="Reserva")
     reserva = models.ForeignKey(
         'core.Reserva',
         on_delete=models.CASCADE,
@@ -30,8 +30,16 @@ class Titulo(models.Model):
         verbose_name="Reserva"
     )
     hospede = models.ForeignKey(Hospede, on_delete=models.CASCADE, null=True, blank=True, verbose_name="Hóspede")
+    
+    categoria = models.ForeignKey(
+        Categoria,
+        on_delete=models.PROTECT,
+        related_name='titulos',
+        null=True,
+        blank=True,
+        verbose_name="Categoria"
+    )
 
-    # Datas
     data = models.DateField(verbose_name="Data de Emissão")
     data_pagamento = models.DateField(null=True, blank=True, verbose_name="Data de Pagamento")
     data_vencimento = models.DateField(verbose_name="Data de Vencimento")
@@ -42,9 +50,9 @@ class Titulo(models.Model):
     atualizado_em = models.DateTimeField(auto_now=True)
 
     pago = models.BooleanField(default=False, null=False)
-
+ 
     def __str__(self):
-        return f"{self.descricao} - {self.valor} ({self.get_situacao_display()})"
+        return f"{self.descricao} - {self.valor}"
 
     class Meta:
         db_table = "financeiro_titulo"

@@ -1,0 +1,178 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block title %}Relatório de Ocupação{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="flex breadcrumbs justify-end">
+        <ul>
+            <li><a href="{% url 'index' %}">Painel Inicial</a></li>
+            <li>Relatório de Ocupação</li>
+        </ul>
+    </div>
+    <!---->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <h2 class="text-2xl font-bold ">Relatório de Ocupação</h2>
+    </div>
+    <!--Filtro: período do relatório -->
+    <div class="card bg-base-100 items-center">
+        <div class="card-body p-4">
+            <form method="get" class="flex flex-col sm:flex-row items-center gap-2">
+                <div class="form-control w-full sm:w-auto ">
+                    <label class="label" for="data_inicio"><span class="label-text">Data Início</span></label>
+                    <input type="date" name="data_inicio" id="data_inicio" class="input input-bordered" value="{{ data_inicio|date:'Y-m-d' }}">
+                </div>
+                <div class="form-control w-full sm:w-auto">
+                    <label class="label" for="data_fim"><span class="label-text">Data Fim</span></label>
+                    <input type="date" name="data_fim" id="data_fim" class="input input-bordered" value="{{ data_fim|date:'Y-m-d' }}">
+                </div>
+                <div class="form-control w-full sm:w-auto flex-col items-center">
+                    <label class="label invisible">
+                        <span class="label-text"></span>
+                    </label>
+                    <button type="submit" class="btn btn-primary w-full" title="Gerar Relatório">
+                        Gerar Relatório
+                    </button>
+                </div>
+                <!-- EXPORTAR  -->
+                <div class="form-control w-full sm:w-auto flex-col items-center">
+                    <label class="label invisible">
+                        <span class="label-text"></span>
+                    </label>
+                    <br>
+                    <div class="dropdown dropdown-bottom">
+                        <button tabindex="0" class="btn btn-secondary text-white" aria-label="Exportar" title="Exportar">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            <span>Exportar</span>
+                        </button>
+                        
+                        <ul tabindex="-1" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                            <li>
+                                <a href="?{{ request.GET.urlencode }}&export=csv" class="btn w-full">
+                                    CSV
+                                </a>
+                            </li>
+                            <li>
+                                <a href="?{{ request.GET.urlencode }}&export=pdf" class="btn w-full">
+                                    PDF
+                                </a>
+                            </li>
+                        </ul>
+                    </div>  
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Cards com principais indicadores-->
+    {% if dados.erro %}
+        <div class="alert alert-error">{{ dados.erro }}</div>
+    {% else %}
+       <div class="flex flex-wrap items-stretch rounded-lg gap-8 mt-12 shadow-lg">
+            <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
+                <div class="stat-value text-3xl text-primary font-extrabold">{{ dados.taxa_ocupacao|floatformat:2 }}%</div>
+                <div class="stat-title text-sm text-gray-500 mt-2">Taxa de Ocupação</div>
+            </div>
+            
+            <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
+                <div class="stat-value text-3xl text-primary font-extrabold">{{ dados.quantidade_hospedes }}</div>
+                <div class="stat-title text-sm text-gray-500 mt-2">Hóspedes</div>
+            </div>
+
+            <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
+                <div class="stat-value text-3xl text-primary font-extrabold">{{ dados.quartos_distintos_ocupados }}</div>
+                <div class="stat-title text-sm text-gray-500 mt-2">Quartos Ocupados</div>
+            </div>
+
+            <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
+                <div class="stat-value text-3xl text-primary font-extrabold">{{ dados.numero_de_estadias_iniciadas }}</div>
+                <div class="stat-title text-sm text-gray-500 mt-2">Reservas</div>
+            </div>
+
+        </div>
+
+        <!----------------Tabela com indicadores ------------------->
+        <div class="overflow-x-auto bg-base-100 rounded-lg shadow-lg mt-12">
+            <table class="table w-full table-zebra table-lg">
+                <thead>
+                    <tr class="text-md text-center font--color-neutral">
+                        <th class="font-medium text-base-content" colspan="2">Período Analisado: 
+                            {{ dados.data_inicio|date:"d/m/Y" }} a {{ dados.data_fim|date:"d/m/Y" }}
+                        </th>
+                    </tr>
+
+                    <tr class="text-base-content">
+                        <th class="font-medium">Indicador</th>
+                        <th class="font-medium">Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> Número de Dias no Período</td>
+                        <td> {{ dados.num_dias_periodo}}</td>  
+                    </tr>
+
+                    <tr>
+                        <td> Nº de Novas Reservas no Período </td>
+                        <td> {{ dados.numero_de_estadias_iniciadas }}</td>  
+                    </tr>
+
+                    <tr>
+                        <td> Nº de Quartos Distintos Ocupados</td>
+                        <td>{{ dados.quartos_distintos_ocupados }}</td>
+                    </tr>
+
+                     <tr>
+                        <td>Quantidade de Hóspedes no Período </td>
+                        <td>{{ dados.quantidade_hospedes }}</td>
+                    </tr>
+
+                    <tr>
+                        <td>Dias-Quarto Disponíveis</td>
+                        <td>{{ dados.dias_disponiveis }}</td>
+                    </tr>
+
+                    <tr>
+                        <td> Dias-Quarto Ocupados</td>
+                        <td>{{ dados.dias_ocupados }}</td>
+                    </tr>
+                   
+                    <tr>
+                        <td>Taxa de Ocupação (%)</td>
+                        <td>{{ dados.taxa_ocupacao|floatformat:2 }}</td>
+                    </tr>
+
+                     <tr>
+                        <td> Duração Média das Estadias (em dias)</td>
+                        <td>{{ dados.duracao_media|floatformat:0 }}</td>
+                    </tr>
+
+                    <tr>
+                        <td> Quarto Mais Popular</td>
+                        <td>{{dados.quarto_mais_ocupado}}</td>
+                    </tr>
+
+                    <tr>
+                        <td> Quarto Menos Popular</td>
+                        <td>{{dados.quarto_menos_ocupado}}</td>
+                    </tr>
+
+                     <tr>
+                        <td> Tipo de Quarto Mais Popular</td>
+                        <td>{{dados.tipo_quarto_mais_ocupado}}</td>
+                    </tr>
+
+                    <tr>
+                        <td> Tipo de Quarto Menos Popular</td>
+                        <td>{{dados.tipo_quarto_menos_ocupado}}</td>
+                    </tr>
+                   
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+
+</div>
+{% endblock %}

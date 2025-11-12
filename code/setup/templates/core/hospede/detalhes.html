@@ -1,34 +1,148 @@
+{% extends "shared/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Detalhes do Hóspede</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-    <div class="container">
-        <a class="navbar-brand" href="{% url 'hospede:listar' %}">Hóspedes</a>
-    </div>
-</nav>
 
-<div class="container">
-    <h1>Detalhes do Hóspede</h1>
-    <ul class="list-group">
-        <li class="list-group-item"><strong>CPF:</strong> {{ hospede.cpf }}</li>
-        <li class="list-group-item"><strong>Nome:</strong> {{ hospede.nome }}</li>
-        <li class="list-group-item"><strong>Telefone:</strong> {{ hospede.telefone }}</li>
-        <li class="list-group-item"><strong>Email:</strong> {{ hospede.email }}</li>
-        <li class="list-group-item"><strong>Data de Nascimento:</strong> {{ hospede.data_nascimento|date:"d/m/Y" }}</li>
-    </ul>
-    <a href="{% url 'hospede:form' hospede.cpf %}" class="btn btn-warning mt-3">Editar</a>
-    <a href="{% url 'hospede:form' hospede.cpf %}" class="btn btn-danger mt-3 ms-2">Excluir</a>
-    <a href="{% url 'hospede:listar' %}" class="btn btn-secondary mt-3 ms-2">Voltar</a>
-    <a href="{% url 'hospede:historico' hospede.cpf %}" class="btn btn-primary">Ver histórico de reservas</a>
+{% block title %}Detalhes do Hóspede{% endblock %}
+
+{% block content %}
+
+<div class="flex flex-col sm:flex-row justify-between items-center mb-4 gap-4">
+    <h2 class="text-2xl font-bold">
+        Detalhes do Hóspede
+    </h2>
+    <div class="text-sm breadcrumbs self-start sm:self-center">
+        <ul>
+            <li><a href="{% url 'index' %}">Painel Inicial</a></li>
+            <li><a href="{% url 'hospede:listar' %}">Hóspedes</a></li>
+            <li>Detalhes</li>
+        </ul>
+    </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<div class="card bg-base-100 rounded-lg shadow-lg max-w-3xl mx-auto">
+    <div class="card-body p-4 sm:p-6">
+        <div class="overflow-x-auto">
+            
+            <table class="table table-zebra w-full">
+                <tbody>
+                    <tr class="bg-base-200 text-base-content">
+                        <th colspan="2" class="font-semibold text-sm">Dados Pessoais</th>
+                    </tr>
+
+                    <tr>
+                        <th>Nome</th>
+                        <td>{{ hospede.nome }}</td>
+                    </tr>
+                    <tr>
+                        {% if hospede.cpf %}
+                            <th>CPF</th>
+                            <td>{{ hospede.cpf }}</td>
+                        {% else %}
+                            <th>Número do Passaporte</th>
+                            <td>{{ hospede.passaporte }}</td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <th>Telefone</th>
+                        <td>{{ hospede.telefone }}</td>
+                    </tr>
+                    <tr>
+                        <th>E-mail</th>
+                        <td>{{ hospede.email }}</td>
+                    </tr>
+                    <tr>
+                        <th>Data de Nascimento</th>
+                        <td>{{ hospede.data_nascimento|date:"d/m/Y" }}</td>
+                    </tr>
+                    
+                    <tr class="bg-base-200 text-base-content">
+                        <th colspan="2" class="font-semibold text-sm">Endereço</th>
+                    </tr>
+
+                    <tr>
+                        <th>CEP</th>
+                        <td>{{ hospede.cep }}</td>
+                    </tr>
+                    <tr>
+                        <th>Rua</th>
+                        <td>{{ hospede.rua }}</td>
+                    </tr>
+                    <tr>
+                        <th>Número</th>
+                        <td>{{ hospede.numero }}</td>
+                    </tr>
+                    <tr>
+                        <th>Complemento</th>
+                        <td>{{ hospede.complemento }}</td>
+                    </tr>
+                    <tr>
+                        <th>Bairro</th>
+                        <td>{{ hospede.bairro }}</td>
+                    </tr>
+                    <tr>
+                        <th>Cidade</th>
+                        <td>{{ hospede.cidade }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="flex flex-col md:flex-row gap-2 mt-4 justify-end max-w-4xl mx-auto"> 
+    
+    <a href="{% url 'hospede:listar' %}" class="btn btn-secondary" title="Voltar">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+        </svg>
+        Voltar
+    </a>
+
+    <a href="{% url 'hospede:historico' hospede.pk %}" class="btn btn-primary" title="Ver histórico">
+        Ver histórico
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+    </a>
+    
+    <a href="{% url 'hospede:editar' hospede.pk %}" class="btn btn-warning" title="Editar">
+        Editar
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"/>
+        </svg> 
+    </a>
+    
+    <a href="{% url 'hospede:excluir' hospede.pk %}" class="btn btn-error" title="Excluir">
+        Excluir
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+        </svg>
+    </a>
+</div>
+<!-- Modal de confirmação para exclusão -->
+<dialog id="deleteModal" class="modal">
+    <div class="modal-box">
+        <h3 class="font-bold text-lg">Confirmar Exclusão</h3>
+        <p class="py-4">Tem certeza que deseja excluir este hóspede?</p>
+        <div class="modal-action">
+            <form method="POST" id="deleteForm">
+                {% csrf_token %}
+                <button type="button" class="btn" onclick="deleteModal.close()">Cancelar</button>
+                <button type="submit" class="btn btn-error">Excluir</button>
+            </form>
+        </div>
+    </div>
+</dialog>
+
+<script>
+    const deleteModal = document.getElementById('deleteModal');
+    const deleteButtons = document.querySelectorAll('a[href*="excluir"]');
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('deleteForm').action = this.href;
+            deleteModal.showModal();
+        });
+    });
+</script>
+{% endblock %}

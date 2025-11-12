@@ -1,80 +1,48 @@
 import pytest
-import datetime
-from apps.core.models.hospede import Hospede
-from apps.core.models.quarto import Quarto
-from apps.core.models.reserva import Reserva
+from datetime import date, timedelta
+from apps.core.models import Reserva
+from apps.financeiro.models import Titulo
+from decimal import Decimal
 
 @pytest.mark.django_db
-def test_create_reserva():
-    """Testa a criação de uma reserva com hospede e quarto"""
-    hospede = Hospede.objects.create(
-        cpf="12345678900",
-        nome="João Silva",
-        telefone="11999999999",
-        email="joao@example.com",
-        data_nascimento=datetime.date(1990, 1, 1)
-    )
-    quarto = Quarto.objects.create(
-        numero="101",
-        status=True,
-        descricao="Quarto deluxe",
-        preco=250.00
-    )
-
-    reserva = Reserva.objects.create(
-        id_hospede=hospede,
-        id_quarto=quarto,
-        data_reserva_inicio=datetime.date.today() + datetime.timedelta(days=1),
-        data_reserva_fim=datetime.date.today() + datetime.timedelta(days=3),
-        quantidade_dias=2,
-        valor=500.00
-    )
-
-    saved_reserva = Reserva.objects.get(id=reserva.id)
-    assert saved_reserva.id_hospede == hospede
-    assert saved_reserva.id_quarto == quarto
-    assert saved_reserva.quantidade_dias == 2
-    assert saved_reserva.valor == 500.00
+def test_reserva_str(reserva):
+    assert str(reserva) == f"Reserva #{reserva.id} - 2 pessoa(s) - Quarto {reserva.id_quarto}"
 
 @pytest.mark.django_db
-def test_reserva_str_method():
-    """Testa o método __str__ do model Reserva"""
-    hospede = Hospede.objects.create(
-        cpf="98765432100",
-        nome="Maria Souza",
-        telefone="11988888888",
-        email="maria@example.com",
-        data_nascimento=datetime.date(1992, 5, 20)
-    )
-    quarto = Quarto.objects.create(
-        numero="102",
-        status=True,
-        descricao="Quarto standard",
-        preco=150.00
-    )
-    reserva = Reserva.objects.create(
-        id_hospede=hospede,
-        id_quarto=quarto
-    )
-    expected_str = f"Reserva #{reserva.id} - Hóspede {hospede} - Quarto {quarto}"
-    assert str(reserva) == expected_str
+def test_reserva_save_calcula_valores(reserva, quarto):
+    assert reserva.quantidade_dias == 3
+    assert reserva.valor == 600.00 # 3 dias * R$ 200.00 (do quarto)
+    assert reserva.numero_total_hospedes == 2
 
 @pytest.mark.django_db
-def test_reserva_fields_properties():
-    """Verifica propriedades dos campos do model Reserva"""
-    field_quantidade_dias = Reserva._meta.get_field('quantidade_dias')
-    field_valor = Reserva._meta.get_field('valor')
-    field_data_inicio = Reserva._meta.get_field('data_reserva_inicio')
-    field_data_fim = Reserva._meta.get_field('data_reserva_fim')
+def test_reserva_save_cria_titulos_financeiros(reserva, hospede):
+    """TESTE DE INTEGRAÇÃO (Reserva -> Financeiro): Verifica a criação automática dos títulos."""
+    assert Titulo.objects.filter(reserva=reserva).count() == 2
 
-    assert field_quantidade_dias.default == 0
-    assert field_valor.max_digits == 10
-    assert field_valor.decimal_places == 2
-    assert field_valor.default == 0.00
-    assert field_data_inicio.null is True
-    assert field_data_fim.null is True
+    sinal = Titulo.objects.get(reserva=reserva, descricao__startswith='Sinal')
+    restante = Titulo.objects.get(reserva=reserva, descricao__startswith='Pagamento Restante')
+
+    assert sinal.valor == Decimal("300.00")
+    assert sinal.data_pagamento is not None
+
+    assert restante.valor == Decimal("300.00")
+    assert restante.data_pagamento is None
+    assert restante.data_vencimento == reserva.data_reserva_inicio
 
 @pytest.mark.django_db
-def test_reserva_db_table():
-    """Verifica se o db_table está correto"""
-    assert Reserva._meta.db_table == "reserva"
+def test_reserva_save_atualiza_titulos_financeiros(reserva, quarto_grande):
+    """TESTE DE INTEGRAÇÃO (Reserva -> Financeiro): Verifica a atualização dos títulos."""
+    sinal = Titulo.objects.get(reserva=reserva, descricao__startswith='Sinal')
+    restante = Titulo.objects.get(reserva=reserva, descricao__startswith='Pagamento Restante')
+    sinal.data_pagamento = None
+    sinal.save()
+
+    reserva.id_quarto = quarto_grande
+    reserva.save() 
+    
+    sinal.refresh_from_db()
+    restante.refresh_from_db()
+
+    assert reserva.valor == Decimal("900.00") # 3 dias * R$ 300.00
+    assert sinal.valor == Decimal("450.00")
+    assert restante.valor == Decimal("450.00")

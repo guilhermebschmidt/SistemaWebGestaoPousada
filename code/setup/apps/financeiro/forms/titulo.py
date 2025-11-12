@@ -39,7 +39,8 @@ class TituloForm(forms.ModelForm):
         fields = [
             'descricao', 'valor', 'tipo_documento', 'conta_corrente',
             'data', 'data_vencimento', 'data_pagamento', 'data_compensacao',
-            'hospede', 'reserva', 'tipo', 'cancelado', 'pago', 'observacao'
+            'hospede', 'reserva', 'tipo', 'cancelado', 'pago', 'observacao',
+            'categoria' 
         ]
 
         widgets = {
@@ -66,6 +67,7 @@ class TituloForm(forms.ModelForm):
             'hospede': forms.Select(attrs={'class': 'select select-bordered w-full'}),
             'reserva': forms.Select(attrs={'class': 'select select-bordered w-full'}),
             'observacao': forms.Textarea(attrs={'class': 'textarea textarea-bordered w-full', 'rows': 3}),
+            'categoria': forms.Select(attrs={'class': 'select select-bordered w-full'}), 
         }
         labels = {
             'data': 'Data de Emissão',
@@ -75,3 +77,4 @@ class TituloForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['hospede'].required = False
         self.fields['reserva'].required = False
+        self.fields['categoria'].required = False

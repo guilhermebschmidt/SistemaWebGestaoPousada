@@ -1,0 +1,141 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block title %}Relatório de Faturamento{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+
+    <!-- Breadcrumb -->
+    <div class="flex breadcrumbs justify-end">
+        <ul>
+            <li><a href="{% url 'index' %}">Painel Inicial</a></li>
+            <li>Relatório de Faturamento</li>
+        </ul>
+    </div>
+
+    <!-- Cabeçalho -->
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <h2 class="text-2xl font-bold">Relatório de Faturamento</h2>
+    </div>
+
+    <!-- Filtros -->
+    <div class="card bg-base-100 items-center">
+        <div class="card-body p-4">
+            <form method="get" class="flex flex-col sm:flex-row items-center gap-2">
+                <div class="form-control w-full sm:w-auto">
+                    <label class="label" for="data_inicio">
+                        <span class="label-text">Data Início</span>
+                    </label>
+                    <input type="date" name="data_inicio" id="data_inicio"
+                           class="input input-bordered"
+                           value="{{ data_inicio|date:'Y-m-d' }}">
+                </div>
+
+                <div class="form-control w-full sm:w-auto">
+                    <label class="label" for="data_fim">
+                        <span class="label-text">Data Fim</span>
+                    </label>
+                    <input type="date" name="data_fim" id="data_fim"
+                           class="input input-bordered"
+                           value="{{ data_fim|date:'Y-m-d' }}">
+                </div>
+
+                <div class="form-control w-full sm:w-auto flex-col items-center">
+                    <label class="label invisible">
+                        <span class="label-text"></span>
+                    </label>
+                    <button type="submit" class="btn btn-primary w-full" title="Gerar Relatório">
+                        Gerar Relatório
+                    </button>
+                </div>
+
+                {% if titulos %}
+                <!-- Exportação -->
+                <div class="form-control w-full sm:w-auto flex-col items-center">
+                    <label class="label invisible">
+                        <span class="label-text"></span>
+                    </label>
+                    <br>
+                    <div class="dropdown dropdown-bottom">
+                        <button tabindex="0" class="btn btn-secondary text-white" aria-label="Exportar" title="Exportar">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                                 fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            <span>Exportar</span>
+                        </button>
+
+                        <ul tabindex="-1"
+                            class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                            <li>
+                                <a href="?{{ request.GET.urlencode }}&exportar=csv" class="btn w-full">
+                                    CSV
+                                </a>
+                            </li>
+                            <li>
+                                <a href="?{{ request.GET.urlencode }}&exportar=pdf" class="btn w-full">
+                                    PDF
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+
+    {% if titulos %}
+        <!-- Tabela de resultados -->
+        <div class="overflow-x-auto bg-base-100 rounded-lg shadow-lg mt-12">
+            <table class="table w-full table-zebra table-lg">
+                <thead>
+                    <tr class="text-md text-center font--color-neutral">
+                        <th class="font-medium text-base-content" colspan="3">
+                            Período: {{ data_inicio|date:"d/m/Y" }} a {{ data_fim|date:"d/m/Y" }}
+                        </th>
+                    </tr>
+                    <tr class="text-base-content">
+                        <th class="font-medium">Descrição</th>
+                        <th class="font-medium">Valor (R$)</th>
+                        <th class="font-medium">Data Pagamento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for t in titulos %}
+                    <tr>
+                        <td>{{ t.descricao }}</td>
+                        <td>{{ t.valor_display }}</td>
+                        <td>{{ t.data_pagamento|date:"d/m/Y" }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Totais -->
+        <div class="flex flex-wrap items-stretch rounded-lg gap-8 mt-12 shadow-lg">
+            <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
+                <div class="stat-value text-3xl text-primary font-extrabold">{{ total_display }}</div>
+                <div class="stat-title text-sm text-gray-500 mt-2">Total</div>
+            </div>
+
+            <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
+                <div class="stat-value text-3xl text-primary font-extrabold">{{ quantidade }}</div>
+                <div class="stat-title text-sm text-gray-500 mt-2">Quantidade</div>
+            </div>
+
+            <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
+                <div class="stat-value text-3xl text-primary font-extrabold">{{ media_display }}</div>
+                <div class="stat-title text-sm text-gray-500 mt-2">Média</div>
+            </div>
+        </div>
+    {% else %}
+        <div class="alert alert-warning mt-6">
+            Nenhum dado encontrado para o período informado.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

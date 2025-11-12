@@ -1,7 +1,11 @@
 from django import forms
-from allauth.account.forms import LoginForm, SignupForm, ChangePasswordForm, ResetPasswordForm
-from django.contrib.auth.forms import SetPasswordForm
-from django.utils.crypto import get_random_string
+from allauth.account.forms import (
+    LoginForm,
+    SignupForm,
+    ChangePasswordForm,
+    ResetPasswordForm, 
+    ResetPasswordKeyForm
+)
 
 #Form com configurações dos widgets dos templates de autenticação
 
@@ -24,6 +28,10 @@ class CustomLoginForm(StyleFormMixin, LoginForm):
         super().__init__(*args, **kwargs)   
         self.fields['login'].label = "Email"
         self.fields['login'].widget.attrs.update({"placeholder": "Digite seu email"})
+        self.fields['login'].error_messages.update({
+                'password_mismatch': 'As senhas digitadas não conferem. Tente novamente.',
+                'required': 'Este campo é obrigatório.',
+                })
         
         self.fields['password'].label = "Senha"
         self.fields['password'].widget.attrs.update({"placeholder": "Digite sua senha"})
@@ -104,11 +112,25 @@ class CustomResetPasswordForm(StyleFormMixin, ResetPasswordForm):
         self.fields['email'].label = "Email"
         self.fields['email'].widget.attrs.update({"placeholder": "Digite seu e-mail de cadastro"})
 
-class CustomSetPasswordForm(StyleFormMixin, SetPasswordForm):
+class CustomResetPasswordFromKeyForm(StyleFormMixin, ResetPasswordKeyForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['new_password1'].label = "Nova Senha"
-        self.fields['new_password1'].widget.attrs.update({"placeholder": "Crie sua nova senha"})
+        if 'new_password1' in self.fields:
+            self.fields['new_password1'].label = "Nova Senha"
+            self.fields['new_password1'].widget.attrs.update({"placeholder": "Crie sua nova senha"})
+            self.fields['new_password1'].help_text = "Sua senha deve ter no mínimo 8 caracteres."
 
-        self.fields['new_password2'].label = "Confirme a Nova Senha"
-        self.fields['new_password2'].widget.attrs.update({"placeholder": "Confirme sua nova senha"})
+            self.fields['new_password1'].error_messages.update({
+                'password_too_short': 'Senha muito curta. O mínimo é 8 caracteres.',
+                'password_common': 'Esta senha é muito comum. Por favor, escolha uma mais segura.',
+            })
+
+        if 'new_password1' in self.fields:
+            self.fields['new_password2'].label = "Confirme a Nova Senha"
+            self.fields['new_password2'].widget.attrs.update({"placeholder": "Confirme sua nova senha"})
+            self.fields['new_password2'].help_text = "Repita a senha exatamente como você digitou acima."
+
+            self.fields['new_password2'].error_messages.update({
+                'password_mismatch': 'As senhas digitadas não conferem. Tente novamente.',
+                'required': 'Este campo é obrigatório.',
+                })

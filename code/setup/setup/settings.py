@@ -13,11 +13,15 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+import datetime
+import sys
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Detecta se estamos rodando dentro do pytest
+TESTING = 'pytest' in sys.modules
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -48,18 +52,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     #apps allauth
+    'django_extensions',
+    #apps allauth
     'allauth',
     'allauth.account',
     #apps locais
     'apps.core',
     'apps.financeiro',
     'apps.usuarios',
-
-    'django_extensions',
+    'apps.relatorios',
 ]
 
 MIDDLEWARE = [
+    'apps.core.middleware.DecodeAndPlainMessagesCookieMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -153,7 +158,10 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
-
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+ACCOUNT_SESSION_REMEMBER= None
+ACCOUNT_SESSION_COOKIE_AGE= 86400 #24 horas
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT= 5
 SITE_ID = 1
 # Configuração envio de email
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -176,15 +184,24 @@ ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
 ACCOUNT_LOGIN_METHODS = {'email'}
 ACCOUNT_EMAIL_VERIFICATION = "none"
 
-
-
-
 ACCOUNT_FORMS = {
     'login': 'apps.usuarios.forms.CustomLoginForm',
     'signup': 'apps.usuarios.forms.CustomSignupForm',
     'change_password': 'apps.usuarios.forms.CustomChangePasswordForm',
     'reset_password': 'apps.usuarios.forms.CustomResetPasswordForm',
-    'set_password': 'apps.usuarios.forms.CustomSetPasswordForm',
+    'reset_password_from_key': 'apps.usuarios.forms.CustomResetPasswordFromKeyForm',
 }
 
+if TESTING:
+    # Se estiver rodando testes (pytest):
+    # 1. Insere o middleware de "tradução" antes do middleware de mensagens padrão
+    MIDDLEWARE.insert(
+        MIDDLEWARE.index('django.contrib.messages.middleware.MessageMiddleware'),
+        'apps.core.middleware.DecodeAndPlainMessagesCookieMiddleware'
+    )
+    # 2. Substitui o armazenamento pelo de texto puro
+    MESSAGE_STORAGE = 'apps.core.message_storage.PlainCookieStorage'
+else:
+    # Em produção ou desenvolvimento normal, usa o padrão seguro
+    MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 

@@ -21,7 +21,7 @@ def seed_bancos(apps, schema_editor):
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('financeiro', '0001_initial'),
+        ('financeiro', '0001_initial'), 
     ]
 
     operations = [
