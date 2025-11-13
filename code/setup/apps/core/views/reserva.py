@@ -76,9 +76,15 @@ def reserva_form(request, pk=None):
                 pass
 
             # Também envie as mensagens para o sistema de mensagens (opcional)
+            # Evitar duplicar mensagens que já aparecem em form.non_field_errors
+            try:
+                non_field_set = set(str(e) for e in form.non_field_errors())
+            except Exception:
+                non_field_set = set()
             for m in msgs:
                 try:
-                    messages.error(request, m)
+                    if m not in non_field_set:
+                        messages.error(request, m)
                 except Exception:
                     pass
 
@@ -98,8 +104,15 @@ def reserva_form(request, pk=None):
         
     else:
         # Se vierem parâmetros via GET (datas), repassa-los como initial para o form
+        # request.GET é um QueryDict que pode conter listas; use dict() para obter
+        # apenas os valores simples (string) e evitar que inputs recebam valores
+        # no formato "['2025-11-15']".
         if request.GET.get('data_reserva_inicio') or request.GET.get('data_reserva_fim'):
-            form = ReservaForm(initial=request.GET, instance=instance)
+            try:
+                initial_data = request.GET.dict()
+            except Exception:
+                initial_data = {k: v for k, v in request.GET.items()}
+            form = ReservaForm(initial=initial_data, instance=instance)
         else:
             form = ReservaForm(instance=instance)
 

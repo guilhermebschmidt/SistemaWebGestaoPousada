@@ -136,10 +136,13 @@ class ReservaForm(forms.ModelForm):
         if criancas is None:
             criancas = getattr(self.fields['quantidade_criancas'], 'initial', 0) or 0
 
+        # Prepare uma lista para mensagens não-field e evite adicionar mensagens duplicadas
+        non_field_msgs = []
+
         # Se um quarto foi submetido mas não aparece em cleaned_data, é provável que o
         # campo tenha sido validado como "invalid choice" porque o queryset foi filtrado
         # (por exemplo: quarto indisponível para as datas). Detectamos esse caso e
-        # adicionamos um erro não-field com a mensagem curta esperada pelos testes.
+        # tentamos construir uma mensagem detalhada com o período conflitante.
         submitted_quarto = None
         try:
             submitted_quarto = self.data.get('id_quarto') if getattr(self, 'data', None) else None
@@ -147,10 +150,21 @@ class ReservaForm(forms.ModelForm):
             submitted_quarto = None
         if submitted_quarto and not quarto:
             try:
-                # Se o quarto enviado existe no banco, então foi filtrado do queryset
-                # (provavelmente por conflito) — sinalizamos o erro amigável.
                 if Quarto.objects.filter(pk=submitted_quarto).exists():
-                    self.add_error(None, 'ERRO: O quarto selecionado já está reservado')
+                    # tentar recuperar um conflito específico para mostrar as datas
+                    try:
+                        quarto_obj = Quarto.objects.get(pk=submitted_quarto)
+                        conflito = verifica_conflito_de_datas(quarto_obj, data_inicio, data_fim, reserva_a_ignorar=self.instance)
+                        if conflito:
+                            non_field_msgs.append(
+                                f"ERRO: O quarto selecionado já está reservado no período de "
+                                f"{conflito.data_reserva_inicio.strftime('%d/%m/%Y')} a "
+                                f"{conflito.data_reserva_fim.strftime('%d/%m/%Y')}."
+                            )
+                        else:
+                            non_field_msgs.append('ERRO: O quarto selecionado já está reservado')
+                    except Exception:
+                        non_field_msgs.append('ERRO: O quarto selecionado já está reservado')
             except Exception:
                 pass
 
@@ -179,13 +193,24 @@ class ReservaForm(forms.ModelForm):
         if quarto and data_inicio and data_fim:
             reserva_conflitante = verifica_conflito_de_datas(quarto, data_inicio, data_fim, reserva_a_ignorar=self.instance)
             if reserva_conflitante:
-                # Mensagem curta compatível com os testes + detalhe opcional
-                self.add_error(None, 'ERRO: O quarto selecionado já está reservado')
-                self.add_error(None, 
-                    f'ERRO DE CONFLITO: Este quarto já está reservado no período de '
-                    f'{reserva_conflitante.data_reserva_inicio.strftime("%d/%m/%Y")} a '
-                    f'{reserva_conflitante.data_reserva_fim.strftime("%d/%m/%Y")}.')
+                # Mensagem detalhada com período conflitante (apenas uma ocorrência)
+                non_field_msgs.append(
+                    f"ERRO: O quarto selecionado já está reservado no período de "
+                    f"{reserva_conflitante.data_reserva_inicio.strftime('%d/%m/%Y')} a "
+                    f"{reserva_conflitante.data_reserva_fim.strftime('%d/%m/%Y')}."
+                )
                 
+        # Adicionar mensagens não-field únicas ao form (preserva ordem de inserção)
+        if non_field_msgs:
+            seen = set()
+            unique_msgs = []
+            for m in non_field_msgs:
+                if m not in seen:
+                    seen.add(m)
+                    unique_msgs.append(m)
+            for m in unique_msgs:
+                self.add_error(None, m)
+
         return cleaned_data
         
 

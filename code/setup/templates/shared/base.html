@@ -26,6 +26,8 @@
 
     <!-- TAILWIND + DAISYUI -->
     <link href="{% static 'css/output.css' %}" rel="stylesheet">
+    <!-- jQuery UI CSS (necessário para autocomplete ficar corretamente posicionado/estilizado) -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
@@ -289,11 +291,17 @@
     </div>
     {% block extra_js %}
     {% endblock %}
-    <!-- Font Awesome (ícones) -->
-    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+    <!-- Font Awesome (ícones) - usando CDN da versão gratuita -->
+    <!-- Se você tiver um Kit da FontAwesome, substitua pela tag <script src="https://kit.fontawesome.com/<seu-codigo>.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
 
     <!-- Script para controlar o menu móvel -->
     <script>
+        /* Garantir que o menu do jQuery UI autocomplete apareça sobre outros elementos */
+        (function(){
+            const css = `.ui-autocomplete { z-index: 999999 !important; max-height: 260px; overflow-y: auto; background: white; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }`;
+            const s = document.createElement('style'); s.appendChild(document.createTextNode(css)); document.head.appendChild(s);
+        })();
         document.addEventListener('DOMContentLoaded', function() {
             const sidebar = document.getElementById('sidebar');
             const sidebarOverlay = document.getElementById('sidebar-overlay');
