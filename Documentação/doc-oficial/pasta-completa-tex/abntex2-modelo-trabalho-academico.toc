@@ -159,5 +159,9 @@
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {I}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Reservas}}{124}{appendix.I}%
+\contentsline {appendix}{\chapternumberline {I}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Reservas}}{123}{appendix.I}%
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
+\cftinsert {A}
+\contentsline {appendix}{\chapternumberline {J}\MakeTextUppercase []{Relatório de Testes Funcionais - Financeiro}}{131}{appendix.J}%
 \vspace {\cftbeforechapterskip }

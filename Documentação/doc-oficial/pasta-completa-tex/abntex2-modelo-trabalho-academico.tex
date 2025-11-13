@@ -3481,178 +3481,178 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 %
 
 \chapter{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes} 
-	
-	\textbf{Data da Execução:} 22 de setembro de 2025 \\
-	\textbf{Testador: } Guilherme Bittencourt Schmidt  
-	
-	
-	\vspace{1cm}
-	
-	% --- Início dos Quadros de Teste ---
-	
-	% ==============================================================================
-	% Teste HOS-001
-	% ==============================================================================
-	\subsection*{ID do Teste: HOS-001}
-	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
-		\toprule
-		\textbf{Funcionalidade} & Criar Hóspede \\
-		\midrule
-		\textbf{Cenário de Teste} & Criar um novo hóspede com todos os dados válidos \\
-		\midrule
-		\textbf{Passos para Execução} & 
-		\begin{itemize} \itemsep0em 
-			\item[1.] Clicar em Hospede.
-			\item[2.] Clicar em "Adicionar Hóspede".
-			\item[3.] Preencher todos os campos com dados válidos (CPF, nome completo, telefone, email e data de nascimento.).
-			\item[4.] Clicar em "Adicionar".
-		\end{itemize} \\
-		\midrule
-		\textbf{Resultado Esperado} & O sistema deve salvar o hóspede, redirecionar para a lista e o novo hóspede deve aparecer na tabela. \\
-		\midrule
-		\textbf{Status} & \textbf{Passou} \\
-		\midrule
-		\textbf{Observações} & Fluxo de criação principal funcionando corretamente. \\
-		\bottomrule
-	\end{tabular}
-	\vspace{1cm}
-	
-	% ==============================================================================
-	% Teste HOS-002
-	% ==============================================================================
-	\subsection*{ID do Teste: HOS-002}
-	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
-		\toprule
-		\textbf{Funcionalidade} & Criar Hóspede \\
-		\midrule
-		\textbf{Cenário de Teste} & Tentar criar hóspede com campo obrigatório (nome) vazio \\
-		\midrule
-		\textbf{Passos para Execução} &
-		\begin{itemize} \itemsep0em 
-			\item[1.] Clicar em Hospede.
-			\item[2.] Clicar em "Adicionar Hóspede".
-			\item[3.] Preencher todos os campos, exceto o "Nome Completo".
-			\item[4.] Clicar em "Adicionar".
-		\end{itemize} \\
-		\midrule
-		\textbf{Resultado Esperado} & O sistema deve exibir uma mensagem de erro clara abaixo do campo "Nome Completo". O hóspede não deve ser criado. \\
-		\midrule
-		\textbf{Status} & \textbf{Passou} \\
-		\midrule
-		\textbf{Observações} &  O hóspede não foi criado (correto), e a pagina exibiu uma mensagem de erro abaixo do campo Nome Completo, com a seguinte frase "Preencha este campo". \\
-		\bottomrule
-	\end{tabular}
-	\newpage
-	
-	% ==============================================================================
-	% Teste HOS-003
-	% ==============================================================================
-	\subsection*{ID do Teste: HOS-003}
-	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
-		\toprule
-		\textbf{Funcionalidade} & Visualizar Hóspede \\
-		\midrule
-		\textbf{Cenário de Teste} & Visualizar detalhes de um hóspede existente \\
-		\midrule
-		\textbf{Passos para Execução} &
-		\begin{itemize} \itemsep0em 
-			\item[1.] Clicar em Hospede.
-			\item[2.] Clicar em "Listar Hóspedes".
-			\item[3.] Na lista de hóspedes, clicar no nome de um hóspede cadastrado.
-		\end{itemize} \\
-		\midrule
-		\textbf{Resultado Esperado} & A página de detalhes do hóspede deve ser exibida, mostrando todas as informações corretas (CPF, nome, telefone, email e data de nascimento.). \\
-		\midrule
-		\textbf{Status} & \textbf{Passou} \\
-		\midrule
-		\textbf{Observações} & A página de detalhes do hóspede carrega corretamente. \\
-		\bottomrule
-	\end{tabular}
-	\vspace{1cm}
-	
-	% ==============================================================================
-	% Teste HOS-004
-	% ==============================================================================
-	\subsection*{ID do Teste: HOS-004}
-	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
-		\toprule
-		\textbf{Funcionalidade} & Atualizar Hóspede \\
-		\midrule
-		\textbf{Cenário de Teste} & Editar o telefone de um hóspede \\
-		\midrule
-		\textbf{Passos para Execução} &
-		\begin{itemize} \itemsep0em 
-			\item[1.] Clicar em Hospede.
-			\item[2.] Clicar em "Listar Hóspedes".
-			\item[3.] Na lista de hóspedes, clicar no nome de um hóspede cadastrado.
-			\item[4.] Clicar em "Editar".
-			\item[5.] Alterar o número de telefone.
-			\item[6.] Clicar em "Salvar".
-		\end{itemize} \\
-		\midrule
-		\textbf{Resultado Esperado} & O sistema deve salvar a alteração e, na lista, o novo telefone deve ser exibido. \\
-		\midrule
-		\textbf{Status} & \textbf{Passou} \\
-		\midrule
-		\textbf{Observações} &  A alteração foi realizada corretamente. \\
-		\bottomrule
-	\end{tabular}
-	\vspace{1cm}
-	
-	% ==============================================================================
-	% Teste HOS-005
-	% ==============================================================================
-	\subsection*{ID do Teste: HOS-005}
-	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
-		\toprule
-		\textbf{Funcionalidade} & Buscar Hóspede \\
-		\midrule
-		\textbf{Cenário de Teste} & Buscar por um hóspede existente e um inexistente \\
-		\midrule
-		\textbf{Passos para Execução} &
-		\begin{itemize} \itemsep0em 
-			\item[1.] Clicar em Hospede.
-			\item[2.] Clicar em "Listar Hóspedes".
-			\item[3.] Na lista de hóspedes, usar a barra de busca para procurar por parte do nome de um hóspede cadastrado.
-			\item[4.] Verificar o resultado.
-			\item[5.] Limpar a busca e procurar por um nome que não existe (ex: "Zzzzz").
-		\end{itemize} \\
-		\midrule
-		\textbf{Resultado Esperado} & Na primeira busca, a lista deve ser filtrada corretamente. Na segunda, a lista deve ficar vazia e exibir uma mensagem de "Nenhum hóspede encontrado". \\
-		\midrule
-		\textbf{Status} & \textbf{Falhou} \\
-		\midrule
-		\textbf{Observações} &  \textbf{BUG-001:} Após inserir um nome existente na barra de busca, o resultado foi abrir uma pagina com o erro \textbf{"Page not found (404)}. \\
-		\bottomrule
-	\end{tabular}
-	\vspace{1cm}
-	
-	% ==============================================================================
-	% Teste HOS-006
-	% ==============================================================================
-	\subsection*{ID do Teste: HOS-006}
-	\begin{tabular}{@{} p{5cm} p{11cm} @{}}
-		\toprule
-		\textbf{Funcionalidade} & Excluir Hóspede \\
-		\midrule
-		\textbf{Cenário de Teste} & Excluir um hóspede de forma permanente \\
-		\midrule
-		\textbf{Passos para Execução} &
-		\begin{itemize} \itemsep0em 
-			\item[1.] Clicar em Hospede.
-			\item[2.] Clicar em "Listar Hóspedes".
-			\item[3.] Clicar no botão "Excluir" de um hóspede na lista.
-			\item[4.] O modal de confirmação deve aparecer.
-			\item[5.] Clicar no botão "Excluir" dentro do modal.
-		\end{itemize} \\
-		\midrule
-		\textbf{Resultado Esperado} & O hóspede deve ser removido da lista e do banco de dados. \\
-		\midrule
-		\textbf{Status} & \textbf{Passou} \\
-		\midrule
-		\textbf{Observações} & O modal de confirmação funcionou corretamente, prevenindo exclusão acidental. \\
-		\bottomrule
-	\end{tabular}
+
+\textbf{Data da Execução:} 22 de setembro de 2025 \\
+\textbf{Testador: } Guilherme Bittencourt Schmidt  
+
+
+\vspace{1cm}
+
+% --- Início dos Quadros de Teste ---
+
+% ==============================================================================
+% Teste HOS-001
+% ==============================================================================
+\subsection*{ID do Teste: HOS-001}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Criar Hóspede \\
+	\midrule
+	\textbf{Cenário de Teste} & Criar um novo hóspede com todos os dados válidos \\
+	\midrule
+	\textbf{Passos para Execução} & 
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em Hospede.
+		\item[2.] Clicar em "Adicionar Hóspede".
+		\item[3.] Preencher todos os campos com dados válidos (CPF, nome completo, telefone, email e data de nascimento.).
+		\item[4.] Clicar em "Adicionar".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & O sistema deve salvar o hóspede, redirecionar para a lista e o novo hóspede deve aparecer na tabela. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Fluxo de criação principal funcionando corretamente. \\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste HOS-002
+% ==============================================================================
+\subsection*{ID do Teste: HOS-002}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Criar Hóspede \\
+	\midrule
+	\textbf{Cenário de Teste} & Tentar criar hóspede com campo obrigatório (nome) vazio \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em Hospede.
+		\item[2.] Clicar em "Adicionar Hóspede".
+		\item[3.] Preencher todos os campos, exceto o "Nome Completo".
+		\item[4.] Clicar em "Adicionar".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & O sistema deve exibir uma mensagem de erro clara abaixo do campo "Nome Completo". O hóspede não deve ser criado. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} &  O hóspede não foi criado (correto), e a pagina exibiu uma mensagem de erro abaixo do campo Nome Completo, com a seguinte frase "Preencha este campo". \\
+	\bottomrule
+\end{tabular}
+\newpage
+
+% ==============================================================================
+% Teste HOS-003
+% ==============================================================================
+\subsection*{ID do Teste: HOS-003}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Visualizar Hóspede \\
+	\midrule
+	\textbf{Cenário de Teste} & Visualizar detalhes de um hóspede existente \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em Hospede.
+		\item[2.] Clicar em "Listar Hóspedes".
+		\item[3.] Na lista de hóspedes, clicar no nome de um hóspede cadastrado.
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & A página de detalhes do hóspede deve ser exibida, mostrando todas as informações corretas (CPF, nome, telefone, email e data de nascimento.). \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & A página de detalhes do hóspede carrega corretamente. \\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste HOS-004
+% ==============================================================================
+\subsection*{ID do Teste: HOS-004}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Atualizar Hóspede \\
+	\midrule
+	\textbf{Cenário de Teste} & Editar o telefone de um hóspede \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em Hospede.
+		\item[2.] Clicar em "Listar Hóspedes".
+		\item[3.] Na lista de hóspedes, clicar no nome de um hóspede cadastrado.
+		\item[4.] Clicar em "Editar".
+		\item[5.] Alterar o número de telefone.
+		\item[6.] Clicar em "Salvar".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & O sistema deve salvar a alteração e, na lista, o novo telefone deve ser exibido. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} &  A alteração foi realizada corretamente. \\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste HOS-005
+% ==============================================================================
+\subsection*{ID do Teste: HOS-005}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Buscar Hóspede \\
+	\midrule
+	\textbf{Cenário de Teste} & Buscar por um hóspede existente e um inexistente \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em Hospede.
+		\item[2.] Clicar em "Listar Hóspedes".
+		\item[3.] Na lista de hóspedes, usar a barra de busca para procurar por parte do nome de um hóspede cadastrado.
+		\item[4.] Verificar o resultado.
+		\item[5.] Limpar a busca e procurar por um nome que não existe (ex: "Zzzzz").
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & Na primeira busca, a lista deve ser filtrada corretamente. Na segunda, a lista deve ficar vazia e exibir uma mensagem de "Nenhum hóspede encontrado". \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Busca efetuada com sucesso. \\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste HOS-006
+% ==============================================================================
+\subsection*{ID do Teste: HOS-006}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Excluir Hóspede \\
+	\midrule
+	\textbf{Cenário de Teste} & Excluir um hóspede de forma permanente \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Clicar em Hospede.
+		\item[2.] Clicar em "Listar Hóspedes".
+		\item[3.] Clicar no botão "Excluir" de um hóspede na lista.
+		\item[4.] O modal de confirmação deve aparecer.
+		\item[5.] Clicar no botão "Excluir" dentro do modal.
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & O hóspede deve ser removido da lista e do banco de dados. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & O modal de confirmação funcionou corretamente, prevenindo exclusão acidental. \\
+	\bottomrule
+\end{tabular}
 
 
 \chapter{Relatório de Testes Funcionais - Módulo de Gestão de Quartos}
@@ -3689,36 +3689,11 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 \end{tabular}
 \vspace{1cm}
 
+
 % ==============================================================================
 % Teste QUA-002
 % ==============================================================================
 \subsection*{ID do Teste: QUA-002}
-\begin{tabular}{@{} p{5cm} p{11cm} @{}}
-	\toprule
-	\textbf{Funcionalidade} & Criar Quarto \\
-	\midrule
-	\textbf{Cenário de Teste} & Criar um novo quarto com status "Indisponível" \\
-	\midrule
-	\textbf{Passos para Execução} &
-	\begin{itemize} \itemsep0em 
-		\item[1.] Clicar em "Quartos".
-		\item[2.] Clicar no botão "Adicionar Quarto".
-		\item[3.] Preencher os campos, mas deixar a caixa "Status" desmarcada.
-		\item[4.] Clicar em "Adicionar".
-	\end{itemize} \\
-	\midrule
-	\textbf{Resultado Esperado} & O quarto deve ser criado e aparecer na lista com o status "Indisponível". \\
-	\midrule
-	\textbf{Status} & \textbf{Passou} \\
-	\midrule
-	\textbf{Observações} & Ao clicar em "Adicionar", o sistema redirecionou para a lista de quartos, com o status certo "Indisponível". \\
-\end{tabular}
-\newpage
-
-% ==============================================================================
-% Teste QUA-003
-% ==============================================================================
-\subsection*{ID do Teste: QUA-003}
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Criar Quarto \\
@@ -3742,9 +3717,9 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 \vspace{1cm}
 
 % ==============================================================================
-% Teste QUA-004
+% Teste QUA-003
 % ==============================================================================
-\subsection*{ID do Teste: QUA-004}
+\subsection*{ID do Teste: QUA-003}
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Visualizar Quartos \\
@@ -3767,9 +3742,9 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 \vspace{1cm}
 
 % ==============================================================================
-% Teste QUA-005
+% Teste QUA-004
 % ==============================================================================
-\subsection*{ID do Teste: QUA-005}
+\subsection*{ID do Teste: QUA-004}
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Atualizar Quarto \\
@@ -3795,9 +3770,9 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 \vspace{1cm}
 
 % ==============================================================================
-% Teste QUA-006
+% Teste QUA-005
 % ==============================================================================
-\subsection*{ID do Teste: QUA-006}
+\subsection*{ID do Teste: QUA-005}
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Excluir Quarto \\
@@ -3814,9 +3789,9 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\midrule
 	\textbf{Resultado Esperado} & O quarto deve ser removido da lista permanentemente. \\
 	\midrule
-	\textbf{Status} & \textbf{Falhou} \\
+	\textbf{Status} & \textbf{Passou} \\
 	\midrule
-	\textbf{Observações} & \textbf{BUG-002:} após clicar na confirmação de exclusão, a pagina é redirecionada para uma outra pagina contendo o erro " \textbf{TemplateDoesNotExist}". \\
+	\textbf{Observações} & Exclusão feita com sucesso. \\
 \end{tabular}
 
 
@@ -4048,6 +4023,182 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Status} & \textbf{Passou} \\
 	\midrule
 	\textbf{Observações} & Modal de confirmação funcionou, porém a reserva não é removida da lista, fica como "Cancelada". \\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
+
+
+\chapter{Relatório de Testes Funcionais - Financeiro}
+
+\textbf{Data da Execução:} 29 de outubro de 2025 \\
+\textbf{Testador:} Guilherme Bittencourt Schmidt \\
+
+\vspace{1cm}
+% --- Início dos Quadros de Teste ---
+
+% --- Início dos Quadros de Teste ---
+
+% ==============================================================================
+% Teste CT-FN01
+% ==============================================================================
+\subsection*{ID do Teste: CT-FN01}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Registro de Transação (RF19) \\
+	\midrule
+	\textbf{Cenário de Teste} & Registrar uma nova despesa manual (Título de Saída) \\
+	\midrule
+	\textbf{Passos para Execução} & 
+	\begin{itemize} \itemsep0em 
+		\item[1.] Acessar "Títulos Financeiros" e clicar em "Adicionar Título".
+		\item[2.] Preencher: Descrição (ex: "Material de Limpeza"), Valor (ex: 150,00), Data Vencimento.
+		\item[3.] Selecionar a Categoria (ex: "Limpeza").
+		\item[4.] No campo "Tipo", selecionar a opção \textbf{"Saída"}.
+		\item[5.] Clicar em "Adicionar Título".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & O sistema salva e redireciona para a lista. O novo título de Saída (Despesa) deve aparecer na tabela. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Fluxo principal de registro de despesas funcionando. \\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste CT-FN02
+% ==============================================================================
+\subsection*{ID do Teste: CT-FN02}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Edição de Transação (RF19) \\
+	\midrule
+	\textbf{Cenário de Teste} & Editar o valor e a categoria de uma despesa existente \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Na lista de Títulos, localizar a despesa criada no CT-FN01.
+		\item[2.] Clicar no botão "Editar".
+		\item[3.] Alterar o Valor para "175,00" e a Categoria para "Manutenção".
+		\item[4.] Clicar em "Salvar Alterações".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & A transação deve ser atualizada na lista, exibindo os novos valores de Categoria e Valor. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & A edição de títulos está funcionando como esperado. \\
+	\bottomrule
+\end{tabular}
+\newpage
+
+% ==============================================================================
+% Teste CT-FN03 (Modificado)
+% ==============================================================================
+\subsection*{ID do Teste: CT-FN03}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Cancelamento de Transação (RF19) \\
+	\midrule
+	\textbf{Cenário de Teste} & Cancelar uma despesa (em vez de excluir) \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Na lista de Títulos, localizar a despesa do teste CT-FN02.
+		\item[2.] Clicar no botão "Editar".
+		\item[3.] No formulário, encontrar o campo "Cancelado?".
+		\item[4.] Mudar a seleção do rádio de "Não" para "Sim".
+		\item[5.] Clicar em "Salvar Alterações".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & A transação deve ser salva. Na lista de títulos, o filtro "Cancelado=Não" (padrão) deve esconder este título. Ao filtrar por "Cancelado=Sim", ele deve aparecer. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações}& \textbf{BUG-003:} Funcionando.\\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste CT-FN04
+% ==============================================================================
+\subsection*{ID do Teste: CT-FN04}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Registro de Receita (RF20) \\
+	\midrule
+	\textbf{Cenário de Teste} & Registrar receita vinculada a uma reserva existente \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Acessar "Adicionar Título".
+		\item[2.] Preencher: Descrição (ex: "Pagamento Reserva 101"), Valor (ex: 400,00).
+		\item[3.] No campo "Reserva", selecionar uma reserva da lista.
+		\item[4.] No campo "Tipo", selecionar a opção \textbf{"Entrada"}.
+		\item[5.] Clicar em "Adicionar Título".
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & A receita (Entrada) deve ser registrada. Na lista de títulos, a coluna "Hóspede" deve exibir o nome do hóspede associado àquela reserva. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & A vinculação entre Título e Reserva está funcionando. \\
+	\bottomrule
+\end{tabular}
+\newpage
+
+% ==============================================================================
+% Teste CT-FN05
+% ==============================================================================
+\subsection*{ID do Teste: CT-FN05}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Filtros de Transações (RF21) \\
+	\midrule
+	\textbf{Cenário de Teste} & Filtrar transações por tipo, data e categoria \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Garantir que a lista contenha a Receita (CT-FN04) e a Despesa (CT-FN02).
+		\item[2.] Usar o filtro "Tipo", selecionar "Saída" e clicar em "Filtrar". (Verificar se a Receita some).
+		\item[3.] Limpar o filtro. Usar o filtro "Vencimento" para uma data no passado. (Verificar se os títulos de hoje somem).
+		\item[4.] Tentar localizar o filtro de "Categoria" na tela.
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & Os filtros de tipo e data devem funcionar. O filtro de categoria também deve estar disponível e funcional. \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Funcionou. \\
+	\bottomrule
+\end{tabular}
+\vspace{1cm}
+
+% ==============================================================================
+% Teste CT-FN06 (Novo)
+% ==============================================================================
+\subsection*{ID do Teste: CT-FN06}
+\begin{tabular}{@{} p{5cm} p{11cm} @{}}
+	\toprule
+	\textbf{Funcionalidade} & Pagamento de Título (RF20) \\
+	\midrule
+	\textbf{Cenário de Teste} & Marcar título de receita como pago e verificar status da reserva \\
+	\midrule
+	\textbf{Passos para Execução} &
+	\begin{itemize} \itemsep0em 
+		\item[1.] Localizar a Receita (Entrada) criada no CT-FN04, que está vinculada a uma reserva.
+		\item[2.] Verificar se a "Situação" do título é "Aberto" ou "Vencido".
+		\item[3.] Clicar no botão "Marcar como Pago".
+		\item[4.] Confirmar a ação no pop-up do navegador.
+	\end{itemize} \\
+	\midrule
+	\textbf{Resultado Esperado} & A lista de Títulos deve ser recarregada. A "Situação" do título deve mudar para "Pago". \\
+	\midrule
+	\textbf{Status} & \textbf{Passou} \\
+	\midrule
+	\textbf{Observações} & Pagamento e confirmação de reserva funcionando. \\
 	\bottomrule
 \end{tabular}
 \vspace{1cm}
