@@ -60,6 +60,7 @@
 \backcite {owasp}{{64}{4.8.1}{subsection.4.8.1}}
 \backcite {aws-doc}{{64}{4.8.2}{subsection.4.8.2}}
 \backcite {rfc-tls}{{64}{4.8.2}{subsection.4.8.2}}
+\backcite {securityheaders2025}{{64}{4.8.2}{subsection.4.8.2}}
 \backcite {ssllabs_app_pousada}{{64}{4.8.2}{subsection.4.8.2}}
 \backcite {letsencrypt}{{64}{4.8.2}{subsection.4.8.2}}
 \backcite {anatel-anexo, enel-tarifa}{{75}{6.1.1}{table.caption.19}}

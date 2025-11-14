@@ -1047,7 +1047,7 @@ Portanto, dado seu caráter fiscalizatório, a aplicação dos mecanismos de  ge
 % ---
 \chapter{Desenvolvimento do Projeto}Nesta seção são detalhadas as tecnologias, ferramentas e práticas adotadas para o desenvolvimento da aplicação \textit{web} de gestão dos processos da pousada Chalés Água de Coco.
 \section{Escopo do Projeto}
-O presente tópico delimita o sistema web de gestão desenvolvido para a Pousada Chalés Água de Coco, descrevendo suas funcionalidades, requisitos e restrições. Estes que foram levantados por meio da aplicação de um questionário à proprietária (\autoref{apendice:questionario}) e da análise do site institucional da pousada  \cite{pousada_chales_agua_de_coco} pela equipe responsável, com o objetivo de assegurar que o produto final atenda as necessidades da pousada de forma coerente, segura  e eficiente, e apoie, no contexto de sua gestão, os processos de tomada de decisão. \\
+O presente tópico delimita o sistema web de gestão desenvolvido para a Pousada Chalés Água de Coco, descrevendo suas funcionalidades, requisitos e restrições. Estes que foram levantados por meio da aplicação de um questionário à proprietária (\autoref{apendice:questionario1}) e da análise do site institucional da pousada  \cite{pousada_chales_agua_de_coco} pela equipe responsável, com o objetivo de assegurar que o produto final atenda as necessidades da pousada de forma coerente, segura  e eficiente, e apoie, no contexto de sua gestão, os processos de tomada de decisão. \\
 \subsection{Funcionalidades do Sistema}
 O escopo deste projeto define que o produto final é composto por funcionalidades organizadas em cinco módulos principais:
 
@@ -1068,7 +1068,7 @@ No entanto, com o objetivo de garantir a entrega do produto final dentro do praz
 \subsection{Regras de Negócio}
 As regras de negócio são diretrizes que delimitam as relações entre os objetos do negócio, estabelecendo condições e restrições que orientam as empresas nas suas operações e processos internos \cite{ibmBusinessRules}. Dessa forma, as regras de negócio permitem a compreensão da lógica de funcionamento da empresa, sendo assim, um fator essencial para o desenvolvimento de sistemas computacionais alinhados com as necessidades reais da mesma.  
 
-Neste contexto, para auxiliar a equipe na modelagem e desenvolvimento aplicação, foi realizado o levantamento das regras de negócio da Pousada Chalés Água de Coco, disponíveis no \autoref{quadro_rn_1}. 
+Neste contexto, para auxiliar a equipe na modelagem e desenvolvimento aplicação, foi realizado o levantamento das regras de negócio do sistema web de gestão da pousada Chalés Água de Coco, disponíveis no \autoref{quadro_rn_1}. 
   \\
 %
 \begin{quadro}[H]
@@ -1890,9 +1890,11 @@ Todas as comunicações entre cliente e servidor ocorrem por meio do protocolo H
 	\item \textbf{Autenticidade}: Validação da identidade do servidor pela autoridade certificadora.
 \end{itemize}
 
-Adicionalmente, todas as requisições HTTP são redirecionadas automaticamente para HTTPS. Foram configurados cabeçalhos de segurança (como \texttt{Strict-Transport-Security} e \texttt{X-Content-Type-Options}), reforçando a proteção contra ataques de \textit{downgrade} e manipulação de conteúdo~\cite{rfc-tls}.
+Adicionalmente, todas as requisições HTTP são redirecionadas automaticamente para HTTPS. Foram configurados cabeçalhos de segurança (como \texttt{Strict-Transport-Security} e \texttt{X-Content-Type-Options}), reforçando a proteção contra ataques de \textit{downgrade} e manipulação de conteúdo~\cite{rfc-tls}. O certificado, emitido pela plataforma Security Headers \cite{securityheaders2025}, com a nota A+ comprova essas configurações e está disponível na \autoref{apendice:certificado_headers}.
 
-Para verificar a segurança da implementação, a comunicação HTTPS do sistema web da Pousada Chalés de Água de Coco foi avaliada através da plataforma SSL Labs, por meio do SSL Server Test, que analisa detalhadamente a implementação do protocolo TLS/SSL pelo servidor e a proteção das conexões estabelecidas \cite{ssllabs_app_pousada}. O certificado utilizado foi emitido pela autoridade certificadora gratuita Let's Encrypt \cite{letsencrypt}. A aplicação recebeu a nota A, indicando uma configuração segura e adequada, e a captura de tela do resultado está disponível no \autoref{apendice:certificado_SSL}.
+Para verificar a segurança da implementação, a comunicação HTTPS do sistema web da Pousada Chalés de Água de Coco também foi avaliada através da plataforma SSL Labs, por meio do SSL Server Test, que analisa detalhadamente a implementação do protocolo TLS/SSL pelo servidor e a proteção das conexões estabelecidas \cite{ssllabs_app_pousada}. O certificado utilizado foi emitido pela autoridade certificadora gratuita Let's Encrypt \cite{letsencrypt}. A aplicação recebeu a nota A, indicando uma configuração segura e adequada, e a captura de tela do resultado está disponível no \autoref{apendice:certificado_SSL}.
+
+
 
 \subsection{Conformidade com a LGPD}
 
@@ -3775,6 +3777,7 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 \chapter{Certificados de Segurança}
 
 \label{apendice:certificado_SSL}
+\section{Certificado SSL}
 
 \begin{figure}[H]
 	\centering
@@ -3785,6 +3788,15 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\label{fig:ssllabs_result}
 \end{figure}
 
+\section{Certificado Headers de Segurança}
+\label{apendice:certificado_headers}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{certificado_headers_seguranca.jpeg}
+	\caption{Resultado do teste de Headers de Segurança}
+	\fonte{Elaboração própria.}
+	\label{fig:certificado_headers_seguranca}
+\end{figure}
 
 % ----------------------------------------------------------%
 \chapter{Requisitos Funcionais Detalhados}
