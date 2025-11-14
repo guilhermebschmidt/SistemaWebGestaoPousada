@@ -22,7 +22,6 @@ Warning--entry type for "fgv2022" isn't style-file defined
 --line 539 of file referencias.bib
 Warning--entry type for "sebrae2020" isn't style-file defined
 --line 546 of file referencias.bib
-Warning--I didn't find a database entry for "fig:qrcode_github_repo"
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'glb_str_end' (item size: 4) to 20 items.
 Reallocating 'glb_str_ptr' (item size: 4) to 20 items.
@@ -34,7 +33,7 @@ Reallocating 'global_strs' (item size: 1) to 4000000 items.
 +---------------------------------------------------------+
 You've used 54 entries,
             6714 wiz_defined-function locations,
-            1503 strings with 18438 characters,
+            1502 strings with 18416 characters,
 and the built_in function-call counts, 76200 in all, are:
 = -- 9205
 > -- 1107
@@ -73,4 +72,4 @@ warning$ -- 0
 while$ -- 364
 width$ -- 0
 write$ -- 840
-(There were 4 warnings)
+(There were 3 warnings)

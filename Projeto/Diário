@@ -1,5 +1,7 @@
 Diário 
 
+Primeira Fase do Projeto (PIE1):
+
 1° SEMANA
 Período: 25/03/2025 a 01/04/2025.
 
@@ -19,9 +21,8 @@ Período: 08/04/2025 a 15/04/2025.
 	Nesta semana começamos efetivamente as tarefas associadas ao desenvolvimento do nosso projeto. Foram elas:
 	- Definimos a metodologia de gestão de projeto Scrum. Usamos como base para  nossa escolha: experiências práticas/ conhecimento prévio da ferramenta, isto é, familiaridade. 
 	- Definimos a função de cada membro da equipe:
-		Anna Julia: Analista de Cronograma/ PMO.
-		Guilherme Akio: Engenheiro de Dados/ Administrador de Banco de Dados.
-		Guilherme Bittencourt: Analista de Documentação/Arquiteto de Software.
+		Guilherme Akio:  Analista de Testes.
+		Guilherme Schimdt: Engenheriro de Software.
 		Kelly Radchelle: Gerente de Projeto.
 		Rafael Teixeira: Desenvolvedor Frontend.
 		Ricardo Carriel: Desenvolvedor Backend.
@@ -111,3 +112,147 @@ Durante essa semana a documentação final consolidada foi revisada, para aplica
 aspectos faltantes das normas abnt. Desenvolveu as funcionalidades restantes relacionadas
 ao módulo de reserva e check-in/check-out. E iniciou os preparativos para a apresentação
 final do MVP.
+
+----------------------------------------------------------------------------------------------------------------------------------
+Segunda Fase do Projeto (PIE2):
+
+Período: 13/08/2025 a 26/08/2025.
+Durante esse período de retorno as atividades do projeto, fizemos a revisão dos requisitos e regras de negócio finais do sistema,
+com o objetivo de planejar as sprints da segunda fase do projeto. Levantamos funcionalidades essenciais e que ficaram pendentes da 
+primeira fase. Definimos a nova ferramenta para acompanhamento das atividades (Github - Project) das sprints e como seriam dividas
+as issues/tasks. 
+
+14° SEMANA
+Período: 27/08/2025 a 02/09/2025.
+Durante a primeira sprint da segunda fase do projeto, foram planejadas atividades de revisão e retomada de funcionalidades
+pendentes do sistema e planejamento do plano de testes: 
+
+- Adicionar campo de motivo de cancelamento de reserva (Responsável: Rafael Teixeira)		
+- Criar função de editar cadastro de quartos (Responsável: Rafael Teixeira)	
+- Revisar e Corrigir tópico Introdução 	(Responsável: Guilherme Schimdt) 
+- Revisar e corrigir o tópico objetivo	(Responsável: Guilherme Schimdt)
+- Revisar e ajustar product backlog	(Responsável: Kelly Radchelle)
+- Revisar e atualizar o escopo do projeto 	(Responsável: Kelly Radchelle)
+- Revisar e padronizar código	(Responsável: Ricardo Carriel)	
+- Criar estrutura do plano de teste (Responsável: Guilherme Akio)	
+
+15° SEMANA
+Período: 03/09/2025 a 10/09/2025.
+Nesta semana foi iniciado o desenvolvimento e implementação de novas funcionalidades relacionadas ao módulo financeiro. As 
+atividades foram distribuídas:
+
+- Criar tabela financeiro_título (Responsável: Rafael Teixeira)	
+- Criar app Financeiro com configurações iniciais (Responsável: Ricardo Carriel)	
+- Revisar e atualizar tópico histórias de usuário	(Responsável: Kelly Radchelle)
+- Atualizar tópico de Sprint Backlog	(Responsável: Kelly Radchelle)
+- Revisar e Corrigir Justificativa	(Responsável: Guilherme Schimdt) 
+- Revisar e corrigir tópico de Análise da concorrência	(Responsável: Guilherme Schimdt) 
+- Testar módulo de gestão de hóspedes (Responsável: Guilherme Akio)
+
+16° SEMANA
+Período: 11/09/2025 a 17/09/2025.
+Durante a semana foi planejado realizar novas implementações no módulo financeiro e de autenticação. s 
+atividades foram distribuídas:
+
+- Criar tabela financeiro_categoria	(Responsável: Rafael Teixeira)	
+- Revisar e corrigir tópico de Modelagem do banco de dados	(Responsável: Guilherme Schimdt) 
+- Revisar e corrigir tópico de gestão do projeto (Responsável: Kelly Radchelle)
+- Implementar login/logout	(Responsável: Kelly Radchelle)
+- Criar tabela financeiro_banco	(Responsável: Ricardo Carriel)
+- Realizar testes no módulo gestão de reservas (Responsável: Guilherme Akio)
+
+Além disso,  foram revistos os requisitos funcionais finais com a empresa parceira.
+
+17° SEMANA
+Período: 18/09/2025 a 24/09/2025.
+Para a sprint dessa semana foram planejadas as tarefas:
+
+- Criar views de CRUD para Títulos (Responsável: Rafael Teixeira)	
+- Ajuste:  Adicionar campo de motivo de cancelamento de reserva	(Responsável: Rafael Teixeira)	
+- Realizar testes no módulo gestão de quartos	(Responsável: Guilherme Akio)
+- Implementar integração com módulo de reservas	(Responsável: Ricardo Carriel)
+- Revisar e corrigir tópico de Segurança (Responsável: Guilherme Schimdt) 
+- Realizar testes funcionais módulo de gestão de hóspedes (Responsável: Guilherme Schimdt) 
+- Revisar e Corrigir Revisão de Literatura	(Responsável: Kelly Radchelle)
+- Criar telas de autenticação (Responsável: Kelly Radchelle)
+
+18° SEMANA
+Período: 25/09/2025 a 01/10/2025.
+Para a sprint dessa semana foram planejadas as tarefas:
+
+- Criar filtros para lista de reservas	(Responsável: Rafael Teixeira)
+- Implementar cadastro de categorias de despesa	(Responsável: Rafael Teixeira)
+- Revisar e corrigir a Arquitetura do projeto (Responsável: Guilherme Schimdt)
+- Criar função de envio de e-mail de confirmação de reserva	(Responsável: Kelly Radchelle)
+- Realizar testes funcionais módulo de gestão de quartos (Responsável: Guilherme Schimdt)
+- Realizar ajustes módulo hóspedes (Responsável: Guilherme Akio)
+- Realizar testes funcionais módulo de gestão de reservas (Responsável: Guilherme Schimdt) 
+- Criar funcionalidade de baixa do pagamento (Responsável: Ricardo Carriel)
+- Implementar regra de pagamento parcial para confirmação da reserva (Responsável: Ricardo Carriel)
+- Revisar e corrigir tópico de Viabilidade financeira (Responsável: Kelly Radchelle)
+
+19° SEMANA
+Período: 02/10/2025 a 08/10/2025.
+Para a sprint dessa semana foram planejadas as tarefas:
+
+- Testes de funcionais de autenticação (Responsável: Guilherme Akio)
+- Criar view de balanço financeiro (Responsável: Rafael Teixeira)
+- Criar pacotes de reservas	(Responsável: Rafael Teixeira)
+- Revisar e corrigir tópico de Tecnologias e ferramentas de apoio utilizadas (Responsável: Guilherme Schimdt) 
+- Criar funcionalidade de adição de tarifas à reserva (Responsável: Ricardo Carriel)
+- Realizar testes unitários do CRUD de títulos	(Responsável: Guilherme Schimdt) 
+- Criar templates de título (Responsável: Ricardo Carriel)
+- Criar filtros por categoria para títulos	 (Responsável: Guilherme Akio)
+- Realizar ajustes no módulo quarto	(Responsável: Kelly Radchelle)
+- Realizar ajustes módulo de reservas (Responsável: Kelly Radchelle)
+
+E envio do documento de requisitos funcionais finais para a empresa parceira e para o professor orientador.
+
+20° SEMANA
+Período: 09/10/2025 a 15/10/2025.
+Para a sprint dessa semana foram estipuladas as tarefas:
+
+- Criar view do painel de métricas (Responsável: Rafael Teixeira)
+- Criar templates para tarifas	(Responsável: Ricardo Carriel)
+- Criar view relatórios: financeiro	(Responsável: Guilherme Akio)
+- Revisão e atualização dos diagramas (Responsável: Guilherme Schimdt)
+- Criar view relatórios: ocupação (Responsável: Kelly Radchelle)
+
+21° SEMANA
+Período: 16/10/ 2025 a 22/10/2025.
+Para a sprint dessa semana foram estipuladas as tarefas:
+ 
+- Criar template: painel de métricas (Responsável: Rafael Teixeira)
+- Adicionar tópico de estilo de código na documentação	(Responsável: Guilherme Schimdt)
+- Criar template relatório de ocupação	(Responsável: Kelly Radchelle)
+- Criar template relatórios financeiros	(Responsável: Guilherme Akio)
+- Configurar envio de email no servidor AWS	(Responsável: Ricardo Carriel)
+
+22° SEMANA 
+Período: 23/10/2025 a 29/10/2025.
+Para a sprint dessa semana foram determinadas as tarefas:
+
+- Ajustar e padronizar templates (Responsável: Kelly Radchelle)
+- Realizar testes funcionais: títulos (Responsável: Guilherme Schimdt)
+- Adicionar lógica de disponibilidade de quartos (Responsável: Guilherme Akio)
+- Adicionar  função de early check-in e late check-out(Responsável: Ricardo Carriel)
+- Criar funcionalidade de notificação (Responsável: Rafael Teixeira)
+
+23° SEMANA
+Período: 30/10/2025 a 5/11/2025.
+Essa semana foi separada para realização de novos testes e para finalização de issues não finalizadas, a fim de 
+conseguir fazer a entrega do produto final (prevista para o dia 12/11). Foram elas:
+
+- Revisar e Realizar testes unitários (Responsável: Guilherme Schimdt)
+- Revisar e corrigir tópico de Repositório da Aplicação (Responsável: Kelly Radchelle)
+- Finalizar issues sob responsabilidade própria em atraso(Responsável: Guilherme Akio)
+- Finalizar issues sob responsabilidade própria em atraso (Responsável: Rafael Teixeira)
+- Finalizar issues sob responsabilidade própria em atraso (Responsável: Ricardo Carriel)
+
+24° SEMANA 
+Período: 30/10/2025 a 11/5/2025.
+Durante essa semana foi dado continuidade a tarefas não finalizadas e novos testes unitários. Além da revisão final da 
+documentação.
+
+25° SEMANA
+Período: 12/11/2025 a 22/11/2025.

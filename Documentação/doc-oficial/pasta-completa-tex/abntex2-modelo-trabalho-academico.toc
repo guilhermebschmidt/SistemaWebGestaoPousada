@@ -118,50 +118,62 @@
 \contentsline {section}{\numberline {A.3}3° SEMANA}{85}{section.A.3}%
 \contentsline {section}{\numberline {A.4}4° SEMANA}{86}{section.A.4}%
 \contentsline {section}{\numberline {A.5}5° SEMANA}{86}{section.A.5}%
-\contentsline {section}{\numberline {A.6}6° SEMANA}{86}{section.A.6}%
+\contentsline {section}{\numberline {A.6}6° SEMANA}{87}{section.A.6}%
 \contentsline {section}{\numberline {A.7}7° SEMANA}{87}{section.A.7}%
 \contentsline {section}{\numberline {A.8}8° SEMANA}{87}{section.A.8}%
-\contentsline {section}{\numberline {A.9}9° SEMANA}{87}{section.A.9}%
-\contentsline {section}{\numberline {A.10}10° SEMANA}{87}{section.A.10}%
-\contentsline {section}{\numberline {A.11}11° SEMANA}{87}{section.A.11}%
-\contentsline {section}{\numberline {A.12}12° SEMANA}{88}{section.A.12}%
-\contentsline {section}{\numberline {A.13}13° SEMANA}{88}{section.A.13}%
+\contentsline {section}{\numberline {A.9}9° SEMANA}{88}{section.A.9}%
+\contentsline {section}{\numberline {A.10}10° SEMANA}{88}{section.A.10}%
+\contentsline {section}{\numberline {A.11}11° SEMANA}{88}{section.A.11}%
+\contentsline {section}{\numberline {A.12}12° SEMANA}{89}{section.A.12}%
+\contentsline {section}{\numberline {A.13}13° SEMANA}{89}{section.A.13}%
+\contentsline {section}{\numberline {A.14}Período: 13/08/2025 a 26/08/2025.}{89}{section.A.14}%
+\contentsline {section}{\numberline {A.15}14° SEMANA}{89}{section.A.15}%
+\contentsline {section}{\numberline {A.16}15° SEMANA}{90}{section.A.16}%
+\contentsline {section}{\numberline {A.17}16° SEMANA}{90}{section.A.17}%
+\contentsline {section}{\numberline {A.18}17° SEMANA}{91}{section.A.18}%
+\contentsline {section}{\numberline {A.19}18° SEMANA}{91}{section.A.19}%
+\contentsline {section}{\numberline {A.20}19° SEMANA}{92}{section.A.20}%
+\contentsline {section}{\numberline {A.21}20° SEMANA}{92}{section.A.21}%
+\contentsline {section}{\numberline {A.22}21° SEMANA}{93}{section.A.22}%
+\contentsline {section}{\numberline {A.23}22° SEMANA}{93}{section.A.23}%
+\contentsline {section}{\numberline {A.24}23° SEMANA}{93}{section.A.24}%
+\contentsline {section}{\numberline {A.25}24° SEMANA}{94}{section.A.25}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Questionário Aplicado à Proprietária da Pousada}}{89}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Questionário 1: Levantamento de Requisitos}{89}{section.B.1}%
-\contentsline {section}{\numberline {B.2}Questionário 2: Viabilidade Financeira}{93}{section.B.2}%
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Questionário Aplicado à Proprietária da Pousada}}{95}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Questionário 1: Levantamento de Requisitos}{95}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Questionário 2: Viabilidade Financeira}{99}{section.B.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Product Backlog Detalhado}}{95}{appendix.C}%
+\contentsline {appendix}{\chapternumberline {C}\MakeTextUppercase []{Product Backlog Detalhado}}{101}{appendix.C}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Sprint Backlog Detalhado}}{99}{appendix.D}%
+\contentsline {appendix}{\chapternumberline {D}\MakeTextUppercase []{Sprint Backlog Detalhado}}{105}{appendix.D}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Certificados de Segurança}}{107}{appendix.E}%
+\contentsline {appendix}{\chapternumberline {E}\MakeTextUppercase []{Certificados de Segurança}}{113}{appendix.E}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {F}\MakeTextUppercase []{Requisitos Funcionais Detalhados}}{108}{appendix.F}%
+\contentsline {appendix}{\chapternumberline {F}\MakeTextUppercase []{Requisitos Funcionais Detalhados}}{114}{appendix.F}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {G}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes}}{112}{appendix.G}%
+\contentsline {appendix}{\chapternumberline {G}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes}}{118}{appendix.G}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {H}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Quartos}}{118}{appendix.H}%
+\contentsline {appendix}{\chapternumberline {H}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Quartos}}{124}{appendix.H}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {I}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Reservas}}{123}{appendix.I}%
+\contentsline {appendix}{\chapternumberline {I}\MakeTextUppercase []{Relatório de Testes Funcionais - Módulo de Gestão de Reservas}}{129}{appendix.I}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {J}\MakeTextUppercase []{Relatório de Testes Funcionais - Financeiro}}{131}{appendix.J}%
+\contentsline {appendix}{\chapternumberline {J}\MakeTextUppercase []{Relatório de Testes Funcionais - Financeiro}}{137}{appendix.J}%
 \vspace {\cftbeforechapterskip }
