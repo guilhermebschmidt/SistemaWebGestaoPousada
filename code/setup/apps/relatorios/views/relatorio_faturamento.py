@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Sum, Count
-from ..models.titulo import Titulo
+from apps.financeiro.models.titulo import Titulo
 from datetime import date
 from dateutil.relativedelta import relativedelta
 from apps.relatorios.utils import exportar_relatorio_csv
@@ -172,4 +172,4 @@ def relatorio_faturamento(request):
     context['total_display'] = f"R$ {total:.2f}".replace('.', ',')
     context['media_display'] = f"R$ {media:.2f}".replace('.', ',') if isinstance(media, (int, float)) else media
 
-    return render(request, 'financeiro/relatorio/faturamento.html', context)
+    return render(request, 'relatorios/faturamento.html', context)

@@ -88,9 +88,26 @@
     </div>
 
     {% if titulos %}
+        <!-- Totais -->
+        <div class="flex flex-wrap items-stretch rounded-lg gap-8 mt-12 shadow-lg">
+            <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
+                <div class="stat-value text-3xl text-primary font-extrabold">{{ total_display }}</div>
+                <div class="stat-title text-sm text-gray-500 mt-2">Total</div>
+            </div>
+
+            <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
+                <div class="stat-value text-3xl text-primary font-extrabold">{{ quantidade }}</div>
+                <div class="stat-title text-sm text-gray-500 mt-2">Quantidade</div>
+            </div>
+
+            <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
+                <div class="stat-value text-3xl text-primary font-extrabold">{{ media_display }}</div>
+                <div class="stat-title text-sm text-gray-500 mt-2">Média</div>
+            </div>
+        </div>
         <!-- Tabela de resultados -->
         <div class="overflow-x-auto bg-base-100 rounded-lg shadow-lg mt-12">
-            <table class="table w-full table-zebra table-lg">
+            <table class="table w-full">
                 <thead>
                     <tr class="text-md text-center font--color-neutral">
                         <th class="font-medium text-base-content" colspan="3">
@@ -113,24 +130,6 @@
                     {% endfor %}
                 </tbody>
             </table>
-        </div>
-
-        <!-- Totais -->
-        <div class="flex flex-wrap items-stretch rounded-lg gap-8 mt-12 shadow-lg">
-            <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
-                <div class="stat-value text-3xl text-primary font-extrabold">{{ total_display }}</div>
-                <div class="stat-title text-sm text-gray-500 mt-2">Total</div>
-            </div>
-
-            <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
-                <div class="stat-value text-3xl text-primary font-extrabold">{{ quantidade }}</div>
-                <div class="stat-title text-sm text-gray-500 mt-2">Quantidade</div>
-            </div>
-
-            <div class="stat rounded-lg flex-1 min-w-[200px] p-6 flex flex-col items-center justify-center">
-                <div class="stat-value text-3xl text-primary font-extrabold">{{ media_display }}</div>
-                <div class="stat-title text-sm text-gray-500 mt-2">Média</div>
-            </div>
         </div>
     {% else %}
         <div class="alert alert-warning mt-6">

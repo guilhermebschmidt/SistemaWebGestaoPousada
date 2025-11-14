@@ -1,9 +1,9 @@
 from apps.core.models import Reserva, Quarto
-from .calculos import ocupacao
+from ..calculos import ocupacao
 from django.shortcuts import render
 from datetime import date 
 from dateutil.relativedelta import relativedelta
-from .utils import exportar_relatorio_csv, exportar_relatorio_pdf
+from ..utils import exportar_relatorio_csv, exportar_relatorio_pdf
 from reportlab.platypus import Paragraph
 from reportlab.lib.styles import getSampleStyleSheet
 '''
