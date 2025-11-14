@@ -2292,11 +2292,18 @@ Os testes funcionais do módulo quartos estão detalhados no \autoref{quadro_tf4
 \fonte{Elaborado pelos autores.}
 \end{quadro}
 
-
-O quadro completo com todos os testes funcionais está disponível no repositório do GitHub. No total foram planejados 66 testes funcionais que cobriam, diretamente, o equivalente a 80\% dos requisitos funcionais do sistema (relacionados a 20 dos requisitos funcionais totais). No entanto, foi efetivamente realizado, cerca de 38\% dos testes, devido atrasos no desenvolvimento de novas funcionalidades. Os testes realizados estão documentados do 
+O quadro completo com todos os testes funcionais está disponível no repositório do GitHub (\autoref{fig:qrcode_testes_funcionais}). No total foram planejados 66 testes funcionais que cobriam, diretamente, o equivalente a 80\% dos requisitos funcionais do sistema (relacionados a 20 dos requisitos funcionais totais). No entanto, foi efetivamente realizado, cerca de 38\% dos testes, devido atrasos no desenvolvimento de novas funcionalidades. Os testes realizados estão documentados do 
  \autoref{apendice:rfdetalhados} ao \autoref{apendice:rfdetalhados2}.
 
-\subsection{Testes Unitários}
+\begin{figure}[H]
+	\centering
+	\caption{Link para o Documento de Testes Funcionais}
+	\label{fig:qrcode_testes_funcionais}
+	{\color{black}\qrcode[height=3cm]{https://github.com/guilhermebschmidt/SistemaWebGestaoPousada/blob/main/Documenta%C3%A7%C3%A3o/teste_funcional.md}}
+	\fonte{Elaboração própria.}
+\end{figure}
+
+\section{Testes Unitários}
 Os testes unitários foram a primeira linha de defesa da qualidade do código e auxiliaram na validação da lógica interna da aplicação. Para o desenvolvimento, utilizou-se o \textit{framework} Pytest. Seguindo a convenção padrão do Django, os testes foram organizados em pastas \textit{tests/} localizadas dentro de cada \textit{app} (módulo) da aplicação. Esta estrutura permitiu a criação de testes limpos, modulares e eficientes.
 
 Como estratégia, o foco não foi  desenvolver testes unitários capazes de atingir 100\% de cobertura de linhas , mas sim em garantir a robustez das áreas de maior complexidade e risco de negócio. O esforço foi concentrado em:

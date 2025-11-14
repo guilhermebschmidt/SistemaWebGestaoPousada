@@ -93,7 +93,7 @@
 \contentsline {section}{\numberline {5.2}Escopo do Teste}{70}{section.5.2}%
 \contentsline {section}{\numberline {5.3} Análise Estática de Qualidade de Código}{71}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Testes Funcionais}{72}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Testes Unitários}{72}{subsection.5.4.1}%
+\contentsline {section}{\numberline {5.5}Testes Unitários}{73}{section.5.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Viabilidade Financeira}}{74}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Custos}{74}{section.6.1}%
@@ -111,11 +111,11 @@
 \contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase []{Conclusão}}{83}{chapter.8}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{84}{section*.26}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{84}{section*.27}%
 \renewcommand *{\cftappendixname }{AP\^ENDICE \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Ap\^endices}}{89}{section*.27}%
+\contentsline {part}{\uppercase {Ap\^endices}}{89}{section*.28}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
