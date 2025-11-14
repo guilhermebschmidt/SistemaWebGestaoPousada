@@ -2062,7 +2062,255 @@ Nesta etapa, foi realizada a entrega da documentação referente ao Projeto de C
 \subsection{Produto Mínimo Viável - 24/06}
 
 O Produto Mínimo Viável (MVP) entregue contempla as funcionalidades essenciais do sistema, focando na gestão de hóspedes, acomodações e reservas. Essas funcionalidades já permitem à pousada Chalés Água de Coco substituir o controle manual por um sistema digital centralizado e acessível. A parte de controle financeiro, embora planejada, será desenvolvida em uma fase posterior, prevista para o próximo semestre.
+\chapter{Plano de Testes}
+Neste tópico é detalhado o planejamento e execução dos testes do sistema web de gestão da pousada. 
 
+\section{Objetivo}
+O objetivo do plano de testes é validar a funcionalidade, confiabilidade e robustez do sistema, com foco principal em:
+
+\begin{itemize}
+	
+	\item \textbf{Autenticação e Controle de Acesso:} Garantir a robustez do ciclo de vida do usuário.
+	\item \textbf{Confiabilidade dos Relatórios:} Assegurar a exatidão dos cálculos e totais apresentados.
+	\item \textbf{Experiência do Usuário:}  Garantir a eficiência da interface do sistema na entrega de \textit{feedbacks} imediatos ao usuário e na navegação em grandes volumes de dados. 
+	\item \textbf{Integridade dos Dados:} Validar o ciclo de vida completo da entidade "Hóspede", a fim de garantir a aplicação correta das regras de validação no cadastro e a proteção da integridade referencial do sistema.
+	\item \textbf{Lógica de Negócio de Reservas:} Validar o ciclo de vida completo da  entidade "Reserva", desde a criação ao cancelamento, garantindo a concordância às regras financeiras e de disponibilidade.
+	\item \textbf{Qualidade do Código-Fonte:} Identificar e mitigar preventivamente \textit{bugs} e vulnerabilidades de segurança através da análise estática.	
+\end{itemize}
+
+\section{Escopo do Teste}
+Para uma cobertura abrangente do código, esse plano de testes combinou as seguintes categorias de testes:
+
+\begin{itemize}
+	\item \textbf{Análise Estática:} Para verificação de \textit{bugs} e vulnerabilidades.
+	\item \textbf{Testes Unitários:} Testar cobertura das principais funções e lógicas de negócio.
+	\item \textbf{Testes Funcionais:} Testar a experiência do usuário no navegador.
+\end{itemize}
+
+Em contrapartida, esse plano não contempla as seguintes categorias de testes:
+
+\begin{itemize}
+	\item \textbf{Testes de Carga e Estresse:}  O sistema é um \textit{back-office}, com um número muito limitado de usuários simultâneos (cenário de uso primário de uma única usuária). Devido a este perfil de baixa concorrência, os riscos técnicos associados a gargalos de performance são considerados muito baixos. Nesse sentido, entendeu-se que o investimento de esforço para testes de carga seria desproporcional ao risco, sendo mais valioso priorizar os testes funcionais, de integridade e de segurança.
+	\item\textbf{Testes de Acessibilidade:} O escopo do projeto foi definido com base no perfil de usuário primário (a proprietária), e este perfil não gerou requisitos formais de acessibilidade. Por esse motivo, não foram adicionados testes de validação correspondentes. 
+\end{itemize}
+
+\section{ Análise Estática de Qualidade de Código}
+
+Para a realização da análise estática do código foi  utilizada a ferramenta SonarQube. O objetivo foi  identificar e corrigir \textit{code smells}, \textit{bugs} em potencial e vulnerabilidades de segurança antes do deploy.
+
+\begin{itemize}
+	\item Durante a execução do SonarQube foram avaliados e corrigidos os seguintes casos:
+	\begin{itemize}
+		\item \textbf{Falhas:}
+		\begin{itemize}
+			\item \textbf{Detecção de Recursão:} Sinalização de \textit{RecursionError}.
+			\item \textbf{Detecção de AttributeError:} Sinalização de falhas de importação.
+		\end{itemize}
+		
+		\item \textbf{Vulnerabilidades:}
+		\begin{itemize}
+			\item \textbf{SQL Injection:} Verificação de uso de SQL puro de forma insegura.
+		\end{itemize}
+		
+		\item \textbf{Qualidade do Código:}
+		\begin{itemize}
+			\item \textbf{Complexidade Cognitiva:} Sinalização de funções muito complexas que podem dificultar manutenções futuras.
+			\item \textbf{Código Duplicado:} Identificação de lógicas repetidas de forma desnecessária.
+			\item \textbf{Variáveis e Imports Não Utilizadas:} Sinalização da existência de variáveis e imports não utilizadas.
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+\section{Testes Funcionais}
+Os testes funcionais deveriam testar as seguintes categorias: autenticação, segurança, quartos, hóspedes, tarifas, reservas, financeiro, integridade, relatórios, UI/UX, Backup/Restore, Performance e  Fluxo E2E. 
+
+Para cada caso de teste foi definida uma pré-condição, os passos que devem seguidos durante o teste e o resultado esparado, como exemplificado no \autoref{quadro_tf4}.
+\begin{comment}
+\begin{quadro}[H]
+	\adjustbox{max width=\textwidth}{
+		\caption{Testes Funcionais - Categoria Autenticação}
+		\label{quadro_tf1}
+		\begin{tabular}{|c|p{3cm}|c|p{3cm}|p{4.0cm}|p{4.0cm}|}
+			\hline
+			\textbf{ID} & \textbf{Descrição} & \textbf{RF} & \textbf{Pré-condição} & \textbf{Ação} & \textbf{Resultado Esperado} \\ \hline
+			
+			CT-A01 & Login válido (proprietária) & RF01 & Usuário criado &
+			Informar usuário e senha válidos $\rightarrow$ Entrar &
+			Acesso concedido; dashboard exibido. \\ \hline
+			
+			CT-A02 & Login inválido & RF01 & Nenhum &
+			Informar credenciais inválidas $\rightarrow$ Tentar entrar &
+			Acesso negado; exibir mensagem de erro informativa. \\ \hline
+			
+			CT-A03 & Recuperação de senha & RF01 & E-mail cadastrado &
+			Clicar em ``Esqueci senha'' $\rightarrow$ Informar e-mail $\rightarrow$ Enviar &
+			Link de redefinição enviado por e-mail; instruções presenciais no e-mail. \\ \hline
+			
+			CT-A04 & Alteração de senha & RF01 & Usuário autenticado &
+			Acessar perfil $\rightarrow$ Alterar senha (informar atual e nova) $\rightarrow$ Salvar &
+			Senha atualizada; próximo login aceita nova senha. \\ \hline
+			
+			CT-A05 & Força/validação de senha & RF01 & Nenhum &
+			Inserir senhas fracas (ex.: 123456, "senha") $\rightarrow$ Tentar salvar &
+			Sistema rejeita; exibe requisitos mínimos (tamanho, maiúsculas, números, símbolos). \\ \hline
+			
+			CT-A06 & Bloqueio após N tentativas & RF01 & Conta sem bloqueio &
+			Tentar login com senha errada N vezes consecutivas &
+			Conta bloqueada temporariamente; exibir mensagem com tempo de bloqueio e passos para recuperação. \\ \hline
+			
+			CT-A07 & Logout e encerramento de sessão & RF01 & Usuário autenticado &
+			Clicar em ``Logout'' / encerrar sessão &
+			Sessão encerrada; ao tentar acessar páginas protegidas, é exigido re-login. \\ \hline
+			
+			CT-A08 & Tempo de sessão / timeout & RF01 & Usuário autenticado por tempo $>$ limite &
+			Ficar inativo até expirar o tempo de sessão $\rightarrow$ Tentar executar ação protegida &
+			Usuário é redirecionado para a tela de login; exibição de mensagem de timeout. 
+			\\ \hline
+			
+		\end{tabular}
+	}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%--------------------------------------------------
+
+\subsection{Testes Funcionais de Segurança}
+Os testes funcionais de segurança estão detalhados no \autoref{quadro_tf2}.
+
+\begin{quadro}[H]
+	\adjustbox{max width=\textwidth}{
+		\caption{Testes Funcionais - Categoria Segurança}
+		\label{quadro_tf2}
+		\begin{tabular}{|c|p{3cm}|c|p{3cm}|p{4.0cm}|p{4.0cm}|}
+			\hline
+			\textbf{ID} & \textbf{Descrição} & \textbf{RF} & \textbf{Pré-condição} & \textbf{Ação} & \textbf{Resultado Esperado} \\ \hline
+			
+			CT-SEC01 &  HTTPS forçado / redirecionamento & RF01 & App em produção &
+			Acessar via URL financeiro/titulos/ &
+			Redireciona para URL accounts/login/ \\ \hline
+			
+			CT-SEC02 &  Proteção contra SQL Injection & RF01, RF02 & Nenhum &
+			Inserir payloads comuns em campos &
+			Entradas sanitizadas; nenhuma execução de queries maliciosas. \\ \hline
+			
+			CT-SEC03 &  Proteção contra XSS em formulários & RF01, RF03 & Nenhum &
+			Inserir scripts em campos de entrada &
+			Scripts são exibidos como texto; nenhuma execução ocorre. \\ \hline
+		\end{tabular}
+	}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%-----------------------------------------------
+\subsection{Testes Funcionais do Módulo Hóspedes}
+Os testes funcionais do módulo hóspedes estão detalhados no \autoref{quadro_tf3}.
+
+\begin{quadro}[H]
+	\adjustbox{max width=\textwidth}{
+		\caption{Testes Funcionais - Categoria Hóspede}
+		\label{quadro_tf3}
+		\begin{tabular}{|c|p{3cm}|c|p{3cm}|p{4.0cm}|p{4.0cm}|}
+			\hline
+			\textbf{ID} & \textbf{Descrição} & \textbf{RF} & \textbf{Pré-condição} & \textbf{Ação} & \textbf{Resultado Esperado} \\ \hline
+			
+			CT-H01 & Cadastro hóspede válido & RF03, RF12 & Nenhum &
+			Preencher todos campos obrigatórios $\rightarrow$ Salvar &
+			Hóspede cadastrado e listado. \\ \hline
+			
+			CT-H02 &  CPF inválido / formato incorreto & RF03 & Nenhum &
+			Informar CPF errado $\rightarrow$ Salvar &
+			Erro de validação exibido. \\ \hline
+			
+			CT-H03 &  Documento duplicado (CPF/Passaporte) & RF03 & Hóspede com mesmo CPF cadastrado &
+			Tentar cadastrar duplicado &
+			Sistema alerta duplicidade. \\ \hline
+			
+			CT-H04 &  Campos obrigatórios em branco & RF03 & Nenhum &
+			Deixar campos obrigatórios vazios $\rightarrow$ Salvar &
+			Erros de validação destacados. \\ \hline
+			
+			CT-H05 &  Edição de hóspede & RF12 & Hóspede existente &
+			Alterar telefone/endereço $\rightarrow$ Salvar &
+			Dados atualizados. \\ \hline
+			
+			CT-H06 &  Exclusão sem reserva vinculada & RF12 & Hóspede sem reservas &
+			Excluir hóspede &
+			Exclusão realizada. \\ \hline
+			
+			CT-H07 & Exclusão com reserva ativa & RF12 & Hóspede com reserva &
+			Tentar excluir &
+			Exclusão bloqueada; mensagem explicativa exibida. \\ \hline
+			
+			CT-H08 &  Pesquisa por nome (case-insensitive) & RF12 & Hóspedes cadastrados &
+			Pesquisar com variações de caixa &
+			Resultados corretos retornados. \\ \hline
+			
+			CT-H09 &  Buscar por documento (CPF/Passaporte) & RF12 & Hóspedes cadastrados &
+			Pesquisar por CPF/passaporte &
+			Hóspede correto retornado. \\ \hline
+			
+			CT-H10 &  Hóspede menor de idade (data de nascimento) & RF03 & Nenhum &
+			Informar data de nascimento menor que permitido &
+			Erro de validação exibido. \\ \hline
+			
+		\end{tabular}
+	}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%
+\subsection{Testes Funcionais do Módulo Quartos}
+Os testes funcionais do módulo quartos estão detalhados no \autoref{quadro_tf4}.
+\end{comment}
+
+\begin{quadro}[H]
+	\adjustbox{max width=\textwidth}{
+		\caption{Testes Funcionais - Categoria Quartos}
+		\label{quadro_tf4}
+		\begin{tabular}{|c|p{3cm}|c|p{3cm}|p{4.5cm}|p{4.5cm}|}
+			\hline
+			\textbf{ID} & \textbf{Descrição} & \textbf{RF} & \textbf{Pré-condição} & \textbf{Ação} & \textbf{Resultado Esperado} \\ \hline
+
+			CT-Q01 &  Cadastro de quarto válido & RF13 & Nenhum &
+			Informar número, tipo, capacidade, preço $\rightarrow$ Salvar &
+			Quarto cadastrado. \\ \hline
+			
+			CT-Q02 &  Número duplicado & RF13 & Quarto nº 101 cadastrado &
+			Cadastrar nº 101 novamente &
+			Erro de duplicidade. \\ \hline
+			
+			CT-Q03 &  Preço inválido (negativo ou zero) & RF13 & Nenhum &
+			Informar preço inválido $\rightarrow$ Salvar &
+			Erro de validação. \\ \hline
+			
+			CT-Q04 &Exclusão de quarto com reserva ativa & RF13 & Quarto com reserva ativa &
+			Tentar excluir &
+			Exclusão bloqueada; mensagem informativa exibida. \\ \hline
+			
+			CT-Q05 &  Ver disponibilidade por período & RF14 & Quartos e reservas cadastrados &
+			Selecionar intervalo $\rightarrow$ Buscar &
+			Somente quartos disponíveis exibidos. \\ \hline
+	 	\end{tabular}
+}
+\fonte{Elaborado pelos autores.}
+\end{quadro}
+
+
+O quadro completo com todos os testes funcionais está disponível no repositório do GitHub. No total foram planejados 66 testes funcionais que cobriam, diretamente, o equivalente a 80\% dos requisitos funcionais do sistema (relacionados a 20 dos requisitos funcionais totais). No entanto, foi efetivamente realizado, cerca de 38\% dos testes, devido atrasos no desenvolvimento de novas funcionalidades. Os testes realizados estão documentados do 
+ \autoref{apendice:rfdetalhados} ao \autoref{apendice:rfdetalhados2}.
+
+\subsection{Testes Unitários}
+Os testes unitários foram a primeira linha de defesa da qualidade do código e auxiliaram na validação da lógica interna da aplicação. Para o desenvolvimento, utilizou-se o \textit{framework} Pytest. Seguindo a convenção padrão do Django, os testes foram organizados em pastas \textit{tests/} localizadas dentro de cada \textit{app} (módulo) da aplicação. Esta estrutura permitiu a criação de testes limpos, modulares e eficientes.
+
+Como estratégia, o foco não foi  desenvolver testes unitários capazes de atingir 100\% de cobertura de linhas , mas sim em garantir a robustez das áreas de maior complexidade e risco de negócio. O esforço foi concentrado em:
+\begin{itemize}
+	\item \textbf{Lógica de Cálculo:} Funções puras responsáveis pela geração de relatórios e KPIs (ex: balanço financeiro).
+	\item \textbf{Funções de Validação:} A lógica complexa de validação nos \textit{forms.py} e \textit{models.py} (ex: regras de conflito de reserva).
+	\item \textbf{Funções Utilitárias:} Componentes críticos de \textit{utils.py} (ex: exportação de arquivos).
+\end{itemize}
+
+O código padrão gerado pelo Django (como o Admin, migrações, ou funções de \textit{views.py} que apenas renderizam \textit{templates}) foi intencionalmente considerado de baixo risco e não foi o foco principal desta camada de testes, sendo validado pelos Testes Funcionais.
+
+A cobertura de testes foi monitorada através da integração  com o SonarQube e apresentou um resultado final de, aproximadamente, 67\% das linhas de código. Esta métrica é um reflexo direto da estratégia adotada: ela representa uma cobertura muito alta sobre a área de negócio complexa do sistema, principalmente das linhas de gestão de reservas, ao mesmo tempo que omite os códigos de baixo risco. 
+
+%---------------------------------
 
 \chapter{Viabilidade Financeira}
 Este capítulo apresenta o estudo de viabilidade financeira do sistema de gestão desenvolvido, contemplando custos de infraestrutura, mão de obra e manutenção. A análise considera a natureza de extensão acadêmica do projeto, caracterizado pelo trabalho de desenvolvimento voluntário, em regime \textit{home office} e uso de equipamentos e infraestrutura próprios da equipe, apresentando os custos efetivos. Adicionalmente, também, apresenta projeções para um contexto comercial, incluindo custos indiretos. Essa abordagem tem como objetivo avaliar a factibilidade do projeto tanto para a aplicação imediata na pousada quanto para futuras possíveis expansões ou adaptações do sistema.
@@ -4191,7 +4439,7 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 
 
 \chapter{Relatório de Testes Funcionais - Financeiro}
-
+\label{apendice:rfdetalhados2}
 \textbf{Data da Execução:} 29 de outubro de 2025 \\
 \textbf{Testador:} Guilherme Bittencourt Schmidt \\
 
