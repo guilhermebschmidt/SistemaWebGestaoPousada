@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.30)  14 NOV 2025 17:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2025.4.30)  14 NOV 2025 21:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2048,27 +2048,31 @@ Overfull \hbox (26.98515pt too wide) in paragraph at lines 1893--1894
  []
 
 [64]
-<0406-MER.jpg, id=934, 809.27344pt x 361.35pt>
-File: 0406-MER.jpg Graphic file (type jpg)
-<use 0406-MER.jpg>
-Package pdftex.def Info: 0406-MER.jpg  used on input line 1924.
-(pdftex.def)             Requested size: 452.9679pt x 202.25537pt.
+<mer.png, id=934, 1193.45876pt x 657.45625pt>
+File: mer.png Graphic file (type png)
+<use mer.png>
+Package pdftex.def Info: mer.png  used on input line 1924.
+(pdftex.def)             Requested size: 452.9679pt x 249.535pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<0406-DER.jpg, id=936, 832.61063pt x 373.395pt>
-File: 0406-DER.jpg Graphic file (type jpg)
-<use 0406-DER.jpg>
-Package pdftex.def Info: 0406-DER.jpg  used on input line 1933.
-(pdftex.def)             Requested size: 452.9679pt x 203.14014pt.
+<der.png, id=936, 1126.2075pt x 1051.93pt>
+File: der.png Graphic file (type png)
+<use der.png>
+Package pdftex.def Info: der.png  used on input line 1933.
+(pdftex.def)             Requested size: 452.9679pt x 423.09196pt.
 [65]
-<estrutura_pastas.png, id=943, 567.11874pt x 1035.87pt>
+Overfull \vbox (31.62007pt too high) has occurred while \output is active []
+
+
+[66 <./mer.png> <./der.png>]
+<estrutura_pastas.png, id=950, 567.11874pt x 1035.87pt>
 File: estrutura_pastas.png Graphic file (type png)
 <use estrutura_pastas.png>
 Package pdftex.def Info: estrutura_pastas.png  used on input line 2029.
-(pdftex.def)             Requested size: 345.17177pt x 630.45189pt.
- [66 <./0406-MER.jpg> <./0406-DER.jpg>] [67 <./estrutura_pastas.png>]
+(pdftex.def)             Requested size: 230.1145pt x 420.3084pt.
+ [67 <./estrutura_pastas.png>]
 
 
 <QR code requested for "https://github.com/guilhermebschmidt/SistemaWebGestaoPo
@@ -2171,69 +2175,69 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 ] [90
 
 ] [91] [92] [93] [94] [95] [96] [97] [98] [99]
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 3194--3194
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 3190--3190
  []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 
-Underfull \hbox (badness 4144) in paragraph at lines 3195--3195
+Underfull \hbox (badness 4144) in paragraph at lines 3191--3191
 \T1/lmr/m/n/14.4 (+20) le-fone, What-sApp, pes-so-al-
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 3213--3213
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 3209--3209
  []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 3218--3218
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 3214--3214
  []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 
-Underfull \hbox (badness 1558) in paragraph at lines 3221--3221
+Underfull \hbox (badness 1558) in paragraph at lines 3217--3217
 []|\T1/lmr/m/n/14.4 (+20) Quem re-a-liza o check-in e
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 3236--3236
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 3232--3232
  []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 
-Underfull \hbox (badness 2538) in paragraph at lines 3238--3238
+Underfull \hbox (badness 2538) in paragraph at lines 3234--3234
 []|\T1/lmr/m/n/14.4 (+20) A pou-sada pos-sui quan-tos
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 3245--3245
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 3241--3241
  []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 3253--3253
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 3249--3249
  []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 [100
 
 ]
-Underfull \hbox (badness 1616) in paragraph at lines 3271--3271
+Underfull \hbox (badness 1616) in paragraph at lines 3267--3267
 []|\T1/lmr/m/n/14.4 (+20) É ne-ces-sá-rio ge-rar com-pro-
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 3274--3274
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 3270--3270
  []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 3279--3279
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 3275--3275
  []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
 
-Overfull \hbox (4.15547pt too wide) in paragraph at lines 3287--3287
+Overfull \hbox (4.15547pt too wide) in paragraph at lines 3283--3283
  []|\T1/lmr/bx/n/14.4 (-20) Item| 
  []
 
@@ -2242,22 +2246,22 @@ Overfull \vbox (1.08286pt too high) has occurred while \output is active []
 
 
 [103] [104]
-Overfull \hbox (0.96634pt too wide) in paragraph at lines 3330--3330
+Overfull \hbox (0.96634pt too wide) in paragraph at lines 3326--3326
  []|\T1/lmr/bx/n/12 (-20) Código| 
  []
 
 
-Overfull \hbox (1.06108pt too wide) in paragraph at lines 3328--3355
+Overfull \hbox (1.06108pt too wide) in paragraph at lines 3324--3351
  [][] 
  []
 
 
-Overfull \hbox (0.96634pt too wide) in paragraph at lines 3363--3363
+Overfull \hbox (0.96634pt too wide) in paragraph at lines 3359--3359
  []|\T1/lmr/bx/n/12 (-20) Código| 
  []
 
 
-Overfull \hbox (1.06108pt too wide) in paragraph at lines 3361--3389
+Overfull \hbox (1.06108pt too wide) in paragraph at lines 3357--3385
  [][] 
  []
 
@@ -2267,12 +2271,12 @@ Overfull \hbox (1.06108pt too wide) in paragraph at lines 3361--3389
 Overfull \vbox (33.28pt too high) has occurred while \output is active []
 
  [106]
-Overfull \hbox (0.96634pt too wide) in paragraph at lines 3397--3397
+Overfull \hbox (0.96634pt too wide) in paragraph at lines 3393--3393
  []|\T1/lmr/bx/n/12 (-20) Código| 
  []
 
 
-Overfull \hbox (1.06108pt too wide) in paragraph at lines 3395--3430
+Overfull \hbox (1.06108pt too wide) in paragraph at lines 3391--3426
  [][] 
  []
 
@@ -2281,12 +2285,12 @@ Overfull \vbox (33.49059pt too high) has occurred while \output is active []
 
 
 [107]
-Overfull \hbox (0.96634pt too wide) in paragraph at lines 3437--3437
+Overfull \hbox (0.96634pt too wide) in paragraph at lines 3433--3433
  []|\T1/lmr/bx/n/12 (-20) Código| 
  []
 
 
-Overfull \hbox (1.06108pt too wide) in paragraph at lines 3435--3460
+Overfull \hbox (1.06108pt too wide) in paragraph at lines 3431--3456
  [][] 
  []
 
@@ -2295,94 +2299,94 @@ Overfull \vbox (37.59016pt too high) has occurred while \output is active []
 
 
 [108] [109]
-Overfull \hbox (1.75552pt too wide) in paragraph at lines 3470--3470
+Overfull \hbox (1.75552pt too wide) in paragraph at lines 3466--3466
  []|\T1/lmr/bx/n/12 (-20) Sprint| 
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 3468--3511
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 3464--3507
  [][] 
  []
 
 
-Overfull \hbox (1.75552pt too wide) in paragraph at lines 3519--3519
+Overfull \hbox (1.75552pt too wide) in paragraph at lines 3515--3515
  []|\T1/lmr/bx/n/12 (-20) Sprint| 
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 3517--3536
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 3513--3532
  [][] 
  []
 
 
-Overfull \hbox (1.75552pt too wide) in paragraph at lines 3544--3544
+Overfull \hbox (1.75552pt too wide) in paragraph at lines 3540--3540
  []|\T1/lmr/bx/n/12 (-20) Sprint| 
  []
 
 
-Overfull \hbox (5.80841pt too wide) in paragraph at lines 3546--3546
+Overfull \hbox (5.80841pt too wide) in paragraph at lines 3542--3542
  []|\T1/lmr/m/n/12 (-20) Operacionalização 
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 3542--3573
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 3538--3569
  [][] 
  []
 
 [110
 
 ]
-Overfull \hbox (1.75552pt too wide) in paragraph at lines 3581--3581
+Overfull \hbox (1.75552pt too wide) in paragraph at lines 3577--3577
  []|\T1/lmr/bx/n/12 (-20) Sprint| 
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 3579--3607
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 3575--3603
  [][] 
  []
 
 [111]
-Overfull \hbox (1.75552pt too wide) in paragraph at lines 3615--3615
+Overfull \hbox (1.75552pt too wide) in paragraph at lines 3611--3611
  []|\T1/lmr/bx/n/12 (-20) Sprint| 
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 3613--3641
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 3609--3637
  [][] 
  []
 
 [112]
-Overfull \hbox (1.75552pt too wide) in paragraph at lines 3649--3649
+Overfull \hbox (1.75552pt too wide) in paragraph at lines 3645--3645
  []|\T1/lmr/bx/n/12 (-20) Sprint| 
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 3647--3678
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 3643--3674
  [][] 
  []
 
 [113]
-Overfull \hbox (1.75552pt too wide) in paragraph at lines 3685--3685
+Overfull \hbox (1.75552pt too wide) in paragraph at lines 3681--3681
  []|\T1/lmr/bx/n/12 (-20) Sprint| 
  []
 
 
-Overfull \hbox (5.80841pt too wide) in paragraph at lines 3687--3687
+Overfull \hbox (5.80841pt too wide) in paragraph at lines 3683--3683
  []|\T1/lmr/m/n/12 (-20) Operacionalização 
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 3683--3722
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 3679--3718
  [][] 
  []
 
 [114]
-Overfull \hbox (1.75552pt too wide) in paragraph at lines 3730--3730
+Overfull \hbox (1.75552pt too wide) in paragraph at lines 3726--3726
  []|\T1/lmr/bx/n/12 (-20) Sprint| 
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 3728--3774
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 3724--3770
  [][] 
  []
 
@@ -2390,224 +2394,224 @@ Overfull \hbox (1.0611pt too wide) in paragraph at lines 3728--3774
 <ssl_lab_result.png, id=1350, 876.27374pt x 411.78844pt>
 File: ssl_lab_result.png Graphic file (type png)
 <use ssl_lab_result.png>
-Package pdftex.def Info: ssl_lab_result.png  used on input line 3784.
+Package pdftex.def Info: ssl_lab_result.png  used on input line 3780.
 (pdftex.def)             Requested size: 362.37569pt x 170.29208pt.
 <ssl_lab_result2.png, id=1351, 549.55313pt x 389.95688pt>
 File: ssl_lab_result2.png Graphic file (type png)
 <use ssl_lab_result2.png>
-Package pdftex.def Info: ssl_lab_result2.png  used on input line 3785.
+Package pdftex.def Info: ssl_lab_result2.png  used on input line 3781.
 (pdftex.def)             Requested size: 362.37569pt x 257.14621pt.
 <certificado_headers_seguranca.jpeg, id=1352, 1606.0pt x 832.10875pt>
 File: certificado_headers_seguranca.jpeg Graphic file (type jpg)
 <use certificado_headers_seguranca.jpeg>
 Package pdftex.def Info: certificado_headers_seguranca.jpeg  used on input line
- 3795.
+ 3791.
 (pdftex.def)             Requested size: 362.37569pt x 187.74966pt.
  [118
 
  <./ssl_lab_result.png> <./ssl_lab_result2.png>] [119 <./certificado_headers_se
 guranca.jpeg>]
-Overfull \hbox (4.07256pt too wide) in paragraph at lines 3809--3809
+Overfull \hbox (4.07256pt too wide) in paragraph at lines 3805--3805
  []|\T1/lmr/bx/n/12 (-20) Prioridade| 
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 3807--3820
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 3803--3816
  [][] 
  []
 
 
-Overfull \hbox (4.07256pt too wide) in paragraph at lines 3828--3828
+Overfull \hbox (4.07256pt too wide) in paragraph at lines 3824--3824
  []|\T1/lmr/bx/n/12 (-20) Prioridade| 
  []
 
 
-Underfull \hbox (badness 1147) in paragraph at lines 3846--3846
+Underfull \hbox (badness 1147) in paragraph at lines 3842--3842
 \T1/lmr/m/n/12 (+20) ca-pa-ci-dade (nú-mero de hós-pe-des),
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 3826--3849
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 3822--3845
  [][] 
  []
 
 
-Overfull \hbox (4.07256pt too wide) in paragraph at lines 3856--3856
+Overfull \hbox (4.07256pt too wide) in paragraph at lines 3852--3852
  []|\T1/lmr/bx/n/12 (-20) Prioridade| 
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 3854--3879
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 3850--3875
  [][] 
  []
 
 [120
 
 ] [121]
-Overfull \hbox (4.07256pt too wide) in paragraph at lines 3887--3887
+Overfull \hbox (4.07256pt too wide) in paragraph at lines 3883--3883
  []|\T1/lmr/bx/n/12 (-20) Prioridade| 
  []
 
 
-Underfull \hbox (badness 1360) in paragraph at lines 3896--3896
+Underfull \hbox (badness 1360) in paragraph at lines 3892--3892
 []|\T1/lmr/m/n/12 (+20) O sis-tema deve per-mi-tir a fil-tra-
  []
 
 
-Underfull \hbox (badness 1242) in paragraph at lines 3896--3896
+Underfull \hbox (badness 1242) in paragraph at lines 3892--3892
 \T1/lmr/m/n/12 (+20) gem das tran-sa-ções por tipo (re-
  []
 
 
-Overfull \hbox (1.0611pt too wide) in paragraph at lines 3885--3909
+Overfull \hbox (1.0611pt too wide) in paragraph at lines 3881--3905
  [][] 
  []
 
 [122] [123]
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 3927--3949
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 3923--3945
 [][]
  []
 
 
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 3954--3975
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 3950--3971
 [][] 
  []
 
 [124
 
 ] [125]
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 3981--4002
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 3977--3998
 [][]
  []
 
 
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4007--4031
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4003--4027
 [][]
  []
 
 [126]
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4036--4059
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4032--4055
 [][]
  []
 
 [127]
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4064--4086
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4060--4082
 [][] 
  []
 
 [128] [129]
-Underfull \hbox (badness 10000) in paragraph at lines 4089--4091
+Underfull \hbox (badness 10000) in paragraph at lines 4085--4087
 
  []
 
 
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4100--4121
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4096--4117
 [][]
  []
 
 
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4127--4148
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4123--4144
 [][]
  []
 
 [130
 
 ]
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4153--4173
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4149--4169
 [][]
  []
 
 [131]
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4178--4201
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4174--4197
 [][]
  []
 
 [132]
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4206--4226
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4202--4222
 [][] 
  []
 
 [133] [134]
-Underfull \hbox (badness 10000) in paragraph at lines 4231--4233
+Underfull \hbox (badness 10000) in paragraph at lines 4227--4229
 
  []
 
 
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4242--4266
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4238--4262
 [][]
  []
 
 
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4271--4295
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4267--4291
 [][]
  []
 
 [135
 
 ]
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4300--4323
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4296--4319
 [][] 
  []
 
 [136] [137]
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4329--4351
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4325--4347
 [][]
  []
 
 
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4356--4378
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4352--4374
 [][]
  []
 
 [138]
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4383--4404
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4379--4400
 [][] 
  []
 
 [139] [140]
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4410--4432
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4406--4428
 [][]
  []
 
 
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4437--4459
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4433--4455
 [][]
  []
 
 [141] [142]
-Underfull \hbox (badness 10000) in paragraph at lines 4463--4465
+Underfull \hbox (badness 10000) in paragraph at lines 4459--4461
 
  []
 
 
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4475--4498
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4471--4494
 [][]
  []
 
 
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4503--4524
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4499--4520
 [][] 
  []
 
 [143
 
 ] [144]
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4530--4553
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4526--4549
 [][]
  []
 
 
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4558--4580
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4554--4576
 [][] 
  []
 
 [145] [146]
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4586--4608
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4582--4604
 [][]
  []
 
 
-Overfull \hbox (51.26485pt too wide) in paragraph at lines 4613--4635
+Overfull \hbox (51.26485pt too wide) in paragraph at lines 4609--4631
 [][]
  []
 
@@ -2655,7 +2659,7 @@ ot changed.
 ### bottom level 
 Here is how much of TeX's memory you used:
  45898 strings out of 474486
- 993456 string characters out of 5743755
+ 993386 string characters out of 5743755
  2069542 words of memory out of 5000000
  66655 multiletter control sequences out of 15000+600000
  652319 words of font info for 243 fonts, out of 8000000 for 9000
@@ -2675,7 +2679,7 @@ c/lm/lmr12.pfb><C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/type1/public
 ic/lm/lmsy10.pfb><C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/lm/lmtt12.pfb><C:/Users/kelly/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/lm/lmtti10.pfb>
-Output written on abntex2-modelo-trabalho-academico.pdf (149 pages, 1288497 byt
+Output written on abntex2-modelo-trabalho-academico.pdf (149 pages, 1350715 byt
 es).
 PDF statistics:
  2109 PDF objects out of 2487 (max. 8388607)
