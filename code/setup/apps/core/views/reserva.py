@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
+
+from apps.financeiro.models.titulo import Titulo
 from ..models.reserva import Reserva
 from ..models.hospede import Hospede
 from ..models.quarto import Quarto
@@ -33,7 +35,7 @@ def list(request):
         'filtro_status': filtro_status,
         'filtro_hospede': filtro_hospede,
         'filtro_quarto': filtro_quarto,
-        'quartos': quartos, 
+        'quartos': quartos,
     }
 
     return render(request, 'core/reserva/list.html', context)
@@ -48,7 +50,7 @@ def reserva_form(request, pk=None):
 
     if request.method == 'POST':
         form = ReservaForm(request.POST, instance=instance)
-        
+
         if form.is_valid():
             form.save()
             messages.success(request, success_message)
@@ -101,7 +103,7 @@ def reserva_form(request, pk=None):
             except Exception:
                 pass
             return response
-        
+
     else:
         # Se vierem parâmetros via GET (datas), repassa-los como initial para o form
         # request.GET é um QueryDict que pode conter listas; use dict() para obter
@@ -142,14 +144,50 @@ def list_checkout(request):
 
 def marcar_checkin(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
+    agora = timezone.localtime(timezone.now()) # Garante o fuso horário correto
+
+    if request.method == 'GET':
+        HORA_LIMITE = 22 # 22:00
+
+        if agora.hour < HORA_LIMITE:
+            context = {
+                'reserva': reserva,
+                'horario_atual': agora.strftime('%H:%M'),
+                'mensagem': f'Check-in antecipado (Antes das {HORA_LIMITE}:00). Deseja cobrar taxa?'
+            }
+            return render(request, 'core/reserva/confirmar_taxa_checkin.html', context)
+
+    if request.method == 'POST':
+        valor_taxa_str = request.POST.get('valor_taxa')
+
+        if valor_taxa_str and valor_taxa_str.strip():
+            try:
+                valor_taxa = Decimal(valor_taxa_str.replace(',', '.'))
+
+                if valor_taxa > 0:
+                    Titulo.objects.create(
+                        reserva=reserva,
+                        hospede=reserva.id_hospede,
+                        descricao=f"Taxa Early Check-in - Reserva #{reserva.id}",
+                        valor=valor_taxa,
+                        data=agora.date(),
+                        data_vencimento=agora.date(),
+                        tipo=True,
+                        tipo_documento='outros',
+                        conta_corrente='Conta Principal',
+                        cancelado=False
+                    )
+            except ValueError:
+                pass
+
     reserva.data_check_in = timezone.now()
     reserva.status = 'ATIVA'
+    reserva.save()
 
     quarto = reserva.id_quarto
     quarto.status = 'OCUPADO'
     quarto.save()
 
-    reserva.save()
     return redirect('reserva:list_checkin')
 
 def marcar_checkout(request, pk):
