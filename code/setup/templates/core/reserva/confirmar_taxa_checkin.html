@@ -1,0 +1,94 @@
+{% extends "shared/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="min-h-screen bg-base-200 flex items-center justify-center p-4">
+
+    <div class="card w-full max-w-lg bg-base-100 shadow-2xl">
+        <div class="card-body">
+
+            <h2 class="card-title text-2xl mb-2 flex items-center gap-2 text-warning">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Check-in Antecipado
+            </h2>
+
+            <p class="text-base-content/70">
+                O check-in está sendo realizado fora do horário padrão.
+                <br>
+                <span class="font-semibold text-error">Horário atual: {{ horario_atual }}</span>
+            </p>
+
+            <div class="stats stats-vertical lg:stats-horizontal shadow bg-base-200 my-6 w-full">
+                <div class="stat">
+                    <div class="stat-title">Reserva</div>
+                    <div class="stat-value text-lg">#{{ reserva.id }}</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-title">Hóspede</div>
+                    <div class="stat-value text-lg truncate">{{ reserva.id_hospede }}</div>
+                </div>
+            </div>
+
+            <form method="POST" action="{% url 'reserva:checkin' reserva.pk %}" id="formCheckin">
+                {% csrf_token %}
+
+                <div class="form-control w-full">
+                    <label class="label">
+                        <span class="label-text font-bold">Valor da Taxa (Opcional)</span>
+                    </label>
+
+                    <div class="join w-full">
+                        <span class="join-item btn btn-disabled bg-base-300 border-base-300 text-base-content opacity-100">R$</span>
+                        <input
+                            type="number"
+                            step="0.01"
+                            name="valor_taxa"
+                            id="inputValor"
+                            placeholder="0.00"
+                            class="input input-bordered input-primary w-full join-item text-lg font-bold"
+                            autofocus
+                        />
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-3 mt-8">
+
+                    <button type="submit" class="btn btn-primary w-full shadow-lg">
+                        Cobrar Taxa e Realizar Check-in
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </button>
+
+                    <div class="divider my-0">OU</div>
+
+                    <button
+                        type="button"
+                        onclick="submitIsento()"
+                        class="btn btn-outline btn-secondary w-full border-2">
+                        Isentar Taxa e Realizar Check-in
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 ml-1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </button>
+
+                    <a href="{% url 'reserva:list_checkin' %}" class="btn btn-ghost btn-sm text-base-content/50 hover:bg-transparent hover:text-base-content mt-2">
+                        Cancelar operação
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function submitIsento() {
+        // Define o valor como vazio ou 0 antes de enviar
+        document.getElementById('inputValor').value = '';
+        document.getElementById('formCheckin').submit();
+    }
+</script>
+{% endblock %}
