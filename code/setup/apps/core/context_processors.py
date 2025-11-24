@@ -1,51 +1,40 @@
-from django.utils import timezone
-from apps.core.models import Reserva, Hospede
-import datetime
+from apps.core.models import Notificacao
 
 def notificacoes(request):
-    hoje = datetime.date.today()
-    
-    notificacoes_list = []
-    
-    checkins_hoje = Reserva.objects.filter(
-        data_reserva_inicio=hoje, 
-        status__in=['CONFIRMADA', 'PREVISTA']
-    ).count()
-    
-    if checkins_hoje > 0:
-        notificacoes_list.append({
-            'tipo': 'checkin',
-            'icone': 'fas fa-key',
-            'cor_bg': 'bg-warning/10',
-            'cor_texto': 'text-warning',
-            'titulo': f'Você tem {checkins_hoje} Check-ins hoje',
-            'tempo': 'Hoje'
-        })
+    if not request.user.is_authenticated:
+        return {'notificacoes_topo': [], 'qtd_nao_lidas': 0}
 
-    ultimas_reservas = Reserva.objects.order_by('-id')[:3]
+    notificacoes_qs = Notificacao.objects.filter(usuario=request.user).order_by('-criado_em')[:10]
     
-    for reserva in ultimas_reservas:
-        notificacoes_list.append({
-            'tipo': 'reserva',
-            'icone': 'fas fa-calendar-check',
-            'cor_bg': 'bg-primary/10',
-            'cor_texto': 'text-primary',
-            'titulo': f'Reserva #{reserva.id} - {reserva.id_hospede.nome}',
-            'tempo': 'Recente'
-        })
+    qtd_nao_lidas = Notificacao.objects.filter(usuario=request.user, lida=False).count()
 
-    ultimos_hospedes = Hospede.objects.order_by('-id')[:2]
-    for hospede in ultimos_hospedes:
-        notificacoes_list.append({
-            'tipo': 'hospede',
-            'icone': 'fas fa-user-plus',
-            'cor_bg': 'bg-success/10',
-            'cor_texto': 'text-success',
-            'titulo': f'Novo hóspede: {hospede.nome}',
-            'tempo': 'Recente'
+    notificacoes_formatadas = []
+    for n in notificacoes_qs:
+        icone = 'fas fa-info-circle'
+        cor = 'text-gray-500'
+        bg = 'bg-gray-100'
+        
+        if n.tipo == 'reserva':
+            icone = 'fas fa-calendar-check'
+            cor = 'text-primary'
+            bg = 'bg-primary/10'
+        elif n.tipo == 'hospede':
+            icone = 'fas fa-user-plus'
+            cor = 'text-success'
+            bg = 'bg-success/10'
+        elif n.tipo == 'financeiro':
+            icone = 'fas fa-dollar-sign'
+            cor = 'text-warning'
+            bg = 'bg-warning/10'
+            
+        notificacoes_formatadas.append({
+            'obj': n,
+            'icone': icone,
+            'cor': cor,
+            'bg': bg
         })
 
     return {
-        'lista_notificacoes': notificacoes_list,
-        'total_notificacoes': len(notificacoes_list)
+        'notificacoes_topo': notificacoes_formatadas,
+        'qtd_nao_lidas': qtd_nao_lidas
     }

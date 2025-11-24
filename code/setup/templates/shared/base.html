@@ -245,48 +245,59 @@
                 <div class="indicator">
                   <i class="fas fa-bell"></i>
                   <!-- Mostra a bolinha com número apenas se houver notificações -->
-                  {% if total_notificacoes > 0 %}
-                    <span class="badge badge-xs badge-primary indicator-item">{{ total_notificacoes }}</span>
+                  {% if qtd_nao_lidas > 0 %}
+                    <span class="badge badge-xs badge-primary indicator-item">{{ qtd_nao_lidas }}</span>
                   {% endif %}
                 </div>
               </label>
 
-              <div tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-80">
-                <div class="p-2 font-bold flex justify-between items-center">
-                  <span>Notificações</span>
-                  <span class="text-xs font-normal text-gray-500">{{ total_notificacoes }} novas</span>
+              <div tabindex="0" class="dropdown-content menu p-0 shadow-xl bg-base-100 rounded-box w-96 z-50 mt-4">
+                <!-- Cabeçalho do Dropdown -->
+                <div class="p-3 border-b border-base-200 flex justify-between items-center bg-base-200/50 rounded-t-box">
+                  <span class="font-bold text-base">Notificações</span>
+                  <span class="text-xs badge badge-ghost">{{ qtd_nao_lidas }} não lidas</span>
                 </div>
-                <div class="divider m-0"></div>
 
-                <!-- Loop Dinâmico de Notificações -->
-                <div class="max-h-96 overflow-y-auto">
-                  {% for notificacao in lista_notificacoes %}
-                    <a href="#" class="p-2 hover:bg-base-200 flex items-start mb-1 rounded-lg transition-colors">
-                      <!-- Ícone Dinâmico -->
-                      <div class="{{ notificacao.cor_bg }} p-2 rounded-full mr-3 flex-shrink-0 w-10 h-10 flex items-center justify-center">
-                        <i class="{{ notificacao.icone }} {{ notificacao.cor_texto }}"></i>
+                <!-- Lista de Notificações com Scroll -->
+                <div class="max-h-[400px] overflow-y-auto">
+                  {% for item in notificacoes_topo %}
+                    <!-- O Link vai para a view 'marcar_como_lida', passando o ID da notificação -->
+                    <a href="{% url 'notificacao:marcar_como_lida' item.obj.id %}" class="flex gap-3 p-3 hover:bg-base-200 transition-colors border-b border-base-100 last:border-0 relative group">
+                      <!-- Ícone Colorido -->
+                      <div class="flex-shrink-0 w-10 h-10 rounded-full {{ item.bg }} flex items-center justify-center">
+                        <i class="{{ item.icone }} {{ item.cor }}"></i>
                       </div>
+
                       <!-- Texto da Notificação -->
-                      <div>
-                        <p class="font-medium text-sm text-gray-800">{{ notificacao.titulo }}</p>
-                        <p class="text-xs text-gray-500 mt-1">{{ notificacao.tempo }}</p>
+                      <div class="flex-1 min-w-0">
+                        <!-- Título (se já lida, fica com opacidade reduzida) -->
+                        <p class="text-sm font-semibold text-base-content truncate {% if item.obj.lida %}opacity-60 font-normal{% endif %}">{{ item.obj.titulo }}</p>
+                        <!-- Mensagem -->
+                        <p class="text-xs text-base-content/70 line-clamp-2 mt-0.5">{{ item.obj.mensagem }}</p>
+                        <!-- Tempo (ex: "10 min atrás") -->
+                        <p class="text-[10px] text-base-content/50 mt-1">{{ item.obj.criado_em|timesince }} atrás</p>
                       </div>
+
+                      <!-- Bolinha azul indicando 'Não Lida' -->
+                      {% if not item.obj.lida %}
+                        <div class="absolute right-3 top-1/2 -translate-y-1/2 w-2 h-2 bg-primary rounded-full"></div>
+                      {% endif %}
                     </a>
                   {% empty %}
-                    <!-- Caso não haja notificações -->
-                    <div class="p-4 text-center text-gray-500 text-sm">
-                      <i class="far fa-bell-slash mb-2 text-lg"></i>
-                      <p>Nenhuma notificação nova.</p>
+                    <!-- Estado Vazio -->
+                    <div class="p-8 text-center text-base-content/50">
+                      <i class="far fa-bell-slash text-3xl mb-2 opacity-50"></i>
+                      <p class="text-sm">Nenhuma notificação no momento.</p>
                     </div>
                   {% endfor %}
                 </div>
 
-                <div class="divider m-0"></div>
-                <a href="{% url 'reserva:list' %}" class="p-2 text-center text-primary text-sm font-semibold hover:bg-base-200 rounded-b-box block">Ver todas as reservas</a>
+                <!-- Rodapé do Dropdown -->
+                <div class="p-2 border-t border-base-200 bg-base-200/30 rounded-b-box text-center">
+                  <a href="#" class="text-xs link link-hover text-primary">Ver todo o histórico</a>
+                </div>
               </div>
             </div>
-
-            <!-- ... restante do código ... -->
 
             <!-- Perfil do usuário -->
             <div class="dropdown dropdown-end">
