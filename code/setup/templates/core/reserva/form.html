@@ -157,32 +157,62 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
     <script>
+    const style = document.createElement('style');
+    style.innerHTML = `.ui-autocomplete { z-index: 3000 !important; max-height: 260px; overflow-y: auto; }`;
+    document.head.appendChild(style);
+
     $(function() {
         $("#id_hospede_nome").autocomplete({
             source: "{% url 'reserva:buscar_hospedes' %}",
             minLength: 2,
+            appendTo: 'body',
             select: function(event, ui) {
                 $(this).val(ui.item.label);
                 $("#id_id_hospede").val(ui.item.id);
                 return false;
             }
         });
-        });
-        // Quando o usuário alterar as datas, recarrega a página (GET) com as datas na query
+
         function refreshWithDates(){
             const inicio = $('#id_data_reserva_inicio').val();
             const fim = $('#id_data_reserva_fim').val();
+            
             if(!inicio || !fim) return;
+
+            const anoInicio = parseInt(inicio.split('-')[0]);
+            const anoFim = parseInt(fim.split('-')[0]);
+
+            if(anoInicio < 1900 || anoFim < 1900) return;
+
             const params = new URLSearchParams(window.location.search);
             params.set('data_reserva_inicio', inicio);
             params.set('data_reserva_fim', fim);
-            // navega para a mesma rota com querystring atualizada
+
+            try{
+                const hospedeId = $('#id_id_hospede').val();
+                const hospedeNome = $('#id_hospede_nome').val();
+                if(hospedeId) params.set('id_hospede', hospedeId);
+                if(hospedeNome) params.set('hospede_nome', hospedeNome);
+            } catch(e){}
+
+            try{
+                const quarto = $('#id_id_quarto').val();
+                if(quarto) params.set('id_quarto', quarto);
+            } catch(e){}
+
+            try{
+                const adultos = $('#id_quantidade_adultos').val();
+                const criancas = $('#id_quantidade_criancas').val();
+                if(adultos) params.set('quantidade_adultos', adultos);
+                if(criancas) params.set('quantidade_criancas', criancas);
+            } catch(e){}
+
             window.location.search = params.toString();
         }
 
         $('#id_data_reserva_inicio, #id_data_reserva_fim').on('change', function(){
-            // esperar pequeno debounce para permitir seleção do outro campo
-            setTimeout(refreshWithDates, 200);
+            setTimeout(refreshWithDates, 1500);
         });
+    });
     </script>
 {% endblock %}

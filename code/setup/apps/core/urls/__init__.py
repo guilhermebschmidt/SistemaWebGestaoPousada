@@ -5,4 +5,5 @@ urlpatterns = [
     path('quarto/', include('apps.core.urls.quarto')),
     path('reserva/', include('apps.core.urls.reserva')),
     path('mensalista/', include('apps.core.urls.mensalista')),
+    path('notificacoes/', include('apps.core.urls.notificacao', namespace='notificacao')),
 ]

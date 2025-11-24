@@ -3,3 +3,4 @@ from .quarto import *
 from .reserva import *
 from .mensalista import *
 from .dashboard import *
+from .notificacao import *

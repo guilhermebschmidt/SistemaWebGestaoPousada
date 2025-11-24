@@ -1,8 +1,13 @@
 {
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.17",
+<<<<<<< HEAD
     "daisyui": "^5.3.10",
     "tailwindcss": "^4.1.16"
+=======
+    "daisyui": "^5.5.5",
+    "tailwindcss": "^4.1.17"
+>>>>>>> origin/dev
   },
   "name": "setup",
   "version": "1.0.0",
