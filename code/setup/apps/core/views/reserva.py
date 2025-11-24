@@ -10,6 +10,7 @@ import datetime
 from django.utils import timezone
 from django.http import JsonResponse
 from django.contrib import messages
+from decimal import Decimal
 
 
 def list(request):
@@ -144,12 +145,12 @@ def list_checkout(request):
 
 def marcar_checkin(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
-    agora = timezone.localtime(timezone.now()) # Garante o fuso horário correto
+    agora = timezone.localtime(timezone.now())
 
     if request.method == 'GET':
-        HORA_LIMITE = 22 # 22:00
+        HORA_LIMITE = 16
 
-        if agora.hour < HORA_LIMITE:
+        if agora.hour <= HORA_LIMITE:
             context = {
                 'reserva': reserva,
                 'horario_atual': agora.strftime('%H:%M'),
@@ -192,13 +193,55 @@ def marcar_checkin(request, pk):
 
 def marcar_checkout(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
-    reserva.data_check_out = timezone.now()
-    reserva.status = 'CONCLUIDA'
+    agora = timezone.localtime(timezone.now())
 
-    quarto = reserva.id_quarto
-    quarto.status = 'DISPONIVEL'
-    reserva.save()
+    HORA_LIMITE = 12
+
+    if request.method == 'GET':
+        if agora.hour >= HORA_LIMITE:
+            context = {
+                'reserva': reserva,
+                'horario_atual': agora.strftime('%H:%M'),
+                'mensagem': f'Checkout tardio (Após as {HORA_LIMITE}:00). Deseja cobrar taxa?'
+            }
+            return render(request, 'core/reserva/confirmar_taxa_checkout.html', context)
+
+    if request.method == 'POST':
+        valor_taxa_str = request.POST.get('valor_taxa')
+
+        if valor_taxa_str and valor_taxa_str.strip():
+            try:
+                valor_taxa = Decimal(valor_taxa_str.replace(',', '.'))
+
+                if valor_taxa > 0:
+                    Titulo.objects.create(
+                        reserva=reserva,
+                        hospede=reserva.id_hospede,
+                        descricao=f"Taxa Late Check-out - Reserva #{reserva.id}",
+                        valor=valor_taxa,
+                        data=agora.date(),
+                        data_vencimento=agora.date(),
+                        tipo=True,
+                        tipo_documento='outros',
+                        conta_corrente='Conta Principal',
+                        cancelado=False
+                    )
+            except ValueError:
+                pass
+
+        # Finaliza checkout
+        reserva.data_check_out = timezone.now()
+        reserva.status = 'CONCLUIDA'
+        reserva.save()
+
+        quarto = reserva.id_quarto
+        quarto.status = 'DISPONIVEL'
+        quarto.save()
+
+        return redirect('reserva:list_checkout')
+
     return redirect('reserva:list_checkout')
+
 
 def cancelar_reserva(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
