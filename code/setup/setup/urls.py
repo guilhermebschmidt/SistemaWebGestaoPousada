@@ -14,4 +14,5 @@ urlpatterns = [
     path('usuarios/', include('apps.usuarios.urls')),
     path('relatorios/', include('apps.relatorios.urls', namespace='relatorios')),
     path('mensalistas/', include('apps.core.urls.mensalista',namespace='mensalista')),
+    path('notificacao/', include('apps.core.urls.notificacao',namespace='notificacao')),
 ]

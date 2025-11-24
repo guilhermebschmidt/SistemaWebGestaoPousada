@@ -2,294 +2,334 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<script>
+  <script>
     // Bloqueio de renderização até definir o tema
-    (function() {
+    ;(function () {
       // Verifica preferências
-      const savedTheme = localStorage.getItem('theme');
-      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
+      const savedTheme = localStorage.getItem('theme')
+      const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    
       // Aplica o tema antes da renderização
-      document.documentElement.setAttribute('data-theme',
-        savedTheme || (systemDark ? 'dark' : 'light'));
-
+      document.documentElement.setAttribute('data-theme', savedTheme || (systemDark ? 'dark' : 'light'))
+    
       // Adiciona classe para transições suaves após carregamento
       document.addEventListener('DOMContentLoaded', () => {
-        document.documentElement.classList.add('theme-loaded');
-      });
-    })();
+        document.documentElement.classList.add('theme-loaded')
+      })
+    })()
   </script>
-<head>
-    <meta charset="UTF-8">
-    <title>{% block title %}Pousada{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {% block title %}
+        Pousada
+      {% endblock %}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- TAILWIND + DAISYUI -->
-    <link href="{% static 'css/output.css' %}" rel="stylesheet">
+    <link href="{% static 'css/output.css' %}" rel="stylesheet" />
     <!-- jQuery UI CSS (necessário para autocomplete ficar corretamente posicionado/estilizado) -->
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css" crossorigin="anonymous" />
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
-    {% block extra_head %}{% endblock %}
-</head>
+    {% block extra_head %}
+    {% endblock %}
+  </head>
 
-<body class="bg-body-100">
+  <body class="bg-body-100">
     <div class="flex h-screen overflow-hidden">
-        <!-- Menu Lateral -->
-        <aside id="sidebar" class="w-64 bg-base-300 text-base-content flex flex-col h-full fixed lg:static z-50 -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
-            <div class="p-4 border-b border-base-300  items-center gap-3 h-16">
-               <div class="flex items-center">
-                    <h1 class="text-xl font-bold leading-none">
-                        Chalés Água de Coco
-                    </h1>
-                    <br>
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
-                        viewBox="0 0 512 512" 
-                        fill="currentColor"
-                        class="w-6 h-6">
-                        <g> 
-                            <path d="M255.73,217.366l29.491,95.203l24.925-7.72l-19.684,24.638l35.545,114.717 c30.691-35.24,42.986-85.1,28.138-133.014C339.299,263.25,300.981,229.092,255.73,217.366z"></path> 
-                            <path d="M416.29,181.136c-49.968-23.049-106.854-17.84-157.415,9.114l150.161,69.272l16.165-35.359l3.399,44.388 l83.4,38.479C499.403,250.924,466.258,204.185,416.29,181.136z"></path> 
-                            <path d="M318.973,101.414l41.988,22.448l35.832-18.804L378.48,70.172l41.97,22.457l74.421-39.07 C449.434,21.48,388.067,15.41,335.444,43.032c-52.624,27.631-82.487,81.608-81.879,137.224l83.721-43.966L318.973,101.414z"></path> s
-                            <path d="M145.138,54.379l-24.368,25.72l111.268,105.45c13.24-48.853-1.217-104.571-42.106-143.312 C149.045,3.488,92.616-7.951,44.558,7.894l57.815,54.788L145.138,54.379z"></path> 
-                            <path d="M92.143,150.343C44.406,163.956,10.383,202.256,0,247.44l53.892-15.371l8.608-26.05l6.206,21.839 l48.227-13.748l10.028-30.395l7.254,25.475l87.424-24.909C188.986,151.366,139.896,136.747,92.143,150.343z"></path> 
-                            <path d="M255.814,199.551l-18.533-9.266c-94.544,116.797-81.574,320.722-81.574,320.722h77.87 C205.76,362.699,242.844,227.359,255.814,199.551z"></path> 
-                        </g> 
-                    </svg>
-                </div>
-               
-                <!-- Botão para fechar o menu no mobile -->
-                <button id="close-sidebar" class="lg:hidden ml-auto cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
+      <!-- Menu Lateral -->
+      <aside id="sidebar" class="w-64 bg-base-300 text-base-content flex flex-col h-full fixed lg:static z-50 -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out">
+        <div class="p-4 border-b border-base-300 items-center gap-3 h-16">
+          <div class="flex items-center">
+            <h1 class="text-xl font-bold leading-none">Chalés Água de Coco</h1>
+            <br />
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" fill="currentColor" class="w-6 h-6">
+              <g>
+                <path d="M255.73,217.366l29.491,95.203l24.925-7.72l-19.684,24.638l35.545,114.717 c30.691-35.24,42.986-85.1,28.138-133.014C339.299,263.25,300.981,229.092,255.73,217.366z"></path>
+                <path d="M416.29,181.136c-49.968-23.049-106.854-17.84-157.415,9.114l150.161,69.272l16.165-35.359l3.399,44.388 l83.4,38.479C499.403,250.924,466.258,204.185,416.29,181.136z"></path>
+                <path d="M318.973,101.414l41.988,22.448l35.832-18.804L378.48,70.172l41.97,22.457l74.421-39.07 C449.434,21.48,388.067,15.41,335.444,43.032c-52.624,27.631-82.487,81.608-81.879,137.224l83.721-43.966L318.973,101.414z"></path>s<path d="M145.138,54.379l-24.368,25.72l111.268,105.45c13.24-48.853-1.217-104.571-42.106-143.312 C149.045,3.488,92.616-7.951,44.558,7.894l57.815,54.788L145.138,54.379z"></path>
+                <path d="M92.143,150.343C44.406,163.956,10.383,202.256,0,247.44l53.892-15.371l8.608-26.05l6.206,21.839 l48.227-13.748l10.028-30.395l7.254,25.475l87.424-24.909C188.986,151.366,139.896,136.747,92.143,150.343z"></path>
+                <path d="M255.814,199.551l-18.533-9.266c-94.544,116.797-81.574,320.722-81.574,320.722h77.87 C205.76,362.699,242.844,227.359,255.814,199.551z"></path>
+              </g>
+            </svg>
+          </div>
 
-            <nav class="flex-1 overflow-y-auto">
-                <ul class="menu p-4 w-full">
-                    <!-- Menu Principal -->
-                    <li>
-                        <a href="/" class="active">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                            </svg>
-                            Painel Inicial
-                        </a>
-                    </li>
-                    <!---------------------HÓSPEDES--------------------------------->                    
-                    <li>
-                        <details open>
-                            <summary>
-                                <a >
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
-                                    </svg>
-                                </a> Hóspedes
-                            </summary>
-                            <ul>
-                                <li>
-                                    <a href="{% url 'hospede:listar' %}">Lista de Hóspedes </a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'mensalista:listar_mensalistas' %}">Lista de Mensalistas</a>
-                                </li>
-                            </ul>
-                                
-                        </details>
-                    </li>
-                    <!---------------------QUARTOS--------------------------------->
-                    <li>
-                        <a href="{% url 'quarto:listar' %}">
-                            <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4" > 
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3 4C3 3.44772 2.55228 3 2 3C1.44772 3 1 3.44772 1 4V14V17V20C1 20.5523 1.44772 21 2 21C2.55228 21 3 20.5523 3 20V18H21V20C21 20.5523 21.4477 21 22 21C22.5523 21 23 20.5523 23 20V17V14V11C23 8.23858 20.7614 6 18 6H12C11.4477 6 11 6.44772 11 7V9.5C11 7.567 9.433 6 7.5 6C5.567 6 4 7.567 4 9.5C4 11.433 5.567 13 7.5 13H3V4ZM7.5 13C9.433 13 11 11.433 11 9.5V13H7.5ZM21 15V16H3V15H12H21ZM21 11V13H13V8H18C19.6569 8 21 9.34315 21 11ZM6 9.5C6 8.67157 6.67157 8 7.5 8C8.32843 8 9 8.67157 9 9.5C9 10.3284 8.32843 11 7.5 11C6.67157 11 6 10.3284 6 9.5Z"/>
-                            </svg>
-                            Quartos
-                        </a> 
-                    </li>
-                    <!---------------------RESERVAS--------------------------------->
-                    <li>
-                        <details>
-                            <summary>
-                                <a>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
-                                    </svg>
-                                </a> Reservas
-                            </summary>
-                            <ul>
-                                <li><a href="{% url 'reserva:list' %}"> Lista de Reservas</a></li>
-                                <li><a href="{% url 'reserva:list_checkin' %}">Check-ins de Hoje</a></li>
-                                <li><a href="{% url 'reserva:list_checkout' %}">Check-outs de Hoje</a></li>
-                                <li><a href="#">Calendário</a></li>
-                            </ul>
-                        </details>
-                    </li>
-                    <!---------------------FINANCEIRO--------------------------------->
-                    <li>
-                        <details>
-                            <summary>
-                                <a> 
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
-                                    </svg>
-                                </a>
-                                Financeiro
-                            </summary>
-                            <ul>
-                                <li><a href="{% url 'financeiro:list_titulos' %}"><i class="fas fa-file-invoice-dollar mr-2"></i> Títulos</a></li>
-                                <li><a href="{% url 'financeiro:categoria_list' %}"><i class="fas fa-tags mr-2"></i> Adicionar Categorias</a></li>
-                             </ul>
-                        </details>
-                    </li>
-                    <!---------------------RELATÓRIOS--------------------------------->
-                    <li>
-                        <details>
-                            <summary>
-                                <a>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
-                                    </svg>
-                                </a>Relatórios
-                            </summary>
-                            <ul>
-                                <li>
-                                    <a href="{% url 'relatorios:ocupacao' %}"><i class="fas fa-chart-line mr-2"></i>Relatório de Ocupação</a>
-                                </li>
-                                <li>
-                                    <a href="{% url 'relatorios:relatorio_faturamento' %}"><i class="fas fa-chart-line mr-2"></i> Relatório Faturamento</a>
-                                </li>
-                            </ul>
-                        </details>
-                    </li>
-                    <li><a href="#"><i class="fas fa-cog mr-2"></i> Configurações</a></li>
-                </ul>
-            </nav>
-
-            <div class="p-4 border-t border-base-300">
-                <div class="flex items-center">
-                    <div class="avatar">
-                        <div class="w-10 rounded-full">
-                            <img src="https://placehold.co/100" alt="Usuário" />
-                        </div>
-                    </div>
-                    <div class="ml-3">
-                        <p class="font-semibold">Admin</p>
-                        <p class="text-xs">admin@pousada.com</p>
-                    </div>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Overlay para o menu móvel -->
-        <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden"></div>
-
-        <!-- Conteúdo Principal -->
-        <div class="flex-1 flex flex-col overflow-hidden">
-            <!-- Cabeçalho Superior -->
-            <header class="bg-base-300 shadow-sm h-16 flex items-center px-4">
-                <!-- Parte esquerda - Botão do menu e busca -->
-                <div class="flex items-center flex-1">
-                    <!-- Botão para alternar menu em mobile -->
-                    <button id="open-sidebar" class="lg:hidden cursor-pointer mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-base-content" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-
-                    <!-- Barra de pesquisa -->
-                    <div class="w-full max-w-md">
-                        <div class="relative">
-                            <input type="text" placeholder="Pesquisar..." class="input input-bordered w-full pl-10" />
-                            <span class="absolute left-3 top-3 text-base-content/70">
-                                <i class="fas fa-search"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Parte direita - Ícones do cabeçalho -->
-                <div class="flex items-center space-x-4 ml-auto">
-                    <!-- Trocar tema -->
-                    <label class="swap swap-rotate">
-                        <!-- this hidden checkbox controls the state -->
-                        <input type="checkbox" class="theme-controller" value="dark" />
-
-                        <!-- sun icon -->
-                        <svg class="swap-off h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24">
-                            <path
-                                d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
-                        </svg>
-
-                        <!-- moon icon -->
-                        <svg class="swap-on h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24">
-                            <path
-                                d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
-                        </svg>
-                    </label>
-
-                    <!-- Notificações -->
-                    <div class="dropdown dropdown-end">
-                        <label tabindex="0" class="btn btn-ghost btn-circle">
-                            <div class="indicator">
-                                <i class="fas fa-bell"></i>
-                                <span class="badge badge-xs badge-primary indicator-item">3</span>
-                            </div>
-                        </label>
-                        <div tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-72">
-                            <div class="p-2 font-bold">Notificações</div>
-                            <div class="divider m-0"></div>
-                            <a href="#" class="p-2 hover:bg-base-200 flex items-start">
-                                <div class="bg-primary/10 p-2 rounded-full mr-2">
-                                    <i class="fas fa-calendar-check text-primary"></i>
-                                </div>
-                                <div>
-                                    <p class="font-medium">Nova reserva confirmada</p>
-                                    <p class="text-xs">Há 10 minutos</p>
-                                </div>
-                            </a>
-                            <a href="#" class="p-2 hover:bg-base-200 flex items-start">
-                                <div class="bg-warning/10 p-2 rounded-full mr-2">
-                                    <i class="fas fa-bed text-warning"></i>
-                                </div>
-                                <div>
-                                    <p class="font-medium">Quarto #203 precisa de limpeza</p>
-                                    <p class="text-xs">Há 1 hora</p>
-                                </div>
-                            </a>
-                            <div class="divider m-0"></div>
-                            <a href="#" class="p-2 text-center text-primary">Ver todas</a>
-                        </div>
-                    </div>
-
-                    <!-- Perfil do usuário -->
-                    <div class="dropdown dropdown-end">
-                        <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                            <div class="w-10 rounded-full">
-                                <img src="https://placehold.co/100" alt="Usuário" />
-                            </div>
-                        </label>
-                        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><a href="{% url 'perfil' %}">Meu Perfil</a></li>
-                            <li><a>Configurações</a></li>
-                            <li><a href="{% url 'account_logout' %}">Sair</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </header>
-
-            <!-- Conteúdo da Página -->
-            <main class="flex-1 overflow-y-auto p-6 bg-base-100/50 ">
-                {% block content %}{% endblock %}
-            </main>
+          <!-- Botão para fechar o menu no mobile -->
+          <button id="close-sidebar" class="lg:hidden ml-auto cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
+
+        <nav class="flex-1 overflow-y-auto">
+          <ul class="menu p-4 w-full">
+            <!-- Menu Principal -->
+            <li>
+              <a href="/" class="active">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                </svg>Painel Inicial
+              </a>
+            </li>
+            <!-- --- --
+            ----------------HÓSPEDES--------------------------------->
+            <li>
+              <details open>
+                <summary>
+                  <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
+                    </svg>
+                  </a> Hóspedes
+                </summary>
+                <ul>
+                  <li>
+                    <a href="{% url 'hospede:listar' %}">Lista de Hóspedes</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'mensalista:listar_mensalistas' %}">Lista de Mensalistas</a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <!-- --- --
+            ----------------QUARTOS--------------------------------->
+            <li>
+              <a href="{% url 'quarto:listar' %}">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M3 4C3 3.44772 2.55228 3 2 3C1.44772 3 1 3.44772 1 4V14V17V20C1 20.5523 1.44772 21 2 21C2.55228 21 3 20.5523 3 20V18H21V20C21 20.5523 21.4477 21 22 21C22.5523 21 23 20.5523 23 20V17V14V11C23 8.23858 20.7614 6 18 6H12C11.4477 6 11 6.44772 11 7V9.5C11 7.567 9.433 6 7.5 6C5.567 6 4 7.567 4 9.5C4 11.433 5.567 13 7.5 13H3V4ZM7.5 13C9.433 13 11 11.433 11 9.5V13H7.5ZM21 15V16H3V15H12H21ZM21 11V13H13V8H18C19.6569 8 21 9.34315 21 11ZM6 9.5C6 8.67157 6.67157 8 7.5 8C8.32843 8 9 8.67157 9 9.5C9 10.3284 8.32843 11 7.5 11C6.67157 11 6 10.3284 6 9.5Z" />
+                </svg>Quartos
+              </a>
+            </li>
+            <!-- --- --
+            ----------------RESERVAS--------------------------------->
+            <li>
+              <details>
+                <summary>
+                  <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+                    </svg>
+                  </a> Reservas
+                </summary>
+                <ul>
+                  <li>
+                    <a href="{% url 'reserva:list' %}">Lista de Reservas</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'reserva:list_checkin' %}">Check-ins de Hoje</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'reserva:list_checkout' %}">Check-outs de Hoje</a>
+                  </li>
+                  <li>
+                    <a href="#">Calendário</a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <!-- --- --
+            ----------------FINANCEIRO--------------------------------->
+            <li>
+              <details>
+                <summary>
+                  <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
+                    </svg>
+                  </a>
+                  Financeiro
+                </summary>
+                <ul>
+                  <li>
+                    <a href="{% url 'financeiro:list_titulos' %}"><i class="fas fa-file-invoice-dollar mr-2"></i> Títulos</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'financeiro:categoria_list' %}"><i class="fas fa-tags mr-2"></i> Adicionar Categorias</a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <!-- --- --
+            ----------------RELATÓRIOS--------------------------------->
+            <li>
+              <details>
+                <summary>
+                  <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
+                    </svg>
+                  </a>Relatórios
+                </summary>
+                <ul>
+                  <li>
+                    <a href="{% url 'relatorios:ocupacao' %}"><i class="fas fa-chart-line mr-2"></i>Relatório de Ocupação</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'relatorios:relatorio_faturamento' %}"><i class="fas fa-chart-line mr-2"></i> Relatório Faturamento</a>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-cog mr-2"></i> Configurações</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="p-4 border-t border-base-300">
+          <div class="flex items-center">
+            <div class="avatar">
+              <div class="w-10 rounded-full">
+                <img src="https://placehold.co/100" alt="Usuário" />
+              </div>
+            </div>
+            <div class="ml-3">
+              <p class="font-semibold">Admin</p>
+              <p class="text-xs">admin@pousada.com</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Overlay para o menu móvel -->
+      <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden"></div>
+
+      <!-- Conteúdo Principal -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Cabeçalho Superior -->
+        <header class="bg-base-300 shadow-sm h-16 flex items-center px-4">
+          <!-- Parte esquerda - Botão do menu e busca -->
+          <div class="flex items-center flex-1">
+            <!-- Botão para alternar menu em mobile -->
+            <button id="open-sidebar" class="lg:hidden cursor-pointer mr-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-base-content" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+
+            <!-- Barra de pesquisa -->
+            <div class="w-full max-w-md">
+              <div class="relative">
+                <input type="text" placeholder="Pesquisar..." class="input input-bordered w-full pl-10" />
+                <span class="absolute left-3 top-3 text-base-content/70"><i class="fas fa-search"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Parte direita - Ícones do cabeçalho -->
+          <div class="flex items-center space-x-4 ml-auto">
+            <!-- Trocar tema -->
+            <label class="swap swap-rotate">
+              <!-- this hidden checkbox controls the state -->
+              <input type="checkbox" class="theme-controller" value="dark" />
+
+              <!-- sun icon -->
+              <svg class="swap-off h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+              </svg>
+
+              <!-- moon icon -->
+              <svg class="swap-on h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+              </svg>
+            </label>
+
+            <!-- Notificações -->
+            <div class="dropdown dropdown-end">
+              <label tabindex="0" class="btn btn-ghost btn-circle">
+                <div class="indicator">
+                  <i class="fas fa-bell"></i>
+                  <!-- Mostra a bolinha com número apenas se houver notificações -->
+                  {% if qtd_nao_lidas > 0 %}
+                    <span class="badge badge-xs badge-primary indicator-item">{{ qtd_nao_lidas }}</span>
+                  {% endif %}
+                </div>
+              </label>
+
+              <div tabindex="0" class="dropdown-content menu p-0 shadow-xl bg-base-100 rounded-box w-[450] z-50 mt-4">
+                <!-- Cabeçalho do Dropdown -->
+                <div class="p-3 border-b border-base-200 flex justify-between items-center bg-base-200/50 rounded-t-box gap-4">
+                  <span class="font-bold text-base">Notificações</span>
+                  <span class="text-xs badge badge-ghost whitespace-nowrap">{{ qtd_nao_lidas }} não lidas</span>
+                </div>
+
+                <!-- Lista de Notificações com Scroll -->
+                <div class="max-h-[400px] overflow-y-auto">
+                  {% for item in notificacoes_topo %}
+                    <!-- O Link vai para a view 'marcar_como_lida', passando o ID da notificação -->
+                    <a href="{% url 'notificacao:marcar_como_lida' item.obj.id %}" class="flex gap-3 p-3 hover:bg-base-200 transition-colors border-b border-base-100 last:border-0 relative group">
+                      <!-- Ícone Colorido -->
+                      <div class="flex-shrink-0 w-10 h-10 rounded-full {{ item.bg }} flex items-center justify-center">
+                        <i class="{{ item.icone }} {{ item.cor }}"></i>
+                      </div>
+
+                      <!-- Texto da Notificação -->
+                      <div class="flex-1 min-w-0">
+                        <!-- Título (se já lida, fica com opacidade reduzida) -->
+                        <p class="text-sm font-semibold text-base-content truncate {% if item.obj.lida %}opacity-60 font-normal{% endif %}">{{ item.obj.titulo }}</p>
+                        <!-- Mensagem -->
+                        <p class="text-xs text-base-content/70 line-clamp-2 mt-0.5">{{ item.obj.mensagem }}</p>
+                        <!-- Tempo (ex: "10 min atrás") -->
+                        <p class="text-[10px] text-base-content/50 mt-1">{{ item.obj.criado_em|timesince }} atrás</p>
+                      </div>
+
+                      <!-- Bolinha azul indicando 'Não Lida' -->
+                      {% if not item.obj.lida %}
+                        <div class="absolute right-3 top-1/2 -translate-y-1/2 w-2 h-2 bg-primary rounded-full"></div>
+                      {% endif %}
+                    </a>
+                  {% empty %}
+                    <!-- Estado Vazio -->
+                    <div class="p-8 text-center text-base-content/50">
+                      <i class="far fa-bell-slash text-3xl mb-2 opacity-50"></i>
+                      <p class="text-sm">Nenhuma notificação no momento.</p>
+                    </div>
+                  {% endfor %}
+                </div>
+
+                <!-- Rodapé do Dropdown -->
+                <div class="p-2 border-t border-base-200 bg-base-200/30 rounded-b-box text-center">
+                  <a href="#" class="text-xs link link-hover text-primary">Ver todo o histórico</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Perfil do usuário -->
+            <div class="dropdown dropdown-end">
+              <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                <div class="w-10 rounded-full">
+                  <img src="https://placehold.co/100" alt="Usuário" />
+                </div>
+              </label>
+              <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+                <li>
+                  <a href="{% url 'perfil' %}">Meu Perfil</a>
+                </li>
+                <li>
+                  <a>Configurações</a>
+                </li>
+                <li>
+                  <a href="{% url 'account_logout' %}">Sair</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </header>
+
+        <!-- Conteúdo da Página -->
+        <main class="flex-1 overflow-y-auto p-6 bg-base-100/50">
+          {% block content %}
+          {% endblock %}
+        </main>
+      </div>
     </div>
     {% block extra_js %}
+
     {% endblock %}
     <!-- Font Awesome (ícones) - usando CDN da versão gratuita -->
     <!-- Se você tiver um Kit da FontAwesome, substitua pela tag <script src="https://kit.fontawesome.com/<seu-codigo>.js" crossorigin="anonymous"></script> -->
@@ -297,90 +337,93 @@
 
     <!-- Script para controlar o menu móvel -->
     <script>
-        /* Garantir que o menu do jQuery UI autocomplete apareça sobre outros elementos */
-        (function(){
-            const css = `.ui-autocomplete { z-index: 999999 !important; max-height: 260px; overflow-y: auto; background: white; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }`;
-            const s = document.createElement('style'); s.appendChild(document.createTextNode(css)); document.head.appendChild(s);
-        })();
-        document.addEventListener('DOMContentLoaded', function() {
-            const sidebar = document.getElementById('sidebar');
-            const sidebarOverlay = document.getElementById('sidebar-overlay');
-            const openSidebarBtn = document.getElementById('open-sidebar');
-            const closeSidebarBtn = document.getElementById('close-sidebar');
-
-            // Função para abrir o menu
-            function openSidebar() {
-                sidebar.classList.remove('-translate-x-full');
-                sidebarOverlay.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Impede rolagem do corpo quando menu está aberto
+      /* Garantir que o menu do jQuery UI autocomplete apareça sobre outros elementos */
+      ;(function () {
+        const css = `.ui-autocomplete { z-index: 999999 !important; max-height: 260px; overflow-y: auto; background: white; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }`
+        const s = document.createElement('style')
+        s.appendChild(document.createTextNode(css))
+        document.head.appendChild(s)
+      })()
+      document.addEventListener('DOMContentLoaded', function () {
+        const sidebar = document.getElementById('sidebar')
+        const sidebarOverlay = document.getElementById('sidebar-overlay')
+        const openSidebarBtn = document.getElementById('open-sidebar')
+        const closeSidebarBtn = document.getElementById('close-sidebar')
+      
+        // Função para abrir o menu
+        function openSidebar() {
+          sidebar.classList.remove('-translate-x-full')
+          sidebarOverlay.classList.remove('hidden')
+          document.body.style.overflow = 'hidden' // Impede rolagem do corpo quando menu está aberto
+        }
+      
+        // Função para fechar o menu
+        function closeSidebar() {
+          sidebar.classList.add('-translate-x-full')
+          sidebarOverlay.classList.add('hidden')
+          document.body.style.overflow = '' // Restaura rolagem do corpo
+        }
+      
+        // Event listeners
+        openSidebarBtn.addEventListener('click', openSidebar)
+        closeSidebarBtn.addEventListener('click', closeSidebar)
+        sidebarOverlay.addEventListener('click', closeSidebar)
+      
+        // Fechar menu ao clicar em um link (apenas mobile)
+        const links = document.querySelectorAll('aside a')
+        links.forEach((link) => {
+          link.addEventListener('click', function () {
+            if (window.innerWidth < 1024) {
+              // Somente em mobile
+              closeSidebar()
             }
-
-            // Função para fechar o menu
-            function closeSidebar() {
-                sidebar.classList.add('-translate-x-full');
-                sidebarOverlay.classList.add('hidden');
-                document.body.style.overflow = ''; // Restaura rolagem do corpo
-            }
-
-            // Event listeners
-            openSidebarBtn.addEventListener('click', openSidebar);
-            closeSidebarBtn.addEventListener('click', closeSidebar);
-            sidebarOverlay.addEventListener('click', closeSidebar);
-
-            // Fechar menu ao clicar em um link (apenas mobile)
-            const links = document.querySelectorAll('aside a');
-            links.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth < 1024) { // Somente em mobile
-                        closeSidebar();
-                    }
-                });
-            });
-
-            // Fechar menu quando a tela for redimensionada para desktop
-            function handleResize() {
-                if (window.innerWidth >= 1024) {
-                    sidebar.classList.remove('-translate-x-full');
-                    sidebarOverlay.classList.add('hidden');
-                    document.body.style.overflow = '';
-                }
-            }
-
-            window.addEventListener('resize', handleResize);
-        });
+          })
+        })
+      
+        // Fechar menu quando a tela for redimensionada para desktop
+        function handleResize() {
+          if (window.innerWidth >= 1024) {
+            sidebar.classList.remove('-translate-x-full')
+            sidebarOverlay.classList.add('hidden')
+            document.body.style.overflow = ''
+          }
+        }
+      
+        window.addEventListener('resize', handleResize)
+      })
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Verifica o tema salvo no localStorage
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-
-            // Configura o checkbox do tema
-            const themeController = document.querySelector('.theme-controller');
-            if (savedTheme === 'dark') {
-                themeController.checked = true;
-            }
-
-            // Adiciona o event listener para troca de tema
-            themeController.addEventListener('change', function() {
-                const theme = this.checked ? 'dark' : 'light';
-                document.documentElement.setAttribute('data-theme', theme);
-                localStorage.setItem('theme', theme);
-            });
-        });
+      document.addEventListener('DOMContentLoaded', function () {
+        // Verifica o tema salvo no localStorage
+        const savedTheme = localStorage.getItem('theme') || 'light'
+        document.documentElement.setAttribute('data-theme', savedTheme)
+      
+        // Configura o checkbox do tema
+        const themeController = document.querySelector('.theme-controller')
+        if (savedTheme === 'dark') {
+          themeController.checked = true
+        }
+      
+        // Adiciona o event listener para troca de tema
+        themeController.addEventListener('change', function () {
+          const theme = this.checked ? 'dark' : 'light'
+          document.documentElement.setAttribute('data-theme', theme)
+          localStorage.setItem('theme', theme)
+        })
+      })
     </script>
 
     <style>
-        /* Transição suave para mudanças de tema */
-        :root {
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        /* Evita transição no primeiro carregamento */
-        :root:not(.theme-loaded) {
-            transition: none !important;
-        }
+      /* Transição suave para mudanças de tema */
+      :root {
+        transition: background-color 0.3s, color 0.3s;
+      }
+      
+      /* Evita transição no primeiro carregamento */
+      :root:not(.theme-loaded) {
+        transition: none !important;
+      }
     </style>
-    </body>
+  </body>
 </html>
