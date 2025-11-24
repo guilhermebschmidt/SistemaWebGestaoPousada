@@ -195,7 +195,7 @@ def marcar_checkout(request, pk):
     reserva = get_object_or_404(Reserva, pk=pk)
     agora = timezone.localtime(timezone.now())
 
-    HORA_LIMITE = 12
+    HORA_LIMITE = 14
 
     if request.method == 'GET':
         if agora.hour >= HORA_LIMITE:
