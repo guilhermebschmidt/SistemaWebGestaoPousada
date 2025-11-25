@@ -1,0 +1,88 @@
+{% extends "shared/base.html" %}
+{% load static %}
+
+{% block title %}
+    {% if form.instance.pk %}Editar Mensalista{% else %}Novo Mensalista{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="flex justify-center items-start min-h-full p-4">
+    <div class="card bg-base-100 shadow-lg w-full max-w-3xl">
+        <div class="card-body">
+            <h2 class="card-title text-2xl font-bold mb-6 flex items-center gap-2">
+                {% if form.instance.pk %}
+                    <i class="fas fa-user-edit text-primary"></i> Editar Contrato Mensalista
+                {% else %}
+                    <i class="fas fa-user-plus text-primary"></i> Novo Contrato Mensalista
+                {% endif %}
+            </h2>
+
+            <form method="post" class="space-y-6">
+                {% csrf_token %}
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="form-control w-full">
+                        <label class="label font-semibold">{{ form.hospede.label }}</label>
+                        {{ form.hospede }}
+                        {% if form.hospede.help_text %}
+                            <label class="label-text-alt text-gray-500 mt-1">{{ form.hospede.help_text }}</label>
+                        {% endif %}
+                        {{ form.hospede.errors }}
+                    </div>
+
+                    <div class="form-control w-full">
+                        <label class="label font-semibold">{{ form.quarto.label }}</label>
+                        {{ form.quarto }}
+                        {{ form.quarto.errors }}
+                    </div>
+                </div>
+
+                <div class="divider">Financeiro</div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="form-control w-full">
+                        <label class="label font-semibold">{{ form.valor_mensal.label }}</label>
+                        <label class="input-group flex items-center">
+                            <span class="bg-base-200 p-3 rounded-l-lg border border-r-0 border-base-300">R$</span>
+                            {{ form.valor_mensal }}
+                        </label>
+                        {{ form.valor_mensal.errors }}
+                    </div>
+
+                    <div class="form-control w-full">
+                        <label class="label font-semibold">{{ form.dia_vencimento.label }}</label>
+                        {{ form.dia_vencimento }}
+                        <label class="label-text-alt mt-1">Dia do mês (1-31)</label>
+                        {{ form.dia_vencimento.errors }}
+                    </div>
+
+                    <div class="form-control w-full">
+                        <label class="label font-semibold">{{ form.data_inicio.label }}</label>
+                        {{ form.data_inicio }}
+                        {{ form.data_inicio.errors }}
+                    </div>
+                </div>
+
+                <div class="form-control mt-4">
+                    <label class="label cursor-pointer justify-start gap-4">
+                        <span class="label-text font-semibold">Contrato Ativo?</span> 
+                        {{ form.ativo }}
+                    </label>
+                </div>
+
+                <div class="form-control w-full">
+                    <label class="label font-semibold">{{ form.observacoes.label }}</label>
+                    {{ form.observacoes }}
+                </div>
+
+                <div class="card-actions justify-end mt-8">
+                    <a href="{% url 'mensalista:listar_mensalistas' %}" class="btn btn-ghost">Cancelar</a>
+                    <button type="submit" class="btn btn-primary px-8">
+                        <i class="fas fa-save mr-2"></i> Salvar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
