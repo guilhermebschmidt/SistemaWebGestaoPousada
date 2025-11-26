@@ -18,7 +18,7 @@ class HospedeForm(forms.ModelForm):
     )
     passaporte = forms.CharField(
         label='Passaporte',
-        max_length=15,
+        max_length=20,
         required=False, 
         widget=forms.TextInput(attrs={
             'class': 'input input-bordered w-full',
@@ -115,12 +115,11 @@ class HospedeForm(forms.ModelForm):
             'cep': {'required': 'Este campo é obrigatório.'},
         }
 
-   
+    
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if not email:
             return email
-        # basic sanity check; EmailField will also validate and raise its own message
         if '@' not in email or '.' not in email:
             raise forms.ValidationError("Insira um email válido.")
         return email
@@ -152,7 +151,6 @@ class HospedeForm(forms.ModelForm):
         if not cpf_digitado:
             return None
 
-        # Se contiver letras (ex.: '123ABC456'), considerar inválido.
         if re.search(r'[A-Za-z]', cpf_digitado):
             raise forms.ValidationError("O CPF deve conter apenas números.")
 
@@ -160,6 +158,13 @@ class HospedeForm(forms.ModelForm):
 
         if len(cpf_limpo) != 11:
             raise forms.ValidationError("O CPF deve conter exatamente 11 dígitos.")
+        
+        query = Hospede.objects.filter(cpf=cpf_limpo)
+        if self.instance and self.instance.pk:
+            query = query.exclude(pk=self.instance.pk)
+        
+        if query.exists():
+            raise forms.ValidationError("Este CPF já está cadastrado para outro hóspede.")
 
         return cpf_limpo
 
@@ -167,10 +172,17 @@ class HospedeForm(forms.ModelForm):
         passaporte_digitado = self.cleaned_data.get('passaporte', '')
 
         if not passaporte_digitado:
-            return None 
+            return None
         
         passaporte_limpo = passaporte_digitado.strip().upper()
         
+        query = Hospede.objects.filter(passaporte=passaporte_limpo)
+        if self.instance and self.instance.pk:
+            query = query.exclude(pk=self.instance.pk)
+        
+        if query.exists():
+            raise forms.ValidationError("Este Passaporte já está cadastrado para outro hóspede.")
+
         return passaporte_limpo 
 
     def clean_telefone(self):
@@ -178,7 +190,6 @@ class HospedeForm(forms.ModelForm):
         if not telefone:
             return telefone
 
-        # rejeita entradas que contenham letras
         if re.search(r'[A-Za-z]', telefone):
             raise forms.ValidationError("O telefone deve conter apenas números.")
 
@@ -186,11 +197,11 @@ class HospedeForm(forms.ModelForm):
         return telefone_limpo
 
 
-    def clean (self):
-        cleaned_data=super().clean()
+    def clean(self):
+        cleaned_data = super().clean()
 
-        cpf=cleaned_data.get('cpf')
-        passaporte=cleaned_data.get('passaporte')
+        cpf = cleaned_data.get('cpf')
+        passaporte = cleaned_data.get('passaporte')
 
         if not cpf and not passaporte:
             raise forms.ValidationError(
@@ -202,24 +213,7 @@ class HospedeForm(forms.ModelForm):
                 'Forneça apenas o CPF ou o Passaporte, não ambos.'
             )
         
-        if cpf:
-            query = Hospede.objects.filter(cpf=cpf) 
-            if self.instance and self.instance.pk: 
-                query = query.exclude(pk=self.instance.pk) 
-            if query.exists(): 
-                raise forms.ValidationError("Este CPF já está cadastrado para outro hóspede.")
-        
-        if passaporte:
-            query = Hospede.objects.filter(passaporte=passaporte)
-            if self.instance and self.instance.pk:
-                query = query.exclude(pk=self.instance.pk)
-            if query.exists():
-                raise forms.ValidationError("Este Passaporte já está cadastrado para outro hóspede.")
-        
         return cleaned_data
     
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-    
-
-  
