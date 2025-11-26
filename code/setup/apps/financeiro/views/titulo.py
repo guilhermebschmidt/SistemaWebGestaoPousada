@@ -126,3 +126,20 @@ def marcar_pago(request, pk):
         messages.error(request, f"Não foi possível pagar: {msg_erro}")
 
     return redirect('financeiro:list_titulos')
+
+def cancelar_titulo(request, pk):
+    titulo = get_object_or_404(Titulo, pk=pk)
+    
+    if titulo.pago:
+        messages.error(request, f"O título '{titulo.descricao}' já foi pago e não pode ser cancelado.")
+        return redirect('financeiro:list_titulos')
+
+    if titulo.cancelado:
+        messages.warning(request, "Este título já está cancelado.")
+        return redirect('financeiro:list_titulos')
+
+    titulo.cancelado = True
+    titulo.save()
+    messages.success(request, "Título cancelado com sucesso.")
+    
+    return redirect('financeiro:list_titulos')
