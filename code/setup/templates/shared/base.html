@@ -8,10 +8,10 @@
       // Verifica preferências
       const savedTheme = localStorage.getItem('theme')
       const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    
+
       // Aplica o tema antes da renderização
       document.documentElement.setAttribute('data-theme', savedTheme || (systemDark ? 'dark' : 'light'))
-    
+
       // Adiciona classe para transições suaves após carregamento
       document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.classList.add('theme-loaded')
@@ -26,7 +26,7 @@
       {% endblock %}
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <link rel="icon" type="image/svg+xml" href="{% static 'favicon.svg' %}">
     <!-- TAILWIND + DAISYUI -->
     <link href="{% static 'css/output.css' %}" rel="stylesheet" />
     <!-- jQuery UI CSS (necessário para autocomplete ficar corretamente posicionado/estilizado) -->
@@ -301,7 +301,7 @@
                 </div>
               </div>
             </div>
-            
+
             <div class="dropdown dropdown-end">
               <label tabindex="0" class="btn btn-ghost btn-circle flex">
                   <div class="w-10 h-10 rounded-full bg-base-300 flex items-center justify-center text-base-content">
@@ -310,7 +310,7 @@
                     </svg>
                   </div>
               </label>
-              
+
               <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
                 <li>
                   <a href="{% url 'perfil' %}">Meu Perfil</a>
@@ -353,26 +353,26 @@
         const sidebarOverlay = document.getElementById('sidebar-overlay')
         const openSidebarBtn = document.getElementById('open-sidebar')
         const closeSidebarBtn = document.getElementById('close-sidebar')
-      
+
         // Função para abrir o menu
         function openSidebar() {
           sidebar.classList.remove('-translate-x-full')
           sidebarOverlay.classList.remove('hidden')
           document.body.style.overflow = 'hidden' // Impede rolagem do corpo quando menu está aberto
         }
-      
+
         // Função para fechar o menu
         function closeSidebar() {
           sidebar.classList.add('-translate-x-full')
           sidebarOverlay.classList.add('hidden')
           document.body.style.overflow = '' // Restaura rolagem do corpo
         }
-      
+
         // Event listeners
         openSidebarBtn.addEventListener('click', openSidebar)
         closeSidebarBtn.addEventListener('click', closeSidebar)
         sidebarOverlay.addEventListener('click', closeSidebar)
-      
+
         // Fechar menu ao clicar em um link (apenas mobile)
         const links = document.querySelectorAll('aside a')
         links.forEach((link) => {
@@ -383,7 +383,7 @@
             }
           })
         })
-      
+
         // Fechar menu quando a tela for redimensionada para desktop
         function handleResize() {
           if (window.innerWidth >= 1024) {
@@ -392,7 +392,7 @@
             document.body.style.overflow = ''
           }
         }
-      
+
         window.addEventListener('resize', handleResize)
       })
     </script>
@@ -402,13 +402,13 @@
         // Verifica o tema salvo no localStorage
         const savedTheme = localStorage.getItem('theme') || 'light'
         document.documentElement.setAttribute('data-theme', savedTheme)
-      
+
         // Configura o checkbox do tema
         const themeController = document.querySelector('.theme-controller')
         if (savedTheme === 'dark') {
           themeController.checked = true
         }
-      
+
         // Adiciona o event listener para troca de tema
         themeController.addEventListener('change', function () {
           const theme = this.checked ? 'dark' : 'light'
@@ -423,7 +423,7 @@
       :root {
         transition: background-color 0.3s, color 0.3s;
       }
-      
+
       /* Evita transição no primeiro carregamento */
       :root:not(.theme-loaded) {
         transition: none !important;
