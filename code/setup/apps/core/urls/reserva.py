@@ -15,4 +15,6 @@ urlpatterns = [
     path('<int:pk>/checkout/', reserva.marcar_checkout, name='checkout'),
     path('buscar-hospedes/', reserva.buscar_hospedes, name='buscar_hospedes'),
     path('<int:reserva_id>/enviar-confirmacao/', reserva.enviar_confirmacao_email_view, name='enviar_confirmacao_email'),
+    path('api/calendario/', reserva.reservas_json, name='api_calendario'),
+    path('calendario/', reserva.calendario_reservas, name='calendario'),
 ]

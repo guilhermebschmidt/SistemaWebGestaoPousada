@@ -1,0 +1,141 @@
+{% extends "shared/base.html" %}
+{% load static %}
+
+{% block title %}Calendário de Reservas{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="flex justify-between items-center">
+        <h2 class="text-2xl font-bold">Calendário de Ocupação</h2>
+        <a href="{% url 'reserva:criar' %}" class="btn btn-active btn-primary ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+                Adicionar Reserva
+         </a>
+    </div>
+
+    <div class="card bg-base-100 shadow-xl">
+        <div class="card-body p-4">
+            <div id="calendar" class="min-h-[600px]"></div>
+        </div>
+    </div>
+</div>
+
+<dialog id="modal_detalhes_reserva" class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg" id="modal_titulo">Detalhes</h3>
+    <div class="py-4 space-y-2">
+        <p><strong>Hóspede:</strong> <span id="modal_hospede"></span></p>
+        <p><strong>Quarto:</strong> <span id="modal_quarto"></span></p>
+        <p><strong>Período:</strong> <span id="modal_periodo"></span></p>
+        <p><strong>Status:</strong> <span id="modal_status" class="badge"></span></p>
+    </div>
+    <div class="modal-action">
+      <a id="btn_editar" href="#" class="btn btn-warning btn-sm">Editar</a>
+      <form method="dialog">
+        <button class="btn btn-sm">Fechar</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.11/locales/pt-br.global.min.js'></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth', // Visão mensal
+            locale: 'pt-br', // Idioma
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,dayGridWeek'
+            },
+            buttonText: {
+                today: 'Hoje',
+                month: 'Mês',
+                week: 'Semana'
+            },
+            events: "{% url 'reserva:api_calendario' %}", // URL da nossa API Django
+            
+            // O que acontece ao clicar num evento (reserva)
+            eventClick: function(info) {
+                // Preenche o Modal com dados
+                const props = info.event.extendedProps;
+                document.getElementById('modal_titulo').innerText = 'Reserva #' + info.event.id;
+                document.getElementById('modal_hospede').innerText = props.hospede;
+                document.getElementById('modal_quarto').innerText = props.quarto;
+                
+                // Formata datas
+                const inicio = info.event.start.toLocaleDateString('pt-BR');
+                // FullCalendar end é exclusivo, subtrai 1 dia visualmente ou mostra direto dependendo da lógica
+                const fim = info.event.end ? new Date(info.event.end.getTime() - 86400000).toLocaleDateString('pt-BR') : inicio;
+                document.getElementById('modal_periodo').innerText = `${inicio} até ${fim}`;
+                
+                document.getElementById('modal_status').innerText = props.status;
+                
+                // Link de editar (ajuste a URL conforme seu padrão)
+                const editUrl = "{% url 'reserva:editar' 0 %}".replace('0', info.event.id);
+                document.getElementById('btn_editar').href = editUrl;
+
+                // Abre o modal
+                document.getElementById('modal_detalhes_reserva').showModal();
+            },
+            
+            // Estilização simples
+            eventDidMount: function(info) {
+                // Adiciona tooltip nativo
+                info.el.title = `Quarto: ${info.event.extendedProps.quarto}\nHóspede: ${info.event.extendedProps.hospede}`;
+            }
+        });
+        
+        calendar.render();
+    });
+</script>
+
+<style>
+    /* Customização para integrar FullCalendar com DaisyUI/Tailwind */
+    
+    /* Botões do cabeçalho */
+    .fc-button {
+        @apply btn btn-sm btn-neutral capitalize font-normal !important;
+        border: none !important;
+    }
+    .fc-button-primary:not(:disabled).fc-button-active, 
+    .fc-button-primary:not(:disabled):active {
+        @apply btn-primary text-white !important;
+    }
+
+    /* Título do Mês */
+    .fc-toolbar-title {
+        @apply text-xl font-bold text-base-content !important;
+    }
+
+    /* Dias da semana */
+    .fc-col-header-cell-cushion {
+        @apply text-base-content/70 no-underline !important;
+    }
+
+    /* Números dos dias */
+    .fc-daygrid-day-number {
+        @apply text-base-content/70 no-underline !important;
+    }
+    
+    /* Hoje */
+    .fc-day-today {
+        @apply bg-primary/5 !important;
+    }
+
+    /* Eventos (Barrinhas) */
+    .fc-event {
+        @apply cursor-pointer shadow-sm border-0 !important;
+    }
+</style>
+{% endblock %}

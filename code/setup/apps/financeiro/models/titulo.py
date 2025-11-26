@@ -32,7 +32,8 @@ class Titulo(models.Model):
         on_delete=models.CASCADE,
         null=True,
         blank=True,
-        verbose_name="Reserva"
+        verbose_name="Reserva",
+        related_name='titulos'
     )
     hospede = models.ForeignKey(Hospede, on_delete=models.CASCADE, null=True, blank=True, verbose_name="Hóspede")
     

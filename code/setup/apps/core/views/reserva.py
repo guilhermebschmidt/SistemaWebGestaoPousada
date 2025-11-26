@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import JsonResponse
 
 from apps.financeiro.models.titulo import Titulo
 from ..models.reserva import Reserva
@@ -7,6 +8,7 @@ from ..models.quarto import Quarto
 from ..forms.reserva  import ReservaForm
 from ..utils.emails import enviar_email_confirmacao
 import datetime
+from datetime import timedelta
 from django.utils import timezone
 from django.http import JsonResponse
 from django.contrib import messages
@@ -38,6 +40,26 @@ def list(request):
         'filtro_quarto': filtro_quarto,
         'quartos': quartos,
     }
+
+    hoje = timezone.now().date()
+
+    reservas_para_cancelar = Reserva.objects.filter(
+        status__in=['PREVISTA', 'CONFIRMADA'],
+        titulos__data_vencimento__lt=hoje,
+        titulos__pago=False,              
+        titulos__tipo=True                
+    ).distinct()
+
+    count_canceladas = 0
+    for reserva in reservas_para_cancelar:
+        reserva.status = 'CANCELADA'
+        reserva.motivo_cancelamento = 'Cancelamento automático por falta de pagamento.'
+        reserva.save()
+        reserva.titulos.update(cancelado=True)
+        count_canceladas += 1
+       
+    if count_canceladas > 0:
+        messages.warning(request, f"{count_canceladas} reservas foram canceladas automaticamente por falta de pagamento.")
 
     return render(request, 'core/reserva/list.html', context)
 
@@ -322,4 +344,44 @@ def enviar_confirmacao_email_view(request, reserva_id):
                 pass
             return resp
     return redirect('reserva:list')
+
+def reservas_json(request):
+    """
+    Retorna as reservas em formato JSON compatível com FullCalendar.
+    """
+    reservas = Reserva.objects.all()
+   
+    eventos = []
+    for reserva in reservas:
+        cor = '#3b82f6'
+       
+        if reserva.status == 'ATIVA':
+            cor = '#22c55e'
+        elif reserva.status == 'CONFIRMADA':
+            cor = '#3b82f6'
+        elif reserva.status == 'CANCELADA':
+            cor = '#ef4444'
+        elif reserva.status == 'PREVISTA':
+            cor = '#eab308'
+        end_date = reserva.data_reserva_fim + timedelta(days=1)
+
+        eventos.append({
+            'id': reserva.id,
+            'title': f"{reserva.id_quarto.numero} - {reserva.id_hospede.nome.split()[0]}",
+            'start': reserva.data_reserva_inicio.isoformat(),
+            'end': end_date.isoformat(),
+            'backgroundColor': cor,
+            'borderColor': cor,
+            'classNames': ['riscado'] if reserva.status == 'CANCELADA' else [],
+            'extendedProps': {
+                'status': reserva.get_status_display(),
+                'hospede': reserva.id_hospede.nome,
+                'quarto': str(reserva.id_quarto)
+            }
+        })
+   
+    return JsonResponse(eventos, safe=False)
+
+def calendario_reservas(request):
+    return render(request, 'core/reserva/calendario.html')
 

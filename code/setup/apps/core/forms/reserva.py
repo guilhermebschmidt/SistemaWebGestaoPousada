@@ -15,6 +15,27 @@ class ReservaForm(forms.ModelForm):
         }),
         help_text='Selecione o hóspede para a reserva.'
     )
+    quantidade_adultos = forms.IntegerField(
+        label='Quantidade de Adultos',  
+        required=False, 
+        initial=1,
+        widget=forms.NumberInput(attrs={
+            'class': 'input input-bordered w-full',
+            'min': '1'
+        }),
+        help_text='Número de adultos na reserva.' 
+    )
+
+    quantidade_criancas = forms.IntegerField(
+        label='Quantidade de Crianças', 
+        required=False, 
+        initial=0,
+        widget=forms.NumberInput(attrs={
+            'class': 'input input-bordered w-full', 
+            'min': '0'
+        }),
+        help_text='Número de crianças na reserva.' 
+    )
     class Meta:
         model = Reserva
         fields = ['id_hospede', 'id_quarto', 'data_reserva_inicio', 'data_reserva_fim', 'quantidade_adultos', 'quantidade_criancas']
@@ -34,32 +55,19 @@ class ReservaForm(forms.ModelForm):
                     'type': 'date'
                 }
             ),
-            'quantidade_adultos': forms.NumberInput(attrs={
-                'class': 'input input-bordered w-full',
-                'min': '1'
-                }
-            ),
-            'quantidade_criancas': forms.NumberInput(attrs={
-                'class': 'input input-bordered w-full',
-                'min': '0'
-                }
-            ),
         }
+
         labels = {
             'id_hospede': 'Hóspede',
             'id_quarto': 'Quarto',
             'data_reserva_inicio': 'Data início da Reserva',
-            'data_reserva_fim': 'Data fim da Reserva',
-            'quantidade_adultos':'Quantidade de Adultos',
-            'quantidade_criancas':'Quantidade de Crianças'
+            'data_reserva_fim': 'Data fim da Reserva'
         }
         help_texts = {
             'id_hospede': 'Selecione o hóspede para a reserva.',
             'id_quarto': 'Selecione o quarto reservado.',
             'data_reserva_inicio': 'Informe a data de início da reserva.',
-            'data_reserva_fim': 'Informe a data de fim da reserva.',
-            'quantidade_adultos':'Quantidade de Adultos',
-            'quantidade_criancas':'Quantidade de Crianças'
+            'data_reserva_fim': 'Informe a data de fim da reserva.'
         }
         error_messages = {
             'id_hospede': {
@@ -75,13 +83,7 @@ class ReservaForm(forms.ModelForm):
             'data_reserva_fim': {
                 'required': 'Este campo é obrigatório.',
                 'invalid': 'Informe uma data válida.',
-            },
-            'quantidade_adultos': {
-                'required': 'Este campo é obrigatório.'
-            },
-            'quantidade_criancas': {
-                'required': 'Este campo é obrigatório.'
-            },
+            }
         }
 
     def clean_data_reserva_inicio(self):
@@ -89,7 +91,7 @@ class ReservaForm(forms.ModelForm):
         '''
         Aplicação da regra de negócio - reserva com 2 dias de antecedência
         '''
-        '''COMENTANDO PARA TESTES hoje = date.today()
+        hoje = date.today()
         data_minima_reserva = hoje + timedelta(days=2)
 
         if not data_inicio:
@@ -98,7 +100,7 @@ class ReservaForm(forms.ModelForm):
         if data_inicio < data_minima_reserva:
             raise forms.ValidationError(
                 f"A data de início da reserva deve ser a partir de {data_minima_reserva.strftime('%d/%m/%Y')}."
-            )COMENTANDO PARA TESTES'''
+            )
         return data_inicio
 
     # Tornar quantidade de adultos/crianças opcionais no form (os defaults do model já cuidam)
@@ -217,7 +219,17 @@ class ReservaForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['id_hospede'].widget = forms.HiddenInput()
-        
+        self.fields['quantidade_adultos'].widget = forms.NumberInput(attrs={
+            'class': 'input input-bordered w-full',
+            'min': '1',
+            'placeholder': '1'
+        })
+        self.fields['quantidade_criancas'].widget = forms.NumberInput(attrs={
+            'class': 'input input-bordered w-full',
+            'min': '0',
+            'placeholder': '0'
+        })
+
         if self.instance and self.instance.pk:
             self.fields['hospede_nome'].initial = self.instance.id_hospede.nome
         # Por padrão considera apenas quartos com status 'DISPONIVEL'
