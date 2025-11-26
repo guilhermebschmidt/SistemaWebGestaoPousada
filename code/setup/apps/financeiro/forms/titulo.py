@@ -45,7 +45,7 @@ class TituloForm(forms.ModelForm):
 
         widgets = {
             'descricao': forms.TextInput(attrs={'class': 'input input-bordered w-full'}),
-            'valor': forms.NumberInput(attrs={'class': 'input input-bordered w-full'}),
+            'valor': forms.NumberInput(attrs={'class': 'input input-bordered w-full', 'step': '0.01'}),
             'tipo_documento': forms.Select(attrs={'class': 'select select-bordered w-full'}),
             'conta_corrente': forms.TextInput(attrs={'class': 'input input-bordered w-full'}),
             'data': forms.DateInput(
@@ -78,3 +78,15 @@ class TituloForm(forms.ModelForm):
         self.fields['hospede'].required = False
         self.fields['reserva'].required = False
         self.fields['categoria'].required = False
+
+    def clean(self):
+        cleaned_data = super().clean()
+        
+        tipo = cleaned_data.get('tipo')
+        categoria = cleaned_data.get('categoria')
+
+        if categoria and tipo is True:
+            self.add_error('tipo', "Não é permitido lançar 'Entrada' vinculada a uma Categoria de despesa.")
+            self.add_error('categoria', "Se você selecionou uma Categoria, o tipo deve ser 'Saída'.")
+
+        return cleaned_data
