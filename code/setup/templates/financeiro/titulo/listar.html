@@ -102,7 +102,7 @@
                         <label class="label" for="hospede">
                             <span class="label-text">Hóspede</span>
                         </label>
-                        <input type="text" name="hospede" id="hospede" value="{{ filtros.hospede }}" class="input input-bordered" placeholder="Nome do Hóspede">
+                        <input type="text" name="hospede" id="hospede" value="{{ filtros.hospede|default_if_none:'' }}" class="input input-bordered" placeholder="Nome do Hóspede">
                     </div>
 
 
@@ -111,14 +111,14 @@
                         <label class="label" for="data_inicio">
                             <span class="label-text">Vencimento Inicial</span>
                         </label>
-                        <input type="date" name="data_inicio" id="data_inicio" value="{{ filtros.data_inicio }}" class="input input-bordered">
+                        <input type="date" name="data_inicio" id="data_inicio" value="{{ filtros.data_inicio|default_if_none:'' }}" class="input input-bordered">
                     </div>
 
                     <div class="form-control w-full sm:w-auto">
                         <label class="label" for="data_fim">
                             <span class="label-text">Vencimento Final</span>
                         </label>
-                        <input type="date" name="data_fim" id="data_fim" value="{{ filtros.data_fim }}" class="input input-bordered">
+                        <input type="date" name="data_fim" id="data_fim" value="{{ filtros.data_fim|default_if_none:'' }}" class="input input-bordered">
                     </div>
 
                     <!-- Botão Filtrar -->
