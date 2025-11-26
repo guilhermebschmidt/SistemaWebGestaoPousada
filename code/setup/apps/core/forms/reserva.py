@@ -91,7 +91,7 @@ class ReservaForm(forms.ModelForm):
         '''
         Aplicação da regra de negócio - reserva com 2 dias de antecedência
         '''
-        hoje = date.today()
+        '''COMENTANDO PARA PODER CRIAR RESERVAS NO DIA DA APRESENTACAO hoje = date.today()
         data_minima_reserva = hoje + timedelta(days=2)
 
         if not data_inicio:
@@ -100,7 +100,7 @@ class ReservaForm(forms.ModelForm):
         if data_inicio < data_minima_reserva:
             raise forms.ValidationError(
                 f"A data de início da reserva deve ser a partir de {data_minima_reserva.strftime('%d/%m/%Y')}."
-            )
+            )FIM DO COMENTARIAO PARA CRIAR RESERVAS NO DIA DA APRESENTACAO'''
         return data_inicio
 
     # Tornar quantidade de adultos/crianças opcionais no form (os defaults do model já cuidam)
