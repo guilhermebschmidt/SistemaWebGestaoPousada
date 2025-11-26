@@ -26,7 +26,7 @@
                             </ul>
                         </div>
                     {% endif %}
-                    
+
                     <form method="POST" action="" class="space-y-4">
                         {% csrf_token %}
                         <div class="flex flex-col flex-1 p-4">
@@ -62,7 +62,7 @@
                                         <span class="label-text font-medium">{{ form.nome.label }}</span>
                                         <span class="text-error">*</span>
                                     </label>
-                                    {{ form.nome }} 
+                                    {{ form.nome }}
                                     {% for error in form.nome.errors %}
                                         <label class="label"><span class="label-text-alt text-error">{{ error }}</span></label>
                                     {% endfor %}
@@ -147,7 +147,7 @@
                                         <div class="label"><span class="label-text-alt text-error">{{ error }}</span></div>
                                     {% endfor %}
                                 </div>
-                            
+
                                 <div class="form-control">
                                     <label class="label" for="{{form.bairro.id_for_label}}">
                                         <span class="label-text font-medium">Bairro</span>
@@ -201,6 +201,36 @@ $(document).ready(function(){
     $('#{{ form.cpf.id_for_label }}').mask('000.000.000-00');
     $('#{{ form.telefone.id_for_label }}').mask('(00) 00000-0000');
     $('#{{ form.cep.id_for_label }}').mask('00000-000');
+
+    $('#{{ form.cep.id_for_label }}').on('blur', function() {
+        let cep = $(this).val().replace(/\D/g, '');
+
+        if (cep.length !== 8) {
+            return; // CEP inválido ou incompleto
+        }
+
+        // Limpando campos enquanto consulta
+        $('#{{ form.rua.id_for_label }}').val('');
+        $('#{{ form.bairro.id_for_label }}').val('');
+        $('#{{ form.cidade.id_for_label }}').val('');
+
+        $.getJSON(`https://viacep.com.br/ws/${cep}/json/`, function(data) {
+            if (!("erro" in data)) {
+                $('#{{ form.rua.id_for_label }}').val(data.logradouro);
+                $('#{{ form.bairro.id_for_label }}').val(data.bairro);
+                $('#{{ form.cidade.id_for_label }}').val(data.localidade);
+
+                // Se o form tiver UF:
+                {% if form.uf %}
+                    $('#{{ form.uf.id_for_label }}').val(data.uf);
+                {% endif %}
+            } else {
+                alert("CEP não encontrado.");
+            }
+        }).fail(function() {
+            alert("Erro ao consultar o ViaCEP.");
+        });
+    });
 });
 </script>
 {% endblock %}
