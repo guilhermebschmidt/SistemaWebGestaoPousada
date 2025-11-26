@@ -12,30 +12,39 @@
             <p class="text-base-content/60 text-sm">Gerencie os contratos de longo prazo</p>
         </div>
         <a href="{% url 'mensalista:adicionar_mensalista' %}" class="btn btn-primary">
-            <i class="fas fa-plus mr-2"></i>Novo Mensalista
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 mr-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            Novo Mensalista
         </a>
     </div>
 
     <div class="card bg-base-100 shadow-sm flex-1 overflow-hidden">
         <div class="overflow-x-auto">
-            <table class="table table-zebra w-full">
+            <table class="table table-zebra w-full text-center">
                 <thead>
-                    <tr>
-                        <th>Hóspede</th>
+                    <tr class="bg-base-200">
+                        <th class="text-left">Hóspede</th>
                         <th>Quarto Fixo</th>
                         <th>Dia Venc.</th>
                         <th>Valor Mensal</th>
                         <th>Status</th>
                         <th>Início Contrato</th>
-                        <th class="text-center">Ações</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for mensalista in mensalistas %}
                     <tr class="hover">
-                        <td>
+                        <td class="text-left">
                             <div class="font-bold">{{ mensalista.hospede.nome }}</div>
-                            <div class="text-xs opacity-50">{{ mensalista.hospede.cpf }}</div>
+                            <div class="text-xs opacity-50">
+                                {% if mensalista.hospede.cpf %}
+                                    {{ mensalista.hospede.cpf }}
+                                {% else %}
+                                    <span class="text-error">Sem CPF</span>
+                                {% endif %}
+                            </div>
                         </td>
                         <td>
                             {% if mensalista.quarto %}
@@ -58,11 +67,27 @@
                             {% endif %}
                         </td>
                         <td>{{ mensalista.data_inicio|date:"d/m/Y" }}</td>
-                        <td class="text-center">
-                            <div class="join">
-                                <button class="btn btn-xs btn-ghost join-item tooltip" data-tip="Editar">
-                                    <i class="fas fa-edit text-primary"></i>
-                                </button>
+                        <td>
+                            <div class="flex flex-wrap gap-2 justify-center">
+                                <a href="{% url 'mensalista:editar_mensalista' mensalista.id %}" class="btn btn-warning btn-sm" title="Editar Mensalista">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
+                                    </svg>
+                                </a>
+                                
+                                {% if mensalista.hospede.cpf %}
+                                    <a href="{% url 'hospede:historico' mensalista.hospede.cpf %}" class="btn btn-info btn-sm" title="Ver Histórico">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        </svg>
+                                    </a>
+                                {% else %}
+                                    <button class="btn btn-info btn-sm btn-disabled" title="Hóspede sem CPF cadastrado">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                        </svg>
+                                    </button>
+                                {% endif %}
                             </div>
                         </td>
                     </tr>

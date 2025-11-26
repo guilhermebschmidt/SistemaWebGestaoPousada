@@ -3,6 +3,8 @@ from ..models.titulo import Titulo
 from ..forms.titulo import TituloForm
 from django.utils import timezone
 from datetime import datetime
+from django.contrib import messages
+from django.core.exceptions import ValidationError
 
 def list_titulos(request):
     queryset = Titulo.objects.select_related('hospede', 'reserva', 'categoria').all().order_by('data_vencimento')
@@ -102,22 +104,25 @@ def titulo_form(request, pk=None):
 
 def marcar_pago(request, pk):
     titulo = get_object_or_404(Titulo, pk=pk)
-    titulo.pago = True
-    titulo.data_pagamento = timezone.now().date()
-    titulo.save()
-    # Se o título pertence a uma reserva e é o sinal, confirmar a reserva
-    try:
-        reserva = titulo.reserva
-        if reserva and reserva.status == 'PREVISTA' and str(titulo.descricao).lower().startswith('sinal'):
-            reserva.status = 'CONFIRMADA'
-            reserva.save()
-    except Exception:
-        pass
-
-    resp = redirect('financeiro:list_titulos')
-    try:
-        resp.set_cookie('messages', 'Título marcado como pago.')
-    except Exception:
-        pass
-    return resp
     
+    try:
+        titulo.pago = True
+        titulo.data_pagamento = timezone.now().date()
+        
+        titulo.save()
+        
+        try:
+            reserva = titulo.reserva
+            if reserva and reserva.status == 'PREVISTA' and str(titulo.descricao).lower().startswith('sinal'):
+                reserva.status = 'CONFIRMADA'
+                reserva.save()
+        except Exception:
+            pass
+
+        messages.success(request, 'Título marcado como pago com sucesso.')
+
+    except ValidationError as e:
+        msg_erro = e.messages[0] if e.messages else "Erro de validação."
+        messages.error(request, f"Não foi possível pagar: {msg_erro}")
+
+    return redirect('financeiro:list_titulos')

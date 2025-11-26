@@ -96,7 +96,9 @@ class Reserva(models.Model):
 
         super().save(*args, **kwargs)
 
-        if old_instance is None:
+        if self.status == 'CANCELADA':
+            self._cancelar_titulos_financeiros()
+        elif old_instance is None:
             self._criar_titulos_financeiros()
         elif self._houve_alteracao_relevante(old_instance):
             self._atualizar_titulos_financeiros()
@@ -153,6 +155,17 @@ class Reserva(models.Model):
         except Titulo.DoesNotExist:
             pass
 
+    def _cancelar_titulos_financeiros(self):
+        from apps.financeiro.models import Titulo
+        titulos_abertos = Titulo.objects.filter(
+            reserva=self, 
+            pago=False,
+            cancelado=False
+        )
+        for titulo in titulos_abertos:
+            titulo.cancelado = True
+            titulo.save(update_fields=['cancelado'])
+
     def _houve_alteracao_relevante(self, old_instance):
         if not old_instance:
             return False
@@ -167,11 +180,9 @@ class Reserva(models.Model):
         return (self.quantidade_adultos or 0) + (self.quantidade_criancas or 0)
 
     def __str__(self):
-
         total_hospedes= (self.quantidade_adultos or 0) + (self.quantidade_criancas or 0)
         
         if self.pk :
            return f"Reserva #{self.id} - {self.numero_total_hospedes} pessoa(s) - Quarto {self.id_quarto}"
 
         return "Nova Reserva"
-   

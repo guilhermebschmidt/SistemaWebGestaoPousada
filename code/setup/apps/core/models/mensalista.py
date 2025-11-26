@@ -52,10 +52,21 @@ class Mensalista(models.Model):
     def save(self, *args, **kwargs):
         is_new = self.pk is None
         
+        mudou_para_inativo = False
+        if not is_new:
+            try:
+                old_instance = Mensalista.objects.get(pk=self.pk)
+                if old_instance.ativo and not self.ativo:
+                    mudou_para_inativo = True
+            except Mensalista.DoesNotExist:
+                pass
+        
         super().save(*args, **kwargs)
 
         if is_new:
             self._criar_primeiro_titulo()
+        elif mudou_para_inativo:
+            self._cancelar_titulos_financeiros()
 
     def _criar_primeiro_titulo(self):
         from apps.financeiro.models import Titulo
@@ -69,7 +80,7 @@ class Mensalista(models.Model):
             primeiro_vencimento = primeiro_vencimento + relativedelta(months=1)
 
         Titulo.objects.create(
-            hospede=self.hospede, 
+            hospede=self.hospede,
             reserva=None,
             descricao=f"Mensalidade (1ª Parcela) - Contrato Mensalista",
             valor=self.valor_mensal,
@@ -82,3 +93,16 @@ class Mensalista(models.Model):
             cancelado=False,
             pago=False
         )
+
+    def _cancelar_titulos_financeiros(self):
+        from apps.financeiro.models import Titulo
+        titulos_mensalidade = Titulo.objects.filter(
+            hospede=self.hospede,
+            reserva__isnull=True,
+            pago=False,
+            cancelado=False
+        )
+        
+        for titulo in titulos_mensalidade:
+            titulo.cancelado = True
+            titulo.save(update_fields=['cancelado'])
