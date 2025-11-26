@@ -1,0 +1,84 @@
+{% extends "shared/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}Mensalistas{% endblock %}
+
+{% block content %}
+<div class="flex flex-col h-full">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+        <div>
+            <h1 class="text-2xl font-bold text-base-content">Mensalistas</h1>
+            <p class="text-base-content/60 text-sm">Gerencie os contratos de longo prazo</p>
+        </div>
+        <a href="{% url 'mensalista:adicionar_mensalista' %}" class="btn btn-primary">
+            <i class="fas fa-plus mr-2"></i>Novo Mensalista
+        </a>
+    </div>
+
+    <div class="card bg-base-100 shadow-sm flex-1 overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full">
+                <thead>
+                    <tr>
+                        <th>Hóspede</th>
+                        <th>Quarto Fixo</th>
+                        <th>Dia Venc.</th>
+                        <th>Valor Mensal</th>
+                        <th>Status</th>
+                        <th>Início Contrato</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mensalista in mensalistas %}
+                    <tr class="hover">
+                        <td>
+                            <div class="font-bold">{{ mensalista.hospede.nome }}</div>
+                            <div class="text-xs opacity-50">{{ mensalista.hospede.cpf }}</div>
+                        </td>
+                        <td>
+                            {% if mensalista.quarto %}
+                                <span class="badge badge-neutral font-mono">#{{ mensalista.quarto.numero }}</span>
+                            {% else %}
+                                <span class="text-gray-400 italic">Nenhum</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <span class="badge badge-ghost">Dia {{ mensalista.dia_vencimento }}</span>
+                        </td>
+                        <td class="font-medium text-success">
+                            R$ {{ mensalista.valor_mensal|floatformat:2|intcomma }}
+                        </td>
+                        <td>
+                            {% if mensalista.ativo %}
+                                <div class="badge badge-success gap-2">Ativo</div>
+                            {% else %}
+                                <div class="badge badge-error gap-2">Inativo</div>
+                            {% endif %}
+                        </td>
+                        <td>{{ mensalista.data_inicio|date:"d/m/Y" }}</td>
+                        <td class="text-center">
+                            <div class="join">
+                                <button class="btn btn-xs btn-ghost join-item tooltip" data-tip="Editar">
+                                    <i class="fas fa-edit text-primary"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="7" class="text-center py-8 text-base-content/50">
+                            <div class="flex flex-col items-center justify-center gap-2">
+                                <i class="fas fa-user-clock text-4xl mb-2 opacity-20"></i>
+                                <p>Nenhum mensalista cadastrado ainda.</p>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

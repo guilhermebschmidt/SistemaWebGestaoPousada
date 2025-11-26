@@ -6,7 +6,7 @@ from ..forms.mensalista import MensalistaForm
 
 class MensalistaListView(ListView):
     model = Mensalista 
-    template_name = 'core/mensalista_list.html'  
+    template_name = 'core/mensalista/mensalista_list.html'  
     context_object_name = 'mensalistas' 
 
     def get_queryset(self):
@@ -15,7 +15,7 @@ class MensalistaListView(ListView):
 class MensalistaCreateView(CreateView):
     model = Mensalista 
     form_class = MensalistaForm 
-    template_name = 'core/mensalista_form.html' 
+    template_name = 'core/mensalista/mensalista_form.html' 
     success_url = reverse_lazy('mensalista:listar_mensalistas') 
 
     def get_context_data(self, **kwargs):
