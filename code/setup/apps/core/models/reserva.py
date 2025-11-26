@@ -128,7 +128,7 @@ class Reserva(models.Model):
                 data_pagamento=today, data_compensacao=today + datetime.timedelta(days=1),
                 tipo=True, tipo_documento='pix', conta_corrente='Conta Principal',
                 cancelado=False,
-                pago=True 
+                pago=False 
             )
             Titulo.objects.create(
                 reserva=self, hospede=self.id_hospede,

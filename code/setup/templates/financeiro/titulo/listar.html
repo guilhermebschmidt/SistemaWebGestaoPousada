@@ -166,6 +166,9 @@
                     <td>{{ titulo.data_vencimento|date:"d/m/Y" }}</td>
                     <td>{{ titulo.data_pagamento|date:"d/m/Y"|default:"--" }}</td>
                     <td class="items-center text-center">
+			{% if titulo.cancelado %}
+			    <span class="badge badge-outline badge-error">Cancelado</span>
+			{% else %}
                         {% if titulo.pago %}
                             <span class="badge badge-outline badge-success">Pago</span>
                         {% elif titulo.data_vencimento < hoje %}
@@ -173,6 +176,7 @@
                         {% else %}
                             <span class="badge badge-outline badge-warning">Aberto</span>
                         {% endif %}
+			{% endif %}
                     </td>
                     <td class="flex gap-2 items-center justify-center">
                         
