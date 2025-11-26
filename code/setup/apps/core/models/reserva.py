@@ -95,11 +95,13 @@ class Reserva(models.Model):
         self.calcular_reserva()
 
         super().save(*args, **kwargs)
-
+        
         if self.status == 'CANCELADA':
             self._cancelar_titulos_financeiros()
+            
         elif old_instance is None:
             self._criar_titulos_financeiros()
+            
         elif self._houve_alteracao_relevante(old_instance):
             self._atualizar_titulos_financeiros()
 
@@ -125,7 +127,8 @@ class Reserva(models.Model):
                 valor=valor_parcela, data=today, data_vencimento=today,
                 data_pagamento=today, data_compensacao=today + datetime.timedelta(days=1),
                 tipo=True, tipo_documento='pix', conta_corrente='Conta Principal',
-                cancelado=False
+                cancelado=False,
+                pago=True 
             )
             Titulo.objects.create(
                 reserva=self, hospede=self.id_hospede,
@@ -133,11 +136,15 @@ class Reserva(models.Model):
                 valor=valor_parcela, data=today, data_vencimento=self.data_reserva_inicio,
                 data_pagamento=None, data_compensacao=None,
                 tipo=True, tipo_documento='pix', conta_corrente='Conta Principal',
-                cancelado=False
+                cancelado=False,
+                pago=False
             )
 
     def _atualizar_titulos_financeiros(self):
         from apps.financeiro.models import Titulo
+        
+        Titulo.objects.filter(reserva=self).update(hospede=self.id_hospede)
+
         try:
             titulo_sinal = Titulo.objects.get(reserva=self, descricao__startswith='Sinal')
             titulo_restante = Titulo.objects.get(reserva=self, descricao__startswith='Pagamento Restante')
@@ -159,8 +166,8 @@ class Reserva(models.Model):
         from apps.financeiro.models import Titulo
         titulos_abertos = Titulo.objects.filter(
             reserva=self, 
-            pago=False,
-            cancelado=False
+            pago=False,     
+            cancelado=False 
         )
         for titulo in titulos_abertos:
             titulo.cancelado = True
@@ -172,7 +179,8 @@ class Reserva(models.Model):
         return (
             old_instance.data_reserva_inicio != self.data_reserva_inicio or
             old_instance.data_reserva_fim != self.data_reserva_fim or
-            old_instance.id_quarto != self.id_quarto
+            old_instance.id_quarto != self.id_quarto or
+            old_instance.id_hospede != self.id_hospede
         )
     
     @property
