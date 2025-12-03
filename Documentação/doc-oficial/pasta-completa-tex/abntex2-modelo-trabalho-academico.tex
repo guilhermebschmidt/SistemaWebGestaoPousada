@@ -50,26 +50,26 @@
 \makeatletter
 \renewcommand*{\cleardoublepage}{\clearpage}
 \makeatother
-% ---
-% Pacotes básicos 
-% ---
+% ----------------------------------------------------------
+% Pacotes básicos
+% ----------------------------------------------------------
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{color}
 \usepackage{emptypage}
-\usepackage{longtable}
 \usepackage{float}
-\usepackage{lmodern}			% Usa a fonte Latin Modern			
-\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}				% Controle das cores
-\usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype} 			% para melhorias de justificação
-% ---
-		
-% ---
-% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
-% ---
+\usepackage{longtable}
+
+% ----------------------------------------------------------
+% Pacotes adicionais
+% ----------------------------------------------------------
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.18}
+
 \usepackage{adjustbox}
 \usepackage{ragged2e}
 \usepackage{tabularx}
@@ -77,50 +77,49 @@
 \usepackage{array}
 \usepackage{chngcntr}
 \usepackage{tocloft}
-\usepackage{booktabs} % para tabelas com linhas bonitas
-\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
 \usepackage{geometry}
 \geometry{margin=1in}
-\usepackage{lipsum}				% para geração de dummy text
+\usepackage{lipsum}
 \usepackage{placeins}
 \usepackage{multirow}
 \usepackage{qrcode}
 \usepackage{xcolor}
-% ---
 
-% ---
-% Pacotes de citações
-% ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+% ----------------------------------------------------------
+% Citações ABNT
+% ----------------------------------------------------------
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[alf]{abntex2cite}
 
-% --- 
-% CONFIGURAÇÕES DE PACOTES
-% --- 
-
-% ---
-% Configurações do pacote backref
-% Usado sem a opção hyperpageref de backref
 \renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-% Texto padrão antes do número das páginas
 \renewcommand{\backref}{}
-% Define os textos da citação
 \renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-		Nenhuma citação no texto.%
+	\ifcase #1
+	Nenhuma citação no texto.
 	\or
-		Citado na página #2.%
+	Citado na página #2.
 	\else
-		Citado #1 vezes nas páginas #2.%
-	\fi}%
-\renewcommand{\arraystretch}{1.4}
-% ---
+	Citado #1 vezes nas páginas #2.
+	\fi
+}
 
-% ---
-% Informações de dados para CAPA e FOLHA DE ROSTO
-% ---
+% espaçamento de tabelas
+\renewcommand{\arraystretch}{1.4}
+
+% ----------------------------------------------------------
+% Dados da capa e folha de rosto
+% ----------------------------------------------------------
 \titulo{Pousada Chalés Água de Coco}
-\autor{ GUILHERME AKIO MIURA SP3120791\\ GUILHERME BITTENCOURT SCHMIDT SP313640X\\KELLY RADCHELLE ARAUJO DE SOUZA SP3123588\\RAFAEL TEIXEIRA FONSECA SP3126919\\ RICARDO CARRIEL DE OLIVEIRA FILHO SP3136728}
+\autor{
+	\begin{tabular}{l c}
+		 GUILHERME AKIO MIURA & SP3120791\\
+		 GUILHERME BITTENCOURT SCHMIDT & SP313640X\\
+		 KELLY RADCHELLE ARAUJO DE SOUZA & SP3123588\\
+		 RAFAEL TEIXEIRA FONSECA & SP3126919\\
+		 RICARDO CARRIEL DE OLIVEIRA FILHO & SP3136728
+	 \end{tabular}
+	 }
 \local{São Paulo - SP - Brasil}
 \data{2025}
 \orientador{Marcelo Tavares de Santana}
@@ -138,87 +137,73 @@ Tecnologia de São Paulo Câmpus São Paulo,
 como requisito parcial para conclusão do
 curso Tecnologia em Análise e Desenvolvimento de Sistemas. 
 }
-% ---
-
-
-% ---
-% Configurações de aparência do PDF final
-
-% alterando o aspecto da cor azul
+% ----------------------------------------------------------
+% PDF
+% ----------------------------------------------------------
 \definecolor{blue}{RGB}{41,5,195}
 
-% informações do PDF
 \makeatletter
 \hypersetup{
-     	%pagebackref=true,
-		pdftitle={\@title}, 
-		pdfauthor={\@author},
-    	pdfsubject={\imprimirpreambulo},
-	    pdfcreator={LaTeX with abnTeX2},
-		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
-		colorlinks=true,       		% false: boxed links; true: colored links
-    	linkcolor=blue,          	% color of internal links
-    	citecolor=blue,        		% color of links to bibliography
-    	filecolor=magenta,      		% color of file links
-		urlcolor=blue,
-		bookmarksdepth=4
+	pdftitle={\@title},
+	pdfauthor={\@author},
+	pdfsubject={\imprimirpreambulo},
+	pdfcreator={LaTeX with abnTeX2},
+	colorlinks=true,
+	linkcolor=blue,
+	citecolor=blue,
+	urlcolor=blue,
+	bookmarksdepth=4
 }
 \makeatother
-% --- 
 
-% ---
-% Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
-% em um página em branco. Ver https://github.com/abntex/abntex2/issues/170
+% ----------------------------------------------------------
+% Float no topo de página
+% ----------------------------------------------------------
 \makeatletter
-\setlength{\@fptop}{5pt} % Set distance from top of page to first float
+\setlength{\@fptop}{5pt}
 \makeatother
-% ---
 
-% ---
-% Possibilita criação de Quadros e Lista de quadros.
-% Ver https://github.com/abntex/abntex2/issues/176
-%
-% ---
+% ----------------------------------------------------------
+% QUADROS — IMPLEMENTAÇÃO CORRETA
+% ----------------------------------------------------------
+
+% nome
 \newcommand{\quadroname}{Quadro}
 \newcommand{\listofquadrosname}{Lista de quadros}
 
-\floatstyle{plain}
+% cria o float "quadro"
 \newfloat{quadro}{htbp}{loq}
-\floatname{quadro}{Quadro}
-%\newfloat[chapter]{quadro}{loq}{\quadroname}
+\floatname{quadro}{\quadroname}
+
+% lista de quadros
 \newlistof{listofquadros}{loq}{\listofquadrosname}
 \newlistentry{quadro}{loq}{0}
 
-% configurações para atender às regras da ABNT
-\captionsetup[quadro]{position=top}
+% legenda em cima (ABNT)
+\captionsetup[quadro]{position=top, skip=0.5\baselineskip}
+
+% centralizar quadros
 \setfloatadjustment{quadro}{\centering}
+
+% não reiniciar por capítulo
 \counterwithout{quadro}{chapter}
-\renewcommand{\cftquadroname}{\quadroname\space} 
-\renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
-\setfloatlocations{quadro}{hbtp} % Ver
-%https://github.com/abntex/abntex2/issues/176
-% --- 
-% ---
 
-% --- 
-% Espaçamentos entre linhas e parágrafos 
-% --- 
+% posição preferencial
+\setfloatlocations{quadro}{hbtp}
 
-% O tamanho do parágrafo é dado por:
+%
+\usepackage{float}
+\floatstyle{plaintop} % faz a legenda ir para o topo
+\restylefloat{quadro} %----------------------------------------------------------
+% PARÁGRAFOS E ESPAÇAMENTO
+% ----------------------------------------------------------
 \setlength{\parindent}{1.3cm}
+\setlength{\parskip}{0.2cm}
 
-% Controle do espaçamento entre um parágrafo e outro:
-\setlength{\parskip}{0.2cm}  % tente também \onelineskip
-
-% ---
-% compila o indice
-% ---
+% ----------------------------------------------------------
 \makeindex
-% ---
+% ----------------------------------------------------------
 
-% ----
-% Início do documento
-% ----
 \begin{document}
 
 % Seleciona o idioma do documento (conforme pacotes do babel)
@@ -476,7 +461,9 @@ curso Tecnologia em Análise e Desenvolvimento de Sistemas.
   \item[HTTPS]	Hypertext Transfer Protocol Secure
   \item[IP]	Internet Protocol
   \item[LGPD]	Lei Geral de Proteção de Dados
-  \item[MVC]	Model-View-Controller (Modelo-Visão-Controlador)
+  \item[MVC]	Model-View-Controller
+   (Modelo-Visão-Controlador)
+  \item[MVP] 	Minimum Viable Product (Produto Mínimo Viável)
   \item[MTV]	Model-Template-View (Modelo-Template-Visualização)
   \item[ORM]	Object-Relational Mapper (Mapeador Objeto-Relacional)
   \item[PBKDF2]	Password-Based Key Derivation Function 2
@@ -549,13 +536,13 @@ Para atingir o objetivo geral proposto, foram definidos os seguintes objetivos e
 	
 	\item Elaborar a modelagem do banco de dados com base nas informações coletadas, estruturando as entidades e relacionamentos necessários;
 	
-	\item Projetar a arquitetura do sistema conforme o padrão \textit{Model-Template-View} (MTV) do framework Django;
+	\item Projetar a arquitetura do sistema conforme o padrão \textit{Model-Template-View} (MTV) do \textit{framework} Django;
 	
 	\item Implementar as funcionalidades essenciais do sistema, incluindo o cadastro e gerenciamento de hóspedes, acomodações, reservas e movimentações financeiras;
 	
 	\item Integrar o sistema com o banco de dados PostgreSQL hospedado na infraestrutura de nuvem AWS, garantindo persistência e segurança das informações;
 	
-	\item Aplicar recursos de segurança e privacidade de dados, tais como autenticação de usuários, criptografia de comunicações via protocolo HTTPS;
+	\item Aplicar recursos de segurança e privacidade de dados, tais como autenticação de usuários, criptografia de comunicações via \textit{Hypertext Transfer Protocol Secure} (HTTPS);
 	
 	\item Desenvolver relatórios gerenciais para apoiar a tomada de decisão, com foco em indicadores financeiros e operacionais relevantes à gestão da pousada;
 	
@@ -582,12 +569,12 @@ No segmento de sistemas de gestão hoteleira, diversas plataformas disputam espa
 \subsection{SimplesHotel}
 O SimplesHotel é uma plataforma de gestão hoteleira voltada para estabelecimentos de pequeno a grande porte. Seu foco está na automação dos processos administrativos e operacionais do setor de hospitalidade. A aplicação é baseada na \textit{Web}, com dados armazenados na nuvem.
 
-A monetização ocorre por meio de planos mensais com preços escalonados conforme o número de acomodações. Alguns módulos importantes, como emissão de \textit{NFSe}, motor de reservas e envio de \textit{SMS}, são cobrados separadamente, o que pode elevar significativamente o custo final da solução.
+A monetização ocorre por meio de planos mensais com preços escalonados conforme o número de acomodações. Alguns módulos importantes, como emissão de Nota Fiscal de Serviço Eletrônica (NFS-e), motor de reservas e envio de mensagens curtas (SMS), são cobrados separadamente, o que pode elevar significativamente o custo final da solução.
 
 Entre suas funcionalidades estão: gerenciador de reservas, controle de estoque e finanças, \textit{web check-in}, emissão de notas fiscais, suporte multicanal e integração com canais de venda como Booking e Expedia.
 
 \subsection{HospedaJá}
-O HospedaJá é uma solução de gestão para pousadas e hotéis de pequeno e médio porte, com foco na organização de reservas, hospedagens e finanças. Assim como o SimplesHotel, é uma aplicação \textit{web} baseada em nuvem e oferece backups automáticos.
+O HospedaJá é uma solução de gestão para pousadas e hotéis de pequeno e médio porte, com foco na organização de reservas, hospedagens e finanças. Assim como o SimplesHotel, é uma aplicação \textit{web} baseada em nuvem e oferece \textit{backups} automáticos.
 
 Seu modelo de cobrança também se baseia em planos mensais variáveis conforme o número de quartos e usuários. O suporte é oferecido por e-mail e sistema de chamados.
 
@@ -626,6 +613,7 @@ O sistema Chalés Água de Coco se destaca por oferecer uma solução enxuta, pr
 		Foco em Pousadas Locais (customização) & X &  &  \\
 		\hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %\part{Preparação da pesquisa}
@@ -670,7 +658,7 @@ O sistema Chalés Água de Coco se destaca por oferecer uma solução enxuta, pr
 %
 \chapter{Revisão de Literatura}
 Neste tópico é revisado o histórico do uso da tecnologia na gestão de negócios de hotelaria na literatura científica com o objetivo de contextualizar e destacar a relevância do projeto.
-\subsection{Histórico do Turismo e da Hospitalidade} 
+\section{Histórico do Turismo e da Hospitalidade} 
 O turismo é a atividade de deslocamento geográfico de uma pessoa para fora de seu ambiente habitual por um período de até um ano, com diversas motivações, exceto emprego remunerado no local de destino \cite{un2008international}. No Brasil, essa atividade se destaca no setor de serviços, representando uma força econômica significativa. Essa atividade faturou R\$ 108 bilhões no primeiro semestre de 2025, um resultado impulsionado, principalmente, pelos meios de hospedagem, que sozinhos movimentaram mais de R\$ 13 bilhões \cite{fecomercio2025}.
 
 Historicamente, a hospitalidade está intrinsecamente ligada à evolução do turismo. O turismo surgiu no momento em que o homem abandonou o sedentarismo, motivado pela necessidade de sobrevivência. De forma que, as primeiras hospedagens nasceram como estruturas familiares sem caráter comercial, nas quais pessoas cediam alojamento e alimentação para estranhos para que estes tivessem condições para seguir viagem \cite{aldrigui2007}. Por volta de 500 a.C., na Roma Antiga a nobreza percorria grandes distâncias para visitar templos e realizar banhos medicinais, o que demandou a construção de postos de troca de animais e motivou o surgimento das primeiras hospedarias comerciais \cite{ignarra2013}. Já com o crescimento do turismo e as transformações sociais e econômicas na Idade Moderna, houve o aumento de estruturas físicas e sociais para atender as necessidades dos viajantes. Essa evolução deu origem a uma ampla variedade de meios de hospedagem, dentre eles as pousadas.
@@ -679,20 +667,20 @@ O meio de hospedagem qualificado como pousada é, em sua essência, uma versão 
 
 Esses estabelecimentos se distinguem das grandes redes hoteleiras por seu modelo de gestão, que é frequentemente familiar e confere um toque de personalidade à experiência do hóspede. Por sua estrutura e escala, geralmente são encontradas em áreas rurais, cidades históricas ou locais com natureza exuberante, promovendo uma vivência mais autêntica e imersiva para os viajantes \cite{moura2023}. No entanto, essa mesma característica de negócio de pequeno porte e administração simplificada, que as torna únicas, também acarreta desafios. A gestão, muitas vezes manual e sem o suporte de sistemas robustos, limita o crescimento e a eficiência desses empreendimentos, criando uma lacuna tecnológica que compromete sua capacidade de competir no mercado.
 
-\subsection{A Gestão Hoteleira e o Impacto da Tecnologia}
+\section{A Gestão Hoteleira e o Impacto da Tecnologia}
 A gestão de uma pousada, assim como de outros empreendimentos hoteleiros, visa atender às expectativas dos clientes e garantir sua fidelização \cite{zanella2006}. Para isso, suas atividades são estruturadas em diferentes áreas, como Hospedagem, Finanças e \textit{Marketing}, o que requer uma coordenação integrada para garantir uma experiência satisfatória ao hóspede, um fator que é vital para a sobrevivência do negócio \cite{martins2011}. Em um mercado cada vez mais competitivo, a qualidade do serviço é o principal diferencial. Por isso, o gestor deve ser ágil e prático em suas tomadas de decisão, buscando continuamente informações para se adaptar às mudanças do mercado e inovar em seus serviços \cite{mauricio2011}.
 
 Nesse contexto, as tecnologias da informação surgem como ferramentas essenciais para aumentar a competitividade no setor hoteleiro \cite{buhalis1998}. Elas facilitam o acesso a informações estratégicas, auxiliando na customização de produtos, na redução de custos e na construção de relacionamentos mais próximos com os clientes. O uso de sistemas computacionais, em particular, otimiza o fluxo de dados, fornecendo informações precisas que são vitais para o sucesso do negócio \cite{zeferino2012}. Nesse sentido, os softwares PMS (\textit{Property Management System}) se tornaram indispensáveis, centralizando atividades como gestão de reservas, \textit{check-in}, \textit{check-out} e finanças.
 
 Embora os PMS tenham substituído registros em papel e aprimorado a execução de processos, muitos empreendimentos menores, como as pousadas, enfrentam desafios de recursos e falta de capacitação. Essa limitação dificulta a adoção de softwares robustos, mantendo-os distantes de soluções que poderiam fornecer uma visão mais estratégica e completa do negócio \cite{lunardi2010}.
 
-Diante desse cenário, este projeto propõe o desenvolvimento de um sistema web de gestão para a pousada Chalés Água de Coco. A ferramenta foi idealizada para atender às necessidades específicas do empreendimento de forma acessível e eficiente, com o objetivo de impulsionar seu crescimento e fortalecer sua competitividade no mercado local, oferecendo suporte à proprietária para tomadas de decisão mais ágeis e assertivas.
+Diante desse cenário, este projeto propõe o desenvolvimento de um sistema \textit{web} de gestão para a pousada Chalés Água de Coco. A ferramenta foi idealizada para atender às necessidades específicas do empreendimento de forma acessível e eficiente, com o objetivo de impulsionar seu crescimento e fortalecer sua competitividade no mercado local, oferecendo suporte à proprietária para tomadas de decisão mais ágeis e assertivas.
 %
 \chapter{Gestão do Projeto}
-Esta seção detalha as principais estratégias de gestão aplicadas no desenvolvimento da aplicação web de gestão para a pousada Chalés Água de Coco. Dessa forma, nela são apresentadas as metodologias, ferramentas e práticas que foram adotadas para o planejamento, execução e monitoramento do projeto, com o objetivo de garantir uma entrega organizada, eficiente e alinhada aos objetivos estabelecidos pelas partes interessadas.
+Esta seção detalha as principais estratégias de gestão aplicadas no desenvolvimento da aplicação \textit{web} de gestão para a pousada Chalés Água de Coco. Dessa forma, nela são apresentadas as metodologias, ferramentas e práticas que foram adotadas para o planejamento, execução e monitoramento do projeto, com o objetivo de garantir uma entrega organizada, eficiente e alinhada aos objetivos estabelecidos pelas partes interessadas.
 % 
 \section{Metodologia de Gestão e Desenvolvimento}
-A principal ferramenta de gestão e desenvolvimento do projeto adotada pela equipe responsável pelo projeto foi a metodologia ágil Scrum. Essa decisão fundamentou-se na familiaridade da equipe com a estrutura, na capacidade do Scrum de otimizar a organização, divisão e planejamento de atividades do projeto, e em sua relevância como \textit{framework} de gerenciamento, dado seu uso extensivo no contexto de desenvolvimento de softwares complexos. Diante disso, a equipe adaptou a metodologia de forma estratégica às condições do projeto, considerando prazos, recursos e estrutura disponíveis.
+A principal ferramenta de gestão e desenvolvimento do projeto adotada pela equipe responsável pelo projeto foi a metodologia ágil Scrum. Essa decisão fundamentou-se na familiaridade da equipe com a estrutura, na capacidade do Scrum de otimizar a organização, divisão e planejamento de atividades do projeto, e em sua relevância como \textit{framework} de gerenciamento, dado seu uso extensivo no contexto de desenvolvimento de \textit{softwares} complexos. Diante disso, a equipe adaptou a metodologia de forma estratégica às condições do projeto, considerando prazos, recursos e estrutura disponíveis.
 
 Para atender às restrições de tempo e à execução majoritariamente remota do projeto, os eventos de inspeção do progresso que são propostos para serem diários, o \textit{daily scrum},  foram realizados de forma assíncrona e em menor frequência. Enquanto  as entregas semanais de incrementos utilizáveis do produto foram mantidas, de forma que os eventos de planejamento, revisão e retrospectiva (\textit{Sprint Planning}, \textit{Sprint Review} e \textit{Sprint Retrospective}) foram consolidados em reuniões semanais, assegurando um processo eficiente e a inspeção contínua do projeto. 
 
@@ -701,25 +689,26 @@ Adicionalmente, a divisão das funções e responsabilidades dos membros da equi
 Essas adaptações flexibilizaram os processos, conferindo maior autonomia aos integrantes para organizar seus horários e ritmos de trabalho. No entanto, o número reduzido de reuniões e tempo limitado de colaboração síncrona dificultaram a comunicação e a definição de \textit{sprints} mais produtivos, exigindo maior revisão do planejamento.
 %	
 \begin{quadro}[H]
-	\caption{Divisão das Funções e Responsabilidades da Equipe do Projeto}
+	\caption{Divisão das funções e responsabilidades da equipe do projeto}
 	\label{quadro_funcao_responsabilidade}
 	\renewcommand{\arraystretch}{1.3} % Aumenta o espaçamento entre linhas
 	\begin{tabular}{|>{\centering\arraybackslash}m{3cm} 
 			|>{\centering\arraybackslash}m{2.6cm} |>{\centering\arraybackslash}m{3cm} 
-			|>{\raggedright\arraybackslash}m{5.6cm}|}
+			|>{\arraybackslash}m{5.6cm}|}
 		\hline
-		\textbf{Integrante} & \textbf{Função} &  \textbf{Papel Scrum}& \textbf{Responsabilidades} \\ \hline
+		\textbf{Integrante} & \textbf{Função} &  \textbf{Papel Scrum}& \multicolumn{1}{>{\centering\arraybackslash}m{5.6cm}|}{\textbf{Responsabilidades}} \\ \hline
 		Guilherme Akio & Analista de Testes & Time de \newline Desenvolvimento & Implementar, executar e documentar testes; Entrega de funcionalidades relacionadas a qualidade e perfomance do sistema  
 		\\ \hline
-		Guilherme Bittencourt & Engenheiro de Software & Scrum Master & CPromover e facilitar a aplicação da teoria e das práticas do \textit{Scrum}; Definir e organizar a estrutura do sistema
+		Guilherme Bittencourt & Engenheiro de Software & Scrum Master & Promover e facilitar a aplicação da teoria e das práticas do Scrum; Definir e organizar a estrutura do sistema
 		\\ \hline
-		Kelly Radchelle & Gerente de Projeto & Product Owner & Acompanhar o progresso das sprints; Facilitar e coordenar tomada de decisões e comunicação entre as partes interessadas \textit{sprints} 
+		Kelly Radchelle & Gerente de Projeto & Product Owner & Acompanhar o progresso das \textit{sprints}; Facilitar e coordenar tomada de decisões e comunicação entre as partes interessadas 
 		 \\ \hline
-		Rafael Teixeira & Desenvolvedor Frontend &  Time  de \newline Desenvolvimento & Entregas de funcionalidades relacionadas à experiência do usuário; Projetar e implementar interfaces da aplicação
+		Rafael Teixeira & Desenvolvedor Front-end &  Time  de \newline Desenvolvimento & Entregas de funcionalidades relacionadas à experiência do usuário; Projetar e implementar interfaces da aplicação
 		\\ \hline
-		Ricardo Carriel & Desenvolvedor Backend &  Time de \newline Desenvolvimento & Entregas de funcionalidades relacionadas a lógica e integração do sistema;  Implementar lógica de negócio; Configurar e administrar o servidor
+		Ricardo Carriel & Desenvolvedor Back-end &  Time de \newline Desenvolvimento & Entregas de funcionalidades relacionadas a lógica e integração do sistema;  Implementar lógica de negócio; Configurar e administrar o servidor
 		\\ \hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %---
@@ -727,16 +716,20 @@ Essas adaptações flexibilizaram os processos, conferindo maior autonomia aos i
 No Scrum,  os artefatos são elementos que ajudam a equipe a consolidar a transparência no processo de desenvolvimento  \cite{scrumguide}. Diante disso, o \textit {time scrum} realizou o planejamento dos artefatos:  \textit {Product Backlog} e \textit {Sprints Backlog}.
 %
 \subsection{Product Backlog}
-O \textit{product backlog} é definido como uma lista ordenada de todos os itens de trabalho, incluindo funcionalidades e requisitos necessários para a produção do produto, que oferecem o máximo valor e utilidade para o cliente \cite{scrumguide}. Por isso, o \textit{product owner} do projeto elaborou o \textit{product backlog} inicial da aplicação web de gestão da pousada Chalés Água de Coco (\autoref{product_backlog}). Enquanto, o product backlog completo do projeto esta detalhado no \autoref{apendice:productbacklogcomp}.
+O \textit{product backlog} é definido como uma lista ordenada de todos os itens de trabalho, incluindo funcionalidades e requisitos necessários para a produção do produto, que oferecem o máximo valor e utilidade para o cliente \cite{scrumguide}. Por isso, o \textit{product owner} do projeto elaborou o \textit{product backlog} inicial da aplicação \textit{web} de gestão da pousada Chalés Água de Coco (\autoref{product_backlog}). Enquanto, o \textit{product backlog} completo do projeto esta detalhado no \autoref{apendice:productbacklogcomp}.
 
-A lista foi elaborada com base nas histórias de usuário levantadas pela equipe, considerando que essas histórias refletem fielmente as necessidades e expectativas da usuária, assegurando o caráter utilitário do \textit{product backlog}. Além disso, foi atribuída uma classificação de prioridade a cada item, variando entre alta, média e baixa. Essa priorização definiu como de alta prioridade os itens essenciais para a entrega do MVP do sistema; de prioridade média, aqueles necessários para a conclusão do escopo final do projeto, mas não previstos para a entrega do MVP; e de prioridade baixa, os itens importantes, porém que não comprometem o funcionamento básico nem a entrega final do sistema. \\
+A lista foi elaborada com base nas histórias de usuário levantadas pela equipe, considerando que essas histórias refletem fielmente as necessidades e expectativas da usuária, assegurando o caráter utilitário do \textit{product backlog}. Além disso, foi atribuída uma classificação de prioridade a cada item, variando entre alta, média e baixa. Essa priorização definiu como de alta prioridade os itens essenciais para a entrega do \textit{Minimum Viable Product} (MVP) do sistema; de prioridade média, aqueles necessários para a conclusão do escopo final do projeto, mas não previstos para a entrega do MVP; e de prioridade baixa, os itens importantes, porém que não comprometem o funcionamento básico nem a entrega final do sistema. \\
 %
 \begin{quadro}[H]
-	\caption{Product Backlog - Parte 1}
+	\caption{Product Backlog (Parte 1)}
 	\label{product_backlog}
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\raggedright\arraybackslash}m{4.2cm}|>{\raggedright\arraybackslash}m{2cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{4.2cm}|>{\centering\arraybackslash}m{2cm}|}
 		\hline
-		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\ \hline
+		\textbf{Código} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{6.5cm}|}{\textbf{Item}} & 
+		\textbf{Categoria}& 
+		\textbf{Prioridade} \\
+		\hline
 		1 & Definir, configurar e organizar ambientes de desenvolvimento e hospedagem & Requisito Técnico   & ALTA    \\ \hline
 		2 & Levantar e documentar requisitos funcionais e não funcionais    & Modelagem de dados & ALTA    \\ \hline
 		3 & Criar e mapear casos de uso e histórias de usuário & Modelagem de dados   & ALTA  \\ \hline
@@ -747,23 +740,29 @@ A lista foi elaborada com base nas histórias de usuário levantadas pela equipe
 		8 & Implementar funcionalidades de cadastro, edição e exclusão de hóspedes & Gestão de Hóspedes & ALTA \\ \hline
 		9 & Implementar funcionalidades de cadastro, edição e exclusão de reservas & Gestão de Reservas & ALTA \\ \hline
 		10 & Implementar interfaces  de usuário & Requisito Técnico & ALTA \\ \hline
+		11 & Implementar funcionalidades de Check-in e Check-out&
+		Check-in e Check-out &	ALTA
+		\\ \hline
+		12 & Integrar ambientes back-end e front-end &	Requisito técnico & ALTA 
+		\\ \hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
 \begin{quadro}[H]
-	\caption{Product Backlog - Parte 2}
-	\label{product_backlog_2}
-	\begin{tabular}{|c|p{6.5cm}|p{3.8cm}|c|}
+	\ContinuedFloat
+	\caption{Product Backlog (Parte 2)}
+	%\caption*{\quadroname~\ref{product_backlog} – Product Backlog (Parte 2)}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{4.2cm}|>{\centering\arraybackslash}m{2cm}|}
 		\hline
-		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline	
-		11 & Implementar funcionalidades de \textit{Check-in} e \textit {Check-out} &
-		\textit {Check-in} e \textit {Check-out} &	ALTA
-		 \\ \hline
-		12 & Integrar ambientes \textit{backend} e \textit {frontend} &	Requisito técnico & ALTA 
-		\\ \hline
+		\textbf{Código} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{6.5cm}|}{\textbf{Item}} & 
+		\textbf{Categoria}& 
+		\textbf{Prioridade} \\
+		\hline
 		14 & Implementar funcionalidades de cadastro, edição e exclusão de receitas & Gestão Financeira & MÉDIA \\ \hline
-		15 & Implementar funcionalidade de registro de pagamento de reservas &Gestão Financeira e Gestão de Reservas &
+		15 & Implementar funcionalidade de registro de pagamento de reservas & Gestão Financeira e Gestão de Reservas &
 		MÉDIA \\ \hline
 		16 & Implementar funcionalidades de cadastro, edição e exclusão de despesas &
 		Gestão Financeira & MÉDIA \\ \hline
@@ -780,6 +779,7 @@ A lista foi elaborada com base nas histórias de usuário levantadas pela equipe
 		MÉDIA \\ \hline
 		24 & Treinamento da proprietária da pousada para uso da aplicação &	Implantação & MÉDIA \\ \hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 % 
@@ -839,13 +839,14 @@ Dessa forma, os itens do \textit{Product Backlog} foram distribuídos de modo a 
 \end{quadro}
 \end{comment}
 
-Para auxiliar a equipe na visualização, acompanhamento e organização das \textit{sprints}, foram utilizadas duas ferramentas de gestão distintas. Na primeira fase do projeto, empregou-se o ProjectLibre, no qual foram cadastradas as atividades com seus respectivos prazos e responsáveis \autoref{fig:qrcode_tarefas_projectlibre}. No entanto, devido a dificuldades técnicas e a demandas externas, a equipe passou a utilizar, na segunda fase do projeto, um quadro \textit{Kanban}. Essa mudança proporcionou maior flexibilidade no controle das tarefas e autonomia para cada membro da equipe gerenciar suas próprias atividades, especialmente pela familiaridade de alguns integrantes com esse modelo. O quadro foi criado no próprio repositório do projeto e está disponível na seção \textit{projects} \autoref{fig:qrcode_github_project}.A transição entre as ferramentas permitiu otimizar a comunicação interna e o acompanhamento do progresso das entregas, contribuindo para uma gestão mais ágil das \textit{sprints}.
+Para auxiliar a equipe na visualização, acompanhamento e organização das \textit{sprints}, foram utilizadas duas ferramentas de gestão distintas. Na primeira fase do projeto, empregou-se o ProjectLibre, no qual foram cadastradas as atividades com seus respectivos prazos e responsáveis \autoref{fig:qrcode_tarefas_projectlibre}. No entanto, devido a dificuldades técnicas e a demandas externas, a equipe passou a utilizar, na segunda fase do projeto, um quadro Kanban. Essa mudança proporcionou maior flexibilidade no controle das tarefas e autonomia para cada membro da equipe gerenciar suas próprias atividades, especialmente pela familiaridade de alguns integrantes com esse modelo. O quadro foi criado no próprio repositório do projeto e está disponível na seção \textit{projects} (\autoref{fig:qrcode_github_project}).A transição entre as ferramentas permitiu otimizar a comunicação interna e o acompanhamento do progresso das entregas, contribuindo para uma gestão mais ágil das \textit{sprints}.
 {\hypersetup{urlcolor=black}
 \begin{figure}[H]
 	\centering
 	\caption{QR Code documento do ProjectLibre}
 	\label{fig:qrcode_tarefas_projectlibre}
 	{\color{black}\qrcode[height=3cm]{https://github.com/guilhermebschmidt/SistemaWebGestaoPousada/blob/main/Projeto/Gest%C3%A3o%20de%20Tarefas%20do%20Projeto.pod}}
+	\vspace{0.5cm}
 	\fonte{Elaboração própria.}
 \end{figure}}
 %
@@ -855,6 +856,7 @@ Para auxiliar a equipe na visualização, acompanhamento e organização das \te
 	\caption{QR Code quadro Kanban no GitHub}
 	\label{fig:qrcode_github_project}
 	{\color{black}\qrcode[height=3cm]{https://github.com/users/guilhermebschmidt/projects/1}}
+	\vspace{0.5cm}
 	\fonte{Elaboração própria.}
 \end{figure}}
 
@@ -862,23 +864,24 @@ Para auxiliar a equipe na visualização, acompanhamento e organização das \te
 % ---
 % Tópico de Gestão de Riscos
 \section{Gestão de Riscos}
-Os riscos de um projeto de software são elementos ou eventos de origem multifatorial que, caso ocorram, impactam negativamente  o cronograma, os custos, a qualidade ou o escopo do projeto. Dessa forma, o gerenciamento de riscos é um processo iterativo fundamental para prever os riscos associados ao desenvolvimento de um projeto, visto que, promove a compreensão dos riscos com vistas à sua previsão, detecção e tratamento, de modo a não comprometer a entrega do produto final \cite[p. 416]{sommerville2011}.
+Os riscos de um projeto de \textit{software} são elementos ou eventos de origem multifatorial que, caso ocorram, impactam negativamente  o cronograma, os custos, a qualidade ou o escopo do projeto. Dessa forma, o gerenciamento de riscos é um processo iterativo fundamental para prever os riscos associados ao desenvolvimento de um projeto, visto que, promove a compreensão dos riscos com vistas à sua previsão, detecção e tratamento, de modo a não comprometer a entrega do produto final \cite[p. 416]{sommerville2011}.
 
 Diante disso, a equipe do projeto de desenvolvimento do sistema de gestão da Pousada Chalés Água de Coco considerou pertinente a implementação de mecanismos de apoio à gestão de riscos, com o objetivo de fortalecer as práticas de inspeção e adaptação realizadas ao longo das \textit{sprints}.
 
 Para isso, a equipe elaborou um plano de identificação dos riscos iniciais do projeto e, a partir disso, definiu estratégias de mitigação para cada um deles, com o objetivo de garantir o cumprimento dos prazos estabelecidos e evitar retrabalho.
 
-De forma que, a gestão de riscos foi uma atividade de suma importância para o desenvolvimento do sistema web, pois forneceu mecanismos que auxiliaram a equipe a identificar precocemente possíveis problemas, compreendê-los e tratá-los de maneira eficaz durante todo o desenvolvimento. 
+De forma que, a gestão de riscos foi uma atividade de suma importância para o desenvolvimento do sistema \textit{web}, pois forneceu mecanismos que auxiliaram a equipe a identificar precocemente possíveis problemas, compreendê-los e tratá-los de maneira eficaz durante todo o desenvolvimento. 
 
 \subsection{Identificação dos Riscos do Projeto}
-O primeiro passo para o desenvolvimento das ações voltadas à gestão de riscos foi a identificação dos principais riscos associados ao projeto do sistema web de gestão da Pousada Chalés Água de Coco. Esses riscos foram levantados a partir da análise das características inerentes ao desenvolvimento de uma aplicação web, da equipe Scrum e do próprio negócio  e foram registradas no (\autoref{identificacao_riscos_1}).
+O primeiro passo para o desenvolvimento das ações voltadas à gestão de riscos foi a identificação dos principais riscos associados ao projeto do sistema \textit{web} de gestão da Pousada Chalés Água de Coco. Esses riscos foram levantados a partir da análise das características inerentes ao desenvolvimento de uma aplicação \textit{web}, da equipe Scrum e do próprio negócio  e foram registradas no  \autoref{identificacao_riscos_1}.
 \\
 % 
 \begin{quadro}[H]
-	\caption{Identificação dos Riscos do Projeto - Parte 1} \label{identificacao_riscos_1} 
-	\begin{tabular}{|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{5cm}|>{\centering\arraybackslash}p{3cm}|p{4.2cm}|}
+	\caption{Identificação dos Riscos do Projeto} \label{identificacao_riscos_1} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.8cm}|>{\centering\arraybackslash}m{4.6cm}|>{\centering\arraybackslash}m{2cm}|>{\arraybackslash}m{5.8cm}|}
 		\hline
-		\textbf{Código} & \textbf{Risco} & \textbf{Afeta} & \textbf{Descrição}  \\
+		\textbf{Código} & \textbf{Risco} & \textbf{Afeta} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{4.2cm}|}{\textbf{Descrição}}\\
 		\hline
 		R01 & Requisitos mal definidos ou incompletos &
 		Projeto  & Os requisitos levantados são inconsistentes, exigindo retrabalho e falhas na produção \\
@@ -888,24 +891,14 @@ O primeiro passo para o desenvolvimento das ações voltadas à gestão de risco
 		\hline
 		R03 & Perda de dados ou inconsistência &
 		Projeto e \newline Produto  & Há falhas na modelagem ou na lógica do negócio que resultam em falhas de produção \\ \hline
-		R04 & Tamanho do Projeto Subestimado &
+		R04 & Tamanho do projeto subestimado &
 		Projeto e Produto  & A equipe não conseguiu dimensionar o trabalho exigido pelo projeto o que exige um retrabalho de planejamento das tarefas \\
 		\hline
-		R05 & Prazo de Desenvolvimento Subestimado &
+		R05 & Prazo de desenvolvimento subestimado &
 		Projeto & A equipe encontrou obstáculos maiores que o previsto durante o desenvolvimento do projeto que exigem maior tempo para o desenvolvimento \\
 		\hline
 		R06 & 	Integrantes chaves estão doentes em momentos críticos do projeto & Projeto & A ausência de um integrante importante para a realização de uma tarefa exige que os outros integrantes tenham que assumir sem dominação do assunto \\
 		\hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}		
-%
-\begin{quadro} [H]
-	\caption{Identificação dos Riscos do Projeto - Parte 2} \label{identificacao_riscos_2} 
-	\begin{tabular}{|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{5cm}|>{\centering\arraybackslash}p{3cm}|p{4.2cm}|}
-		\hline
-		\textbf{Código} & \textbf{Risco} & \textbf{Afeta} & \textbf{Descrição}  \\
-		\hline			
 		R07 & Vazamento de dados de hóspedes & Negócio & O sistema  armazena dados pessoais e sensíveis e não possui uma estrutura de segurança fortificada \\
 		\hline
 		R08 & Custos do projeto subestimados & Projeto e Produto & Há custos adicionais não previstos no planejamento \\
@@ -915,80 +908,133 @@ O primeiro passo para o desenvolvimento das ações voltadas à gestão de risco
 		R10 & Problemas de segurança no ambiente de produção & Produto & A implantação do sistema expõe falhas de segurança não identificados durante o desenvolvimento \\
 		\hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
-\end{quadro}				
+\end{quadro}		
+%
+\begin{comment}
+\begin{quadro} [H]
+	\caption*{\quadroname~\ref{identificacao_riscos_1}  – Identificação dos Riscos do Projeto (Parte 2)} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{4.8cm}|>{\centering\arraybackslash}m{2cm}|>{\arraybackslash}m{5.4cm}|}
+		\hline
+		\textbf{Código} & \textbf{Risco} & \textbf{Afeta} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{4.2cm}|}{\textbf{Descrição}}\\
+		\hline		
+		R07 & Vazamento de dados de hóspedes & Negócio & O sistema  armazena dados pessoais e sensíveis e não possui uma estrutura de segurança fortificada \\
+		\hline
+		R08 & Custos do projeto subestimados & Projeto e Produto & Há custos adicionais não previstos no planejamento \\
+		\hline
+		R09 & Risco de integração de módulos (Django) & Projeto e Produto & A equipe enfrenta dificuldades em integrar as entidades do sistema decorrente de um mau planejamento de comunicação entre elas, segundo a arquitetura Django (MVT) \\
+		\hline
+		R10 & Problemas de segurança no ambiente de produção & Produto & A implantação do sistema expõe falhas de segurança não identificados durante o desenvolvimento \\
+		\hline
+	\end{tabular}
+	\vspace{0.5cm}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}		
+\end{comment}		
 % ---
 
 \subsection{Análise e Planejamento dos Riscos}
-Identificados os riscos associados ao projeto, a equipe analisou e definiu a probabilidade de impacto e de ocorrência, além das estratégias de prevenção e contingência para cada um. Essas informações estão registradas no \autoref{analise_riscos_1}. \\
+Identificados os riscos associados ao projeto, a equipe analisou e definiu a probabilidade de impacto e de ocorrência, além das estratégias de prevenção e contingência para cada um. Essas informações estão registradas no \autoref{analisederiscos}. \\
 %
+\vspace{1cm}
 \begin{quadro}[H]
-	\caption{Análise e Planejamento dos Riscos - Parte 1}
-	\label{analise_riscos_1} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1.8cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{4.2cm}|>{\raggedright\arraybackslash}m{4.2cm}|}
+	\caption{Análise e Planejamento dos Riscos (Parte 1)}
+	\label{analisederiscos} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1.6cm}|>{\centering\arraybackslash}m{2.9cm}|>{\arraybackslash}m{4.2cm}|>{\arraybackslash}m{4.2cm}|}
 		\hline
-		\textbf{Risco} & \textbf{Impacto} & \textbf{Probabilidade de \newline Ocorrência} & \textbf{Estratégias de \newline Prevenção} & \textbf{Estratégias de \newline Contingência}\\
+		\textbf{Risco} & \textbf{Impacto} & 
+		\textbf{Probabilidade de Ocorrência} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{3.9cm}|}{\textbf{Estratégias de \newline Prevenção}}  & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{3.9cm}|}{\textbf{Estratégias de \newline Contingência}}\\
 		\hline
 		R01 & Baixo & Alta &
-		Fazer revisões e validações periódicas dos requisitos, conforme o andamento do projeto  & Interromper as atividades de desenvolvimento para revisão dos requisitos com o time de desenvolvimento e o \textit{product owner}
+		Fazer revisões e validações periódicas dos requisitos, conforme o andamento do projeto.  & Interromper as atividades de desenvolvimento para revisão dos requisitos com o time de desenvolvimento e o \textit{product owner}.
 		\\ 
 		\hline
 		R02 & Baixo & Alta &
-		Monitorar o andamento das tarefas do projeto e solucionar problemas que possam vir a impactar o andamento do cronograma  & Reavaliar o \textit {backlog} das \textit{sprints} restantes e reorganizar as tarefas, priorizando a execução daquelas que são essenciais para a entrega final \\
+		Monitorar o andamento das tarefas do projeto e solucionar problemas que possam vir a impactar o andamento do cronograma.  & Reavaliar o \textit{backlog} das \textit{sprints} restantes e reorganizar as tarefas, priorizando a execução daquelas que são essenciais para a entrega final. \\
 		\hline
 		R03 & Alto & Alta &
-		Revisar e validar os elementos da modelagem de dados antes de iniciar o desenvolvimento; Definir lógicas de salvamento e atualização de dados  & Revisar os documentos da modelagem de dados;  identificar e corrigir as falhas na lógica do negócio \\
+		Revisar e validar os elementos da modelagem de dados antes de iniciar o desenvolvimento; Definir lógicas de salvamento e atualização de dados.  & Revisar os documentos da modelagem de dados;  identificar e corrigir as falhas na lógica do negócio.
+		\\
 		\hline
 		R04 & Alto & Baixa &
-		Definir claramente as funcionalidades do sistema, evitando a adição de requisitos que ampliem o sistema para além do planejado  & Priorizar a entrega das funcionalidades definidas nos requisitos iniciais do projeto \\
+		Definir claramente as funcionalidades do sistema, evitando a adição de requisitos que ampliem o sistema para além do planejado.  & Priorizar a entrega das funcionalidades definidas nos requisitos iniciais do projeto. \\
 		\hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 % 
 \begin{quadro}[H]
-	\caption{Análise e Planejamento dos Riscos - Parte 2}
-	\label{analise_riscos_2} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1.8cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{4.2cm}|>{\raggedright\arraybackslash}m{4.2cm}|}
+	\ContinuedFloat
+	\caption{Análise e Planejamento dos Riscos (Parte 2)}
+	%\caption*{\quadroname~\ref{analisederiscos} – Análise e Planejamento dos Riscos (Parte 2)}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1.6cm}|>{\centering\arraybackslash}m{2.9cm}|>{\arraybackslash}m{4.2cm}|>{\arraybackslash}m{4.2cm}|}
 		\hline
-		\textbf{Risco} & \textbf{Impacto} & \textbf{Probabilidade de \newline Ocorrência} & \textbf{Estratégias de \newline Prevenção} & \textbf{Estratégias de \newline Contingência}\\
+		\textbf{Risco} & \textbf{Impacto} & 
+		\textbf{Probabilidade de Ocorrência} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{3.9cm}|}{\textbf{Estratégias de \newline Prevenção}}  & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{3.9cm}|}{\textbf{Estratégias de \newline Contingência}}\\
 		\hline	
 		R05 & Médio & 	Alta &
-		Definir junto a com o time de desenvolvimento o número de \textit{sprints} viáveis para o desenvolvimento; Monitorar as atividades e obstáculos nas \textit{sprints} de desenvolvimento para prever possíveis atrasos no cronograma & Reorganizar tarefas das \textit{sprints} de desenvolvimento, priorizando a realização de tarefas associadas as funcionalidades essenciais do sistema \\
+		Definir junto a com o time de desenvolvimento o número de \textit{sprints} viáveis para o desenvolvimento; Monitorar as atividades e obstáculos nas \textit{sprints} de desenvolvimento para prever possíveis atrasos no cronograma. & Reorganizar tarefas das \textit{sprints} de desenvolvimento, priorizando a realização de tarefas associadas as funcionalidades essenciais do sistema.
+		\\
 		\hline
-		R06 & Médio & Baixa & Distribuir as tarefas do projeto de forma estratégica  para que em nenhum momento o projeto fique altamente dependente de um integrante, além de desenvolver uma documentação robusta para que outro integrante consiga dar continuidade a tarefa & Remanejar as tarefas entre os integrantes disponíveis \\
+		R06 & Médio & Baixa & Distribuir as tarefas do projeto de forma estratégica  para que em nenhum momento o projeto fique altamente dependente de um integrante, além de desenvolver uma documentação robusta para que outro integrante consiga dar continuidade a tarefa. & Remanejar as tarefas entre os integrantes disponíveis. 
+		\\
 		\hline
-		R07 & Crítico & Baixa & Estabelecer medidas de segurança e criptografia no banco de dados do projeto & Desconectar o sistema; identificar a origem do vazamento; realizar medidas de contenção de danos propostas pela LGPD; aplicar e documentar as correções de segurança \\
+		R07 & Crítico & Baixa & Estabelecer medidas de segurança e criptografia no banco de dados do projeto. & Desconectar o sistema; identificar a origem do vazamento; realizar medidas de contenção de danos propostas pela LGPD; aplicar e documentar as correções de segurança.
+		\\
 		\hline
-		R08 & Médio & Média & Desenvolver um bom levantamento de custos antes de iniciar o projeto & Revisar funcionalidades e priorizar as funcionalidades que caibam no orçamento disponível \\
+		R08 & Médio & Média & Desenvolver um bom levantamento de custos antes de iniciar o projeto. & Revisar funcionalidades e priorizar as funcionalidades que caibam no orçamento disponível.
+		\\
+		\hline
+		R09 & Alto & Média & Realizar validações dos diagramas e o MER do sistema antes e durante a fase de desenvolvimento do sistema. & Revisar os diagramas e o MER; Identificar falhas de integração entre os módulos; Corrigir as falhas. 
+		\\
+		\hline
+		R10 & Alto & Média & Definir um plano de testes que abranja os diferentes aspectos e funcionalidades do sistema. & Desconectar o sistema; identificar a origem do problema de segurança; corrigir e documentar o erro.
+		\\
 		\hline
 	\end{tabular}
+	\vspace{0.1cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
+\begin{comment}
 \begin{quadro}[H]
-	\caption{Análise e Planejamento dos Riscos - Parte 3}
-	\label{analise_riscos_3} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1cm}|>{\centering\arraybackslash}m{1.8cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{4.2cm}|>{\raggedright\arraybackslash}m{4.2cm}|}
+	\caption*{\quadroname~\ref{analise_riscos_1} – Análise e Planejamento dos Riscos (Parte 3)} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.3cm}|>{\centering\arraybackslash}m{1.6cm}|>{\centering\arraybackslash}m{3.5cm}|>{\arraybackslash}m{3.9cm}|>{\arraybackslash}m{3.9cm}|}
 		\hline
-		R09 & Alto & Média & Realizar validações dos diagramas e o MER do sistema antes e durante a fase de desenvolvimento do sistema & Revisar os diagramas e o MER; Identificar falhas de integração entre os módulos; Corrigir as falhas \\
+		\textbf{Risco} & \textbf{Impacto} & 
+		\textbf{Probabilidade de \newline Ocorrência} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{3.9cm}|}{\textbf{Estratégias de \newline Prevenção}}  & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{3.9cm}|}{\textbf{Estratégias de \newline Contingência}}\\
 		\hline
-		R10 & Alto & Média & Definir um plano de testes que abranja os diferentes aspectos e funcionalidades do sistema & Desconectar o sistema; identificar a origem do problema de segurança; corrigir e documentar o erro \\ \hline
+		
+		\\
+		\hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
+\end{comment}S
 %
 \subsection{Monitoramento dos Riscos}
-Levantados os riscos do projeto do sistema web e definidas as estratégias de prevenção e resposta a cada um, foi elaborado um conjunto de elementos para auxiliarem no monitoramento contínuo dos riscos. Esse conjunto está registrado na \autoref{monitoramento_riscos_1}, no qual estão os indicadores de risco, os mecanismos que devem ser utilizados na identificação de alterações, sendo que  esses elementos devem ser monitorados a cada \textit{sprint} realizada, durante as reuniões pós \textit{sprint}.
+Levantados os riscos do projeto do sistema \textit{web} e definidas as estratégias de prevenção e resposta a cada um, foi elaborado um conjunto de elementos para auxiliarem no monitoramento contínuo dos riscos. Esse conjunto está registrado na \autoref{monitoramento_riscos_1}, no qual estão os indicadores de risco, os mecanismos que devem ser utilizados na identificação de alterações, sendo que  esses elementos devem ser monitorados a cada \textit{sprint} realizada, durante as reuniões pós \textit{sprint}.
 %
- \begin{quadro}[H]
-	\caption{Mecanismos de Monitoramento dos Riscos - Parte 1}
+\begin{quadro}[H]
+	\caption{Mecanismos de Monitoramento dos Riscos  (Parte 1)}
 	\label{monitoramento_riscos_1} 
-	\begin{tabular} {|>{\centering\arraybackslash}m{2.2cm}|p{6cm}|p{6cm}|}
+	\begin{tabular} {|>{\centering\arraybackslash}m{2.2cm}|m{6cm}|m{6cm}|}
 		\hline
-		\textbf{Risco} & \textbf{Indicadores} & \textbf{Métricas} \\
+		\textbf{Risco} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{6cm}|}{\textbf{Indicadores}} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{6cm}|}{\textbf{Métricas}}
+		\\
 		\hline
-		R01 & - Time \textit{scrum} frequentemente tem dúvidas sobre o que deve ser feito; \newline
+		R01 & - Time Scrum frequentemente tem dúvidas sobre o que deve ser feito; \newline
 		- Solicitações frequentes de adição de novas funcionalidades.
 		& - Número de dúvidas abertas durante as reuniões de desenvolvimento.
 		\\	\hline
@@ -996,22 +1042,12 @@ Levantados os riscos do projeto do sistema web e definidas as estratégias de pr
 		- Tempo de desenvolvimento de tarefas maior do que o previsto;
 		& - Porcentagem de tarefas entregues por \textit{sprint}.
 		\\	\hline
-		R03 & - Carência de backups; \newline
+		R03 & - Carência de \textit{backups}; \newline
 		- Carência de testes de restauração.
 		& - Frequência (tempo médio) de realização de \textit{backups}. \newline
 		- Frequência (tempo médio) de falhas registradas nos testes de banco de dados.
 		\\	\hline
-	\end{tabular}
-\fonte{Elaborado pelos autores.}
-\end{quadro}
- \begin{quadro}[H]
-	\caption{Mecanismos de Monitoramento dos Riscos - Parte 2}
-	\label{monitoramento_riscos_2} 
-	\begin{tabular} {|>{\centering\arraybackslash}m{2.2cm}|p{6cm}|p{6cm}|}
-		\hline
-		\textbf{Risco} & \textbf{Indicadores} & \textbf{Métricas} \\
-		\hline
-		R04 & 	- Desenvolvimento das funcionalidades está mais complexo que o esperado; \newline
+			R04 & 	- Desenvolvimento das funcionalidades está mais complexo que o esperado; \newline
 		- Aumento de tarefas não previstas nas \textit{sprints backlogs}.
 		& - Número de novas tarefas adicionadas nas \textit{sprints backlogs}. 
 		\\	\hline
@@ -1020,12 +1056,28 @@ Levantados os riscos do projeto do sistema web e definidas as estratégias de pr
 		R06 & - Carência de comunicação entre os membros do time; \newline
 		- Carência de documentação e \textit{code review} para facilitar substituições em tarefas. & - Número da concentração de tarefas por integrante. 
 		\\	\hline
-		R07 & - Dados sensíveis armazenados sem criptografia; \newline
+			R07 & - Dados sensíveis armazenados sem criptografia; \newline
 		- Carência de testes de segurança; \newline
 		- Códigos com permissões e bibliotecas mal configurados.
 		& - Número do uso de dados sensíveis sem criptografia. \newline
 		- Número de inconformidades com a LGPD (\textit{checklist}). 
 		\\	\hline
+	\end{tabular}
+	\vspace{0.5cm}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+
+ \begin{quadro}[H]
+ 	\ContinuedFloat
+ 	\caption{Mecanismos de Monitoramento dos Riscos  (Parte 2)}
+	%\caption*{\quadroname~\ref{monitoramento_riscos_1} – Mecanismos de Monitoramento dos Riscos  (Parte 2)}
+	\begin{tabular} {|>{\centering\arraybackslash}m{2.2cm}|m{6cm}|m{6cm}|}
+	\hline
+		\textbf{Risco} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{6cm}|}{\textbf{Indicadores}} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{6cm}|}{\textbf{Métricas}}
+		\\
+		\hline
 		R08 & 	- Gastos com ferramentas para funcionalidades não previstas.
 		& -Número de recursos contratados fora do planejamento inicial.
 		\\	\hline
@@ -1036,9 +1088,10 @@ Levantados os riscos do projeto do sistema web e definidas as estratégias de pr
 		\\	\hline
 		R10 & 	- Carência de mecanismos como HTTPS e \textit{headers} de segurança; \newline
 		- Dados sensíveis expostos em variáveis de ambiente.
-		& Número de falhas identificadas durante testes de segurança.
+		& - Número de falhas identificadas durante testes de segurança.
 		\\ \hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 % ---
@@ -1047,7 +1100,7 @@ Portanto, dado seu caráter fiscalizatório, a aplicação dos mecanismos de  ge
 % ---
 \chapter{Desenvolvimento do Projeto}Nesta seção são detalhadas as tecnologias, ferramentas e práticas adotadas para o desenvolvimento da aplicação \textit{web} de gestão dos processos da pousada Chalés Água de Coco.
 \section{Escopo do Projeto}
-O presente tópico delimita o sistema web de gestão desenvolvido para a Pousada Chalés Água de Coco, descrevendo suas funcionalidades, requisitos e restrições. Estes que foram levantados por meio da aplicação de um questionário à proprietária (\autoref{apendice:questionario1}) e da análise do site institucional da pousada  \cite{pousada_chales_agua_de_coco} pela equipe responsável, com o objetivo de assegurar que o produto final atenda as necessidades da pousada de forma coerente, segura  e eficiente, e apoie, no contexto de sua gestão, os processos de tomada de decisão. \\
+O presente tópico delimita o sistema \textit{web} de gestão desenvolvido para a Pousada Chalés Água de Coco, descrevendo suas funcionalidades, requisitos e restrições. Estes que foram levantados por meio da aplicação de um questionário à proprietária (\autoref{apendice:questionario1}) e da análise do site institucional da pousada  \cite{pousada_chales_agua_de_coco} pela equipe responsável, com o objetivo de assegurar que o produto final atenda as necessidades da pousada de forma coerente, segura  e eficiente, e apoie, no contexto de sua gestão, os processos de tomada de decisão. \\
 \subsection{Funcionalidades do Sistema}
 O escopo deste projeto define que o produto final é composto por funcionalidades organizadas em cinco módulos principais:
 
@@ -1061,23 +1114,23 @@ O escopo deste projeto define que o produto final é composto por funcionalidade
 
 Estas funcionalidades atuam de forma integrada, através de uma interface intuitiva, desenvolvida exclusivamente para o uso de uma única usuária: a proprietária da pousada. 
 
-No entanto, com o objetivo de garantir a entrega do produto final dentro do prazo, o sistema não abrange funcionalidades que necessitam de integrações com  sistemas externos, como confirmação automática de pagamentos ou processamento de reservas em plataformas externas.O que não descarta a possibilidade de que, em etapas futuras, o sistema seja atualizado para incluir integrações com serviços de mensageria, a fim de ampliar a automação dos processos de reserva da pousada.
+No entanto, com o objetivo de garantir a entrega do produto final dentro do prazo, o sistema não abrange funcionalidades que necessitam de integrações com  sistemas externos, como confirmação automática de pagamentos ou processamento de reservas em plataformas externas. O que não descarta a possibilidade de que, em etapas futuras, o sistema seja atualizado para incluir integrações com serviços de mensageria, a fim de ampliar a automação dos processos de reserva da pousada.
 
 % ---
 % REGRAS DE NEGÓCIO
 \subsection{Regras de Negócio}
 As regras de negócio são diretrizes que delimitam as relações entre os objetos do negócio, estabelecendo condições e restrições que orientam as empresas nas suas operações e processos internos \cite{ibmBusinessRules}. Dessa forma, as regras de negócio permitem a compreensão da lógica de funcionamento da empresa, sendo assim, um fator essencial para o desenvolvimento de sistemas computacionais alinhados com as necessidades reais da mesma.  
 
-Neste contexto, para auxiliar a equipe na modelagem e desenvolvimento aplicação, foi realizado o levantamento das regras de negócio do sistema web de gestão da pousada Chalés Água de Coco, disponíveis no \autoref{quadro_rn_1}. 
+Neste contexto, para auxiliar a equipe na modelagem e desenvolvimento aplicação, foi realizado o levantamento das regras de negócio do sistema \textit{web} de gestão da pousada Chalés Água de Coco, disponíveis no \autoref{quadro_rn_1}. 
   \\
 %
 \begin{quadro}[H]
-	\caption{Questionário Aplicado à Proprietária – Parte 1}
+	\caption{Regras de Negócio (Parte 1)}
 	\label{quadro_rn_1}
-	\begin{tabular}{|>{\centering\arraybackslash}p{3cm}|p{11cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{3cm}|m{11.2cm}|}
 		\hline
-		\textbf{Regra} & \textbf{Descrição} 
-		 \\ \hline	
+		\textbf{Regra} &
+		\multicolumn{1}{>{\centering\arraybackslash}m{11.2cm}|}{\textbf{Descrição}}\\ \hline	
 		RN01 &  Todas as operações de gestão da pousada devem ser realizadas exclusivamente no sistema, com acesso restrito à proprietária.   
 		\\ \hline
 		RN02 & Para efetuar uma reserva, os seguintes dados do hóspede são obrigatórios: nome completo, endereço completo, CPF, telefone e e-mail.
@@ -1095,20 +1148,23 @@ Neste contexto, para auxiliar a equipe na modelagem e desenvolvimento aplicaçã
 		RN08 &  Cancelamentos e remarcações são permitidos, sujeitos a regras e taxas específicas.  
 		\\ \hline
 	\end{tabular}
+	\vspace{0.3cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
 \begin{quadro}[H]
-	\caption{\label{quadro_rn_2}Regras de Negócio - Parte 2}
-	\begin{tabular}{|>{\centering\arraybackslash}p{3cm}|p{11cm}|}
+	\ContinuedFloat
+	\caption{Regras de Negócio (Parte 2)}
+	%\caption*{\quadroname~\ref{quadro_rn_1} – Regras de Negócio (Parte 2)}
+	\begin{tabular}{|>{\centering\arraybackslash}m{3cm}|m{11.2cm}|}
 		\hline
-		\textbf{Regra} & \textbf{Descrição} 
-		 \\ \hline	
+		\textbf{Regra} &
+		\multicolumn{1}{>{\centering\arraybackslash}m{11.2cm}|}{\textbf{Descrição}}\\ \hline	
 		RN09 & Não há oferta de serviços adicionais vinculados à reserva.  
 		 \\ \hline
 		RN10 & Os horários padrão de \textit{check-in} e \textit{check-out} são: \textit{check-in} das 16h às 22h; \textit{check-out} das 8h às 14h. Em períodos de temporada os horários mudam para: \textit{check-in} das 15h às 22h; \textit{check-out} das 8h às 11h.
 		\\ \hline
-		RN11 & A emissão de recibos ou comprovantes após check-in/out não é obrigatória.  
+		RN11 & A emissão de recibos ou comprovantes após \textit{check-in/out} não é obrigatória.  
 		 \\ \hline
 		RN12 & São permitidos \textit{early check-in} e \textit{late check-out} com cobrança de tarifas adicionais.  
 		 \\ \hline
@@ -1121,22 +1177,26 @@ Neste contexto, para auxiliar a equipe na modelagem e desenvolvimento aplicaçã
 		RN16 & É permitido reservar um mesmo quarto para hóspedes diferentes em datas seguidas.  
 		 \\ \hline	
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 % REQUISITOS 
 % ---
 \subsection{Requisitos do Sistema}
-Segundo Sommerville \cite[p.57]{sommerville2011}, os requisitos de um sistema são descrições do que o sistema deve fazer, os serviços que oferece e as restrições a seu funcionamento. Dessa forma, refletem as necessidades dos clientes e, consequentemente, descrevem a estrutura e a operação do sistema. Por isso, a fim de orientar a equipe de desenvolvimento na modelagem da aplicação web de gestão da Pousada Chalés Água de Coco, foram levantados os requisitos funcionai e não funcionais do sistema.
+Segundo Sommerville \cite[p.57]{sommerville2011}, os requisitos de um sistema são descrições do que o sistema deve fazer, os serviços que oferece e as restrições a seu funcionamento. Dessa forma, refletem as necessidades dos clientes e, consequentemente, descrevem a estrutura e a operação do sistema. Por isso, a fim de orientar a equipe de desenvolvimento na modelagem da aplicação \textit{web} de gestão da Pousada Chalés Água de Coco, foram levantados os requisitos funcionais e não funcionais do sistema.
 % ---
 \subsubsection{Requisitos Funcionais}
 Os requisitos funcionais descrevem as funcionalidades e serviços do sistema \textit{web} de gestão da pousada e estão listados resumidamente no \autoref{quadro_rf1}. O quadro completo está disponível no \autoref{apendice:rfdetalhados}.
 %
 \begin{quadro}[H]
-	\caption{Requisitos Funcionais - Parte 1}
+	\caption{Requisitos Funcionais (Parte 1)}
 	\label{quadro_rf1}
-	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{7.2cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{3.5cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.5cm}|m{7.2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{3.5cm}|}
 		\hline
-		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} 
+		\textbf{Código} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{7.2cm}|}{\textbf{Descrição}} &
+		\textbf{Prioridade} &
+		\textbf{Regra de Negócio Relacionada} 
 		\\ \hline
 		RF01 & A aplicação deve possuir um sistema de \textit{login} para a proprietária acessar a aplicação de forma segura, permitindo que ela altere ou recupere a sua senha de acesso sob demanda & Alta & RN01 
 		\\ \hline
@@ -1154,19 +1214,25 @@ Os requisitos funcionais descrevem as funcionalidades e serviços do sistema \te
 		\\ \hline
 		RF08 & A proprietária deve conseguir cadastrar mais de uma reserva no nome de um mesmo hóspede & Média & RN03 
 		\\ \hline
+		RF09 & A proprietária deve conseguir reservar um mesmo quarto para diferentes clientes em datas seguidas, respeitando os horários de \textit{check-in} e \textit{check-out} configurados para o quarto & Alta & RN10; RN16
+		\\ \hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 
 \begin{quadro}[H]
-	\caption{Requisitos Funcionais - Parte 2}
-	\label{quadro_rf2}
-	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
+	\ContinuedFloat
+	\caption{ Requisitos Funcionais (Parte 2)}
+	%\caption*{\quadroname~\ref{quadro_rf1} – Requisitos Funcionais (Parte 2)}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.5cm}|m{7.2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{3.5cm}|}
 		\hline
-		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} 
+		\textbf{Código} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{7.2cm}|}{\textbf{Descrição}} &
+		\textbf{Prioridade} &
+		\textbf{Regra de Negócio Relacionada} 
 		\\ \hline
-		RF09 & A proprietária deve conseguir reservar um mesmo quarto para diferentes clientes em datas seguidas, respeitando os horários de \textit{check-in} e \textit{check-out} configurados para o quarto & Alta & RN10; RN16
-		\\ \hline
+		
 		RF10 & O sistema deve permitir configurar tarifas de reserva com base nas regras de negócio da pousada & Média & RN13
 		 \\ \hline
 		RF11 & O sistema deve enviar uma notificação para o hóspede via \textit{e-mail} após a confirmação da reserva & Baixa & RN07
@@ -1183,16 +1249,23 @@ Os requisitos funcionais descrevem as funcionalidades e serviços do sistema \te
 		\\ \hline
 		RF17 & O sistema deve permitir à proprietária configurar os horários padrão de \textit{check-in} e \textit{check-out} & Alta & RN10
 		\\ \hline
+		RF18 & O sistema deve permitir o registro de \textit{early check-in} e \textit{late check-out} para uma reserva, bem como a configuração de tarifas adicionais correspondentes a essas opções & Média & RN12, RN13  \\ \hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
+%
 \begin{quadro}[H]
-	\caption{Requisitos Funcionais - Parte 3}
-	\label{quadro_rf3}
-	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
-		\hline
-		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF18 & O sistema deve permitir o registro de \textit{early check-in} e \textit{late check-out} para uma reserva, bem como a configuração de tarifas adicionais correspondentes a essas opções & Média & RN12, RN13  \\ \hline
+	\ContinuedFloat
+	\caption{ Requisitos Funcionais (Parte 3)}
+	%\caption*{\quadroname~\ref{quadro_rf1} – Requisitos Funcionais (Parte 3)}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.5cm}|m{7.2cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{3.5cm}|}
+	\hline
+	\textbf{Código} & 
+	\multicolumn{1}{>{\centering\arraybackslash}m{7.2cm}|}{\textbf{Descrição}} &
+	\textbf{Prioridade} &
+	\textbf{Regra de Negócio Relacionada} 
+	\\ \hline
 		RF19 & A proprietária deve poder registrar, editar e excluir as despesas da pousada, categorizando-as (ex: manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa & Média & RN01 
 		\\ \hline
 		RF20 & A proprietária deve poder registrar, editar e excluir receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita & Média & RN01 \\ \hline
@@ -1204,6 +1277,7 @@ Os requisitos funcionais descrevem as funcionalidades e serviços do sistema \te
 		& Baixa & Requisito de suporte à gestão operacional \\ \hline
 	\end{tabular}
 	\fonte{Elaborado pelos autores.}
+	\vspace{0.5cm}
 \end{quadro}
 %
 % REQUISITOS NÃO FUNCIONAIS
@@ -1211,36 +1285,43 @@ Os requisitos funcionais descrevem as funcionalidades e serviços do sistema \te
 Os requisitos não funcionais descrevem, por sua vez, as restrições e características de qualidade que devem ser aplicadas às funções e serviços prestados pelo sistema. E  estão listados no \autoref{quadro_rnf1}.
 % Quadro RFN
 \begin{quadro}[H]
-	\caption{\label{quadro_rnf1}Requisitos Não Funcionais - Parte 1}
-	\begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{4cm}|>{\raggedright\arraybackslash}m{8cm}|}
+	\caption{\label{quadro_rnf1}Requisitos Não Funcionais (Parte 1)}
+	\begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{4cm}|>{\arraybackslash}m{8.2cm}|}
 		\hline
-		\textbf{Código} & \textbf{Módulo} & \textbf{Descrição} 
+		\textbf{Código} & 
+		\textbf{Módulo} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{8cm}|}{\textbf{Descrição}}
 		\\ \hline
-		RNF01 & Usabilidade & A interface do sistema deve ser intuitiva, responsiva (compatível e adaptada tanto para dispositivos desktop quanto mobile)  e de fácil utilização, de modo que as tarefas essenciais da gestão da pousada sejam realizadas de forma eficiente e com mínimo esforço de aprendizado pela proprietária.  Para isso, deve-se adotar os princípios de interface amigável como a priorização da simplicidade e da clareza, padrões de interface consistentes e acessíveis
+		RNF01 & Usabilidade & A interface do sistema deve ser intuitiva, responsiva (compatível e adaptada tanto para dispositivos \textit{desktop} quanto \textit{mobile})  e de fácil utilização, de modo que as tarefas essenciais da gestão da pousada sejam realizadas de forma eficiente e com mínimo esforço de aprendizado pela proprietária.  Para isso, deve-se adotar os princípios de interface amigável como a priorização da simplicidade e da clareza, padrões de interface consistentes e acessíveis
 		\\ \hline
-		RNF02 & Usabilidade & O sistema deve fornecer mensagens de feedback claras, objetivas e contextualizadas para  todas as ações  realizadas pela usuária, como confirmação de reserva (exemplo: reserva efetuada com sucesso) ou notificações de erros (exemplo: falha ao cadastrar um quarto), garantindo uma interação segura e  satisfatória 
+		RNF02 & Usabilidade & O sistema deve fornecer mensagens de \textit{feedback} claras, objetivas e contextualizadas para  todas as ações  realizadas pela usuária, como confirmação de reserva (exemplo: reserva efetuada com sucesso) ou notificações de erros (exemplo: falha ao cadastrar um quarto), garantindo uma interação segura e  satisfatória 
 		\\ \hline
 		RNF03 & Performance & O sistema deve apresentar um tempo de resposta baixo, com carregamento das páginas e execução de ações da proprietária entre 2 e 3 segundos, para garantir uma navegação fluida.
 		 \\ \hline
 		RNF04 & Segurança & O sistema deve garantir a segurança das informações da pousada e dos hóspedes através da implementação de mecanismos robustos de autenticação e autorização, de forma a assegurar que apenas a usuária autorizada consiga acessar ou alterar dados na aplicação.
 		\\ \hline
+		RNF05 & Segurança & Os dados sensíveis devem ser protegidos conforme as melhores práticas propostas pela LGPD (Lei Geral de Proteção de Dados Pessoais), incluindo: utilização de criptografia para proteger dados em trânsito (HTTPS) e em repouso, implementação de políticas de autenticação robusta e minimização da coleta de dados. 
+		\\ \hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
 \begin{quadro}[H]
-	\caption{\label{quadro_rnf2}Requisitos Não Funcionais - Parte 2}
-	\begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{4cm}|>{\raggedright\arraybackslash}m{8cm}|}
+	\ContinuedFloat
+	\caption{Requisitos Não Funcionais (Parte 2)}
+	%\caption*{\quadroname~\ref{quadro_rnf1} – Requisitos Não Funcionais (Parte 2)}
+	\begin{tabular}{|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{4cm}|>{\arraybackslash}m{8.2cm}|}
 		\hline
-		\textbf{Código} & \textbf{Módulo} & \textbf{Descrição}
-		 \\ \hline
-		RNF05 & Segurança & Os dados sensíveis devem ser protegidos conforme as melhores práticas propostas pela LGPD (Lei Geral de Proteção de Dados Pessoais), incluindo: utilização de criptografia para proteger dados em trânsito (HTTPS) e em repouso, implementação de políticas de autenticação robusta e minimização da coleta de dados. 
+		\textbf{Código} & 
+		\textbf{Módulo} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{8cm}|}{\textbf{Descrição}}
 		\\ \hline
 		RNF06 & Confiabilidade & O sistema deve estar disponível e funcionando corretamente por pelo menos 99 por cento do tempo, a fim de garantir que a proprietária tenha acesso ao sistema sempre que necessário, inclusive nos períodos com maior movimento de hóspedes na pousada.
 		 \\ \hline
 		RNF07 & Confiabilidade & O sistema deve implementar mecanismos de tratamento de erros para que falhas e perdas de dados sejam prevenidas. 
 		\\ \hline
-		RNF08 & Confiabilidade & O deploy da aplicação deve ser realizado em uma infraestrutura de nuvem (Amazon EC2), a fim de proporcionar maior estabilidade, flexibilidade à aplicação e permitir que possíveis atualizações e manutenções tenham impacto mínimo para a usuária.
+		RNF08 & Confiabilidade & O \textit{deploy} da aplicação deve ser realizado em uma infraestrutura de nuvem (Amazon EC2), a fim de proporcionar maior estabilidade, flexibilidade à aplicação e permitir que possíveis atualizações e manutenções tenham impacto mínimo para a usuária.
 		 \\ \hline
 		RNF09 & Escalabilidade & Embora o sistema, inicialmente, seja voltado para uma única usuária, a arquitetura deve ser projetada de forma a permitir futuras expansões no número de usuários e funcionalidades sem grandes refatorações. 
 		\\ \hline
@@ -1250,12 +1331,13 @@ Os requisitos não funcionais descrevem, por sua vez, as restrições e caracter
 		\\ \hline
 		RNF12 & Documentação & O desenvolvimento deve seguir as boas práticas de codificação e padrões recomendados para aplicações Django, a fim de assegurar a manutenibilidade, extensibilidade e integridade do sistema ao longo do seu ciclo de vida. \\ \hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
 % HISTÓRIAS DE USUÁRIO
 \section{Histórias de Usuário}
-As histórias de usuário são descrições curtas e informais das funcionalidades esperadas do sistema, sob a perspectiva do usuário final. Dessa forma, elas possuem alto valor para o desenvolvimento do escopo, visto que, auxiliam a equipe a compreender e priorizar as necessidades reais dos usuários. Por isso, foram levantadas e listadas as histórias de usuário para a aplicação web de gestão da Pousada Chalés Água de Coco neste tópico, como parte da definição e organização das funcionalidades do sistema.
+As histórias de usuário são descrições curtas e informais das funcionalidades esperadas do sistema, sob a perspectiva do usuário final. Dessa forma, elas possuem alto valor para o desenvolvimento do escopo, visto que, auxiliam a equipe a compreender e priorizar as necessidades reais dos usuários. Por isso, foram levantadas e listadas as histórias de usuário para a aplicação \textit{web} de gestão da Pousada Chalés Água de Coco neste tópico, como parte da definição e organização das funcionalidades do sistema.
 \subsection{Descrição das Histórias de Usuário}
 A seguir, apresentam-se a as descrições das histórias de usuário levantadas para o desenvolvimento do sistema.
 % --- Enumeração das histórias
@@ -1538,7 +1620,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 		\item \textbf{Requisito Funcional Relacionado:} RF15.
 	\end{itemize} 
 	%22
-	\item \textbf{Configuração de Horários de \textit{Check-in} e\textit{Check-out}:}
+	\item \textbf{Configuração de Horários de Check-in e Check-out:}
 	\begin{itemize}
 		\item \textbf{Descrição:}  Como proprietária, quero configurar os horários de \textit{check-in} e \textit{check-out} para melhor controle de pessoas e, consequentemente, melhor recepção dos hóspedes.
 		\item \textbf{Critérios de Aceitação:}
@@ -1552,7 +1634,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 		\item \textbf{Requisito Funcional Relacionado:} RF17.
 	\end{itemize} 
 	%23
-	\item \textbf{Registro do \textit{Check-out}:}
+	\item \textbf{Registro do Check-out:}
 	\begin{itemize}
 		\item \textbf{Descrição:}  Como proprietária, quero registrar o \textit{check-out} de um hóspede para atualizar status do quarto e finalizar reserva.
 		\item \textbf{Critérios de Aceitação:}
@@ -1565,7 +1647,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 		\item \textbf{Requisito Funcional Relacionado:} RF16.
 	\end{itemize} 
 	%24
-	\item \textbf{Mudança de Status Pós \textit{Check-in}:}
+	\item \textbf{Mudança de Status Pós Check-in:}
 	\begin{itemize}
 		\item \textbf{Descrição:} Como proprietária, quero que o sistema mude o status do quarto de reservado para ocupado ao registrar o \textit{check-in}, para manter atualizada a ocupação real da pousada.
 		\item \textbf{Critérios de Aceitação:}
@@ -1578,7 +1660,7 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 		\item \textbf{Requisito Funcional Relacionado:} RF16.
 	\end{itemize} 
 	%25
-	\item \textbf{\textit{Early check-in} e \textit{Late check-out}:}
+	\item \textbf{Early check-in e Late check-out:}
 	\begin{itemize}
 		\item \textbf{Descrição:}  Como proprietária, quero quero registrar \textit{early check-in} e \textit{late check-out} em reservas para oferecer mais flexibilidade ao cliente.
 		\item \textbf{Critérios de Aceitação:}
@@ -1700,11 +1782,11 @@ A seguir, apresentam-se a as descrições das histórias de usuário levantadas 
 
 A arquitetura do sistema desenvolvido para a Pousada Chalés Água de Coco foi planejada com base em princípios de eficiência, escalabilidade, modularidade e segurança, aspectos considerados fundamentais para sistemas de informação de uso corporativo~\cite{pressman, sommerville}. O objetivo principal é garantir o funcionamento estável da plataforma de reservas, proporcionando aos gestores uma experiência fluida, confiável e segura, ao mesmo tempo em que facilita a manutenção e a evolução da solução no longo prazo.
 
-A definição da arquitetura seguiu boas práticas de desenvolvimento de software orientado a serviços e apoiou-se em tecnologias consolidadas no mercado. A seguir, são descritos o desenho arquitetural, a organização das camadas da aplicação, o banco de dados utilizado e a infraestrutura de hospedagem.
+A definição da arquitetura seguiu boas práticas de desenvolvimento de \textit{software} orientado a serviços e apoiou-se em tecnologias consolidadas no mercado. A seguir, são descritos o desenho arquitetural, a organização das camadas da aplicação, o banco de dados utilizado e a infraestrutura de hospedagem.
 
 \subsection{Arquitetura Lógica}
 
-O sistema adota o \textit{framework Django}~\cite{django}, que segue o padrão de arquitetura MTV (\textit{Model-Template-View}). Esse padrão promove a separação de responsabilidades, característica importante para manter a aplicação organizada, escalável e de fácil manutenção. Conforme defendem Bass, Clements e Kazman~\cite{bass2012}, a modularidade arquitetural é um fator crítico para a evolução e a qualidade de sistemas de software.
+O sistema adota o \textit{framework Django}~\cite{django}, que segue o padrão de arquitetura MTV (\textit{Model-Template-View}). Esse padrão promove a separação de responsabilidades, característica importante para manter a aplicação organizada, escalável e de fácil manutenção. Conforme defendem Bass, Clements e Kazman~\cite{bass2012}, a modularidade arquitetural é um fator crítico para a evolução e a qualidade de sistemas de \textit{software}.
 
 \subsubsection{Camada de Apresentação (Template)}
 
@@ -1727,7 +1809,7 @@ O banco de dados escolhido foi o \textit{PostgreSQL}, considerado uma solução 
 A aplicação está hospedada na \textit{Amazon Web Services (AWS)}, que oferece recursos de alta disponibilidade, escalabilidade e mecanismos de segurança em conformidade com padrões internacionais~\cite{aws-doc}. A configuração contempla:
 \begin{itemize}
 	\item Suporte a conexões seguras via HTTPS, garantindo confidencialidade e integridade dos dados trafegados;
-	\item Rotinas automáticas de backup para prevenir perda de informações;
+	\item Rotinas automáticas de \textit{backup} para prevenir perda de informações;
 	\item Monitoramento contínuo dos serviços, possibilitando respostas rápidas a falhas e incidentes.
 \end{itemize}
 
@@ -1740,35 +1822,38 @@ Por fim, a arquitetura proposta foi estruturada para suportar futuras expansões
 
 
 \subsection{Diagrama da Arquitetura}
-Para ilustrar visualmente a estrutura e o funcionamento da solução desenvolvida, foram elaborados diagramas de arquitetura com base nos padrões da UML (Unified Modeling Language). Esses diagramas auxiliam na compreensão das relações entre os componentes do sistema, da infraestrutura necessária para sua execução e da organização dos módulos internos.
+Para ilustrar visualmente a estrutura e o funcionamento da solução desenvolvida, foram elaborados diagramas de arquitetura com base nos padrões da UML (\textit{Unified Modeling Language}). Esses diagramas auxiliam na compreensão das relações entre os componentes do sistema, da infraestrutura necessária para sua execução e da organização dos módulos internos.
 A seguir, são apresentados o diagrama de implantação, que detalha os elementos físicos envolvidos na execução da aplicação, e o diagrama de componentes, que representa a divisão lógica do sistema em módulos e suas interações.
 \subsubsection{Diagrama de Implantação}
 A Figura~\ref{fig:diagramaimplantação} mostra o funcionamento da arquitetura do sistema.
 
 \begin{figure}[H]
 	\centering
+	\caption{Diagrama de Implantação}
 	\includegraphics[width=\textwidth]{Diagrama de Implantação- Digitalização da Pousada.JPEG}
-	\caption{Diagrama de Implantação desenvolvido no Online Visual-Paradigm}
 	\label{fig:diagramaimplantação}
+	\fonte{Desenvolvido pelos autores no Online Visual-Paradigm.}
 \end{figure}
+%---------------------------------------------------
 \subsubsection{Diagrama de Componentes}
 A Figura~\ref{fig:diagramacomponentes} mostra o funcionamento da arquitetura do sistema.
 
 \begin{figure}[h!]
 	\centering
+	\caption{Diagrama de Componentes}
 	\includegraphics[width=\textwidth]{0406-Componentes.png}
-	\caption{Diagrama de Componentes desenvolvido no Online Visual-Paradigm}
 	\label{fig:diagramacomponentes}
+	\fonte{Desenvolvido pelos autores no Online Visual-Paradigm.}
 \end{figure}
 
 
 \section{Tecnologias}
 
-O desenvolvimento do sistema da Pousada Chalés Água de Coco foi pautado na utilização de tecnologias modernas, acessíveis e amplamente consolidadas no mercado. As escolhas realizadas tiveram como objetivo garantir robustez, escalabilidade, segurança, custo-benefício e facilidade de manutenção, assegurando a aderência às boas práticas de desenvolvimento web. Nesta seção, são apresentadas as principais ferramentas e frameworks empregados, destacando-se o \textit{framework} Django, o sistema gerenciador de banco de dados PostgreSQL e a infraestrutura de nuvem provida pela Amazon Web Services (AWS).
+O desenvolvimento do sistema da Pousada Chalés Água de Coco foi pautado na utilização de tecnologias modernas, acessíveis e amplamente consolidadas no mercado. As escolhas realizadas tiveram como objetivo garantir robustez, escalabilidade, segurança, custo-benefício e facilidade de manutenção, assegurando a aderência às boas práticas de desenvolvimento \textit{web}. Nesta seção, são apresentadas as principais ferramentas e \textit{frameworks} empregados, destacando-se o \textit{framework} Django, o sistema gerenciador de banco de dados PostgreSQL e a infraestrutura de nuvem provida pela Amazon Web Services (AWS).
 
 \subsection{Django}
 
-O Django é um \textit{framework} web de alto nível baseado em Python, projetado para acelerar o desenvolvimento e incentivar práticas de código limpo e seguro~\cite{django,python}. Sua principal vantagem é a disponibilização de diversos recursos prontos para uso, como sistema de autenticação, ORM (Object-Relational Mapper), administração nativa e proteção contra vulnerabilidades comuns (SQL Injection, Cross-Site Scripting e Cross-Site Request Forgery), reduzindo significativamente o tempo de desenvolvimento e aumentando a segurança da aplicação.
+O Django é um \textit{framework web} de alto nível baseado em Python, projetado para acelerar o desenvolvimento e incentivar práticas de código limpo e seguro~\cite{django,python}. Sua principal vantagem é a disponibilização de diversos recursos prontos para uso, como sistema de autenticação, ORM (Object-Relational Mapper), administração nativa e proteção contra vulnerabilidades comuns (\textit{SQL Injection, Cross-Site Scripting e Cross-Site Request Forgery}), reduzindo significativamente o tempo de desenvolvimento e aumentando a segurança da aplicação.
 
 \subsubsection{Front-end}
 
@@ -1784,7 +1869,7 @@ O banco de dados utilizado é o PostgreSQL, um dos sistemas gerenciadores de ban
 
 \subsection{Infraestrutura em Nuvem com AWS}
 
-A hospedagem do sistema foi estruturada na Amazon Web Services (AWS), provedora líder de serviços em nuvem. A escolha pela AWS fundamenta-se em sua capacidade de oferecer alta disponibilidade, escalabilidade e segurança, alinhadas ao modelo de computação em nuvem definido pelo NIST, que recomenda elasticidade, autosserviço sob demanda, medição de uso e ampla conectividade~\cite{nist-cloud,aws-doc}. 
+A hospedagem do sistema foi estruturada na Amazon Web Services (AWS), provedora líder de serviços em nuvem. A escolha pela AWS fundamenta-se em sua capacidade de oferecer alta disponibilidade, escalabilidade e segurança, alinhadas ao modelo de computação em nuvem definido pelo NIST (National Institute of Standards and Technology), que recomenda elasticidade, autosserviço sob demanda, medição de uso e ampla conectividade~\cite{nist-cloud,aws-doc}. 
 
 Entre os serviços utilizados destacam-se: 
 \begin{itemize}
@@ -1793,11 +1878,11 @@ Entre os serviços utilizados destacam-se:
 	\item \textbf{Amazon CloudWatch}: monitoramento e geração de métricas em tempo real.
 \end{itemize}
 
-Essa infraestrutura garante redundância, políticas de backup e suporte a conexões seguras via HTTPS, fatores indispensáveis para um sistema que manipula dados pessoais e financeiros.
+Essa infraestrutura garante redundância, políticas de \textit{backup} e suporte a conexões seguras via HTTPS, fatores indispensáveis para um sistema que manipula dados pessoais e financeiros.
 
 \subsection{Boas Práticas de Desenvolvimento}
 
-Além da escolha tecnológica, adotaram-se boas práticas de engenharia de software, como versionamento de código com Git, integração e entrega contínuas (CI/CD), aplicação de testes automatizados e atualizações periódicas de dependências. Tais práticas favorecem a manutenibilidade, reduzem riscos de falhas em produção e facilitam a evolução da aplicação, assegurando qualidade e estabilidade ao longo de seu ciclo de vida.
+Além da escolha tecnológica, adotaram-se boas práticas de engenharia de \textit{software}, como versionamento de código com Git, integração e entregas contínuas (CI/CD), aplicação de testes automatizados e atualizações periódicas de dependências. Tais práticas favorecem a manutenibilidade, reduzem riscos de falhas em produção e facilitam a evolução da aplicação, assegurando qualidade e estabilidade ao longo de seu ciclo de vida.
 
 \subsection{Resumo da Escolha Tecnológica}
 
@@ -1807,8 +1892,8 @@ A adoção do Django, PostgreSQL e AWS foi motivada pela combinação de fatores
 O desenvolvimento do sistema de gestão para a Pousada Chalés Água de Coco foi orientado pela adoção de um estilo de codificação consistente e pelo uso de padrões amplamente reconhecidos na comunidade de desenvolvimento Python e Django. Essa abordagem garante legibilidade, manutenibilidade e escalabilidade do código ao longo de todo o ciclo de vida do sistema~\cite{pep8, django}.
 
 \subsection{Estrutura e Organização do Projeto}
-O projeto segue a arquitetura padrão do framework Django, caracterizada pela clara separação de responsabilidades (\textit{Separation of Concerns}). A estrutura é modular, sendo as funcionalidades agrupadas em aplicações (\textit{apps}) específicas, como \textit{core} (responsável por hóspedes, quartos e reservas) e \textit{financeiro} (voltada ao controle de títulos, categorias e bancos).
-Dentro de cada app, o código é organizado conforme sua finalidade: \texttt{models.py} define a estrutura de dados e relacionamentos; \texttt{views.py} contém a lógica de negócio e o controle das requisições; \texttt{forms.py} é responsável pela validação e renderização de formulários; \texttt{urls.py} gerencia o roteamento de páginas; e o diretório \texttt{templates/} abriga os arquivos HTML da camada de apresentação. 
+O projeto segue a arquitetura padrão do \textit{framework} Django, caracterizada pela clara separação de responsabilidades (\textit{Separation of Concerns}). A estrutura é modular, sendo as funcionalidades agrupadas em aplicações (\textit{apps}) específicas, como \textit{core} (responsável por hóspedes, quartos e reservas) e \textit{financeiro} (voltada ao controle de títulos, categorias e bancos).
+Dentro de cada \textit{app}, o código é organizado conforme sua finalidade: \texttt{models.py} define a estrutura de dados e relacionamentos; \texttt{views.py} contém a lógica de negócio e o controle das requisições; \texttt{forms.py} é responsável pela validação e renderização de formulários; \texttt{urls.py} gerencia o roteamento de páginas; e o diretório \texttt{templates/} abriga os arquivos HTML da camada de apresentação. 
 Além disso, foi criada uma pasta \texttt{utils/} para funções auxiliares reutilizáveis (como validação de datas e envio de e-mails), seguindo o princípio DRY (\textit{Don't Repeat Yourself})~\cite{django}. A configuração central do projeto reside nos arquivos \texttt{settings.py} e \texttt{urls.py} localizados na pasta principal \texttt{setup/}, em conformidade com as convenções do Django.
 
 \subsection{Convenções de Nomenclatura}
@@ -1822,12 +1907,12 @@ As convenções de nomenclatura seguem as diretrizes da PEP 8~\cite{pep8}, garan
 \end{itemize}
 
 \subsection{Padrões de Código e Legibilidade}
-O código demonstra boa legibilidade, utilizando identação consistente, nomes descritivos e separação lógica de blocos. Comentários são empregados para explicar trechos mais complexos, tanto no backend, quanto no frontend.
+O código demonstra boa legibilidade, utilizando identação consistente, nomes descritivos e separação lógica de blocos. Comentários são empregados para explicar trechos mais complexos, tanto no back-end, quanto no front-end.
 As importações seguem boas práticas: primeiro as bibliotecas padrão do Python, depois as dependências externas e, por fim, os módulos locais, conforme as recomendações da PEP 8.
 
 
 \subsection{Considerações Finais sobre o Estilo}
-Em resumo, o projeto apresenta uma codificação consistente, modular e alinhada às boas práticas da comunidade Django e Python. A separação em apps, a organização interna dos módulos e o uso de recursos nativos do framework favorecem a manutenibilidade e a evolução do sistema.
+Em resumo, o projeto apresenta uma codificação consistente, modular e alinhada às boas práticas da comunidade Django e Python. A separação em \textit{apps}, a organização interna dos módulos e o uso de recursos nativos do \textit{framework} favorecem a manutenibilidade e a evolução do sistema.
 
 
 \section{Ferramentas de Apoio}
@@ -1837,7 +1922,7 @@ O GitHub foi utilizado para controle de versão e colaboração durante o desenv
 \subsection{BRModelo}
 O BRModelo foi utilizado para a modelagem lógica e relacional do banco de dados. A ferramenta oferece uma interface intuitiva para construção de diagramas entidade-relacionamento (DER), o que auxiliou na estruturação clara das tabelas, relacionamentos e chaves do sistema~\cite{brmodelo}. O uso do BRModelo contribuiu diretamente para a coerência e integridade do esquema de dados implementado no PostgreSQL.
 \subsection{Visual Paradigm Online}
-O Visual Paradigm Online foi utilizado na criação dos diagramas de Implantação e Componentes. Esta ferramenta auxiliou na documentação da arquitetura do sistema, contribuindo para uma melhor compreensão dos fluxos e interações entre os componentes~\cite{visual-paradigm}. A versão online possibilitou colaboração remota e armazenamento em nuvem, o que otimizou a produtividade da equipe.
+O Visual Paradigm Online foi utilizado na criação dos diagramas de Implantação e Componentes. Esta ferramenta auxiliou na documentação da arquitetura do sistema, contribuindo para uma melhor compreensão dos fluxos e interações entre os componentes~\cite{visual-paradigm}. A versão \textit{online} possibilitou colaboração remota e armazenamento em nuvem, o que otimizou a produtividade da equipe.
 \subsection{Latex}
 O LaTeX foi utilizado na produção e formatação do trabalho acadêmico. Por meio de seu sistema de marcação, foi possível obter um alto nível de controle sobre a estrutura e apresentação do documento, garantindo consistência, qualidade e organização~\cite{latex-project}.
 
@@ -1850,7 +1935,7 @@ Para monitorar o progresso do projeto, foi utilizada a ferramenta  ProjectLibre.
 Na ferramenta, as tarefas do \textit{product backlog} foram organizadas com datas de início e término, respeitando os prazos definidos para a conclusão das \textit{sprints}. Além disso, os recursos, tanto humanos quanto de infraestrutura, foram devidamente associados a cada tarefa, o que possibilitou o monitoramento e o controle eficaz dos custos do projeto.
 
 \section{Manutenibilidade}
-A manutenibilidade do sistema de reservas para pousadas desenvolvido neste projeto é assegurada por meio de práticas estruturadas de engenharia de software, que facilitam a correção de erros, inclusão de novas funcionalidades e adaptação a futuras necessidades.
+A manutenibilidade do sistema de reservas para pousadas desenvolvido neste projeto é assegurada por meio de práticas estruturadas de engenharia de \textit{software}, que facilitam a correção de erros, inclusão de novas funcionalidades e adaptação a futuras necessidades.
 
 O sistema foi criado com uma arquitetura modular, respeitando os princípios de separação de responsabilidades. Isso permite que diferentes partes do sistema, como interface, regras de negócio e persistência de dados, sejam modificadas de forma independente, minimizando impactos colaterais e reduzindo o tempo de manutenção.
 
@@ -1864,21 +1949,21 @@ Por fim, o projeto segue um ciclo de desenvolvimento bem definido, com etapas de
 
 \section{Segurança, Privacidade e Legislação}
 
-A segurança da informação e a conformidade com legislações específicas representam pilares fundamentais no desenvolvimento de sistemas web que envolvem dados pessoais e financeiros. No caso do sistema de reservas da Pousada Chalés Água de Coco, essas diretrizes foram centrais na concepção e implementação da aplicação. Para tanto, foram aplicadas boas práticas de desenvolvimento seguro, funcionalidades nativas do framework Django e medidas alinhadas à Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018)~\cite{lgpd}.
+A segurança da informação e a conformidade com legislações específicas representam pilares fundamentais no desenvolvimento de sistemas \textit{web} que envolvem dados pessoais e financeiros. No caso do sistema de reservas da Pousada Chalés Água de Coco, essas diretrizes foram centrais na concepção e implementação da aplicação. Para tanto, foram aplicadas boas práticas de desenvolvimento seguro, funcionalidades nativas do \textit{framework} Django e medidas alinhadas à Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018)~\cite{lgpd}.
 
 \subsection{Segurança da Aplicação}
 
-O framework Django oferece mecanismos nativos de defesa contra vulnerabilidades comuns em aplicações web, como injeção de SQL, execução remota de código, Cross-Site Scripting (XSS) e falsificação de requisições entre sites (CSRF)~\cite{django}. Além das proteções automáticas, foram aplicadas práticas adicionais, descritas a seguir:
+O \textit{framework} Django oferece mecanismos nativos de defesa contra vulnerabilidades comuns em aplicações \textit{web}, como injeção de SQL, execução remota de código, \textit{Cross-Site Scripting} (XSS) e falsificação de requisições entre sites (CSRF)~\cite{django}. Além das proteções automáticas, foram aplicadas práticas adicionais, descritas a seguir:
 
 \begin{itemize}
 	\item \textbf{Autenticação e autorização}: O controle de acesso é baseado em permissões, restringindo páginas sensíveis apenas a usuários autenticados e devidamente autorizados.
-	\item \textbf{Proteção contra CSRF}: Todas as requisições POST utilizam tokens exclusivos para prevenir ações maliciosas.
-	\item \textbf{Escapamento automático de HTML (XSS)}: O sistema de templates do Django neutraliza a execução de scripts não autorizados.
-	\item \textbf{Armazenamento seguro de senhas}: Senhas são armazenadas utilizando algoritmos modernos de hash, como \textit{PBKDF2}, reduzindo significativamente os riscos em caso de vazamento~\cite{owasp}.
+	\item \textbf{Proteção contra CSRF}: Todas as requisições POST utilizam \textit{tokens} exclusivos para prevenir ações maliciosas.
+	\item \textbf{Escapamento automático de HTML (XSS)}: O sistema de \textit{templates} do Django neutraliza a execução de \textit{scripts} não autorizados.
+	\item \textbf{Armazenamento seguro de senhas}: Senhas são armazenadas utilizando algoritmos modernos de \textit{hash}, como \textit{PBKDF2}, reduzindo significativamente os riscos em caso de vazamento~\cite{owasp}.
 	\item \textbf{Gerenciamento de sessões}: Utilização de identificadores criptografados, expiração automática de sessões inativas e proteção contra falsificação.
 \end{itemize}
 
-Essas medidas seguem recomendações amplamente adotadas pela comunidade de segurança, como as diretrizes da \textit{Open Web Application Security Project} (OWASP), voltadas à mitigação das principais ameaças em sistemas web~\cite{owasp}.
+Essas medidas seguem recomendações amplamente adotadas pela comunidade de segurança, como as diretrizes da \textit{Open Web Application Security Project} (OWASP), voltadas à mitigação das principais ameaças em sistemas \textit{web}~\cite{owasp}.
 
 \subsection{Segurança na Comunicação}
 
@@ -1890,9 +1975,9 @@ Todas as comunicações entre cliente e servidor ocorrem por meio do protocolo H
 	\item \textbf{Autenticidade}: Validação da identidade do servidor pela autoridade certificadora.
 \end{itemize}
 
-Adicionalmente, todas as requisições HTTP são redirecionadas automaticamente para HTTPS. Foram configurados cabeçalhos de segurança (como \texttt{Strict-Transport-Security} e \texttt{X-Content-Type-Options}), reforçando a proteção contra ataques de \textit{downgrade} e manipulação de conteúdo~\cite{rfc-tls}.Os headers de segurança do sistema foram testados através da plataforma Security Headers \cite{securityheaders2025}. O resultado foi uma nota A+,  disponível na \autoref{apendice:certificado_headers}.
+Adicionalmente, todas as requisições HTTP são redirecionadas automaticamente para HTTPS. Foram configurados cabeçalhos de segurança (como \texttt{Strict-Transport-Security} e \texttt{X-Content-Type-Options}), reforçando a proteção contra ataques de \textit{downgrade} e manipulação de conteúdo~\cite{rfc-tls}. Os \textit{headers} de segurança do sistema foram testados através da plataforma Security Headers \cite{securityheaders2025}. O resultado foi uma nota A+,  disponível na \autoref{apendice:certificado_headers}.
 
-Para verificar a segurança da implementação, a comunicação HTTPS do sistema web da Pousada Chalés de Água de Coco também foi avaliada através da plataforma SSL Labs, por meio do SSL Server Test, que analisa detalhadamente a implementação do protocolo TLS/SSL pelo servidor e a proteção das conexões estabelecidas \cite{ssllabs_app_pousada}. O certificado utilizado foi emitido pela autoridade certificadora gratuita Let's Encrypt \cite{letsencrypt}. A aplicação recebeu a nota A, indicando uma configuração segura e adequada, e a captura de tela do resultado está disponível no \autoref{apendice:certificado_SSL}.
+Para verificar a segurança da implementação, a comunicação HTTPS do sistema \textit{web} da Pousada Chalés de Água de Coco também foi avaliada através da plataforma SSL Labs, por meio do SSL Server Test, que analisa detalhadamente a implementação do protocolo TLS/SSL pelo servidor e a proteção das conexões estabelecidas \cite{ssllabs_app_pousada}. O certificado utilizado foi emitido pela autoridade certificadora gratuita Let's Encrypt \cite{letsencrypt}. A aplicação recebeu a nota A, indicando uma configuração segura e adequada, e a captura de tela do resultado está disponível no \autoref{apendice:certificado_SSL}.
 
 
 
@@ -1905,7 +1990,7 @@ A LGPD estabelece princípios fundamentais para o tratamento de dados pessoais, 
 	\item \textbf{Gestão de consentimento}: Usuários podem alterar o consentimento previamente fornecido, em conformidade com os princípios de liberdade e autonomia.
 	\item \textbf{Direitos do titular}: Possibilidade de solicitação de acesso, correção ou exclusão de dados pessoais armazenados.
 	\item \textbf{Transparência}: Informações sobre a finalidade do tratamento de dados estão disponíveis de forma clara.
-	\item \textbf{Armazenamento seguro e backups}: Dados são protegidos por mecanismos de criptografia e submetidos a rotinas de backup regular em ambiente de nuvem (AWS), garantindo resiliência e prevenção contra perdas.
+	\item \textbf{Armazenamento seguro e \textit{backups}}: Dados são protegidos por mecanismos de criptografia e submetidos a rotinas de \textit{backup} regular em ambiente de nuvem (AWS), garantindo resiliência e prevenção contra perdas.
 \end{itemize}
 
 A adoção desses recursos reforça a responsabilidade do sistema frente à segurança, privacidade e conformidade, estabelecendo uma base sólida para a proteção das informações dos hóspedes e para a credibilidade do serviço.
@@ -1915,29 +2000,38 @@ A adoção desses recursos reforça a responsabilidade do sistema frente à segu
 A modelagem do banco de dados é uma etapa fundamental no desenvolvimento de sistemas de informação, pois define a estrutura lógica e relacional para o armazenamento e manipulação dos dados. No sistema da Pousada Chalés Água de Coco, a modelagem foi realizada com foco na integridade dos dados, normalização e clareza nos relacionamentos entre as entidades.
 
 Utilizando a ferramenta BRModelo, foram construídos o Modelo Entidade Relacionamento (MER) e o Diagrama Entidade Relacionamento (DER), os quais serviram como base para a implementação do banco de dados relacional no PostgreSQL. Esses diagramas ajudam a visualizar as entidades principais do sistema, como hóspedes, reservas, quartos, bem como os vínculos entre elas, garantindo coerência e consistência no projeto de dados.
+
 \subsection{Modelo Entidade-Relacionamento - MER}
 
 A Figura~\ref{fig:mer} mostra o Modelo Entidade-Relacionamento (MER) do sistema.
 
-\begin{figure}[h!]
+\begin{figure}[H] % Use H maiúsculo para travar a posição
 	\centering
-	\includegraphics[width=\textwidth]{mer.png}
-	\caption{Modelo Entidade-Relacionamento (MER) desenvolvido no brModelo}
+	\caption{Modelo Entidade-Relacionamento (MER)}
+	% Define largura máxima E altura máxima. O LaTeX respeita o que for atingido primeiro.
+	\includegraphics[width=\textwidth, height=0.4\textheight, keepaspectratio]{mer.png}
+	\fonte{Desenvolvido pelos autores no brModelo.}
 	\label{fig:mer}
 \end{figure}
+
+\vspace{-0.5cm} % Ajuste fino: reduz espaço se necessário
+
+% --- Texto e Subseção no meio ---
 \subsection{Diagrama Entidade-Relacionamento - DER}
 A Figura~\ref{fig:der} mostra o Diagrama Entidade-Relacionamento (DER) do sistema.
 
+
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=\textwidth]{der.png}
-	\caption{Diagrama Entidade-Relacionamento (DER) desenvolvido no brModelo}
+	\caption{Diagrama Entidade-Relacionamento (DER)}
+	\includegraphics[width=\textwidth, height=0.4\textheight, keepaspectratio]{der.png}
 	\label{fig:der}
+	\fonte{Desenvolvido pelos autores no brModelo.}
 \end{figure}
 
-\section{Repositório da Aplicação}Nesta seção é apresentada a estrutura do ambiente de desenvolvimento do sistema web de gestão da Pousada Chalés Água de Coco. Visando facilitar o gerenciamento, a colaboração entre os desenvolvedores e o controle do versionamento do código-fonte do sistema de gestão, a estrutura foi armazenada em um repositório remoto no GitHub (\autoref{fig:qrcode_github_repo}). 
+\section{Repositório da Aplicação}Nesta seção é apresentada a estrutura do ambiente de desenvolvimento do sistema \textit{web} de gestão da Pousada Chalés Água de Coco. Visando facilitar o gerenciamento, a colaboração entre os desenvolvedores e o controle do versionamento do código-fonte do sistema de gestão, a estrutura foi armazenada em um repositório remoto no GitHub (\autoref{fig:qrcode_github_repo}). 
 
-O código-fonte do sistema foi estruturado em aplicações modulares, arquivos de configuração geral do ambiente \textit{Django} e arquivos auxiliares, seguindo o padrão recomendado pelo \textit{framework}. Essa organização, que visa facilitar o desenvolvimento, a manutenção e a segurança do sistema, está estruturada como  ilustrado na \autoref{fig:estrutura_rep}
+O código-fonte do sistema foi estruturado em aplicações modulares, arquivos de configuração geral do ambiente Django e arquivos auxiliares, seguindo o padrão recomendado pelo \textit{framework}. Essa organização, que visa facilitar o desenvolvimento, a manutenção e a segurança do sistema, está estruturada como  ilustrado na \autoref{fig:estrutura_rep}
 %
 \begin{comment}		
 \begin{enumerate}
@@ -2024,15 +2118,17 @@ O código-fonte do sistema foi estruturado em aplicações modulares, arquivos d
 %
 \begin{figure}[H]
 	\centering
+	\vspace{0.5cm}
 	\caption{Exemplificação da Estrutura do Repositório}
 	\label{fig:estrutura_rep}
 	\includegraphics[height=0.6\textheight]{estrutura_pastas.png}
+	\vspace{0.5cm}
 	\fonte{Elaboração própria.}
 \end{figure}
 %
-Essa configuração segue as boas práticas do \textit{framework}, promovendo baixo acoplamento e alta coesão. Na camada de lógica, essa coesão foi aplicada especificamente no \textit{app} "core", que organiza os arquivos models e views das entidades quarto, hóspede e reserva, as quais formam o domínio central do negócio: a gestão de reservas. Os demais \textit{apps} representam preocupações separadas: usuários (autenticação), financeiro (contabilidade) e relatórios (camada de leitura e agregação). E, por isso, seguiram uma lógica de baixo acoplamento.
+Essa configuração segue as boas práticas do \textit{framework}, promovendo baixo acoplamento e alta coesão. Na camada de lógica, essa coesão foi aplicada especificamente no \textit{app} \texttt{core}, que organiza os arquivos \textit{models} e \textit{views} das entidades quarto, hóspede e reserva, as quais formam o domínio central do negócio: a gestão de reservas. Os demais \textit{apps} representam preocupações separadas: usuários (autenticação), financeiro (contabilidade) e relatórios (camada de leitura e agregação). E, por isso, seguiram uma lógica de baixo acoplamento.
  
-No entanto, para a camada de apresentação (templates), optou-se por centralizar todos os arquivos em um único diretório (code/setup/templates/). Essa escolha, apesar de reduzir a portabilidade individual de cada app, aumenta a coesão do projeto e facilita a manutenção e a organização das interfaces, simplificando o fluxo de trabalho. 
+No entanto, para a camada de apresentação (\textit{templates}), optou-se por centralizar todos os arquivos em um único diretório \texttt{(code/setup/templates/)}. Essa escolha, apesar de reduzir a portabilidade individual de cada \textit{app}, aumenta a coesão do projeto e facilita a manutenção e a organização das interfaces, simplificando o fluxo de trabalho. 
 
 {\hypersetup{urlcolor=black}
 	\begin{figure}[H]
@@ -2040,6 +2136,7 @@ No entanto, para a camada de apresentação (templates), optou-se por centraliza
 		\caption{QR Code repositório do sistema no GitHub}
 		\label{fig:qrcode_github_repo}
 		\qrcode[height=3cm]{https://github.com/guilhermebschmidt/SistemaWebGestaoPousada.git}
+		\vspace{0.5cm}
 		\fonte{Elaboração própria.}
 \end{figure}}
 
@@ -2047,11 +2144,11 @@ No entanto, para a camada de apresentação (templates), optou-se por centraliza
 O desenvolvimento do sistema seguiu um cronograma baseado em entregas parciais, cada uma representando uma etapa importante na evolução do projeto. Essas entregas permitiram o acompanhamento contínuo do progresso, validação das funcionalidades e documentação formal de todas as fases do trabalho. A seguir, são descritas as principais entregas realizadas ao longo do semestre, com seus respectivos objetivos e resultados.
 \subsection{Desenvolvimento de um Tema - 08/04}
 
-Nesta etapa inicial, foi definido o tema central do projeto: o desenvolvimento de um sistema web para automatizar os processos administrativos da pousada Chalés Água de Coco. A escolha foi baseada em uma demanda real identificada junto ao empreendimento, permitindo alinhar os objetivos acadêmicos com a solução de um problema concreto.
+Nesta etapa inicial, foi definido o tema central do projeto: o desenvolvimento de um sistema \textit{web} para automatizar os processos administrativos da pousada Chalés Água de Coco. A escolha foi baseada em uma demanda real identificada junto ao empreendimento, permitindo alinhar os objetivos acadêmicos com a solução de um problema concreto.
 
 \subsection{Desenho da Aplicação - 29/04}
 
-Foi elaborada a arquitetura do sistema utilizando os diagramas UML de Componentes e de Implantação, utilizando o padrão MTV (Model-Template-View) do framework Django. Nessa fase, também foi realizada a modelagem inicial do banco de dados relacional utilizando o PostgreSQL
+Foi elaborada a arquitetura do sistema utilizando os diagramas UML de Componentes e de Implantação, utilizando o padrão MTV (Model-Template-View) do \textit{framework} Django. Nessa fase, também foi realizada a modelagem inicial do banco de dados relacional utilizando o PostgreSQL
 
 \subsection{Prova de Conceito - 20/05}
 
@@ -2064,8 +2161,10 @@ Nesta etapa, foi realizada a entrega da documentação referente ao Projeto de C
 \subsection{Produto Mínimo Viável - 24/06}
 
 O Produto Mínimo Viável (MVP) entregue contempla as funcionalidades essenciais do sistema, focando na gestão de hóspedes, acomodações e reservas. Essas funcionalidades já permitem à pousada Chalés Água de Coco substituir o controle manual por um sistema digital centralizado e acessível. A parte de controle financeiro, embora planejada, será desenvolvida em uma fase posterior, prevista para o próximo semestre.
+
+%
 \chapter{Plano de Testes}
-Neste tópico é detalhado o planejamento e execução dos testes do sistema web de gestão da pousada. 
+Neste tópico é detalhado o planejamento e execução dos testes do sistema \textit{web} de gestão da pousada. 
 
 \section{Objetivo}
 O objetivo do plano de testes é validar a funcionalidade, confiabilidade e robustez do sistema, com foco principal em:
@@ -2098,7 +2197,7 @@ Em contrapartida, esse plano não contempla as seguintes categorias de testes:
 
 \section{ Análise Estática de Qualidade de Código}
 
-Para a realização da análise estática do código foi  utilizada a ferramenta SonarQube. O objetivo foi  identificar e corrigir \textit{code smells}, \textit{bugs} em potencial e vulnerabilidades de segurança antes do deploy.
+Para a realização da análise estática do código foi  utilizada a ferramenta SonarQube. O objetivo foi  identificar e corrigir \textit{code smells}, \textit{bugs} em potencial e vulnerabilidades de segurança antes do \textit{deploy}.
 
 \begin{itemize}
 	\item Durante a execução do SonarQube foram avaliados e corrigidos os seguintes casos:
@@ -2261,15 +2360,21 @@ Os testes funcionais do módulo hóspedes estão detalhados no \autoref{quadro_t
 \subsection{Testes Funcionais do Módulo Quartos}
 Os testes funcionais do módulo quartos estão detalhados no \autoref{quadro_tf4}.
 \end{comment}
-
+\vspace{0.5cm}
+%
 \begin{quadro}[H]
 	\adjustbox{max width=\textwidth}{
-		\caption{Testes Funcionais - Categoria Quartos}
+		\caption{Testes Funcionais: Categoria Quartos}
 		\label{quadro_tf4}
-		\begin{tabular}{|c|p{3cm}|c|p{3cm}|p{4.5cm}|p{4.5cm}|}
+		\begin{tabular}{|c|>{\centering\arraybackslash}m{2.6cm}|c|>{\centering\arraybackslash}m{2.6cm}|>{\centering\arraybackslash}m{4.5cm}|>{\centering\arraybackslash}m{4.5cm}|}
 			\hline
-			\textbf{ID} & \textbf{Descrição} & \textbf{RF} & \textbf{Pré-condição} & \textbf{Ação} & \textbf{Resultado Esperado} \\ \hline
-
+			\textbf{ID} &
+			\multicolumn{1}{>{\centering\arraybackslash}m{2.6cm}|}{\textbf{Descrição}} &
+			\textbf{RF} &
+			\multicolumn{1}{>{\centering\arraybackslash}m{2.6cm}|}{\textbf{Pré-condição}} & 
+			\multicolumn{1}{>{\centering\arraybackslash}m{4.5cm}|}{\textbf{Ação}} &
+			\multicolumn{1}{>{\centering\arraybackslash}m{4.5cm}|}{\textbf{Resultado Esperado}} 
+			\\ \hline
 			CT-Q01 &  Cadastro de quarto válido & RF13 & Nenhum &
 			Informar número, tipo, capacidade, preço $\rightarrow$ Salvar &
 			Quarto cadastrado. \\ \hline
@@ -2290,8 +2395,9 @@ Os testes funcionais do módulo quartos estão detalhados no \autoref{quadro_tf4
 			Selecionar intervalo $\rightarrow$ Buscar &
 			Somente quartos disponíveis exibidos. \\ \hline
 	 	\end{tabular}
-}
-\fonte{Elaborado pelos autores.}
+	}
+	\vspace{0.5cm}
+	\fonte{Elaborado pelos autores.}
 \end{quadro}
 
 O quadro completo com todos os testes funcionais está disponível no repositório do GitHub (\autoref{fig:qrcode_testes_funcionais}). No total foram planejados 66 testes funcionais que cobriam, diretamente, o equivalente a 80\% dos requisitos funcionais do sistema (relacionados a 20 dos requisitos funcionais totais). No entanto, foi efetivamente realizado, cerca de 38\% dos testes, devido atrasos no desenvolvimento de novas funcionalidades. Os testes realizados estão documentados do 
@@ -2303,20 +2409,21 @@ O quadro completo com todos os testes funcionais está disponível no repositór
 	\caption{QR Code Documento de Testes Funcionais}
 	\label{fig:qrcode_testes_funcionais}
 	{\color{black}\qrcode[height=3cm]{https://github.com/guilhermebschmidt/SistemaWebGestaoPousada/blob/main/Documenta%C3%A7%C3%A3o/teste_funcional.md}}
+	\vspace{0.3cm}
 	\fonte{Elaboração própria.}
 \end{figure}
 
 \section{Testes Unitários}
-Os testes unitários foram a primeira linha de defesa da qualidade do código e auxiliaram na validação da lógica interna da aplicação. Para o desenvolvimento, utilizou-se o \textit{framework} Pytest. Seguindo a convenção padrão do Django, os testes foram organizados em pastas \textit{tests/} localizadas dentro de cada \textit{app} (módulo) da aplicação. Esta estrutura permitiu a criação de testes limpos, modulares e eficientes.
+Os testes unitários foram a primeira linha de defesa da qualidade do código e auxiliaram na validação da lógica interna da aplicação. Para o desenvolvimento, utilizou-se o \textit{framework} Pytest. Seguindo a convenção padrão do Django, os testes foram organizados em pastas \texttt{tests/} localizadas dentro de cada \textit{app} (módulo) da aplicação. Esta estrutura permitiu a criação de testes limpos, modulares e eficientes.
 
 Como estratégia, o foco não foi  desenvolver testes unitários capazes de atingir 100\% de cobertura de linhas , mas sim em garantir a robustez das áreas de maior complexidade e risco de negócio. O esforço foi concentrado em:
 \begin{itemize}
 	\item \textbf{Lógica de Cálculo:} Funções puras responsáveis pela geração de relatórios e KPIs (ex: balanço financeiro).
-	\item \textbf{Funções de Validação:} A lógica complexa de validação nos \textit{forms.py} e \textit{models.py} (ex: regras de conflito de reserva).
-	\item \textbf{Funções Utilitárias:} Componentes críticos de \textit{utils.py} (ex: exportação de arquivos).
+	\item \textbf{Funções de Validação:} A lógica complexa de validação nos \texttt{forms.py} e \texttt{models.py} (ex: regras de conflito de reserva).
+	\item \textbf{Funções Utilitárias:} Componentes críticos de \texttt{utils.py} (ex: exportação de arquivos).
 \end{itemize}
 
-O código padrão gerado pelo Django (como o Admin, migrações, ou funções de \textit{views.py} que apenas renderizam \textit{templates}) foi intencionalmente considerado de baixo risco e não foi o foco principal desta camada de testes, sendo validado pelos Testes Funcionais.
+O código padrão gerado pelo Django (como o Admin, migrações, ou funções de \texttt{views.py} que apenas renderizam \textit{templates}) foi intencionalmente considerado de baixo risco e não foi o foco principal desta camada de testes, sendo validado pelos Testes Funcionais.
 
 A cobertura de testes foi monitorada através da integração  com o SonarQube e apresentou um resultado final de, aproximadamente, 67\% das linhas de código. Esta métrica é um reflexo direto da estratégia adotada: ela representa uma cobertura muito alta sobre a área de negócio complexa do sistema, principalmente das linhas de gestão de reservas, ao mesmo tempo que omite os códigos de baixo risco. 
 
@@ -2338,7 +2445,7 @@ Para análise desses custos, foram construídas a \autoref{tab:custos-equipament
 
 \begin{table}[H]
 	\centering
-	\caption{Resumo dos Custos da Infraestrutura de Desenvolvimento}
+	\caption{Resumo dos custos da infraestrutura de desenvolvimento}
 	\label{tab:custos-equipamentos}
 	\adjustbox{max width=\textwidth}{
 		\begin{tabular}{|>{\RaggedRight\arraybackslash}p{5.5cm}|c|c|c|c|}
@@ -2370,6 +2477,7 @@ Para análise desses custos, foram construídas a \autoref{tab:custos-equipament
 			\hline
 		\end{tabular}
 	}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores}
 \end{table}
 % ---------------------------------------------------%
@@ -2377,7 +2485,7 @@ Para análise desses custos, foram construídas a \autoref{tab:custos-equipament
 % ---------------------------------------------------%
 \begin{table}[H]
 	\centering
-	\caption{Resumo dos Custos da Infraestrutura de Implantação e Software}
+	\caption{Resumo dos custos da infraestrutura de implantação e software}
 	\label{tab:custos-implantacao}
 	\begin{tabular}{|>{\RaggedRight\arraybackslash}c|c|c|c|}
 		\hline
@@ -2398,6 +2506,7 @@ Para análise desses custos, foram construídas a \autoref{tab:custos-equipament
 		Total (9 meses) & -- & R\$ 0,00 & R\$ 511,20 \\
 		\hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores}
 \end{table}
 % --------------------------------------------------%
@@ -2426,18 +2535,19 @@ A estrutura de cálculo para o custo de pessoal é apresentada em duas fases. Pr
 			\hline
 			\textbf{Função} & \textbf{Quantidade} & \textbf{Horas/Dia} & \textbf{Dias/Mês} & \textbf{Total de Horas/Mês} \\
 			\hline
-			Engenheiro de Dados (DBA)        & 1 & 3 & 22 & 66 \\
+			Analista de Testes        & 1 & 3 & 22 & 66 \\
 			\hline
-			Analista de Documentação         & 1 & 3 & 22 & 66 \\
+			Desenvolvedor Back-End        & 1 & 3 & 22 & 66 \\
+			\hline
+			Desenvolvedor Front-End          & 1 & 3 & 22 & 66 \\
+			\hline
+			Engenheiro de Software         & 1 & 3 & 22 & 66 \\
 			\hline
 			Gerente de Projeto (PM)          & 1 & 3 & 22 & 66 \\
 			\hline
-			Desenvolvedor \textit{Front-End}          & 1 & 3 & 22 & 66 \\
-			\hline
-			Desenvolvedor \textit{Back-End}           & 1 & 3 & 22 & 66 \\
-			\hline
 		\end{tabular}
 	}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{table}
 % Tabela 1 - Salários
@@ -2452,18 +2562,19 @@ A estrutura de cálculo para o custo de pessoal é apresentada em duas fases. Pr
 			\hline
 			Analista de Testes  & 13,63 & 899,58 & 3.598,32 & 8.096,22 \\
 			\hline
-			Engenheiro de Software & 26,13 & 1.724,58 & 6.898,32 & 15.521,22 \\
-			\hline
-			Gerente de Projeto (PM)          & 17,42 & 1.149,72 & 4.598,88 & 10.347,48 \\
+			Desenvolvedor Back-End & 23,50 & 1.551,00 & 6.204,00 & 13.959,00 \\
 			\hline
 			Desenvolvedor Front-End & 22,35 & 1.475,10 & 5.900,40 & 13.275,90 \\
 			\hline
-			Desenvolvedor Back-End & 23,50 & 1.551,00 & 6.204,00 & 13.959,00 \\
+			Engenheiro de Software & 26,13 & 1.724,58 & 6.898,32 & 15.521,22 \\
+			\hline
+			Gerente de Projeto (PM)          & 17,42 & 1.149,72 & 4.598,88 & 10.347,48 \\
 			\hline
 			\textbf{Total Mão de Obra}       & 103,03 & 6.799,98 & 27.199,92 & 61.199,82 \\
 			\hline
 		\end{tabular}
 	}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{table}
 % ---------------------------------------------------------%
@@ -2498,6 +2609,7 @@ O custo total do projeto representa a somatória dos custos estruturais e de pes
 			\hline
 		\end{tabular}
 	}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{table}
 
@@ -2533,7 +2645,7 @@ Adicionalmente, ter a pousada como o principal estudo de caso e parceiro de \tex
 
 Para lançar a primeira versão do sistema, a equipe reutilizaria todo o código já desenvolvido, fazendo ajustes na arquitetura em nuvem e adaptações no banco de dados e na estrutura do código, para atender diferentes regras de negócio. Com o foco em um público alvo constituído por  pousadas com as mesmas características da pousada parceira: com 10 a 20 acomodações e gestão altamente manual. E com um lançamento que não prevê um produto com todas as funcionalidades presentes em um PMS tradicional, mas sim uma aplicação focada em simplicidade e usabilidade, constituindo-se como um serviço de rápida adoção e baixo custo que resolve o problema mais imediato do público-alvo. 
 
-Para além disso, o desenvolvimento de um modelo SaaS permite custos previsíveis e escalabilidade, dado que é um modelo de disponibilização de software em nuvem, o que permite o acesso dos usuários à aplicação via internet a partir de um pagamento periódico (Correia, 2024). Além de ser um modelo que independe de estruturas de operação e manutenção robustas para o usuário final, que consegue ter acesso a infraestrutura de software a um baixo custo, o que facilita a adesão de ferramentas tecnológicas para empresas de diferentes portes \cite{Correia2024SaaS}. Sendo assim, conclui-se que este é um sistema financeiramente sustentável tanto para os desenvolvedores e investidores quanto para os futuros clientes.
+Para além disso, o desenvolvimento de um modelo SaaS permite custos previsíveis e escalabilidade, dado que é um modelo de disponibilização de \textit{software} em nuvem, o que permite o acesso dos usuários à aplicação via internet a partir de um pagamento periódico (Correia, 2024). Além de ser um modelo que independe de estruturas de operação e manutenção robustas para o usuário final, que consegue ter acesso a infraestrutura de \textit{software} a um baixo custo, o que facilita a adesão de ferramentas tecnológicas para empresas de diferentes portes \cite{Correia2024SaaS}. Sendo assim, conclui-se que este é um sistema financeiramente sustentável tanto para os desenvolvedores e investidores quanto para os futuros clientes.
 
 \subsection{Análise de Viabilidade dos Cenários}
 Para comprovar a viabilidade diante dos cenários propostos, foi feita a análise das respostas fornecidas pela proprietária \autoref{apendice:questionario2} para medir os benefícios causados pela adoção do sistema. Foi utilizado como custo de mão de obra da proprietária o valor de R\$35,88/hora, baseado no salário médio de um empreendedor formalizado \cite{Sebrae2024EmpresasFormais}.
@@ -2563,7 +2675,7 @@ O total de benefícios financeiros quantificáveis (R\$ 35,88 + R\$ 5,98 + R\$ 7
 
 Esta análise comprova que o Cenário A, com um custo de R\$ 1.929,55, é inviável. O benefício de R\$ 113,62 não é suficiente para justificar o investimento. Mesmo com outros benefícios indiretos decorrentes da transição para uma gestão baseada em dados (relatórios) e não em achismos, seria um cenário de difícil manutenção para pousada. Isso porque, até em um cenário de aumento em 5 reservas diárias, decorrentes de estratégias de marketing, totalizando em 20 reservas mensais, cada uma com valor médio de R\$ 210,00, o valor restante mensal a ser pago para aquisição do sistema demandaria uma cessão de aproximadamente 40.20\% da receita de cada reserva concluída. Um cenário inviável ao que tange a saúde financeira da pousada. 
 
-Em contrapartida, um cenário de licenciamento de uso através do estabelecimento de uma parceria comercial (Cenário B) é altamente viável. O custo da licença de R\$ 98,00 é facilmente coberto pelos benefícios quantificáveis de R\$ 113,62, gerando um retorno sobre o investimento (ROI) positivo imediato de R\$ 15,62 por mês. Este valor não inclui o benefício estratégico dos relatórios, que permitiria o aumento do retorno em até R\$ 210,00 , no caso da geração de uma reserva a mais por mês.
+Em contrapartida, um cenário de licenciamento de uso através do estabelecimento de uma parceria comercial (Cenário B) é altamente viável. O custo da licença de R\$ 98,00 é facilmente coberto pelos benefícios quantificáveis de R\$ 113,62, gerando um retorno sobre o investimento (ROI) positivo imediato de R\$ 15,62 por mês. Este valor não inclui o benefício estratégico dos relatórios, que permitiria o aumento do retorno em até R\$ 210,00, no caso da geração de uma reserva a mais por mês.
 
 
 
@@ -2839,11 +2951,11 @@ Na \autoref{fig:custo-receita-realista} é possível observar a projeção const
 
 O desenvolvimento do sistema web para a pousada Chalés Água de Coco representa uma resposta prática e eficiente à necessidade de modernização enfrentada por pequenos empreendimentos do setor de hospitalidade. Ao longo do projeto, foi possível identificar fragilidades nos métodos tradicionais utilizados para gestão de hóspedes, reservas e finanças — especialmente aqueles baseados em planilhas eletrônicas — que, embora populares, oferecem baixa escalabilidade, alto risco de erro e pouca integração entre processos.
 
-Através de uma parceria direta com os responsáveis pela pousada, foi possível realizar um levantamento detalhado dos requisitos do sistema, o que permitiu construir uma solução personalizada, centrada nas reais necessidades operacionais do negócio. O uso do framework Django, aliado à infraestrutura da Amazon Web Services (AWS), proporcionou uma arquitetura robusta, segura e escalável, capaz de sustentar a aplicação tanto em seu estágio inicial quanto em futuras evoluções.
+Através de uma parceria direta com os responsáveis pela pousada, foi possível realizar um levantamento detalhado dos requisitos do sistema, o que permitiu construir uma solução personalizada, centrada nas reais necessidades operacionais do negócio. O uso do \textit{framework} Django, aliado à infraestrutura da Amazon Web Services (AWS), proporcionou uma arquitetura robusta, segura e escalável, capaz de sustentar a aplicação tanto em seu estágio inicial quanto em futuras evoluções.
 
 Além da automatização das principais funções administrativas da pousada, como o controle de reservas e a organização dos dados financeiros, o sistema promoveu melhorias significativas na usabilidade, no acesso remoto às informações e na geração de relatórios gerenciais. Com isso, o projeto atendeu plenamente aos seus objetivos, oferecendo uma ferramenta funcional, acessível via internet e com grande potencial de impacto na rotina de trabalho da pousada.
 
-O projeto também demonstrou, na prática, a aplicabilidade dos conhecimentos adquiridos ao longo do curso, abrangendo aspectos de análise de requisitos, modelagem de dados, desenvolvimento back-end e front-end, segurança da informação e implantação em ambiente de nuvem. Trata-se, portanto, de um produto tecnológico que, além de resolver uma demanda real, reforça a importância da tecnologia na transformação digital de pequenos negócios.
+O projeto também demonstrou, na prática, a aplicabilidade dos conhecimentos adquiridos ao longo do curso, abrangendo aspectos de análise de requisitos, modelagem de dados, desenvolvimento \textit{back-end} e \textit{front-end}, segurança da informação e implantação em ambiente de nuvem. Trata-se, portanto, de um produto tecnológico que, além de resolver uma demanda real, reforça a importância da tecnologia na transformação digital de pequenos negócios.
 
 
 %
@@ -2860,9 +2972,9 @@ O projeto também demonstrou, na prática, a aplicabilidade dos conhecimentos ad
 \chapter{Conclusão}
 % ---
 
-Este Projeto de Conclusão de Curso teve como propósito desenvolver um sistema web para automatizar os processos administrativos da pousada Chalés Água de Coco, promovendo uma solução moderna e eficiente em substituição ao modelo tradicional baseado em planilhas. O sistema entregue oferece recursos essenciais para a gestão de hóspedes, reservas, acomodações e controle financeiro, consolidando-se como uma plataforma completa e adaptada à realidade da pousada.
+Este Projeto de Conclusão de Curso teve como propósito desenvolver um sistema \textit{web} para automatizar os processos administrativos da pousada Chalés Água de Coco, promovendo uma solução moderna e eficiente em substituição ao modelo tradicional baseado em planilhas. O sistema entregue oferece recursos essenciais para a gestão de hóspedes, reservas, acomodações e controle financeiro, consolidando-se como uma plataforma completa e adaptada à realidade da pousada.
 
-A aplicação da arquitetura MTV com o framework Django, a adoção de práticas seguras de desenvolvimento e o uso da infraestrutura em nuvem da AWS contribuíram para a construção de um sistema robusto e escalável, capaz de oferecer alto desempenho e disponibilidade. A utilização de tecnologias amplamente reconhecidas no mercado assegura não apenas a qualidade técnica do sistema, mas também sua viabilidade para expansão futura.
+A aplicação da arquitetura MTV com o \textit{framework} Django, a adoção de práticas seguras de desenvolvimento e o uso da infraestrutura em nuvem da AWS contribuíram para a construção de um sistema robusto e escalável, capaz de oferecer alto desempenho e disponibilidade. A utilização de tecnologias amplamente reconhecidas no mercado assegura não apenas a qualidade técnica do sistema, mas também sua viabilidade para expansão futura.
 
 Como resultado, a pousada passa a contar com uma ferramenta que facilita a tomada de decisões, minimiza falhas operacionais e melhora a organização das informações. O projeto também evidencia como soluções de baixo custo e alto impacto podem ser desenvolvidas e aplicadas em pequenos negócios, promovendo inovação e melhoria contínua.
 
@@ -3179,10 +3291,8 @@ documentação.
 O \autoref{quadro:questionario1} foi aplicado à proprietária da pousada parceira para a análise e levantamento dos requisitos do sistema.
 
 \begin{quadro}[H]
-	\caption{Questionário Aplicado à Proprietária – Parte 1}
+	\caption{Questionário Aplicado à Proprietária 1 (Parte 1)}
 	\label{quadro:questionario1}
-	\vspace{0.3cm} 
-	\textbf\bfseries\large{Questionário Aplicado à Proprietária – Parte 1} \\
 	\vspace{0.3cm} 
 	\begin{tabular}{|>{\centering\arraybackslash}p{1cm}|p{6.5cm}|p{6.5cm}|}
 		\hline
@@ -3193,45 +3303,31 @@ O \autoref{quadro:questionario1} foi aplicado à proprietária da pousada parcei
 		3 & A reserva é confirmada apenas com pagamento ou pode ser feita sem pagamento antecipado? & Confirmada pelo pagamento de pelo menos metade do valor da reserva. \\ \hline
 		4 & É permitido cancelar uma reserva? Até quantas horas antes do check-in? Há cobrança de taxa? & Sim! Temos políticas de cancelamentos e remarcações. \\ \hline
 		5 & Um hóspede pode fazer mais de uma reserva ativa ao mesmo tempo? & Sim. \\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
-%
-\begin{quadro}[H]
-	\caption{Questionário Aplicado à Proprietária – Parte 2}
-	\label{quadro:questionario2}
-	\vspace{0.3cm} 
-	\textbf\bfseries\large{Questionário Aplicado à Proprietária – Parte 2} \\
-	\vspace{0.3cm} 
-	\begin{tabular}{|>{\centering\arraybackslash}p{1cm}|p{6.5cm}|p{6.5cm}|}
-		\hline
 		\multicolumn{3}{|l|}{\textbf{Domínio: Hóspedes}} \\ \hline
 		\textbf{Item} & \textbf{Pergunta} & \textbf{Resposta} \\ \hline
 		6 & Quais dados do hóspede são obrigatórios para fazer uma reserva? & Nome completo, endereço completo, CPF, telefone, e-mail. \\ \hline
 		7 & É comum ter reservas feitas por um responsável em nome de outros hóspedes? & Sim. \\ \hline
 		8 & Há um limite de pessoas por quarto? Como isso é controlado? & No check-in. \\ \hline
+	\end{tabular}
+	\vspace{0.5cm}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%
+\begin{quadro}[H]
+	\ContinuedFloat
+	\caption{Questionário Aplicado à Proprietária 1 (Parte 2)}
+	%\caption*{\quadroname~\ref{quadro:questionario1} – Questionário Aplicado à Proprietária 1 (Parte 2)}
+	\vspace{0.3cm}
+	\begin{tabular}{|>{\centering\arraybackslash}p{1cm}|p{6.5cm}|p{6.5cm}|}
+		\hline
+	
 		\multicolumn{3}{|l|}{\textbf{Domínio: Check-in e Check-out}} \\ \hline
 		\textbf{Item} & \textbf{Pergunta} & \textbf{Resposta} \\ \hline
 		9 & Qual é o horário padrão de check-in e check-out? Há tolerância? & Check-in a partir das 16h até às 22h e check-out das 8h até às 14h. Depende de se há entrada de outro hóspede em seguida. \\ \hline
 		10 & O check-in pode ser feito antes do horário? E o check-out após o horário? & Depende, se houver saída de hóspede anterior ou entrada em seguida. \\ \hline
 		11 & Quem realiza o check-in e check-out? Você ou os funcionários? & Eu ou sozinhos, com orientações minhas. \\ \hline
 		12 & Há necessidade de gerar comprovante ou recibo após check-in ou check-out? & Não. \\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
-%
-\begin{quadro}[H]
-	\caption{Questionário Aplicado à Proprietária – Parte 3}
-	\label{quadro:questionario3}
-	\vspace{0.3cm} 
-	\textbf\bfseries\large{Questionário Aplicado à Proprietária – Parte 3} \\
-	\vspace{0.3cm} 
-	\begin{tabular}{|>{\centering\arraybackslash}p{1cm}|p{6.5cm}|p{6.5cm}|}
-		\hline
-			\multicolumn{3}{|l|}{\textbf{Domínio: Quartos}} \\ \hline
-		\textbf{Item} & \textbf{Pergunta} & \textbf{Resposta} \\
-		\hline
-		13 & A pousada possui quantos quartos? Como eles são classificados? & 16. Quartos simples simples para casal (com e sem ar), chalés com cozinha para até 4 pessoas, com e sem ar e flats, com e sem ar \\
+			13 & A pousada possui quantos quartos? Como eles são classificados? & 16. Quartos simples simples para casal (com e sem ar), chalés com cozinha para até 4 pessoas, com e sem ar e flats, com e sem ar \\
 		\hline
 		14 & Há períodos em que quartos são bloqueados para manutenção ?& Sim\\
 		\hline
@@ -3252,20 +3348,37 @@ O \autoref{quadro:questionario1} foi aplicado à proprietária da pousada parcei
 		\hline
 		19 &  Os pagamentos são feitos no check-in, no check-out ou antecipadamente? & Metade na reserva e o restante na chegada.\\ 
 		\hline
+		20 &  É necessário gerar comprovante ou recibo no sistema? & Eu envio uma confirmação de reserva com todas as informações.\\ 
+		\hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
+\begin{comment}
 \begin{quadro}[H]
-	\caption{Questionário Aplicado à Proprietária – Parte 3}
-	\label{quadro:questionario4}
-	\vspace{0.3cm} 
-	\textbf\bfseries\large{Questionário Aplicado à Proprietária – Parte 4} \\
+	\caption*{\quadroname~\ref{quadro:questionario1} – Questionário Aplicado à Proprietária (Parte 3)}
 	\vspace{0.3cm} 
 	\begin{tabular}{|>{\centering\arraybackslash}p{1cm}|p{6.5cm}|p{6.5cm}|}
 		\hline
-		20 &  É necessário gerar comprovante ou recibo no sistema? & Eu envio uma confirmação de reserva com todas as informações.\\ 
+			\multicolumn{3}{|l|}{\textbf{Domínio: Quartos}} \\ \hline
+		\textbf{Item} & \textbf{Pergunta} & \textbf{Resposta} \\
 		\hline
+	
+	\end{tabular}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+\end{comment}
+%
+
+\begin{quadro}[H]
+	\ContinuedFloat
+	\caption{Questionário Aplicado à Proprietária 1 (Parte 3)}
+	%\caption*{\quadroname~\ref{quadro:questionario1} – Questionário Aplicado à Proprietária 1 (Parte 3)}
+	\vspace{0.3cm} 
+	\begin{tabular}{|>{\centering\arraybackslash}p{1cm}|p{6.5cm}|p{6.5cm}|}
+		\hline
+	
 		\multicolumn{3}{|l|}{\textbf{Domínio: Comunicação}} \\ \hline
 		\textbf{Item} & \textbf{Pergunta} & \textbf{Resposta} \\ \hline
 		21 & Você gostaria que o sistema enviasse confirmação automática de reserva por WhatsApp ou e-mail? & Sim. \\ \hline
@@ -3286,8 +3399,10 @@ O \autoref{quadro:questionario1} foi aplicado à proprietária da pousada parcei
 		27 & É importante ter um histórico de cada hóspede e das reservas anteriores? & Sim. \\ 
 		\hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
+\vspace{5cm}
 % ------------------QUESTIONARIO 2---------------------------%
 \section{Questionário 2: Viabilidade Financeira}
 \label{apendice:questionario2}
@@ -3296,10 +3411,8 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 
 %
 \begin{quadro}[H]
-	\caption{Questionário Aplicado à Proprietária 2 – Parte 1}
+	\caption{Questionário Aplicado à Proprietária 2}
 	\label{quadro:questionario2_1}
-	\vspace{0.3cm}
-	{\bfseries\large Questionário Aplicado à Proprietária 2 – Parte 1} \\
 	\vspace{0.3cm}
 	\begin{tabular}{|>{\centering\arraybackslash}p{1cm}|p{6.5cm}|p{6.5cm}|}
 		\hline
@@ -3313,17 +3426,22 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		6 & Pensando em erros de agendamento (overbooking): Isso já aconteceu no último ano por ser no controle manual? & Como sou bem organizada e só eu cuido disso, não aconteceu comigo pq faço vários registros. \\ \hline
 		7 & Hoje, se eu te pedisse a taxa de ocupação de 6 meses atrás, seria fácil saber? & Seria fácil porque estávamos na baixa temporada e a taxa de ocupação é baixa, em média uns 5\%. \\ \hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 % ----------------------------------------------------------%
 \chapter{Product Backlog Detalhado}
 \label{apendice:productbacklogcomp}
 \begin{quadro}[H]
-	\caption{Product Backlog - Parte 1}
+	\caption{Product Backlog Detalhado (Parte 1)}
 	\label{quadro:product_backlog}
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{3.8cm}|>{\centering\arraybackslash}m{2.5cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{3.8cm}|>{\centering\arraybackslash}m{2.5cm}|}
 		\hline
-		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\ \hline
+		\textbf{Código} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{6.5cm}|}{\textbf{Item}} &
+		\textbf{Categoria} &
+		\textbf{Prioridade} 
+		\\ \hline
 		1 & Definir e configurar ambiente de desenvolvimento & Requisito Técnico   & ALTA    \\ \hline
 		2 & Definir ambiente de hospedagem/publicação & Requisito Técnico & ALTA  \\ \hline
 		3 & Organizar repositório e fluxo Git  & Requisito Técnico & ALTA\\ \hline
@@ -3348,15 +3466,21 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		18 & Criar funcionalidade de edição do cadastro de quartos &
 		Gestão de Quartos &	MÉDIA \\ \hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
 \begin{quadro}[H]
-	\caption{Product Backlog - Parte 2}
-	\label{quadro:product_backlog_2}
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{3.8cm}|>{\centering\arraybackslash}m{2.5cm}|}
+	\ContinuedFloat
+	\caption{Product Backlog Detalhado (Parte 2)}
+	%\caption*{\quadroname~\ref{quadro:product_backlog} – Product Backlog (Parte 2)}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{3.8cm}|>{\centering\arraybackslash}m{2.5cm}|}
 		\hline
-		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline	
+		\textbf{Código} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{6.5cm}|}{\textbf{Item}} &
+		\textbf{Categoria} &
+		\textbf{Prioridade} 
+		\\ \hline
 		19 & Criar interfaces para gestão de quartos & Gestão de Quartos & MÉDIA \\ \hline
 		20 & Implementar funcionalidade de alteração manual do status (disponível, indisponível, em manutenção) do quarto & Gestão de Quartos & MÉDIA \\ \hline
 		21 & Criar funcionalidade de cadastro de hóspedes &	Gestão de Hóspedes & ALTA \\ \hline
@@ -3382,15 +3506,21 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		Documentação & ALTA \\ \hline
 		35 & Criar funcionalidade de cadastro de receitas &	Gestão Financeira & BAIXA \\ \hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 % 
 \begin{quadro}[H]
-	\caption{Product Backlog - Parte 3}
-	\label{quadro:product_backlog_3}
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{3.8cm}|>{\centering\arraybackslash}m{2.5cm}|}
+	\ContinuedFloat
+	\caption{Product Backlog Detalhado (Parte 3)}
+	%\caption*{\quadroname~\ref{quadro:product_backlog} – Product Backlog (Parte 3)}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{3.8cm}|>{\centering\arraybackslash}m{2.5cm}|}
 		\hline
-		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline
+		\textbf{Código} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{6.5cm}|}{\textbf{Item}} &
+		\textbf{Categoria} &
+		\textbf{Prioridade} 
+		\\ \hline
 		36 & Criar funcionalidade para registrar comprovação de pagamento de reservas &	Gestão Financeira/Gestão de Reservas &
 		BAIXA \\ \hline
 		37 & Criar funcionalidade de exclusão do cadastro de receitas &
@@ -3423,14 +3553,21 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		54 & Definir as ferramentas de teste & Testes &	MÉDIA \\ \hline
 		55 & Estabelecer ambiente de teste & Testes & MÉDIA \\ \hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
+%
 \begin{quadro}[H]
-	\caption{Product Backlog - Parte 4}
-	\label{quadro:product_backlog_4}
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\raggedright\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{3.8cm}|>{\centering\arraybackslash}m{2.5cm}|}
+	\ContinuedFloat
+	\caption{Product Backlog Detalhado (Parte 4)}
+	%\caption*{\quadroname~\ref{quadro:product_backlog} – Product Backlog (Parte 4)}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.4cm}|>{\arraybackslash}m{6.5cm}|>{\centering\arraybackslash}m{3.8cm}|>{\centering\arraybackslash}m{2.5cm}|}
 		\hline
-		\textbf{Código} & \textbf{Item} & \textbf{Categoria} & \textbf{Prioridade} \\	\hline
+		\textbf{Código} & 
+		\multicolumn{1}{>{\centering\arraybackslash}m{6.5cm}|}{\textbf{Item}} &
+		\textbf{Categoria} &
+		\textbf{Prioridade} 
+		\\ \hline
 		56 & Definir critérios de aceitação & Testes & MÉDIA \\ \hline
 		57 & Preparar dados de teste & Testes &	MÉDIA \\ \hline
 		58 & Executar testes gerais & Testes & MÉDIA \\ \hline
@@ -3453,17 +3590,19 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		ALTA \\ \hline
 		69 & Treinamento da proprietária da pousada para uso da aplicação &	Implantação & MÉDIA \\ \hline
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 % ----------------------------------------------------------%
 \chapter{Sprint Backlog Detalhado}
 \label{apendice:sprintbacklogdetalhado}
+%
 \begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 1} 
+	\caption{Sprint Backlog Detalhado (Parte 1)} 
 	\label{sprints_backlog_1} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7.5cm}|}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{3cm}|>{\arraybackslash}m{7.5cm}|}
 		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \multicolumn{1}{>{\centering\arraybackslash}m{7.5cm}|}{\textbf{Atividades}} \\
 		\hline 
 		1 & 26/03/2025 a 02/04/2025 &  Fundação e Alinhamento do Projeto & Organização do tema
 		Definição da metodologia de trabalho;
@@ -3504,15 +3643,18 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		\\
 		\hline  
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
 \begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 2} 
-	\label{sprints_backlog_2} 
+	\ContinuedFloat
+	\caption{Sprint Backlog Detalhado (Parte 2)}
+	%\caption*{\quadroname~\ref{sprints_backlog_1} – Sprints Backlog  (Parte 2)} 
+	\label{} 
 	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7.5cm}|}
 		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \multicolumn{1}{>{\centering\arraybackslash}m{7.5cm}|}{\textbf{Atividades}} \\ 
 		\hline 
 		8 & 15/05/2025 a 21/05/2025 & Implementação do CRUD de Quartos  & Criar interfaces para gestão de quartos:
 		Criar template do formulário de cadastro. 
@@ -3529,15 +3671,18 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		\\
 		\hline 
 		\end{tabular}
+		\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
 \begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 3} 
-	\label{sprints_backlog_3} 
+	\ContinuedFloat
+	\caption{Sprint Backlog Detalhado (Parte 3)}
+	%\caption*{\quadroname~\ref{sprints_backlog_1} – Sprints Backlog  (Parte 3)} 
+	\label{} 
 	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7.5cm}|}
 		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \multicolumn{1}{>{\centering\arraybackslash}m{7.5cm}|}{\textbf{Atividades}} \\ 
 		\hline 
 		11 & 05/06/2025 a 11/06/2025 & Operacionalização do Módulo de Reservas  & Finalizar Documentação Técnica e Gerar  PDF; Criar interfaces para gestão de Reservas: Criar template do formulário de cadastro de reserva;Criar template de edição de reserva;Criar template de exclusão de reserva; Criar template de listagem de reserva.		
 		Criar funcionalidades de check-in e check-out:
@@ -3566,15 +3711,18 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		\\
 		\hline 
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
 \begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 4} 
-	\label{sprints_backlog_4} 
-\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7.5cm}|}
+	\ContinuedFloat
+	\caption{Sprint Backlog Detalhado (Parte 4)}
+	%\caption*{\quadroname~\ref{sprints_backlog_1} – Sprints Backlog  (Parte 4)} 
+	\label{} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7.5cm}|}
 		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \multicolumn{1}{>{\centering\arraybackslash}m{7.5cm}|}{\textbf{Atividades}} \\ 
 		\hline 
 		15 & 03/09/2025 a 10/09/2025 & Estruturação do Módulo Financeiro e Implementação de Testes Unitários  & Criar app Financeiro com configurações iniciais: Executar python manage.py startapp quartos e adicioná-lo ao INSTALLED\_APPS
 		Criar tabela financeiro\_título : Criar model Título;
@@ -3600,15 +3748,18 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		\\
 		\hline 
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
 \begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 5} 
-	\label{sprints_backlog_5} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7cm}|}
+	\ContinuedFloat
+	\caption{Sprint Backlog Detalhado (Parte 5)}
+	%\caption*{\quadroname~\ref{sprints_backlog_1} – Sprints Backlog  (Parte 5)} 
+	\label{} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7.5cm}|}
 		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \multicolumn{1}{>{\centering\arraybackslash}m{7.5cm}|}{\textbf{Atividades}} \\ 
 		\hline 
 		17 & 18/09/2025 a 24/09/2025 & Implementação da Gestão de Títulos Financeiros e Validação dos Módulos Core  & Desenvolver funcionalidade CRUD de Títulos:
 		Criar view de títulos financeiros no app Título;
@@ -3634,15 +3785,18 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		\\
 		\hline 
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
 \begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 6} 
-	\label{sprints_backlog_6} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7cm}|}
+	\ContinuedFloat
+	\caption{Sprint Backlog Detalhado (Parte 6)}
+	%\caption*{\quadroname~\ref{sprints_backlog_1} – Sprints Backlog  (Parte 6)} 
+	\label{} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7.5cm}|}
 		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \multicolumn{1}{>{\centering\arraybackslash}m{7.5cm}|}{\textbf{Atividades}} \\ 
 		\hline 
 		18 & 25/09/2025 a 01/10/2025 & Automação do Fluxo de Reservas e Validação de Regras de Negócio  & 
 		Criar função de envio de e-mail de confirmação de reserva: 
@@ -3671,14 +3825,18 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		\\
 		\hline 	
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
+%
 \begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 7} 
-	\label{sprints_backlog_7} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7cm}|}
+	\ContinuedFloat
+	\caption{Sprint Backlog Detalhado (Parte 7)}
+	%\caption*{\quadroname~\ref{sprints_backlog_1} – Sprints Backlog  (Parte 7)} 
+	\label{} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7.5cm}|}
 		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \multicolumn{1}{>{\centering\arraybackslash}m{7.5cm}|}{\textbf{Atividades}} \\ 
 		\hline 
 		19 & 02/10/2025 - 08/10/2025  & Operacionalização do Módulo Financeiro e Sofisticação das Reservas  & Criar lógica da funcionalidade: balanço financeiro.
 		Criar filtros por categoria para títulos:
@@ -3715,16 +3873,19 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		\\
 		\hline 
 	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 %
 \begin{quadro}[H]
-	\caption{Sprints Backlog - Parte 8} 
-	\label{sprints_backlog_8} 
-	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{3cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7cm}|}
+	\ContinuedFloat
+	\caption{Sprint Backlog Detalhado (Parte 8)}
+	%\caption*{\quadroname~\ref{sprints_backlog_1} – Sprints Backlog  (Parte 8)} 
+	\label{} 
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.2cm}|>{\centering\arraybackslash}m{2.5cm}|>{\centering\arraybackslash}m{3cm}|>{\raggedright\arraybackslash}m{7.5cm}|}
 		\hline
-		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \textbf{Atividades} \\
-		\hline  
+		\textbf{Sprint} & \textbf{Período} & \textbf{Objetivo} & \multicolumn{1}{>{\centering\arraybackslash}m{7.5cm}|}{\textbf{Atividades}} \\ 
+		\hline 
 		21 & 16/10/ 2025 a 22/10/2025   &  Instrumentação do Sistema com Relatórios e Notificações Operacionais  & Configurar envio de email no servidor AWS:
 		Adicionar configuração SMTP no servidor;
 		Atualizar configurações no settings. py de envio de email.
@@ -3767,6 +3928,142 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 		\\
 		\hline    
 	\end{tabular}
+	\vspace{0.5cm}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+% ----------------------------------------------------------%
+\chapter{Requisitos Funcionais Detalhados}
+\label{apendice:rfdetalhados}
+%
+\begin{quadro}[H]
+	\caption{Requisitos Funcionais (Parte 1)}
+	\label{quadro_rfc1}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.5cm}|m{6.7cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{4cm}|}
+		\hline
+		\textbf{Código} &
+		\multicolumn{1}{>{\centering\arraybackslash}m{6.5cm}|}{\textbf{Descrição}} & 
+		\textbf{Prioridade} &
+		 \textbf{Regra de Negócio Relacionada}
+		 \\ \hline
+		RF01 & A aplicação deve possuir um sistema de login para a proprietária acessar a aplicação de forma segura & Alta & RN01 \\ \hline
+		RF02 & O sistema deve permitir que a proprietária altere sua senha de acesso  & Alta & RN01 \\ \hline
+		RF03 & O sistema deve permitir que a proprietária recupere sua senha via \textit{e-mail} & Alta & RN01 \\ \hline
+		RF04 & O sistema deve permitir o cadastro de	novas reservas, desde que associadas um quarto e a um período (data de check-in
+		e check-out) disponíveis (data de \textit{check-in} e \textit{check-out}) & Alta & RN04; RN14; RN15; RN16 \\ \hline
+		RF05 & O sistema deve permitir a edição de reservas já cadastradas & Alta & RN08 \\ \hline
+		RF06 & O sistema deve impedir o cadastro de reservas que não estejam associadas a quartos disponíveis & Alta & RN10; RN16 \\ \hline
+		RF07 & O sistema deve exigir os dados pessoais do hóspede para que a reserva seja cadastrada: nome completo, endereço completo, CPF/Passaporte, telefone e e-mail & Alta & RN02 \\ \hline
+		RF08 & O sistema deve exigir o pagamento de 50\% do valor da estadia para confirmar o cadastro da reserva (a ser pago no momento da reserva ou em um prazo definido) & Média & RN05; RN07 \\ \hline
+	\end{tabular}
+	\vspace{0.5cm}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%
+\begin{quadro}[H]
+	\ContinuedFloat
+	\caption{Requisitos Funcionais (Parte 2)}
+	%\caption*{\quadroname~\ref{quadro_rfc1} – Requisitos Funcionais (Parte 2)}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.5cm}|m{6.7cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{4cm}|}
+		\hline
+		\textbf{Código} &
+		\multicolumn{1}{>{\centering\arraybackslash}m{6.5cm}|}{\textbf{Descrição}} & 
+		\textbf{Prioridade} &
+		\textbf{Regra de Negócio Relacionada}
+		\\ \hline
+		RF09 & O sistema deve permitir o registro de pagamento da reserva (forma, valor, data) & Média & RN05;RN06 
+		\\ \hline
+		RF10 & A proprietária deve conseguir cancelar ou alterar uma reserva, com possível registro do motivo & Média & RN08 \\ \hline
+		RF11 & A proprietária deve conseguir cadastrar mais de uma reserva no nome de um mesmo hóspede & Média & RN03
+		\\ \hline
+		RF12 & A proprietária deve conseguir reservar um mesmo quarto para diferentes clientes em datas seguidas, respeitando os horários de \textit{check-in} e \textit{check-out} configurados para o quarto & Alta & RN10; RN16
+		\\ \hline
+		RF13 & A proprietária deve conseguir acessar o histórico de reservas de um hóspede & Média & RN02; RN03  
+		\\ \hline
+		RF14 & O sistema deve permitir configurar tarifas de reserva com base nas regras de negócio da pousada & Média & RN13 
+		\\ \hline
+		RF15 & O sistema deve enviar uma notificação para o hóspede via \textit{e-mail} após a confirmação da reserva & Baixa & RN07
+		 \\ \hline
+		RF16 & O sistema deve impedir o registro de reservas com menos de 2 dias de antecedência da data do \textit{check-in} & Média & RN04
+		 \\ \hline
+		RF17 & O sistema deve permitir  a edição dos dados de hóspedes já cadastrados & Média & RN02
+		 \\ \hline 
+		RF18 & A proprietária deve poder fazer o cadastro de quartos, incluindo informações como número/nome do quarto, capacidade (número de hóspedes), tipo (ex: chalé, simples solteiro, simples casal, etc.), e preço por noite & Alta & RN14; RN15
+		\\ \hline
+	\end{tabular}
+	\vspace{0.5cm}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+%
+\begin{quadro}[H]
+	\ContinuedFloat
+	\caption{Requisitos Funcionais (Parte 3)}
+%	\caption*{\quadroname~\ref{quadro_rfc1} – Requisitos Funcionais (Parte 3)}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.5cm}|m{6.7cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{4cm}|}
+		\hline
+		\textbf{Código} &
+		\multicolumn{1}{>{\centering\arraybackslash}m{6.5cm}|}{\textbf{Descrição}} & 
+		\textbf{Prioridade} &
+		\textbf{Regra de Negócio Relacionada}
+		\\ \hline
+		RF19 & A proprietária deve conseguir editar as informações dos quartos já cadastrados & Alta & RN14; RN15
+		\\ \hline
+		RF20 & O sistema deve permitir a visualização dos quartos disponíveis no período de tempo selecionado para a reserva & Média & RN14; RN16
+		 \\ \hline
+		RF21 & A proprietária deve conseguir mudar o status de um quarto (ex: disponível, ocupado, em manutenção) manualmente, se necessário & Alta & RN09
+		\\ \hline
+		RF22 & O sistema deve gerar relatórios de ocupação de quartos em períodos definidos & Média & RN03; RN14; RN07; RN15; RN16
+		 \\ \hline
+		RF23 & O sistema deve mudar o status do quarto quando for realizado o registro do \textit{check-out} & Alta & RN10
+		\\ \hline
+		RF24 & O sistema deve mudar o status do quarto de reservado para ocupado no registro do \textit{check-in} & Alta & RN10 
+		\\ \hline
+		RF25 & O sistema deve permitir à proprietária configurar os horários padrão de \textit{check-in} e \textit{check-out} & Alta & RN10 
+		\\ \hline
+		RF26 & O sistema deve permitir a geração de recibos ou comprovantes de pagamento e estadia, sob demanda & Média & RN11
+		 \\ \hline
+		RF27 & O sistema deve permitir o registro de \textit{early check-in} e \textit{late check-out} para uma reserva & Média & RN12 \\ \hline
+		RF28 & O sistema deve permitir a configuração de tarifas adicionais para textit{early check-in} e \textit{late check-out} & Média & RN12; RN13
+		 \\ \hline
+		RF29 & A proprietária deve poder registrar as despesas da pousada, categorizando-as (ex: manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa & Média & RN01
+		\\ \hline
+	\end{tabular}
+	\vspace{0.5cm}
+	\fonte{Elaborado pelos autores.}
+\end{quadro}
+
+\begin{quadro}[H]
+	\ContinuedFloat
+	\caption{Requisitos Funcionais (Parte 4)}
+	%\caption*{\quadroname~\ref{quadro_rfc1} – Requisitos Funcionais (Parte 4)}
+	\begin{tabular}{|>{\centering\arraybackslash}m{1.5cm}|m{6.7cm}|>{\centering\arraybackslash}m{2cm}|>{\centering\arraybackslash}m{4cm}|}
+		\hline
+		\textbf{Código} &
+		\multicolumn{1}{>{\centering\arraybackslash}m{6.5cm}|}{\textbf{Descrição}} & 
+		\textbf{Prioridade} &
+		\textbf{Regra de Negócio Relacionada}
+		\\ \hline
+		RF30 & A proprietária deve poder registrar receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita & Média & RN01
+		 \\ \hline
+		RF31 & O sistema deve permitir a edição das transações financeiras registradas (receitas e despesas) & Média & RN01 
+		\\ \hline
+		RF32 & O sistema deve permitir a exclusão das transações financeiras registradas & Média & RN01
+		 \\ \hline
+		RF33 & O sistema deve permitir que a proprietária visualize todas as transações financeiras (receitas e despesas) em um determinado período & Média & RN01 
+		\\ \hline
+		RF34 & O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria & Média & RN01
+		 \\ \hline
+		RF35 & O sistema deve gerar relatórios financeiros detalhados automaticamente por período e por categoria & Média & RN01
+		\\ \hline
+		RF36 & O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo & Média & RN01
+		\\ \hline
+		RF37 & O sistema deve gerar relatórios de faturamento por período & Média & RN01
+		\\ \hline
+		RF38 & O sistema deve apresentar um painel (dashboard) com métricas-chave da pousada & Média & Requisito essencial para a gestão e visualização do negócio 
+		\\ \hline
+		RF39 & O sistema deve permitir o envio de notificações automáticas à proprietária sobre eventos importantes (ex: \textit{check-ins} iminentes)
+		& Baixa & Requisito de suporte à gestão operacional \\ \hline
+	\end{tabular}
+	\vspace{0.5cm}
 	\fonte{Elaborado pelos autores.}
 \end{quadro}
 % ----------------------------------------------------------%
@@ -3793,133 +4090,19 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\fonte{Elaboração própria.}
 	\label{fig:certificado_headers_seguranca}
 \end{figure}
-
-% ----------------------------------------------------------%
-\chapter{Requisitos Funcionais Detalhados}
-\label{apendice:rfdetalhados}
-\begin{quadro}[H]
-	\caption{Requisitos Funcionais - Parte 1}
-	\label{quadro_rfc1}
-	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
-		\hline
-		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF01 & A aplicação deve possuir um sistema de login para a proprietária acessar a aplicação de forma segura & Alta & RN01 \\ \hline
-		RF02 & O sistema deve permitir que a proprietária altere sua senha de acesso  & Alta & RN01 \\ \hline
-		RF03 & O sistema deve permitir que a proprietária recupere sua senha via \textit{e-mail} & Alta & RN01 \\ \hline
-		RF04 & O sistema deve permitir o cadastro de	novas reservas, desde que associadas um quarto e a um período (data de check-in
-		e check-out) disponíveis (data de \textit{check-in} e \textit{check-out}) & Alta & RN04; RN14; RN15; RN16 \\ \hline
-		RF05 & O sistema deve permitir a edição de reservas já cadastradas & Alta & RN08 \\ \hline
-		RF06 & O sistema deve impedir o cadastro de reservas que não estejam associadas a quartos disponíveis & Alta & RN10; RN16 \\ \hline
-		RF07 & O sistema deve exigir os dados pessoais do hóspede para que a reserva seja cadastrada: nome completo, endereço completo, CPF/Passaporte, telefone e e-mail & Alta & RN02 \\ \hline
-		RF08 & O sistema deve exigir o pagamento de 50\% do valor da estadia para confirmar o cadastro da reserva (a ser pago no momento da reserva ou em um prazo definido) & Média & RN05; RN07 \\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
-
-\begin{quadro}[H]
-	\caption{Requisitos Funcionais - Parte 2}
-	\label{quadro_rfc2}
-	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
-		\hline
-		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF09 & O sistema deve permitir o registro de pagamento da reserva (forma, valor, data) & Média & RN05;RN06 
-		\\ \hline
-		RF10 & A proprietária deve conseguir cancelar ou alterar uma reserva, com possível registro do motivo & Média & RN08 \\ \hline
-		RF11 & A proprietária deve conseguir cadastrar mais de uma reserva no nome de um mesmo hóspede & Média & RN03
-		\\ \hline
-		RF12 & A proprietária deve conseguir reservar um mesmo quarto para diferentes clientes em datas seguidas, respeitando os horários de \textit{check-in} e \textit{check-out} configurados para o quarto & Alta & RN10; RN16
-		\\ \hline
-		RF13 & A proprietária deve conseguir acessar o histórico de reservas de um hóspede & Média & RN02; RN03  
-		\\ \hline
-		RF14 & O sistema deve permitir configurar tarifas de reserva com base nas regras de negócio da pousada & Média & RN13 
-		\\ \hline
-		RF15 & O sistema deve enviar uma notificação para o hóspede via \textit{e-mail} após a confirmação da reserva & Baixa & RN07
-		 \\ \hline
-		RF16 & O sistema deve impedir o registro de reservas com menos de 2 dias de antecedência da data do \textit{check-in} & Média & RN04
-		 \\ \hline
-		RF17 & O sistema deve permitir  a edição dos dados de hóspedes já cadastrados & Média & RN02
-		 \\ \hline 
-		RF18 & A proprietária deve poder fazer o cadastro de quartos, incluindo informações como número/nome do quarto, capacidade (número de hóspedes), tipo (ex: chalé, simples solteiro, simples casal, etc.), e preço por noite & Alta & RN14; RN15
-		\\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
-\begin{quadro}[H]
-	\caption{Requisitos Funcionais - Parte 3}
-	\label{quadro_rfc3}
-	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
-		\hline
-		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF19 & A proprietária deve conseguir editar as informações dos quartos já cadastrados & Alta & RN14; RN15
-		\\ \hline
-		RF20 & O sistema deve permitir a visualização dos quartos disponíveis no período de tempo selecionado para a reserva & Média & RN14; RN16
-		 \\ \hline
-		RF21 & A proprietária deve conseguir mudar o status de um quarto (ex: disponível, ocupado, em manutenção) manualmente, se necessário & Alta & RN09
-		\\ \hline
-		RF22 & O sistema deve gerar relatórios de ocupação de quartos em períodos definidos & Média & RN03; RN14; RN07; RN15; RN16
-		 \\ \hline
-		RF23 & O sistema deve mudar o status do quarto quando for realizado o registro do \textit{check-out} & Alta & RN10
-		\\ \hline
-		RF24 & O sistema deve mudar o status do quarto de reservado para ocupado no registro do \textit{check-in} & Alta & RN10 
-		\\ \hline
-		RF25 & O sistema deve permitir à proprietária configurar os horários padrão de \textit{check-in} e \textit{check-out} & Alta & RN10 
-		\\ \hline
-		RF26 & O sistema deve permitir a geração de recibos ou comprovantes de pagamento e estadia, sob demanda & Média & RN11
-		 \\ \hline
-		RF27 & O sistema deve permitir o registro de \textit{early check-in} e \textit{late check-out} para uma reserva & Média & RN12 \\ \hline
-		RF28 & O sistema deve permitir a configuração de tarifas adicionais para textit{early check-in} e \textit{late check-out} & Média & RN12; RN13
-		 \\ \hline
-		RF29 & A proprietária deve poder registrar as despesas da pousada, categorizando-as (ex: manutenção, limpeza, contas de consumo), especificando a data, o valor, a categoria e uma descrição da despesa & Média & RN01
-		\\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
-
-\begin{quadro}[H]
-	\caption{Requisitos Funcionais - Parte 4}
-	\label{quadro_rfc4}
-	\begin{tabular}{|>{\centering\arraybackslash}p{1.5cm}|p{6.7cm}|>{\centering\arraybackslash}p{2cm}|>{\centering\arraybackslash}p{4cm}|}
-		\hline
-		\textbf{Código} & \textbf{Descrição} & \textbf{Prioridade} & \textbf{Regra de Negócio Relacionada} \\ \hline
-		RF30 & A proprietária deve poder registrar receitas, associando-as a uma reserva ou a outras fontes de receita, especificando a data, o valor e uma descrição da receita & Média & RN01
-		 \\ \hline
-		RF31 & O sistema deve permitir a edição das transações financeiras registradas (receitas e despesas) & Média & RN01 
-		\\ \hline
-		RF32 & O sistema deve permitir a exclusão das transações financeiras registradas & Média & RN01
-		 \\ \hline
-		RF33 & O sistema deve permitir que a proprietária visualize todas as transações financeiras (receitas e despesas) em um determinado período & Média & RN01 
-		\\ \hline
-		RF34 & O sistema deve permitir a filtragem das transações por tipo (receita/despesa), data e categoria & Média & RN01
-		 \\ \hline
-		RF35 & O sistema deve gerar relatórios financeiros detalhados automaticamente por período e por categoria & Média & RN01
-		\\ \hline
-		RF36 & O sistema deve ser capaz de gerar um balanço financeiro simples para um período selecionado, mostrando o total de receitas, o total de despesas e o saldo & Média & RN01
-		\\ \hline
-		RF37 & O sistema deve gerar relatórios de faturamento por período & Média & RN01
-		\\ \hline
-		RF38 & O sistema deve apresentar um painel (dashboard) com métricas-chave da pousada & Média & Requisito essencial para a gestão e visualização do negócio 
-		\\ \hline
-		RF39 & O sistema deve permitir o envio de notificações automáticas à proprietária sobre eventos importantes (ex: \textit{check-ins} iminentes)
-		& Baixa & Requisito de suporte à gestão operacional \\ \hline
-	\end{tabular}
-	\fonte{Elaborado pelos autores.}
-\end{quadro}
-%
+%-------------------------------------------------%
 
 \chapter{Relatório de Testes Funcionais - Módulo de Gestão de Hóspedes} 
-
-\textbf{Data da Execução:} 22 de setembro de 2025 \\
-\textbf{Testador: } Guilherme Bittencourt Schmidt  
-
-
+\begin{itemize}
+	\item \textbf{Data da Execução:} 22 de setembro de 2025 
+	\item \textbf{Testador: } Guilherme Bittencourt Schmidt
+\end{itemize}
+  
 \vspace{1cm}
-
-% --- Início dos Quadros de Teste ---
-
-% ==============================================================================
-% Teste HOS-001
-% ==============================================================================
+% --- Início dos Quadros de Teste ---% ===============================================================
+% Teste HOS-001% ===============================================================
 \subsection*{ID do Teste: HOS-001}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Criar Hóspede \\
@@ -3941,12 +4124,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & Fluxo de criação principal funcionando corretamente. \\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste HOS-002
 % ==============================================================================
 \subsection*{ID do Teste: HOS-002}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Criar Hóspede \\
@@ -3968,12 +4153,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} &  O hóspede não foi criado (correto), e a pagina exibiu uma mensagem de erro abaixo do campo Nome Completo, com a seguinte frase "Preencha este campo". \\
 	\bottomrule
 \end{tabular}
+}
 \newpage
 
 % ==============================================================================
 % Teste HOS-003
 % ==============================================================================
 \subsection*{ID do Teste: HOS-003}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Visualizar Hóspede \\
@@ -3994,12 +4181,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & A página de detalhes do hóspede carrega corretamente. \\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste HOS-004
 % ==============================================================================
 \subsection*{ID do Teste: HOS-004}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Atualizar Hóspede \\
@@ -4023,12 +4212,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} &  A alteração foi realizada corretamente. \\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste HOS-005
 % ==============================================================================
 \subsection*{ID do Teste: HOS-005}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Buscar Hóspede \\
@@ -4051,12 +4242,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & Busca efetuada com sucesso. \\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste HOS-006
 % ==============================================================================
 \subsection*{ID do Teste: HOS-006}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Excluir Hóspede \\
@@ -4079,11 +4272,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & O modal de confirmação funcionou corretamente, prevenindo exclusão acidental. \\
 	\bottomrule
 \end{tabular}
-
+}
 
 \chapter{Relatório de Testes Funcionais - Módulo de Gestão de Quartos}
-\textbf{Data da Execução:} 29 de setembro de 2025 \\
-\textbf{Testador:} Guilherme Bittencourt Schmidt \\
+\begin{itemize}
+	\item \textbf{Data da Execução:} 29 de setembro de 2025
+	\item \textbf{Testador:} Guilherme Bittencourt Schmidt 
+\end{itemize}
+
 
 \vspace{1cm}
 
@@ -4093,6 +4289,7 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 % Teste QUA-001
 % ==============================================================================
 \subsection*{ID do Teste: QUA-001}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Criar Quarto \\
@@ -4113,6 +4310,7 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\midrule
 	\textbf{Observações} & Ao clicar em "Adicionar", o sistema redirecionou para a lista de quartos, com o status certo. \\
 \end{tabular}
+}
 \vspace{1cm}
 
 
@@ -4120,6 +4318,7 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 % Teste QUA-002
 % ==============================================================================
 \subsection*{ID do Teste: QUA-002}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Criar Quarto \\
@@ -4140,12 +4339,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & A validação de campos obrigatórios está funcionando. O a mensagem foi exibida corretamente. \\
 	
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste QUA-003
 % ==============================================================================
 \subsection*{ID do Teste: QUA-003}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Visualizar Quartos \\
@@ -4165,12 +4366,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\midrule
 	\textbf{Observações} & Aparece todos os quartos e todos com seus respectivos status corretos.
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste QUA-004
 % ==============================================================================
 \subsection*{ID do Teste: QUA-004}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Atualizar Quarto \\
@@ -4193,12 +4396,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & O fluxo de edição está funcionando normalmente. \\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste QUA-005
 % ==============================================================================
 \subsection*{ID do Teste: QUA-005}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Excluir Quarto \\
@@ -4219,22 +4424,20 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\midrule
 	\textbf{Observações} & Exclusão feita com sucesso. \\
 \end{tabular}
-
+}
 
 
 \chapter{Relatório de Testes Funcionais - Módulo de Gestão de Reservas}
-
-\textbf{Data da Execução:} 29 de setembro de 2025 \\
-\textbf{Testador:} Guilherme Bittencourt Schmidt \\
-
+	\begin{itemize}
+		\item \textbf{Data da Execução:} 29 de setembro de 2025 
+		\item \textbf{Testador:} Guilherme Bittencourt Schmidt 
+	\end{itemize}
 \vspace{1cm}
 
-% --- Início dos Quadros de Teste ---
-
-% ==============================================================================
-% Teste RES-001
-% ==============================================================================
+% --- Início dos Quadros de Teste ---% ==============================================================================
+% Teste RES-001% ==============================================================================
 \subsection*{ID do Teste: RES-001}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Criar Reserva \\
@@ -4258,12 +4461,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & Tudo ocorreu perfeitamente. \\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste RES-002
 % ==============================================================================
 \subsection*{ID do Teste: RES-002}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Criar Reserva \\
@@ -4287,12 +4492,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & Mensagem de erro exibida corretamente. \\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste RES-003
 % ==============================================================================
 \subsection*{ID do Teste: RES-003}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Criar Reserva \\
@@ -4316,12 +4523,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & Aparece a mensagem de erro corretamente. \\
 	\bottomrule
 \end{tabular}
+}
 \newpage
 
 % ==============================================================================
 % Teste RES-004
 % ==============================================================================
 \subsection*{ID do Teste: RES-004}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Visualizar Reservas \\
@@ -4343,12 +4552,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & Filtro funcionou como esperado. \\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste RES-005
 % ==============================================================================
 \subsection*{ID do Teste: RES-005}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Visualizar Reservas \\
@@ -4370,12 +4581,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & Filtro funcionou como esperado. \\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste RES-006
 % ==============================================================================
 \subsection*{ID do Teste: RES-006}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Ações \\
@@ -4397,12 +4610,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & Ação de check-in e atualização ocorreram com sucesso. \\
 	\bottomrule
 \end{tabular}
+}
 \newpage
 
 % ==============================================================================
 % Teste RES-007
 % ==============================================================================
 \subsection*{ID do Teste: RES-007}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Ações \\
@@ -4424,12 +4639,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & Funcionalidade OK. \\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste RES-008
 % ==============================================================================
 \subsection*{ID do Teste: RES-008}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Excluir Reserva \\
@@ -4451,14 +4668,16 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & Modal de confirmação funcionou, porém a reserva não é removida da lista, fica como "Cancelada". \\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
 
 
 \chapter{Relatório de Testes Funcionais - Financeiro}
 \label{apendice:rfdetalhados2}
-\textbf{Data da Execução:} 29 de outubro de 2025 \\
-\textbf{Testador:} Guilherme Bittencourt Schmidt \\
-
+\begin{itemize}
+	\item \textbf{Data da Execução:} 29 de outubro de 2025 
+	\item \textbf{Testador:} Guilherme Bittencourt Schmidt
+\end{itemize}
 \vspace{1cm}
 % --- Início dos Quadros de Teste ---
 
@@ -4468,6 +4687,7 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 % Teste CT-FN01
 % ==============================================================================
 \subsection*{ID do Teste: CT-FN01}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Registro de Transação (RF19) \\
@@ -4490,12 +4710,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & Fluxo principal de registro de despesas funcionando. \\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste CT-FN02
 % ==============================================================================
 \subsection*{ID do Teste: CT-FN02}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Edição de Transação (RF19) \\
@@ -4517,12 +4739,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & A edição de títulos está funcionando como esperado. \\
 	\bottomrule
 \end{tabular}
+}
 \newpage
 
 % ==============================================================================
 % Teste CT-FN03 (Modificado)
 % ==============================================================================
 \subsection*{ID do Teste: CT-FN03}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Cancelamento de Transação (RF19) \\
@@ -4545,12 +4769,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações}& \textbf{BUG-003:} Funcionando.\\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste CT-FN04
 % ==============================================================================
 \subsection*{ID do Teste: CT-FN04}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Registro de Receita (RF20) \\
@@ -4573,12 +4799,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & A vinculação entre Título e Reserva está funcionando. \\
 	\bottomrule
 \end{tabular}
+}
 \newpage
 
 % ==============================================================================
 % Teste CT-FN05
 % ==============================================================================
 \subsection*{ID do Teste: CT-FN05}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Filtros de Transações (RF21) \\
@@ -4600,12 +4828,14 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & Funcionou. \\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
 
 % ==============================================================================
 % Teste CT-FN06 (Novo)
 % ==============================================================================
 \subsection*{ID do Teste: CT-FN06}
+\adjustbox{max width=\textwidth}{
 \begin{tabular}{@{} p{5cm} p{11cm} @{}}
 	\toprule
 	\textbf{Funcionalidade} & Pagamento de Título (RF20) \\
@@ -4627,16 +4857,8 @@ O \autoref{quadro:questionario2_1} foi aplicado à proprietária da pousada parc
 	\textbf{Observações} & Pagamento e confirmação de reserva funcionando. \\
 	\bottomrule
 \end{tabular}
+}
 \vspace{1cm}
-
-
-
-
-
-
-
-
-
 
 
 
